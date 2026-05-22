@@ -34,14 +34,25 @@ export function filterSearchPanels(panels: SearchPanels, query: string): SearchP
 }
 
 export function panelCounts(panels: SearchPanels) {
-  const total =
-    panels.albums.length +
-    panels.songs.length +
-    panels.artistsCharts.length;
+  const artists = panels.artistsCharts.filter((item) => item.kind === "artist").length;
+  const charts = panels.artistsCharts.filter((item) => item.kind === "chart").length;
+  const total = panels.albums.length + panels.songs.length + panels.artistsCharts.length;
   return {
     total,
     albums: panels.albums.length,
     songs: panels.songs.length,
+    artists,
+    charts,
     artistsCharts: panels.artistsCharts.length,
   };
+}
+
+export function formatResultsStats(counts: ReturnType<typeof panelCounts>): string {
+  if (counts.total === 0) return "No results — try another search";
+  return [
+    `${counts.albums} ALBUM${counts.albums === 1 ? "" : "S"}`,
+    `${counts.songs} SONG${counts.songs === 1 ? "" : "S"}`,
+    `${counts.artists} ARTIST${counts.artists === 1 ? "" : "S"}`,
+    `${counts.charts} CHART APPEARANCE${counts.charts === 1 ? "" : "S"}`,
+  ].join(" • ");
 }

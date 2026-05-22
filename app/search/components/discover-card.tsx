@@ -1,72 +1,61 @@
 "use client";
 
-import { cardColorForIndex } from "@/lib/search/card-colors";
+type CardVariant = "album" | "song" | "artist-chart";
 
 type DiscoverCardProps = {
+  variant: CardVariant;
   title: string;
-  subtitle: string;
-  year: number;
-  note?: string;
-  badge?: string;
-  hasVdj?: boolean;
-  coverAccent: string;
+  line2: string;
+  line3?: string;
+  duration?: string;
   coverUrl?: string;
   coverInitials: string;
-  index: number;
   ariaLabel: string;
 };
 
 export function DiscoverCard({
+  variant,
   title,
-  subtitle,
-  year,
-  note,
-  badge,
-  hasVdj,
-  coverAccent,
+  line2,
+  line3,
+  duration,
   coverUrl,
   coverInitials,
-  index,
   ariaLabel,
 }: DiscoverCardProps) {
-  const color = cardColorForIndex(index);
-  const tilt = index % 2 === 0 ? "-0.4deg" : "0.35deg";
+  const icon = variant === "album" ? "◉" : variant === "song" ? "♪" : "★";
 
   return (
     <li className="discover-card-slot">
-      <button
-        type="button"
-        className="discover-card"
-        style={
-          {
-            "--card-bg": color.bg,
-            "--card-border": color.border,
-            "--card-tilt": tilt,
-            "--cover-accent": coverAccent,
-          } as React.CSSProperties
-        }
-        aria-label={ariaLabel}
-      >
-        <div className="discover-card__cover">
+      <button type="button" className="discover-card" aria-label={ariaLabel}>
+        <div className="discover-card__art">
           {coverUrl ? (
-            <img src={coverUrl} alt="" className="discover-card__cover-img" />
+            <img src={coverUrl} alt="" className="discover-card__art-img" />
           ) : (
-            <span className="discover-card__cover-initials" aria-hidden="true">
-              {coverInitials}
-            </span>
+            <>
+              <span className="discover-card__art-icon" aria-hidden="true">
+                {icon}
+              </span>
+              {!coverUrl && variant === "album" ? (
+                <span className="discover-card__art-label">Album cover</span>
+              ) : null}
+            </>
           )}
         </div>
-        <div className="discover-card__body">
-          {badge ? <span className="discover-card__badge">{badge}</span> : null}
+        <div className="discover-card__footer">
           <p className="discover-card__title">{title}</p>
-          <p className="discover-card__subtitle">{subtitle}</p>
-          <div className="discover-card__meta">
-            <span className="discover-card__year">{year}</span>
-            {note ? <span className="discover-card__note">{note}</span> : null}
-            {hasVdj ? (
-              <span className="discover-card__vdj" title="In your VirtualDJ library">
-                VDJ
-              </span>
+          <div className="discover-card__footer-row">
+            <p className="discover-card__line2">
+              {line2}
+              {line3 ? (
+                <>
+                  <span className="discover-card__dot"> • </span>
+                  {line3}
+                </>
+              ) : null}
+            </p>
+            {duration ? (
+              <span className="discover-card__duration">{duration}</span>
             ) : null}
           </div>
         </div>

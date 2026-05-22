@@ -16,7 +16,9 @@ export type SongResult = {
   id: string;
   title: string;
   artist: string;
+  albumTitle: string;
   year: number;
+  duration: string;
   chartNote?: string;
   hasVdj?: boolean;
   coverAccent: string;

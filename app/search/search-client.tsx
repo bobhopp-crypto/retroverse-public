@@ -3,12 +3,17 @@
 import { useMemo, useState } from "react";
 import { coverInitialsFromTitle, DiscoverCard } from "./components/discover-card";
 import { ResultsPanel } from "./components/results-panel";
+import { SearchFooterTip } from "./components/search-footer-tip";
 import { SearchHeader } from "./components/search-header";
-import { filterSearchPanels, panelCounts } from "@/lib/search/filter-panels";
+import {
+  filterSearchPanels,
+  formatResultsStats,
+  panelCounts,
+} from "@/lib/search/filter-panels";
 import { MOCK_SEARCH_PANELS } from "@/lib/search/mock-panels";
 
 export default function SearchClient() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("madonna");
 
   const panels = useMemo(
     () => filterSearchPanels(MOCK_SEARCH_PANELS, query),
@@ -16,23 +21,23 @@ export default function SearchClient() {
   );
 
   const counts = useMemo(() => panelCounts(panels), [panels]);
+  const countsLabel = useMemo(() => formatResultsStats(counts), [counts]);
 
-  const displayTitle = query.trim() ? query.trim() : "Explore the archive";
-
-  const countsLabel =
-    counts.total === 0
-      ? "No results — try another search"
-      : `${counts.albums} album${counts.albums === 1 ? "" : "s"} · ${counts.songs} song${counts.songs === 1 ? "" : "s"} · ${counts.artistsCharts} artist${counts.artistsCharts === 1 ? "" : "s"} & chart${counts.artistsCharts === 1 ? "" : "s"}`;
+  const queryDisplay = query.trim()
+    ? query.trim().toUpperCase()
+    : "EXPLORE";
 
   const hasAnyResults = counts.total > 0;
+  const subject = query.trim() ? queryDisplay : "RESULTS";
 
   return (
     <div className="search-page">
+      <div className="search-page__grain" aria-hidden="true" />
       <div className="search-page__inner">
         <SearchHeader
           query={query}
           onQueryChange={setQuery}
-          displayTitle={displayTitle}
+          queryDisplay={queryDisplay}
           countsLabel={countsLabel}
         />
 
@@ -44,21 +49,20 @@ export default function SearchClient() {
               <ResultsPanel
                 id="albums"
                 title="Albums"
-                count={panels.albums.length}
+                subtitle={query.trim() ? `Explore ${subject} albums` : "Explore albums"}
+                viewAllHref="#/albums-placeholder"
+                viewAllLabel="View all albums →"
                 tone="albums"
               >
-                {panels.albums.map((item, index) => (
+                {panels.albums.map((item) => (
                   <DiscoverCard
                     key={item.id}
+                    variant="album"
                     title={item.title}
-                    subtitle={item.artist}
-                    year={item.year}
-                    note={item.chartNote}
-                    hasVdj={item.hasVdj}
-                    coverAccent={item.coverAccent}
+                    line2={item.artist}
+                    line3={String(item.year)}
                     coverUrl={item.coverUrl}
                     coverInitials={coverInitialsFromTitle(item.title)}
-                    index={index}
                     ariaLabel={`Album: ${item.title} by ${item.artist}, ${item.year}`}
                   />
                 ))}
@@ -69,22 +73,22 @@ export default function SearchClient() {
               <ResultsPanel
                 id="songs"
                 title="Songs"
-                count={panels.songs.length}
+                subtitle={query.trim() ? `Browse ${subject} tracks` : "Browse tracks"}
+                viewAllHref="#/songs-placeholder"
+                viewAllLabel="View all songs →"
                 tone="songs"
               >
-                {panels.songs.map((item, index) => (
+                {panels.songs.map((item) => (
                   <DiscoverCard
                     key={item.id}
+                    variant="song"
                     title={item.title}
-                    subtitle={item.artist}
-                    year={item.year}
-                    note={item.chartNote}
-                    hasVdj={item.hasVdj}
-                    coverAccent={item.coverAccent}
+                    line2={item.albumTitle}
+                    line3={String(item.year)}
+                    duration={item.duration}
                     coverUrl={item.coverUrl}
                     coverInitials={coverInitialsFromTitle(item.title, 2)}
-                    index={index}
-                    ariaLabel={`Song: ${item.title} by ${item.artist}, ${item.year}`}
+                    ariaLabel={`Song: ${item.title} from ${item.albumTitle}, ${item.year}`}
                   />
                 ))}
               </ResultsPanel>
@@ -94,21 +98,19 @@ export default function SearchClient() {
               <ResultsPanel
                 id="artists-charts"
                 title="Artists & Charts"
-                count={panels.artistsCharts.length}
+                subtitle="Related artists and chart appearances"
+                viewAllHref="#/charts-placeholder"
+                viewAllLabel="View all charts →"
                 tone="artists"
               >
-                {panels.artistsCharts.map((item, index) => (
+                {panels.artistsCharts.map((item) => (
                   <DiscoverCard
                     key={item.id}
+                    variant="artist-chart"
                     title={item.title}
-                    subtitle={item.subtitle}
-                    year={item.year}
-                    note={item.chartNote}
-                    badge={item.kind === "chart" ? "Chart" : "Artist"}
-                    hasVdj={item.hasVdj}
-                    coverAccent={item.coverAccent}
+                    line2={item.subtitle}
+                    line3={String(item.year)}
                     coverInitials={coverInitialsFromTitle(item.title, 2)}
-                    index={index}
                     ariaLabel={`${item.kind}: ${item.title}, ${item.year}`}
                   />
                 ))}
@@ -116,6 +118,8 @@ export default function SearchClient() {
             ) : null}
           </div>
         )}
+
+        <SearchFooterTip />
       </div>
     </div>
   );
