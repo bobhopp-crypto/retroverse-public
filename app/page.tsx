@@ -1,6 +1,6 @@
 export default function HomePage() {
   return (
-    <main>
+    <main className="home-main">
       <div className="poster-shell">
         <div className="poster-frame">
           <img
@@ -12,9 +12,9 @@ export default function HomePage() {
             fetchPriority="high"
           />
 
-          {/* Search panel — placeholder */}
-          <button
-            type="button"
+          {/* Search panel */}
+          <a
+            href="/search"
             className="hotspot hotspot--search"
             style={{
               top: "38%",
@@ -22,7 +22,7 @@ export default function HomePage() {
               width: "86%",
               height: "16%",
             }}
-            aria-label="Search Retroverse (coming soon)"
+            aria-label="Search Retroverse"
           />
 
           {/* Charts — VIEW CHARTS button area */}
