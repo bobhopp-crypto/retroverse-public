@@ -1,0 +1,159 @@
+/* Homepage framing only — poster art and hotspots unchanged */
+
+:root {
+  --home-bg-top: #ebe6da;
+  --home-bg-mid: #dce8e4;
+  --home-bg-bottom: #d6ddd8;
+  --home-vignette: rgba(72, 98, 96, 0.1);
+  --home-grain: 0.028;
+  --home-poster-shadow: 0 4px 24px rgba(48, 72, 70, 0.22);
+  --home-poster-ring: rgba(48, 72, 70, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --home-bg-top: #5a6f72;
+    --home-bg-mid: #4f6366;
+    --home-bg-bottom: #455a5d;
+    --home-vignette: rgba(28, 42, 44, 0.28);
+    --home-grain: 0.04;
+    --home-poster-shadow: 0 6px 28px rgba(18, 32, 34, 0.28);
+    --home-poster-ring: rgba(255, 248, 236, 0.08);
+  }
+}
+
+/* Overscroll + page canvas (not black void) */
+html:has(.home-main) {
+  min-height: 100%;
+  color-scheme: light dark;
+  background-color: var(--home-bg-mid);
+  background-image: linear-gradient(
+    168deg,
+    var(--home-bg-top) 0%,
+    var(--home-bg-mid) 42%,
+    var(--home-bg-bottom) 100%
+  );
+  background-attachment: fixed;
+}
+
+html:has(.home-main) body {
+  background: transparent;
+  color: #2a4548;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:has(.home-main) body {
+    color: #e8ebe6;
+  }
+}
+
+main.home-main {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.25rem 1rem 2rem;
+}
+
+/* Subtle paper grain — fixed so overscroll matches */
+main.home-main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: var(--home-grain);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-color-scheme: dark) {
+  main.home-main::before {
+    mix-blend-mode: soft-light;
+  }
+}
+
+/* Soft vignette — printed mat, not digital glow */
+main.home-main::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 88% 78% at 50% 42%,
+    transparent 52%,
+    var(--home-vignette) 100%
+  );
+}
+
+main.home-main > .poster-shell {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  main.home-main {
+    padding: 2rem 1.5rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  main.home-main {
+    padding: 2.5rem 2rem 3.5rem;
+  }
+}
+
+.poster-shell {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.poster-frame {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  border-radius: 0.35rem;
+  box-shadow: var(--home-poster-shadow), 0 0 0 1px var(--home-poster-ring);
+}
+
+.poster-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.35rem;
+}
+
+.hotspot {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.hotspot--search {
+  cursor: pointer;
+}
+
+.hotspot:focus-visible {
+  outline: 2px solid #f5a623;
+  outline-offset: 2px;
+}
+
+.hotspot:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .hotspot:hover {
+    background: rgba(255, 252, 245, 0.07);
+  }
+}
