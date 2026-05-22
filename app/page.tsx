@@ -7,7 +7,7 @@ export default function HomePage() {
         <div className="poster-frame">
           <img
             className="poster-image"
-            src="/retroverse-home.png"
+            src="/retroverse-home.png?v=2"
             alt="Retroverse — Time is not a list. It's a place."
             width={1024}
             height={1536}
