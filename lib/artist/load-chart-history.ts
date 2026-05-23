@@ -1,0 +1,220 @@
+import { coverPathToUrl } from "@/lib/artist/cover-url";
+import type { ArtistChartHistory, ChartHistoryEntry } from "@/lib/artist/chart-history-types";
+import { inspectQuery } from "@/lib/inspect/pg";
+import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
+
+function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
+  for (const c of candidates) {
+    if (!c?.trim()) continue;
+    const url = coverPathToUrl(c) ?? coverPathToUrl(null, c);
+    if (url) return url;
+  }
+  return null;
+}
+
+type ChartHistoryRow = {
+  track_id: string;
+  track_title: string;
+  chart_date: string;
+  chart_position: number;
+  weeks_on_chart: number;
+  chart_name: string;
+  artist_name: string;
+  cover_path: string | null;
+  artwork_path: string | null;
+  r2_cover_key: string | null;
+  release_year: number | null;
+};
+
+const COVER_SUBQUERY = `
+  (
+    SELECT aal.canonical_cover_path FROM album_artwork_links aal
+    WHERE aal.album_id = al.id
+    ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
+    LIMIT 1
+  ) AS artwork_path,
+  (
+    SELECT aal.r2_cover_key FROM album_artwork_links aal
+    WHERE aal.album_id = al.id
+    ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
+    LIMIT 1
+  ) AS r2_cover_key
+`;
+
+function hot100Branch(
+  artistIdClause: string,
+  yearClause: string,
+  artistNameFallback = "$1::text",
+): string {
+  return `
+    SELECT
+      t.id::text AS track_id,
+      t.title AS track_title,
+      ca.chart_date::text AS chart_date,
+      ca.chart_position,
+      COALESCE(ca.weeks_on_chart, 0)::int AS weeks_on_chart,
+      ca.chart_name,
+      COALESCE(ar.canonical_name, ${artistNameFallback}) AS artist_name,
+      al.canonical_cover_path AS cover_path,
+      NULL::int AS release_year,
+      ${COVER_SUBQUERY}
+    FROM chart_appearances ca
+    JOIN tracks t ON t.id = ca.track_id
+    JOIN artists ar ON ar.id = t.artist_id
+    LEFT JOIN LATERAL (
+      SELECT cat.album_id
+      FROM canonical_album_tracks cat
+      WHERE upper(trim(cat.canonical_track_key::text)) = upper(trim(t.id::text))
+      ORDER BY cat.position
+      LIMIT 1
+    ) link ON true
+    LEFT JOIN albums al ON al.id = link.album_id
+    WHERE ca.chart_name = 'Billboard Hot 100'
+    ${artistIdClause}
+    ${yearClause}
+  `;
+}
+
+function album200Branch(artistIdClause: string, yearClause: string): string {
+  return `
+    SELECT
+      ('album-' || al.id::text) AS track_id,
+      al.title AS track_title,
+      ca.chart_date::text AS chart_date,
+      ca.chart_position,
+      COALESCE(ca.weeks_on_chart, 0)::int AS weeks_on_chart,
+      ca.chart_name,
+      ar.canonical_name AS artist_name,
+      al.canonical_cover_path AS cover_path,
+      al.release_year AS release_year,
+      ${COVER_SUBQUERY}
+    FROM chart_appearances ca
+    JOIN albums al ON al.id = ca.album_id
+    JOIN artists ar ON ar.id = al.artist_id
+    WHERE ca.chart_name = 'Billboard 200'
+    ${artistIdClause}
+    ${yearClause}
+  `;
+}
+
+function rowsToChartHistory(
+  rows: ChartHistoryRow[],
+  coverByTrackId: Map<string, string>,
+  fallbackCover: string | null,
+  rvYear?: number | null,
+): ArtistChartHistory | null {
+  if (rows.length === 0) return null;
+
+  const entries: ChartHistoryEntry[] = rows.map((r) => {
+    const dateKey = r.chart_date.slice(0, 10);
+    const year = Number(dateKey.slice(0, 4));
+    const month = Number(dateKey.slice(5, 7));
+    const trackId = r.track_id.trim();
+    const coverUrl =
+      coverByTrackId.get(trackId.toUpperCase()) ??
+      pickCoverUrl(r.cover_path, r.artwork_path, r.r2_cover_key) ??
+      fallbackCover;
+    const releaseYear =
+      typeof r.release_year === "number" && Number.isFinite(r.release_year) && r.release_year > 0
+        ? r.release_year
+        : null;
+
+    return {
+      id: `${dateKey}|${trackId}|${r.chart_name}`,
+      trackId,
+      title: r.track_title.trim(),
+      artist: r.artist_name.trim(),
+      chartDate: dateKey,
+      year: Number.isFinite(year) ? year : 0,
+      month: Number.isFinite(month) ? month : 1,
+      peakPosition: r.chart_position,
+      weeksOnChart: r.weeks_on_chart,
+      chartName: r.chart_name,
+      coverUrl,
+      releaseYear,
+    };
+  });
+
+  const yearSet = new Set<number>();
+  for (const e of entries) {
+    if (e.year >= 1950 && e.year <= 2035) yearSet.add(e.year);
+  }
+  let activeYears = [...yearSet].sort((a, b) => a - b);
+
+  const resolvedYear = normalizeRVYear(rvYear);
+  if (resolvedYear != null) {
+    activeYears = activeYears.includes(resolvedYear) ? [resolvedYear] : [];
+    if (activeYears.length === 0) return null;
+  }
+
+  return { entries, activeYears };
+}
+
+async function queryWeeklyChartRows(
+  sql: string,
+  params: unknown[],
+): Promise<ChartHistoryRow[]> {
+  return inspectQuery<ChartHistoryRow>(sql, params);
+}
+
+export async function loadArtistChartHistory(
+  artistId: number,
+  artistName: string,
+  coverByTrackId: Map<string, string>,
+  fallbackCover: string | null,
+  rvYear?: number | null,
+): Promise<ArtistChartHistory | null> {
+  const resolvedYear = normalizeRVYear(rvYear);
+  const artistClause = "AND t.artist_id = $2";
+  const albumArtistClause = "AND al.artist_id = $2";
+  const yearClause =
+    resolvedYear != null ? "AND EXTRACT(YEAR FROM ca.chart_date)::int = $3" : "";
+  const albumYearClause =
+    resolvedYear != null ? "AND EXTRACT(YEAR FROM ca.chart_date)::int = $3" : "";
+
+  const params: (string | number)[] =
+    resolvedYear != null ? [artistName, artistId, resolvedYear] : [artistName, artistId];
+
+  const limitClause = resolvedYear != null ? "" : "LIMIT 2000";
+
+  const rows = await queryWeeklyChartRows(
+    `
+    ${hot100Branch(artistClause, yearClause)}
+    UNION ALL
+    ${album200Branch(albumArtistClause, albumYearClause)}
+    ORDER BY chart_date ASC
+    ${limitClause}
+    `,
+    params,
+  );
+
+  const history = rowsToChartHistory(rows, coverByTrackId, fallbackCover, resolvedYear);
+  if (!history) return null;
+  return { ...history, weeklyEntries: history.entries };
+}
+
+/** RV year snapshot — Hot 100 + Album 200 weekly rows for one RV Year. */
+export async function loadRvYearChartHistory(
+  rvYear: number,
+  coverByTrackId: Map<string, string> = new Map(),
+  fallbackCover: string | null = null,
+): Promise<ArtistChartHistory | null> {
+  const resolvedYear = normalizeRVYear(rvYear);
+  if (resolvedYear == null) return null;
+
+  const yearClause = "AND EXTRACT(YEAR FROM ca.chart_date)::int = $1";
+
+  const rows = await queryWeeklyChartRows(
+    `
+    ${hot100Branch("", yearClause, "''")}
+    UNION ALL
+    ${album200Branch("", yearClause)}
+    ORDER BY chart_date ASC
+    `,
+    [resolvedYear],
+  );
+
+  const history = rowsToChartHistory(rows, coverByTrackId, fallbackCover, resolvedYear);
+  if (!history) return null;
+  return { ...history, weeklyEntries: history.entries };
+}

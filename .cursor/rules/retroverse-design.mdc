@@ -1,0 +1,140 @@
+---
+description: Retroverse visual identity and frontend design rules
+globs: ["app/**/*", "components/**/*", "src/**/*"]
+alwaysApply: true
+---
+
+# Retroverse Design Language
+
+Retroverse is NOT a modern SaaS app.
+
+Retroverse should feel:
+- tactile
+- playful
+- illustrated
+- colorful
+- editorial
+- collectible
+- poster-like
+- retro-futurist
+- hand-crafted
+
+NOT:
+- minimal SaaS
+- dashboard UI
+- glassmorphism
+- sterile Apple-style minimalism
+- fintech UI
+- enterprise software
+- monochrome interfaces
+
+# Core Visual Rules
+
+Always prefer:
+- cream/paper backgrounds
+- teal accents
+- orange/red highlight accents
+- warm retro color palettes
+- thick outlines
+- bold section framing
+- oversized artwork
+- playful layouts
+- layered poster composition
+- tactile card designs
+- illustrated UI feeling
+- large readable typography
+- visible section separation
+- collectible-card layouts
+- magazine/editorial hierarchy
+
+Avoid:
+- gray-on-gray UI
+- dark glass cards
+- thin line minimalism
+- floating SaaS cards
+- giant rounded rectangles everywhere
+- excessive blur
+- generic Tailwind dashboards
+- tiny metadata text
+- overuse of gradients
+- empty whitespace-heavy layouts
+
+# Typography
+
+Prefer:
+- large bold headers
+- friendly readable text
+- strong hierarchy
+- editorial composition
+
+Avoid:
+- tiny captions
+- weak hierarchy
+- overly compressed spacing
+
+# Interaction Design
+
+Retroverse should feel:
+- exploratory
+- tactile
+- alive
+- collectible
+- emotional
+
+Search should feel:
+- immediate
+- rich
+- connected
+- discovery-oriented
+
+NOT:
+- database querying
+- admin tooling
+- enterprise filtering
+
+# Component Style
+
+Cards should:
+- maintain fixed geometry
+- feel physical
+- have strong visual edges
+- use clear sectioning
+- support oversized artwork
+
+Panels should:
+- feel like collectible shelves
+- scroll horizontally
+- suggest abundance and discovery
+
+# Mobile-First
+
+Always optimize for:
+- mobile browsing
+- thumb interaction
+- oversized touch targets
+- visual clarity on phones
+
+# Frontend Behavior
+
+Prefer:
+- stable layouts
+- smooth interactions
+- immediate feedback
+- lightweight transitions
+
+Avoid:
+- layout jumping
+- over-animation
+- slow loading interactions
+
+# Architectural Guidance
+
+Prefer:
+- small focused components
+- stable visual systems
+- iterative enhancement
+
+Avoid:
+- giant rewrites
+- unnecessary abstractions
+- premature optimization

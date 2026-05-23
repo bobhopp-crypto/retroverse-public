@@ -2,81 +2,135 @@
 
 import Link from "next/link";
 
+import type { SearchCountPart } from "@/lib/search/types";
+
 type SearchHeaderProps = {
   query: string;
   onQueryChange: (value: string) => void;
   queryDisplay: string;
   countsLabel: string;
+  countParts: SearchCountPart[];
+  loading?: boolean;
 };
+
+function SearchSaucerArt() {
+  return (
+    <svg
+      className="search-hero__saucer-svg"
+      viewBox="0 0 200 120"
+      aria-hidden="true"
+    >
+      <ellipse cx="100" cy="88" rx="72" ry="18" fill="#c5e8e8" opacity="0.6" />
+      <path
+        d="M28 72 Q100 28 172 72 L160 78 Q100 48 40 78 Z"
+        fill="#9a9a9a"
+        stroke="#12343a"
+        strokeWidth="2.5"
+      />
+      <ellipse cx="100" cy="58" rx="48" ry="22" fill="#7ec8c8" stroke="#12343a" strokeWidth="2.5" />
+      <ellipse cx="100" cy="54" rx="38" ry="16" fill="#d4f0f0" opacity="0.85" />
+      <circle cx="82" cy="52" r="7" fill="#f5c98a" stroke="#12343a" strokeWidth="1.5" />
+      <circle cx="108" cy="50" r="8" fill="#f5c98a" stroke="#12343a" strokeWidth="1.5" />
+      <circle cx="118" cy="56" r="5" fill="#d4a574" stroke="#12343a" strokeWidth="1.5" />
+      <path
+        d="M168 64 L188 48 L192 52 L172 70 Z"
+        fill="#e85d1a"
+        stroke="#12343a"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
 
 export function SearchHeader({
   query,
   onQueryChange,
   queryDisplay,
   countsLabel,
+  countParts,
+  loading = false,
 }: SearchHeaderProps) {
   return (
-    <header className="search-shell-header">
-      <div className="search-shell-header__top">
-        <div className="search-shell-header__brand">
-          <p className="search-shell-header__logo">Retroverse</p>
-          <p className="search-shell-header__tagline">Press play for the past.</p>
-        </div>
+    <header className="search-hero">
+      <div className="search-hero__sky" aria-hidden="true">
+        <span className="search-hero__star search-hero__star--1">✦</span>
+        <span className="search-hero__star search-hero__star--2">✦</span>
+        <span className="search-hero__star search-hero__star--3">·</span>
+        <span className="search-hero__star search-hero__star--4">✦</span>
+      </div>
 
-        <div className="search-shell-header__search-wrap">
-          <span className="search-shell-header__search-icon" aria-hidden="true">
-            ⌕
-          </span>
-          <input
-            type="search"
-            className="search-shell-header__field"
-            placeholder="Search artist, album, or song..."
-            value={query}
-            onChange={(e) => onQueryChange(e.target.value)}
-            autoComplete="off"
-            autoFocus
-            spellCheck={false}
-            aria-label="Search artist, album, or song"
-            enterKeyHint="search"
-          />
-          {query ? (
-            <button
-              type="button"
-              className="search-shell-header__clear"
-              onClick={() => onQueryChange("")}
-              aria-label="Clear search"
-            >
-              ×
-            </button>
-          ) : null}
+      <div className="search-hero__top">
+        <div className="search-hero__brand">
+          <Link href="/" className="search-hero__logo">
+            Retroverse
+          </Link>
+          <p className="search-hero__tagline">Press play for the past.</p>
         </div>
-
-        <Link className="search-shell-header__home" href="/">
+        <Link className="search-hero__home" href="/">
           ← Back home
         </Link>
       </div>
 
-      <div className="search-shell-header__ship" aria-hidden="true">
-        <svg viewBox="0 0 120 64" className="search-shell-header__ship-svg">
-          <ellipse cx="60" cy="48" rx="38" ry="10" fill="#e85d1a" opacity="0.35" />
-          <path
-            d="M28 42 Q60 8 92 42 L88 50 Q60 28 32 50 Z"
-            fill="#f5f2ea"
-            stroke="#12343a"
-            strokeWidth="2"
-          />
-          <ellipse cx="60" cy="36" rx="22" ry="14" fill="#b8dcff" stroke="#12343a" strokeWidth="2" />
-          <circle cx="52" cy="36" r="4" fill="#12343a" />
-          <circle cx="68" cy="36" r="4" fill="#12343a" />
-        </svg>
+      <div className="search-hero__search-wrap">
+        <span className="search-hero__search-icon" aria-hidden="true">
+          ⌕
+        </span>
+        <input
+          type="search"
+          className="search-hero__field"
+          placeholder="Search artist, album, or song..."
+          value={query}
+          onChange={(e) => onQueryChange(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") e.preventDefault();
+          }}
+          autoComplete="off"
+          autoFocus
+          spellCheck={false}
+          aria-label="Search artist, album, or song"
+          enterKeyHint="search"
+        />
+        {query ? (
+          <button
+            type="button"
+            className="search-hero__clear"
+            onClick={() => onQueryChange("")}
+            aria-label="Clear search"
+          >
+            ×
+          </button>
+        ) : null}
       </div>
 
-      <div className="search-shell-header__results">
-        <p className="search-shell-header__results-kicker">Search results for</p>
-        <h1 className="search-shell-header__query">{queryDisplay}</h1>
-        <p className="search-shell-header__counts" role="status" aria-live="polite">
-          {countsLabel}
-        </p>
+      <div className="search-hero__results-block">
+        <div className="search-hero__results-copy">
+          <p className="search-hero__kicker">Search results for</p>
+          <h1 className="search-hero__query">{queryDisplay}</h1>
+          {countParts.length > 0 ? (
+            <p
+              className={`search-hero__counts${loading ? " search-hero__counts--loading" : ""}`}
+              role="status"
+              aria-live="polite"
+            >
+              {countParts.map((part, i) => (
+                <span key={part.label} className="search-hero__count-item">
+                  {i > 0 ? <span className="search-hero__count-sep"> • </span> : null}
+                  <span className="search-hero__count-num">{part.value}</span>{" "}
+                  <span className="search-hero__count-label">{part.label}</span>
+                </span>
+              ))}
+            </p>
+          ) : (
+            <p
+              className={`search-hero__counts search-hero__counts--solo${loading ? " search-hero__counts--loading" : ""}`}
+              role="status"
+              aria-live="polite"
+            >
+              {countsLabel}
+            </p>
+          )}
+        </div>
+        <SearchSaucerArt />
       </div>
     </header>
   );

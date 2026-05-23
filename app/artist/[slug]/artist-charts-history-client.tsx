@@ -1,0 +1,419 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+
+import {
+  activeDecades,
+  decadeLabel,
+  formatChartDateLabel,
+  formatMonthYearHeading,
+  monthLabel,
+  monthsWithChartData,
+  RV_CALENDAR_MONTHS,
+  snapshotsForYearMonth,
+  weeklyEntriesFromHistory,
+  yearsInDecade,
+} from "@/lib/artist/chart-history-display";
+import {
+  isUsableChartHistory,
+  normalizeArtistChartHistory,
+} from "@/lib/artist/chart-history";
+import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
+import type {
+  ArtistChartHistory,
+  RvChartSnapshot,
+} from "@/lib/artist/chart-history-types";
+
+import { ArtistCover } from "./artist-cover";
+
+type Props = {
+  artistName: string;
+  history: ArtistChartHistory;
+  highlightTrackIds?: string[];
+  viewAllHref?: string;
+  hideBanner?: boolean;
+  /** Search RV History: preload this RV year when present in chart data. */
+  initialRvYear?: number | null;
+};
+
+function asPillNumber(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  return null;
+}
+
+function isHighlighted(trackId: string | undefined, highlightIds: Set<string>): boolean {
+  if (!trackId?.trim()) return false;
+  if (highlightIds.has(trackId.toUpperCase())) return true;
+  if (highlightIds.has(trackId)) return true;
+  return false;
+}
+
+export function ArtistChartsHistoryClient({
+  artistName,
+  history: historyProp,
+  highlightTrackIds,
+  viewAllHref,
+  hideBanner = false,
+  initialRvYear = null,
+}: Props) {
+  const safeHistory = useMemo(
+    () => normalizeArtistChartHistory(historyProp, artistName),
+    [historyProp, artistName],
+  );
+
+  const entries = Array.isArray(safeHistory?.entries) ? safeHistory.entries : [];
+  const weeklyEntries = useMemo(
+    () => (safeHistory ? weeklyEntriesFromHistory(safeHistory) : []),
+    [safeHistory],
+  );
+  const activeYears = Array.isArray(safeHistory?.activeYears) ? safeHistory.activeYears : [];
+
+  const safeHighlightIds = Array.isArray(highlightTrackIds) ? highlightTrackIds : [];
+
+  const useDecades = activeYears.length > 10;
+  const decades = useMemo(() => activeDecades(activeYears), [activeYears]);
+  const [selectedDecade, setSelectedDecade] = useState<number | null>(null);
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const [selectedMonth, setSelectedMonth] = useState<number | null>(null);
+
+  useEffect(() => {
+    const resolvedInitial = normalizeRVYear(initialRvYear);
+    const preload =
+      resolvedInitial != null && activeYears.includes(resolvedInitial)
+        ? resolvedInitial
+        : null;
+
+    if (preload == null) {
+      setSelectedDecade(null);
+      setSelectedYear(null);
+      setSelectedMonth(null);
+      return;
+    }
+
+    if (useDecades) setSelectedDecade(Math.floor(preload / 10) * 10);
+    else setSelectedDecade(null);
+
+    setSelectedYear(preload);
+    setSelectedMonth(null);
+  }, [artistName, entries.length, initialRvYear, useDecades, activeYears]);
+
+  const highlightIds = useMemo(() => {
+    const ids = safeHighlightIds
+      .filter((id): id is string => typeof id === "string" && id.trim().length > 0)
+      .map((id) => id.trim().toUpperCase());
+    return new Set(ids);
+  }, [safeHighlightIds]);
+
+  const visibleYears = useMemo(() => {
+    if (!useDecades) return activeYears;
+    const decade = asPillNumber(selectedDecade);
+    if (decade == null) return [];
+    return yearsInDecade(activeYears, decade);
+  }, [activeYears, selectedDecade, useDecades]);
+
+  const yearForData = asPillNumber(selectedYear);
+
+  const monthsWithData = useMemo(() => {
+    if (yearForData == null) return new Set<number>();
+    return monthsWithChartData(weeklyEntries, yearForData);
+  }, [weeklyEntries, yearForData]);
+
+  const { singleSnapshots, albumSnapshots } = useMemo(() => {
+    const year = asPillNumber(selectedYear);
+    const month = asPillNumber(selectedMonth);
+    if (year == null || month == null) {
+      return { singleSnapshots: [], albumSnapshots: [] };
+    }
+    return {
+      singleSnapshots: snapshotsForYearMonth(weeklyEntries, year, month, 5, "hot-100"),
+      albumSnapshots: snapshotsForYearMonth(weeklyEntries, year, month, 5, "album-200"),
+    };
+  }, [weeklyEntries, selectedYear, selectedMonth]);
+
+  const hasSnapshots = singleSnapshots.length > 0 || albumSnapshots.length > 0;
+
+  useEffect(() => {
+    console.log("[charts-history]", {
+      activeYears,
+      decades,
+      visibleYears,
+      monthsWithData: [...monthsWithData],
+      selected: { selectedDecade, selectedYear, selectedMonth },
+      singles: singleSnapshots.length,
+      albums: albumSnapshots.length,
+      weeklyCount: weeklyEntries.length,
+    });
+  }, [
+    activeYears,
+    decades,
+    visibleYears,
+    monthsWithData,
+    selectedDecade,
+    selectedYear,
+    selectedMonth,
+    singleSnapshots.length,
+    albumSnapshots.length,
+    weeklyEntries.length,
+  ]);
+
+  const renderSnapshotCard = (snapshot: RvChartSnapshot) => {
+    if (!snapshot?.id) return null;
+    const active = isHighlighted(snapshot.trackId, highlightIds);
+    const peak =
+      typeof snapshot.peakPosition === "number" && snapshot.peakPosition > 0
+        ? snapshot.peakPosition
+        : "—";
+    return (
+      <li
+        key={snapshot.id}
+        className={`charts-history-card${active ? " charts-history-card--active" : ""}`}
+      >
+        <div className="charts-history-card__cover">
+          <ArtistCover
+            src={snapshot.coverUrl}
+            alt=""
+            className="charts-history-card__cover-img"
+            fallbackClassName="charts-history-card__cover-fallback"
+          />
+        </div>
+        <div className="charts-history-card__body">
+          <h4 className="charts-history-card__title">{snapshot.title || "—"}</h4>
+          <p className="charts-history-card__artist">{snapshot.artist || artistName}</p>
+          <p className="charts-history-card__facts">
+            <span>{formatChartDateLabel(snapshot.chartDate ?? "")}</span>
+          </p>
+        </div>
+        <div className="charts-history-card__stamp">
+          <span className="charts-history-card__stamp-peak">#{peak}</span>
+          <span className="charts-history-card__stamp-date">
+            {formatChartDateLabel(snapshot.chartDate ?? "")}
+          </span>
+        </div>
+      </li>
+    );
+  };
+
+  const pickYear = (year: unknown) => {
+    const y = asPillNumber(year);
+    if (y == null) return;
+    setSelectedYear(y);
+    setSelectedMonth(null);
+  };
+
+  const pickDecade = (decadeStart: unknown) => {
+    const d = asPillNumber(decadeStart);
+    if (d == null) return;
+    setSelectedDecade(d);
+    setSelectedYear(null);
+    setSelectedMonth(null);
+  };
+
+  const pickMonth = (month: unknown) => {
+    const m = asPillNumber(month);
+    if (m == null || m < 1 || m > 12) return;
+    setSelectedMonth(m);
+  };
+
+  const clearFilters = () => {
+    setSelectedDecade(null);
+    setSelectedYear(null);
+    setSelectedMonth(null);
+  };
+
+  if (!isUsableChartHistory(safeHistory)) {
+    console.log("[charts-history]", "no usable data — empty state");
+    return (
+      <section className="charts-history charts-history--empty" role="status">
+        <p className="charts-history__empty">No chart history available for this artist yet.</p>
+      </section>
+    );
+  }
+
+  const decadeForLabel = asPillNumber(selectedDecade);
+  const yearForLabel = asPillNumber(selectedYear);
+  const monthForLabel = asPillNumber(selectedMonth);
+
+  const step2Label = useDecades
+    ? decadeForLabel != null
+      ? `SELECT MONTH (${decadeLabel(decadeForLabel)})`
+      : "SELECT MONTH"
+    : yearForLabel != null
+      ? `SELECT MONTH (${yearForLabel})`
+      : "SELECT MONTH";
+
+  const step3Label =
+    yearForLabel != null && monthForLabel != null
+      ? formatMonthYearHeading(yearForLabel, monthForLabel)
+      : "CHART RESULTS";
+
+  return (
+    <section
+      className="charts-history"
+      aria-label={hideBanner ? `Chart history for ${artistName}` : undefined}
+      aria-labelledby={hideBanner ? undefined : "charts-history-heading"}
+    >
+      {hideBanner ? null : (
+        <header className="charts-history__banner">
+          <div className="charts-history__banner-icon" aria-hidden>
+            ★
+          </div>
+          <div className="charts-history__banner-text">
+            <h2 id="charts-history-heading" className="charts-history__title">
+              Charts History
+            </h2>
+            <p className="charts-history__subtitle">
+              Explore chart history for {artistName}
+            </p>
+          </div>
+          {viewAllHref ? (
+            <a className="charts-history__tutorial" href={viewAllHref}>
+              View all
+            </a>
+          ) : null}
+        </header>
+      )}
+
+      <div className="charts-history__step">
+        <div className="charts-history__step-head">
+          <span className="charts-history__step-num">1</span>
+          <h3 className="charts-history__step-title">Select year</h3>
+        </div>
+        <div className="charts-history__pills">
+          {useDecades
+            ? Array.isArray(decades)
+              ? decades.map((d) => (
+                  <button
+                    key={d}
+                    type="button"
+                    className={`charts-history__pill${decadeForLabel === d ? " charts-history__pill--filter" : ""}`}
+                    aria-pressed={decadeForLabel === d}
+                    onClick={() => pickDecade(d)}
+                  >
+                    {decadeLabel(d)}
+                  </button>
+                ))
+              : null
+            : Array.isArray(activeYears)
+              ? activeYears.map((y) => (
+                  <button
+                    key={y}
+                    type="button"
+                    className={`charts-history__pill${yearForLabel === y ? " charts-history__pill--filter" : ""}`}
+                    aria-pressed={yearForLabel === y}
+                    onClick={() => pickYear(y)}
+                  >
+                    {y}
+                  </button>
+                ))
+              : null}
+        </div>
+        {useDecades && decadeForLabel != null && Array.isArray(visibleYears) && visibleYears.length > 0 ? (
+          <div className="charts-history__pills charts-history__pills--years">
+            {visibleYears.map((y) => (
+              <button
+                key={y}
+                type="button"
+                className={`charts-history__pill charts-history__pill--year${yearForLabel === y ? " charts-history__pill--filter" : ""}`}
+                aria-pressed={yearForLabel === y}
+                onClick={() => pickYear(y)}
+              >
+                {y}
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </div>
+
+      <div className="charts-history__divider" aria-hidden>
+        ↓
+      </div>
+
+      {yearForLabel != null ? (
+        <>
+          <div className="charts-history__step">
+            <div className="charts-history__step-head">
+              <span className="charts-history__step-num">2</span>
+              <h3 className="charts-history__step-title">{step2Label}</h3>
+              {yearForLabel != null || monthForLabel != null ? (
+                <button type="button" className="charts-history__clear" onClick={() => clearFilters()}>
+                  Clear
+                </button>
+              ) : null}
+            </div>
+            <div className="charts-history__pills charts-history__pills--months">
+              {RV_CALENDAR_MONTHS.map((m) => {
+                const hasData = monthsWithData.has(m);
+                return (
+                  <button
+                    key={m}
+                    type="button"
+                    className={`charts-history__pill charts-history__pill--month${monthForLabel === m ? " charts-history__pill--filter" : ""}${hasData ? "" : " charts-history__pill--muted"}`}
+                    aria-pressed={monthForLabel === m}
+                    onClick={() => pickMonth(m)}
+                  >
+                    {monthLabel(m)}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="charts-history__divider" aria-hidden>
+            ↓
+          </div>
+        </>
+      ) : null}
+
+      {hasSnapshots ? (
+        <div className="charts-history__step">
+          <div className="charts-history__step-head">
+            <span className="charts-history__step-num">3</span>
+            <h3 className="charts-history__step-title">{step3Label}</h3>
+          </div>
+
+          {singleSnapshots.length > 0 ? (
+            <div className="charts-history__group">
+              <h4 className="charts-history__group-title">Singles · Hot 100</h4>
+              <ul className="charts-history__results">
+                {singleSnapshots.map((snapshot) => renderSnapshotCard(snapshot))}
+              </ul>
+            </div>
+          ) : null}
+
+          {albumSnapshots.length > 0 ? (
+            <div className="charts-history__group">
+              <h4 className="charts-history__group-title">Albums · Album 200</h4>
+              <ul className="charts-history__results charts-history__results--albums">
+                {albumSnapshots.map((snapshot) => renderSnapshotCard(snapshot))}
+              </ul>
+            </div>
+          ) : null}
+
+          <p className="charts-history__range">
+            {singleSnapshots.length > 0
+              ? `${singleSnapshots.length} single${singleSnapshots.length === 1 ? "" : "s"}`
+              : null}
+            {singleSnapshots.length > 0 && albumSnapshots.length > 0 ? " · " : null}
+            {albumSnapshots.length > 0
+              ? `${albumSnapshots.length} album${albumSnapshots.length === 1 ? "" : "s"}`
+              : null}{" "}
+            for {monthForLabel != null ? monthLabel(monthForLabel) : "—"} {yearForLabel ?? ""}
+          </p>
+        </div>
+      ) : yearForLabel != null && monthForLabel != null ? (
+        <p className="charts-history__empty" role="status">
+          No RV Week snapshots for this month.
+        </p>
+      ) : yearForLabel != null ? (
+        <p className="charts-history__empty charts-history__empty--hint" role="status">
+          Tap a month to see RV Week chart snapshots.
+        </p>
+      ) : (
+        <p className="charts-history__empty charts-history__empty--hint" role="status">
+          Tap an RV Year to choose a month.
+        </p>
+      )}
+
+    </section>
+  );
+}

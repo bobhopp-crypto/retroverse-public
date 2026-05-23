@@ -1,0 +1,404 @@
+/* Charts History v1 — purple editorial explorer */
+
+.charts-history {
+  --ch-purple: #6d4a7a;
+  --ch-purple-deep: #4f3560;
+  --ch-purple-band: #ddd0ff;
+  --ch-purple-soft: #ebe4f8;
+  --ch-cream: #f4e9d3;
+  --ch-ink: #2d3e46;
+  --ch-orange: #e07a4f;
+  --ch-frame: 3px solid var(--ch-ink);
+
+  margin: 0;
+  padding: 0.85rem 0.75rem 1rem;
+  background: var(--ch-purple-band);
+  border-top: var(--ch-frame);
+  border-bottom: var(--ch-frame);
+}
+
+.charts-history__banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+  padding: 0.55rem 0.65rem;
+  border: var(--ch-frame);
+  border-radius: 0.45rem;
+  background: var(--ch-purple-soft);
+  box-shadow: 3px 3px 0 var(--ch-ink);
+}
+
+.charts-history__banner-icon {
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #fff;
+  background: var(--ch-ink);
+  border: 2px solid var(--ch-ink);
+  border-radius: 999px;
+}
+
+.charts-history__banner-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.charts-history__title {
+  margin: 0;
+  font-size: clamp(1.15rem, 5vw, 1.45rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ch-purple-deep);
+  line-height: 1.05;
+}
+
+.charts-history__subtitle {
+  margin: 0.2rem 0 0;
+  font-size: clamp(0.82rem, 3.4vw, 0.95rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ch-ink);
+}
+
+.charts-history__tutorial {
+  flex-shrink: 0;
+  align-self: center;
+  padding: 0.38rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: var(--ch-purple-deep);
+  border: 2px solid var(--ch-ink);
+  border-radius: 0.3rem;
+  white-space: nowrap;
+}
+
+.charts-history__step {
+  margin-bottom: 0.35rem;
+}
+
+.charts-history__step-head {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.45rem;
+}
+
+.charts-history__step-num {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #fff;
+  background: var(--ch-purple);
+  border: 2px solid var(--ch-ink);
+  border-radius: 999px;
+}
+
+.charts-history__step-title {
+  flex: 1 1 auto;
+  margin: 0;
+  font-size: clamp(0.88rem, 3.8vw, 1rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ch-purple-deep);
+}
+
+.charts-history__clear {
+  margin-left: auto;
+  padding: 0;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ch-orange);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.charts-history__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.charts-history__pills--years {
+  margin-top: 0.4rem;
+}
+
+.charts-history__pills--months {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.32rem;
+}
+
+.charts-history__pill {
+  padding: 0.38rem 0.55rem;
+  font-size: clamp(0.78rem, 3.2vw, 0.9rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--ch-purple-deep);
+  border: 2px solid var(--ch-ink);
+  border-radius: 0.35rem;
+  box-shadow: 2px 2px 0 var(--ch-ink);
+  cursor: pointer;
+}
+
+.charts-history__pill--month {
+  text-align: center;
+  padding: 0.42rem 0.2rem;
+}
+
+/* Active filter (clicked) — distinct from the default filled pill look */
+.charts-history__pill--filter {
+  color: var(--ch-ink);
+  background: var(--ch-orange);
+  box-shadow: 3px 3px 0 var(--ch-ink);
+  outline: 2px solid var(--ch-ink);
+  outline-offset: 1px;
+}
+
+.charts-history__pill--on {
+  color: var(--ch-ink);
+  background: var(--ch-orange);
+  box-shadow: 3px 3px 0 var(--ch-ink);
+  outline: 2px solid var(--ch-ink);
+  outline-offset: 1px;
+}
+
+.charts-history__pill--muted {
+  opacity: 0.42;
+}
+
+.charts-history__divider {
+  text-align: center;
+  margin: 0.2rem 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--ch-purple);
+  opacity: 0.65;
+}
+
+.charts-history__group {
+  margin-bottom: 0.55rem;
+}
+
+.charts-history__group-title {
+  margin: 0.35rem 0.35rem 0.3rem;
+  font-size: clamp(0.78rem, 3.2vw, 0.88rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ch-purple-deep);
+}
+
+.charts-history__results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.charts-history__results--albums {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.charts-history__results--albums .charts-history-card {
+  flex: 0 0 clamp(16rem, 72vw, 20rem);
+  min-width: clamp(16rem, 72vw, 20rem);
+}
+
+.charts-history-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0.45rem;
+  padding: 0.4rem;
+  background: var(--ch-cream);
+  border: var(--ch-frame);
+  border-radius: 0.4rem;
+  box-shadow: 3px 3px 0 var(--ch-ink);
+}
+
+.charts-history-card--active {
+  border-color: var(--ch-purple-deep);
+  box-shadow: 4px 4px 0 var(--ch-purple-deep);
+}
+
+.charts-history-card__cover {
+  flex: 0 0 clamp(4.5rem, 26vw, 5.75rem);
+  border: 2px solid var(--ch-ink);
+  border-radius: 0.3rem;
+  overflow: hidden;
+  background: var(--ch-cream);
+}
+
+.charts-history-card__cover-img,
+.charts-history-card__cover-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 4.75rem;
+  object-fit: cover;
+}
+
+.charts-history-card__cover-fallback {
+  background: linear-gradient(145deg, #e8dcc8, #d4c4a8);
+}
+
+.charts-history-card__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.1rem 0;
+}
+
+.charts-history-card__title {
+  margin: 0;
+  font-size: clamp(1rem, 4.5vw, 1.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--ch-ink);
+}
+
+.charts-history-card__artist {
+  margin: 0.1rem 0 0.2rem;
+  font-size: clamp(0.88rem, 3.6vw, 1rem);
+  font-weight: 800;
+  color: var(--ch-purple);
+}
+
+.charts-history-card__facts {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  font-size: clamp(0.78rem, 3.2vw, 0.88rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ch-orange);
+}
+
+.charts-history-card__stamp {
+  flex: 0 0 clamp(4.5rem, 22vw, 5.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 0.35rem 0.3rem;
+  text-align: center;
+  color: #fff;
+  background: var(--ch-ink);
+  border: 2px solid var(--ch-ink);
+  border-radius: 0.32rem;
+}
+
+.charts-history-card--active .charts-history-card__stamp {
+  background: var(--ch-orange);
+}
+
+.charts-history-card__stamp-peak {
+  font-size: clamp(1.35rem, 5.5vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.charts-history-card__stamp-date {
+  font-size: clamp(0.58rem, 2.4vw, 0.68rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.charts-history-card__stamp-chart {
+  font-size: clamp(0.55rem, 2.2vw, 0.64rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  opacity: 0.95;
+}
+
+.charts-history__range {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ch-ink);
+  opacity: 0.85;
+}
+
+.charts-history__empty {
+  margin: 0.5rem 0;
+  padding: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--ch-ink);
+  background: var(--ch-cream);
+  border: 2px dashed var(--ch-purple);
+  border-radius: 0.35rem;
+}
+
+.charts-history__tip {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding: 0.55rem 0.6rem;
+  background: var(--ch-cream);
+  border: var(--ch-frame);
+  border-radius: 0.4rem;
+  box-shadow: 2px 2px 0 var(--ch-ink);
+}
+
+.charts-history__tip-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.charts-history__tip-title {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ch-orange);
+}
+
+.charts-history__tip-body {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ch-ink);
+}

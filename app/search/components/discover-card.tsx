@@ -1,6 +1,9 @@
 "use client";
 
-type CardVariant = "album" | "song" | "artist-chart";
+import Link from "next/link";
+import { useState } from "react";
+
+type CardVariant = "album" | "artist-chart";
 
 type DiscoverCardProps = {
   variant: CardVariant;
@@ -11,6 +14,7 @@ type DiscoverCardProps = {
   coverUrl?: string;
   coverInitials: string;
   ariaLabel: string;
+  href?: string;
 };
 
 export function DiscoverCard({
@@ -22,44 +26,74 @@ export function DiscoverCard({
   coverUrl,
   coverInitials,
   ariaLabel,
+  href,
 }: DiscoverCardProps) {
-  const icon = variant === "album" ? "◉" : variant === "song" ? "♪" : "★";
+  const icon = variant === "album" ? "◉" : "★";
+  const [imgBroken, setImgBroken] = useState(false);
+  const showCover = Boolean(coverUrl?.trim()) && !imgBroken;
+
+  const artClass =
+    variant === "album"
+      ? "discover-card__art discover-card__art--album"
+      : "discover-card__art";
+
+  const body = (
+    <>
+      <div className={artClass}>
+        {showCover ? (
+          <img
+            src={coverUrl}
+            alt=""
+            className="discover-card__art-img"
+            onError={() => setImgBroken(true)}
+          />
+        ) : (
+          <>
+            <span className="discover-card__art-icon" aria-hidden="true">
+              {icon}
+            </span>
+            {variant === "album" ? (
+              <span className="discover-card__art-label">Album cover</span>
+            ) : null}
+            <span className="discover-card__art-initials" aria-hidden="true">
+              {coverInitials}
+            </span>
+          </>
+        )}
+      </div>
+      <div className="discover-card__footer">
+        <p className="discover-card__title" title={title}>
+          {title}
+        </p>
+        <div className="discover-card__footer-row">
+          <p className="discover-card__line2" title={line2}>
+            {line2}
+            {line3 ? (
+              <>
+                <span className="discover-card__dot"> · </span>
+                <span className="discover-card__meta">{line3}</span>
+              </>
+            ) : null}
+          </p>
+          {duration ? (
+            <span className="discover-card__duration">{duration}</span>
+          ) : null}
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <li className="discover-card-slot">
-      <button type="button" className="discover-card" aria-label={ariaLabel}>
-        <div className="discover-card__art">
-          {coverUrl ? (
-            <img src={coverUrl} alt="" className="discover-card__art-img" />
-          ) : (
-            <>
-              <span className="discover-card__art-icon" aria-hidden="true">
-                {icon}
-              </span>
-              {!coverUrl && variant === "album" ? (
-                <span className="discover-card__art-label">Album cover</span>
-              ) : null}
-            </>
-          )}
-        </div>
-        <div className="discover-card__footer">
-          <p className="discover-card__title">{title}</p>
-          <div className="discover-card__footer-row">
-            <p className="discover-card__line2">
-              {line2}
-              {line3 ? (
-                <>
-                  <span className="discover-card__dot"> • </span>
-                  {line3}
-                </>
-              ) : null}
-            </p>
-            {duration ? (
-              <span className="discover-card__duration">{duration}</span>
-            ) : null}
-          </div>
-        </div>
-      </button>
+      {href ? (
+        <Link href={href} className="discover-card" aria-label={ariaLabel}>
+          {body}
+        </Link>
+      ) : (
+        <button type="button" className="discover-card" aria-label={ariaLabel}>
+          {body}
+        </button>
+      )}
     </li>
   );
 }

@@ -47,12 +47,29 @@ export function panelCounts(panels: SearchPanels) {
   };
 }
 
-export function formatResultsStats(counts: ReturnType<typeof panelCounts>): string {
-  if (counts.total === 0) return "No results — try another search";
-  return [
-    `${counts.albums} ALBUM${counts.albums === 1 ? "" : "S"}`,
-    `${counts.songs} SONG${counts.songs === 1 ? "" : "S"}`,
-    `${counts.artists} ARTIST${counts.artists === 1 ? "" : "S"}`,
-    `${counts.charts} CHART APPEARANCE${counts.charts === 1 ? "" : "S"}`,
-  ].join(" • ");
+export function formatResultsStats(
+  counts: ReturnType<typeof panelCounts>,
+  options?: { hasChartHistory?: boolean },
+): string {
+  const hasChartHistory = options?.hasChartHistory === true;
+  if (counts.total === 0 && !hasChartHistory) return "Nothing in the stacks yet";
+  const parts: string[] = [];
+  if (counts.albums > 0) {
+    parts.push(`${counts.albums} ALBUM${counts.albums === 1 ? "" : "S"}`);
+  }
+  if (counts.songs > 0) {
+    parts.push(`${counts.songs} SONG${counts.songs === 1 ? "" : "S"}`);
+  }
+  if (counts.artists > 0) {
+    parts.push(`${counts.artists} ARTIST${counts.artists === 1 ? "" : "S"}`);
+  }
+  if (counts.charts > 0) {
+    parts.push(
+      `${counts.charts} CHART APPEARANCE${counts.charts === 1 ? "" : "S"}`,
+    );
+  }
+  if (hasChartHistory) {
+    parts.push("CHARTS HISTORY");
+  }
+  return parts.length > 0 ? parts.join(" • ") : "Results in the stacks";
 }

@@ -18,7 +18,7 @@ export type SongResult = {
   artist: string;
   albumTitle: string;
   year: number;
-  duration: string;
+  duration?: string;
   chartNote?: string;
   hasVdj?: boolean;
   coverAccent: string;
@@ -34,12 +34,20 @@ export type ArtistChartResult = {
   kind: "artist" | "chart";
   hasVdj?: boolean;
   coverAccent: string;
+  coverUrl?: string;
+  /** Set for `kind: "artist"` — links to `/artist/[slug]` on retroverse.live */
+  artistHref?: string;
 };
 
 export type SearchPanels = {
   albums: AlbumResult[];
   songs: SongResult[];
   artistsCharts: ArtistChartResult[];
+};
+
+export type SearchCountPart = {
+  value: number;
+  label: string;
 };
 
 /** @deprecated Flat list — use SearchPanels */

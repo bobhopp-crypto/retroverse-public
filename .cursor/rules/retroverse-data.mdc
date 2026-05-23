@@ -1,0 +1,107 @@
+---
+description: Retroverse canonical data and search architecture rules
+alwaysApply: true
+---
+
+# Retroverse Data Philosophy
+
+Retroverse is a CANONICAL MUSIC GRAPH.
+
+The UI is a discovery layer on top of canonical truth.
+
+Always prioritize:
+- canonical entity resolution
+- graph relationships
+- stable IDs
+- artist/album/track linkage
+- deterministic ranking
+- trusted metadata
+- local ownership awareness
+
+Avoid:
+- fuzzy metadata soup
+- uncontrolled keyword matching
+- duplicate entities
+- disconnected search results
+- orphaned tracks
+- generic search engine behavior
+
+# Search Architecture
+
+Search should:
+1. Resolve canonical entity first
+2. Expand connected universe second
+
+Example:
+Fleetwood Mac
+→ canonical artist
+→ albums
+→ tracks
+→ chart history
+→ video ownership
+
+NOT:
+broad keyword scans returning random metadata.
+
+# Canonical IDs
+
+Respect:
+- RVAR = artist
+- RVAL = album
+- RVTR = track
+
+Never discard canonical IDs once resolved.
+
+# Ranking Rules
+
+Prefer:
+- canonical graph ranking
+- chart significance
+- dominant albums
+- strongest artwork
+- major tracks first
+- connected entity expansion
+
+Avoid:
+- alphabetical-only ordering
+- random fuzzy results
+- metadata noise
+
+# Performance Philosophy
+
+Prefer:
+- local graph first
+- fast deterministic expansion
+- stable cached datasets
+- minimal blocking requests
+
+Avoid:
+- waiting on dead services
+- sequential slow queries
+- large fuzzy scans
+- unnecessary Supabase dependency
+
+# Data Integrity
+
+Do not:
+- mutate canonical data casually
+- overwrite graph relationships
+- introduce duplicate entities
+- create temporary hacks in ranking systems
+
+Prefer:
+- additive enrichment
+- traceable transformations
+- explainable ranking
+- stable canonical pipelines
+
+# UI/Data Relationship
+
+Retroverse should feel:
+curated,
+deep,
+connected,
+and emotionally rich.
+
+NOT:
+like a generic database frontend.

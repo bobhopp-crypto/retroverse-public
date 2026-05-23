@@ -8,10 +8,11 @@ type ResultsPanelProps = {
   subtitle: string;
   viewAllHref: string;
   viewAllLabel: string;
-  tone: "albums" | "songs" | "artists";
+  tone: "albums" | "artists";
   children: ReactNode;
 };
 
+/** Horizontal cover carousel — albums and artists/charts only. Songs use SearchSongsJukeboxPanel. */
 export function ResultsPanel({
   id,
   title,
@@ -37,8 +38,10 @@ export function ResultsPanel({
     >
       <div className="results-panel__header">
         <div className="results-panel__header-main">
-          <span className="results-panel__icon" aria-hidden="true">
-            {tone === "albums" ? "◉" : tone === "songs" ? "♪" : "★"}
+          <span className="results-panel__icon-badge" aria-hidden="true">
+            <span className="results-panel__icon">
+              {tone === "albums" ? "◉" : "★"}
+            </span>
           </span>
           <div>
             <h2 id={`${id}-heading`} className="results-panel__title">
