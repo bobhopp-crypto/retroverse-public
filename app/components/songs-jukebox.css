@@ -74,6 +74,26 @@
   padding: 0.4rem 0.55rem;
 }
 
+.song-stack-card__preview-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.song-stack-card__preview-link:focus-visible {
+  outline: 2px solid var(--stack-teal);
+  outline-offset: 2px;
+  border-radius: 0.35rem;
+}
+
+.song-stack-card--preview:has(.song-stack-card__preview-link) {
+  cursor: pointer;
+}
+
+.song-stack-card--preview:has(.song-stack-card__preview-link):active {
+  transform: translateY(1px);
+}
+
 .song-stack-card--ghost {
   min-height: 2.6rem;
   border: 2px dashed rgba(18, 52, 58, 0.14);

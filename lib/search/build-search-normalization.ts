@@ -36,6 +36,7 @@ export async function buildSearchNormalization(
   log: SearchNormalizationLog;
   resolved: ResolvedSearchArtist | null;
   upstreamQuery: string;
+  queryDisplay: string | null;
 }> {
   const raw = rawQuery.trim();
   const normalizedQuery = normalizeSearchQuery(raw);

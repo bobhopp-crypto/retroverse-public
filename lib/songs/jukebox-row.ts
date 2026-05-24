@@ -1,4 +1,6 @@
 import { parsePeakPosition, parseYearFromText } from "@/lib/search/display-format";
+import { trackPageHref, trackSuggestionHref } from "@/lib/search/entity-routes";
+import { rvtrFromToken } from "@/lib/songs/song-actions";
 import type { SongResult } from "@/lib/search/types";
 import type { ArtistTrackCard } from "@/lib/artist/types";
 
@@ -6,6 +8,7 @@ export type JukeboxSongRow = {
   id: string;
   title: string;
   artist: string;
+  rvtr?: string | null;
   releaseYear: number | null;
   peakHot100: number | null;
   chartWeeks: number;
@@ -13,13 +16,35 @@ export type JukeboxSongRow = {
   coverUrl?: string;
 };
 
-/** Path for Next.js Link from API id or RVTR code. */
-export function songHrefFromId(id: string): string | undefined {
+/** Path for Next.js Link from panel id, RVTR code, or upstream href hint. */
+export function songHrefFromId(
+  id: string,
+  title?: string,
+  upstreamHref?: string | null,
+): string | undefined {
   const raw = id.trim();
-  if (!raw) return undefined;
-  if (raw.startsWith("/")) return raw;
-  if (/^https?:\/\//i.test(raw)) return raw;
-  if (/^RVTR\d+/i.test(raw)) return `/tracks/${raw}`;
+  if (!raw && !title?.trim()) return undefined;
+
+  if (upstreamHref?.trim()) {
+    return trackSuggestionHref(title ?? "", upstreamHref);
+  }
+
+  if (raw.startsWith("/")) return raw.split("?")[0];
+  if (/^https?:\/\//i.test(raw)) {
+    try {
+      return new URL(raw).pathname;
+    } catch {
+      return undefined;
+    }
+  }
+
+  const rvtrInId = raw.match(/RVTR\d{6}/i)?.[0];
+  if (rvtrInId) return trackPageHref(rvtrInId);
+
+  if (/^RVTR\d+/i.test(raw)) return trackPageHref(raw);
+
+  if (title?.trim()) return trackPageHref(title);
+
   return undefined;
 }
 
@@ -39,6 +64,7 @@ export function artistTrackToJukeboxRow(
     id: track.rvtr,
     title: track.title,
     artist: artistName,
+    rvtr: rvtrFromToken(track.rvtr),
     releaseYear: track.releaseYear,
     peakHot100: track.peakHot100,
     chartWeeks: track.chartWeeks,
@@ -62,10 +88,11 @@ export function songResultToJukeboxRow(song: SongResult): JukeboxSongRow {
     id: song.id,
     title: song.title,
     artist: song.artist,
+    rvtr: rvtrFromToken(song.id),
     releaseYear: resolveSongReleaseYear(song),
     peakHot100: parsePeakPosition(note),
     chartWeeks: parseWeeksFromChartNote(note),
-    href: songHrefFromId(song.id),
+    href: song.href ?? songHrefFromId(song.id, song.title),
     coverUrl: song.coverUrl,
   };
 }

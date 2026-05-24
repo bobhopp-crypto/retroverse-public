@@ -1,0 +1,257 @@
+/* RV Year world — musical yearbook entry (entity exhibit family) */
+
+.rv-year-world {
+  --paper-warm: #f4e9d3;
+  --paper-tan: #e6d6b8;
+  --teal-deep: #1f5e63;
+  --orange-dusty: #e07a4f;
+  --charcoal: #2d3e46;
+  --ink: var(--charcoal);
+  --frame: 3px solid var(--charcoal);
+  --purple-band: #ddd0ff;
+
+  min-height: 100vh;
+  background: var(--paper-warm);
+  color: var(--ink);
+  font-family: "Avenir Next", "Trebuchet MS", "Gill Sans", system-ui, sans-serif;
+  overflow-x: hidden;
+  padding-bottom: 2rem;
+}
+
+.rv-year-world__grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.rv-year-topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.75rem 1rem 0;
+}
+
+.rv-year-logo {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: 1.85rem;
+  color: var(--orange-dusty);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.rv-year-file-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.55rem;
+  background: var(--paper-tan);
+  border: var(--frame);
+  border-radius: 2px;
+}
+
+.rv-year-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0.85rem 1rem 0;
+  padding: 0.55rem 0.65rem;
+  border: var(--frame);
+  border-radius: 4px;
+  background: #fff8ee;
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.22);
+}
+
+.rv-year-nav__link {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--teal-deep);
+  padding: 0.45rem 0.7rem;
+  border: 2px solid transparent;
+  border-radius: 3px;
+}
+
+.rv-year-nav__link:hover {
+  border-color: rgba(31, 94, 99, 0.35);
+  background: rgba(31, 94, 99, 0.08);
+}
+
+.rv-year-nav__link--explore {
+  color: var(--ink);
+  border: 2px solid var(--charcoal);
+  background: var(--paper-tan);
+  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.2);
+}
+
+.rv-year-nav__link--disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.rv-year-hero {
+  position: relative;
+  z-index: 1;
+  margin: 1.15rem 1rem 1.5rem;
+  padding: 1.35rem 1rem 1.5rem;
+  text-align: center;
+  border: var(--frame);
+  border-radius: 6px;
+  background:
+    linear-gradient(165deg, rgba(221, 208, 255, 0.55) 0%, rgba(244, 233, 211, 0.95) 42%),
+    var(--paper-warm);
+  box-shadow: 7px 9px 0 rgba(45, 62, 70, 0.28);
+}
+
+.rv-year-hero__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+.rv-year-hero__year {
+  margin: 0;
+  font-size: clamp(4.5rem, 24vw, 8.5rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--charcoal);
+  text-shadow: 3px 4px 0 rgba(224, 122, 79, 0.35);
+}
+
+.rv-year-hero__tagline {
+  margin: 0.85rem auto 0;
+  max-width: 22rem;
+  font-size: clamp(1.15rem, 4.5vw, 1.45rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.rv-year-hero__lead {
+  margin: 0.85rem auto 0;
+  max-width: 26rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgba(45, 62, 46, 0.88);
+}
+
+.rv-year-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem 0.75rem;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rv-year-hero__stat {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.65rem;
+  border: 2px solid var(--charcoal);
+  border-radius: 999px;
+  background: rgba(255, 248, 238, 0.85);
+}
+
+.rv-year-bridge {
+  position: relative;
+  z-index: 1;
+  margin: 0 1rem 0.65rem;
+  padding: 0.75rem 0.85rem;
+  border: var(--frame);
+  border-radius: 4px;
+  background: var(--purple-band);
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.22);
+}
+
+.rv-year-bridge__title {
+  margin: 0;
+  font-size: clamp(1.05rem, 4vw, 1.25rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.rv-year-bridge__hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(45, 62, 70, 0.82);
+}
+
+.rv-year-chronicle {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.rv-year-chronicle .charts-history {
+  border-top: var(--frame);
+  border-bottom: var(--frame);
+}
+
+.rv-year-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  margin: 1.75rem 1rem 0;
+  padding-top: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.rv-year-footer a {
+  color: var(--teal-deep);
+  text-decoration: none;
+}
+
+.rv-year-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .rv-year-hero,
+  .rv-year-nav,
+  .rv-year-bridge {
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  .rv-year-hero {
+    margin-top: 1.35rem;
+  }
+
+  .rv-year-nav {
+    margin-top: 1rem;
+  }
+
+  .rv-year-chronicle {
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+}

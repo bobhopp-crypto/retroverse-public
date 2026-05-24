@@ -1,0 +1,114 @@
+/* Album page — extends song exhibit shell */
+
+.album-exhibit .track-hero__cover-wrap {
+  max-width: min(28rem, 94vw);
+}
+
+.album-tracklist {
+  margin: 0 1rem 2.25rem;
+}
+
+.album-tracklist .track-section-head--dark {
+  margin: 0 0 0.75rem;
+}
+
+.album-tracklist__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 3px solid var(--charcoal, #2d3e46);
+  border-radius: 4px;
+  background: #fff8ee;
+  box-shadow: 4px 5px 0 rgba(45, 62, 70, 0.22);
+}
+
+.album-tracklist__item {
+  border-bottom: 2px solid rgba(45, 62, 70, 0.1);
+}
+
+.album-tracklist__item:last-child {
+  border-bottom: none;
+}
+
+.album-tracklist__item-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.album-tracklist__item-inner .album-tracklist__row {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.album-tracklist__item-inner .song-actions {
+  padding-right: 0.65rem;
+}
+
+.album-tracklist__row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.85rem 1rem;
+}
+
+.album-tracklist__row--link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.album-tracklist__row--link:hover .album-tracklist__title {
+  color: var(--teal-deep, #1f5e63);
+}
+
+.album-tracklist__position {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: rgba(45, 62, 70, 0.55);
+  text-align: right;
+}
+
+.album-tracklist__title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.album-exhibit .track-journey {
+  background: linear-gradient(180deg, #e8dcc4 0%, var(--paper-tan, #e6d6b8) 100%);
+}
+
+.album-journey__lead {
+  font-size: 1.08rem;
+}
+
+.album-trajectory-panel .track-trajectory-rail {
+  gap: 0.72rem;
+}
+
+.album-trajectory-panel .track-trajectory-week {
+  min-height: 5.1rem;
+  padding: 0.85rem 0.9rem 0.9rem;
+  border-width: 3px;
+}
+
+.album-trajectory-panel .track-trajectory-track {
+  height: 2rem;
+}
+
+.album-trajectory-panel .track-trajectory-rank strong {
+  font-size: 1.45rem;
+}
+
+.album-trajectory-panel .track-trajectory-date span {
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .album-tracklist,
+  .album-exhibit .track-journey {
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+}

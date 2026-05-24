@@ -18,6 +18,10 @@ import {
   normalizeArtistChartHistory,
 } from "@/lib/artist/chart-history";
 import type { SearchChartHistoryContext } from "@/lib/search/load-search-chart-history";
+import {
+  searchAlbumsViewAllHref,
+  searchSongsViewAllHref,
+} from "@/lib/search/search-view-all-hrefs";
 import type { SearchPanels } from "@/lib/search/types";
 
 function panelSubtitle(
@@ -29,12 +33,12 @@ function panelSubtitle(
     return tone === "albums"
       ? "Explore albums"
       : tone === "songs"
-        ? "Browse tracks"
+        ? "Browse songs"
         : "Artists and chart appearances";
   }
   const who = subject;
   if (tone === "albums") return `Explore ${who}'s albums`;
-  if (tone === "songs") return `Browse ${who}'s tracks`;
+  if (tone === "songs") return `Browse ${who}'s songs`;
   return `Related artists and chart appearances for ${who}`;
 }
 
@@ -205,6 +209,14 @@ export default function SearchClient() {
 
   const hasSongs = showPanels.songs.length > 0;
   const hasAlbums = showPanels.albums.length > 0;
+  const albumsViewAllHref = useMemo(
+    () => searchAlbumsViewAllHref(showPanels, showChartHistory?.artistSlug),
+    [showPanels, showChartHistory?.artistSlug],
+  );
+  const songsViewAllHref = useMemo(
+    () => searchSongsViewAllHref(showPanels, showChartHistory?.artistSlug),
+    [showPanels, showChartHistory?.artistSlug],
+  );
 
   useEffect(() => {
     if (isIdle || loading) return;
@@ -274,7 +286,7 @@ export default function SearchClient() {
                 id="albums"
                 title="Albums"
                 subtitle={panelSubtitle("albums", subject, trimmedQuery)}
-                viewAllHref="#/albums-placeholder"
+                viewAllHref={albumsViewAllHref}
                 viewAllLabel="View all albums →"
                 tone="albums"
               >
@@ -291,6 +303,7 @@ export default function SearchClient() {
                     coverUrl={item.coverUrl}
                     coverInitials={coverInitialsFromTitle(item.title)}
                     ariaLabel={`Album: ${item.title} by ${item.artist}, ${item.year}`}
+                    href={item.href}
                   />
                 ))}
               </ResultsPanel>
@@ -299,7 +312,7 @@ export default function SearchClient() {
             {hasSongs ? (
               <SearchSongsJukeboxPanel
                 key={`songs-stack-${trimmedQuery}-${showPanels.songs.length}`}
-                viewAllHref="#/songs-placeholder"
+                viewAllHref={songsViewAllHref}
                 viewAllLabel="View all songs →"
                 songs={showPanels.songs}
               />

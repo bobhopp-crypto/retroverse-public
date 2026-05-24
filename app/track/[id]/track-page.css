@@ -1,0 +1,497 @@
+/* Song page exhibit — collectible song world (artist palette family) */
+
+.track-exhibit {
+  --paper-warm: #f4e9d3;
+  --paper-tan: #e6d6b8;
+  --teal-deep: #1f5e63;
+  --orange-dusty: #e07a4f;
+  --charcoal: #2d3e46;
+  --ink: var(--charcoal);
+  --frame: 3px solid var(--charcoal);
+
+  min-height: 100vh;
+  background: var(--paper-warm);
+  color: var(--ink);
+  font-family: "Avenir Next", "Trebuchet MS", "Gill Sans", system-ui, sans-serif;
+  overflow-x: hidden;
+  padding-bottom: 2rem;
+}
+
+.track-exhibit__grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.track-topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.75rem 1rem 0;
+}
+
+.track-logo {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: 1.85rem;
+  color: var(--orange-dusty);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.track-file-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.55rem;
+  background: var(--paper-tan);
+  border: var(--frame);
+  border-radius: 2px;
+}
+
+.track-hero {
+  position: relative;
+  z-index: 1;
+  margin: 1rem 1rem 1.75rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.track-hero__cover-wrap {
+  aspect-ratio: 1 / 1;
+  max-width: min(26rem, 92vw);
+  margin: 0 auto;
+  width: 100%;
+  border: var(--frame);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper-tan);
+  box-shadow: 6px 9px 0 rgba(45, 62, 70, 0.32);
+}
+
+.track-hero__cover,
+.track-hero__cover-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.track-hero__cover-fallback {
+  background: linear-gradient(145deg, var(--charcoal), var(--teal-deep));
+}
+
+.track-hero__identity {
+  text-align: center;
+  padding: 0 0.25rem;
+}
+
+.track-hero__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+.track-hero__title {
+  margin: 0;
+  font-size: clamp(2.25rem, 9vw, 3.35rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+.track-hero__artist-line {
+  margin: 0.75rem 0 0;
+  font-size: 1.28rem;
+  font-weight: 600;
+}
+
+.track-hero__artist {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--orange-dusty);
+  text-underline-offset: 3px;
+}
+
+.track-hero__dot,
+.track-hero__year {
+  color: rgba(45, 62, 70, 0.75);
+}
+
+.track-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.track-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  background: var(--teal-deep);
+  color: #f4e9d3;
+  border-radius: 2px;
+}
+
+.track-badge--library {
+  background: var(--orange-dusty);
+}
+
+/* Song journey — vertical heat trajectory (ported from welcome) */
+
+.track-journey {
+  position: relative;
+  z-index: 1;
+  margin: 0 1rem 2.25rem;
+  padding: 1rem 0.85rem 1.15rem;
+  background: var(--paper-tan);
+  border: var(--frame);
+  border-radius: 4px;
+  box-shadow: 4px 5px 0 rgba(45, 62, 70, 0.24);
+}
+
+.track-section-head--journey {
+  margin: 0 0 0.5rem;
+}
+
+.track-journey__lead {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(45, 62, 70, 0.88);
+}
+
+.track-journey__lead strong {
+  font-weight: 900;
+  color: var(--orange-dusty);
+  font-size: 1.15rem;
+}
+
+.track-trajectory-panel {
+  margin: 0;
+}
+
+.track-trajectory-scale {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.65rem;
+  padding: 0 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.55);
+}
+
+.track-trajectory-scale span:nth-child(2) {
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.14em;
+  color: var(--teal-deep);
+}
+
+.track-trajectory-rail {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.track-trajectory-week {
+  --heat-intensity: 0.35;
+  --heat-bg: rgba(31, 94, 99, 0.1);
+  --heat-border: rgba(31, 94, 99, 0.22);
+  --heat-glow: rgba(31, 94, 99, 0.1);
+  --heat-rail: rgba(31, 94, 99, 0.16);
+  --heat-bar: rgba(31, 94, 99, 0.72);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "date rank"
+    "rail rail";
+  gap: 0.5rem 0.75rem;
+  align-items: end;
+  min-height: 4.5rem;
+  padding: 0.75rem 0.8rem 0.8rem;
+  border: 2px solid var(--heat-border);
+  border-radius: 6px 3px 8px 4px / 4px 7px 3px 8px;
+  background: var(--heat-bg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.45),
+    0 3px 0 rgba(45, 62, 70, 0.12),
+    0 0 calc(6px + var(--heat-intensity) * 22px) var(--heat-glow);
+}
+
+.track-trajectory-date {
+  grid-area: date;
+}
+
+.track-trajectory-rank {
+  grid-area: rank;
+  text-align: right;
+}
+
+.track-trajectory-date span {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.track-trajectory-date small {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.58);
+}
+
+.track-trajectory-rank strong {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--teal-deep);
+}
+
+.track-trajectory-track {
+  grid-area: rail;
+  position: relative;
+  height: 1.65rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(45, 62, 70, 0.12);
+  box-shadow: inset 0 0 0 1px var(--heat-rail);
+}
+
+.track-trajectory-track::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--rank-x);
+  border-radius: inherit;
+  background: var(--heat-bar);
+  box-shadow: 0 0 calc(8px + var(--heat-intensity) * 18px) var(--heat-glow);
+}
+
+.track-trajectory-week--recurrence {
+  border-style: dashed;
+}
+
+.track-trajectory-week--number-one .track-trajectory-rank strong {
+  color: var(--orange-dusty);
+}
+
+.track-trajectory-week--top-five .track-trajectory-rank strong,
+.track-trajectory-week--top-ten .track-trajectory-rank strong {
+  color: #b85a28;
+}
+
+.track-trajectory-week--number-one {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.5),
+    0 4px 0 rgba(45, 62, 70, 0.14),
+    0 0 calc(12px + var(--heat-intensity) * 28px) var(--heat-glow);
+}
+
+.track-trajectory-week--rebound {
+  outline: 2px dashed rgba(224, 122, 79, 0.35);
+  outline-offset: 1px;
+}
+
+.track-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0 1rem 0.75rem;
+}
+
+.track-section-head h2 {
+  margin: 0;
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.track-section-head--light h2 {
+  color: var(--charcoal);
+}
+
+.track-section-head--dark {
+  background: var(--teal-deep);
+  color: #f4e9d3;
+  margin: 0;
+  padding: 0.85rem 1rem;
+}
+
+.track-section-head--dark h2 {
+  color: inherit;
+}
+
+.track-section-link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--teal-deep);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.track-section-link--light {
+  color: #f4e9d3;
+}
+
+.track-shelf {
+  margin-bottom: 2rem;
+}
+
+.track-shelf__scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0 1rem 0.35rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.track-album-tile {
+  flex: 0 0 9.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.track-album-tile__cover,
+.track-album-tile__fallback {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border: var(--frame);
+  border-radius: 3px;
+  background: var(--paper-tan);
+}
+
+.track-album-tile__fallback {
+  background: linear-gradient(145deg, var(--charcoal), var(--teal-deep));
+}
+
+.track-album-tile__title {
+  margin: 0.45rem 0 0.15rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.track-album-tile__meta {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(45, 62, 70, 0.72);
+}
+
+.track-related {
+  margin-bottom: 2rem;
+}
+
+.track-related__list {
+  margin: 0;
+  padding: 0.5rem 1rem 0;
+  list-style: none;
+}
+
+.track-related__item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-right: 0.65rem;
+  border-bottom: 2px solid rgba(45, 62, 70, 0.12);
+}
+
+.track-related__item .track-related__row {
+  flex: 1 1 auto;
+  min-width: 0;
+  border-bottom: none;
+}
+
+.track-related__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.85rem 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.track-related__title {
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.track-related__meta {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(45, 62, 70, 0.72);
+}
+
+.track-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1rem 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.track-footer a {
+  color: var(--teal-deep);
+}
+
+@media (min-width: 640px) {
+  .track-hero {
+    grid-template-columns: minmax(12rem, 16rem) 1fr;
+    align-items: center;
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+
+  .track-hero__cover-wrap {
+    margin: 0;
+  }
+
+  .track-hero__identity {
+    text-align: left;
+  }
+
+  .track-hero__badges {
+    justify-content: flex-start;
+  }
+
+  .track-journey,
+  .track-shelf,
+  .track-related {
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+}

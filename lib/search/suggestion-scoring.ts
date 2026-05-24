@@ -4,8 +4,8 @@ import "server-only";
 export type SuggestionBreadthTier = "wide" | "medium" | "tight";
 
 export function suggestionBreadthTier(queryLength: number): SuggestionBreadthTier {
-  if (queryLength <= 3) return "wide";
-  if (queryLength <= 5) return "medium";
+  if (queryLength <= 6) return "wide";
+  if (queryLength <= 10) return "medium";
   return "tight";
 }
 
@@ -20,17 +20,17 @@ export type SuggestionSlotLimits = {
 export function suggestionSlotLimits(queryLength: number): SuggestionSlotLimits {
   const tier = suggestionBreadthTier(queryLength);
   if (tier === "wide") {
-    return { maxTotal: 14, artists: 5, songs: 4, albums: 4, years: 2 };
+    return { maxTotal: 30, artists: 10, songs: 10, albums: 10, years: 3 };
   }
   if (tier === "medium") {
-    return { maxTotal: 12, artists: 4, songs: 3, albums: 3, years: 2 };
+    return { maxTotal: 24, artists: 8, songs: 8, albums: 6, years: 3 };
   }
-  return { maxTotal: 8, artists: 4, songs: 2, albums: 2, years: 2 };
+  return { maxTotal: 16, artists: 6, songs: 5, albums: 4, years: 2 };
 }
 
 /** Use canonical upstream / entity collapse only when the query is long enough. */
 export function shouldUseCanonicalSuggestionContext(query: string): boolean {
-  return query.trim().length >= 6;
+  return query.trim().length >= 10;
 }
 
 function norm(text: string): string {
@@ -54,6 +54,7 @@ export function discoveryMatchScore(
 
   const words = t.split(/\s+/).filter(Boolean);
   const wordStarts = words.some((w) => w.startsWith(q));
+  const wordContains = words.some((w) => w.includes(q));
   const titleStarts = t.startsWith(q);
 
   if (wordStarts || titleStarts) {
@@ -62,18 +63,50 @@ export function discoveryMatchScore(
     return 0;
   }
 
-  if (t.includes(q)) {
-    if (tier === "wide") return 6;
+  if (wordContains || t.includes(q)) {
+    if (tier === "wide") return 5;
     if (tier === "medium") return 4;
     return 3;
   }
 
   if (tier !== "tight") {
     const tokens = q.split(/\s+/).filter(Boolean);
-    if (tokens.length > 1 && tokens.every((tok) => t.includes(tok))) return 5;
+    if (tokens.length > 1 && tokens.every((tok) => t.includes(tok))) return 6;
   }
 
+  const minSubseq = tier === "wide" ? 2 : 3;
+  if (q.length >= minSubseq && hasOrbitSubsequence(t, q)) {
+    if (tier === "wide") return 8;
+    if (tier === "medium") return 9;
+    return 10;
+  }
+
+  if (tier === "wide") return 40;
+  if (tier === "medium") return 45;
+
   return 50;
+}
+
+/** Whether a label is weak enough to drop in tight discovery mode. */
+export function isDiscoverableSuggestion(
+  label: string,
+  query: string,
+  tier: SuggestionBreadthTier = suggestionBreadthTier(query.trim().length),
+): boolean {
+  if (tier === "wide" || tier === "medium") return true;
+  return discoveryMatchScore(label, query, tier) < 50;
+}
+
+/** Loose in-order character match — keeps fuzzy orbit (e.g. el → shelton). */
+function hasOrbitSubsequence(text: string, query: string): boolean {
+  if (query.length < 2) return false;
+  let ti = 0;
+  for (let qi = 0; qi < query.length; qi += 1) {
+    const idx = text.indexOf(query[qi], ti);
+    if (idx < 0) return false;
+    ti = idx + 1;
+  }
+  return true;
 }
 
 /** Whether upstream should use PG-resolved artist name vs raw query text. */

@@ -10,6 +10,8 @@ export type AlbumResult = {
   /** Placeholder cover block hue; optional real URL later */
   coverAccent: string;
   coverUrl?: string;
+  /** Public entity route — `/album/...` */
+  href?: string;
 };
 
 export type SongResult = {
@@ -23,6 +25,8 @@ export type SongResult = {
   hasVdj?: boolean;
   coverAccent: string;
   coverUrl?: string;
+  /** Public entity route — `/track/...` */
+  href?: string;
 };
 
 export type ArtistChartResult = {

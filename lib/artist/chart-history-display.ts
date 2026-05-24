@@ -3,6 +3,7 @@ import type {
   ChartHistoryEntry,
   RvChartSnapshot,
 } from "@/lib/artist/chart-history-types";
+import { monthChartSnapshotGroups } from "./chart-snapshot-shaping";
 
 export const RV_CALENDAR_MONTHS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
 
@@ -146,11 +147,7 @@ export function entriesForYearMonth(
     .slice(0, limit);
 }
 
-function chartFamilySortOrder(chartName: string): number {
-  return chartFamilyKey(chartName) === "album-200" ? 1 : 0;
-}
-
-/** RV Week snapshots — #1 only per chart week; limit applied after full month grouping. */
+export { monthChartSnapshotGroups } from "./chart-snapshot-shaping";
 export function snapshotsForYearMonth(
   entries: ChartHistoryEntry[],
   year: number,
@@ -158,68 +155,10 @@ export function snapshotsForYearMonth(
   limit = 5,
   chartFamily?: "hot-100" | "album-200",
 ): RvChartSnapshot[] {
-  if (!Array.isArray(entries) || !Number.isFinite(year) || !Number.isFinite(month)) {
-    return [];
-  }
-
-  const inMonth = entries.filter(
-    (e) => e && e.year === year && e.month === month && typeof e.chartDate === "string",
-  );
-  const byWeekChart = new Map<string, ChartHistoryEntry[]>();
-
-  for (const row of inMonth) {
-    const key = `${row.chartDate}|${chartFamilyKey(row.chartName)}`;
-    const bucket = byWeekChart.get(key) ?? [];
-    bucket.push(row);
-    byWeekChart.set(key, bucket);
-  }
-
-  const snapshots: RvChartSnapshot[] = [];
-
-  for (const [, rows] of byWeekChart) {
-    const family = chartFamilyKey(rows[0]?.chartName ?? "");
-    if (chartFamily != null && family !== chartFamily) continue;
-
-    const atNumberOne = rows.filter((r) => r.peakPosition === 1);
-    if (atNumberOne.length === 0) continue;
-
-    const pick = [...atNumberOne].sort((a, b) => a.title.localeCompare(b.title))[0]!;
-    const chartDisplayName = formatChartDisplayName(pick.chartName);
-    snapshots.push({
-      id: `${pick.chartDate}|${chartFamilyKey(pick.chartName)}`,
-      trackId: pick.trackId,
-      chartDate: pick.chartDate,
-      year: pick.year,
-      month: pick.month,
-      chartName: pick.chartName,
-      chartDisplayName,
-      peakPosition: 1,
-      title: pick.title,
-      artist: pick.artist,
-      coverUrl: pick.coverUrl,
-      releaseYear: pick.releaseYear ?? null,
-    });
-  }
-
-  const sorted = snapshots.sort((a, b) => {
-    try {
-      if (chartFamily === "album-200") {
-        const aYear = a.releaseYear ?? a.year;
-        const bYear = b.releaseYear ?? b.year;
-        if (aYear !== bYear) return aYear - bYear;
-        const byDate = a.chartDate.localeCompare(b.chartDate);
-        if (byDate !== 0) return byDate;
-        return a.title.localeCompare(b.title);
-      }
-      const byDate = a.chartDate.localeCompare(b.chartDate);
-      if (byDate !== 0) return byDate;
-      return chartFamilySortOrder(a.chartName) - chartFamilySortOrder(b.chartName);
-    } catch {
-      return 0;
-    }
-  });
-
-  return sorted.slice(0, limit);
+  const groups = monthChartSnapshotGroups(entries, year, month, limit);
+  if (chartFamily === "hot-100") return groups.singleSnapshots;
+  if (chartFamily === "album-200") return groups.albumSnapshots;
+  return [...groups.singleSnapshots, ...groups.albumSnapshots];
 }
 
 export type { ArtistChartHistory, ChartHistoryEntry, RvChartSnapshot };

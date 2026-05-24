@@ -1,6 +1,12 @@
 import "server-only";
 
 import { displayArtistName } from "@/lib/artist/slug";
+import {
+  albumSuggestionHref,
+  artistSuggestionHref,
+  trackSuggestionHref,
+  yearSuggestionHref,
+} from "@/lib/search/entity-routes";
 import { normalizeArtistMatchKey } from "@/lib/search/canonicalize-search";
 import { formatDisplayArtist, formatDisplayTitle } from "@/lib/search/display-format";
 import type { HomeSearchPayload } from "@/lib/search/home-search-types";
@@ -11,12 +17,14 @@ import {
 } from "@/lib/search/normalize-rv-year";
 import {
   discoveryMatchScore,
+  isDiscoverableSuggestion,
   shouldUseCanonicalSuggestionContext,
   suggestionBreadthTier,
   suggestionSlotLimits,
   type SuggestionBreadthTier,
   type SuggestionSlotLimits,
 } from "@/lib/search/suggestion-scoring";
+import { buildRvYearIntentSuggestions } from "@/lib/rv-year/rv-year-intent";
 import {
   collapseFuzzyAliasGroups,
   groupSuggestionsByArtistKey,
@@ -54,25 +62,25 @@ function sortByDiscovery(
   });
 }
 
-function isDiscoverableMatch(label: string, query: string, tier: SuggestionBreadthTier): boolean {
-  if (tier === "wide") return true;
-  return discoveryMatchScore(label, query, tier) < 50;
-}
-
 function orderDiscoveryItems(
   items: SearchSuggestionItem[],
   query: string,
   tier: SuggestionBreadthTier,
 ): SearchSuggestionItem[] {
-  if (tier === "wide") {
-    return [...items].sort((a, b) => {
-      const scoreA = discoveryMatchScore(a.label, query, tier);
-      const scoreB = discoveryMatchScore(b.label, query, tier);
-      if (scoreA !== scoreB) return scoreA - scoreB;
-      return a.label.localeCompare(b.label, undefined, { sensitivity: "base" });
-    });
-  }
+  // Wide/medium: keep upstream crate order — local re-sort was hiding exploratory matches.
+  if (tier === "wide" || tier === "medium") return items;
   return sortByDiscovery(items, query, tier);
+}
+
+function suggestionLabel(
+  title: string,
+  artist?: string | null,
+  year?: number | null,
+): string {
+  const parts = [title];
+  if (artist?.trim()) parts.push(artist.trim());
+  if (year != null && year > 0) parts.push(String(year));
+  return parts.join(" · ");
 }
 
 function buildArtistSuggestions(
@@ -81,27 +89,54 @@ function buildArtistSuggestions(
   tier: SuggestionBreadthTier,
   canonicalArtist: string | null,
 ): SearchSuggestionItem[] {
+  const items: SearchSuggestionItem[] = [];
+  const seen = new Set<string>();
+
+  if (tier === "wide") {
+    for (const row of payload.artists) {
+      const label = displayArtistName(row.name);
+      const matchKey = normalizeArtistMatchKey(label);
+      if (!matchKey || seen.has(matchKey)) continue;
+      seen.add(matchKey);
+      items.push({
+        id: suggestionId("artist", matchKey),
+        kind: "artist",
+        title: label,
+        artist: null,
+        year: null,
+        coverUrl: row.coverUrl ?? null,
+        label,
+        href: artistSuggestionHref(label, row.href),
+        routeQuery: matchKey,
+      });
+    }
+    return items;
+  }
+
   const useCanonical = shouldUseCanonicalSuggestionContext(query);
   const grouped = groupSuggestionsByArtistKey(payload.artists, (a) => a.name);
   const groups = useCanonical
     ? collapseFuzzyAliasGroups(grouped, canonicalArtist)
     : grouped;
 
-  const items: SearchSuggestionItem[] = [];
-  const seen = new Set<string>();
-
   for (const group of groups) {
     const matchKey = group.matchKey;
     if (!matchKey || seen.has(matchKey)) continue;
 
     const label = displayArtistName(group.label);
-    if (!isDiscoverableMatch(label, query, tier)) continue;
+    if (!isDiscoverableSuggestion(label, query, tier)) continue;
 
     seen.add(matchKey);
+    const row = group.items.find((entry) => entry.href?.trim()) ?? group.items[0];
     items.push({
       id: suggestionId("artist", matchKey),
       kind: "artist",
+      title: label,
+      artist: null,
+      year: null,
+      coverUrl: row?.coverUrl ?? null,
       label,
+      href: artistSuggestionHref(label, row?.href),
       routeQuery: matchKey,
     });
   }
@@ -119,14 +154,21 @@ function buildSongSuggestions(
 
   for (const row of payload.tracks) {
     const title = formatDisplayTitle(row.title);
-    const key = title.trim().toLowerCase();
+    const artist = formatDisplayArtist(row.artist);
+    const key = `${normalizeArtistMatchKey(artist)}::${title.trim().toLowerCase()}`;
     if (!key || seen.has(key)) continue;
-    if (!isDiscoverableMatch(title, query, tier)) continue;
+    if (tier === "tight" && !isDiscoverableSuggestion(title, query, tier)) continue;
     seen.add(key);
+    const year = row.year != null && row.year > 0 ? row.year : null;
     items.push({
       id: suggestionId("song", key),
       kind: "song",
-      label: title,
+      title,
+      artist,
+      year,
+      coverUrl: row.coverUrl ?? null,
+      label: suggestionLabel(title, artist, year),
+      href: trackSuggestionHref(title, row.href),
       routeQuery: title,
     });
   }
@@ -148,14 +190,24 @@ function buildAlbumSuggestions(
     const label = artist ? `${title} — ${artist}` : title;
     const key = `${normalizeArtistMatchKey(artist)}::${title.toLowerCase()}`;
     if (seen.has(key)) continue;
-    if (!isDiscoverableMatch(label, query, tier) && !isDiscoverableMatch(title, query, tier)) {
+    if (
+      tier === "tight" &&
+      !isDiscoverableSuggestion(label, query, tier) &&
+      !isDiscoverableSuggestion(title, query, tier)
+    ) {
       continue;
     }
     seen.add(key);
+    const year = row.year != null && row.year > 0 ? row.year : null;
     items.push({
       id: suggestionId("album", key),
       kind: "album",
-      label,
+      title,
+      artist,
+      year,
+      coverUrl: row.coverUrl ?? null,
+      label: suggestionLabel(title, artist, year),
+      href: albumSuggestionHref(title, row.href),
       routeQuery: title,
     });
   }
@@ -181,47 +233,27 @@ export function suggestRvYearsFromQuery(query: string): SearchSuggestionItem[] {
     .map((year) => ({
       id: suggestionId("year", String(year)),
       kind: "year" as const,
+      title: String(year),
+      artist: null,
+      year,
+      coverUrl: null,
       label: String(year),
+      href: yearSuggestionHref(year),
       routeQuery: String(year),
     }));
 }
 
-/** Keep balanced slots per category before applying max total. */
+/** Per-group caps — avoid cross-group maxTotal collapse that hides whole categories. */
 export function capSuggestionGroups(
   groups: SearchSuggestionGroups,
   limits: SuggestionSlotLimits,
 ): SearchSuggestionGroups {
-  const trimmed: SearchSuggestionGroups = {
+  return {
     artists: groups.artists.slice(0, limits.artists),
     songs: groups.songs.slice(0, limits.songs),
     albums: groups.albums.slice(0, limits.albums),
     years: groups.years.slice(0, limits.years),
   };
-
-  const order: (keyof SearchSuggestionGroups)[] = [
-    "artists",
-    "songs",
-    "albums",
-    "years",
-  ];
-  const flat: SearchSuggestionItem[] = [];
-  for (const key of order) {
-    for (const item of trimmed[key]) flat.push(item);
-  }
-
-  if (flat.length <= limits.maxTotal) return trimmed;
-
-  const capped = flat.slice(0, limits.maxTotal);
-  const out: SearchSuggestionGroups = {
-    artists: [],
-    songs: [],
-    albums: [],
-    years: [],
-  };
-  for (const item of capped) {
-    out[SUGGESTION_GROUP_BY_KIND[item.kind]].push(item);
-  }
-  return out;
 }
 
 export function buildHomeSearchSuggestions(
@@ -229,6 +261,9 @@ export function buildHomeSearchSuggestions(
   query: string,
   canonicalArtist: string | null = null,
 ): SearchSuggestionGroups {
+  const yearIntent = buildRvYearIntentSuggestions(query);
+  if (yearIntent) return yearIntent;
+
   const tier = suggestionBreadthTier(query.trim().length);
   const limits = suggestionSlotLimits(query.trim().length);
   const canonical =

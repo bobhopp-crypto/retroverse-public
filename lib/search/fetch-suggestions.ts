@@ -9,6 +9,7 @@ export type SuggestionsApiResponse = {
   suggestions: SearchSuggestionGroups;
   total: number;
   canonicalArtist?: string | null;
+  rvYearIntent?: boolean;
   error?: string;
 };
 
@@ -48,6 +49,7 @@ export async function fetchSearchSuggestions(
     suggestions: body.suggestions ?? EMPTY_SUGGESTION_GROUPS,
     total: typeof body.total === "number" ? body.total : 0,
     canonicalArtist: body.canonicalArtist ?? null,
+    rvYearIntent: body.rvYearIntent === true,
     error: body.error,
   };
 }

@@ -22,8 +22,8 @@ export const SEARCH_QUICK_LINKS: ControlLink[] = [
   { label: "Prince", href: "/search?q=Prince" },
   { label: "Elton John", href: "/search?q=Elton%20John" },
   { label: "Bruce Springsteen", href: "/search?q=Bruce%20Springsteen" },
-  { label: "76", href: "/search?q=76" },
-  { label: "84", href: "/search?q=84" },
+  { label: "76", href: "/rv/1976" },
+  { label: "84", href: "/rv/1984" },
 ];
 
 export const ARTIST_ROUTE_LINKS: ControlLink[] = Object.entries(ARTIST_SLUGS).map(
@@ -37,17 +37,17 @@ export const ARTIST_ROUTE_LINKS: ControlLink[] = Object.entries(ARTIST_SLUGS).ma
 export const CANONICAL_ALBUM_LINKS: ControlLink[] = [
   {
     label: "Rumours",
-    href: "/search?q=Fleetwood%20Mac%20Rumours",
+    href: "/album/RVAL000003",
     note: "RVAL000003",
   },
   {
     label: "The Dance",
-    href: "/search?q=Fleetwood%20Mac%20The%20Dance",
+    href: "/album/RVAL768327",
     note: "RVAL768327",
   },
   {
     label: "Mirage",
-    href: "/search?q=Fleetwood%20Mac%20Mirage",
+    href: "/album/RVAL106014",
     note: "RVAL106014",
   },
   {

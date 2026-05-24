@@ -1,3 +1,5 @@
+import { unstable_cache } from "next/cache";
+
 import { coverPathToUrl } from "@/lib/artist/cover-url";
 import type { ArtistChartHistory, ChartHistoryEntry } from "@/lib/artist/chart-history-types";
 import { inspectQuery } from "@/lib/inspect/pg";
@@ -78,7 +80,16 @@ function hot100Branch(
 function album200Branch(artistIdClause: string, yearClause: string): string {
   return `
     SELECT
-      ('album-' || al.id::text) AS track_id,
+      COALESCE(
+        (
+          SELECT upper(aek.external_key)
+          FROM album_external_keys aek
+          WHERE aek.album_id = al.id
+            AND aek.external_key ~* '^RVAL\\d{6}$'
+          LIMIT 1
+        ),
+        'album-' || al.id::text
+      ) AS track_id,
       al.title AS track_title,
       ca.chart_date::text AS chart_date,
       ca.chart_position,
@@ -93,6 +104,70 @@ function album200Branch(artistIdClause: string, yearClause: string): string {
     JOIN artists ar ON ar.id = al.artist_id
     WHERE ca.chart_name = 'Billboard 200'
     ${artistIdClause}
+    ${yearClause}
+  `;
+}
+
+/** RV year — #1 weekly rows only; canonical cover path, no artwork subqueries. */
+function rvYearHot100Branch(yearClause: string): string {
+  return `
+    SELECT
+      t.id::text AS track_id,
+      t.title AS track_title,
+      ca.chart_date::text AS chart_date,
+      ca.chart_position,
+      COALESCE(ca.weeks_on_chart, 0)::int AS weeks_on_chart,
+      ca.chart_name,
+      COALESCE(ar.canonical_name, '') AS artist_name,
+      al.canonical_cover_path AS cover_path,
+      NULL::int AS release_year,
+      NULL::text AS artwork_path,
+      NULL::text AS r2_cover_key
+    FROM chart_appearances ca
+    JOIN tracks t ON t.id = ca.track_id
+    JOIN artists ar ON ar.id = t.artist_id
+    LEFT JOIN LATERAL (
+      SELECT cat.album_id
+      FROM canonical_album_tracks cat
+      WHERE upper(trim(cat.canonical_track_key::text)) = upper(trim(t.id::text))
+      ORDER BY cat.position
+      LIMIT 1
+    ) link ON true
+    LEFT JOIN albums al ON al.id = link.album_id
+    WHERE ca.chart_name = 'Billboard Hot 100'
+      AND ca.chart_position = 1
+    ${yearClause}
+  `;
+}
+
+function rvYearAlbum200Branch(yearClause: string): string {
+  return `
+    SELECT
+      COALESCE(
+        (
+          SELECT upper(aek.external_key)
+          FROM album_external_keys aek
+          WHERE aek.album_id = al.id
+            AND aek.external_key ~* '^RVAL\\d{6}$'
+          LIMIT 1
+        ),
+        'album-' || al.id::text
+      ) AS track_id,
+      al.title AS track_title,
+      ca.chart_date::text AS chart_date,
+      ca.chart_position,
+      COALESCE(ca.weeks_on_chart, 0)::int AS weeks_on_chart,
+      ca.chart_name,
+      ar.canonical_name AS artist_name,
+      al.canonical_cover_path AS cover_path,
+      al.release_year AS release_year,
+      NULL::text AS artwork_path,
+      NULL::text AS r2_cover_key
+    FROM chart_appearances ca
+    JOIN albums al ON al.id = ca.album_id
+    JOIN artists ar ON ar.id = al.artist_id
+    WHERE ca.chart_name = 'Billboard 200'
+      AND ca.chart_position = 1
     ${yearClause}
   `;
 }
@@ -193,22 +268,19 @@ export async function loadArtistChartHistory(
   return { ...history, weeklyEntries: history.entries };
 }
 
-/** RV year snapshot — Hot 100 + Album 200 weekly rows for one RV Year. */
-export async function loadRvYearChartHistory(
-  rvYear: number,
-  coverByTrackId: Map<string, string> = new Map(),
-  fallbackCover: string | null = null,
+/** RV year snapshot — Hot 100 + Album 200 #1 weekly rows for one RV Year. */
+async function loadRvYearChartHistoryCore(
+  resolvedYear: number,
+  coverByTrackId: Map<string, string>,
+  fallbackCover: string | null,
 ): Promise<ArtistChartHistory | null> {
-  const resolvedYear = normalizeRVYear(rvYear);
-  if (resolvedYear == null) return null;
-
   const yearClause = "AND EXTRACT(YEAR FROM ca.chart_date)::int = $1";
 
   const rows = await queryWeeklyChartRows(
     `
-    ${hot100Branch("", yearClause, "''")}
+    ${rvYearHot100Branch(yearClause)}
     UNION ALL
-    ${album200Branch("", yearClause)}
+    ${rvYearAlbum200Branch(yearClause)}
     ORDER BY chart_date ASC
     `,
     [resolvedYear],
@@ -217,4 +289,26 @@ export async function loadRvYearChartHistory(
   const history = rowsToChartHistory(rows, coverByTrackId, fallbackCover, resolvedYear);
   if (!history) return null;
   return { ...history, weeklyEntries: history.entries };
+}
+
+const cachedRvYearChartHistory = (resolvedYear: number) =>
+  unstable_cache(
+    () => loadRvYearChartHistoryCore(resolvedYear, new Map(), null),
+    [`rv-year-chart-history-v2-${resolvedYear}`],
+    { revalidate: 3600, tags: [`rv-year-${resolvedYear}`] },
+  );
+
+export async function loadRvYearChartHistory(
+  rvYear: number,
+  coverByTrackId: Map<string, string> = new Map(),
+  fallbackCover: string | null = null,
+): Promise<ArtistChartHistory | null> {
+  const resolvedYear = normalizeRVYear(rvYear);
+  if (resolvedYear == null) return null;
+
+  if (coverByTrackId.size === 0 && fallbackCover == null) {
+    return cachedRvYearChartHistory(resolvedYear)();
+  }
+
+  return loadRvYearChartHistoryCore(resolvedYear, coverByTrackId, fallbackCover);
 }

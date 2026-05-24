@@ -1,0 +1,61 @@
+/* Shared song action language — stack + inline */
+
+.song-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.32rem;
+}
+
+.song-actions--stack {
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.2rem 0.15rem 0.2rem 0;
+}
+
+.song-actions--inline {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.15rem 0;
+}
+
+.song-actions__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  min-width: 2.4rem;
+  padding: 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #f5f2ea;
+  background: var(--stack-ink, #12343a);
+  border: 2px solid var(--stack-ink, #12343a);
+  border-radius: 0.35rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 rgba(18, 52, 58, 0.28);
+  text-decoration: none;
+}
+
+.song-actions--inline .song-actions__btn {
+  width: 2.15rem;
+  height: 2.15rem;
+  min-width: 2.15rem;
+  font-size: 0.75rem;
+}
+
+.song-actions__btn:hover {
+  background: var(--stack-teal, #0a5560);
+  border-color: var(--stack-teal, #0a5560);
+}
+
+.song-actions__btn--link {
+  color: #f5f2ea;
+}
+
+.song-actions__btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}

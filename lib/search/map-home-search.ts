@@ -1,4 +1,5 @@
 import { artistPagePath } from "@/lib/artist/resolve-artist";
+import { albumSuggestionHref, trackSuggestionHref } from "@/lib/search/entity-routes";
 import type { HomeSearchPayload } from "./home-search-types";
 import { artistKeysMatch, formatCanonicalSearchHeader } from "./canonicalize-search";
 import { dedupeByPanelId, dedupeSearchPanels, panelEntityId } from "./dedupe-panels";
@@ -127,6 +128,7 @@ export function mapHomeSearchToPanels(
         hasVdj: row.relation === "VDJ",
         coverAccent: accentFromKey(id),
         coverUrl: row.coverUrl ?? undefined,
+        href: albumSuggestionHref(title, row.href),
       };
     });
 
@@ -149,6 +151,7 @@ export function mapHomeSearchToPanels(
         hasVdj: row.relation === "VDJ" || row.hasVideo === true,
         coverAccent: accentFromKey(id),
         coverUrl: row.coverUrl ?? undefined,
+        href: trackSuggestionHref(title, row.href),
       };
     });
 
@@ -172,7 +175,7 @@ export function mapHomeSearchToPanels(
         ).length;
         const depth =
           albumCount > 0 || trackCount > 0
-            ? `${albumCount} albums · ${trackCount} tracks`
+            ? `${albumCount} albums · ${trackCount} songs`
             : undefined;
         return {
           id,

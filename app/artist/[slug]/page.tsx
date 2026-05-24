@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { artistSectionHref } from "@/lib/artist/routes";
+import { albumSuggestionHref } from "@/lib/search/entity-routes";
 import { ARTIST_SLUGS } from "@/lib/artist/slug";
 
 import { ArtistCover } from "./artist-cover";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: data ? `${data.displayName} — Retroverse` : "Artist — Retroverse",
     description: data
-      ? `${data.displayName} — albums, tracks, and years in Retroverse.`
+      ? `${data.displayName} — albums, songs, and years in Retroverse.`
       : undefined,
   };
 }
@@ -81,9 +82,10 @@ export default async function ArtistPage({ params }: Props) {
           </div>
           <div className="artist-shelf__scroll">
             {data.essentialAlbums.map((album) => {
-              const href = album.rval
-                ? `${process.env.SEARCH_UPSTREAM_BASE_URL?.replace(/\/$/, "") || "http://localhost:3000"}/albums/${album.rval}`
-                : `/search?q=${encodeURIComponent(album.title)}`;
+              const href = albumSuggestionHref(
+                album.title,
+                album.rval ? `/albums/${album.rval}` : null,
+              );
               return (
                 <a key={album.pgAlbumId} className="artist-album-tile" href={href}>
                   <ArtistCover
@@ -146,7 +148,7 @@ export default async function ArtistPage({ params }: Props) {
             <ArtistViewAll href={artistSectionHref(slug, "library")} variant="light" />
           </div>
           <p className="artist-library__count">
-            {data.libraryTracks} tracks · {data.libraryAlbums} albums
+            {data.libraryTracks} songs · {data.libraryAlbums} albums
           </p>
           <div className="artist-library__scroll">
             {libraryAlbumCovers.map((a) => (
@@ -188,14 +190,17 @@ export default async function ArtistPage({ params }: Props) {
               fallbackClassName="artist-era__cover artist-album-tile__fallback"
             />
           </div>
-          {data.chartAlbumSpotlight.rval && (
+          {data.chartAlbumSpotlight.rval ? (
             <a
               className="artist-era__cta"
-              href={`${process.env.SEARCH_UPSTREAM_BASE_URL?.replace(/\/$/, "") || "http://localhost:3000"}/albums/${data.chartAlbumSpotlight.rval}`}
+              href={albumSuggestionHref(
+                data.chartAlbumSpotlight.albumTitle,
+                `/albums/${data.chartAlbumSpotlight.rval}`,
+              )}
             >
               Open album →
             </a>
-          )}
+          ) : null}
         </section>
       )}
 

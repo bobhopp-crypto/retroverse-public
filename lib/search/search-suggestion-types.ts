@@ -5,9 +5,20 @@ export type SearchSuggestionKind = "artist" | "song" | "album" | "year";
 export type SearchSuggestionItem = {
   id: string;
   kind: SearchSuggestionKind;
+  /** Primary line — artist name, song title, album title, or year */
+  title: string;
+  /** Secondary line — artist for songs/albums */
+  artist?: string | null;
+  year?: number | null;
+  coverUrl?: string | null;
+  /** Legacy display string for accessibility */
   label: string;
-  /** Value for `/search?q=` */
+  /** Direct in-app entity route — suggestion tap navigates here. */
+  href: string;
+  /** Text query for Enter-key /search fallback. */
   routeQuery: string;
+  /** Primary CTA pill — e.g. OPEN RV YEAR */
+  actionLabel?: string | null;
 };
 
 export type SearchSuggestionGroups = {

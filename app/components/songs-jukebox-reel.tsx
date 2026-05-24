@@ -8,7 +8,9 @@ import {
   formatSongYear,
 } from "@/lib/artist/format-track-card";
 import type { JukeboxSongRow } from "@/lib/songs/jukebox-row";
+import { songActionTargetFromParts } from "@/lib/songs/song-actions";
 
+import { SongActions } from "@/app/components/song-actions";
 import "./songs-jukebox.css";
 
 type Props = {
@@ -49,12 +51,26 @@ function SongStackCard({
   const isActive = variant === "active";
 
   if (!isActive) {
+    const previewBody = (
+      <div className="song-stack-card__main">
+        <h3 className="song-stack-card__title">{row.title}</h3>
+        <p className="song-stack-card__artist">{row.artist}</p>
+      </div>
+    );
+
     return (
       <article id={id} className="song-stack-card song-stack-card--preview">
-        <div className="song-stack-card__main">
-          <h3 className="song-stack-card__title">{row.title}</h3>
-          <p className="song-stack-card__artist">{row.artist}</p>
-        </div>
+        {row.href ? (
+          <Link
+            href={row.href}
+            className="song-stack-card__preview-link"
+            aria-label={`Open ${row.title}`}
+          >
+            {previewBody}
+          </Link>
+        ) : (
+          previewBody
+        )}
       </article>
     );
   }
@@ -103,21 +119,16 @@ function SongStackCard({
               {textBlock}
             </div>
           )}
-          <div className="song-stack-card__actions">
-            <button type="button" className="song-stack-card__action" aria-label="Play">
-              ▶
-            </button>
-            <button
-              type="button"
-              className="song-stack-card__action"
-              aria-label="Add to playlist"
-            >
-              +
-            </button>
-            <button type="button" className="song-stack-card__action" aria-label="Curate">
-              ◎
-            </button>
-          </div>
+          <SongActions
+            layout="stack"
+            target={songActionTargetFromParts({
+              title: row.title,
+              artist: row.artist,
+              rvtr: row.rvtr,
+              id: row.id,
+              href: row.href,
+            })}
+          />
         </div>
       </div>
     </article>

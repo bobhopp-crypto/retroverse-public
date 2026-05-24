@@ -7,6 +7,7 @@ import {
   suggestionGroupCount,
 } from "@/lib/search/build-home-suggestions";
 import { normalizeHomeSearchPayload } from "@/lib/search/map-home-search";
+import { buildRvYearIntentSuggestions } from "@/lib/rv-year/rv-year-intent";
 import {
   shouldUseCanonicalSuggestionContext,
   suggestionBreadthTier,
@@ -28,6 +29,19 @@ export async function GET(request: Request) {
       suggestions: EMPTY_SUGGESTION_GROUPS,
       total: 0,
       canonicalArtist: null,
+      rvYearIntent: false,
+    });
+  }
+
+  const yearIntent = buildRvYearIntentSuggestions(q);
+  if (yearIntent) {
+    return NextResponse.json({
+      ok: true,
+      q,
+      suggestions: yearIntent,
+      total: 1,
+      canonicalArtist: null,
+      rvYearIntent: true,
     });
   }
 
@@ -54,7 +68,7 @@ export async function GET(request: Request) {
     );
   }
 
-  const upstream = `${upstreamBase}/api/home-search?q=${encodeURIComponent(upstreamQ)}`;
+  const upstream = `${upstreamBase}/api/home-search?q=${encodeURIComponent(upstreamQ)}&limit=48`;
 
   try {
     const res = await fetch(upstream, {
@@ -104,6 +118,7 @@ export async function GET(request: Request) {
       suggestions,
       total,
       canonicalArtist: preNorm?.resolved?.canonicalName ?? null,
+      rvYearIntent: false,
     });
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
