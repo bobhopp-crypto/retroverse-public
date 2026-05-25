@@ -12,6 +12,8 @@ type HomeSearchSuggestionsProps = {
   loading?: boolean;
   rvYearIntent?: boolean;
   onSelect: (item: SearchSuggestionItem) => void;
+  /** Extra root class — e.g. overlay terminal list */
+  className?: string;
 };
 
 const SECTIONS: {
@@ -84,13 +86,21 @@ export function HomeSearchSuggestions({
   loading = false,
   rvYearIntent = false,
   onSelect,
+  className = "",
 }: HomeSearchSuggestionsProps) {
   const hasAny = SECTIONS.some(({ key }) => groups[key].length > 0);
+  const rootClass = [
+    "home-search-suggestions",
+    rvYearIntent ? "home-search-suggestions--year-intent" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div
       id="home-search-suggestions"
-      className={`home-search-suggestions${rvYearIntent ? " home-search-suggestions--year-intent" : ""}`}
+      className={rootClass}
       role="listbox"
       aria-label="Search suggestions"
       aria-busy={loading}
