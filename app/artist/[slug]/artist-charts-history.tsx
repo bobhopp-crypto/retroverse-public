@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import {
   isUsableChartHistory,
   normalizeArtistChartHistory,
@@ -26,11 +28,13 @@ export function ArtistChartsHistory(props: Props) {
     : [];
 
   return (
-    <ArtistChartsHistoryClient
-      artistName={props.artistName}
-      history={safe}
-      highlightTrackIds={highlightTrackIds}
-      viewAllHref={props.viewAllHref}
-    />
+    <Suspense fallback={<p className="charts-history__empty">Loading chart history…</p>}>
+      <ArtistChartsHistoryClient
+        artistName={props.artistName}
+        history={safe}
+        highlightTrackIds={highlightTrackIds}
+        viewAllHref={props.viewAllHref}
+      />
+    </Suspense>
   );
 }

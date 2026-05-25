@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
   activeDecades,
@@ -24,6 +25,12 @@ import {
   readChartHistorySession,
   writeChartHistorySession,
 } from "@/lib/artist/chart-history-session";
+import {
+  chartHistoryQueryString,
+  chartHistoryUrlStatesEqual,
+  parseChartHistorySearchParams,
+  type ChartHistoryUrlState,
+} from "@/lib/artist/chart-history-url";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
@@ -102,27 +109,71 @@ export function ArtistChartsHistoryClient({
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null);
 
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const syncChartUrl = /\/artist\/[^/]+\/charts\/?$/.test(pathname);
+  const hydratedRef = useRef(false);
+  const applyingUrlRef = useRef(false);
+
   const artistStorageKey = useMemo(
     () => slugFromArtistName(artistName),
     [artistName],
   );
 
+  const urlState = useMemo(
+    () =>
+      syncChartUrl
+        ? parseChartHistorySearchParams(searchParams, activeYears, { useDecades })
+        : null,
+    [syncChartUrl, searchParams, activeYears, useDecades],
+  );
+
+  const applyChartState = (state: ChartHistoryUrlState) => {
+    setSelectedDecade(state.decade);
+    setSelectedYear(state.year);
+    setSelectedMonth(state.month);
+  };
+
+  const currentChartState = useMemo(
+    (): ChartHistoryUrlState => ({
+      decade: selectedDecade,
+      year: selectedYear,
+      month: selectedMonth,
+    }),
+    [selectedDecade, selectedYear, selectedMonth],
+  );
+
+  const chartsContextHref = useMemo(() => {
+    if (!syncChartUrl) return viewAllHref ?? null;
+    const qs = chartHistoryQueryString(currentChartState, { useDecades });
+    return qs ? `${pathname}?${qs}` : pathname;
+  }, [syncChartUrl, pathname, currentChartState, useDecades, viewAllHref]);
+
   useEffect(() => {
+    if (hydratedRef.current) return;
+
+    if (syncChartUrl && urlState) {
+      applyChartState(urlState);
+      hydratedRef.current = true;
+      return;
+    }
+
     const stored = readChartHistorySession(artistStorageKey);
     if (stored?.year != null && activeYears.includes(stored.year)) {
-      if (useDecades) {
-        setSelectedDecade(
-          stored.decade != null ? stored.decade : Math.floor(stored.year / 10) * 10,
-        );
-      } else {
-        setSelectedDecade(null);
-      }
-      setSelectedYear(stored.year);
-      setSelectedMonth(
-        stored.month != null && stored.month >= 1 && stored.month <= 12
-          ? stored.month
+      applyChartState({
+        decade: useDecades
+          ? stored.decade != null
+            ? stored.decade
+            : Math.floor(stored.year / 10) * 10
           : null,
-      );
+        year: stored.year,
+        month:
+          stored.month != null && stored.month >= 1 && stored.month <= 12
+            ? stored.month
+            : null,
+      });
+      hydratedRef.current = true;
       return;
     }
 
@@ -133,26 +184,74 @@ export function ArtistChartsHistoryClient({
         : null;
 
     if (preload == null) {
-      setSelectedDecade(null);
-      setSelectedYear(null);
-      setSelectedMonth(null);
+      applyChartState({ decade: null, year: null, month: null });
+      hydratedRef.current = true;
       return;
     }
 
-    if (useDecades) setSelectedDecade(Math.floor(preload / 10) * 10);
-    else setSelectedDecade(null);
-
-    setSelectedYear(preload);
-    setSelectedMonth(null);
-  }, [artistStorageKey, entries.length, initialRvYear, useDecades, activeYears]);
+    applyChartState({
+      decade: useDecades ? Math.floor(preload / 10) * 10 : null,
+      year: preload,
+      month: null,
+    });
+    hydratedRef.current = true;
+  }, [
+    artistStorageKey,
+    entries.length,
+    initialRvYear,
+    useDecades,
+    activeYears,
+    syncChartUrl,
+    urlState,
+  ]);
 
   useEffect(() => {
-    writeChartHistorySession(artistStorageKey, {
-      decade: selectedDecade,
-      year: selectedYear,
-      month: selectedMonth,
+    if (!syncChartUrl || !hydratedRef.current || applyingUrlRef.current) return;
+
+    if (urlState) {
+      if (chartHistoryUrlStatesEqual(urlState, currentChartState)) return;
+      applyChartState(urlState);
+      return;
+    }
+
+    const hasUrlParams =
+      searchParams.get("year") ||
+      searchParams.get("month") ||
+      searchParams.get("decade");
+    if (hasUrlParams) return;
+
+    if (
+      currentChartState.year != null ||
+      currentChartState.month != null ||
+      currentChartState.decade != null
+    ) {
+      applyChartState({ decade: null, year: null, month: null });
+    }
+  }, [syncChartUrl, urlState, currentChartState, searchParams]);
+
+  useEffect(() => {
+    if (!syncChartUrl || !hydratedRef.current) return;
+    const qs = chartHistoryQueryString(currentChartState, { useDecades });
+    const currentQs = searchParams.toString();
+    if (qs === currentQs) return;
+    applyingUrlRef.current = true;
+    const href = qs ? `${pathname}?${qs}` : pathname;
+    router.replace(href, { scroll: false });
+    queueMicrotask(() => {
+      applyingUrlRef.current = false;
     });
-  }, [artistStorageKey, selectedDecade, selectedYear, selectedMonth]);
+  }, [
+    syncChartUrl,
+    currentChartState,
+    useDecades,
+    pathname,
+    router,
+    searchParams,
+  ]);
+
+  useEffect(() => {
+    writeChartHistorySession(artistStorageKey, currentChartState);
+  }, [artistStorageKey, currentChartState]);
 
   const highlightIds = useMemo(() => {
     const ids = safeHighlightIds
@@ -185,30 +284,6 @@ export function ArtistChartsHistoryClient({
   }, [weeklyEntries, selectedYear, selectedMonth]);
 
   const hasSnapshots = singleSnapshots.length > 0 || albumSnapshots.length > 0;
-
-  useEffect(() => {
-    console.log("[charts-history]", {
-      activeYears,
-      decades,
-      visibleYears,
-      monthsWithData: [...monthsWithData],
-      selected: { selectedDecade, selectedYear, selectedMonth },
-      singles: singleSnapshots.length,
-      albums: albumSnapshots.length,
-      weeklyCount: weeklyEntries.length,
-    });
-  }, [
-    activeYears,
-    decades,
-    visibleYears,
-    monthsWithData,
-    selectedDecade,
-    selectedYear,
-    selectedMonth,
-    singleSnapshots.length,
-    albumSnapshots.length,
-    weeklyEntries.length,
-  ]);
 
   const renderSnapshotCard = (snapshot: RvChartSnapshot) => {
     if (!snapshot?.id) return null;
@@ -274,7 +349,7 @@ export function ArtistChartsHistoryClient({
               href,
               artistSlug: artistStorageKey,
               chartYear: snapshot.year,
-              chartsHref: viewAllHref ?? null,
+              chartsHref: chartsContextHref,
             })}
           />
         ) : null}
@@ -310,7 +385,6 @@ export function ArtistChartsHistoryClient({
   };
 
   if (!isUsableChartHistory(safeHistory)) {
-    console.log("[charts-history]", "no usable data — empty state");
     return (
       <section className="charts-history charts-history--empty" role="status">
         <p className="charts-history__empty">No chart history available for this artist yet.</p>
