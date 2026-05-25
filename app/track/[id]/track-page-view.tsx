@@ -39,7 +39,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
       <div className="track-exhibit__grain" aria-hidden />
 
       <header className="track-topbar">
-        <Link href="/" className="track-logo">
+        <Link href="/" className="track-logo" prefetch>
           Retroverse
         </Link>
         <span className="track-file-tag">Song File · {data.rvtr}</span>
@@ -58,7 +58,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
           <p className="track-hero__eyebrow">Now entering</p>
           <h1 className="track-hero__title">{data.title}</h1>
           <p className="track-hero__artist-line">
-            <Link href={data.artistHref} className="track-hero__artist">
+            <Link href={data.artistHref} prefetch className="track-hero__artist">
               {data.artistName}
             </Link>
             {data.releaseYear != null ? (
@@ -84,7 +84,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
           <div className="track-section-head track-section-head--journey">
             <h2 id="track-chart-journey">Song journey</h2>
             {data.rvYearHref ? (
-              <Link href={data.rvYearHref} className="track-section-link">
+              <Link href={data.rvYearHref} prefetch className="track-section-link">
                 Open {yearLabel} →
               </Link>
             ) : null}
@@ -119,7 +119,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
           </div>
           <div className="track-shelf__scroll">
             {data.albums.map((album) => (
-              <Link key={album.rval ?? album.title} href={album.href} className="track-album-tile">
+              <Link key={album.rval ?? album.title} href={album.href} prefetch className="track-album-tile">
                 <ArtistCover
                   src={album.coverUrl}
                   alt=""
@@ -138,7 +138,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
         <section className="track-related" aria-labelledby="track-related-songs">
           <div className="track-section-head track-section-head--dark">
             <h2 id="track-related-songs">Related songs</h2>
-            <Link href={data.artistHref} className="track-section-link track-section-link--light">
+            <Link href={data.artistHref} prefetch className="track-section-link track-section-link--light">
               {data.artistName} →
             </Link>
           </div>
@@ -146,7 +146,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
             {data.relatedTracks.map((song) => (
               <li key={song.rvtr}>
                 <div className="track-related__item">
-                  <Link href={song.href} className="track-related__row">
+                  <Link href={song.href} prefetch className="track-related__row">
                     <span className="track-related__title">{song.title}</span>
                     <span className="track-related__meta">
                       {formatSongYear(song.releaseYear)}
@@ -160,6 +160,8 @@ export function TrackPageView({ data }: TrackPageViewProps) {
                       artist: data.artistName,
                       rvtr: song.rvtr,
                       href: song.href,
+                      artistSlug: data.artistSlug,
+                      chartYear: song.releaseYear,
                     }}
                   />
                 </div>
@@ -170,8 +172,12 @@ export function TrackPageView({ data }: TrackPageViewProps) {
       ) : null}
 
       <footer className="track-footer">
-        <Link href={data.artistHref}>← {data.artistName}</Link>
-        <Link href="/">Home</Link>
+        <Link href={data.artistHref} prefetch>
+          ← {data.artistName}
+        </Link>
+        <Link href="/" prefetch>
+          Home
+        </Link>
       </footer>
     </div>
   );

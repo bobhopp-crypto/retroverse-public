@@ -50,7 +50,7 @@ export default async function ArtistPage({ params }: Props) {
       <div className="artist-exhibit__grain" aria-hidden />
 
       <header className="artist-topbar">
-        <Link href="/" className="artist-logo">
+        <Link href="/" className="artist-logo" prefetch>
           Retroverse
         </Link>
         <span className="artist-file-tag">Artist File · {data.fileCode}</span>
@@ -221,7 +221,12 @@ export default async function ArtistPage({ params }: Props) {
           </div>
           <div className="artist-related__row">
             {data.relatedArtists.map((rel) => (
-              <Link key={rel.slug} href={`/artist/${rel.slug}`} className="artist-related__circle">
+              <Link
+                key={rel.slug}
+                href={`/artist/${rel.slug}`}
+                prefetch
+                className="artist-related__circle"
+              >
                 {rel.coverUrl ? (
                   <ArtistCover
                     src={rel.coverUrl}

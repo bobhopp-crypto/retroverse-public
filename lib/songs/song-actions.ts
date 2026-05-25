@@ -1,3 +1,4 @@
+import { slugFromArtistName } from "@/lib/artist/slug";
 import { trackPageHref } from "@/lib/search/entity-routes";
 
 export type SongActionTarget = {
@@ -5,6 +6,9 @@ export type SongActionTarget = {
   artist: string;
   rvtr?: string | null;
   href?: string | null;
+  artistSlug?: string | null;
+  chartYear?: number | null;
+  chartsHref?: string | null;
 };
 
 const RE_RVTR = /^RVTR\d{6}$/i;
@@ -25,6 +29,23 @@ export function songPageHrefForTarget(target: SongActionTarget): string | null {
   return null;
 }
 
+export function songArtistHref(target: SongActionTarget): string | null {
+  const slug = target.artistSlug?.trim() || slugFromArtistName(target.artist);
+  return slug ? `/artist/${slug}` : null;
+}
+
+export function songRvYearHref(target: SongActionTarget): string | null {
+  const y = target.chartYear;
+  if (typeof y !== "number" || !Number.isFinite(y) || y < 1950 || y > 2035) return null;
+  return `/rv/${Math.trunc(y)}`;
+}
+
+export function songChartsHref(target: SongActionTarget): string | null {
+  if (target.chartsHref?.trim()) return target.chartsHref.trim();
+  const artist = songArtistHref(target);
+  return artist ? `${artist}/charts` : null;
+}
+
 /** Curate / inspect — existing graph inspector workflow. */
 export function songInspectHref(target: SongActionTarget): string {
   const rvtr = rvtrFromToken(target.rvtr);
@@ -39,11 +60,17 @@ export function songActionTargetFromParts(parts: {
   rvtr?: string | null;
   id?: string | null;
   href?: string | null;
+  artistSlug?: string | null;
+  chartYear?: number | null;
+  chartsHref?: string | null;
 }): SongActionTarget {
   return {
     title: parts.title,
     artist: parts.artist,
     rvtr: parts.rvtr ?? rvtrFromToken(parts.id ?? null),
     href: parts.href ?? null,
+    artistSlug: parts.artistSlug ?? null,
+    chartYear: parts.chartYear ?? null,
+    chartsHref: parts.chartsHref ?? null,
   };
 }

@@ -63,6 +63,7 @@ function SongStackCard({
         {row.href ? (
           <Link
             href={row.href}
+            prefetch
             className="song-stack-card__preview-link"
             aria-label={`Open ${row.title}`}
           >
@@ -109,6 +110,7 @@ function SongStackCard({
           {row.href ? (
             <Link
               href={row.href}
+              prefetch
               className="song-stack-card__main song-stack-card__main--grow"
               aria-label={`Open ${row.title}`}
             >
@@ -127,6 +129,7 @@ function SongStackCard({
               rvtr: row.rvtr,
               id: row.id,
               href: row.href,
+              chartYear: row.releaseYear,
             })}
           />
         </div>

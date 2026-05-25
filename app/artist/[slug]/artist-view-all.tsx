@@ -8,7 +8,7 @@ type Props = {
 
 export function ArtistViewAll({ href, variant = "dark" }: Props) {
   return (
-    <Link href={href} className={`artist-view-all artist-view-all--${variant}`}>
+    <Link href={href} prefetch className={`artist-view-all artist-view-all--${variant}`}>
       View All →
     </Link>
   );

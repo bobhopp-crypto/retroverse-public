@@ -20,6 +20,11 @@ import {
   isUsableChartHistory,
   normalizeArtistChartHistory,
 } from "@/lib/artist/chart-history";
+import {
+  readChartHistorySession,
+  writeChartHistorySession,
+} from "@/lib/artist/chart-history-session";
+import { slugFromArtistName } from "@/lib/artist/slug";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
 import { songActionTargetFromParts } from "@/lib/songs/song-actions";
@@ -97,7 +102,30 @@ export function ArtistChartsHistoryClient({
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null);
 
+  const artistStorageKey = useMemo(
+    () => slugFromArtistName(artistName),
+    [artistName],
+  );
+
   useEffect(() => {
+    const stored = readChartHistorySession(artistStorageKey);
+    if (stored?.year != null && activeYears.includes(stored.year)) {
+      if (useDecades) {
+        setSelectedDecade(
+          stored.decade != null ? stored.decade : Math.floor(stored.year / 10) * 10,
+        );
+      } else {
+        setSelectedDecade(null);
+      }
+      setSelectedYear(stored.year);
+      setSelectedMonth(
+        stored.month != null && stored.month >= 1 && stored.month <= 12
+          ? stored.month
+          : null,
+      );
+      return;
+    }
+
     const resolvedInitial = normalizeRVYear(initialRvYear);
     const preload =
       resolvedInitial != null && activeYears.includes(resolvedInitial)
@@ -116,7 +144,15 @@ export function ArtistChartsHistoryClient({
 
     setSelectedYear(preload);
     setSelectedMonth(null);
-  }, [artistName, entries.length, initialRvYear, useDecades, activeYears]);
+  }, [artistStorageKey, entries.length, initialRvYear, useDecades, activeYears]);
+
+  useEffect(() => {
+    writeChartHistorySession(artistStorageKey, {
+      decade: selectedDecade,
+      year: selectedYear,
+      month: selectedMonth,
+    });
+  }, [artistStorageKey, selectedDecade, selectedYear, selectedMonth]);
 
   const highlightIds = useMemo(() => {
     const ids = safeHighlightIds
@@ -216,7 +252,12 @@ export function ArtistChartsHistoryClient({
         className={`charts-history-card${active ? " charts-history-card--active" : ""}`}
       >
         {href ? (
-          <Link href={href} className="charts-history-card__link" aria-label={`Open ${snapshot.title}`}>
+          <Link
+            href={href}
+            prefetch
+            className="charts-history-card__link"
+            aria-label={`Open ${snapshot.title}`}
+          >
             {cardBody}
           </Link>
         ) : (
@@ -231,6 +272,9 @@ export function ArtistChartsHistoryClient({
               artist: snapshot.artist || artistName,
               rvtr: snapshot.trackId,
               href,
+              artistSlug: artistStorageKey,
+              chartYear: snapshot.year,
+              chartsHref: viewAllHref ?? null,
             })}
           />
         ) : null}

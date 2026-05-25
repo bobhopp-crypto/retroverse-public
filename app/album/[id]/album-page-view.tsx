@@ -85,7 +85,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
               <li key={`${track.position}-${track.title}`} className="album-tracklist__item">
                 <div className="album-tracklist__item-inner">
                   {track.href ? (
-                    <Link href={track.href} className="album-tracklist__row album-tracklist__row--link">
+                    <Link href={track.href} prefetch className="album-tracklist__row album-tracklist__row--link">
                       <span className="album-tracklist__position">{track.position}</span>
                       <span className="album-tracklist__title">{track.title}</span>
                     </Link>
@@ -103,6 +103,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
                         artist: data.artistName,
                         rvtr: track.rvtr,
                         href: track.href,
+                        artistSlug: data.artistSlug,
                       }}
                     />
                   ) : null}

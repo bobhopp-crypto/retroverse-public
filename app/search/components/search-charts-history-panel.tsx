@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo } from "react";
 
 import { ArtistChartsHistoryClient } from "@/app/artist/[slug]/artist-charts-history-client";
@@ -75,9 +76,15 @@ export function SearchChartsHistoryPanel({
         <h2 id="search-charts-heading" className="search-charts-history__title">
           {title}
         </h2>
-        <a className="search-charts-history__view-all" href={viewAllHref}>
-          {viewAllLabel}
-        </a>
+        {viewAllHref.startsWith("/") ? (
+          <Link className="search-charts-history__view-all" href={viewAllHref} prefetch>
+            {viewAllLabel}
+          </Link>
+        ) : (
+          <a className="search-charts-history__view-all" href={viewAllHref}>
+            {viewAllLabel}
+          </a>
+        )}
       </div>
 
       <div className="search-charts-history__stack">

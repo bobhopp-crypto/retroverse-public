@@ -86,7 +86,7 @@ export function DiscoverCard({
   return (
     <li className="discover-card-slot">
       {href ? (
-        <Link href={href} className="discover-card" aria-label={ariaLabel}>
+        <Link href={href} prefetch className="discover-card" aria-label={ariaLabel}>
           {body}
         </Link>
       ) : (

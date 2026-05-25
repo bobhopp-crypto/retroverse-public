@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import {
   DEBUG_HOTSPOTS,
@@ -58,10 +59,22 @@ export function HomePosterFrame() {
             </div>
           );
         }
+        if (href.startsWith("mailto:")) {
+          return (
+            <a
+              key={key}
+              href={href}
+              className="hotspot"
+              style={style}
+              aria-label={aria}
+            />
+          );
+        }
         return (
-          <a
+          <Link
             key={key}
             href={href}
+            prefetch
             className="hotspot"
             style={style}
             aria-label={aria}

@@ -7,7 +7,7 @@ export default function RvYearLoading() {
     <div className="rv-year-world" aria-busy="true" aria-label="Loading RV year">
       <div className="rv-year-world__grain" aria-hidden />
       <header className="rv-year-topbar">
-        <Link href="/" className="rv-year-logo">
+        <Link href="/" className="rv-year-logo" prefetch>
           Retroverse
         </Link>
         <span className="rv-year-file-tag">RV Year</span>

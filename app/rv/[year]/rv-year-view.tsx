@@ -48,7 +48,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
       <div className="rv-year-world__grain" aria-hidden />
 
       <header className="rv-year-topbar">
-        <Link href="/" className="rv-year-logo">
+        <Link href="/" className="rv-year-logo" prefetch>
           Retroverse
         </Link>
         <span className="rv-year-file-tag">RV Year · {rvYear}</span>
@@ -56,7 +56,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
 
       <nav className="rv-year-nav" aria-label="Year navigation">
         {prevYear != null ? (
-          <Link href={`/rv/${prevYear}`} className="rv-year-nav__link">
+          <Link href={`/rv/${prevYear}`} prefetch className="rv-year-nav__link">
             ← {prevYear}
           </Link>
         ) : (
@@ -64,11 +64,11 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
             ←
           </span>
         )}
-        <Link href="/" className="rv-year-nav__link rv-year-nav__link--explore">
+        <Link href="/" prefetch className="rv-year-nav__link rv-year-nav__link--explore">
           Explore
         </Link>
         {nextYear != null ? (
-          <Link href={`/rv/${nextYear}`} className="rv-year-nav__link">
+          <Link href={`/rv/${nextYear}`} prefetch className="rv-year-nav__link">
             {nextYear} →
           </Link>
         ) : (
