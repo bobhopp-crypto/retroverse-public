@@ -312,6 +312,35 @@
   font-size: 0.88rem;
 }
 
+.home-search-suggestions--overlay .home-search-suggestions__count {
+  font-weight: 600;
+  opacity: 0.65;
+}
+
+.home-search-suggestions__more {
+  display: block;
+  width: 100%;
+  margin: 0.35rem 0 0.5rem;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: left;
+  color: #1f5e63;
+  background: rgba(31, 94, 99, 0.08);
+  border: 2px dashed rgba(45, 62, 70, 0.28);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.home-search-suggestions__mark {
+  background: rgba(224, 122, 79, 0.35);
+  color: inherit;
+  padding: 0 0.05em;
+  border-radius: 1px;
+}
+
 @media (prefers-color-scheme: dark) {
   .home-search-overlay {
     background: #2d3e46;

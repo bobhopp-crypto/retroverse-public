@@ -10,22 +10,18 @@ CREATE MATERIALIZED VIEW search_entities AS
 SELECT
   'artist'::text AS entity_type,
   a.canonical_name AS label,
-  lower(
-    regexp_replace(
-      regexp_replace(trim(a.canonical_name), '^the\s+', '', 'i'),
-      '[^a-z0-9]+',
-      ' ',
-      'g'
-    )
+  regexp_replace(
+    regexp_replace(lower(trim(a.canonical_name)), '^the\s+', '', 'g'),
+    '[^a-z0-9]+',
+    ' ',
+    'g'
   ) AS normalized_label,
   NULL::text AS rv_id,
-  lower(
-    regexp_replace(
-      regexp_replace(trim(a.canonical_name), '^the\s+', '', 'i'),
-      '[^a-z0-9]+',
-      '-',
-      'g'
-    )
+  regexp_replace(
+    regexp_replace(lower(trim(a.canonical_name)), '^the\s+', '', 'g'),
+    '[^a-z0-9]+',
+    '-',
+    'g'
   ) AS slug,
   NULL::text AS artist_name,
   NULL::int AS release_year,
@@ -43,18 +39,14 @@ UNION ALL
 SELECT
   'album'::text,
   al.title,
-  lower(
-    regexp_replace(
-      trim(al.title) || ' ' || trim(ar.canonical_name),
-      '[^a-z0-9]+',
-      ' ',
-      'g'
-    )
+  regexp_replace(
+    lower(trim(al.title) || ' ' || trim(ar.canonical_name)),
+    '[^a-z0-9]+',
+    ' ',
+    'g'
   ),
   upper(trim(aek.external_key)),
-  lower(
-    regexp_replace(trim(al.title), '[^a-z0-9]+', '-', 'g')
-  ),
+  regexp_replace(lower(trim(al.title)), '[^a-z0-9]+', '-', 'g'),
   ar.canonical_name,
   al.release_year,
   al.canonical_cover_path
@@ -67,18 +59,14 @@ UNION ALL
 SELECT
   'track'::text,
   ctd.canonical_title,
-  lower(
-    regexp_replace(
-      trim(ctd.canonical_title) || ' ' || trim(ctd.canonical_artist_name),
-      '[^a-z0-9]+',
-      ' ',
-      'g'
-    )
+  regexp_replace(
+    lower(trim(ctd.canonical_title) || ' ' || trim(ctd.canonical_artist_name)),
+    '[^a-z0-9]+',
+    ' ',
+    'g'
   ),
   upper(trim(ctd.track_id)),
-  lower(
-    regexp_replace(trim(ctd.canonical_title), '[^a-z0-9]+', '-', 'g')
-  ),
+  regexp_replace(lower(trim(ctd.canonical_title)), '[^a-z0-9]+', '-', 'g'),
   ctd.canonical_artist_name,
   NULL::int,
   NULL::text

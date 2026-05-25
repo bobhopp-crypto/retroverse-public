@@ -258,6 +258,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
                 className="home-search-overlay-results"
                 overlayMode
                 pending={suggestLoading}
+                highlightQuery={trimmed}
                 groups={suggestions}
                 loading={false}
                 rvYearIntent={rvYearIntent}

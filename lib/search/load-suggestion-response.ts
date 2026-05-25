@@ -3,6 +3,7 @@ import "server-only";
 import { buildSearchNormalization } from "@/lib/search/build-search-normalization";
 import { entitiesToSuggestionGroups } from "@/lib/search/entities-to-suggestions";
 import { querySearchEntities } from "@/lib/search/query-search-entities";
+import { searchBreadthTier } from "@/lib/search/search-breadth";
 import { buildRvYearIntentSuggestions } from "@/lib/rv-year/rv-year-intent";
 import { EMPTY_SUGGESTION_GROUPS } from "@/lib/search/search-suggestion-types";
 import type { SearchSuggestionGroups } from "@/lib/search/search-suggestion-types";
@@ -65,6 +66,7 @@ export async function loadSuggestionResponse(q: string): Promise<SuggestionRespo
     console.log("[search-suggestions]", {
       q,
       source: "entities",
+      breadth: searchBreadthTier(q),
       canonicalArtist,
       total,
       artists: suggestions.artists.length,

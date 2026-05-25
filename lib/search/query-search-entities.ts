@@ -4,6 +4,7 @@ import { coverPathToUrl } from "@/lib/artist/cover-url";
 import { artistPagePath } from "@/lib/artist/resolve-artist";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
+import { dedupeSearchEntities } from "@/lib/search/dedupe-search-entities";
 import {
   albumSuggestionHref,
   trackPageHref,
@@ -13,13 +14,18 @@ import {
   normalizeSearchLabel,
   searchQueryTokens,
 } from "@/lib/search/normalize-search-label";
+import {
+  searchBreadthTier,
+  searchEntityLimits,
+  searchSqlFetchLimit,
+} from "@/lib/search/search-breadth";
 import type { SearchEntity, SearchEntityType } from "@/lib/search/search-entity-types";
 
-const LIMITS: Record<SearchEntityType, number> = {
-  artist: 10,
-  album: 8,
-  track: 10,
-  year: 4,
+const TYPE_SORT: Record<SearchEntityType, number> = {
+  artist: 0,
+  album: 1,
+  track: 2,
+  year: 3,
 };
 
 type EntityRow = {
@@ -31,7 +37,8 @@ type EntityRow = {
   artist_name: string | null;
   release_year: number | null;
   cover_path: string | null;
-  rank_score: number;
+  match_rank: number;
+  type_rank: number;
 };
 
 function sanitizePattern(query: string): string {
@@ -73,7 +80,7 @@ function rowToEntity(row: EntityRow): SearchEntity {
     artist: row.artist_name,
     year: row.release_year,
     coverUrl: coverPathToUrl(row.cover_path),
-    rank: row.rank_score,
+    rank: row.match_rank * 10 + row.type_rank,
   };
 }
 
@@ -99,26 +106,26 @@ const INLINE_SOURCE = `
   SELECT
     'artist'::text AS entity_type,
     a.canonical_name AS label,
-    lower(regexp_replace(regexp_replace(trim(a.canonical_name), '^the\\s+', '', 'i'), '[^a-z0-9]+', ' ', 'g')) AS normalized_label,
+    regexp_replace(regexp_replace(lower(trim(a.canonical_name)), '^the\\s+', '', 'g'), '[^a-z0-9]+', ' ', 'g') AS normalized_label,
     NULL::text AS rv_id,
-    lower(regexp_replace(regexp_replace(trim(a.canonical_name), '^the\\s+', '', 'i'), '[^a-z0-9]+', '-', 'g')) AS slug,
+    regexp_replace(regexp_replace(lower(trim(a.canonical_name)), '^the\\s+', '', 'g'), '[^a-z0-9]+', '-', 'g') AS slug,
     NULL::text AS artist_name,
     NULL::int AS release_year,
     (SELECT al.canonical_cover_path FROM albums al WHERE al.artist_id = a.id AND al.canonical_cover_path IS NOT NULL ORDER BY al.release_year DESC NULLS LAST LIMIT 1) AS cover_path
   FROM artists a
   UNION ALL
   SELECT 'album'::text, al.title,
-    lower(regexp_replace(trim(al.title) || ' ' || trim(ar.canonical_name), '[^a-z0-9]+', ' ', 'g')),
+    regexp_replace(lower(trim(al.title) || ' ' || trim(ar.canonical_name)), '[^a-z0-9]+', ' ', 'g'),
     upper(trim(aek.external_key)),
-    lower(regexp_replace(trim(al.title), '[^a-z0-9]+', '-', 'g')),
+    regexp_replace(lower(trim(al.title)), '[^a-z0-9]+', '-', 'g'),
     ar.canonical_name, al.release_year, al.canonical_cover_path
   FROM albums al
   JOIN artists ar ON ar.id = al.artist_id
   LEFT JOIN album_external_keys aek ON aek.album_id = al.id
   UNION ALL
   SELECT 'track'::text, ctd.canonical_title,
-    lower(regexp_replace(trim(ctd.canonical_title) || ' ' || trim(ctd.canonical_artist_name), '[^a-z0-9]+', ' ', 'g')),
-    upper(trim(ctd.track_id)), lower(regexp_replace(trim(ctd.canonical_title), '[^a-z0-9]+', '-', 'g')),
+    regexp_replace(lower(trim(ctd.canonical_title) || ' ' || trim(ctd.canonical_artist_name)), '[^a-z0-9]+', ' ', 'g'),
+    upper(trim(ctd.track_id)), regexp_replace(lower(trim(ctd.canonical_title)), '[^a-z0-9]+', '-', 'g'),
     ctd.canonical_artist_name, NULL::int, NULL::text
   FROM canonical_track_display ctd
   UNION ALL
@@ -136,6 +143,7 @@ function buildMatchSql(
   tokens: string[],
   useTrgm: boolean,
   fromClause: string,
+  perTypeLimits: Record<SearchEntityType, number>,
 ): { sql: string; params: unknown[] } {
   const matchTokens = tokens.length > 0 ? tokens : [pattern];
   const params: unknown[] = [...matchTokens];
@@ -147,30 +155,87 @@ function buildMatchSql(
       ? `(${tokenClauses[0]} OR se.normalized_label % $1)`
       : tokenClauses.map((c) => `(${c})`).join(" AND ");
 
-  const rankExpr = `
+  const fullNorm = matchTokens.join(" ");
+
+  const matchRank = `
     (CASE
-      WHEN se.normalized_label LIKE $1 || '%' THEN 0
-      WHEN se.normalized_label LIKE '% ' || $1 || '%' THEN 1
-      WHEN se.normalized_label LIKE '%' || $1 || '%' THEN 2
-      ELSE 3
-    END)`; // $1 = primary match token
+      WHEN se.normalized_label = $1 THEN 0
+      WHEN $${params.length + 1} <> '' AND se.normalized_label = $${params.length + 1} THEN 1
+      WHEN se.normalized_label LIKE $1 || '%' THEN 2
+      WHEN split_part(se.normalized_label, ' ', 1) LIKE $1 || '%' THEN 3
+      WHEN se.normalized_label LIKE '% ' || $1 || '%' THEN 4
+      WHEN se.normalized_label LIKE '%' || $1 || '%' THEN 5
+      ELSE 6
+    END)`;
+
+  params.push(fullNorm);
+
+  const typeRank = `
+    (CASE se.entity_type
+      WHEN 'artist' THEN 0
+      WHEN 'album' THEN 1
+      WHEN 'track' THEN 2
+      WHEN 'year' THEN 3
+      ELSE 4
+    END)`;
 
   const trgmRank = useTrgm
     ? `, similarity(se.normalized_label, $1) AS trgm_score`
     : `, 0::real AS trgm_score`;
 
+  const windowOrder = useTrgm
+    ? `${matchRank} ASC, similarity(se.normalized_label, $1) DESC NULLS LAST`
+    : `${matchRank} ASC`;
+
   const sql = `
-    SELECT se.entity_type, se.label, se.normalized_label, se.rv_id, se.slug,
-      se.artist_name, se.release_year, se.cover_path,
-      ${rankExpr} AS rank_score
-      ${trgmRank}
-    FROM (${fromClause}) se
-    WHERE ${where}
-    ORDER BY rank_score ASC, trgm_score DESC NULLS LAST, length(se.normalized_label), se.label
-    LIMIT 80
+    SELECT entity_type, label, normalized_label, rv_id, slug,
+      artist_name, release_year, cover_path, match_rank, type_rank
+    FROM (
+      SELECT se.entity_type, se.label, se.normalized_label, se.rv_id, se.slug,
+        se.artist_name, se.release_year, se.cover_path,
+        ${matchRank} AS match_rank,
+        ${typeRank} AS type_rank
+        ${trgmRank},
+        row_number() OVER (
+          PARTITION BY se.entity_type
+          ORDER BY ${windowOrder},
+            length(se.normalized_label), se.label
+        ) AS type_row
+      FROM (${fromClause}) se
+      WHERE ${where}
+    ) ranked
+    WHERE (entity_type = 'artist' AND type_row <= ${perTypeLimits.artist})
+       OR (entity_type = 'album' AND type_row <= ${perTypeLimits.album})
+       OR (entity_type = 'track' AND type_row <= ${perTypeLimits.track})
+       OR (entity_type = 'year' AND type_row <= ${perTypeLimits.year})
+    ORDER BY match_rank ASC, type_rank ASC,
+      position($1 in normalized_label) ASC NULLS LAST,
+      length(normalized_label) ASC, label ASC
   `;
 
   return { sql, params };
+}
+
+function capByType(
+  entities: SearchEntity[],
+  limits: Record<SearchEntityType, number>,
+): SearchEntity[] {
+  const counts: Record<SearchEntityType, number> = {
+    artist: 0,
+    album: 0,
+    track: 0,
+    year: 0,
+  };
+  const out: SearchEntity[] = [];
+
+  for (const entity of entities) {
+    const type = entity.entityType;
+    if (counts[type] >= limits[type]) continue;
+    counts[type] += 1;
+    out.push(entity);
+  }
+
+  return out;
 }
 
 /** Deterministic entity narrowing — primary overlay search source. */
@@ -181,32 +246,36 @@ export async function querySearchEntities(query: string): Promise<SearchEntity[]
   const pattern = sanitizePattern(query);
   if (pattern.length < 1) return [];
 
+  const tier = searchBreadthTier(query);
+  const limits = searchEntityLimits(tier);
+  const sqlPerType = searchSqlFetchLimit(tier);
   const tokens = searchQueryTokens(query);
   const useTrgm = await hasPgTrgm();
   const useMatview = await hasSearchEntitiesMatview();
   const fromClause = useMatview ? `search_entities` : INLINE_SOURCE;
 
-  const { sql, params } = buildMatchSql(pattern, tokens, useTrgm, fromClause);
+  const { sql, params } = buildMatchSql(
+    pattern,
+    tokens,
+    useTrgm,
+    fromClause,
+    {
+      artist: sqlPerType,
+      album: sqlPerType,
+      track: sqlPerType,
+      year: Math.min(sqlPerType, 24),
+    },
+  );
   const rows = await inspectQuery<EntityRow & { trgm_score?: number }>(sql, params);
 
-  const byType: Record<SearchEntityType, SearchEntity[]> = {
-    artist: [],
-    album: [],
-    track: [],
-    year: [],
-  };
+  const deduped = dedupeSearchEntities(rows.map(rowToEntity));
+  deduped.sort(
+    (a, b) =>
+      a.rank - b.rank ||
+      TYPE_SORT[a.entityType] - TYPE_SORT[b.entityType] ||
+      a.normalizedLabel.length - b.normalizedLabel.length ||
+      a.label.localeCompare(b.label, undefined, { sensitivity: "base" }),
+  );
 
-  for (const row of rows) {
-    const type = row.entity_type as SearchEntityType;
-    if (!LIMITS[type]) continue;
-    if (byType[type].length >= LIMITS[type]) continue;
-    byType[type].push(rowToEntity(row));
-  }
-
-  return [
-    ...byType.artist,
-    ...byType.track,
-    ...byType.album,
-    ...byType.year,
-  ];
+  return capByType(deduped, limits);
 }

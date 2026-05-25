@@ -15,8 +15,10 @@ function entityToItem(entity: SearchEntity): SearchSuggestionItem {
       ? `${entity.label} · ${entity.artist}`
       : entity.label;
 
+  const hrefKey = entity.href.split("?")[0] ?? entity.href;
+
   return {
-    id: `${entity.entityType}-${entity.rvId ?? entity.slug}`,
+    id: `${entity.entityType}-${hrefKey}`,
     kind:
       entity.entityType === "track"
         ? "song"
