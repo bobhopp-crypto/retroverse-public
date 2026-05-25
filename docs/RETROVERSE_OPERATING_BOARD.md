@@ -5,6 +5,59 @@
 
 ---
 
+## Navigation integrity — Tier A / B1 / B2 (2026-05-25)
+
+| Tier | Status | Commit |
+|------|--------|--------|
+| **A** — loading shells, prefetch, RV session memory, song actions v1 | **DONE** | `e48fee9` |
+| **B1** — persistent artist exhibit shell (`layout.tsx`) | **DONE** | `a2e1689` |
+| **B2** — URL-addressable chart exhibit state | **DONE** | `a6fdf83` |
+
+| Field | Value |
+|-------|--------|
+| **Live URL** | https://retroverse.live |
+| **Vercel production** | **Ready** — deployment `a6fdf83` (2026-05-25) |
+
+### Tier B2 — URL-state behavior
+
+Applies to **`/artist/[slug]/charts` only** (search, main exhibit embed, `/charts`, `/rv/[year]` unchanged).
+
+| Param | Example | Notes |
+|-------|---------|--------|
+| `year` | `?year=1973` | Must be in artist `activeYears`; invalid dropped |
+| `month` | `?month=5` | Requires valid `year`; 1–12 |
+| `decade` | `?decade=1980s` | Decade-only step when artist uses decade pills |
+
+**Priority on load:** URL → `sessionStorage` → `initialRvYear`.
+
+**Sync:** `router.replace(pathname + query, { scroll: false })` when decade/year/month changes.
+
+**Examples:** `/artist/elton-john/charts?year=1973&month=5` · `/artist/madonna/charts?decade=1980s`
+
+**Implementation:** `lib/artist/chart-history-url.ts` · `artist-charts-history-client.tsx` (Suspense wrapper in `artist-charts-history.tsx`).
+
+### Production smoke (2026-05-25, `a6fdf83`)
+
+| Route | HTTP | Checks |
+|-------|------|--------|
+| `/artist/elton-john` | 200 | `artist-exhibit-nav` present; no `%22%22` cover URLs |
+| `/artist/elton-john/charts?year=1973&month=5` | 200 | exhibit shell + `charts-history` |
+| `/artist/madonna/charts?decade=1980s` | 200 | exhibit shell + chart module |
+| `/track/RVTR772059` | 200 | track page OK; covers OK |
+
+Vercel check: **success**. Client URL/back/forward behavior is hydration-driven (not asserted by curl).
+
+### Remaining continuity gaps
+
+- **B1 hero** — layout uses PG chart-weighted cover; welcome-search hero not used in shell.
+- **B2 scope** — main artist page chart preview still session-only (no URL params on `/artist/[slug]`).
+- **B2 server** — year/month/decade selection hydrates on client; no SSR pre-selection from query.
+- **Mode nav** — albums / tracks / years / related not in top exhibit pills.
+- **`/artist/[slug]/charts`** — full chart payload load unchanged (~2.5–3s).
+- **Cross-artist** — slug change remounts exhibit layout (expected).
+
+---
+
 ## Production deployment — performance stabilization (2026-05-25)
 
 | Field | Value |
@@ -55,6 +108,7 @@
 | RV History on search (year modes, month-first, snapshots) | **DONE** — do not restyle |
 | Search Results Experience v1 polish | **PAUSED** — superseded by architecture below |
 | Search Intent Interceptor (architecture) | **LOCKED** — not implemented yet |
+| Navigation integrity — Tier A / B1 / B2 | **DONE** — see section above |
 
 ---
 
