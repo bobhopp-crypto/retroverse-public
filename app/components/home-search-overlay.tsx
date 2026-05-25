@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 
@@ -10,16 +10,25 @@ import {
   type SearchSuggestionItem,
 } from "@/lib/search/search-suggestion-types";
 import {
+  pickFirstSuggestion,
+  suggestionGroupsHaveResults,
+} from "@/lib/search/pick-first-suggestion";
+import { resolveSuggestionHref } from "@/lib/search/resolve-suggestion-href";
+import {
   isRvYearOnlyQuery,
   resolveInstantRvYearRoute,
   resolveRvYearOnlyQuery,
 } from "@/lib/rv-year/rv-year-intent";
 import { yearSuggestionHref } from "@/lib/search/entity-routes";
 
+import { HomeSearchOverlayRecovery } from "./home-search-overlay-recovery";
+import { HomeSearchOverlaySearching } from "./home-search-overlay-searching";
 import { HomeSearchSuggestions } from "./home-search-suggestions";
 import "./home-search-overlay.css";
 
 const DEBOUNCE_MS = 150;
+
+type OverlayPhase = "idle" | "year" | "searching" | "results" | "empty";
 
 type Props = {
   onClose: () => void;
@@ -38,7 +47,21 @@ export function HomeSearchOverlay({ onClose }: Props) {
 
   const trimmed = query.trim();
   const isYearPowerRoute = isRvYearOnlyQuery(trimmed);
-  const showResults = trimmed.length >= 2 && !isYearPowerRoute;
+  const hasResults = suggestionGroupsHaveResults(suggestions);
+
+  const phase: OverlayPhase = useMemo(() => {
+    if (trimmed.length < 2) return "idle";
+    if (isYearPowerRoute) return "year";
+    if (suggestLoading && !hasResults) return "searching";
+    if (suggestLoading && hasResults) return "results";
+    if (hasResults) return "results";
+    return "empty";
+  }, [trimmed.length, isYearPowerRoute, suggestLoading, hasResults]);
+
+  const resolvedYear = useMemo(() => {
+    if (!isYearPowerRoute) return null;
+    return resolveInstantRvYearRoute(trimmed) ?? resolveRvYearOnlyQuery(trimmed);
+  }, [trimmed, isYearPowerRoute]);
 
   useEffect(() => {
     setMounted(true);
@@ -68,43 +91,39 @@ export function HomeSearchOverlay({ onClose }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  const routeInstantYear = useCallback(
-    (raw: string) => {
-      const year = resolveInstantRvYearRoute(raw);
-      if (year == null) return false;
+  const navigateTo = useCallback(
+    (href: string) => {
       onClose();
-      router.push(yearSuggestionHref(year));
-      return true;
-    },
-    [router, onClose],
-  );
-
-  const routeToSearch = useCallback(
-    (raw: string) => {
-      const v = raw.trim();
-      if (v.length < 2) return;
-      if (routeInstantYear(v)) return;
-      const rvYear = resolveRvYearOnlyQuery(v);
-      onClose();
-      if (rvYear != null) {
-        router.push(yearSuggestionHref(rvYear));
-        return;
-      }
-      router.push(`/search?q=${encodeURIComponent(v)}`);
-    },
-    [router, onClose, routeInstantYear],
-  );
-
-  const routeFromSuggestion = useCallback(
-    (item: SearchSuggestionItem) => {
-      const href = item.href?.trim();
-      if (!href || href.startsWith("/search")) return;
-      onClose();
-      setQuery(item.routeQuery);
       router.push(href);
     },
     [router, onClose],
   );
+
+  const routeFromSuggestion = useCallback(
+    (item: SearchSuggestionItem) => {
+      const href = resolveSuggestionHref(item);
+      if (!href) return;
+      navigateTo(href);
+    },
+    [navigateTo],
+  );
+
+  const routeBestMatch = useCallback(() => {
+    if (isYearPowerRoute && resolvedYear != null) {
+      navigateTo(yearSuggestionHref(resolvedYear));
+      return;
+    }
+    const first = pickFirstSuggestion(suggestions);
+    if (first) {
+      routeFromSuggestion(first);
+    }
+  }, [
+    isYearPowerRoute,
+    resolvedYear,
+    suggestions,
+    navigateTo,
+    routeFromSuggestion,
+  ]);
 
   useEffect(() => {
     if (trimmed.length < 2) {
@@ -116,6 +135,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
     }
 
     if (isRvYearOnlyQuery(trimmed)) {
+      requestIdRef.current += 1;
       setSuggestions(EMPTY_SUGGESTION_GROUPS);
       setSuggestLoading(false);
       setRvYearIntent(false);
@@ -143,7 +163,6 @@ export function HomeSearchOverlay({ onClose }: Props) {
 
     return () => {
       window.clearTimeout(timer);
-      requestIdRef.current += 1;
     };
   }, [trimmed]);
 
@@ -175,14 +194,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
               Close
             </button>
           </div>
-          <form
-            className="home-search-overlay__field-wrap"
-            role="search"
-            onSubmit={(e) => {
-              e.preventDefault();
-              routeToSearch(query);
-            }}
-          >
+          <div className="home-search-overlay__field-wrap" role="search">
             <input
               ref={inputRef}
               type="search"
@@ -191,37 +203,60 @@ export function HomeSearchOverlay({ onClose }: Props) {
               aria-label="Search artists, albums, and tracks"
               autoComplete="off"
               spellCheck={false}
-              enterKeyHint="search"
+              enterKeyHint="go"
               placeholder="Search the stacks…"
               value={query}
-              onChange={(e) => {
-                const next = e.target.value;
-                setQuery(next);
-                if (routeInstantYear(next)) return;
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  routeBestMatch();
+                }
               }}
             />
-            <button type="submit" className="home-search-overlay__submit">
-              Go
-            </button>
-          </form>
+          </div>
         </header>
 
         <div className="home-search-overlay__scroll">
-          {trimmed.length < 2 ? (
-            <p className="home-search-suggestions__status" role="status">
-              Type to search artists, albums, tracks, or an RV year.
-            </p>
-          ) : isYearPowerRoute ? (
-            <p className="home-search-suggestions__status" role="status">
-              Press Go to open RV {trimmed}.
-            </p>
-          ) : showResults ? (
-            <HomeSearchSuggestions
-              className="home-search-overlay-results"
-              groups={suggestions}
-              loading={suggestLoading}
-              rvYearIntent={rvYearIntent}
-              onSelect={routeFromSuggestion}
+          {phase === "idle" ? (
+            <HomeSearchOverlayRecovery mode="idle" onNavigate={navigateTo} />
+          ) : null}
+
+          {phase === "year" && resolvedYear != null ? (
+            <div className="home-search-overlay-year">
+              <p className="home-search-overlay-year__label">RV Year</p>
+              <button
+                type="button"
+                className="home-search-overlay-year__open"
+                onClick={() => navigateTo(yearSuggestionHref(resolvedYear))}
+              >
+                Open RV {resolvedYear}
+              </button>
+            </div>
+          ) : null}
+
+          {phase === "searching" ? <HomeSearchOverlaySearching /> : null}
+
+          {phase === "results" ? (
+            <>
+              {suggestLoading ? <HomeSearchOverlaySearching compact /> : null}
+              <HomeSearchSuggestions
+                className="home-search-overlay-results"
+                overlayMode
+                pending={suggestLoading}
+                groups={suggestions}
+                loading={false}
+                rvYearIntent={rvYearIntent}
+                onSelect={routeFromSuggestion}
+              />
+            </>
+          ) : null}
+
+          {phase === "empty" ? (
+            <HomeSearchOverlayRecovery
+              mode="empty"
+              query={trimmed}
+              onNavigate={navigateTo}
             />
           ) : null}
         </div>

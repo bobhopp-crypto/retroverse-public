@@ -14,6 +14,10 @@ type HomeSearchSuggestionsProps = {
   onSelect: (item: SearchSuggestionItem) => void;
   /** Extra root class — e.g. overlay terminal list */
   className?: string;
+  /** Overlay terminal — suppress poster empty copy */
+  overlayMode?: boolean;
+  /** Stale results while a new request is in flight */
+  pending?: boolean;
 };
 
 const SECTIONS: {
@@ -87,15 +91,21 @@ export function HomeSearchSuggestions({
   rvYearIntent = false,
   onSelect,
   className = "",
+  overlayMode = false,
+  pending = false,
 }: HomeSearchSuggestionsProps) {
   const hasAny = SECTIONS.some(({ key }) => groups[key].length > 0);
   const rootClass = [
     "home-search-suggestions",
     rvYearIntent ? "home-search-suggestions--year-intent" : "",
+    pending ? "home-search-suggestions--pending" : "",
     className,
   ]
     .filter(Boolean)
     .join(" ");
+
+  const showPosterStatus = !overlayMode;
+  const showPosterEmpty = showPosterStatus && !loading && !hasAny;
 
   return (
     <div
@@ -103,17 +113,17 @@ export function HomeSearchSuggestions({
       className={rootClass}
       role="listbox"
       aria-label="Search suggestions"
-      aria-busy={loading}
+      aria-busy={loading || pending}
     >
-      {loading ? (
+      {showPosterStatus && loading ? (
         <p className="home-search-suggestions__status" role="status">
           {hasAny ? "Updating…" : "Searching the stacks…"}
         </p>
       ) : null}
 
-      {!loading && !hasAny ? (
+      {showPosterEmpty ? (
         <p className="home-search-suggestions__status" role="status">
-          No matches yet — press Enter to search.
+          No matches yet — try another spelling.
         </p>
       ) : null}
 
