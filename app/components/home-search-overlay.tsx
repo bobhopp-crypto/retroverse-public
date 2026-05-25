@@ -28,7 +28,7 @@ import "./home-search-overlay.css";
 
 const DEBOUNCE_MS = 150;
 
-type OverlayPhase = "idle" | "year" | "searching" | "results" | "empty";
+type OverlayPhase = "idle" | "year" | "searching" | "results" | "empty" | "error";
 
 type Props = {
   onClose: () => void;
@@ -44,6 +44,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
   const [suggestions, setSuggestions] = useState(EMPTY_SUGGESTION_GROUPS);
   const [suggestLoading, setSuggestLoading] = useState(false);
   const [rvYearIntent, setRvYearIntent] = useState(false);
+  const [searchError, setSearchError] = useState<string | null>(null);
 
   const trimmed = query.trim();
   const isYearPowerRoute = isRvYearOnlyQuery(trimmed);
@@ -55,8 +56,9 @@ export function HomeSearchOverlay({ onClose }: Props) {
     if (suggestLoading && !hasResults) return "searching";
     if (suggestLoading && hasResults) return "results";
     if (hasResults) return "results";
+    if (searchError) return "error";
     return "empty";
-  }, [trimmed.length, isYearPowerRoute, suggestLoading, hasResults]);
+  }, [trimmed.length, isYearPowerRoute, suggestLoading, hasResults, searchError]);
 
   const resolvedYear = useMemo(() => {
     if (!isYearPowerRoute) return null;
@@ -131,6 +133,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
       setSuggestions(EMPTY_SUGGESTION_GROUPS);
       setSuggestLoading(false);
       setRvYearIntent(false);
+      setSearchError(null);
       return;
     }
 
@@ -139,11 +142,13 @@ export function HomeSearchOverlay({ onClose }: Props) {
       setSuggestions(EMPTY_SUGGESTION_GROUPS);
       setSuggestLoading(false);
       setRvYearIntent(false);
+      setSearchError(null);
       return;
     }
 
     const requestId = ++requestIdRef.current;
     setSuggestLoading(true);
+    setSearchError(null);
 
     const timer = window.setTimeout(() => {
       fetchSearchSuggestions(trimmed)
@@ -152,11 +157,20 @@ export function HomeSearchOverlay({ onClose }: Props) {
           if (result.ok) {
             setSuggestions(result.suggestions);
             setRvYearIntent(result.rvYearIntent === true);
+            setSearchError(result.error ?? null);
+          } else {
+            setSuggestions(EMPTY_SUGGESTION_GROUPS);
+            setRvYearIntent(false);
+            setSearchError(result.error ?? "Search unavailable");
           }
           setSuggestLoading(false);
         })
-        .catch(() => {
+        .catch((err) => {
           if (requestId !== requestIdRef.current) return;
+          setSuggestions(EMPTY_SUGGESTION_GROUPS);
+          setSearchError(
+            err instanceof Error ? err.message : "Search request failed",
+          );
           setSuggestLoading(false);
         });
     }, DEBOUNCE_MS);
@@ -250,6 +264,18 @@ export function HomeSearchOverlay({ onClose }: Props) {
                 onSelect={routeFromSuggestion}
               />
             </>
+          ) : null}
+
+          {phase === "error" ? (
+            <div className="home-search-overlay-error" role="alert">
+              <p className="home-search-overlay-error__lead">
+                Archive index unreachable.
+              </p>
+              <p className="home-search-overlay-error__detail">{searchError}</p>
+              <p className="home-search-overlay-error__hint">
+                Check SEARCH_UPSTREAM_BASE_URL or local Postgres (RETROVERSE_PG_*).
+              </p>
+            </div>
           ) : null}
 
           {phase === "empty" ? (

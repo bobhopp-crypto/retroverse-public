@@ -115,13 +115,12 @@ export function upstreamQueryForSuggestions(
   canonicalName: string | null,
 ): string {
   const q = rawQuery.trim();
-  if (!q) return q;
-  if (!shouldUseCanonicalSuggestionContext(q) || !canonicalName?.trim()) return q;
+  if (!q || !canonicalName?.trim()) return q;
 
   const key = norm(q).replace(/^the\s+/, "");
   const canonKey = norm(canonicalName).replace(/^the\s+/, "");
   if (key === canonKey) return canonicalName;
-  if (key.length >= 4 && (canonKey.startsWith(key) || key.startsWith(canonKey))) {
+  if (key.length >= 3 && (canonKey.startsWith(key) || key.startsWith(canonKey))) {
     return canonicalName;
   }
   return q;

@@ -216,6 +216,27 @@
   color: rgba(18, 52, 58, 0.55);
 }
 
+.home-search-overlay-error {
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  border: 3px solid #b83d2a;
+  background: rgba(252, 246, 236, 0.95);
+}
+
+.home-search-overlay-error__lead {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #b83d2a;
+}
+
+.home-search-overlay-error__detail,
+.home-search-overlay-error__hint {
+  margin: 0 0 0.35rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
 .home-search-overlay-year__open {
   display: block;
   width: 100%;
