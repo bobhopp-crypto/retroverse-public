@@ -11,7 +11,6 @@ import { ArtistCover } from "./artist-cover";
 import { ArtistChartsHistory } from "./artist-charts-history";
 import { ArtistSongsRotator } from "./artist-songs-rotator";
 import { ArtistViewAll } from "./artist-view-all";
-import "./artist-page.css";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -46,34 +45,7 @@ export default async function ArtistPage({ params }: Props) {
   const libraryAlbumCovers = data.essentialAlbums.filter((a) => a.coverUrl).slice(0, 8);
 
   return (
-    <div className="artist-exhibit">
-      <div className="artist-exhibit__grain" aria-hidden />
-
-      <header className="artist-topbar">
-        <Link href="/" className="artist-logo" prefetch>
-          Retroverse
-        </Link>
-        <span className="artist-file-tag">Artist File · {data.fileCode}</span>
-      </header>
-
-      <section className="artist-hero" aria-label={`${data.displayName} hero`}>
-        {data.heroImageUrl ? (
-          <ArtistCover
-            src={data.heroImageUrl}
-            alt=""
-            className="artist-hero__photo"
-            fallbackClassName="artist-hero__photo-fallback"
-          />
-        ) : (
-          <div className="artist-hero__photo-fallback" aria-hidden />
-        )}
-        <span className="artist-hero__vinyl-deco" aria-hidden />
-      </section>
-
-      <div className="artist-hero__headline">
-        <h1 className="artist-hero__name">{data.displayName}</h1>
-      </div>
-
+    <>
       {data.essentialAlbums.length > 0 && (
         <section className="artist-shelf" aria-labelledby="essential-albums">
           <div className="artist-section-head artist-section-head--light">
@@ -261,13 +233,6 @@ export default async function ArtistPage({ params }: Props) {
           ))}
         </div>
       </section>
-
-      <nav className="artist-footer-nav" aria-label="Site">
-        <Link href="/">Home</Link>
-        <Link href="/search">Search</Link>
-        <Link href={`/inspect?q=${encodeURIComponent(data.displayName)}`}>Inspect</Link>
-        <Link href={`/artist/${slug}`}>Artist</Link>
-      </nav>
-    </div>
+    </>
   );
 }

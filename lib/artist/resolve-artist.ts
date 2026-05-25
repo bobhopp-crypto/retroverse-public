@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 import { inspectQuery } from "@/lib/inspect/pg";
 import {
   artistMatchKeys,
@@ -54,7 +56,7 @@ export function artistPagePath(name: string): string {
   return `/artist/${slugFromArtistName(name)}`;
 }
 
-export async function resolveArtistFromSlug(slug: string): Promise<{
+async function resolveArtistFromSlugImpl(slug: string): Promise<{
   artistId: number;
   canonicalName: string;
   displayName: string;
@@ -110,6 +112,8 @@ export async function resolveArtistFromSlug(slug: string): Promise<{
 
   return null;
 }
+
+export const resolveArtistFromSlug = cache(resolveArtistFromSlugImpl);
 
 /** Resolve artist for search chart history — query + panel artist/song hints. */
 export async function resolveArtistForSearchQuery(

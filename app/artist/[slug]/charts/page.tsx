@@ -14,13 +14,11 @@ export default async function ArtistChartsPage({ params }: Props) {
 
   if (data.chartHistory) {
     return (
-      <div className="artist-exhibit artist-exhibit--section">
-        <ArtistChartsHistory
-          artistName={data.displayName}
-          history={data.chartHistory}
-          highlightTrackIds={data.signatureTracks.map((t) => t.rvtr)}
-        />
-      </div>
+      <ArtistChartsHistory
+        artistName={data.displayName}
+        history={data.chartHistory}
+        highlightTrackIds={data.signatureTracks.map((t) => t.rvtr)}
+      />
     );
   }
 

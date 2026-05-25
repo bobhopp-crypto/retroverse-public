@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { loadArtistPage } from "@/lib/artist/load-artist-page";
+import { loadArtistExhibitShell } from "@/lib/artist/load-artist-exhibit-shell";
 
 import { ArtistSectionPlaceholder } from "../section-placeholder";
 
@@ -8,12 +8,12 @@ type Props = { params: Promise<{ slug: string }> };
 
 export default async function ArtistRelatedPage({ params }: Props) {
   const { slug } = await params;
-  const data = await loadArtistPage(slug);
-  if (!data) notFound();
+  const shell = await loadArtistExhibitShell(slug);
+  if (!shell) notFound();
   return (
     <ArtistSectionPlaceholder
-      slug={data.slug}
-      displayName={data.displayName}
+      slug={shell.slug}
+      displayName={shell.displayName}
       title="Related Artists"
     />
   );
