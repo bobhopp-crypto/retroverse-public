@@ -19,6 +19,8 @@ export type SearchSuggestionItem = {
   routeQuery: string;
   /** Primary CTA pill — e.g. OPEN RV YEAR */
   actionLabel?: string | null;
+  /** Canonical RV id when known (RVTR/RVAL/RVAR). */
+  rvId?: string | null;
 };
 
 export type SearchSuggestionGroups = {
