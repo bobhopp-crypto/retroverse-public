@@ -5,6 +5,7 @@ import { useState } from "react";
 import { HOME_SEARCH_ZONE, posterRectPctStyle } from "@/lib/home/poster-layout";
 
 import { HomeSearchOverlay } from "./home-search-overlay";
+import "./home-search-overlay.css";
 
 /**
  * Poster search trigger — opens isolated fullscreen terminal.

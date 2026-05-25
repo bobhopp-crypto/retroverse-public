@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 
@@ -65,14 +65,12 @@ export function HomeSearchOverlay({ onClose }: Props) {
     return resolveInstantRvYearRoute(trimmed) ?? resolveRvYearOnlyQuery(trimmed);
   }, [trimmed, isYearPowerRoute]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
     document.documentElement.classList.add("home-search-overlay-open");
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
 
     const focusTimer = window.requestAnimationFrame(() => {
       inputRef.current?.focus({ preventScroll: true });
@@ -81,7 +79,6 @@ export function HomeSearchOverlay({ onClose }: Props) {
     return () => {
       window.cancelAnimationFrame(focusTimer);
       document.documentElement.classList.remove("home-search-overlay-open");
-      document.body.style.overflow = prevOverflow;
     };
   }, []);
 
