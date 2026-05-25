@@ -1,15 +1,24 @@
 const COVERS_SEGMENT = "retroverse/covers/";
 
+function sanitizeCoverBase(raw: string): string | null {
+  let b = raw.trim();
+  if (!b) return null;
+  // Mistaken Vercel/env values (e.g. literal "") must not prefix cover paths.
+  if (b === '""' || b === "''" || /^["']{2}$/.test(b)) return null;
+  b = b.replace(/\/+$/, "").replace(/\/retroverse\/covers$/i, "").replace(/\/+$/, "");
+  if (!b) return null;
+  if (b.startsWith("http://") || b.startsWith("https://")) return b;
+  return null;
+}
+
 export function getRetroverseCoverBaseUrl(): string | null {
   for (const raw of [
     process.env.RETROVERSE_COVER_BASE_URL,
     process.env.NEXT_PUBLIC_RETROVERSE_COVER_BASE_URL,
   ]) {
-    if (typeof raw === "string" && raw.trim()) {
-      let b = raw.trim().replace(/\/+$/, "");
-      b = b.replace(/\/retroverse\/covers$/i, "").replace(/\/+$/, "");
-      return b;
-    }
+    if (typeof raw !== "string") continue;
+    const b = sanitizeCoverBase(raw);
+    if (b) return b;
   }
   return null;
 }
@@ -31,12 +40,13 @@ export function coverPathToUrl(
   const base = getRetroverseCoverBaseUrl();
   const tryPath = (raw: string | null | undefined): string | null => {
     if (!raw?.trim()) return null;
-    const p = raw.trim();
+    let p = raw.trim();
+    p = p.replace(/^["']{2}\//, "/");
     if (p.startsWith("http://") || p.startsWith("https://")) return p;
     if (p.startsWith("/retroverse/covers/")) return p;
     const rel = normalizeRelativeCoverPath(p);
     if (!rel) return null;
-    if (base) return `${base.replace(/\/+$/, "")}/${rel}`;
+    if (base) return `${base}/${rel}`;
     return `/${rel}`;
   };
   return tryPath(path) ?? tryPath(r2Key);
