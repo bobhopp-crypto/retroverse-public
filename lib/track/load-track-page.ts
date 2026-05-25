@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 import { coverPathToUrl } from "@/lib/artist/cover-url";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
@@ -68,7 +70,7 @@ type TrackRow = {
   has_vdj_media: boolean;
 };
 
-export async function loadTrackPage(idParam: string): Promise<TrackPageData | null> {
+async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null> {
   const ping = await inspectPing();
   if (!ping.ok) return null;
 
@@ -270,3 +272,6 @@ export async function loadTrackPage(idParam: string): Promise<TrackPageData | nu
     rvYearHref: rvYear != null ? `/rv/${rvYear}` : null,
   };
 }
+
+/** Dedupes metadata + page within one request. */
+export const loadTrackPage = cache(loadTrackPageImpl);

@@ -232,13 +232,47 @@ async function queryWeeklyChartRows(
   return inspectQuery<ChartHistoryRow>(sql, params);
 }
 
-export async function loadArtistChartHistory(
+/** Artist exhibit preview — recent weekly rows only (full history on /charts). */
+export const ARTIST_CHART_PREVIEW_LIMIT = 400;
+
+/** Full artist chart route — matches prior default cap. */
+export const ARTIST_CHART_FULL_LIMIT = 2000;
+
+export type ArtistChartHistoryScope = "preview" | "full";
+
+function artistWeeklyChartSql(
+  artistClause: string,
+  albumArtistClause: string,
+  yearClause: string,
+  scope: ArtistChartHistoryScope,
+): string {
+  const union = `
+    ${hot100Branch(artistClause, yearClause)}
+    UNION ALL
+    ${album200Branch(albumArtistClause, yearClause)}
+  `;
+  if (yearClause) {
+    return `${union} ORDER BY chart_date ASC`;
+  }
+  if (scope === "preview") {
+    return `
+      SELECT * FROM (
+        ${union}
+        ORDER BY chart_date DESC
+        LIMIT ${ARTIST_CHART_PREVIEW_LIMIT}
+      ) recent
+      ORDER BY chart_date ASC
+    `;
+  }
+  return `${union} ORDER BY chart_date ASC LIMIT ${ARTIST_CHART_FULL_LIMIT}`;
+}
+
+async function fetchArtistWeeklyChartRows(
   artistId: number,
   artistName: string,
-  coverByTrackId: Map<string, string>,
-  fallbackCover: string | null,
+  scope: ArtistChartHistoryScope,
   rvYear?: number | null,
-): Promise<ArtistChartHistory | null> {
+): Promise<ChartHistoryRow[]> {
   const resolvedYear = normalizeRVYear(rvYear);
   const artistClause = "AND t.artist_id = $2";
   const albumArtistClause = "AND al.artist_id = $2";
@@ -250,18 +284,37 @@ export async function loadArtistChartHistory(
   const params: (string | number)[] =
     resolvedYear != null ? [artistName, artistId, resolvedYear] : [artistName, artistId];
 
-  const limitClause = resolvedYear != null ? "" : "LIMIT 2000";
-
-  const rows = await queryWeeklyChartRows(
-    `
-    ${hot100Branch(artistClause, yearClause)}
-    UNION ALL
-    ${album200Branch(albumArtistClause, albumYearClause)}
-    ORDER BY chart_date ASC
-    ${limitClause}
-    `,
+  return queryWeeklyChartRows(
+    artistWeeklyChartSql(artistClause, albumArtistClause, yearClause, scope),
     params,
   );
+}
+
+const cachedArtistWeeklyChartRows = (
+  artistId: number,
+  scope: ArtistChartHistoryScope,
+) =>
+  unstable_cache(
+    () => fetchArtistWeeklyChartRows(artistId, "", scope, null),
+    [`artist-chart-rows-v1-${artistId}-${scope}`],
+    { revalidate: 3600, tags: [`artist-chart-${artistId}`] },
+  );
+
+export async function loadArtistChartHistory(
+  artistId: number,
+  artistName: string,
+  coverByTrackId: Map<string, string>,
+  fallbackCover: string | null,
+  rvYear?: number | null,
+  scope: ArtistChartHistoryScope = "preview",
+): Promise<ArtistChartHistory | null> {
+  const resolvedYear = normalizeRVYear(rvYear);
+  const useCache =
+    resolvedYear == null && coverByTrackId.size === 0 && fallbackCover == null;
+
+  const rows = useCache
+    ? await cachedArtistWeeklyChartRows(artistId, scope)()
+    : await fetchArtistWeeklyChartRows(artistId, artistName, scope, rvYear);
 
   const history = rowsToChartHistory(rows, coverByTrackId, fallbackCover, resolvedYear);
   if (!history) return null;

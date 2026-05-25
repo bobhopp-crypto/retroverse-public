@@ -1,6 +1,13 @@
-import { Pool } from "pg";
+import { Pool, type PoolConfig } from "pg";
 
 let pool: Pool | null = null;
+
+function pgSsl(): PoolConfig["ssl"] {
+  const host = (process.env.RETROVERSE_PG_HOST ?? "localhost").trim();
+  if (host === "localhost" || host === "127.0.0.1") return undefined;
+  if (process.env.RETROVERSE_PG_SSL === "0") return undefined;
+  return { rejectUnauthorized: false };
+}
 
 export function getInspectPool(): Pool {
   if (!pool) {
@@ -10,6 +17,7 @@ export function getInspectPool(): Pool {
       database: process.env.RETROVERSE_PG_DATABASE ?? "retroverse",
       user: process.env.RETROVERSE_PG_USER ?? "bobhopp",
       password: process.env.RETROVERSE_PG_PASSWORD ?? "",
+      ssl: pgSsl(),
       max: 3,
     });
   }

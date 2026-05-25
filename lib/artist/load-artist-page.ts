@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { coverPathToUrl } from "@/lib/artist/cover-url";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
@@ -11,7 +13,10 @@ import type {
   RelatedArtistCard,
 } from "@/lib/artist/types";
 
-import { loadArtistChartHistory } from "@/lib/artist/load-chart-history";
+import {
+  loadArtistChartHistory,
+  type ArtistChartHistoryScope,
+} from "@/lib/artist/load-chart-history";
 import { normalizeHomeSearchPayload } from "@/lib/search/map-home-search";
 
 const RE_RVAL_HREF = /\/albums\/(RVAL\d{6})/i;
@@ -44,7 +49,16 @@ async function fetchHomeSearch(name: string) {
   }
 }
 
-export async function loadArtistPage(slug: string): Promise<ArtistPageData | null> {
+export type LoadArtistPageOptions = {
+  /** `preview` on main exhibit; `full` on /artist/[slug]/charts */
+  chartScope?: ArtistChartHistoryScope;
+};
+
+async function loadArtistPageImpl(
+  slug: string,
+  options?: LoadArtistPageOptions,
+): Promise<ArtistPageData | null> {
+  const chartScope = options?.chartScope ?? "preview";
   const ping = await inspectPing();
   if (!ping.ok) return null;
 
@@ -317,6 +331,8 @@ export async function loadArtistPage(slug: string): Promise<ArtistPageData | nul
     displayName,
     coverByTrackId,
     fallbackAlbumCover,
+    undefined,
+    chartScope,
   );
 
   return {
@@ -344,3 +360,6 @@ export async function loadArtistPage(slug: string): Promise<ArtistPageData | nul
     exploreLinks,
   };
 }
+
+/** Dedupes metadata + page (and section routes) within one request. */
+export const loadArtistPage = cache(loadArtistPageImpl);
