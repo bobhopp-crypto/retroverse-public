@@ -1,7 +1,49 @@
 # Retroverse Operating Board
 
 **Purpose:** Live status and priorities for RETROVERSE_PUBLIC + coordinated welcome work.  
-**Updated:** 2026-05-23
+**Updated:** 2026-05-25
+
+---
+
+## Production deployment — performance stabilization (2026-05-25)
+
+| Field | Value |
+|-------|--------|
+| **Commit** | `6dd8054` — Stabilize production artist/track loaders for retroverse.live |
+| **Live URL** | https://retroverse.live |
+| **Vercel deployment** | `dpl` via git push `main` — build **Ready** (~45s) |
+| **Data plane** | Neon Postgres (`neondb` @ pooler) + welcome `SEARCH_UPSTREAM_BASE_URL` |
+
+### Measured before → after (production curl, warm)
+
+| Route | Before | After | Notes |
+|-------|--------|-------|--------|
+| `/artist/elton-john` | 3.3–3.6s | **~2.0–2.3s** | TTFB ~2.75s → ~1.8s |
+| `/track/RVTR772059` | 0.6–1.0s | **~0.65–1.15s** | `cache()` dedupes metadata + page |
+| `/rv/1978` | 0.24–0.30s | **~0.5–1.0s** | Unchanged loader; serverless variance |
+| `/api/search?q=madonna` | 0.80–0.94s | **~0.81–1.0s** | Not modified this pass |
+
+### Payload reduction
+
+| Asset | Before | After |
+|-------|--------|-------|
+| `/artist/elton-john` HTML | **~1,018 KB** | **~263 KB** (~74% smaller) |
+
+### Optimizations completed (surgical — no UI/search redesign)
+
+1. **React `cache()`** on `loadArtistPage` / `loadTrackPage` — one execution per request (metadata + page).
+2. **Artist chart preview cap** — 400 most recent weekly rows on main exhibit; **full** (2000 cap) on `/artist/[slug]/charts`.
+3. **`unstable_cache`** on artist weekly chart rows (1h revalidate), same pattern as RV year.
+4. **Neon PG SSL** in `lib/inspect/pg.ts` for non-localhost hosts (production pooler).
+
+### Known remaining bottlenecks
+
+- **`fetchHomeSearch()`** on artist load — serial welcome hop (~0.7–1.1s).
+- **Search API** — `buildSearchNormalization()` runs before welcome (serial PG + upstream).
+- **Heavy album SQL** — correlated cover subqueries on artist page `Promise.all` bundle.
+- **First hit after deploy** — cold `unstable_cache` + Neon can spike (e.g. 6s once, then ~2s).
+- **`/artist/[slug]/charts`** — full chart payload still ~2.5–3s (by design).
+- **Indexes** — `chart_appearances` lacks `(chart_name, chart_date)` composite; artist slug paths use `regexp_replace` (not index-friendly).
 
 ---
 
