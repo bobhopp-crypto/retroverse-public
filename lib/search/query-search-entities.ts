@@ -288,19 +288,21 @@ export async function querySearchEntities(query: string): Promise<SearchEntity[]
     .filter((e) => e.entityType === "track" && !e.year && e.rvId)
     .map((e) => e.rvId!.trim().toUpperCase());
 
-  if (trackRvIds.length > 0) {
+  const uniqueTrackRvIds = [...new Set(trackRvIds)];
+
+  if (uniqueTrackRvIds.length > 0) {
     const yearRows = await inspectQuery<{
       rvtr: string;
       release_year: number | null;
     }>(
       `
       SELECT
-        upper(trim(track_id)) AS rvtr,
+        track_id AS rvtr,
         extract(year FROM first_chart_date)::int AS release_year
       FROM canonical_track_display
-      WHERE upper(trim(track_id)) = ANY($1::text[])
+      WHERE track_id = ANY($1::text[])
       `,
-      [trackRvIds],
+      [uniqueTrackRvIds],
     );
 
     const yearMap = new Map(
