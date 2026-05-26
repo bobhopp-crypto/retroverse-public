@@ -1,264 +1,300 @@
 # Retroverse Operating Board
 
-**Purpose:** Live status and priorities for RETROVERSE_PUBLIC + coordinated welcome work.  
-**Updated:** 2026-05-25
+**Purpose:** Operational truth for RETROVERSE_PUBLIC — what is live, locked, local-only, and next.  
+**Updated:** 2026-05-25 (production audit realignment)  
+**Source of truth:** Deployed behavior at https://retroverse.live + commit `384765a` on `main`
 
 ---
 
-## Navigation integrity — Tier A / B1 / B2 (2026-05-25)
+## Live production (verified 2026-05-25)
+
+| Field | Value |
+|-------|--------|
+| **URL** | https://retroverse.live |
+| **Commit** | `384765a` — Stabilize mobile search overlay responsiveness and compositing |
+| **Prior search stack** | `b74f32c`–`bc9cbf7` overlay ship · `8420934` search_entities index code · `399f631` track year enrichment timeout fix |
+| **Data plane** | Neon Postgres (pooler) + welcome `SEARCH_UPSTREAM_BASE_URL` for `/api/search` only |
+| **Homepage** | Poster-first; search **trigger only** (no inline typing on poster) |
+| **Mobile search** | Fullscreen overlay drawer — **DONE v1** |
+
+### Production smoke (curl, 2026-05-25)
+
+| Route | HTTP | Notes |
+|-------|------|--------|
+| `/` | 200 | `home-search-trigger` present; poster shell intact |
+| `/api/search/suggestions?q=supremes` | 200 | 30 grouped results; direct entity hrefs |
+| `/api/search?q=madonna` | 200 | Monolithic search API (~4s cold-ish) |
+| `/artist/the-supremes` | 200 | Artist exhibit |
+| `/track/RVTR336241` | 200 | Thriller — healthy control (albums/cover) |
+| `/track/RVTR898681` | 200 | Stand By Me — degraded (missing album join class) |
+| `/ops`, `/api/events` | 404 | Not deployed (local-only) |
+| `/api/healing/album-links` | 403 | Deployed route; disabled without control-center flag |
+
+### Warm latency snapshot (production)
+
+| Route | Typical |
+|-------|---------|
+| `/api/search/suggestions?q=supremes` | **~0.85–1.0s** (cold spikes ~2.5s) |
+| `/api/search?q=madonna` | **~4s** |
+| `/track/RVTR*` | **~0.5–1.5s** |
+| `/artist/*` | **~2–3s** |
+
+---
+
+## Status board (current reality)
+
+| Workstream | Status |
+|------------|--------|
+| Navigation integrity — Tier A / B1 / B2 | **DONE** — `e48fee9` → `a6fdf83` |
+| Homepage mobile search overlay (drawer) | **DONE v1** — `b74f32c` → `384765a` |
+| Overlay search perf/compositing pass | **DONE** — `384765a` |
+| Songs section (v1) | **DONE** — locked |
+| RV History on `/search` | **DONE** — locked |
+| `/search` monolithic page | **LIVE interim** — do not extend |
+| Search Intent Interceptor (full 3-step) | **LOCKED** — not built; overlay covers partial Step 1 only |
+| Search Results Experience v1 polish | **PAUSED** |
+| Album-link recovery audit | **DONE** code (`4c94d19`); healing writes not live on track pages |
+| Feedback inbox | **OPS** — verify delivery periodically |
+| Ops console / events / workflows | **LOCAL ONLY** — not on `main` |
+
+---
+
+## Locked public architecture (do not drift)
+
+These are **live on production** and locked unless a new board entry explicitly approves change:
+
+| Layer | Rule |
+|-------|------|
+| **Homepage** | Poster-first; no inline autocomplete on poster |
+| **Search entry** | Hidden archive terminal — fullscreen overlay drawer |
+| **Overlay search** | Deterministic grouped PG entities; lightweight payloads |
+| **Overlay routing** | Direct `/artist`, `/track/RVTR`, `/album/RVAL`, `/rv/year` — **no `/search` handoff** |
+| **Hydration split** | Overlay omits `coverUrl`; entity pages hydrate covers/albums/charts |
+| **Canonical IDs** | RVTR / RVAL / artist slug routing preserved |
+| **Track pages** | RVTR hydration from `canonical_track_display` + chart joins + album links when present |
+| **Songs jukebox** | Locked v1 on `/search` |
+| **RV History** | Locked on `/search` |
+
+**Do not:** revert to inline homepage dropdown, add command-palette UI, or patch monolithic `/search` interpretation without board approval.
+
+---
+
+## Search architecture (two systems — critical split)
+
+### A. Overlay search — **LIVE** (homepage mobile path)
+
+**User flow:** Tap poster search → `HomeSearchOverlay` → type → grouped results → tap → entity page.
+
+**API:** `GET /api/search/suggestions?q=`
+
+**Pipeline:**
+
+```
+loadSuggestionResponse(q)
+  → buildRvYearIntentSuggestions (year-only queries)
+  → querySearchEntities(q, { mode: "overlay" })   // Neon PG only
+  → entitiesToSuggestionGroups()
+```
+
+**Characteristics:**
+
+- Deterministic SQL match rank + entity-type ordering (artist → album → track → year)
+- Overlay caps (~30 results for `supremes` vs former ~82)
+- No `buildSearchNormalization()` on hot path (`384765a`)
+- No welcome upstream
+- No cover hydration in payload (`coverUrl: null` intentional)
+- `AbortSignal` on rapid typing
+- Safari compositing fixes (`384765a`): opaque input, `color-scheme: only light` on overlay
+
+**Implementation anchors:**
+
+- `app/components/home-search-input.tsx`
+- `app/components/home-search-overlay.tsx`
+- `app/api/search/suggestions/route.ts`
+- `lib/search/load-suggestion-response.ts`
+- `lib/search/query-search-entities.ts`
+- `lib/search/search-breadth.ts` (`overlaySearchEntityLimits`)
+
+**Performance target:** ~100–250ms perceived (not consistently met on cold prod; see gaps).
+
+### B. `/search` page — **LIVE interim** (deep dive, not homepage)
+
+**API:** `GET /api/search?q=`
+
+**Pipeline:**
+
+```
+buildSearchNormalization() → serial PG artist resolve
+  → welcome SEARCH_UPSTREAM_BASE_URL /api/home-search
+  → chart history enrichment
+  → RV History + Songs panels
+```
+
+**Characteristics:**
+
+- Monolithic; slower (~4s production)
+- Still uses normalization + upstream
+- **Not** part of homepage mobile interaction
+- **Do not** add more interpretation/ranking logic here without interceptor approval
+
+**Rule:** Overlay and `/search` are separate products. Document and debug them separately.
+
+---
+
+## Search Intent Interceptor — future lock (not current work)
+
+**Approved architecture for a future phase** — not the same as overlay v1 (which already ships grouped candidates + tap-to-route).
+
+| Step | Overlay v1 | Full interceptor |
+|------|------------|------------------|
+| 1 Grouped interpretation | **Shipped** | Polish + alias rules |
+| 2 Explicit user choice | Partial (tap row) | Dedicated choice UX |
+| 3 Immersive contextual results | Routes to entity pages | New results shell |
+
+**Until explicitly approved:** no interceptor expansion, no `/search` monolith patches for alias/chronology fights.
+
+**Chronology rule (entity pages):** first appearance date dominates inside artist/song/album experiences — unchanged.
+
+---
+
+## Known gaps (accurate as of audit)
+
+### Search
+
+- Cold suggestions often **>1s** (target was ~100–250ms perceived)
+- **Production `search_entities` matview + `pg_trgm` apply unverified** — code supports matview; Neon apply must be run with real credentials (`npm run search:refresh-entities`)
+- Duplicate artist aliases in overlay (e.g. `supremes` + `The Supremes`)
+- Song rows show weak artist display strings (not always canonical display name)
+
+### Track / album integrity
+
+- **~56% album-link coverage** (audit class); degraded tracks correlate with missing `canonical_album_tracks`
+- **Stand By Me** (`RVTR898681`) — wrong artist label (“David”), no cover; Thriller (`RVTR336241`) healthy control
+- Healing API exists but **403 on prod** (control-center gated); no auto-heal on track page load
+
+### Navigation / perf (unchanged)
+
+- `fetchHomeSearch()` serial welcome hop on artist load
+- `/artist/[slug]/charts` full payload ~2.5–3s
+- B2 URL state client-hydrated only on charts subroute
+
+### Ops
+
+- Feedback inbox delivery path **not verified** (last test not recorded)
+
+---
+
+## Deployed vs local-only
+
+### Deployed on production (`main`)
+
+- Public site: home, artist, track, album, `/search`, `/charts`, `/rv/[year]`
+- APIs: `/api/search`, `/api/search/suggestions`, `/api/charts/year`, `/api/healing/album-links` (gated 403)
+- Tier A/B1/B2 navigation
+- Album-link recovery **audit** code + CLI (`npm run track:audit-album-links`)
+- `tools/sql/search_entities.sql` + `npm run search:refresh-entities` (ops apply to Neon)
+
+### Local-only (untracked / not on `origin/main` — do not assume live)
+
+| Path | Purpose |
+|------|---------|
+| `app/ops/`, `app/api/ops/*` | Ops console, year-match, media-sync |
+| `app/api/internal/ops-auth`, `app/internal/ops-pin` | PIN gate |
+| `components/ops/*` | Ops UI |
+| `lib/ops/*` | Ops loaders, reconciliation |
+| `middleware.ts` | Ops route protection (`RETROVERSE_OPS=1`) |
+| `app/api/events/*`, `lib/events/*` | Historical events ingest |
+| `lib/workflows/schema.sql` | Workflow tables draft (manual apply) |
+
+**Production `/ops` returns 404.** Treat ops/events as parallel experiments until explicitly merged and deployed.
+
+### Dev-gated on production (route exists, feature off)
+
+| Route | Gate |
+|-------|------|
+| `/inspect` | `RETROVERSE_INSPECT=1` |
+| `/control-center` | `RETROVERSE_CONTROL_CENTER=1` |
+| `/api/healing/album-links` | `isControlCenterEnabled()` |
+
+---
+
+## Navigation integrity — Tier A / B1 / B2
 
 | Tier | Status | Commit |
 |------|--------|--------|
 | **A** — loading shells, prefetch, RV session memory, song actions v1 | **DONE** | `e48fee9` |
-| **B1** — persistent artist exhibit shell (`layout.tsx`) | **DONE** | `a2e1689` |
+| **B1** — persistent artist exhibit shell | **DONE** | `a2e1689` |
 | **B2** — URL-addressable chart exhibit state | **DONE** | `a6fdf83` |
 
-| Field | Value |
-|-------|--------|
-| **Live URL** | https://retroverse.live |
-| **Vercel production** | **Ready** — deployment `a6fdf83` (2026-05-25) |
+**B2 scope:** `/artist/[slug]/charts` only — `year`, `month`, `decade` query params. Main artist page chart preview remains session-only.
 
-### Tier B2 — URL-state behavior
-
-Applies to **`/artist/[slug]/charts` only** (search, main exhibit embed, `/charts`, `/rv/[year]` unchanged).
-
-| Param | Example | Notes |
-|-------|---------|--------|
-| `year` | `?year=1973` | Must be in artist `activeYears`; invalid dropped |
-| `month` | `?month=5` | Requires valid `year`; 1–12 |
-| `decade` | `?decade=1980s` | Decade-only step when artist uses decade pills |
-
-**Priority on load:** URL → `sessionStorage` → `initialRvYear`.
-
-**Sync:** `router.replace(pathname + query, { scroll: false })` when decade/year/month changes.
-
-**Examples:** `/artist/elton-john/charts?year=1973&month=5` · `/artist/madonna/charts?decade=1980s`
-
-**Implementation:** `lib/artist/chart-history-url.ts` · `artist-charts-history-client.tsx` (Suspense wrapper in `artist-charts-history.tsx`).
-
-### Production smoke (2026-05-25, `a6fdf83`)
-
-| Route | HTTP | Checks |
-|-------|------|--------|
-| `/artist/elton-john` | 200 | `artist-exhibit-nav` present; no `%22%22` cover URLs |
-| `/artist/elton-john/charts?year=1973&month=5` | 200 | exhibit shell + `charts-history` |
-| `/artist/madonna/charts?decade=1980s` | 200 | exhibit shell + chart module |
-| `/track/RVTR772059` | 200 | track page OK; covers OK |
-
-Vercel check: **success**. Client URL/back/forward behavior is hydration-driven (not asserted by curl).
-
-### Remaining continuity gaps
-
-- **B1 hero** — layout uses PG chart-weighted cover; welcome-search hero not used in shell.
-- **B2 scope** — main artist page chart preview still session-only (no URL params on `/artist/[slug]`).
-- **B2 server** — year/month/decade selection hydrates on client; no SSR pre-selection from query.
-- **Mode nav** — albums / tracks / years / related not in top exhibit pills.
-- **`/artist/[slug]/charts`** — full chart payload load unchanged (~2.5–3s).
-- **Cross-artist** — slug change remounts exhibit layout (expected).
+**Remaining continuity gaps:** B1 hero from PG not welcome; B2 no SSR pre-selection; mode nav pills incomplete; charts route still heavy.
 
 ---
 
-## Production deployment — performance stabilization (2026-05-25)
+## Production deployment — artist/track perf (`6dd8054`)
 
-| Field | Value |
+Historical pass — still relevant:
+
+- React `cache()` on artist/track loaders
+- Artist chart preview cap (400 on exhibit, 2000 on charts)
+- `unstable_cache` on weekly chart rows
+- Neon SSL in `lib/inspect/pg.ts`
+
+| Asset | Result |
 |-------|--------|
-| **Commit** | `6dd8054` — Stabilize production artist/track loaders for retroverse.live |
-| **Live URL** | https://retroverse.live |
-| **Vercel deployment** | `dpl` via git push `main` — build **Ready** (~45s) |
-| **Data plane** | Neon Postgres (`neondb` @ pooler) + welcome `SEARCH_UPSTREAM_BASE_URL` |
-
-### Measured before → after (production curl, warm)
-
-| Route | Before | After | Notes |
-|-------|--------|-------|--------|
-| `/artist/elton-john` | 3.3–3.6s | **~2.0–2.3s** | TTFB ~2.75s → ~1.8s |
-| `/track/RVTR772059` | 0.6–1.0s | **~0.65–1.15s** | `cache()` dedupes metadata + page |
-| `/rv/1978` | 0.24–0.30s | **~0.5–1.0s** | Unchanged loader; serverless variance |
-| `/api/search?q=madonna` | 0.80–0.94s | **~0.81–1.0s** | Not modified this pass |
-
-### Payload reduction
-
-| Asset | Before | After |
-|-------|--------|-------|
-| `/artist/elton-john` HTML | **~1,018 KB** | **~263 KB** (~74% smaller) |
-
-### Optimizations completed (surgical — no UI/search redesign)
-
-1. **React `cache()`** on `loadArtistPage` / `loadTrackPage` — one execution per request (metadata + page).
-2. **Artist chart preview cap** — 400 most recent weekly rows on main exhibit; **full** (2000 cap) on `/artist/[slug]/charts`.
-3. **`unstable_cache`** on artist weekly chart rows (1h revalidate), same pattern as RV year.
-4. **Neon PG SSL** in `lib/inspect/pg.ts` for non-localhost hosts (production pooler).
-
-### Known remaining bottlenecks
-
-- **`fetchHomeSearch()`** on artist load — serial welcome hop (~0.7–1.1s).
-- **Search API** — `buildSearchNormalization()` runs before welcome (serial PG + upstream).
-- **Heavy album SQL** — correlated cover subqueries on artist page `Promise.all` bundle.
-- **First hit after deploy** — cold `unstable_cache` + Neon can spike (e.g. 6s once, then ~2s).
-- **`/artist/[slug]/charts`** — full chart payload still ~2.5–3s (by design).
-- **Indexes** — `chart_appearances` lacks `(chart_name, chart_date)` composite; artist slug paths use `regexp_replace` (not index-friendly).
-
----
-
-## Status Board
-
-| Workstream | Status |
-|------------|--------|
-| Songs section stabilization (v1) | **DONE** — locked |
-| RV History on search (year modes, month-first, snapshots) | **DONE** — do not restyle |
-| Search Results Experience v1 polish | **PAUSED** — superseded by architecture below |
-| Search Intent Interceptor (architecture) | **LOCKED** — not implemented yet |
-| Navigation integrity — Tier A / B1 / B2 | **DONE** — see section above |
+| `/artist/elton-john` HTML | ~74% smaller vs pre-pass |
 
 ---
 
 ## Songs stabilization — DONE (v1 locked)
 
-- Songs section stabilized
-- 3-card stack locked
-- Full-width active song card established
-- Right-side action buttons implemented
-- Typography hierarchy improved
-- Horizontal song rail removed
-- Experimental reel/slot-machine systems removed
+Do **not** redesign Songs unless track pages, playlists, and mobile search are all stable (mobile search overlay v1 now shipped).
 
-**Implementation anchors (PUBLIC):**
-
-- `app/search/components/search-songs-jukebox-panel.tsx`
-- `app/components/songs-jukebox-reel.tsx`
-- `app/components/songs-jukebox.css`
-- `app/search/search.css` (Songs panel only)
-
-### Songs Section v1 = LOCKED
-
-Do **not** redesign again unless:
-
-- track pages exist
-- playlist systems exist
-- mobile search flow fully stable
-
-Further work: tiny spacing polish, metadata tuning, track routing hookup — **not** architecture changes.
-
----
-
-## Search Intent Interceptor — ARCHITECTURE LOCKED
-
-**Status:** Approved architecture. **No code implementation yet.** Lock before continuing search work.
-
-### Problem (why current search is unstable)
-
-Search behavior is inconsistent because the search page tries to **interpret, expand, rank, and display** at the same time.
-
-| Failure mode | Example |
-|--------------|---------|
-| Alias inconsistency | `beatles` ≠ `the beatles` |
-| Chronology vs relevance | ordering fights itself |
-| Ambiguous intent | artist vs song vs album vs year |
-| Noisy broad queries | `prince`, `78`, `thriller`, `hotel california` |
-| Overloaded `/search` | one page does everything |
-
-Current `/search` is becoming unstable. **Do not add more logic there until the interceptor exists.**
-
-### Approved flow (3 steps)
-
-```
-Homepage query
-    → STEP 1: Search interpretation
-    → STEP 2: User choice (one tap)
-    → STEP 3: Immersive results page (fully contextual)
-```
-
-**Principle:** Interpret intent **first**. Render immersive results **second**.
-
-#### Step 1 — Search interpretation (homepage)
-
-After **2+ characters**, homepage reveals grouped candidates (not a single blended results dump):
-
-| Group | Examples for `beatles` |
-|-------|-------------------------|
-| Artists | THE BEATLES |
-| Albums | Beatles '65 |
-| Songs | Hey Jude |
-| Years | 1968 |
-
-Simple grouped pills/cards. **Editorial, collectible, intentional** — not Google/Spotify/SaaS autocomplete.
-
-#### Step 2 — User choice
-
-User taps **one** resolved target (artist, album, song, or year).
-
-#### Step 3 — Immersive results
-
-Route to a **fully contextual** search results experience with intent already resolved.
-
-- No simultaneous reinterpretation on load
-- RV History, Songs, Albums behave per locked entity context
-
-### Chronology rule (entity experiences)
-
-When inside **artist / song / album** pages (and entity-scoped immersive search):
-
-| Use | Do not use |
-|-----|------------|
-| **First appearance date** | relevance score |
-| stable editorial order | fuzzy rank fighting chronology |
-
-Chronology **dominates** inside entity experiences.
-
-### Search result rule (broad vs scoped)
-
-| Context | Ordering |
-|---------|----------|
-| Broad / interpretation step | Relevance allowed |
-| Inside entity / after user choice | Chronology dominates (first appearance) |
-
-### What this is NOT
-
-- Not modern autocomplete
-- Not relevance-ranked infinite scroll on homepage
-- Not more patches to monolithic `/search` query handling
-
-### Initial implementation target (when approved to build)
-
-1. Homepage: after 2 chars → top artists, albums, songs, years (grouped)
-2. Tap → route with resolved intent
-3. Then load immersive results page (existing panels where applicable)
-
-**Until implementation is explicitly approved:** no interceptor UI, no routing refactor, no search ranking rewrite.
-
-### Current search page (interim)
-
-`/search` may retain RV History modes, Songs stack, and year-aware RV History **as built** — but **do not** extend monolithic search interpretation logic on that page. Treat it as interim until interceptor ships.
+**Anchors:** `search-songs-jukebox-panel.tsx`, `songs-jukebox-reel.tsx`, `songs-jukebox.css`, `search.css`
 
 ---
 
 ## RV History on search — DONE (do not restyle)
 
-- Generic entry vs year-aware full module
-- Month-first navigation, #1 week snapshots
-- Hot 100 / Album 200 split sections
-- Year-scoped data load (no LIMIT truncation on months)
-
-**Do not:** redesign RV History styling, rebuild Songs, or change interaction flow without a new board entry.
+Month-first, year modes, snapshots, Hot 100 / Album 200 sections — locked on `/search` only.
 
 ---
 
-## Next priority (after architecture approval)
+## Feedback inbox
 
-### Search Intent Interceptor — implementation v1
+**Address:** feedback@retroverse.live  
+**UI:** poster hotspot mailto in `home-poster-frame.tsx`
 
-Build Steps 1–3 on homepage + routing only. Reuse immersive results; do not redesign Songs or RV History chrome.
+| Field | Status |
+|-------|--------|
+| Last delivery test | _not recorded_ |
+| Confirmed destination | _TBD_ |
+
+---
+
+## Next real priorities (single track)
+
+**No redesign. No new search architecture. No interceptor expansion until explicitly approved.**
+
+1. **Production search speed** — verify Neon `search_entities` + `pg_trgm` applied; measure cold/warm suggestions after apply
+2. **iPhone Safari verification** — overlay compositing, typing, stale-fetch behavior (`384765a`)
+3. **Album-link healing workflow** — use audit pipeline for degraded track class (Stand By Me); human-approved writes only
+4. **Artist alias cleanup** — overlay dedupe/canonical display (`supremes` → `The Supremes`)
+5. **Board + ops hygiene** — decide commit/deploy fate of local-only `/ops` and events (merge or shelve)
+
+**Explicitly not next:** Search Intent Interceptor v2, `/search` monolith growth, command palette, AI systems, homepage redesign.
 
 ---
 
 ## Do not (current phase)
 
-- implement Search Intent Interceptor in code (architecture lock only — this update)
-- redesign homepage layout beyond interceptor spec when build starts
-- touch Songs architecture or styling
-- rebuild RV History styling
-- add experimental search interaction models
-- patch alias/chronology/relevance fights inside monolithic `/search` without interceptor
+- Redesign homepage poster or overlay visual identity
+- Reintroduce inline homepage autocomplete
+- Add logic to monolithic `/search` without interceptor approval
+- Touch Songs or RV History architecture/styling
+- Assume `/ops` or `/api/events` are live
+- Treat operating board as speculative memory — **update it when production changes**
 
 ---
 
