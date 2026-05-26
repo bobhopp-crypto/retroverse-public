@@ -8,7 +8,8 @@
   flex-direction: column;
   height: 100dvh;
   max-height: 100dvh;
-  background: #f4e9d3;
+  background: transparent;
+  justify-content: flex-end;
   color: #12343a;
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
@@ -31,11 +32,16 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   width: 100%;
   min-height: 0;
   margin: 0;
   background: #f4e9d3;
+  height: 82dvh;
+  max-height: 82dvh;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  overflow: hidden;
   box-shadow: 0 -4px 0 #2d3e46;
 }
 

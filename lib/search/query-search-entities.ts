@@ -1,6 +1,5 @@
 import "server-only";
 
-import { coverPathToUrl } from "@/lib/artist/cover-url";
 import { artistPagePath } from "@/lib/artist/resolve-artist";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
@@ -79,11 +78,13 @@ function rowToEntity(row: EntityRow): SearchEntity {
     href: entityHref(row),
     artist: row.artist_name,
     year: row.release_year,
-    coverUrl: coverPathToUrl(row.cover_path),
+    // Overlay is a lightweight archive drawer; cover art is a hydration-time concern.
+    coverUrl: null,
     rank: row.match_rank * 10 + row.type_rank,
   };
 }
 
+let hasSearchEntitiesMatviewCached: Promise<boolean> | null = null;
 async function hasSearchEntitiesMatview(): Promise<boolean> {
   const rows = await inspectQuery<{ relname: string }>(
     `
@@ -95,6 +96,7 @@ async function hasSearchEntitiesMatview(): Promise<boolean> {
   return rows.length > 0;
 }
 
+let hasPgTrgmCached: Promise<boolean> | null = null;
 async function hasPgTrgm(): Promise<boolean> {
   const rows = await inspectQuery<{ extname: string }>(
     `SELECT extname FROM pg_extension WHERE extname = 'pg_trgm'`,
@@ -111,14 +113,14 @@ const INLINE_SOURCE = `
     regexp_replace(regexp_replace(lower(trim(a.canonical_name)), '^the\\s+', '', 'g'), '[^a-z0-9]+', '-', 'g') AS slug,
     NULL::text AS artist_name,
     NULL::int AS release_year,
-    (SELECT al.canonical_cover_path FROM albums al WHERE al.artist_id = a.id AND al.canonical_cover_path IS NOT NULL ORDER BY al.release_year DESC NULLS LAST LIMIT 1) AS cover_path
+    NULL::text AS cover_path
   FROM artists a
   UNION ALL
   SELECT 'album'::text, al.title,
     regexp_replace(lower(trim(al.title) || ' ' || trim(ar.canonical_name)), '[^a-z0-9]+', ' ', 'g'),
     upper(trim(aek.external_key)),
     regexp_replace(lower(trim(al.title)), '[^a-z0-9]+', '-', 'g'),
-    ar.canonical_name, al.release_year, al.canonical_cover_path
+    ar.canonical_name, al.release_year, NULL::text
   FROM albums al
   JOIN artists ar ON ar.id = al.artist_id
   LEFT JOIN album_external_keys aek ON aek.album_id = al.id
@@ -250,8 +252,10 @@ export async function querySearchEntities(query: string): Promise<SearchEntity[]
   const limits = searchEntityLimits(tier);
   const sqlPerType = searchSqlFetchLimit(tier);
   const tokens = searchQueryTokens(query);
-  const useTrgm = await hasPgTrgm();
-  const useMatview = await hasSearchEntitiesMatview();
+  if (!hasPgTrgmCached) hasPgTrgmCached = hasPgTrgm();
+  if (!hasSearchEntitiesMatviewCached) hasSearchEntitiesMatviewCached = hasSearchEntitiesMatview();
+  const useTrgm = await hasPgTrgmCached;
+  const useMatview = await hasSearchEntitiesMatviewCached;
   const fromClause = useMatview ? `search_entities` : INLINE_SOURCE;
 
   const { sql, params } = buildMatchSql(
@@ -277,5 +281,39 @@ export async function querySearchEntities(query: string): Promise<SearchEntity[]
       a.label.localeCompare(b.label, undefined, { sensitivity: "base" }),
   );
 
-  return capByType(deduped, limits);
+  const limited = capByType(deduped, limits);
+
+  // Matview track rows historically omit release_year; fill it cheaply from canonical_track_display.
+  const trackRvIds = limited
+    .filter((e) => e.entityType === "track" && !e.year && e.rvId)
+    .map((e) => e.rvId!.trim().toUpperCase());
+
+  if (trackRvIds.length > 0) {
+    const yearRows = await inspectQuery<{
+      rvtr: string;
+      release_year: number | null;
+    }>(
+      `
+      SELECT
+        upper(trim(track_id)) AS rvtr,
+        extract(year FROM first_chart_date)::int AS release_year
+      FROM canonical_track_display
+      WHERE upper(trim(track_id)) = ANY($1::text[])
+      `,
+      [trackRvIds],
+    );
+
+    const yearMap = new Map(
+      yearRows.map((r) => [r.rvtr.trim().toUpperCase(), r.release_year]),
+    );
+
+    return limited.map((e) => {
+      if (e.entityType !== "track") return e;
+      if (e.year != null) return e;
+      const key = e.rvId?.trim().toUpperCase() ?? "";
+      return { ...e, year: yearMap.get(key) ?? null };
+    });
+  }
+
+  return limited;
 }

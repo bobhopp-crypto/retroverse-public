@@ -28,7 +28,7 @@ function entityToItem(entity: SearchEntity): SearchSuggestionItem {
     title: entity.label,
     artist: secondary,
     year: entity.year,
-    coverUrl: entity.coverUrl,
+    ...(entity.coverUrl ? { coverUrl: entity.coverUrl } : {}),
     label,
     href: entity.href,
     routeQuery: entity.slug,
