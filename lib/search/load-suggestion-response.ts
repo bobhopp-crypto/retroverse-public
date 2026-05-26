@@ -1,8 +1,9 @@
 import "server-only";
 
-import { buildSearchNormalization } from "@/lib/search/build-search-normalization";
 import { entitiesToSuggestionGroups } from "@/lib/search/entities-to-suggestions";
-import { querySearchEntities } from "@/lib/search/query-search-entities";
+import {
+  querySearchEntities,
+} from "@/lib/search/query-search-entities";
 import { searchBreadthTier } from "@/lib/search/search-breadth";
 import { buildRvYearIntentSuggestions } from "@/lib/rv-year/rv-year-intent";
 import { EMPTY_SUGGESTION_GROUPS } from "@/lib/search/search-suggestion-types";
@@ -55,13 +56,11 @@ export async function loadSuggestionResponse(q: string): Promise<SuggestionRespo
     };
   }
 
-  const preNorm = await buildSearchNormalization(q);
-  const canonicalArtist = preNorm.resolved?.canonicalName ?? null;
-
   try {
-    const entities = await querySearchEntities(q);
+    const { entities, meta } = await querySearchEntities(q, { mode: "overlay" });
     const suggestions = entitiesToSuggestionGroups(entities);
     const total = suggestionTotal(suggestions);
+    const canonicalArtist = suggestions.artists[0]?.title ?? null;
 
     console.log("[search-suggestions]", {
       q,
@@ -73,6 +72,8 @@ export async function loadSuggestionResponse(q: string): Promise<SuggestionRespo
       songs: suggestions.songs.length,
       albums: suggestions.albums.length,
       years: suggestions.years.length,
+      entitySource: meta.entitySource,
+      pgTrgm: meta.pgTrgm,
     });
 
     if (total === 0) {
@@ -104,7 +105,7 @@ export async function loadSuggestionResponse(q: string): Promise<SuggestionRespo
       q,
       suggestions: EMPTY_SUGGESTION_GROUPS,
       total: 0,
-      canonicalArtist,
+      canonicalArtist: null,
       rvYearIntent: false,
       error: message,
       source: "none",

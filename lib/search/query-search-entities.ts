@@ -14,6 +14,8 @@ import {
   searchQueryTokens,
 } from "@/lib/search/normalize-search-label";
 import {
+  overlaySearchEntityLimits,
+  overlaySearchSqlFetchLimit,
   searchBreadthTier,
   searchEntityLimits,
   searchSqlFetchLimit,
@@ -84,8 +86,9 @@ function rowToEntity(row: EntityRow): SearchEntity {
   };
 }
 
-let hasSearchEntitiesMatviewCached: Promise<boolean> | null = null;
-async function hasSearchEntitiesMatview(): Promise<boolean> {
+let hasSearchEntitiesMatviewCached: boolean | undefined;
+async function resolveSearchEntitiesMatview(): Promise<boolean> {
+  if (hasSearchEntitiesMatviewCached === true) return true;
   const rows = await inspectQuery<{ relname: string }>(
     `
     SELECT relname FROM pg_class c
@@ -93,15 +96,20 @@ async function hasSearchEntitiesMatview(): Promise<boolean> {
     WHERE n.nspname = 'public' AND c.relname = 'search_entities' AND c.relkind = 'm'
     `,
   );
-  return rows.length > 0;
+  const exists = rows.length > 0;
+  if (exists) hasSearchEntitiesMatviewCached = true;
+  return exists;
 }
 
-let hasPgTrgmCached: Promise<boolean> | null = null;
-async function hasPgTrgm(): Promise<boolean> {
+let hasPgTrgmCached: boolean | undefined;
+async function resolvePgTrgm(): Promise<boolean> {
+  if (hasPgTrgmCached === true) return true;
   const rows = await inspectQuery<{ extname: string }>(
     `SELECT extname FROM pg_extension WHERE extname = 'pg_trgm'`,
   );
-  return rows.length > 0;
+  const exists = rows.length > 0;
+  if (exists) hasPgTrgmCached = true;
+  return exists;
 }
 
 const INLINE_SOURCE = `
@@ -203,7 +211,7 @@ function buildMatchSql(
           ORDER BY ${windowOrder},
             length(se.normalized_label), se.label
         ) AS type_row
-      FROM (${fromClause}) se
+      FROM ${fromClause}
       WHERE ${where}
     ) ranked
     WHERE (entity_type = 'artist' AND type_row <= ${perTypeLimits.artist})
@@ -240,23 +248,52 @@ function capByType(
   return out;
 }
 
+export type SearchEntityQueryMode = "overlay" | "full";
+
+export type SearchEntityQueryMeta = {
+  entitySource: "matview" | "inline";
+  pgTrgm: boolean;
+};
+
+export type SearchEntityQueryResult = {
+  entities: SearchEntity[];
+  meta: SearchEntityQueryMeta;
+};
+
 /** Deterministic entity narrowing — primary overlay search source. */
-export async function querySearchEntities(query: string): Promise<SearchEntity[]> {
+export async function querySearchEntities(
+  query: string,
+  options: { mode?: SearchEntityQueryMode } = {},
+): Promise<SearchEntityQueryResult> {
+  const mode = options.mode ?? "full";
   const ping = await inspectPing();
-  if (!ping.ok) return [];
+  if (!ping.ok) {
+    return {
+      entities: [],
+      meta: { entitySource: "inline", pgTrgm: false },
+    };
+  }
 
   const pattern = sanitizePattern(query);
-  if (pattern.length < 1) return [];
+  if (pattern.length < 1) {
+    return {
+      entities: [],
+      meta: { entitySource: "inline", pgTrgm: false },
+    };
+  }
 
   const tier = searchBreadthTier(query);
-  const limits = searchEntityLimits(tier);
-  const sqlPerType = searchSqlFetchLimit(tier);
+  const limits =
+    mode === "overlay" ? overlaySearchEntityLimits(tier) : searchEntityLimits(tier);
+  const sqlPerType =
+    mode === "overlay" ? overlaySearchSqlFetchLimit(tier) : searchSqlFetchLimit(tier);
   const tokens = searchQueryTokens(query);
-  if (!hasPgTrgmCached) hasPgTrgmCached = hasPgTrgm();
-  if (!hasSearchEntitiesMatviewCached) hasSearchEntitiesMatviewCached = hasSearchEntitiesMatview();
-  const useTrgm = await hasPgTrgmCached;
-  const useMatview = await hasSearchEntitiesMatviewCached;
-  const fromClause = useMatview ? `search_entities` : INLINE_SOURCE;
+  const [useTrgm, useMatview] = await Promise.all([
+    resolvePgTrgm(),
+    resolveSearchEntitiesMatview(),
+  ]);
+  const entitySource = useMatview ? "matview" : "inline";
+  const fromClause = useMatview ? `search_entities se` : `(${INLINE_SOURCE}) se`;
 
   const { sql, params } = buildMatchSql(
     pattern,
@@ -282,8 +319,14 @@ export async function querySearchEntities(query: string): Promise<SearchEntity[]
   );
 
   const limited = capByType(deduped, limits);
+  const meta: SearchEntityQueryMeta = { entitySource, pgTrgm: useTrgm };
 
-  // Matview track rows historically omit release_year; fill it cheaply from canonical_track_display.
+  // Overlay skips year enrichment — avoid blocking first paint on a second PG round-trip.
+  if (mode === "overlay") {
+    return { entities: limited, meta };
+  }
+
+  // Full mode: matview track rows may omit release_year; fill from canonical_track_display.
   const trackRvIds = limited
     .filter((e) => e.entityType === "track" && !e.year && e.rvId)
     .map((e) => e.rvId!.trim().toUpperCase());
@@ -309,13 +352,16 @@ export async function querySearchEntities(query: string): Promise<SearchEntity[]
       yearRows.map((r) => [r.rvtr.trim().toUpperCase(), r.release_year]),
     );
 
-    return limited.map((e) => {
-      if (e.entityType !== "track") return e;
-      if (e.year != null) return e;
-      const key = e.rvId?.trim().toUpperCase() ?? "";
-      return { ...e, year: yearMap.get(key) ?? null };
-    });
+    return {
+      entities: limited.map((e) => {
+        if (e.entityType !== "track") return e;
+        if (e.year != null) return e;
+        const key = e.rvId?.trim().toUpperCase() ?? "";
+        return { ...e, year: yearMap.get(key) ?? null };
+      }),
+      meta,
+    };
   }
 
-  return limited;
+  return { entities: limited, meta };
 }

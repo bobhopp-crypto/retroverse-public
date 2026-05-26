@@ -1,5 +1,6 @@
 -- Canonical searchable entity index (deterministic overlay search).
--- Apply: psql $RETROVERSE_PG_URL -f tools/sql/search_entities.sql
+-- Apply local:  npm run search:refresh-entities
+-- Apply Neon:   RETROVERSE_PG_HOST=… RETROVERSE_PG_PASSWORD=… npm run search:refresh-entities
 -- Refresh after graph imports: REFRESH MATERIALIZED VIEW CONCURRENTLY search_entities;
 
 CREATE EXTENSION IF NOT EXISTS pg_trgm;

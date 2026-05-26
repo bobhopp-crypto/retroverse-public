@@ -19,6 +19,8 @@ export function getInspectPool(): Pool {
       password: process.env.RETROVERSE_PG_PASSWORD ?? "",
       ssl: pgSsl(),
       max: 3,
+      connectionTimeoutMillis: 10_000,
+      idleTimeoutMillis: 30_000,
     });
   }
   return pool;

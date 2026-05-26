@@ -147,8 +147,10 @@ export function HomeSearchOverlay({ onClose }: Props) {
     setSuggestLoading(true);
     setSearchError(null);
 
+    const controller = new AbortController();
+
     const timer = window.setTimeout(() => {
-      fetchSearchSuggestions(trimmed)
+      fetchSearchSuggestions(trimmed, controller.signal)
         .then((result) => {
           if (requestId !== requestIdRef.current) return;
           if (result.ok) {
@@ -164,6 +166,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
         })
         .catch((err) => {
           if (requestId !== requestIdRef.current) return;
+          if (err instanceof DOMException && err.name === "AbortError") return;
           setSuggestions(EMPTY_SUGGESTION_GROUPS);
           setSearchError(
             err instanceof Error ? err.message : "Search request failed",
@@ -174,6 +177,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
 
     return () => {
       window.clearTimeout(timer);
+      controller.abort();
     };
   }, [trimmed]);
 
@@ -271,7 +275,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
               </p>
               <p className="home-search-overlay-error__detail">{searchError}</p>
               <p className="home-search-overlay-error__hint">
-                Check SEARCH_UPSTREAM_BASE_URL or local Postgres (RETROVERSE_PG_*).
+                Check RETROVERSE_PG_* connection on the server.
               </p>
             </div>
           ) : null}

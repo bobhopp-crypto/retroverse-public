@@ -30,8 +30,28 @@ export function searchSqlFetchLimit(tier: SearchBreadthTier): number {
 }
 
 export const OVERLAY_VISIBLE_INITIAL = {
-  artists: 10,
-  albums: 12,
-  songs: 14,
-  years: 6,
+  artists: 8,
+  albums: 10,
+  songs: 12,
+  years: 4,
 } as const;
+
+/** Tighter caps for mobile overlay — prioritize strongest matches, less song flooding. */
+export function overlaySearchEntityLimits(
+  tier: SearchBreadthTier,
+): Record<SearchEntityType, number> {
+  if (tier === "narrow") {
+    return { artist: 6, album: 8, track: 10, year: 3 };
+  }
+  if (tier === "medium") {
+    return { artist: 6, album: 10, track: 14, year: 4 };
+  }
+  return { artist: 8, album: 12, track: 16, year: 4 };
+}
+
+/** Smaller SQL window for overlay — avoids scanning hundreds of rows per type. */
+export function overlaySearchSqlFetchLimit(tier: SearchBreadthTier): number {
+  if (tier === "narrow") return 48;
+  if (tier === "medium") return 72;
+  return 96;
+}
