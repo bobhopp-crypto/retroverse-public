@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "search:refresh-entities": "psql \"postgresql://${RETROVERSE_PG_USER:-bobhopp}@${RETROVERSE_PG_HOST:-localhost}:${RETROVERSE_PG_PORT:-5432}/${RETROVERSE_PG_DATABASE:-retroverse}\" -f tools/sql/search_entities.sql"
+    "search:refresh-entities": "psql \"postgresql://${RETROVERSE_PG_USER:-bobhopp}@${RETROVERSE_PG_HOST:-localhost}:${RETROVERSE_PG_PORT:-5432}/${RETROVERSE_PG_DATABASE:-retroverse}\" -f tools/sql/search_entities.sql",
+    "track:audit-album-links": "npx --yes tsx tools/run-album-link-recovery-audit.ts"
   },
   "dependencies": {
     "next": "^15.3.3",
