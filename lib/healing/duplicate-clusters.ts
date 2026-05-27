@@ -10,6 +10,7 @@ export type DuplicateClusterMember = {
   peakHot100: number | null;
   releaseYear: number | null;
   albumLinkCount: number;
+  hasVdjMedia: boolean;
 };
 
 export type DuplicateClusterSummary = {
@@ -25,6 +26,10 @@ export type DuplicateClusterSummary = {
   memberRvtrs: string[];
   members: DuplicateClusterMember[];
   signals: string[];
+  yearSpread: string;
+  totalChartWeeks: number;
+  vdjMemberCount: number;
+  linkedVariantRvtrs: string[];
 };
 
 type MemberRow = {
@@ -35,6 +40,7 @@ type MemberRow = {
   peak_hot100_position: number | null;
   first_chart_date: string | null;
   album_link_count: number;
+  has_vdj_media: boolean;
   title_key: string;
   artist_key: string;
 };
@@ -117,6 +123,12 @@ function buildCluster(
 
   const canonical = pickProbableCanonical(members);
   const duplicateConfidence = scoreDuplicateConfidence(members, signals);
+  const yearSpread =
+    years.length >= 2
+      ? `${Math.min(...years)}–${Math.max(...years)} (Δ${Math.max(...years) - Math.min(...years)})`
+      : years[0] != null
+        ? String(years[0])
+        : "unknown";
 
   return {
     clusterId,
@@ -131,6 +143,10 @@ function buildCluster(
     memberRvtrs: members.map((m) => m.rvtr),
     members,
     signals,
+    yearSpread,
+    totalChartWeeks: members.reduce((sum, m) => sum + m.chartWeeks, 0),
+    vdjMemberCount: members.filter((m) => m.hasVdjMedia).length,
+    linkedVariantRvtrs: members.filter((m) => m.albumLinkCount > 0).map((m) => m.rvtr),
   };
 }
 
@@ -159,6 +175,7 @@ export async function loadDuplicateClusterIndex(): Promise<{
         ctd.chart_weeks,
         ctd.peak_hot100_position,
         ctd.first_chart_date::text AS first_chart_date,
+        ctd.has_vdj_media,
         (SELECT count(*)::int FROM canonical_album_tracks cat
           WHERE upper(trim(cat.canonical_track_key)) = upper(trim(ctd.track_id))) AS album_link_count
       FROM canonical_track_display ctd
@@ -202,6 +219,7 @@ export async function loadDuplicateClusterIndex(): Promise<{
       peakHot100: row.peak_hot100_position,
       releaseYear: yearFromDate(row.first_chart_date),
       albumLinkCount: row.album_link_count,
+      hasVdjMedia: row.has_vdj_media === true,
     });
     grouped.set(id, list);
   }

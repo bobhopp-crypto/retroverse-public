@@ -8,11 +8,13 @@ import type {
   HealingDegradationFlag,
   HealingQueueState,
 } from "@/lib/healing/degradation";
+import { isCoverCritical } from "@/lib/healing/degradation";
 import {
-  HEALING_QUEUE_GROUP_ORDER,
-  HEALING_DEGRADATION_LABELS,
-  isCoverCritical,
-} from "@/lib/healing/degradation";
+  buildPriorityGroups,
+  buildWorkflowSummary,
+  type HealingPriorityGroup,
+  type HealingWorkflowSummary,
+} from "@/lib/healing/priority-groups";
 import {
   formatWeightedReasons,
   formatWeightedReasonsLine,
@@ -27,6 +29,8 @@ import type { ScoredAlbumLinkCandidate } from "@/lib/track/album-link-recovery/t
 
 const QUEUE_LIMIT = 40;
 const PER_SEED = 10;
+/** Bounded preview audits for prioritization (high-confidence group). */
+const PRIORITY_PREVIEW_AUDITS = 8;
 
 type SeedMeta = {
   rvtr: string;
@@ -138,6 +142,10 @@ async function loadDegradationCounts(): Promise<HealingDegradationCounts> {
           WHERE h.chart_weeks >= 8
             AND trim(coalesce(h.canonical_artist_name, '')) <> ''
             AND lower(trim(h.canonical_artist_name)) NOT IN ('unknown', '?', 'untitled')
+            AND NOT EXISTS (
+              SELECT 1 FROM canonical_album_tracks cat
+              WHERE upper(trim(cat.canonical_track_key)) = upper(trim(h.track_id))
+            )
             AND NOT EXISTS (
               SELECT 1 FROM canonical_album_tracks cat
               JOIN albums al ON al.id = cat.album_id
@@ -323,6 +331,10 @@ async function seedCoverCritical(limit: number): Promise<DisplaySeedRow[]> {
       AND lower(trim(ctd.canonical_artist_name)) NOT IN ('unknown', '?', 'untitled')
       AND NOT EXISTS (
         SELECT 1 FROM canonical_album_tracks cat
+        WHERE upper(trim(cat.canonical_track_key)) = upper(trim(ctd.track_id))
+      )
+      AND NOT EXISTS (
+        SELECT 1 FROM canonical_album_tracks cat
         JOIN albums al ON al.id = cat.album_id
         WHERE upper(trim(cat.canonical_track_key)) = upper(trim(ctd.track_id))
           AND al.canonical_cover_path IS NOT NULL
@@ -472,11 +484,7 @@ export type HealingHealthyControlRow = HealingQueueRow & {
   controlLabel: string;
 };
 
-export type HealingQueueGroup = {
-  groupId: HealingDegradationFlag;
-  label: string;
-  rows: HealingQueueRow[];
-};
+export type HealingQueueGroup = HealingPriorityGroup;
 
 export type HealingDegradedQueue = {
   generatedAt: string;
@@ -487,9 +495,10 @@ export type HealingDegradedQueue = {
     pctMissing: number;
     queueSize: number;
   };
+  workflowSummary: HealingWorkflowSummary;
   countsByType: HealingDegradationCounts;
   duplicateClusters: DuplicateClusterSummary[];
-  groups: HealingQueueGroup[];
+  groups: HealingPriorityGroup[];
   healthyControls: HealingHealthyControlRow[];
   rows: HealingQueueRow[];
 };
@@ -552,10 +561,12 @@ async function enrichSeed(
   const missingCover = gaps?.missingCover ?? true;
   const chartWeeks = audit.chartWeeks || meta.chartWeeks;
   const coverCritical = isCoverCritical({
+    rvtr: audit.rvtr,
     hasHot100: meta.hasHot100 || chartWeeks > 0,
     chartWeeks,
     artistName: audit.artistName || meta.artistName,
     missingCover,
+    albumLinkCount,
   });
   if (coverCritical) flags.add("cover_critical");
 
@@ -618,10 +629,12 @@ function seedToSkeleton(
     flags.includes("missing_cover") ||
     flags.includes("cover_critical");
   const coverCritical = isCoverCritical({
+    rvtr: meta.rvtr,
     hasHot100: meta.hasHot100,
     chartWeeks: meta.chartWeeks,
     artistName: meta.artistName,
     missingCover,
+    albumLinkCount: meta.albumLinkCount,
   });
   if (coverCritical && !flags.includes("cover_critical")) {
     flags.push("cover_critical");
@@ -673,36 +686,6 @@ export async function loadHealingQueueRowAudit(rvtrInput: string): Promise<Heali
   return enrichSeed(meta, byRvtr);
 }
 
-function buildQueueGroups(rows: HealingQueueRow[]): HealingQueueGroup[] {
-  const used = new Set<string>();
-  const groups: HealingQueueGroup[] = [];
-
-  for (const groupId of HEALING_QUEUE_GROUP_ORDER) {
-    const groupRows = rows
-      .filter((r) => r.degradationFlags.includes(groupId) && !used.has(r.rvtr))
-      .sort((a, b) => compareHealingRows(a, b));
-    for (const r of groupRows) used.add(r.rvtr);
-    if (groupRows.length > 0) {
-      groups.push({
-        groupId,
-        label: HEALING_DEGRADATION_LABELS[groupId],
-        rows: groupRows,
-      });
-    }
-  }
-
-  const remainder = rows.filter((r) => !used.has(r.rvtr)).sort((a, b) => compareHealingRows(a, b));
-  if (remainder.length > 0) {
-    groups.push({
-      groupId: "missing_album_links",
-      label: "Other degraded",
-      rows: remainder,
-    });
-  }
-
-  return groups;
-}
-
 /** Human-guided healing queue — read-only, fast SQL seeds; audits on expand. */
 export async function loadHealingDegradedQueue(): Promise<HealingDegradedQueue> {
   const [countsByType, linkSummary, seedMap, dupIndex, controlRows] = await Promise.all([
@@ -718,9 +701,31 @@ export async function loadHealingDegradedQueue(): Promise<HealingDegradedQueue> 
   const seeds = [...seedMap.values()]
     .filter((s) => !controlRvtrs.has(s.rvtr))
     .slice(0, QUEUE_LIMIT);
-  const rows: HealingQueueRow[] = seeds
+  let rows: HealingQueueRow[] = seeds
     .map((s) => seedToSkeleton(s, dupIndex.byRvtr))
     .sort((a, b) => compareHealingRows(a, b));
+
+  const previewTargets = [...rows]
+    .filter((r) => r.coverCritical || r.degradationFlags.includes("missing_album_links"))
+    .sort((a, b) => compareHealingRows(a, b))
+    .slice(0, PRIORITY_PREVIEW_AUDITS);
+
+  const seedByRvtr = new Map(seeds.map((s) => [s.rvtr, s]));
+  const batchSize = 4;
+  for (let i = 0; i < previewTargets.length; i += batchSize) {
+    const batch = previewTargets.slice(i, i + batchSize);
+    const enriched = await Promise.all(
+      batch.map((row) => enrichSeed(seedByRvtr.get(row.rvtr)!, dupIndex.byRvtr)),
+    );
+    for (let j = 0; j < batch.length; j += 1) {
+      const full = enriched[j];
+      if (!full) continue;
+      const idx = rows.findIndex((r) => r.rvtr === batch[j]!.rvtr);
+      if (idx >= 0) rows[idx] = full;
+    }
+  }
+
+  rows = [...rows].sort((a, b) => compareHealingRows(a, b));
 
   const healthyControls: HealingHealthyControlRow[] = controlRows.map((row) => {
     const meta: SeedMeta = {
@@ -746,7 +751,8 @@ export async function loadHealingDegradedQueue(): Promise<HealingDegradedQueue> 
       impactScore: 0,
     };
   });
-  const groups = buildQueueGroups(rows);
+  const groups = buildPriorityGroups(rows);
+  const workflowSummary = buildWorkflowSummary(countsByType, healthyControls.length, rows);
 
   const hot100Total = linkSummary?.hot100Total ?? 0;
   const hot100MissingLinks = linkSummary?.hot100MissingLinks ?? 0;
@@ -763,6 +769,7 @@ export async function loadHealingDegradedQueue(): Promise<HealingDegradedQueue> 
           : 0,
       queueSize: rows.length,
     },
+    workflowSummary,
     countsByType,
     duplicateClusters: dupIndex.clusters.slice(0, 24),
     groups,

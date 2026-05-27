@@ -25,8 +25,10 @@ export function healingImpactScore(input: HealingRowPriorityInput): number {
     score += 20 + input.duplicateCluster.duplicateConfidence * 40;
   }
 
-  if (input.topConfidence != null) {
-    score += input.topConfidence * 30;
+  if (input.topConfidence != null && input.topConfidence >= 0.45) {
+    score += 15 + input.topConfidence * 30;
+  } else if (input.topConfidence != null) {
+    score += input.topConfidence * 10;
   }
 
   if (input.degradationFlags.includes("orphan_vdj")) {

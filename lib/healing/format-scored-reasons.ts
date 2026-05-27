@@ -46,7 +46,7 @@ function labelForReason(reason: string, points: number): string {
   }
   if (reason === "album_has_canonical_cover") return "Album has canonical cover";
   if (reason === "album_has_artwork_links") return "Album artwork links present";
-  if (reason === "track_high_chart_presence") return "Strong Hot 100 chart presence";
+  if (reason === "track_high_chart_presence") return "Chart overlap (Hot 100 presence)";
   if (reason === "album_release_year_unknown") return "Album release year unknown";
   const yearMatch = /^release_year_delta_(\d+)$/.exec(reason);
   if (yearMatch) {
@@ -73,6 +73,11 @@ export function formatWeightedReasons(reasons: string[]): WeightedReason[] {
 
 export function formatWeightedReasonsLine(reasons: string[]): string {
   return formatWeightedReasons(reasons)
-    .map((r) => `${r.label} (${r.sign}${r.points})`)
+    .map((r) => `${r.sign}${r.points} ${r.key}`)
     .join(" · ");
+}
+
+/** Curator-facing compact line: +40 same_canonical_artist */
+export function formatWeightedReasonsCompact(reasons: WeightedReason[]): string[] {
+  return reasons.map((r) => `${r.sign}${r.points} ${r.key}`);
 }

@@ -10,11 +10,17 @@ import {
 } from "@/lib/healing/degradation";
 import {
   formatWeightedReasons,
+  formatWeightedReasonsCompact,
   type WeightedReason,
 } from "@/lib/healing/format-scored-reasons";
 import type { HealingDegradedQueue, HealingQueueRow } from "@/lib/healing/load-degraded-queue";
 
-type FilterKey = "all" | "grouped" | "healthy_controls" | HealingDegradationFlag;
+type FilterKey =
+  | "all"
+  | "grouped"
+  | "healthy_controls"
+  | "high_confidence_match"
+  | HealingDegradationFlag;
 
 function toneForConfidence(c: number | null): "ok" | "warn" | "bad" | "info" {
   if (c == null) return "info";
@@ -40,17 +46,26 @@ function categoryLabel(flags: HealingDegradationFlag[]): string {
   return HEALING_DEGRADATION_LABELS[primary];
 }
 
-function WeightedReasonsList(props: { reasons: WeightedReason[] }) {
+function WeightedReasonsList(props: { reasons: WeightedReason[]; compact?: boolean }) {
   if (!props.reasons.length) return null;
+  if (props.compact) {
+    return (
+      <ul className="ops-healing__weights ops-healing__weights--compact">
+        {formatWeightedReasonsCompact(props.reasons).map((line) => (
+          <li key={line}>{line}</li>
+        ))}
+      </ul>
+    );
+  }
   return (
     <ul className="ops-healing__weights">
       {props.reasons.map((r) => (
         <li key={r.key}>
-          <span className="ops-healing__weight-label">{r.label}</span>
-          <span className={`ops-healing__weight-pts ops-healing__weight-pts--${r.sign}`}>
+          <code className="ops-healing__reason-key">
             {r.sign}
-            {r.points}
-          </span>
+            {r.points} {r.key}
+          </code>
+          <span className="ops-healing__weight-label">{r.label}</span>
         </li>
       ))}
     </ul>
@@ -70,9 +85,19 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
 
   const filtered = useMemo(() => {
     if (filter === "healthy_controls") return props.queue.healthyControls;
+    if (filter === "high_confidence_match") {
+      return mergedRows.filter(
+        (r) => r.topConfidence != null && r.topConfidence >= 0.45 && r.albumLinkCount === 0,
+      );
+    }
     if (filter === "all" || filter === "grouped") return mergedRows;
     return mergedRows.filter((r) => r.degradationFlags.includes(filter));
   }, [filter, mergedRows, props.queue.healthyControls]);
+
+  const groupedSections = useMemo(() => {
+    if (filter !== "grouped") return props.queue.groups;
+    return props.queue.groups;
+  }, [filter, props.queue.groups]);
 
   async function loadRowAudit(rvtr: string) {
     if (rowDetails[rvtr]?.candidates.length) return;
@@ -98,6 +123,7 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
   }
 
   const counts = props.queue.countsByType;
+  const ws = props.queue.workflowSummary;
 
   return (
     <div className="ops-healing">
@@ -107,79 +133,119 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
           <OpsPill tone="info">read-only</OpsPill>
         </header>
         <p className="ops-dim">
-          Hot 100 missing album links:{" "}
-          <strong>
-            {props.queue.summary.hot100MissingLinks.toLocaleString()} /{" "}
-            {props.queue.summary.hot100Total.toLocaleString()}
-          </strong>{" "}
-          ({props.queue.summary.pctMissing}%)
-        </p>
-        <p className="ops-dim">
-          Sample queue <strong>{props.queue.summary.queueSize}</strong> ·{" "}
-          {props.queue.duplicateClusters.length} duplicate clusters surfaced · expand for weighted
-          candidate audit
+          What to fix first: cover-critical chart tracks → high-confidence album matches → duplicate
+          clusters → weak joins → orphan VDJ variants.
         </p>
       </section>
 
       <section className="ops-panel">
         <header className="ops-panel__header">
-          <h2 className="ops-panel__title">Healthy reference tracks</h2>
+          <h2 className="ops-panel__title">Workflow summary</h2>
         </header>
-        <div className="ops-healing__controls">
-          {props.queue.healthyControls.map((control) => (
-            <div key={control.rvtr} className="ops-healing__control-card">
-              <OpsInlineLink href={`/track/${control.rvtr}`}>{control.controlLabel}</OpsInlineLink>
-              <span className="ops-dim">
-                {control.rvtr} · links {control.albumLinkCount} · cover ok · conf 1.00
-              </span>
-            </div>
-          ))}
+        <div className="ops-healing__summary">
+          <SummaryCard
+            label="Cover-Critical"
+            value={ws.coverCritical.toLocaleString()}
+            tone="bad"
+            active={filter === "cover_critical"}
+            onClick={() => setFilter("cover_critical")}
+          />
+          <SummaryCard
+            label="Missing Album Links"
+            value={ws.missingAlbumLinks.toLocaleString()}
+            tone="warn"
+            active={filter === "missing_album_links"}
+            onClick={() => setFilter("missing_album_links")}
+          />
+          <SummaryCard
+            label="Duplicate Clusters"
+            value={ws.duplicateClusters.toLocaleString()}
+            tone="warn"
+            active={filter === "duplicate_rvtr"}
+            onClick={() => setFilter("duplicate_rvtr")}
+          />
+          <SummaryCard
+            label="Orphan Variants"
+            value={ws.orphanVariants.toLocaleString()}
+            tone="info"
+            active={filter === "orphan_vdj"}
+            onClick={() => setFilter("orphan_vdj")}
+          />
+          <SummaryCard
+            label="Healthy Controls"
+            value={String(ws.healthyControls)}
+            tone="ok"
+            active={filter === "healthy_controls"}
+            onClick={() => setFilter("healthy_controls")}
+          />
         </div>
+        <p className="ops-dim">
+          Sample: {props.queue.summary.queueSize} tracks · high-confidence in sample:{" "}
+          <strong>{ws.highConfidenceInSample}</strong> · Hot 100 missing links:{" "}
+          {props.queue.summary.pctMissing}%
+        </p>
+      </section>
+
+      <section className="ops-panel">
+        <header className="ops-panel__header">
+          <h2 className="ops-panel__title">Healthy enrichment integrity</h2>
+        </header>
+        <OpsTable
+          columns={[
+            { key: "track", label: "Reference" },
+            { key: "rvtr", label: "RVTR" },
+            { key: "chart", label: "Chart" },
+            { key: "links", label: "Album links" },
+            { key: "cover", label: "Cover" },
+            { key: "conf", label: "Confidence" },
+          ]}
+          rows={props.queue.healthyControls.map((c) => ({
+            id: c.rvtr,
+            tone: "ok",
+            cells: {
+              track: <strong>{c.controlLabel}</strong>,
+              rvtr: <OpsInlineLink href={`/track/${c.rvtr}`}>{c.rvtr}</OpsInlineLink>,
+              chart: c.chartStatus,
+              links: String(c.albumLinkCount),
+              cover: coverPill(c.coverStatus),
+              conf: <OpsPill tone="ok">1.00</OpsPill>,
+            },
+          }))}
+        />
       </section>
 
       {props.queue.duplicateClusters.length > 0 ? (
         <section className="ops-panel">
           <header className="ops-panel__header">
-            <h2 className="ops-panel__title">Duplicate clusters (sample)</h2>
+            <h2 className="ops-panel__title">Duplicate clusters (fragmented RVTRs)</h2>
           </header>
-          <OpsTable
-            columns={[
-              { key: "title", label: "Cluster" },
-              { key: "size", label: "Size" },
-              { key: "canonical", label: "Probable canonical" },
-              { key: "conf", label: "Dup. conf." },
-              { key: "signals", label: "Signals" },
-            ]}
-            rows={props.queue.duplicateClusters.slice(0, 8).map((c) => ({
-              id: c.clusterId,
-              tone: c.duplicateConfidence >= 0.7 ? "warn" : "info",
-              cells: {
-                title: (
-                  <>
-                    <strong>{c.displayTitle}</strong>
-                    <br />
-                    <span className="ops-dim">{c.displayArtist}</span>
-                  </>
-                ),
-                size: String(c.clusterSize),
-                canonical: (
-                  <>
-                    <OpsInlineLink href={`/track/${c.probableCanonicalRvtr}`}>
-                      {c.probableCanonicalRvtr}
-                    </OpsInlineLink>
-                    <br />
-                    <span className="ops-dim">{c.probableCanonicalLabel}</span>
-                  </>
-                ),
-                conf: (
-                  <OpsPill tone={toneForConfidence(c.duplicateConfidence)}>
-                    {c.duplicateConfidence.toFixed(2)}
-                  </OpsPill>
-                ),
-                signals: c.signals.join(" · "),
-              },
-            }))}
-          />
+          {props.queue.duplicateClusters.slice(0, 6).map((c) => (
+            <div key={c.clusterId} className="ops-healing__cluster-card">
+              <p className="ops-healing__cluster-title">
+                <strong>{c.displayTitle}</strong> · {c.displayArtist}
+              </p>
+              <p className="ops-dim">
+                Size {c.clusterSize} · dup conf{" "}
+                <strong>{c.duplicateConfidence.toFixed(2)}</strong> · year spread {c.yearSpread} ·
+                chart {c.totalChartWeeks}w total · VDJ {c.vdjMemberCount}/{c.clusterSize}
+              </p>
+              <p className="ops-dim">
+                Variants:{" "}
+                {c.memberRvtrs.map((rvtr) => (
+                  <span key={rvtr}>
+                    <OpsInlineLink href={`/track/${rvtr}`}>{rvtr}</OpsInlineLink>
+                    {rvtr === c.probableCanonicalRvtr ? " (canonical)" : ""}
+                    {" · "}
+                  </span>
+                ))}
+              </p>
+              {c.linkedVariantRvtrs.length > 0 ? (
+                <p className="ops-dim">Linked variants: {c.linkedVariantRvtrs.join(", ")}</p>
+              ) : (
+                <p className="ops-dim">Linked variants: none</p>
+              )}
+            </div>
+          ))}
         </section>
       ) : null}
 
@@ -202,6 +268,11 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
             active={filter === "cover_critical"}
             label={`Cover-critical (${counts.cover_critical.toLocaleString()})`}
             onClick={() => setFilter("cover_critical")}
+          />
+          <FilterButton
+            active={filter === "high_confidence_match"}
+            label={`High conf. match (${ws.highConfidenceInSample} sample)`}
+            onClick={() => setFilter("high_confidence_match")}
           />
           <FilterButton
             active={filter === "missing_cover"}
@@ -237,13 +308,14 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
       </section>
 
       {filter === "grouped"
-        ? props.queue.groups.map((group) => (
-            <section key={group.groupId} className="ops-panel">
+        ? groupedSections.map((group) => (
+            <section key={`${group.groupId}-${group.label}`} className="ops-panel">
               <header className="ops-panel__header">
                 <h2 className="ops-panel__title">
                   {group.label} ({group.rows.length})
                 </h2>
               </header>
+              <p className="ops-dim ops-healing__workflow-hint">{group.workflowHint}</p>
               <TrackTable
                 rows={group.rows.map((r) => rowDetails[r.rvtr] ?? r)}
                 expandedRvtr={expandedRvtr}
@@ -292,8 +364,8 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
               ) : null}
               {detail.weightedTopReasons.length > 0 ? (
                 <>
-                  <p className="ops-dim">Top match signals (weighted)</p>
-                  <WeightedReasonsList reasons={detail.weightedTopReasons} />
+                  <p className="ops-dim">Top match signals (strongest first)</p>
+                  <WeightedReasonsList reasons={detail.weightedTopReasons} compact />
                 </>
               ) : null}
               <ul className="ops-dim" style={{ margin: "0 0 0.75rem", paddingLeft: "1.1rem" }}>
@@ -334,7 +406,12 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
                           ) : null}
                         </>
                       ),
-                      reasons: <WeightedReasonsList reasons={formatWeightedReasons(c.reasons)} />,
+                      reasons: (
+                        <WeightedReasonsList
+                          reasons={formatWeightedReasons(c.reasons)}
+                          compact
+                        />
+                      ),
                     },
                   }))}
                 />
@@ -420,6 +497,27 @@ function TrackTable(props: {
         },
       }))}
     />
+  );
+}
+
+function SummaryCard(props: {
+  label: string;
+  value: string;
+  tone: "ok" | "warn" | "bad" | "info";
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className={`ops-healing__summary-card ops-healing__summary-card--${props.tone}${
+        props.active ? " ops-healing__summary-card--active" : ""
+      }`}
+      onClick={props.onClick}
+    >
+      <span className="ops-healing__summary-value">{props.value}</span>
+      <span className="ops-healing__summary-label">{props.label}</span>
+    </button>
   );
 }
 

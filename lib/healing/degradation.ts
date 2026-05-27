@@ -56,12 +56,24 @@ export function primaryHealingCategory(
 }
 
 export function isCoverCritical(input: {
+  rvtr?: string;
   hasHot100: boolean;
   chartWeeks: number;
   artistName: string;
   missingCover: boolean;
+  albumLinkCount: number;
 }): boolean {
   const artist = input.artistName.trim().toLowerCase();
-  if (!artist || artist === "unknown" || artist === "?") return false;
-  return input.hasHot100 && input.chartWeeks >= 8 && input.missingCover;
+  if (!artist || artist === "unknown" || artist === "untitled" || artist === "?") {
+    return false;
+  }
+  const rvtr = input.rvtr?.trim().toUpperCase() ?? "";
+  if (rvtr && !/^RVTR[A-Z0-9]+$/i.test(rvtr)) return false;
+
+  return (
+    input.hasHot100 &&
+    input.chartWeeks >= 8 &&
+    input.missingCover &&
+    input.albumLinkCount === 0
+  );
 }
