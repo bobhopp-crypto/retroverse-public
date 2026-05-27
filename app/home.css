@@ -406,7 +406,8 @@ main.home-main > .poster-shell {
   list-style: none;
 }
 
-.home-search-suggestions__item {
+.home-search-suggestions__item,
+a.home-search-suggestions__item {
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -421,8 +422,10 @@ main.home-main > .poster-shell {
   font-size: 0.94rem;
   line-height: 1.3;
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
   touch-action: manipulation;
+  box-sizing: border-box;
 }
 
 .home-search-suggestions__item:hover,

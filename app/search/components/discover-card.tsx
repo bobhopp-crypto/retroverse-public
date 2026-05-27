@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { sanitizePublicNavigationHref } from "@/lib/search/entity-routes";
+
 type CardVariant = "album" | "artist-chart";
 
 type DiscoverCardProps = {
@@ -28,6 +30,7 @@ export function DiscoverCard({
   ariaLabel,
   href,
 }: DiscoverCardProps) {
+  const safeHref = href ? sanitizePublicNavigationHref(href) : null;
   const icon = variant === "album" ? "◉" : "★";
   const [imgBroken, setImgBroken] = useState(false);
   const showCover = Boolean(coverUrl?.trim()) && !imgBroken;
@@ -85,8 +88,8 @@ export function DiscoverCard({
 
   return (
     <li className="discover-card-slot">
-      {href ? (
-        <Link href={href} prefetch className="discover-card" aria-label={ariaLabel}>
+      {safeHref ? (
+        <Link href={safeHref} prefetch className="discover-card" aria-label={ariaLabel}>
           {body}
         </Link>
       ) : (

@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { highlightMatchText } from "@/lib/search/highlight-match";
+import { resolveSuggestionHref } from "@/lib/search/resolve-suggestion-href";
 import { OVERLAY_VISIBLE_INITIAL } from "@/lib/search/search-breadth";
 import type {
   SearchSuggestionGroups,
@@ -14,6 +16,8 @@ type HomeSearchSuggestionsProps = {
   loading?: boolean;
   rvYearIntent?: boolean;
   onSelect: (item: SearchSuggestionItem) => void;
+  /** Close overlay after Link navigation (overlay mode). */
+  onDismiss?: () => void;
   className?: string;
   overlayMode?: boolean;
   pending?: boolean;
@@ -101,17 +105,33 @@ function SuggestionRow({
   );
 }
 
+function suggestionItemClassName(
+  item: SearchSuggestionItem,
+  sectionKey: keyof SearchSuggestionGroups,
+  index: number,
+): string {
+  return [
+    "home-search-suggestions__item",
+    item.actionLabel ? "home-search-suggestions__item--cta" : "",
+    sectionKey === "artists" && index === 0 ? "home-search-suggestions__item--hero" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
 function SectionList({
   sectionKey,
   heading,
   items,
   onSelect,
+  onDismiss,
   highlightQuery,
 }: {
   sectionKey: keyof SearchSuggestionGroups;
   heading: string;
   items: SearchSuggestionItem[];
   onSelect: (item: SearchSuggestionItem) => void;
+  onDismiss?: () => void;
   highlightQuery?: string;
 }) {
   const initial = OVERLAY_VISIBLE_INITIAL[sectionKey];
@@ -125,19 +145,39 @@ function SectionList({
         {heading}
       </p>
       <ul className="home-search-suggestions__list">
-        {visible.map((item, index) => (
-          <li key={item.id}>
-            <button
-              type="button"
-              className={`home-search-suggestions__item${item.actionLabel ? " home-search-suggestions__item--cta" : ""}${sectionKey === "artists" && index === 0 ? " home-search-suggestions__item--hero" : ""}`}
-              role="option"
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={() => onSelect(item)}
-            >
-              <SuggestionRow item={item} highlightQuery={highlightQuery} overlayMode />
-            </button>
-          </li>
-        ))}
+        {visible.map((item, index) => {
+          const href = resolveSuggestionHref(item);
+          const className = suggestionItemClassName(item, sectionKey, index);
+
+          if (href) {
+            return (
+              <li key={item.id}>
+                <Link
+                  href={href}
+                  prefetch
+                  className={className}
+                  role="option"
+                  onClick={() => onDismiss?.()}
+                >
+                  <SuggestionRow item={item} highlightQuery={highlightQuery} overlayMode />
+                </Link>
+              </li>
+            );
+          }
+
+          return (
+            <li key={item.id}>
+              <button
+                type="button"
+                className={className}
+                role="option"
+                onClick={() => onSelect(item)}
+              >
+                <SuggestionRow item={item} highlightQuery={highlightQuery} overlayMode />
+              </button>
+            </li>
+          );
+        })}
       </ul>
       {hidden > 0 ? (
         <button
@@ -157,6 +197,7 @@ export function HomeSearchSuggestions({
   loading = false,
   rvYearIntent = false,
   onSelect,
+  onDismiss,
   className = "",
   overlayMode = false,
   pending = false,
@@ -210,6 +251,7 @@ export function HomeSearchSuggestions({
               heading={heading}
               items={items}
               onSelect={onSelect}
+              onDismiss={onDismiss}
               highlightQuery={highlight}
             />
           );
