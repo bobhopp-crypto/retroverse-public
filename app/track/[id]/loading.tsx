@@ -24,6 +24,15 @@ export default function TrackLoading() {
           </p>
         </div>
       </section>
+
+      <nav className="exhibit-footer-nav" aria-label="Site">
+        <Link href="/" prefetch>
+          Home
+        </Link>
+        <Link href="/search" prefetch>
+          Search
+        </Link>
+      </nav>
     </div>
   );
 }

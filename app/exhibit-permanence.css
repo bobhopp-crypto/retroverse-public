@@ -1,0 +1,91 @@
+/* Archive permanence — institutional endurance, quiet stability */
+
+.track-exhibit,
+.artist-exhibit {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.artist-exhibit__main {
+  flex: 1 1 auto;
+}
+
+.track-exhibit {
+  --exhibit-mount: 2px 3px 0 rgba(45, 62, 70, 0.17);
+}
+
+/* Footer — permanent base register */
+.exhibit-footer-nav {
+  margin-top: auto;
+  flex-shrink: 0;
+  box-shadow: 0 -1px 0 rgba(244, 233, 211, 0.08);
+}
+
+/* Unified mount shadow — durable filed stock */
+.track-exhibit .track-hero__cover-wrap,
+.artist-exhibit .artist-hero,
+.track-exhibit .track-journey,
+.album-exhibit .album-tracklist__list {
+  box-shadow:
+    var(--exhibit-mount),
+    inset 0 0 0 1px rgba(244, 233, 211, 0.5);
+}
+
+/* Section anchoring — patient institutional rhythm */
+.track-exhibit .track-albums,
+.track-exhibit .track-journey,
+.track-exhibit .track-related {
+  width: 100%;
+  padding-top: 1.1rem;
+  border-top: 2px solid rgba(45, 62, 70, 0.09);
+}
+
+.track-exhibit .track-section-head--dark {
+  margin-top: 0;
+}
+
+/* Sparse — held in the archive, not awaiting data */
+.track-exhibit--sparse .track-hero {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 2px solid rgba(45, 62, 70, 0.1);
+  margin-bottom: 0;
+  padding-bottom: 1.5rem;
+}
+
+.track-exhibit--sparse .track-hero__identity {
+  margin-top: 0.5rem;
+}
+
+/* Typographic permanence */
+.artist-exhibit .artist-hero__name {
+  letter-spacing: 0.03em;
+}
+
+.track-exhibit .track-file-tag,
+.artist-exhibit .artist-file-tag {
+  font-weight: 800;
+}
+
+.track-exhibit .track-section-link {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.track-exhibit .track-trajectory-scale {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.track-exhibit .track-trajectory-rank strong {
+  font-weight: 800;
+}
+
+/* Still — no reactive motion on exhibit chrome */
+.track-exhibit a,
+.artist-exhibit a {
+  transition: none;
+}
