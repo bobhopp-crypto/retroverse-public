@@ -1,19 +1,27 @@
-/** Degradation flags for canonical enrichment healing (read-only queue). */
+/** Degradation flags for canonical enrichment healing (read-only console). */
 
 export type HealingDegradationFlag =
   | "missing_album_links"
   | "missing_cover"
-  | "duplicate_title_artist"
+  | "duplicate_rvtr"
   | "orphan_vdj"
-  | "stand_by_me_cluster";
+  | "weak_confidence_join";
 
 export const HEALING_DEGRADATION_LABELS: Record<HealingDegradationFlag, string> = {
   missing_album_links: "Missing album links",
-  missing_cover: "Missing cover",
-  duplicate_title_artist: "Duplicate title/artist",
-  orphan_vdj: "Orphan VDJ link",
-  stand_by_me_cluster: "Stand By Me cluster",
+  missing_cover: "Missing covers",
+  duplicate_rvtr: "Duplicate RVTR candidates",
+  orphan_vdj: "Orphan VDJ variants",
+  weak_confidence_join: "Weak-confidence joins",
 };
+
+export const HEALING_CATEGORY_PRIORITY: HealingDegradationFlag[] = [
+  "duplicate_rvtr",
+  "orphan_vdj",
+  "missing_album_links",
+  "missing_cover",
+  "weak_confidence_join",
+];
 
 export type HealingDegradationCounts = Record<HealingDegradationFlag, number>;
 
@@ -24,3 +32,12 @@ export type HealingQueueState =
   | "candidates_ready";
 
 export type HealingCoverStatus = "ok" | "missing" | "no_album_link";
+
+export function primaryHealingCategory(
+  flags: HealingDegradationFlag[],
+): HealingDegradationFlag | null {
+  for (const flag of HEALING_CATEGORY_PRIORITY) {
+    if (flags.includes(flag)) return flag;
+  }
+  return flags[0] ?? null;
+}

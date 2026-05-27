@@ -1,5 +1,8 @@
 import { inspectQuery } from "@/lib/inspect/pg";
-import { loadStandByMeClusterRvtrs } from "@/lib/healing/clusters/stand-by-me";
+import {
+  HEALING_HEALTHY_CONTROL_RVTR,
+  loadStandByMeClusterRvtrs,
+} from "@/lib/healing/clusters/stand-by-me";
 import type {
   HealingCoverStatus,
   HealingDegradationCounts,
@@ -11,9 +14,8 @@ import { auditTrackAlbumLinks } from "@/lib/track/album-link-recovery/audit-trac
 import { detectTrackHealingGaps } from "@/lib/track/album-link-recovery/detect-gaps";
 import type { ScoredAlbumLinkCandidate } from "@/lib/track/album-link-recovery/types";
 
-const QUEUE_LIMIT = 32;
+const QUEUE_LIMIT = 40;
 const PER_SEED = 10;
-const AUDIT_PREVIEW_LIMIT = 16;
 
 type SeedMeta = {
   rvtr: string;
@@ -74,9 +76,9 @@ async function loadDegradationCounts(): Promise<HealingDegradationCounts> {
     const rows = await inspectQuery<{
       missing_album_links: number;
       missing_cover: number;
-      duplicate_title_artist: number;
+      duplicate_rvtr: number;
       orphan_vdj: number;
-      stand_by_me_cluster: number;
+      weak_confidence_join: number;
     }>(
       `
       WITH hot AS (
@@ -110,7 +112,7 @@ async function loadDegradationCounts(): Promise<HealingDegradationCounts> {
           INNER JOIN dup_keys dk
             ON lower(trim(h.canonical_title)) = dk.t
            AND lower(regexp_replace(trim(h.canonical_artist_name), '^the\\s+', '', 'i')) = dk.a
-        ) AS duplicate_title_artist,
+        ) AS duplicate_rvtr,
         (SELECT count(*)::int FROM canonical_track_display ctd
           WHERE ctd.has_vdj_media = true
             AND (
@@ -121,24 +123,33 @@ async function loadDegradationCounts(): Promise<HealingDegradationCounts> {
               )
             )) AS orphan_vdj,
         (SELECT count(*)::int FROM hot h
-          WHERE lower(trim(h.canonical_title)) LIKE '%stand by me%') AS stand_by_me_cluster
+          WHERE EXISTS (
+            SELECT 1 FROM canonical_album_tracks cat
+            JOIN albums al ON al.id = cat.album_id
+            WHERE upper(trim(cat.canonical_track_key)) = upper(trim(h.track_id))
+              AND h.first_chart_date IS NOT NULL
+              AND al.release_year IS NOT NULL
+              AND abs(
+                extract(year FROM h.first_chart_date::date)::int - al.release_year
+              ) > 8
+          )) AS weak_confidence_join
       `,
     );
     const row = rows[0];
     return {
       missing_album_links: row?.missing_album_links ?? 0,
       missing_cover: row?.missing_cover ?? 0,
-      duplicate_title_artist: row?.duplicate_title_artist ?? 0,
+      duplicate_rvtr: row?.duplicate_rvtr ?? 0,
       orphan_vdj: row?.orphan_vdj ?? 0,
-      stand_by_me_cluster: row?.stand_by_me_cluster ?? 0,
+      weak_confidence_join: row?.weak_confidence_join ?? 0,
     };
   } catch {
     return {
       missing_album_links: 0,
       missing_cover: 0,
-      duplicate_title_artist: 0,
+      duplicate_rvtr: 0,
       orphan_vdj: 0,
-      stand_by_me_cluster: 0,
+      weak_confidence_join: 0,
     };
   }
 }
@@ -266,13 +277,47 @@ async function seedOrphanVdj(limit: number): Promise<DisplaySeedRow[]> {
   );
 }
 
+async function seedWeakConfidenceJoins(limit: number): Promise<DisplaySeedRow[]> {
+  return inspectQuery<DisplaySeedRow>(
+    `
+    SELECT
+      ctd.track_id,
+      ctd.canonical_title,
+      ctd.canonical_artist_name,
+      ctd.first_chart_date::text AS first_chart_date,
+      ctd.chart_weeks,
+      ctd.peak_hot100_position,
+      ctd.has_hot100,
+      ctd.has_vdj_media,
+      (SELECT count(*)::int FROM canonical_album_tracks cat
+        WHERE upper(trim(cat.canonical_track_key)) = upper(trim(ctd.track_id))) AS album_link_count
+    FROM canonical_track_display ctd
+    WHERE ctd.has_hot100 = true
+      AND EXISTS (
+        SELECT 1 FROM canonical_album_tracks cat
+        JOIN albums al ON al.id = cat.album_id
+        WHERE upper(trim(cat.canonical_track_key)) = upper(trim(ctd.track_id))
+          AND ctd.first_chart_date IS NOT NULL
+          AND al.release_year IS NOT NULL
+          AND abs(
+            extract(year FROM ctd.first_chart_date::date)::int - al.release_year
+          ) > 8
+      )
+    ORDER BY ctd.chart_weeks DESC, ctd.peak_hot100_position ASC NULLS LAST
+    LIMIT $1
+    `,
+    [limit],
+  );
+}
+
 async function mergeSeeds(): Promise<Map<string, SeedMeta>> {
-  const [missingLinks, missingCover, duplicates, orphanVdj, standByMeRvtrs] =
+  const [missingLinks, missingCover, duplicates, orphanVdj, weakJoins, standByMeRvtrs] =
     await Promise.all([
       seedMissingAlbumLinks(PER_SEED),
       seedMissingCover(PER_SEED),
       seedDuplicateClusters(PER_SEED),
       seedOrphanVdj(PER_SEED),
+      seedWeakConfidenceJoins(PER_SEED),
       loadStandByMeClusterRvtrs(PER_SEED),
     ]);
 
@@ -301,13 +346,14 @@ async function mergeSeeds(): Promise<Map<string, SeedMeta>> {
 
   ingest(missingLinks, "missing_album_links");
   ingest(missingCover, "missing_cover");
-  ingest(duplicates, "duplicate_title_artist");
+  ingest(duplicates, "duplicate_rvtr");
   ingest(orphanVdj, "orphan_vdj");
+  ingest(weakJoins, "weak_confidence_join");
 
   for (const rvtr of standByMeRvtrs) {
     const existing = map.get(rvtr);
     const flags = existing?.flags ?? new Set<HealingDegradationFlag>();
-    flags.add("stand_by_me_cluster");
+    flags.add("weak_confidence_join");
     if (!existing) {
       map.set(rvtr, {
         rvtr,
@@ -322,7 +368,7 @@ async function mergeSeeds(): Promise<Map<string, SeedMeta>> {
         flags,
       });
     } else {
-      existing.flags.add("stand_by_me_cluster");
+      existing.flags.add("weak_confidence_join");
     }
   }
 
@@ -357,6 +403,7 @@ export type HealingDegradedQueue = {
     queueSize: number;
   };
   countsByType: HealingDegradationCounts;
+  healthyControls: HealingQueueRow[];
   rows: HealingQueueRow[];
 };
 
@@ -376,6 +423,16 @@ async function enrichSeed(meta: SeedMeta): Promise<HealingQueueRow | null> {
   const candidates = audit.candidates.slice(0, 6);
   const albumLinkCount = audit.existingLinkCount;
   const missingCover = gaps?.missingCover ?? true;
+  const topConf = candidates[0]?.confidence ?? null;
+  if (topConf != null && topConf < 0.45) flags.add("weak_confidence_join");
+  if (
+    albumLinkCount > 0 &&
+    audit.firstChartYear != null &&
+    candidates[0]?.releaseYear != null &&
+    Math.abs(audit.firstChartYear - candidates[0].releaseYear) > 8
+  ) {
+    flags.add("weak_confidence_join");
+  }
 
   return {
     rvtr: audit.rvtr,
@@ -447,30 +504,68 @@ export async function loadHealingQueueRowAudit(rvtrInput: string): Promise<Heali
   return enrichSeed(meta);
 }
 
-/** Human-guided healing queue — read-only, seeded from degraded Hot 100 + VDJ orphans. */
+/** Fast control row — SQL only, no candidate audit on first paint. */
+async function loadHealthyControls(): Promise<HealingQueueRow[]> {
+  const rows = await inspectQuery<DisplaySeedRow>(
+    `
+    SELECT
+      ctd.track_id,
+      ctd.canonical_title,
+      ctd.canonical_artist_name,
+      ctd.first_chart_date::text AS first_chart_date,
+      ctd.chart_weeks,
+      ctd.peak_hot100_position,
+      ctd.has_hot100,
+      ctd.has_vdj_media,
+      (SELECT count(*)::int FROM canonical_album_tracks cat
+        WHERE upper(trim(cat.canonical_track_key)) = upper(trim(ctd.track_id))) AS album_link_count
+    FROM canonical_track_display ctd
+    WHERE upper(trim(ctd.track_id)) = upper(trim($1))
+    LIMIT 1
+    `,
+    [HEALING_HEALTHY_CONTROL_RVTR],
+  );
+  const row = rows[0];
+  if (!row) return [];
+
+  const meta: SeedMeta = {
+    rvtr: row.track_id.trim().toUpperCase(),
+    title: row.canonical_title.trim(),
+    artistName: row.canonical_artist_name.trim(),
+    releaseYear: yearFromDate(row.first_chart_date),
+    chartWeeks: row.chart_weeks,
+    peakHot100: row.peak_hot100_position,
+    hasHot100: row.has_hot100,
+    hasVdjMedia: row.has_vdj_media,
+    albumLinkCount: row.album_link_count,
+    flags: new Set(),
+  };
+
+  return [
+    {
+      ...seedToSkeleton(meta),
+      degradationFlags: [],
+      healingState: "linked",
+      coverStatus: row.album_link_count > 0 ? "ok" : "no_album_link",
+      topConfidence: 1,
+      candidateCount: 0,
+    },
+  ];
+}
+
+/** Human-guided healing queue — read-only, fast SQL seeds; audits on expand. */
 export async function loadHealingDegradedQueue(): Promise<HealingDegradedQueue> {
-  const [countsByType, linkSummary, seedMap] = await Promise.all([
+  const [countsByType, linkSummary, seedMap, healthyControls] = await Promise.all([
     loadDegradationCounts(),
     loadMissingLinkSummary(),
     mergeSeeds(),
+    loadHealthyControls(),
   ]);
 
-  const seeds = [...seedMap.values()].slice(0, QUEUE_LIMIT);
+  const seeds = [...seedMap.values()]
+    .filter((s) => s.rvtr !== HEALING_HEALTHY_CONTROL_RVTR)
+    .slice(0, QUEUE_LIMIT);
   const rows: HealingQueueRow[] = seeds.map(seedToSkeleton);
-
-  const auditTargets = rows.slice(0, AUDIT_PREVIEW_LIMIT);
-  const batchSize = 8;
-  for (let i = 0; i < auditTargets.length; i += batchSize) {
-    const batch = auditTargets.slice(i, i + batchSize);
-    const enriched = await Promise.all(
-      batch.map((row) => enrichSeed(seeds.find((s) => s.rvtr === row.rvtr)!)),
-    );
-    for (let j = 0; j < batch.length; j += 1) {
-      const full = enriched[j];
-      const idx = rows.findIndex((r) => r.rvtr === batch[j]!.rvtr);
-      if (full && idx >= 0) rows[idx] = full;
-    }
-  }
 
   rows.sort((a, b) => {
     const score = (r: HealingQueueRow) =>
@@ -497,6 +592,7 @@ export async function loadHealingDegradedQueue(): Promise<HealingDegradedQueue> 
       queueSize: rows.length,
     },
     countsByType,
+    healthyControls,
     rows,
   };
 }

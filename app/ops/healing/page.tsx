@@ -9,7 +9,7 @@ import "../ops.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Canonical Healing — Retroverse Ops",
+  title: "Healing Console — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 
@@ -32,8 +32,8 @@ export default async function OpsHealingPage() {
       <div className="ops-page__inner">
         <header className="ops-topbar">
           <div>
-            <p className="ops-topbar__kicker">Internal · canonical enrichment healing</p>
-            <h1 className="ops-topbar__title">Healing v1</h1>
+            <p className="ops-topbar__kicker">Internal · restoration visibility</p>
+            <h1 className="ops-topbar__title">Healing Console</h1>
           </div>
           <div className="ops-topbar__meta">
             <div>
@@ -46,9 +46,9 @@ export default async function OpsHealingPage() {
         </header>
 
         <p className="ops-banner">
-          <strong>Human-guided archive restoration</strong> — missing album links, covers,
-          duplicate RVTR clusters, orphan VDJ tracks. Review candidates and confidence
-          reasoning before any future write pass.
+          <strong>Curator visibility only</strong> — surface degraded canonical entities,
+          album-link candidates, and confidence reasoning. No apply, merge, heal, or bulk
+          actions.
         </p>
 
         <OpsHealingPanel queue={queue} />
