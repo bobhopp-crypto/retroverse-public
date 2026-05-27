@@ -321,14 +321,23 @@
 }
 
 .home-search-overlay-results .home-search-suggestions__title {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 800;
-  color: #12343a;
+  color: #0f2a2f;
+  line-height: 1.22;
 }
 
 .home-search-overlay-results .home-search-suggestions__artist {
-  font-size: 0.86rem;
-  color: rgba(18, 52, 58, 0.78);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(18, 52, 58, 0.82);
+  line-height: 1.3;
+}
+
+.home-search-overlay-results .home-search-suggestions__year {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(18, 52, 58, 0.62);
 }
 
 .home-search-suggestions--overlay .home-search-suggestions__count {

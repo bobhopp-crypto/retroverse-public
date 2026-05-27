@@ -19,6 +19,11 @@ export type SuggestionResponse = {
   error?: string;
   /** `entities` | `year` | `none` */
   source?: string;
+  /** PG index path — for production verification via curl. */
+  index?: {
+    entitySource: "matview" | "inline";
+    pgTrgm: boolean;
+  };
 };
 
 function suggestionTotal(groups: SearchSuggestionGroups): number {
@@ -85,6 +90,7 @@ export async function loadSuggestionResponse(q: string): Promise<SuggestionRespo
         canonicalArtist,
         rvYearIntent: false,
         source: "entities",
+        index: meta,
       };
     }
 
@@ -96,6 +102,7 @@ export async function loadSuggestionResponse(q: string): Promise<SuggestionRespo
       canonicalArtist,
       rvYearIntent: false,
       source: "entities",
+      index: meta,
     };
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);

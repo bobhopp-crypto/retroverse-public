@@ -4,6 +4,7 @@ import { artistPagePath } from "@/lib/artist/resolve-artist";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { dedupeSearchEntities } from "@/lib/search/dedupe-search-entities";
+import { refineOverlayEntities } from "@/lib/search/refine-overlay-entities";
 import {
   albumSuggestionHref,
   trackPageHref,
@@ -169,13 +170,18 @@ function buildMatchSql(
 
   const matchRank = `
     (CASE
-      WHEN se.normalized_label = $1 THEN 0
-      WHEN $${params.length + 1} <> '' AND se.normalized_label = $${params.length + 1} THEN 1
-      WHEN se.normalized_label LIKE $1 || '%' THEN 2
-      WHEN split_part(se.normalized_label, ' ', 1) LIKE $1 || '%' THEN 3
-      WHEN se.normalized_label LIKE '% ' || $1 || '%' THEN 4
-      WHEN se.normalized_label LIKE '%' || $1 || '%' THEN 5
-      ELSE 6
+      WHEN se.entity_type = 'artist' AND se.normalized_label = $1 THEN 0
+      WHEN se.entity_type = 'artist' AND se.normalized_label LIKE $1 || '%' THEN 1
+      WHEN se.entity_type = 'track'
+        AND regexp_replace(lower(trim(se.label)), '[^a-z0-9]+', ' ', 'g') = $1 THEN 2
+      WHEN se.entity_type = 'track'
+        AND regexp_replace(lower(trim(se.label)), '[^a-z0-9]+', ' ', 'g') LIKE $1 || '%' THEN 3
+      WHEN $${params.length + 1} <> '' AND se.normalized_label = $${params.length + 1} THEN 4
+      WHEN se.normalized_label LIKE $1 || '%' THEN 5
+      WHEN split_part(se.normalized_label, ' ', 1) LIKE $1 || '%' THEN 6
+      WHEN se.normalized_label LIKE '% ' || $1 || '%' THEN 7
+      WHEN se.normalized_label LIKE '%' || $1 || '%' THEN 8
+      ELSE 9
     END)`;
 
   params.push(fullNorm);
@@ -248,6 +254,14 @@ function capByType(
   return out;
 }
 
+let pingOkUntil = 0;
+async function ensurePgReady(): Promise<boolean> {
+  if (Date.now() < pingOkUntil) return true;
+  const ping = await inspectPing();
+  if (ping.ok) pingOkUntil = Date.now() + 30_000;
+  return ping.ok;
+}
+
 export type SearchEntityQueryMode = "overlay" | "full";
 
 export type SearchEntityQueryMeta = {
@@ -266,8 +280,8 @@ export async function querySearchEntities(
   options: { mode?: SearchEntityQueryMode } = {},
 ): Promise<SearchEntityQueryResult> {
   const mode = options.mode ?? "full";
-  const ping = await inspectPing();
-  if (!ping.ok) {
+  const pingOk = await ensurePgReady();
+  if (!pingOk) {
     return {
       entities: [],
       meta: { entitySource: "inline", pgTrgm: false },
@@ -288,10 +302,12 @@ export async function querySearchEntities(
   const sqlPerType =
     mode === "overlay" ? overlaySearchSqlFetchLimit(tier) : searchSqlFetchLimit(tier);
   const tokens = searchQueryTokens(query);
-  const [useTrgm, useMatview] = await Promise.all([
+  const [useTrgmRaw, useMatview] = await Promise.all([
     resolvePgTrgm(),
     resolveSearchEntitiesMatview(),
   ]);
+  // Overlay: skip fuzzy trgm — prefix + artist/title ranks are more trustworthy.
+  const useTrgm = useTrgmRaw && mode !== "overlay";
   const entitySource = useMatview ? "matview" : "inline";
   const fromClause = useMatview ? `search_entities se` : `(${INLINE_SOURCE}) se`;
 
@@ -319,11 +335,13 @@ export async function querySearchEntities(
   );
 
   const limited = capByType(deduped, limits);
-  const meta: SearchEntityQueryMeta = { entitySource, pgTrgm: useTrgm };
+  const refined =
+    mode === "overlay" ? refineOverlayEntities(limited, query) : limited;
+  const meta: SearchEntityQueryMeta = { entitySource, pgTrgm: useTrgmRaw };
 
   // Overlay skips year enrichment — avoid blocking first paint on a second PG round-trip.
   if (mode === "overlay") {
-    return { entities: limited, meta };
+    return { entities: refined, meta };
   }
 
   // Full mode: matview track rows may omit release_year; fill from canonical_track_display.

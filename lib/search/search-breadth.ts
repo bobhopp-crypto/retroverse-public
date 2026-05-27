@@ -6,7 +6,7 @@ export type SearchBreadthTier = "narrow" | "medium" | "broad";
 export function searchBreadthTier(query: string): SearchBreadthTier {
   const len = query.trim().length;
   if (len <= 3) return "narrow";
-  if (len <= 6) return "medium";
+  if (len <= 8) return "medium";
   return "broad";
 }
 
