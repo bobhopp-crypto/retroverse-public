@@ -13,8 +13,12 @@ import {
   formatWeightedReasonsCompact,
   type WeightedReason,
 } from "@/lib/healing/format-scored-reasons";
-import type { HealingDegradedQueue, HealingQueueRow } from "@/lib/healing/load-degraded-queue";
-import type { ScoredAlbumLinkCandidate } from "@/lib/track/album-link-recovery/types";
+import type {
+  HealingDegradedQueue,
+  HealingQueueRow,
+  HealingScoredCandidate,
+} from "@/lib/healing/load-degraded-queue";
+import type { HealingTrustCalibration } from "@/lib/healing/trust-types";
 
 const APPROVAL_CONFIDENCE_MIN = 0.45;
 
@@ -82,8 +86,23 @@ type ApplyNotice = {
   revalidatedPaths: string[];
 };
 
+function trustTone(level: string): "ok" | "warn" | "bad" | "info" {
+  if (level === "trusted") return "ok";
+  if (level === "cautious") return "warn";
+  if (level === "risky") return "bad";
+  return "info";
+}
+
+function trustLabel(level: string): string {
+  if (level === "trusted") return "trusted";
+  if (level === "cautious") return "cautious";
+  if (level === "risky") return "risky";
+  return level;
+}
+
 export function OpsHealingPanel(props: {
   queue: HealingDegradedQueue;
+  trust: HealingTrustCalibration;
   writesEnabled: boolean;
 }) {
   const [filter, setFilter] = useState<FilterKey>("grouped");
@@ -139,7 +158,7 @@ export function OpsHealingPanel(props: {
     await loadRowAudit(rvtr);
   }
 
-  function canApproveCandidate(detail: HealingQueueRow, candidate: ScoredAlbumLinkCandidate): boolean {
+  function canApproveCandidate(detail: HealingQueueRow, candidate: HealingScoredCandidate): boolean {
     return (
       props.writesEnabled &&
       detail.albumLinkCount === 0 &&
@@ -148,7 +167,7 @@ export function OpsHealingPanel(props: {
     );
   }
 
-  async function approveCandidate(detail: HealingQueueRow, candidate: ScoredAlbumLinkCandidate) {
+  async function approveCandidate(detail: HealingQueueRow, candidate: HealingScoredCandidate) {
     if (!canApproveCandidate(detail, candidate)) return;
 
     const confirmed = window.confirm(
@@ -157,7 +176,9 @@ export function OpsHealingPanel(props: {
         "",
         `${detail.rvtr} → album ${candidate.albumId}`,
         `"${candidate.albumTitle}" · ${candidate.artistName}`,
-        `confidence ${candidate.confidence.toFixed(2)}`,
+        `match confidence ${candidate.confidence.toFixed(2)}`,
+        `curator trust ${candidate.trust.level} (${candidate.trust.trustScore.toFixed(2)})`,
+        candidate.trust.curatorNote,
         "",
         "Writes ONE canonical_album_tracks row (healing_approved).",
         "No merge. No replace. Reversible via rollback.",
@@ -252,9 +273,167 @@ export function OpsHealingPanel(props: {
 
   const counts = props.queue.countsByType;
   const ws = props.queue.workflowSummary;
+  const tc = props.trust;
 
   return (
     <div className="ops-healing">
+      <section className="ops-panel">
+        <header className="ops-panel__header">
+          <h2 className="ops-panel__title">Trust calibration</h2>
+          <OpsPill tone="info">human-curated</OpsPill>
+        </header>
+        <p className="ops-dim">
+          Signals only — compilation and duplicate risk lower trust visibility; they do not block
+          approval.
+        </p>
+        <div className="ops-healing__trust-grid">
+          <div className="ops-healing__trust-card">
+            <h3 className="ops-healing__trust-heading">Healing outcomes</h3>
+            <p className="ops-dim">
+              Applies {tc.outcomes.applySuccesses}/{tc.outcomes.applyAttempts} · rollbacks{" "}
+              {tc.outcomes.rollbacks} ({tc.outcomes.rollbackRate}%) · retained {tc.outcomes.retained}{" "}
+              ({tc.outcomes.retentionRate}%)
+            </p>
+            <p className="ops-dim">
+              Confidence range{" "}
+              {tc.outcomes.confidenceMin != null
+                ? `${tc.outcomes.confidenceMin.toFixed(2)}–${tc.outcomes.confidenceMax?.toFixed(2)}`
+                : "—"}{" "}
+              {tc.outcomes.confidenceAvg != null
+                ? `(avg ${tc.outcomes.confidenceAvg.toFixed(2)})`
+                : ""}
+            </p>
+            {tc.outcomes.recent.length > 0 ? (
+              <ul className="ops-healing__trust-list">
+                {tc.outcomes.recent.slice(0, 6).map((o) => (
+                  <li key={`${o.ts}-${o.rvtr}-${o.status}`}>
+                    <OpsPill
+                      tone={
+                        o.status === "retained" || o.status === "approved"
+                          ? "ok"
+                          : o.status === "rolled_back"
+                            ? "bad"
+                            : "warn"
+                      }
+                    >
+                      {o.status}
+                    </OpsPill>{" "}
+                    <OpsInlineLink href={`/track/${o.rvtr}`}>{o.rvtr}</OpsInlineLink>
+                    {o.confidence != null ? ` · ${o.confidence.toFixed(2)}` : ""}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="ops-dim">No healing audit events yet.</p>
+            )}
+          </div>
+          <div className="ops-healing__trust-card">
+            <h3 className="ops-healing__trust-heading">Candidate quality patterns</h3>
+            <ul className="ops-healing__trust-list">
+              {tc.qualityPatterns.map((p) => (
+                <li key={p.pattern}>
+                  <OpsPill
+                    tone={p.strength === "strong" ? "ok" : p.strength === "weak" ? "warn" : "bad"}
+                  >
+                    {p.strength}
+                  </OpsPill>{" "}
+                  <span className="ops-healing__pattern-name">{p.pattern}</span>
+                  <span className="ops-dim"> — {p.note}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        {tc.eraPatterns.length > 0 ? (
+          <>
+            <h3 className="ops-healing__trust-heading">Era degradation (Hot 100)</h3>
+            <OpsTable
+              columns={[
+                { key: "era", label: "Era" },
+                { key: "links", label: "Missing links" },
+                { key: "cover", label: "Missing cover" },
+                { key: "vdj", label: "Orphan VDJ" },
+                { key: "note", label: "Note" },
+              ]}
+              rows={tc.eraPatterns.map((e) => ({
+                id: e.era,
+                cells: {
+                  era: <strong>{e.era}</strong>,
+                  links: e.missingAlbumLinks.toLocaleString(),
+                  cover: e.missingCovers.toLocaleString(),
+                  vdj: e.orphanVdj.toLocaleString(),
+                  note: <span className="ops-dim">{e.note}</span>,
+                },
+              }))}
+            />
+          </>
+        ) : null}
+        {tc.duplicateDistortion.length > 0 ? (
+          <>
+            <h3 className="ops-healing__trust-heading">Duplicate RVTR distortion</h3>
+            <div className="ops-healing__distortion-list">
+              {tc.duplicateDistortion.slice(0, 6).map((d) => (
+                <div key={d.clusterId} className="ops-healing__distortion-row">
+                  <OpsPill
+                    tone={
+                      d.distortionRisk === "high"
+                        ? "bad"
+                        : d.distortionRisk === "medium"
+                          ? "warn"
+                          : "info"
+                    }
+                  >
+                    {d.distortionRisk}
+                  </OpsPill>{" "}
+                  <strong>{d.displayTitle}</strong> · {d.displayArtist} · ×{d.clusterSize} · root{" "}
+                  <OpsInlineLink href={`/track/${d.probableCanonicalRvtr}`}>
+                    {d.probableCanonicalRvtr}
+                  </OpsInlineLink>
+                  <span className="ops-dim"> — {d.note}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : null}
+        {tc.dangerousCandidates.length > 0 ? (
+          <>
+            <h3 className="ops-healing__trust-heading">Dangerous candidates (sample)</h3>
+            <OpsTable
+              columns={[
+                { key: "rvtr", label: "RVTR" },
+                { key: "album", label: "Candidate" },
+                { key: "match", label: "Match" },
+                { key: "trust", label: "Trust" },
+                { key: "flags", label: "Risk flags" },
+              ]}
+              rows={tc.dangerousCandidates.map((d) => ({
+                id: `${d.rvtr}-${d.albumId}`,
+                tone: "bad",
+                cells: {
+                  rvtr: (
+                    <OpsInlineLink href={`/track/${d.rvtr}`}>
+                      {d.rvtr}
+                    </OpsInlineLink>
+                  ),
+                  album: (
+                    <>
+                      <strong>{d.albumTitle}</strong>
+                      <br />
+                      <span className="ops-dim">
+                        {d.title} · {d.artistName}
+                      </span>
+                    </>
+                  ),
+                  match: d.matchConfidence.toFixed(2),
+                  trust: d.trustScore.toFixed(2),
+                  flags: d.riskFlags.join(", ") || "—",
+                },
+              }))}
+            />
+          </>
+        ) : null}
+      </section>
+
       <section className="ops-panel">
         <header className="ops-panel__header">
           <h2 className="ops-panel__title">Restoration desk</h2>
@@ -529,7 +708,8 @@ export function OpsHealingPanel(props: {
               {detail.candidates.length > 0 ? (
                 <OpsTable
                   columns={[
-                    { key: "conf", label: "Confidence" },
+                    { key: "trust", label: "Trust" },
+                    { key: "conf", label: "Match" },
                     { key: "album", label: "Candidate album" },
                     { key: "reasons", label: "Why matched" },
                     { key: "action", label: "Action", align: "right" },
@@ -539,8 +719,27 @@ export function OpsHealingPanel(props: {
                     const showApprove = canApproveCandidate(detail, c);
                     return {
                       id: applyKey,
-                      tone: toneForConfidence(c.confidence),
+                      tone: trustTone(c.trust.level),
                       cells: {
+                        trust: (
+                          <>
+                            <OpsPill tone={trustTone(c.trust.level)}>
+                              {trustLabel(c.trust.level)} {c.trust.trustScore.toFixed(2)}
+                            </OpsPill>
+                            {c.trust.compilation.level !== "none" ? (
+                              <>
+                                <br />
+                                <span className="ops-dim">{c.trust.compilation.label}</span>
+                              </>
+                            ) : null}
+                            {c.trust.riskFlags.length > 0 ? (
+                              <>
+                                <br />
+                                <span className="ops-dim">{c.trust.riskFlags.join(" · ")}</span>
+                              </>
+                            ) : null}
+                          </>
+                        ),
                         conf: (
                           <OpsPill tone={toneForConfidence(c.confidence)}>
                             {c.confidence.toFixed(2)}

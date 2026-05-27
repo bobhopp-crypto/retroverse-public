@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { OpsHealingPanel } from "@/components/ops/OpsHealingPanel";
 import { loadHealingDegradedQueue } from "@/lib/healing/load-degraded-queue";
+import { loadHealingTrustCalibration } from "@/lib/healing/load-trust-calibration";
 import { healingWritesEnabled } from "@/lib/track/album-link-recovery/guardrails";
 
 import "../ops.css";
@@ -26,6 +27,7 @@ export default async function OpsHealingPage() {
   }
 
   const queue = await loadHealingDegradedQueue();
+  const trust = await loadHealingTrustCalibration(queue);
   const writesEnabled = healingWritesEnabled();
 
   return (
@@ -34,7 +36,7 @@ export default async function OpsHealingPage() {
       <div className="ops-page__inner">
         <header className="ops-topbar">
           <div>
-            <p className="ops-topbar__kicker">Internal · restoration visibility</p>
+            <p className="ops-topbar__kicker">Internal · curator trust calibration</p>
             <h1 className="ops-topbar__title">Healing Console</h1>
           </div>
           <div className="ops-topbar__meta">
@@ -52,11 +54,12 @@ export default async function OpsHealingPage() {
         </header>
 
         <p className="ops-banner">
-          <strong>Archive restoration desk</strong> — prioritize degradation, review weighted
-          candidates, then approve one album link at a time. No bulk apply, merge, or auto-heal.
+          <strong>Can I trust this candidate?</strong> — outcome history, compilation risk, era
+          patterns, and duplicate distortion before you approve one album link. No bulk apply or
+          auto-heal.
         </p>
 
-        <OpsHealingPanel queue={queue} writesEnabled={writesEnabled} />
+        <OpsHealingPanel queue={queue} trust={trust} writesEnabled={writesEnabled} />
       </div>
     </main>
   );

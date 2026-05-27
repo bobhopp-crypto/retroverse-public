@@ -848,6 +848,56 @@
   color: var(--ok);
 }
 
+.ops-healing__trust-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-bottom: 1rem;
+}
+
+.ops-healing__trust-card {
+  border: 1px solid var(--ops-border, #2a2f36);
+  padding: 0.65rem 0.75rem;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ops-healing__trust-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0.75rem 0 0.35rem;
+  text-transform: uppercase;
+}
+
+.ops-healing__trust-list {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+}
+
+.ops-healing__trust-list li {
+  margin-bottom: 0.35rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.ops-healing__pattern-name {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.78rem;
+}
+
+.ops-healing__distortion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.ops-healing__distortion-row {
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .ops-healing__reason-key {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.78rem;

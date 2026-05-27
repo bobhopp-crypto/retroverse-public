@@ -25,7 +25,13 @@ import { compareHealingRows, healingImpactScore } from "@/lib/healing/queue-prio
 import { loadMissingLinkSummary } from "@/lib/track/album-link-recovery/audit-missing-links";
 import { auditTrackAlbumLinks } from "@/lib/track/album-link-recovery/audit-track";
 import { detectTrackHealingGaps } from "@/lib/track/album-link-recovery/detect-gaps";
+import { attachTrustToCandidates } from "@/lib/healing/candidate-trust";
+import type { CandidateTrustAssessment } from "@/lib/healing/candidate-trust";
 import type { ScoredAlbumLinkCandidate } from "@/lib/track/album-link-recovery/types";
+
+export type HealingScoredCandidate = ScoredAlbumLinkCandidate & {
+  trust: CandidateTrustAssessment;
+};
 
 const QUEUE_LIMIT = 40;
 const PER_SEED = 10;
@@ -476,7 +482,7 @@ export type HealingQueueRow = {
   weightedTopReasons: WeightedReason[];
   impactScore: number;
   healingState: HealingQueueState;
-  candidates: ScoredAlbumLinkCandidate[];
+  candidates: HealingScoredCandidate[];
   diagnosis: string[];
 };
 
@@ -556,7 +562,16 @@ async function enrichSeed(
   if (audit.gap === "orphan_graph_track") flags.add("orphan_vdj");
   if (meta.hasVdjMedia && audit.existingLinkCount === 0) flags.add("orphan_vdj");
 
-  const candidates = audit.candidates.slice(0, 6);
+  const clusterSummary = dupByRvtr.get(audit.rvtr.trim().toUpperCase()) ?? null;
+  const duplicateClusterForTrust = clusterSummary ? clusterRef(clusterSummary) : null;
+  const scoredSlice = audit.candidates.slice(0, 6);
+  const candidates = attachTrustToCandidates(scoredSlice, {
+    rvtr: audit.rvtr,
+    trackTitle: audit.title || meta.title,
+    artistName: audit.artistName || meta.artistName,
+    firstChartYear: audit.firstChartYear ?? meta.releaseYear,
+    duplicateCluster: duplicateClusterForTrust,
+  });
   const albumLinkCount = audit.existingLinkCount;
   const missingCover = gaps?.missingCover ?? true;
   const chartWeeks = audit.chartWeeks || meta.chartWeeks;
