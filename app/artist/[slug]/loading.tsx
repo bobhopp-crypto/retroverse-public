@@ -3,9 +3,9 @@ export default function ArtistLoading() {
     <div
       className="artist-exhibit__body artist-exhibit__body--loading"
       aria-busy="true"
-      aria-label="Loading artist content"
+      aria-label="Loading"
     >
-      <p className="artist-section-head">Loading artist file…</p>
+      <p className="artist-placeholder__note">…</p>
     </div>
   );
 }

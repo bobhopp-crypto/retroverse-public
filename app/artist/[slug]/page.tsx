@@ -126,12 +126,9 @@ export default async function ArtistPage({ params }: Props) {
       {showLibrary && (
         <section className="artist-library" aria-labelledby="in-library">
           <div className="artist-section-head artist-section-head--light">
-            <h2 id="in-library">In Your Library</h2>
+            <h2 id="in-library">Collected recordings</h2>
             <ArtistViewAll href={artistSectionHref(slug, "library")} variant="light" />
           </div>
-          <p className="artist-library__count">
-            {data.libraryTracks} songs · {data.libraryAlbums} albums
-          </p>
           <div className="artist-library__grid">
             {libraryAlbumCovers.map((a) => (
               <ArtistCover
@@ -162,7 +159,6 @@ export default async function ArtistPage({ params }: Props) {
             {data.chartAlbumSpotlight.b200Peak != null
               ? ` · #${data.chartAlbumSpotlight.b200Peak} Peak`
               : ""}
-            {data.chartAlbumSpotlight.rval ? ` · ${data.chartAlbumSpotlight.rval}` : ""}
           </p>
           <div className="artist-era__cover-wrap">
             <ArtistCover
@@ -221,7 +217,7 @@ export default async function ArtistPage({ params }: Props) {
             ) : null}
           </div>
           <Link className="artist-era__cta artist-charts-panel__cta" href={artistSectionHref(slug, "charts")}>
-            Explore chart history →
+            Chart history →
           </Link>
         </section>
       )}
@@ -257,7 +253,7 @@ export default async function ArtistPage({ params }: Props) {
       {data.exploreLinks.length > 0 && (
         <section className="artist-explore" aria-labelledby="explore-deeper">
           <div className="artist-section-head artist-section-head--dark">
-            <h2 id="explore-deeper">Explore Deeper</h2>
+            <h2 id="explore-deeper">Further in the archive</h2>
             <ArtistViewAll href={artistSectionHref(slug, "explore")} variant="dark" />
           </div>
           <div className="artist-explore__pills">

@@ -428,7 +428,7 @@ export function ArtistChartsHistoryClient({
               Charts History
             </h2>
             <p className="charts-history__subtitle">
-              Explore chart history for {artistName}
+              Chart history · {artistName}
             </p>
           </div>
           {viewAllHref ? (

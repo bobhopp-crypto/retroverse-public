@@ -33,9 +33,12 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
   const weeksLabel = formatSongWeeksLabel(data.chartWeeks);
   const yearLabel = formatSongYear(data.releaseYear);
   const hasTrajectory = data.trajectoryWeeks.length > 0;
+  const exhibitSparse = data.tracks.length === 0 && !hasTrajectory;
 
   return (
-    <div className="track-exhibit album-exhibit">
+    <div
+      className={`track-exhibit album-exhibit${exhibitSparse ? " track-exhibit--sparse" : ""}`}
+    >
       <div className="track-exhibit__grain" aria-hidden />
 
       <header className="track-topbar">
@@ -105,7 +108,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
           <div className="track-section-head track-section-head--journey">
             <h2 id="album-chart-journey">Album journey</h2>
             {data.rvYearHref ? (
-              <Link href={data.rvYearHref} className="track-section-link">
+              <Link href={data.rvYearHref} prefetch className="track-section-link">
                 Open {yearLabel} →
               </Link>
             ) : null}

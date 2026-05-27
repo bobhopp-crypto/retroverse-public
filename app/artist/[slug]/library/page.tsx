@@ -18,7 +18,7 @@ export default async function ArtistLibraryPage({ params }: Props) {
       <ArtistSectionPlaceholder
         slug={data.slug}
         displayName={data.displayName}
-        title="In Your Library"
+        title="Collected recordings"
       />
     );
   }
@@ -26,11 +26,8 @@ export default async function ArtistLibraryPage({ params }: Props) {
   return (
     <section className="artist-library artist-library--full" aria-labelledby="in-library-full">
       <div className="artist-section-head artist-section-head--light">
-        <h2 id="in-library-full">In Your Library</h2>
+        <h2 id="in-library-full">Collected recordings</h2>
       </div>
-      <p className="artist-library__count">
-        {data.libraryTracks} songs · {data.libraryAlbums} albums
-      </p>
       <div className="artist-library__grid artist-library__grid--full">
         {covers.map((a) => (
           <ArtistCover

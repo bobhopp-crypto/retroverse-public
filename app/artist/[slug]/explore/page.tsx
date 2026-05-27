@@ -16,7 +16,7 @@ export default async function ArtistExplorePage({ params }: Props) {
       <ArtistSectionPlaceholder
         slug={data.slug}
         displayName={data.displayName}
-        title="Explore Deeper"
+        title="Further in the archive"
       />
     );
   }
@@ -24,7 +24,7 @@ export default async function ArtistExplorePage({ params }: Props) {
   return (
     <section className="artist-explore artist-explore--full" aria-labelledby="explore-deeper-full">
       <div className="artist-section-head artist-section-head--dark">
-        <h2 id="explore-deeper-full">Explore Deeper</h2>
+        <h2 id="explore-deeper-full">Further in the archive</h2>
       </div>
       <div className="artist-explore__pills">
         {data.exploreLinks.map((link, index) => (

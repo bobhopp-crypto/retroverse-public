@@ -10,8 +10,8 @@ type Props = { slug: string };
 const MODES: { section: "" | "charts" | "library" | "explore"; label: string }[] = [
   { section: "", label: "Exhibit" },
   { section: "charts", label: "Charts" },
-  { section: "library", label: "Library" },
-  { section: "explore", label: "Explore" },
+  { section: "library", label: "Collected" },
+  { section: "explore", label: "More" },
 ];
 
 function isActive(pathname: string, base: string, section: string): boolean {
