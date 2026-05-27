@@ -1,0 +1,141 @@
+/* Archive weight — grounded frames, editorial gravity, institutional stability */
+
+.track-exhibit,
+.artist-exhibit {
+  --frame: 3px solid rgba(45, 62, 70, 0.9);
+  --ink: #28353c;
+}
+
+/* Top chrome — anchored register strip */
+.track-topbar,
+.artist-topbar {
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.2rem;
+  border-bottom: 2px solid rgba(45, 62, 70, 0.14);
+}
+
+/* Mounted hero frames */
+.track-exhibit .track-hero__cover-wrap,
+.artist-exhibit .artist-hero {
+  border-color: rgba(45, 62, 70, 0.88);
+  box-shadow:
+    3px 4px 0 rgba(45, 62, 70, 0.2),
+    inset 0 0 0 1px rgba(244, 233, 211, 0.55);
+}
+
+/* Hero typography — title holds, metadata recedes */
+.track-exhibit .track-hero__title {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.track-exhibit .track-hero__eyebrow {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.track-exhibit .track-hero__artist-line {
+  font-weight: 600;
+}
+
+.track-exhibit .track-hero__year,
+.track-exhibit .track-hero__dot {
+  font-weight: 500;
+  color: rgba(40, 53, 60, 0.58);
+}
+
+.artist-exhibit .artist-hero__headline {
+  padding-bottom: 0.7rem;
+  border-bottom-width: 3px;
+}
+
+/* Section gravity — institutional heads, light metadata */
+.track-exhibit .track-section-head h2,
+.artist-exhibit .artist-section-head h2 {
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.track-exhibit .track-section-head--dark {
+  background: #1f5e63;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+.track-exhibit .track-related__title,
+.album-exhibit .album-tracklist__title {
+  font-weight: 800;
+}
+
+.track-exhibit .track-related__meta {
+  font-weight: 500;
+  color: rgba(40, 53, 60, 0.58);
+}
+
+/* Chart history — filed document block */
+.track-exhibit .track-journey {
+  border: var(--frame);
+  box-shadow: 2px 3px 0 rgba(45, 62, 70, 0.16);
+  padding: 1.1rem 0.95rem 1.2rem;
+}
+
+.track-exhibit .track-albums .track-related__list {
+  border: 2px solid rgba(45, 62, 70, 0.14);
+  border-radius: 3px;
+  padding-top: 0.35rem;
+  background: rgba(255, 248, 238, 0.4);
+}
+
+.album-exhibit .album-tracklist__list {
+  border-width: 3px;
+  border-color: rgba(45, 62, 70, 0.88);
+  box-shadow: 3px 4px 0 rgba(45, 62, 70, 0.16);
+}
+
+/* Composed exhibit column */
+.track-exhibit .track-hero,
+.track-exhibit .track-albums,
+.track-exhibit .track-journey,
+.track-exhibit .track-related {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer — permanent institutional bar */
+.exhibit-footer-nav {
+  background: #2d3e46;
+  border-top: 3px solid rgba(45, 62, 70, 0.95);
+}
+
+.exhibit-footer-nav a {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: rgba(207, 224, 218, 0.9);
+}
+
+.exhibit-footer-nav a:hover {
+  color: #e8dcc4;
+  opacity: 1;
+}
+
+/* Sparse — held absence, centered register */
+.track-exhibit--sparse .track-hero__identity {
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+.track-exhibit--sparse .track-hero__cover-wrap {
+  box-shadow:
+    3px 4px 0 rgba(45, 62, 70, 0.18),
+    inset 0 0 0 1px rgba(244, 233, 211, 0.5);
+}
+
+/* Stability — no hover lift on filed rows */
+.track-exhibit .track-related__row:hover {
+  background: rgba(230, 214, 184, 0.22);
+}
+
+.album-exhibit .album-tracklist__row--link:hover .album-tracklist__title {
+  opacity: 0.78;
+}
