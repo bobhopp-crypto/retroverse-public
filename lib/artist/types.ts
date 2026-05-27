@@ -53,6 +53,8 @@ export type ArtistPageData = {
   essentialAlbums: ArtistAlbumCard[];
   signatureTracks: ArtistTrackCard[];
   dominantYears: DominantYearBar[];
+  /** True when Hot 100 year histogram has real rows (not a synthetic fallback). */
+  hasDominantYearData: boolean;
   chartAlbumSpotlight: ChartAlbumSpotlight | null;
   chartHighlights: {
     hot100Appearances: number;

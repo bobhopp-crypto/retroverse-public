@@ -8,7 +8,6 @@ import { albumSuggestionHref } from "@/lib/search/entity-routes";
 import { ARTIST_SLUGS } from "@/lib/artist/slug";
 
 import { ArtistCover } from "./artist-cover";
-import { ArtistChartsHistory } from "./artist-charts-history";
 import { ArtistSongsRotator } from "./artist-songs-rotator";
 import { ArtistViewAll } from "./artist-view-all";
 
@@ -41,8 +40,17 @@ export default async function ArtistPage({ params }: Props) {
   const data = await loadArtistPage(slug);
   if (!data) notFound();
 
-  const maxYearCount = Math.max(...data.dominantYears.map((y) => y.count), 1);
+  const maxYearCount = data.hasDominantYearData
+    ? Math.max(...data.dominantYears.map((y) => y.count), 1)
+    : 1;
   const libraryAlbumCovers = data.essentialAlbums.filter((a) => a.coverUrl).slice(0, 8);
+  const showLibrary =
+    data.libraryTracks > 0 && libraryAlbumCovers.length > 0;
+  const chartStats = data.chartHighlights;
+  const showChartHighlights =
+    chartStats.hot100Appearances > 0 ||
+    chartStats.b200Albums > 0 ||
+    chartStats.top10Hits > 0;
 
   return (
     <>
@@ -52,7 +60,7 @@ export default async function ArtistPage({ params }: Props) {
             <h2 id="essential-albums">Essential Albums</h2>
             <ArtistViewAll href={artistSectionHref(slug, "albums")} variant="light" />
           </div>
-          <div className="artist-shelf__scroll">
+          <div className="artist-shelf__grid">
             {data.essentialAlbums.map((album) => {
               const href = albumSuggestionHref(
                 album.title,
@@ -95,25 +103,27 @@ export default async function ArtistPage({ params }: Props) {
         </section>
       )}
 
-      <section className="artist-years" aria-labelledby="dominant-years">
-        <div className="artist-section-head artist-section-head--aqua">
-          <h2 id="dominant-years">Dominant Years</h2>
-          <ArtistViewAll href={artistSectionHref(slug, "years")} variant="dark" />
-        </div>
-        <div className="artist-years__chart">
-          {data.dominantYears.map((bar) => (
-            <div key={bar.year} className="artist-years__bar-wrap">
-              <div
-                className="artist-years__bar"
-                style={{ height: `${Math.round((bar.count / maxYearCount) * 100)}%` }}
-              />
-              <span className="artist-years__label">{bar.year}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      {data.hasDominantYearData && data.dominantYears.length > 0 && (
+        <section className="artist-years" aria-labelledby="dominant-years">
+          <div className="artist-section-head artist-section-head--aqua">
+            <h2 id="dominant-years">Dominant Years</h2>
+            <ArtistViewAll href={artistSectionHref(slug, "years")} variant="dark" />
+          </div>
+          <div className="artist-years__chart">
+            {data.dominantYears.map((bar) => (
+              <div key={bar.year} className="artist-years__bar-wrap">
+                <div
+                  className="artist-years__bar"
+                  style={{ height: `${Math.round((bar.count / maxYearCount) * 100)}%` }}
+                />
+                <span className="artist-years__label">{bar.year}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
-      {(data.libraryTracks > 0 || libraryAlbumCovers.length > 0) && (
+      {showLibrary && (
         <section className="artist-library" aria-labelledby="in-library">
           <div className="artist-section-head artist-section-head--light">
             <h2 id="in-library">In Your Library</h2>
@@ -122,7 +132,7 @@ export default async function ArtistPage({ params }: Props) {
           <p className="artist-library__count">
             {data.libraryTracks} songs · {data.libraryAlbums} albums
           </p>
-          <div className="artist-library__scroll">
+          <div className="artist-library__grid">
             {libraryAlbumCovers.map((a) => (
               <ArtistCover
                 key={a.pgAlbumId}
@@ -176,14 +186,45 @@ export default async function ArtistPage({ params }: Props) {
         </section>
       )}
 
-      {data.chartHistory ? (
-        <ArtistChartsHistory
-          artistName={data.displayName}
-          history={data.chartHistory}
-          highlightTrackIds={data.signatureTracks.map((t) => t.rvtr)}
-          viewAllHref={artistSectionHref(slug, "charts")}
-        />
-      ) : null}
+      {showChartHighlights && (
+        <section className="artist-charts-panel" aria-labelledby="chart-highlights">
+          <div className="artist-section-head artist-section-head--dark">
+            <h2 id="chart-highlights">Chart Highlights</h2>
+            <ArtistViewAll href={artistSectionHref(slug, "charts")} variant="dark" />
+          </div>
+          <div className="artist-charts-grid">
+            {chartStats.hot100Appearances > 0 ? (
+              <div className="artist-chart-stat">
+                <span className="artist-chart-stat__num">
+                  {chartStats.hot100Appearances.toLocaleString()}
+                </span>
+                <span className="artist-chart-stat__label">Hot 100 weeks</span>
+              </div>
+            ) : null}
+            {chartStats.top10Hits > 0 ? (
+              <div className="artist-chart-stat">
+                <span className="artist-chart-stat__num">{chartStats.top10Hits}</span>
+                <span className="artist-chart-stat__label">Top 10 hits</span>
+              </div>
+            ) : null}
+            {chartStats.b200Albums > 0 ? (
+              <div className="artist-chart-stat">
+                <span className="artist-chart-stat__num">{chartStats.b200Albums}</span>
+                <span className="artist-chart-stat__label">Billboard 200 albums</span>
+              </div>
+            ) : null}
+            {chartStats.top10Albums > 0 ? (
+              <div className="artist-chart-stat">
+                <span className="artist-chart-stat__num">{chartStats.top10Albums}</span>
+                <span className="artist-chart-stat__label">Top 10 albums</span>
+              </div>
+            ) : null}
+          </div>
+          <Link className="artist-era__cta artist-charts-panel__cta" href={artistSectionHref(slug, "charts")}>
+            Explore chart history →
+          </Link>
+        </section>
+      )}
 
       {data.relatedArtists.length > 0 && (
         <section className="artist-related" aria-labelledby="related-artists">
@@ -191,48 +232,47 @@ export default async function ArtistPage({ params }: Props) {
             <h2 id="related-artists">Related Artists</h2>
             <ArtistViewAll href={artistSectionHref(slug, "related")} variant="dark" />
           </div>
-          <div className="artist-related__row">
+          <ul className="artist-related__list">
             {data.relatedArtists.map((rel) => (
-              <Link
-                key={rel.slug}
-                href={`/artist/${rel.slug}`}
-                prefetch
-                className="artist-related__circle"
+              <li key={rel.slug}>
+                <Link href={`/artist/${rel.slug}`} prefetch className="artist-related__card">
+                  {rel.coverUrl ? (
+                    <ArtistCover
+                      src={rel.coverUrl}
+                      alt=""
+                      className="artist-related__avatar"
+                      fallbackClassName="artist-related__avatar-fallback"
+                    />
+                  ) : (
+                    <span className="artist-related__avatar-fallback" aria-hidden />
+                  )}
+                  <span className="artist-related__name">{rel.name}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {data.exploreLinks.length > 0 && (
+        <section className="artist-explore" aria-labelledby="explore-deeper">
+          <div className="artist-section-head artist-section-head--dark">
+            <h2 id="explore-deeper">Explore Deeper</h2>
+            <ArtistViewAll href={artistSectionHref(slug, "explore")} variant="dark" />
+          </div>
+          <div className="artist-explore__pills">
+            {data.exploreLinks.map((link, index) => (
+              <a
+                key={`${link.href}-${link.label}-${index}`}
+                href={link.href}
+                className="artist-explore__pill"
               >
-                {rel.coverUrl ? (
-                  <ArtistCover
-                    src={rel.coverUrl}
-                    alt=""
-                    className="artist-related__avatar"
-                    fallbackClassName="artist-related__avatar-fallback"
-                  />
-                ) : (
-                  <span className="artist-related__avatar-fallback" aria-hidden />
-                )}
-                <span className="artist-related__name">{rel.name}</span>
-              </Link>
+                {link.label}
+              </a>
             ))}
           </div>
         </section>
       )}
-
-      <section className="artist-explore" aria-labelledby="explore-deeper">
-        <div className="artist-section-head artist-section-head--dark">
-          <h2 id="explore-deeper">Explore Deeper</h2>
-          <ArtistViewAll href={artistSectionHref(slug, "explore")} variant="dark" />
-        </div>
-        <div className="artist-explore__pills">
-          {data.exploreLinks.map((link, index) => (
-            <a
-              key={`${link.href}-${link.label}-${index}`}
-              href={link.href}
-              className="artist-explore__pill"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </section>
     </>
   );
 }

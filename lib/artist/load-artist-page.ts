@@ -17,6 +17,7 @@ import {
   loadArtistChartHistory,
   type ArtistChartHistoryScope,
 } from "@/lib/artist/load-chart-history";
+import { loadRelatedArtistsFromGraph } from "@/lib/artist/load-related-artists";
 import { normalizeHomeSearchPayload } from "@/lib/search/map-home-search";
 
 const RE_RVAL_HREF = /\/albums\/(RVAL\d{6})/i;
@@ -50,7 +51,9 @@ async function fetchHomeSearch(name: string) {
 }
 
 export type LoadArtistPageOptions = {
-  /** `preview` on main exhibit; `full` on /artist/[slug]/charts */
+  /** Load interactive chart history payload ( `/artist/[slug]/charts` only ). */
+  includeChartHistory?: boolean;
+  /** `preview` on charts sub-route sample; `full` on /artist/[slug]/charts */
   chartScope?: ArtistChartHistoryScope;
 };
 
@@ -59,6 +62,7 @@ async function loadArtistPageImpl(
   options?: LoadArtistPageOptions,
 ): Promise<ArtistPageData | null> {
   const chartScope = options?.chartScope ?? "preview";
+  const includeChartHistory = options?.includeChartHistory === true;
   const ping = await inspectPing();
   if (!ping.ok) return null;
 
@@ -245,12 +249,13 @@ async function loadArtistPageImpl(
     }
   }
 
-  const dominantYears: DominantYearBar[] = yearRows
+  const dominantYearsRaw: DominantYearBar[] = yearRows
     .filter((y) => y.year >= 1960 && y.year <= 2030)
     .slice(0, 6)
     .sort((a, b) => a.year - b.year);
 
-  const maxBar = Math.max(...dominantYears.map((y) => y.count), 1);
+  const hasDominantYearData = dominantYearsRaw.length > 0;
+  const dominantYears = dominantYearsRaw;
 
   const chartAlbumSpotlightAlbum = essentialAlbums.find((a) => a.b200Peak != null);
 
@@ -290,6 +295,11 @@ async function loadArtistPageImpl(
       if (relatedArtists.length >= 4) break;
     }
   }
+  if (relatedArtists.length === 0) {
+    relatedArtists.push(
+      ...(await loadRelatedArtistsFromGraph(artistId, canonicalSlug, 4)),
+    );
+  }
 
   const heroFromSearch =
     homeSearch?.artists.find(
@@ -326,14 +336,16 @@ async function loadArtistPageImpl(
     if (tr.coverUrl) coverByTrackId.set(tr.rvtr.toUpperCase(), tr.coverUrl);
   }
 
-  const chartHistory = await loadArtistChartHistory(
-    artistId,
-    displayName,
-    coverByTrackId,
-    fallbackAlbumCover,
-    undefined,
-    chartScope,
-  );
+  const chartHistory = includeChartHistory
+    ? await loadArtistChartHistory(
+        artistId,
+        displayName,
+        coverByTrackId,
+        fallbackAlbumCover,
+        undefined,
+        chartScope,
+      )
+    : null;
 
   return {
     slug: canonicalSlug,
@@ -347,7 +359,8 @@ async function loadArtistPageImpl(
     libraryAlbums,
     essentialAlbums,
     signatureTracks,
-    dominantYears: dominantYears.length ? dominantYears : [{ year: maxY ?? 1977, count: maxBar }],
+    dominantYears,
+    hasDominantYearData,
     chartAlbumSpotlight,
     chartHighlights: {
       hot100Appearances: stats?.hot100_rows ?? 0,

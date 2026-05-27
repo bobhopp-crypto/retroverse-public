@@ -220,18 +220,16 @@
 }
 
 .charts-history__results--albums {
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
-  align-items: stretch;
-  gap: 0.4rem;
-  overflow-x: auto;
-  padding-bottom: 0.2rem;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: visible;
+  padding-bottom: 0;
 }
 
 .charts-history__results--albums .charts-history-card {
-  flex: 0 0 clamp(16rem, 72vw, 20rem);
-  min-width: clamp(16rem, 72vw, 20rem);
+  flex: none;
+  min-width: 0;
+  width: 100%;
 }
 
 .charts-history-card {

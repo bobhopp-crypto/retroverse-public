@@ -1,20 +1,47 @@
 import { notFound } from "next/navigation";
 
-import { loadArtistExhibitShell } from "@/lib/artist/load-artist-exhibit-shell";
+import { loadArtistPage } from "@/lib/artist/load-artist-page";
 
+import { ArtistCover } from "../artist-cover";
 import { ArtistSectionPlaceholder } from "../section-placeholder";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export default async function ArtistLibraryPage({ params }: Props) {
   const { slug } = await params;
-  const shell = await loadArtistExhibitShell(slug);
-  if (!shell) notFound();
+  const data = await loadArtistPage(slug);
+  if (!data) notFound();
+
+  const covers = data.essentialAlbums.filter((a) => a.coverUrl);
+  if (data.libraryTracks <= 0 || covers.length === 0) {
+    return (
+      <ArtistSectionPlaceholder
+        slug={data.slug}
+        displayName={data.displayName}
+        title="In Your Library"
+      />
+    );
+  }
+
   return (
-    <ArtistSectionPlaceholder
-      slug={shell.slug}
-      displayName={shell.displayName}
-      title="In Your Library"
-    />
+    <section className="artist-library artist-library--full" aria-labelledby="in-library-full">
+      <div className="artist-section-head artist-section-head--light">
+        <h2 id="in-library-full">In Your Library</h2>
+      </div>
+      <p className="artist-library__count">
+        {data.libraryTracks} songs · {data.libraryAlbums} albums
+      </p>
+      <div className="artist-library__grid artist-library__grid--full">
+        {covers.map((a) => (
+          <ArtistCover
+            key={a.pgAlbumId}
+            src={a.coverUrl}
+            alt={a.title}
+            className="artist-library__thumb"
+            fallbackClassName="artist-library__thumb artist-album-tile__fallback"
+          />
+        ))}
+      </div>
+    </section>
   );
 }
