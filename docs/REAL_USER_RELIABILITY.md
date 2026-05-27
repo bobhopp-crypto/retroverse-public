@@ -67,3 +67,24 @@ Push to `main` triggers production deploy. Confirm with:
 curl -sS "https://retroverse.live/api/search/suggestions?q=aretha%20franklin" | head -c 400
 curl -sS -o /dev/null -w "%{http_code}" "https://retroverse.live/artist/aretha-franklin"
 ```
+
+## Fail-open entity reliability pass (new)
+
+Entity routes now **render sparse exhibits instead of 404/redirect** when enrichment/ping fails:
+- `app/artist/[slug]/*`: removed `notFound()` gates; `loadArtistPage` now returns fallback page data
+- `app/track/[id]`: route renders fallback `TrackPageView` when loader returns `null`
+- `app/album/[id]`: route never redirects; renders `AlbumPageView` with fallback data when `loadAlbumPage` fails
+
+Sparse plate messaging:
+- Track: shows “Nothing in the archive yet — this recording is still being indexed.”
+- Album: shows “Nothing in the archive yet — this album is still being indexed.”
+- Artist: shows “Nothing in the archive yet” + links to Search/Inspect.
+
+Production verification (HTTP + content):
+- `aretha franklin` → `/artist/aretha-franklin` (200, contains “From the archive”)
+- `madonna` → `/artist/madonna` (200)
+- `bee gees` → `/artist/bee-gees` (200)
+- `fleetwood mac` → `/artist/fleetwood-mac` (200)
+- `thriller` → `/album/RVAL…` (200)
+- `stand by me` → `/album/RVAL…` (200)
+
