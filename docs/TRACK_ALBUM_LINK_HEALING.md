@@ -1,99 +1,93 @@
-# Track album-link recovery + on-the-fly healing
+# Track album-link recovery + human-in-the-loop healing
 
-Preview-only phase. **No bulk auto-writes.**
+**Phase:** canonical enrichment healing (first pass). **No bulk auto-writes.**
 
 ## Problem
 
 ~56% of Hot 100 rows in `canonical_track_display` have **zero** `canonical_album_tracks` rows keyed by RVTR. Route + chart hydration work; **cover + album shelf** do not.
 
-Canonical example: **RVTR430551** (Stand By Me · ben e. king) — 35 Hot 100 weeks, `graph_track_id` present, **0 album links**, no Ben E. King studio album in `albums` for the 1961 era.
+| Fixture | RVTR | Role |
+|---------|------|------|
+| Stand By Me · ben e. king | `RVTR430551` | Primary degraded (35 weeks, 0 links) |
+| Stand By Me · david | `RVTR898681` | Wrong artist + missing links |
+| Thriller | `RVTR336241` | Healthy control (links + cover) |
 
-Healthy control: **RVTR336241** (Thriller) — 5 `canonical_album_tracks` rows, cover + shelf OK.
+## Architecture (layer separation)
 
-## Tables
+| Layer | Responsibility |
+|-------|----------------|
+| Search | Fast lookup — **locked** |
+| Entity pages | Heavy hydration |
+| `lib/track/album-link-recovery/` | Audit, candidate ranking, guarded apply |
+| `lib/healing/` | Review sets, audit log, revalidate, cover preview |
+| `/ops/healing` | Human review surface (local, `RETROVERSE_OPS=1`) |
 
-| Table | Role |
-|--------|------|
-| `canonical_track_display` | Search + track page identity |
-| `canonical_album_tracks` | Album sequence; `canonical_track_key` = RVTR |
-| `canonical_tracks` | RVTR ↔ `graph_track_id` for charts |
-| `chart_appearances` | Song journey |
-| `albums` / `album_artwork_links` | Cover candidates |
-| `canonical_track_album_links` | Optional family ↔ album bridge |
-| `track_album_link_proposals` | Optional approval log (see SQL schema) |
+## Review workflow
 
-## Audit tooling
+1. **Identify** — `loadHealingReviewSet("stand_by_me")` or `npm run healing:review`
+2. **Propose** — deterministic `rankCandidates()` → confidence + `reasons[]`
+3. **Review** — `/ops/healing` or JSON from `tools/out/healing-review-set.json`
+4. **Approve** — explicit button / POST (no auto-apply)
+5. **Apply** — `applyHealingAlbumLink()` → INSERT `canonical_album_tracks` + proposal log
+6. **Rollback** — `rollbackHealingAlbumLink(proposalId)` deletes row where `canonical_source = 'healing_approved'`
 
-```bash
-# Full preview report + JSON
-npm run track:audit-album-links
-
-# Single RVTR
-npm run track:audit-album-links -- RVTR430551
-
-# Read-only SQL samples
-psql ... -f tools/sql/album_link_recovery_audit.sql
-```
-
-Dev API (no writes): `GET /api/healing/album-links?rvtr=RVTR430551`
-
-Output: `tools/out/album-link-recovery-report.json`
+Audit trail (always): `RETROVERSE_DATA/ops/healing/healing-audit.jsonl`  
+Optional PG log: `tools/sql/track_album_link_healing_schema.sql`
 
 ## Candidate ranking (deterministic)
 
-1. Same canonical artist
-2. Tracklist title match on `canonical_album_tracks`
-3. Unlinked tracklist slot (title match, `canonical_track_key` empty) — backfill candidate
-4. `canonical_track_album_links` via `track_family_id`
-5. Release year near `first_chart_date`
-6. `canonical_cover_path` / `album_artwork_links`
+1. Same canonical artist (`same_artist_album`)
+2. Tracklist title match (`tracklist_title_match` / `tracklist_title_unlinked`)
+3. `canonical_track_album_links` via `track_family_id`
+4. Release year near `first_chart_date`
+5. `canonical_cover_path` / `album_artwork_links` (evidence only)
 
-Each candidate includes `confidence`, `score`, `reasons[]`, `album_id`, `rvtr`.
+Approval threshold: **confidence ≥ 0.45** (`guardrails.ts`). Ben E. King top candidates are ~0.59–0.60 on **compilation slots** — human must verify era (1961 vs 1975+).
 
-## On-the-fly healing architecture (next)
+## Commands
 
+```bash
+# Stand By Me cluster review (≤20 tracks) + JSON
+npm run healing:review
+
+# Single RVTR audit
+npm run track:audit-album-links -- RVTR430551
+
+# Ops UI (local)
+# RETROVERSE_OPS=1 RETROVERSE_HEALING_APPLY=1 npm run dev
+# → /internal/ops-pin → /ops/healing
 ```
-track page load
-  → loadTrackPage()
-  → detectTrackHealingGaps(rvtr)     # lib/track/album-link-recovery/detect-gaps.ts
-  → if missing_album_links:
-        surface top 3 candidates (dev/curator UI later)
-        human approves
-        applyApprovedAlbumLinkProposal()  # gated
-        revalidate /track/[rvtr]
-```
 
-## Cover-art healing (plan)
+## APIs (ops-gated)
 
-If album exists but `canonical_cover_path` is null:
+| Method | Path | Purpose |
+|--------|------|---------|
+| GET | `/api/ops/healing/review` | Cluster or `?rvtr=` audit + cover preview |
+| POST | `/api/ops/healing/apply` | Human-approved INSERT (needs `RETROVERSE_HEALING_APPLY=1`) |
+| POST | `/api/ops/healing/rollback` | Roll back by `proposalId` |
 
-1. Detect via linked album rows
-2. Surface candidates from `album_artwork_links` (existing curator pipeline)
-3. Log to `track_cover_healing_proposals`
-4. **No auto-approve** — human sets cover after review
+Dev preview (control center): `GET /api/healing/album-links?rvtr=…`
+
+## Safe apply
+
+- Env: `RETROVERSE_HEALING_APPLY=1`
+- No replace if link exists; no slot steal if another RVTR occupies position
+- Insert: `canonical_source = 'healing_approved'`, `review_flag = 'curated'`
+- Revalidate: `/track/[rvtr]`
+
+## Cover enrichment (preview only)
+
+`auditCoverForRvtr(rvtr)` — if album linked but `canonical_cover_path` empty, lists `album_artwork_links` candidates. Route to welcome curator; **no auto-download or auto-approve**.
+
+## Stand By Me diagnosis (2026-05)
+
+- **RVTR430551** (ben e. king): charts OK; **0 album links**; no 1961 studio album in graph — top candidates are other artists' tracklist slots titled "Stand By Me" (confidence ~0.59). **Needs album ingest** (e.g. *Don't Play That Song*) before high-confidence link.
+- **RVTR898681** (david): metadata collision; weak same-artist comedy albums ~0.73 — **do not apply** without artist fix.
+- Cluster: 10 Hot 100 title matches; **8 degraded** missing links in first pass sample.
 
 ## Guardrails
 
-- No destructive rewrites
-- No replacing existing valid `canonical_album_tracks`
-- No bulk apply without preview
-- Writes require `RETROVERSE_HEALING_APPLY=1` + approved proposal log
-- `apply-proposal.ts` inserts with `review_flag = 'curated'`, `canonical_source = 'healing_approved'`
-- Rollback: mark proposal `rolled_back`; delete inserted row by `applied_cat_row_id` (manual/SQL for now)
-
-## Recommended write path (when ready)
-
-1. Curator runs audit → reviews top candidate + reasons
-2. Approve in proposal log (`status = approved`)
-3. Apply single row: `canonical_album_tracks(album_id, position, title, canonical_track_key)`
-4. Or **backfill** existing tracklist row: `UPDATE canonical_album_tracks SET canonical_track_key = $rvtr WHERE id = $slot`
-5. Re-fetch track page — cover should resolve from album
-
-## Stand By Me diagnosis
-
-- RVTR routing: OK
-- Charts: OK (35 weeks)
-- Album links: **missing**
-- Ben E. King `albums` graph: only later compilation ("Supernatural", 1975) — **no 1961 studio album ingested**
-- No tracklist row titled "Stand By Me" for Ben E. King to backfill
-- Recovery requires **album ingest** (e.g. *Don't Play That Song*) or accepted compilation link with low confidence
+- No destructive merges
+- No replacing existing valid links
+- No bulk apply
+- Rollback only deletes `healing_approved` rows

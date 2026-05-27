@@ -8,7 +8,8 @@
     "search:verify-index": "npx tsx tools/verify-search-index.ts",
     "start": "next start",
     "search:refresh-entities": "bash tools/run-search-entities-refresh.sh",
-    "track:audit-album-links": "npx --yes tsx tools/run-album-link-recovery-audit.ts"
+    "track:audit-album-links": "npx --yes tsx tools/run-album-link-recovery-audit.ts",
+    "healing:review": "npx --yes tsx tools/run-healing-review.ts"
   },
   "dependencies": {
     "next": "^15.3.3",

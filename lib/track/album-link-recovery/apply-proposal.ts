@@ -97,5 +97,14 @@ export async function applyApprovedAlbumLinkProposal(
     return { ok: false, code: "insert_failed", message: "INSERT canonical_album_tracks failed." };
   }
 
+  await inspectQuery(
+    `
+    UPDATE track_album_link_proposals
+    SET applied_cat_row_id = $2
+    WHERE id = $1
+    `,
+    [proposalId, catRowId],
+  );
+
   return { ok: true, proposalId, catRowId };
 }

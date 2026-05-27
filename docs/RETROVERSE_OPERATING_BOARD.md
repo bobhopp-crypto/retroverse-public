@@ -172,11 +172,11 @@ Search v1 is stabilized. The project now focuses on **archive integrity**.
 
 | Focus | Notes |
 |-------|--------|
-| Album-link recovery | Audit pipeline exists; approve + apply missing `canonical_album_tracks` |
-| Degraded track enrichment | Stand By Me class; correlate missing joins to empty covers |
+| Album-link recovery | Audit + **review workflow** (`npm run healing:review`, `/ops/healing` local) |
+| Degraded track enrichment | Stand By Me cluster (≤20); Ben E. King needs album ingest before high-confidence link |
 | Duplicate RVTR cleanup | Graph dedupe where safe |
-| Cover enrichment | R2 / artwork paths for tracks missing canonical cover |
-| Healing approval workflow | Human-in-the-loop writes; no silent auto-mutate on prod |
+| Cover enrichment | `auditCoverForRvtr` → curator pipeline preview; no auto-approve |
+| Healing approval workflow | POST `/api/ops/healing/apply` gated by `RETROVERSE_HEALING_APPLY=1`; JSONL audit log |
 
 **Local ops tooling** (`/ops`, media-sync) may support this phase once merged and deployed — currently local-only.
 
