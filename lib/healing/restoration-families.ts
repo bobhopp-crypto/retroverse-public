@@ -7,7 +7,7 @@ import type {
   RowRestorationFamily,
 } from "@/lib/healing/pattern-types";
 
-const FAMILY_META: Record<
+export const FAMILY_META: Record<
   RestorationFamilyId,
   { name: string; strategy: string; guidance: string }
 > = {

@@ -20,6 +20,7 @@ import type {
 } from "@/lib/healing/load-degraded-queue";
 import type { HealingRestorationPatterns } from "@/lib/healing/pattern-types";
 import type { HealingTrustCalibration } from "@/lib/healing/trust-types";
+import type { HealingValidationReport } from "@/lib/healing/validation-types";
 
 const APPROVAL_CONFIDENCE_MIN = 0.45;
 
@@ -105,6 +106,7 @@ export function OpsHealingPanel(props: {
   queue: HealingDegradedQueue;
   trust: HealingTrustCalibration;
   patterns: HealingRestorationPatterns;
+  validation: HealingValidationReport;
   writesEnabled: boolean;
 }) {
   const [filter, setFilter] = useState<FilterKey>("grouped");
@@ -277,9 +279,135 @@ export function OpsHealingPanel(props: {
   const ws = props.queue.workflowSummary;
   const tc = props.trust;
   const pat = props.patterns;
+  const val = props.validation;
 
   return (
     <div className="ops-healing">
+      <section className="ops-panel">
+        <header className="ops-panel__header">
+          <h2 className="ops-panel__title">Post-healing validation</h2>
+          <OpsPill tone="info">effectiveness</OpsPill>
+        </header>
+        <p className="ops-dim">
+          Did healing improve public continuity? Before/after graph state — not a fix counter.
+        </p>
+        <p className="ops-dim">
+          Active {val.summary.activeHealed} · rolled back {val.summary.rolledBack} · uncertain{" "}
+          {val.summary.uncertain} · with measurable improvement {val.summary.withPublicImprovement}{" "}
+          · exhibit improved {val.summary.exhibitImproved}
+        </p>
+        {val.healedEntities.length === 0 ? (
+          <p className="ops-dim">No retained or rolled-back heals yet — approve one candidate to begin validation history.</p>
+        ) : (
+          <>
+            <h3 className="ops-healing__trust-heading">Healed entities</h3>
+            <OpsTable
+              columns={[
+                { key: "rvtr", label: "RVTR" },
+                { key: "when", label: "Healed" },
+                { key: "conf", label: "Conf." },
+                { key: "life", label: "Status" },
+                { key: "family", label: "Family" },
+                { key: "exhibit", label: "Exhibit" },
+              ]}
+              rows={val.healedEntities.slice(0, 12).map((e) => ({
+                id: String(e.proposalId),
+                tone:
+                  e.lifecycle === "active"
+                    ? e.exhibitQuality === "improved"
+                      ? "ok"
+                      : "warn"
+                    : e.lifecycle === "rolled_back"
+                      ? "bad"
+                      : "info",
+                cells: {
+                  rvtr: (
+                    <OpsInlineLink href={`/track/${e.rvtr}`}>{e.rvtr}</OpsInlineLink>
+                  ),
+                  when: e.healedAt.slice(0, 10),
+                  conf: e.confidenceAtApply.toFixed(2),
+                  life: e.lifecycle,
+                  family: e.restorationFamilyName ?? "—",
+                  exhibit: e.exhibitQuality,
+                },
+              }))}
+            />
+            {val.exampleHealed.length > 0 ? (
+              <>
+                <h3 className="ops-healing__trust-heading">Example improvements</h3>
+                {val.exampleHealed.map((e) => (
+                  <div key={e.proposalId} className="ops-healing__family-card">
+                    <p className="ops-healing__cluster-title">
+                      <OpsInlineLink href={`/track/${e.rvtr}`}>{e.rvtr}</OpsInlineLink>
+                      {e.albumTitle ? ` → ${e.albumTitle}` : ""}
+                      {" · "}
+                      <OpsPill tone={e.exhibitQuality === "improved" ? "ok" : "warn"}>
+                        {e.exhibitQuality}
+                      </OpsPill>
+                    </p>
+                    <p className="ops-dim">{e.curatorVerdict}</p>
+                    <ul className="ops-healing__trust-list">
+                      {e.improvements.map((i) => (
+                        <li key={i.kind}>
+                          {i.improved ? "✓" : "·"} {i.label}: {i.before} → {i.after}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </>
+            ) : null}
+            <h3 className="ops-healing__trust-heading">Confidence effectiveness</h3>
+            <ul className="ops-healing__trust-list">
+              {val.confidenceEffectiveness.map((b) => (
+                <li key={b.band}>
+                  <strong>{b.band}</strong> ({b.range}) — retained {b.retained}/{b.applies}{" "}
+                  ({b.retentionRate}%)
+                  <br />
+                  <span className="ops-dim">{b.observation}</span>
+                </li>
+              ))}
+            </ul>
+            {val.rollbackIntelligence.length > 0 ? (
+              <>
+                <h3 className="ops-healing__trust-heading">Rollback intelligence</h3>
+                <ul className="ops-healing__trust-list">
+                  {val.rollbackIntelligence.map((r) => (
+                    <li key={r.cause}>
+                      <OpsPill tone="bad">{r.count}</OpsPill> <strong>{r.cause}</strong>
+                      {r.examples.length > 0 ? ` — e.g. ${r.examples.join(", ")}` : ""}
+                      <br />
+                      <span className="ops-dim">{r.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <h3 className="ops-healing__trust-heading">Healing memory</h3>
+            <ul className="ops-healing__trust-list">
+              {val.healingMemory.map((m) => (
+                <li key={m.key}>
+                  <OpsPill
+                    tone={
+                      m.outcome === "stable"
+                        ? "ok"
+                        : m.outcome === "failed"
+                          ? "bad"
+                          : "warn"
+                    }
+                  >
+                    {m.outcome}
+                  </OpsPill>{" "}
+                  <strong>{m.key}</strong> — {m.retained}/{m.applies} retained
+                  <br />
+                  <span className="ops-dim">{m.note}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </section>
+
       <section className="ops-panel">
         <header className="ops-panel__header">
           <h2 className="ops-panel__title">Restoration patterns</h2>
