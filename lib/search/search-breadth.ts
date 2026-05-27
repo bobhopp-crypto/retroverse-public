@@ -6,7 +6,7 @@ export type SearchBreadthTier = "narrow" | "medium" | "broad";
 export function searchBreadthTier(query: string): SearchBreadthTier {
   const len = query.trim().length;
   if (len <= 3) return "narrow";
-  if (len <= 8) return "medium";
+  if (len <= 10) return "medium";
   return "broad";
 }
 
@@ -30,10 +30,10 @@ export function searchSqlFetchLimit(tier: SearchBreadthTier): number {
 }
 
 export const OVERLAY_VISIBLE_INITIAL = {
-  artists: 8,
-  albums: 10,
-  songs: 12,
-  years: 4,
+  artists: 5,
+  albums: 8,
+  songs: 10,
+  years: 3,
 } as const;
 
 /** Tighter caps for mobile overlay — prioritize strongest matches, less song flooding. */
@@ -41,17 +41,17 @@ export function overlaySearchEntityLimits(
   tier: SearchBreadthTier,
 ): Record<SearchEntityType, number> {
   if (tier === "narrow") {
-    return { artist: 6, album: 8, track: 10, year: 3 };
+    return { artist: 4, album: 6, track: 8, year: 3 };
   }
   if (tier === "medium") {
-    return { artist: 6, album: 10, track: 14, year: 4 };
+    return { artist: 4, album: 8, track: 12, year: 3 };
   }
-  return { artist: 8, album: 12, track: 16, year: 4 };
+  return { artist: 6, album: 10, track: 14, year: 4 };
 }
 
 /** Smaller SQL window for overlay — avoids scanning hundreds of rows per type. */
 export function overlaySearchSqlFetchLimit(tier: SearchBreadthTier): number {
-  if (tier === "narrow") return 48;
-  if (tier === "medium") return 72;
-  return 96;
+  if (tier === "narrow") return 40;
+  if (tier === "medium") return 56;
+  return 72;
 }

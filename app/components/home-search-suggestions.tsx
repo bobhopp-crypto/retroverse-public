@@ -64,11 +64,14 @@ function SuggestionThumb({ item }: { item: SearchSuggestionItem }) {
 function SuggestionRow({
   item,
   highlightQuery,
+  overlayMode = false,
 }: {
   item: SearchSuggestionItem;
   highlightQuery?: string;
+  overlayMode?: boolean;
 }) {
   const isYear = item.kind === "year";
+  const isArtist = item.kind === "artist";
   const actionLabel = item.actionLabel?.trim();
   const title = highlightQuery?.trim()
     ? highlightMatchText(item.title, highlightQuery)
@@ -76,10 +79,10 @@ function SuggestionRow({
 
   return (
     <>
-      <SuggestionThumb item={item} />
+      {!overlayMode ? <SuggestionThumb item={item} /> : null}
       <span className="home-search-suggestions__copy">
         <span className="home-search-suggestions__title">{title}</span>
-        {item.artist ? (
+        {item.artist && !isArtist ? (
           <span className="home-search-suggestions__artist">
             {highlightQuery?.trim()
               ? highlightMatchText(item.artist, highlightQuery)
@@ -117,22 +120,21 @@ function SectionList({
   const hidden = items.length - visible.length;
 
   return (
-    <div className="home-search-suggestions__section">
+    <div className="home-search-suggestions__section home-search-suggestions__section--overlay">
       <p className="home-search-suggestions__heading">
         {heading}
-        <span className="home-search-suggestions__count"> ({items.length})</span>
       </p>
       <ul className="home-search-suggestions__list">
-        {visible.map((item) => (
+        {visible.map((item, index) => (
           <li key={item.id}>
             <button
               type="button"
-              className={`home-search-suggestions__item${item.actionLabel ? " home-search-suggestions__item--cta" : ""}`}
+              className={`home-search-suggestions__item${item.actionLabel ? " home-search-suggestions__item--cta" : ""}${sectionKey === "artists" && index === 0 ? " home-search-suggestions__item--hero" : ""}`}
               role="option"
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => onSelect(item)}
             >
-              <SuggestionRow item={item} highlightQuery={highlightQuery} />
+              <SuggestionRow item={item} highlightQuery={highlightQuery} overlayMode />
             </button>
           </li>
         ))}

@@ -73,8 +73,51 @@ export function applyCanonicalArtistDisplay(entities: SearchEntity[]): SearchEnt
   });
 }
 
+const OVERLAY_OTHERS_TRACK_CAP = 4;
+
 function titleNorm(title: string): string {
   return normalizeSearchLabel(title);
+}
+
+function softAnchorFromTitleMatches(
+  tracks: SearchEntity[],
+  query: string,
+): string | null {
+  const q = normalizeSearchQuery(query);
+  const exact = tracks.filter((t) => {
+    const title = titleNorm(t.label);
+    return title === q || title.startsWith(`${q} `) || title.startsWith(q);
+  });
+  if (exact.length === 0) return null;
+
+  const counts = new Map<string, { count: number; display: string }>();
+  for (const track of exact) {
+    if (!track.artist?.trim()) continue;
+    const key = normalizeArtistMatchKey(track.artist);
+    const prev = counts.get(key);
+    if (prev) prev.count += 1;
+    else counts.set(key, { count: 1, display: track.artist });
+  }
+
+  let best: { count: number; display: string } | null = null;
+  for (const entry of counts.values()) {
+    if (!best || entry.count > best.count) best = entry;
+  }
+  return best ? displayArtistName(best.display) : null;
+}
+
+function dedupeTracksByRvId(tracks: SearchEntity[]): SearchEntity[] {
+  const seen = new Set<string>();
+  const out: SearchEntity[] = [];
+  for (const track of tracks) {
+    const rv = track.rvId?.trim().toUpperCase();
+    if (rv) {
+      if (seen.has(rv)) continue;
+      seen.add(rv);
+    }
+    out.push(track);
+  }
+  return out;
 }
 
 function trackTrustScore(entity: SearchEntity, query: string, anchorArtist: string | null): number {
@@ -104,19 +147,29 @@ export function prioritizeOverlayTracks(
   query: string,
 ): SearchEntity[] {
   const artists = entities.filter((e) => e.entityType === "artist");
-  const anchor = artists.find((a) => a.rank <= 15 && artistKeysMatch(a.label, query)) ?? artists[0];
-  const anchorName = anchor?.label ?? null;
+  const allTracks = entities.filter((e) => e.entityType === "track");
+
+  const hardAnchor =
+    artists.find((a) => a.rank <= 15 && artistKeysMatch(a.label, query)) ??
+    artists[0] ??
+    null;
+  const softAnchorName =
+    hardAnchor?.label ?? softAnchorFromTitleMatches(allTracks, query);
+  const anchorName = softAnchorName;
 
   const nonTracks = entities.filter((e) => e.entityType !== "track");
-  const tracks = entities
-    .filter((e) => e.entityType === "track")
-    .map((t) => ({ t, score: trackTrustScore(t, query, anchorName) }))
-    .sort((a, b) => a.score - b.score || a.t.label.localeCompare(b.t.label))
-    .map(({ t }) => t);
+  const tracks = dedupeTracksByRvId(
+    allTracks
+      .map((t) => ({ t, score: trackTrustScore(t, query, anchorName) }))
+      .sort((a, b) => a.score - b.score || a.t.label.localeCompare(b.t.label))
+      .map(({ t }) => t),
+  );
 
   if (anchorName) {
     const anchored = tracks.filter((t) => t.artist && artistKeysMatch(t.artist, anchorName));
-    const others = tracks.filter((t) => !t.artist || !artistKeysMatch(t.artist, anchorName));
+    const others = tracks
+      .filter((t) => !t.artist || !artistKeysMatch(t.artist, anchorName))
+      .slice(0, OVERLAY_OTHERS_TRACK_CAP);
     const displayAnchor = displayArtistName(anchorName);
     const normalizeArtist = (list: SearchEntity[]) =>
       list.map((t) =>
