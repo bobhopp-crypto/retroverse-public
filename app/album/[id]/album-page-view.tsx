@@ -2,11 +2,7 @@ import Link from "next/link";
 
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { TrackChartRunRail } from "@/app/track/[id]/track-chart-run-rail";
-import {
-  formatSongPeakLabel,
-  formatSongWeeksLabel,
-  formatSongYear,
-} from "@/lib/artist/format-track-card";
+import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { AlbumPageData } from "@/lib/album/load-album-page";
 
 import "../../track/[id]/track-page.css";
@@ -16,21 +12,7 @@ type AlbumPageViewProps = {
   data: AlbumPageData;
 };
 
-function formatChartDate(value: string): string {
-  const d = value.slice(0, 10);
-  if (d.length < 10) return value;
-  const [y, m, day] = d.split("-");
-  const month = new Date(Number(y), Number(m) - 1, Number(day)).toLocaleString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-  return month;
-}
-
 export function AlbumPageView({ data }: AlbumPageViewProps) {
-  const peakLabel = formatSongPeakLabel(data.b200Peak);
-  const weeksLabel = formatSongWeeksLabel(data.chartWeeks);
   const yearLabel = formatSongYear(data.releaseYear);
   const hasTrajectory = data.trajectoryWeeks.length > 0;
   const exhibitSparse = data.tracks.length === 0 && !hasTrajectory;
@@ -79,9 +61,6 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
         <section className="album-tracklist" aria-labelledby="album-tracks">
           <div className="track-section-head track-section-head--dark">
             <h2 id="album-tracks">Tracks</h2>
-            <Link href={data.artistHref} prefetch className="track-section-link track-section-link--light">
-              {data.artistName} →
-            </Link>
           </div>
           <ol className="album-tracklist__list">
             {data.tracks.map((track) => (
@@ -109,25 +88,10 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
             <h2 id="album-chart-journey">Album journey</h2>
             {data.rvYearHref ? (
               <Link href={data.rvYearHref} prefetch className="track-section-link">
-                Open {yearLabel} →
+                {yearLabel}
               </Link>
             ) : null}
           </div>
-          <p className="track-journey__lead album-journey__lead">
-            <strong>{peakLabel}</strong>
-            {weeksLabel ? (
-              <>
-                {" "}
-                · {weeksLabel} on chart
-              </>
-            ) : null}
-            {data.firstChartDate ? (
-              <>
-                {" "}
-                · from {formatChartDate(data.firstChartDate)}
-              </>
-            ) : null}
-          </p>
           <TrackChartRunRail
             weeks={data.trajectoryWeeks}
             peak={data.b200Peak}

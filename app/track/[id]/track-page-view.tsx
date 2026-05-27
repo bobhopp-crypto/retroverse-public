@@ -1,11 +1,7 @@
 import Link from "next/link";
 
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
-import {
-  formatSongPeakLabel,
-  formatSongWeeksLabel,
-  formatSongYear,
-} from "@/lib/artist/format-track-card";
+import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
 import { TrackChartRunRail } from "./track-chart-run-rail";
@@ -15,21 +11,7 @@ type TrackPageViewProps = {
   data: TrackPageData;
 };
 
-function formatChartDate(value: string): string {
-  const d = value.slice(0, 10);
-  if (d.length < 10) return value;
-  const [y, m, day] = d.split("-");
-  const month = new Date(Number(y), Number(m) - 1, Number(day)).toLocaleString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-  return month;
-}
-
 export function TrackPageView({ data }: TrackPageViewProps) {
-  const peakLabel = formatSongPeakLabel(data.peakHot100);
-  const weeksLabel = formatSongWeeksLabel(data.chartWeeks);
   const yearLabel = formatSongYear(data.releaseYear);
   const hasTrajectory = data.trajectoryWeeks.length > 0;
   const exhibitSparse =
@@ -70,11 +52,6 @@ export function TrackPageView({ data }: TrackPageViewProps) {
               </>
             ) : null}
           </p>
-          {data.hasHot100 ? (
-            <div className="track-hero__badges">
-              <span className="track-badge">Hot 100</span>
-            </div>
-          ) : null}
         </div>
       </section>
 
@@ -104,25 +81,10 @@ export function TrackPageView({ data }: TrackPageViewProps) {
             <h2 id="track-chart-journey">Song journey</h2>
             {data.rvYearHref ? (
               <Link href={data.rvYearHref} prefetch className="track-section-link">
-                Open {yearLabel} →
+                {yearLabel}
               </Link>
             ) : null}
           </div>
-          <p className="track-journey__lead">
-            <strong>{peakLabel}</strong>
-            {weeksLabel ? (
-              <>
-                {" "}
-                · {weeksLabel} on chart
-              </>
-            ) : null}
-            {data.firstChartDate ? (
-              <>
-                {" "}
-                · from {formatChartDate(data.firstChartDate)}
-              </>
-            ) : null}
-          </p>
           <TrackChartRunRail
             weeks={data.trajectoryWeeks}
             peak={data.peakHot100}
@@ -135,9 +97,6 @@ export function TrackPageView({ data }: TrackPageViewProps) {
         <section className="track-related" aria-labelledby="track-related-songs">
           <div className="track-section-head track-section-head--dark">
             <h2 id="track-related-songs">Related songs</h2>
-            <Link href={data.artistHref} prefetch className="track-section-link track-section-link--light">
-              {data.artistName} →
-            </Link>
           </div>
           <ul className="track-related__list">
             {data.relatedTracks.map((song) => (

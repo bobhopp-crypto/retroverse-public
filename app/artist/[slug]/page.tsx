@@ -30,11 +30,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function formatAlbumPeak(peak: number | null): string {
-  if (peak == null) return "";
-  return ` · #${peak} Peak`;
-}
-
 export default async function ArtistPage({ params }: Props) {
   const { slug } = await params;
   const data = await loadArtistPage(slug);
@@ -46,12 +41,6 @@ export default async function ArtistPage({ params }: Props) {
   const libraryAlbumCovers = data.essentialAlbums.filter((a) => a.coverUrl).slice(0, 8);
   const showLibrary =
     data.libraryTracks > 0 && libraryAlbumCovers.length > 0;
-  const chartStats = data.chartHighlights;
-  const showChartHighlights =
-    chartStats.hot100Appearances > 0 ||
-    chartStats.b200Albums > 0 ||
-    chartStats.top10Hits > 0;
-
   return (
     <>
       {data.essentialAlbums.length > 0 && (
@@ -75,10 +64,7 @@ export default async function ArtistPage({ params }: Props) {
                     fallbackClassName="artist-album-tile__fallback"
                   />
                   <p className="artist-album-tile__title">{album.title}</p>
-                  <p className="artist-album-tile__meta">
-                    {album.releaseYear ?? "—"}
-                    {formatAlbumPeak(album.b200Peak)}
-                  </p>
+                  <p className="artist-album-tile__meta">{album.releaseYear ?? "—"}</p>
                 </a>
               );
             })}
@@ -156,9 +142,6 @@ export default async function ArtistPage({ params }: Props) {
             {data.chartAlbumSpotlight.releaseYear != null
               ? ` · ${data.chartAlbumSpotlight.releaseYear}`
               : ""}
-            {data.chartAlbumSpotlight.b200Peak != null
-              ? ` · #${data.chartAlbumSpotlight.b200Peak} Peak`
-              : ""}
           </p>
           <div className="artist-era__cover-wrap">
             <ArtistCover
@@ -176,49 +159,9 @@ export default async function ArtistPage({ params }: Props) {
                 `/albums/${data.chartAlbumSpotlight.rval}`,
               )}
             >
-              Open album →
+              {data.chartAlbumSpotlight.albumTitle}
             </a>
           ) : null}
-        </section>
-      )}
-
-      {showChartHighlights && (
-        <section className="artist-charts-panel" aria-labelledby="chart-highlights">
-          <div className="artist-section-head artist-section-head--dark">
-            <h2 id="chart-highlights">Chart Highlights</h2>
-            <ArtistViewAll href={artistSectionHref(slug, "charts")} variant="dark" />
-          </div>
-          <div className="artist-charts-grid">
-            {chartStats.hot100Appearances > 0 ? (
-              <div className="artist-chart-stat">
-                <span className="artist-chart-stat__num">
-                  {chartStats.hot100Appearances.toLocaleString()}
-                </span>
-                <span className="artist-chart-stat__label">Hot 100 weeks</span>
-              </div>
-            ) : null}
-            {chartStats.top10Hits > 0 ? (
-              <div className="artist-chart-stat">
-                <span className="artist-chart-stat__num">{chartStats.top10Hits}</span>
-                <span className="artist-chart-stat__label">Top 10 hits</span>
-              </div>
-            ) : null}
-            {chartStats.b200Albums > 0 ? (
-              <div className="artist-chart-stat">
-                <span className="artist-chart-stat__num">{chartStats.b200Albums}</span>
-                <span className="artist-chart-stat__label">Billboard 200 albums</span>
-              </div>
-            ) : null}
-            {chartStats.top10Albums > 0 ? (
-              <div className="artist-chart-stat">
-                <span className="artist-chart-stat__num">{chartStats.top10Albums}</span>
-                <span className="artist-chart-stat__label">Top 10 albums</span>
-              </div>
-            ) : null}
-          </div>
-          <Link className="artist-era__cta artist-charts-panel__cta" href={artistSectionHref(slug, "charts")}>
-            Chart history →
-          </Link>
         </section>
       )}
 

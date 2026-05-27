@@ -11,5 +11,5 @@ type Props = {
 
 export function ArtistSongsRotator({ tracks, artistName }: Props) {
   const rows = tracks.map((t) => artistTrackToJukeboxRow(t, artistName));
-  return <SongsJukeboxReel rows={rows} idPrefix="artist-song-reel" />;
+  return <SongsJukeboxReel rows={rows} idPrefix="artist-song-reel" restraint />;
 }

@@ -16,6 +16,8 @@ import "./songs-jukebox.css";
 type Props = {
   rows: JukeboxSongRow[];
   idPrefix?: string;
+  /** Artist exhibit: no action chrome, quieter metadata */
+  restraint?: boolean;
 };
 
 type CardVariant = "preview" | "active";
@@ -43,10 +45,12 @@ function SongStackCard({
   row,
   variant,
   id,
+  restraint = false,
 }: {
   row: JukeboxSongRow;
   variant: CardVariant;
   id?: string;
+  restraint?: boolean;
 }) {
   const isActive = variant === "active";
 
@@ -78,9 +82,17 @@ function SongStackCard({
 
   const yearValue = formatSongYear(row.releaseYear);
   const peakValue = formatSongPeakLabel(row.peakHot100);
-  const weeksValue = formatSongWeeksLabel(row.chartWeeks) || "—";
 
-  const textBlock = (
+  const textBlock = restraint ? (
+    <>
+      <h3 className="song-stack-card__title">{row.title}</h3>
+      <p className="song-stack-card__artist">{row.artist}</p>
+      <p className="song-stack-card__meta">
+        {yearValue}
+        {row.peakHot100 != null ? ` · ${peakValue}` : ""}
+      </p>
+    </>
+  ) : (
     <>
       <h3 className="song-stack-card__title">{row.title}</h3>
       <p className="song-stack-card__artist">{row.artist}</p>
@@ -96,7 +108,7 @@ function SongStackCard({
         </div>
         <div>
           <dt>Weeks</dt>
-          <dd>{weeksValue}</dd>
+          <dd>{formatSongWeeksLabel(row.chartWeeks) || "—"}</dd>
         </div>
       </dl>
     </>
@@ -121,17 +133,19 @@ function SongStackCard({
               {textBlock}
             </div>
           )}
-          <SongActions
-            layout="stack"
-            target={songActionTargetFromParts({
-              title: row.title,
-              artist: row.artist,
-              rvtr: row.rvtr,
-              id: row.id,
-              href: row.href,
-              chartYear: row.releaseYear,
-            })}
-          />
+          {restraint ? null : (
+            <SongActions
+              layout="stack"
+              target={songActionTargetFromParts({
+                title: row.title,
+                artist: row.artist,
+                rvtr: row.rvtr,
+                id: row.id,
+                href: row.href,
+                chartYear: row.releaseYear,
+              })}
+            />
+          )}
         </div>
       </div>
     </article>
@@ -143,7 +157,7 @@ function GhostCard() {
 }
 
 /** Static 3-card column: previous · active · next. Arrow (or swipe) shifts index. */
-export function SongsJukeboxReel({ rows, idPrefix = "song-reel" }: Props) {
+export function SongsJukeboxReel({ rows, idPrefix = "song-reel", restraint = false }: Props) {
   const [index, setIndex] = useState(0);
   const touchStartY = useRef<number | null>(null);
 
@@ -208,7 +222,12 @@ export function SongsJukeboxReel({ rows, idPrefix = "song-reel" }: Props) {
           <GhostCard />
         )}
 
-        <SongStackCard row={active} variant="active" id={`${idPrefix}-${index}`} />
+        <SongStackCard
+          row={active}
+          variant="active"
+          id={`${idPrefix}-${index}`}
+          restraint={restraint}
+        />
 
         {next ? <SongStackCard row={next} variant="preview" /> : <GhostCard />}
       </div>
