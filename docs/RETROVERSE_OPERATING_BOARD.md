@@ -6,28 +6,32 @@
 
 ---
 
-## Live production (verified 2026-05-25)
+## Live production (verified 2026-05-27)
 
 | Field | Value |
 |-------|--------|
 | **URL** | https://retroverse.live |
-| **Commit** | `3c00d6f` — Polish overlay search trust: index typography, calm ranking, drawer feel |
+| **Commit** | `ff33450` — Artist exhibit continuity stabilization (vertical mobile baseline) |
 | **Search stabilization** | `384765a` → `d65931f` → `3c00d6f` — **COMPLETE v1** |
+| **Artist exhibit** | `75f55e2` → `ff33450` — **DONE** — charts on `/charts` only; vertical main exhibit |
 | **Data plane** | Neon Postgres (pooler) + `search_entities` matview + `pg_trgm` |
 | **Homepage** | Poster-first; search trigger opens fullscreen drawer |
 | **Mobile search** | Fullscreen overlay — **DONE v1, stabilized** |
 
-### Production smoke (curl, 2026-05-25)
+### Production smoke (curl, 2026-05-27)
 
 | Route | HTTP | Notes |
 |-------|------|--------|
 | `/` | 200 | Poster shell + `home-search-trigger` |
 | `/api/search/suggestions?q=supremes` | 200 | Grouped index; `index.entitySource: matview` |
-| `/api/search?q=madonna` | 200 | Monolithic deep-dive page API (~4s) |
-| `/artist/the-supremes` | 200 | Artist exhibit |
+| `/artist/elton-john` | 200 | Vertical exhibit; `chart-highlights`; no `charts-history` on main |
+| `/artist/madonna` | 200 | Same baseline |
+| `/artist/ben-e-king` | 200 | Same baseline |
+| `/artist/the-supremes` | 200 | Same baseline |
+| `/artist/*/charts` | 200 | Chart explorer isolated to sub-route |
 | `/track/RVTR336241` | 200 | Thriller — healthy control |
 | `/track/RVTR898681` | 200 | Stand By Me — degraded (missing album join) |
-| `/ops`, `/api/events` | 404 | Local-only |
+| `/ops`, `/api/events` | 404 | Local-only / gated |
 | `/api/healing/album-links` | 403 | Gated (control-center) |
 
 ### Warm latency snapshot (production)
@@ -151,17 +155,22 @@ Remaining: charts route still heavy (~2.5–3s); exhibit nav Library pill may la
 
 ---
 
-## Artist exhibit continuity (DONE)
+## Artist exhibit continuity stabilization — DONE
+
+**Deployed:** `ff33450` on https://retroverse.live (2026-05-27)
 
 | Change | Notes |
 |--------|--------|
-| Main exhibit | Vertical one-column flow; no horizontal album/library rails |
-| Chart explorer | Moved off main exhibit → `/artist/[slug]/charts` only |
-| Chart highlights | Stats panel on main + link to charts sub-route |
-| Dominant years | Suppressed on main when no Hot 100 year data |
+| Horizontal rails removed | Album + library shelves → vertical grids |
+| Chart explorer isolated | `ArtistChartsHistory` off main exhibit → `/artist/[slug]/charts` only |
+| Chart highlights on main | Stats panel + link to charts sub-route |
+| Placeholder modules suppressed | Dominant years / library hidden on main when no data |
+| Honest empty states | Sub-routes: “Nothing in the archive…” (no “coming soon”) |
 | Related artists | Vertical cards + PG co-chart fallback |
-| Placeholder sub-routes | Honest empty copy (no “coming soon”) when section has no data |
-| CSS | Restored `.artist-footer-nav` selector |
+| Footer CSS | Restored `.artist-footer-nav` selector |
+| Main exhibit flow | Vertical editorial document — hero → albums → songs → years → highlights → related → explore |
+
+**Do not:** reopen layout on main exhibit without board entry; do not re-embed chart wizard on `/artist/[slug]`.
 
 Anchors: `app/artist/[slug]/page.tsx`, `artist-page.css`, `load-artist-page.ts`, `load-related-artists.ts`
 
