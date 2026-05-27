@@ -30,21 +30,6 @@
   border-bottom: none;
 }
 
-.album-tracklist__item-inner {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.album-tracklist__item-inner .album-tracklist__row {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.album-tracklist__item-inner .song-actions {
-  padding-right: 0.65rem;
-}
-
 .album-tracklist__row {
   display: grid;
   grid-template-columns: 2.5rem 1fr;

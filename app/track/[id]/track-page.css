@@ -6,6 +6,7 @@
   --teal-deep: #1f5e63;
   --orange-dusty: #e07a4f;
   --charcoal: #2d3e46;
+  --aqua-faded: #6fa8a1;
   --ink: var(--charcoal);
   --frame: 3px solid var(--charcoal);
 
@@ -14,7 +15,7 @@
   color: var(--ink);
   font-family: "Avenir Next", "Trebuchet MS", "Gill Sans", system-ui, sans-serif;
   overflow-x: hidden;
-  padding-bottom: 2rem;
+  padding-bottom: 0;
 }
 
 .track-exhibit__grain {
@@ -421,17 +422,11 @@
   list-style: none;
 }
 
-.track-related__item {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding-right: 0.65rem;
+.track-related__list li {
   border-bottom: 2px solid rgba(45, 62, 70, 0.12);
 }
 
-.track-related__item .track-related__row {
-  flex: 1 1 auto;
-  min-width: 0;
+.track-related__list li:last-child {
   border-bottom: none;
 }
 
@@ -455,17 +450,28 @@
   color: rgba(45, 62, 70, 0.72);
 }
 
-.track-footer {
+.exhibit-footer-nav {
+  position: sticky;
+  bottom: 0;
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1rem 0;
-  font-size: 0.88rem;
-  font-weight: 700;
+  justify-content: space-around;
+  padding: 0.6rem 0.25rem calc(0.6rem + env(safe-area-inset-bottom));
+  background: var(--charcoal);
+  border-top: var(--frame);
+  z-index: 5;
 }
 
-.track-footer a {
-  color: var(--teal-deep);
+.exhibit-footer-nav a {
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--aqua-faded);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.exhibit-footer-nav a:hover {
+  color: var(--orange-dusty);
 }
 
 @media (min-width: 640px) {

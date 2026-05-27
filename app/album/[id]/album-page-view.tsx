@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { SongActions } from "@/app/components/song-actions";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { TrackChartRunRail } from "@/app/track/[id]/track-chart-run-rail";
 import {
@@ -83,66 +82,20 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
           <ol className="album-tracklist__list">
             {data.tracks.map((track) => (
               <li key={`${track.position}-${track.title}`} className="album-tracklist__item">
-                <div className="album-tracklist__item-inner">
-                  {track.href ? (
-                    <Link href={track.href} prefetch className="album-tracklist__row album-tracklist__row--link">
-                      <span className="album-tracklist__position">{track.position}</span>
-                      <span className="album-tracklist__title">{track.title}</span>
-                    </Link>
-                  ) : (
-                    <div className="album-tracklist__row">
-                      <span className="album-tracklist__position">{track.position}</span>
-                      <span className="album-tracklist__title">{track.title}</span>
-                    </div>
-                  )}
-                  {track.href ? (
-                    <SongActions
-                      layout="inline"
-                      target={{
-                        title: track.title,
-                        artist: data.artistName,
-                        rvtr: track.rvtr,
-                        href: track.href,
-                        artistSlug: data.artistSlug,
-                      }}
-                    />
-                  ) : null}
-                </div>
+                {track.href ? (
+                  <Link href={track.href} prefetch className="album-tracklist__row album-tracklist__row--link">
+                    <span className="album-tracklist__position">{track.position}</span>
+                    <span className="album-tracklist__title">{track.title}</span>
+                  </Link>
+                ) : (
+                  <div className="album-tracklist__row">
+                    <span className="album-tracklist__position">{track.position}</span>
+                    <span className="album-tracklist__title">{track.title}</span>
+                  </div>
+                )}
               </li>
             ))}
           </ol>
-        </section>
-      ) : null}
-
-      {data.relatedAlbums.length > 0 ? (
-        <section className="track-shelf" aria-labelledby="album-related">
-          <div className="track-section-head">
-            <h2 id="album-related">More albums</h2>
-            <Link href={data.artistHref} className="track-section-link">
-              Artist →
-            </Link>
-          </div>
-          <div className="track-shelf__scroll">
-            {data.relatedAlbums.map((album) => (
-              <Link
-                key={album.rval ?? album.title}
-                href={album.href}
-                className="track-album-tile"
-              >
-                <ArtistCover
-                  src={album.coverUrl}
-                  alt=""
-                  className="track-album-tile__cover"
-                  fallbackClassName="track-album-tile__fallback"
-                />
-                <p className="track-album-tile__title">{album.title}</p>
-                <p className="track-album-tile__meta">
-                  {formatSongYear(album.releaseYear)}
-                  {album.b200Peak != null ? ` · #${album.b200Peak}` : ""}
-                </p>
-              </Link>
-            ))}
-          </div>
         </section>
       ) : null}
 
@@ -184,10 +137,17 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
       ) : null}
 
 
-      <footer className="track-footer">
-        <Link href={data.artistHref}>← {data.artistName}</Link>
-        <Link href="/">Home</Link>
-      </footer>
+      <nav className="exhibit-footer-nav" aria-label="Site">
+        <Link href="/" prefetch>
+          Home
+        </Link>
+        <Link href="/search" prefetch>
+          Search
+        </Link>
+        <Link href={data.artistHref} prefetch>
+          {data.artistName}
+        </Link>
+      </nav>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { SongActions } from "@/app/components/song-actions";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import {
   formatSongPeakLabel,
@@ -112,28 +111,6 @@ export function TrackPageView({ data }: TrackPageViewProps) {
         </section>
       ) : null}
 
-      {data.albums.length > 0 ? (
-        <section className="track-shelf" aria-labelledby="track-albums">
-          <div className="track-section-head">
-            <h2 id="track-albums">On these albums</h2>
-          </div>
-          <div className="track-shelf__scroll">
-            {data.albums.map((album) => (
-              <Link key={album.rval ?? album.title} href={album.href} prefetch className="track-album-tile">
-                <ArtistCover
-                  src={album.coverUrl}
-                  alt=""
-                  className="track-album-tile__cover"
-                  fallbackClassName="track-album-tile__fallback"
-                />
-                <p className="track-album-tile__title">{album.title}</p>
-                <p className="track-album-tile__meta">{formatSongYear(album.releaseYear)}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
       {data.relatedTracks.length > 0 ? (
         <section className="track-related" aria-labelledby="track-related-songs">
           <div className="track-section-head track-section-head--dark">
@@ -145,40 +122,30 @@ export function TrackPageView({ data }: TrackPageViewProps) {
           <ul className="track-related__list">
             {data.relatedTracks.map((song) => (
               <li key={song.rvtr}>
-                <div className="track-related__item">
-                  <Link href={song.href} prefetch className="track-related__row">
-                    <span className="track-related__title">{song.title}</span>
-                    <span className="track-related__meta">
-                      {formatSongYear(song.releaseYear)}
-                      {song.peakHot100 != null ? ` · ${formatSongPeakLabel(song.peakHot100)}` : ""}
-                    </span>
-                  </Link>
-                  <SongActions
-                    layout="inline"
-                    target={{
-                      title: song.title,
-                      artist: data.artistName,
-                      rvtr: song.rvtr,
-                      href: song.href,
-                      artistSlug: data.artistSlug,
-                      chartYear: song.releaseYear,
-                    }}
-                  />
-                </div>
+                <Link href={song.href} prefetch className="track-related__row">
+                  <span className="track-related__title">{song.title}</span>
+                  <span className="track-related__meta">
+                    {formatSongYear(song.releaseYear)}
+                    {song.peakHot100 != null ? ` · ${formatSongPeakLabel(song.peakHot100)}` : ""}
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
         </section>
       ) : null}
 
-      <footer className="track-footer">
-        <Link href={data.artistHref} prefetch>
-          ← {data.artistName}
-        </Link>
+      <nav className="exhibit-footer-nav" aria-label="Site">
         <Link href="/" prefetch>
           Home
         </Link>
-      </footer>
+        <Link href="/search" prefetch>
+          Search
+        </Link>
+        <Link href={data.artistHref} prefetch>
+          {data.artistName}
+        </Link>
+      </nav>
     </div>
   );
 }

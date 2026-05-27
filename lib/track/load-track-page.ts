@@ -179,7 +179,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
         = lower(regexp_replace(trim($1), '^the\\s+', '', 'i'))
         AND upper(trim(track_id)) <> upper(trim($2))
       ORDER BY has_hot100 DESC, peak_hot100_position ASC NULLS LAST, canonical_title ASC
-      LIMIT 6
+      LIMIT 4
       `,
       [artistName, rvtr],
     ),
