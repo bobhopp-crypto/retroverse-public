@@ -16,14 +16,14 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border: 3px solid var(--charcoal, #2d3e46);
+  border: 3px solid rgba(45, 62, 70, 0.78);
   border-radius: 4px;
-  background: #fff8ee;
-  box-shadow: 4px 5px 0 rgba(45, 62, 70, 0.22);
+  background: #f4e9d3;
+  box-shadow: 2px 3px 0 rgba(45, 62, 70, 0.14);
 }
 
 .album-tracklist__item {
-  border-bottom: 2px solid rgba(45, 62, 70, 0.1);
+  border-bottom: 1px solid rgba(45, 62, 70, 0.1);
 }
 
 .album-tracklist__item:last-child {
@@ -61,7 +61,7 @@
 }
 
 .album-exhibit .track-journey {
-  background: linear-gradient(180deg, #e8dcc4 0%, var(--paper-tan, #e6d6b8) 100%);
+  background: var(--paper-tan, #e6d6b8);
 }
 
 .album-journey__lead {

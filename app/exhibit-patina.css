@@ -1,0 +1,138 @@
+/* Archive patina — paper, ink, plate; softened physicality (no faux distress) */
+
+.track-exhibit,
+.artist-exhibit {
+  --paper-warm: #f2e6d0;
+  --paper-tan: #e3d4b4;
+  --frame: 3px solid rgba(45, 62, 70, 0.78);
+}
+
+/* Aged stock — sparse exhibits feel preserved, not empty-app */
+.track-exhibit--sparse {
+  background: #efe3cb;
+}
+
+.track-exhibit--sparse .track-hero__eyebrow,
+.track-exhibit--sparse .track-hero__year,
+.track-exhibit--sparse .track-hero__dot {
+  color: rgba(45, 62, 70, 0.62);
+}
+
+/* Paper grain — warm cast, still quiet */
+.track-exhibit__grain,
+.artist-exhibit__grain {
+  opacity: 0.052;
+  background-color: rgba(92, 68, 42, 0.04);
+}
+
+/* Frames & mats */
+.track-exhibit .track-hero__cover-wrap,
+.artist-exhibit .artist-hero {
+  background: #e8dcc4;
+  box-shadow:
+    2px 3px 0 rgba(45, 62, 70, 0.14),
+    inset 0 0 0 1px rgba(244, 233, 211, 0.45);
+}
+
+.track-exhibit .track-hero__cover {
+  filter: contrast(0.97) saturate(0.94);
+}
+
+/* Matte archival plate — not glossy gradient deck */
+.track-exhibit .track-hero__cover-fallback,
+.artist-exhibit .artist-hero__photo-fallback {
+  background: #524a42;
+  background-image: linear-gradient(
+    180deg,
+    rgba(244, 233, 211, 0.09) 0%,
+    transparent 52%
+  );
+}
+
+.track-exhibit--sparse .track-hero__cover-fallback {
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 233, 211, 0.22),
+    inset 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Flat paper fields — replace synthetic product gradients */
+.track-exhibit .track-journey,
+.album-exhibit .track-journey {
+  background: var(--paper-tan);
+}
+
+.track-exhibit .track-section-head--dark {
+  background: #24585c;
+}
+
+.exhibit-footer-nav {
+  background: #324450;
+  border-top: 3px solid rgba(45, 62, 70, 0.65);
+}
+
+/* Ink labels */
+.track-exhibit .track-file-tag,
+.artist-exhibit .artist-file-tag {
+  border-color: rgba(45, 62, 70, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 248, 238, 0.2);
+}
+
+.track-exhibit .track-logo,
+.artist-exhibit .artist-logo {
+  color: #c46e4a;
+}
+
+/* Section dividers — ink on paper, not UI rules */
+.track-exhibit .track-related__list li {
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(45, 62, 70, 0.1);
+}
+
+.album-exhibit .album-tracklist__list {
+  background: var(--paper-warm);
+  border-color: rgba(45, 62, 70, 0.78);
+  box-shadow: 2px 3px 0 rgba(45, 62, 70, 0.12);
+}
+
+.album-exhibit .album-tracklist__item {
+  border-bottom-width: 1px;
+}
+
+/* Chart weeks — stock cards, muted heat */
+.track-exhibit .track-trajectory-week {
+  border-width: 1px;
+  border-radius: 3px;
+  --heat-bg: rgba(45, 62, 70, 0.06);
+  --heat-border: rgba(45, 62, 70, 0.14);
+  --heat-bar: rgba(36, 88, 92, 0.65);
+}
+
+.track-exhibit .track-trajectory-week--number-one {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.3),
+    0 1px 0 rgba(45, 62, 70, 0.08);
+}
+
+.track-exhibit .track-trajectory-week--rebound {
+  outline: 1px dashed rgba(45, 62, 70, 0.22);
+  outline-offset: 2px;
+}
+
+/* Artist nav — filed tabs, softer drop */
+.artist-exhibit .artist-exhibit-nav__pill {
+  box-shadow: 1px 2px 0 rgba(45, 62, 70, 0.12);
+  border-color: rgba(45, 62, 70, 0.72);
+}
+
+/* Loading — same patina as sparse shell */
+.artist-exhibit__body--loading .artist-placeholder__note {
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgba(45, 62, 70, 0.5);
+}
+
+.track-exhibit[aria-busy="true"] .track-hero__title,
+.track-exhibit[aria-busy="true"] .track-hero__artist {
+  color: rgba(45, 62, 70, 0.55);
+  letter-spacing: 0.06em;
+}
