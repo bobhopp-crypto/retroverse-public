@@ -10,17 +10,17 @@ export default function TrackLoading() {
         <Link href="/" className="track-logo" prefetch>
           Retroverse
         </Link>
-        <span className="track-file-tag">Song File · …</span>
+        <span className="track-file-tag">Song</span>
       </header>
       <section className="track-hero" aria-label="Loading song">
         <div className="track-hero__cover-wrap">
           <div className="track-hero__cover-fallback" aria-hidden />
         </div>
         <div className="track-hero__identity">
-          <p className="track-hero__eyebrow">Now entering</p>
+          <p className="track-hero__eyebrow">From the archive</p>
           <h1 className="track-hero__title">…</h1>
           <p className="track-hero__artist-line">
-            <span className="track-hero__artist">Loading song file…</span>
+            <span className="track-hero__artist">…</span>
           </p>
         </div>
       </section>

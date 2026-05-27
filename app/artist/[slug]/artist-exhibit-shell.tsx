@@ -12,7 +12,7 @@ type Props = {
 };
 
 export function ArtistExhibitShell({ shell, children }: Props) {
-  const { slug, displayName, fileCode, heroImageUrl } = shell;
+  const { slug, displayName, heroImageUrl } = shell;
 
   return (
     <div className="artist-exhibit">
@@ -22,7 +22,7 @@ export function ArtistExhibitShell({ shell, children }: Props) {
         <Link href="/" className="artist-logo" prefetch>
           Retroverse
         </Link>
-        <span className="artist-file-tag">Artist File · {fileCode}</span>
+        <span className="artist-file-tag">Artist</span>
       </header>
 
       <section className="artist-hero" aria-label={`${displayName} hero`}>

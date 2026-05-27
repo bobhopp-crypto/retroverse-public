@@ -7,6 +7,8 @@ type Props = {
   alt: string;
   className?: string;
   fallbackClassName?: string;
+  /** plate = calm archival gradient; vinyl = decorative deck (artist tiles) */
+  fallbackVariant?: "plate" | "vinyl";
 };
 
 export function ArtistCover({
@@ -14,6 +16,7 @@ export function ArtistCover({
   alt,
   className = "",
   fallbackClassName = "artist-cover-fallback",
+  fallbackVariant = "vinyl",
 }: Props) {
   const [broken, setBroken] = useState(false);
   const show = Boolean(src?.trim()) && !broken;
@@ -21,7 +24,7 @@ export function ArtistCover({
   if (!show) {
     return (
       <div className={fallbackClassName} aria-hidden>
-        <span className="artist-cover-fallback__vinyl" />
+        {fallbackVariant === "vinyl" ? <span className="artist-cover-fallback__vinyl" /> : null}
       </div>
     );
   }

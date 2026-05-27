@@ -42,7 +42,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
         <Link href="/" className="track-logo" prefetch>
           Retroverse
         </Link>
-        <span className="track-file-tag">Album File · {data.rval}</span>
+        <span className="track-file-tag">Album</span>
       </header>
 
       <section className="track-hero" aria-label={`${data.title} album page`}>
@@ -52,10 +52,11 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
             alt=""
             className="track-hero__cover"
             fallbackClassName="track-hero__cover-fallback"
+            fallbackVariant="plate"
           />
         </div>
         <div className="track-hero__identity">
-          <p className="track-hero__eyebrow">Now entering</p>
+          <p className="track-hero__eyebrow">From the archive</p>
           <h1 className="track-hero__title">{data.title}</h1>
           <p className="track-hero__artist-line">
             <Link href={data.artistHref} prefetch className="track-hero__artist">

@@ -32,16 +32,18 @@ export function TrackPageView({ data }: TrackPageViewProps) {
   const weeksLabel = formatSongWeeksLabel(data.chartWeeks);
   const yearLabel = formatSongYear(data.releaseYear);
   const hasTrajectory = data.trajectoryWeeks.length > 0;
+  const exhibitSparse =
+    data.albums.length === 0 && !hasTrajectory && data.relatedTracks.length === 0;
 
   return (
-    <div className="track-exhibit">
+    <div className={`track-exhibit${exhibitSparse ? " track-exhibit--sparse" : ""}`}>
       <div className="track-exhibit__grain" aria-hidden />
 
       <header className="track-topbar">
         <Link href="/" className="track-logo" prefetch>
           Retroverse
         </Link>
-        <span className="track-file-tag">Song File · {data.rvtr}</span>
+        <span className="track-file-tag">Song</span>
       </header>
 
       <section className="track-hero" aria-label={`${data.title} song page`}>
@@ -51,10 +53,11 @@ export function TrackPageView({ data }: TrackPageViewProps) {
             alt=""
             className="track-hero__cover"
             fallbackClassName="track-hero__cover-fallback"
+            fallbackVariant="plate"
           />
         </div>
         <div className="track-hero__identity">
-          <p className="track-hero__eyebrow">Now entering</p>
+          <p className="track-hero__eyebrow">From the archive</p>
           <h1 className="track-hero__title">{data.title}</h1>
           <p className="track-hero__artist-line">
             <Link href={data.artistHref} prefetch className="track-hero__artist">
@@ -143,7 +146,6 @@ export function TrackPageView({ data }: TrackPageViewProps) {
                   <span className="track-related__title">{song.title}</span>
                   <span className="track-related__meta">
                     {formatSongYear(song.releaseYear)}
-                    {song.peakHot100 != null ? ` · ${formatSongPeakLabel(song.peakHot100)}` : ""}
                   </span>
                 </Link>
               </li>
