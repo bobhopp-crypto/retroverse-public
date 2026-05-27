@@ -78,7 +78,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
       {hasTrajectory ? (
         <section className="track-journey" aria-labelledby="track-chart-journey">
           <div className="track-section-head track-section-head--journey">
-            <h2 id="track-chart-journey">Song journey</h2>
+            <h2 id="track-chart-journey">Chart history</h2>
             {data.rvYearHref ? (
               <Link href={data.rvYearHref} prefetch className="track-section-link">
                 {yearLabel}

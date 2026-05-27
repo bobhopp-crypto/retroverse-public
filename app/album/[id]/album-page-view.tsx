@@ -85,7 +85,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
       {hasTrajectory ? (
         <section className="track-journey" aria-labelledby="album-chart-journey">
           <div className="track-section-head track-section-head--journey">
-            <h2 id="album-chart-journey">Album journey</h2>
+            <h2 id="album-chart-journey">Chart history</h2>
             {data.rvYearHref ? (
               <Link href={data.rvYearHref} prefetch className="track-section-link">
                 {yearLabel}
