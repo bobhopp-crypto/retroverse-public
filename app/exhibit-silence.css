@@ -1,0 +1,168 @@
+/* Archive silence — quiet continuity, observed not operated */
+
+.track-exhibit,
+.artist-exhibit {
+  --frame: 3px solid rgba(45, 62, 70, 0.82);
+}
+
+/* Paper grain — stiller */
+.track-exhibit__grain,
+.artist-exhibit__grain {
+  opacity: 0.038;
+}
+
+/* Register strip — faint */
+.track-topbar,
+.artist-topbar {
+  border-bottom-color: rgba(45, 62, 70, 0.1);
+}
+
+/* Eyebrow — patient, not stamped */
+.track-exhibit .track-hero__eyebrow,
+.artist-exhibit .artist-hero__eyebrow {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(31, 94, 99, 0.68);
+}
+
+/* Hero link — no CTA flash */
+.track-exhibit .track-hero__artist:hover {
+  color: var(--teal-deep);
+  opacity: 0.78;
+}
+
+/* Mounts — matte, low stack */
+.track-exhibit .track-hero__cover-wrap,
+.artist-exhibit .artist-hero,
+.track-exhibit .track-journey,
+.album-exhibit .album-tracklist__list {
+  box-shadow:
+    2px 3px 0 rgba(45, 62, 70, 0.1),
+    inset 0 0 0 1px rgba(244, 233, 211, 0.35);
+  border-color: rgba(45, 62, 70, 0.82);
+}
+
+.track-exhibit .track-journey {
+  box-shadow: none;
+}
+
+/* Section heads — restrained register */
+.track-exhibit .track-section-head h2,
+.artist-exhibit .artist-section-head h2,
+.album-exhibit .track-section-head h2 {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.track-exhibit .track-section-head--dark {
+  background: #24585c;
+  border-bottom-width: 2px;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Year link — metadata, not label shout */
+.track-exhibit .track-section-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: rgba(45, 62, 70, 0.62);
+}
+
+.track-exhibit .track-section-link--light {
+  color: rgba(244, 233, 211, 0.82);
+}
+
+/* Lists — ink rules only, no competing boxes */
+.track-exhibit .track-albums .track-related__list,
+.track-exhibit .track-related__list {
+  border: none;
+  background: transparent;
+  padding-top: 0;
+}
+
+.track-exhibit .track-related__list li {
+  border-bottom-color: rgba(45, 62, 70, 0.08);
+}
+
+.track-exhibit .track-related__title {
+  font-weight: 700;
+}
+
+/* Section rhythm — lighter dividers */
+.track-exhibit .track-albums,
+.track-exhibit .track-journey,
+.track-exhibit .track-related,
+.album-exhibit .album-tracklist,
+.album-exhibit .track-journey {
+  border-top-color: rgba(45, 62, 70, 0.06);
+  padding-top: 1.25rem;
+}
+
+/* Chart history — flat weeks */
+.track-exhibit .track-trajectory-week {
+  box-shadow: none;
+  border-color: rgba(45, 62, 70, 0.1);
+}
+
+.track-exhibit .track-trajectory-track::after {
+  box-shadow: none;
+}
+
+.track-exhibit .track-trajectory-rank strong {
+  font-weight: 700;
+}
+
+.track-exhibit .track-trajectory-scale {
+  color: rgba(45, 62, 70, 0.48);
+}
+
+/* Footer — quiet institutional base */
+.exhibit-footer-nav {
+  background: #2d3e46;
+  border-top-color: rgba(45, 62, 70, 0.75);
+  padding-top: 0.7rem;
+  padding-bottom: calc(0.7rem + env(safe-area-inset-bottom));
+}
+
+.exhibit-footer-nav a {
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  color: rgba(196, 214, 209, 0.85);
+}
+
+.exhibit-footer-nav a:hover {
+  color: rgba(232, 220, 200, 0.9);
+}
+
+/* Brand — subordinate */
+.track-exhibit .track-logo,
+.artist-exhibit .artist-logo {
+  font-size: 1.55rem;
+  opacity: 0.82;
+}
+
+/* Interaction silence */
+.track-exhibit .track-related__row:hover {
+  background: transparent;
+}
+
+.album-exhibit .album-tracklist__row--link:hover .album-tracklist__title {
+  opacity: 1;
+}
+
+.artist-exhibit .artist-exhibit-nav__pill:hover:not([aria-current="page"]) {
+  opacity: 0.86;
+}
+
+.artist-view-all--dark:hover,
+.artist-view-all--light:hover {
+  opacity: 0.8;
+}
+
+/* Sparse — calm hold */
+.track-exhibit--sparse .track-hero__eyebrow {
+  font-weight: 700;
+  color: rgba(45, 62, 70, 0.55);
+}
