@@ -96,7 +96,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
       {data.relatedTracks.length > 0 ? (
         <section className="track-related" aria-labelledby="track-related-songs">
           <div className="track-section-head track-section-head--dark">
-            <h2 id="track-related-songs">Related songs</h2>
+            <h2 id="track-related-songs">Related recordings</h2>
           </div>
           <ul className="track-related__list">
             {data.relatedTracks.map((song) => (

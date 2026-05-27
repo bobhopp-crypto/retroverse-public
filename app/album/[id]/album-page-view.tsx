@@ -98,7 +98,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
             chartLabel={data.chartRunLabel}
             scaleFloorLabel="#200"
             maxRank={200}
-            ariaLabel="Album chart journey"
+            ariaLabel="Chart history"
             panelClassName="album-trajectory-panel"
           />
         </section>

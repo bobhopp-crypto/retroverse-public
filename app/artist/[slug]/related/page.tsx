@@ -30,7 +30,7 @@ export default async function ArtistRelatedPage({ params }: Props) {
       <ArtistSectionPlaceholder
         slug={data.slug}
         displayName={data.displayName}
-        title="Related Artists"
+        title="Related artists"
       />
     );
   }
@@ -38,7 +38,7 @@ export default async function ArtistRelatedPage({ params }: Props) {
   return (
     <section className="artist-related artist-related--full" aria-labelledby="related-artists-full">
       <div className="artist-section-head artist-section-head--dark">
-        <h2 id="related-artists-full">Related Artists</h2>
+        <h2 id="related-artists-full">Related artists</h2>
       </div>
       <ul className="artist-related__list">
         {related.map((rel) => (

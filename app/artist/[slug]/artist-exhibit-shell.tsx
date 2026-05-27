@@ -40,6 +40,7 @@ export function ArtistExhibitShell({ shell, children }: Props) {
       </section>
 
       <div className="artist-hero__headline">
+        <p className="artist-hero__eyebrow">From the archive</p>
         <h1 className="artist-hero__name">{displayName}</h1>
       </div>
 

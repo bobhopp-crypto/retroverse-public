@@ -26,7 +26,7 @@ export default async function ArtistChartsPage({ params }: Props) {
     <ArtistSectionPlaceholder
       slug={data.slug}
       displayName={data.displayName}
-      title="Chart History"
+      title="Chart history"
     />
   );
 }

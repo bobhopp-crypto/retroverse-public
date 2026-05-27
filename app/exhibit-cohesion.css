@@ -1,0 +1,54 @@
+/* Archive cohesion — one institution, one exhibit register (artist, album, track) */
+
+/* Shared section head register (track / album exhibit scale) */
+.artist-exhibit .artist-section-head h2,
+.artist-exhibit .artist-era__title-inline,
+.artist-exhibit .artist-placeholder__title {
+  font-family: "Avenir Next", "Trebuchet MS", "Gill Sans", system-ui, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.artist-exhibit .artist-hero__eyebrow {
+  margin: 0 0 0.35rem;
+  padding: 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+/* Album exhibit — same section anchoring as track */
+.album-exhibit .album-tracklist,
+.album-exhibit .track-journey {
+  width: 100%;
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.1rem;
+  border-top: 2px solid rgba(45, 62, 70, 0.09);
+}
+
+.album-exhibit .track-section-head--journey h2,
+.album-exhibit .track-section-head--dark h2 {
+  font-size: 1.18rem;
+  letter-spacing: 0.04em;
+}
+
+/* Artist sub-routes — filed section rhythm */
+.artist-exhibit .artist-related--full,
+.artist-exhibit .artist-years--full,
+.artist-exhibit .artist-library--full,
+.artist-exhibit .artist-explore--full {
+  padding-top: 0.5rem;
+  border-top: 2px solid rgba(45, 62, 70, 0.09);
+}
+
+.artist-exhibit .artist-placeholder {
+  border-color: rgba(45, 62, 70, 0.78);
+  box-shadow: var(--exhibit-mount, 2px 3px 0 rgba(45, 62, 70, 0.17));
+}

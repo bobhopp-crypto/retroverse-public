@@ -16,7 +16,7 @@ export default async function ArtistYearsPage({ params }: Props) {
       <ArtistSectionPlaceholder
         slug={data.slug}
         displayName={data.displayName}
-        title="Dominant Years"
+        title="Chart years"
       />
     );
   }
@@ -26,10 +26,10 @@ export default async function ArtistYearsPage({ params }: Props) {
   return (
     <section className="artist-years artist-years--full" aria-labelledby="dominant-years-full">
       <div className="artist-section-head artist-section-head--aqua">
-        <h2 id="dominant-years-full">Dominant Years</h2>
+        <h2 id="dominant-years-full">Chart years</h2>
       </div>
       <p className="artist-years__intro">
-        Hot 100 chart-week density by year for {data.displayName}.
+        Weeks charted, grouped by year.
       </p>
       <div className="artist-years__chart">
         {data.dominantYears.map((bar) => (

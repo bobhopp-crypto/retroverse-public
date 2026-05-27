@@ -46,7 +46,7 @@ export default async function ArtistPage({ params }: Props) {
       {data.essentialAlbums.length > 0 && (
         <section className="artist-shelf" aria-labelledby="essential-albums">
           <div className="artist-section-head artist-section-head--light">
-            <h2 id="essential-albums">Essential Albums</h2>
+            <h2 id="essential-albums">Albums</h2>
             <ArtistViewAll href={artistSectionHref(slug, "albums")} variant="light" />
           </div>
           <div className="artist-shelf__grid">
@@ -79,7 +79,7 @@ export default async function ArtistPage({ params }: Props) {
           aria-labelledby="artist-songs"
         >
           <div className="artist-section-head artist-section-head--songs">
-            <h2 id="artist-songs">Songs</h2>
+            <h2 id="artist-songs">Recordings</h2>
             <ArtistViewAll href={artistSectionHref(slug, "tracks")} variant="dark" />
           </div>
           <ArtistSongsRotator
@@ -92,7 +92,7 @@ export default async function ArtistPage({ params }: Props) {
       {data.hasDominantYearData && data.dominantYears.length > 0 && (
         <section className="artist-years" aria-labelledby="dominant-years">
           <div className="artist-section-head artist-section-head--aqua">
-            <h2 id="dominant-years">Dominant Years</h2>
+            <h2 id="dominant-years">Chart years</h2>
             <ArtistViewAll href={artistSectionHref(slug, "years")} variant="dark" />
           </div>
           <div className="artist-years__chart">
@@ -133,7 +133,7 @@ export default async function ArtistPage({ params }: Props) {
         <section className="artist-era" aria-labelledby="chart-album">
           <div className="artist-section-head artist-section-head--light">
             <h2 id="chart-album" className="artist-era__title-inline">
-              Top Album
+              Chart album
             </h2>
             <ArtistViewAll href={artistSectionHref(slug, "albums")} variant="light" />
           </div>
@@ -168,7 +168,7 @@ export default async function ArtistPage({ params }: Props) {
       {data.relatedArtists.length > 0 && (
         <section className="artist-related" aria-labelledby="related-artists">
           <div className="artist-section-head artist-section-head--dark">
-            <h2 id="related-artists">Related Artists</h2>
+            <h2 id="related-artists">Related artists</h2>
             <ArtistViewAll href={artistSectionHref(slug, "related")} variant="dark" />
           </div>
           <ul className="artist-related__list">
