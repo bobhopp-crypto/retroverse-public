@@ -2,13 +2,32 @@ import { NextResponse } from "next/server";
 
 import { applyHealingAlbumLink } from "@/lib/healing/apply-album-link";
 import type { AlbumLinkApplyRequest } from "@/lib/healing/types";
+import { isOpsEnabled } from "@/lib/ops/ops-gate";
+import { healingWritesEnabled } from "@/lib/track/album-link-recovery/guardrails";
 
 export const dynamic = "force-dynamic";
 
 type Body = AlbumLinkApplyRequest & { actor?: string };
 
-/** Human-approved album link apply — gated by RETROVERSE_HEALING_APPLY=1. */
+/**
+ * Human-approved album link apply — requires RETROVERSE_OPS=1 + RETROVERSE_HEALING_APPLY=1.
+ * One INSERT per request. No bulk. No auto-select.
+ */
 export async function POST(request: Request) {
+  if (!isOpsEnabled()) {
+    return NextResponse.json({ ok: false, error: "ops_disabled" }, { status: 403 });
+  }
+  if (!healingWritesEnabled()) {
+    return NextResponse.json(
+      {
+        ok: false,
+        code: "writes_disabled",
+        message: "Set RETROVERSE_HEALING_APPLY=1 to enable healing writes.",
+      },
+      { status: 403 },
+    );
+  }
+
   let body: Body;
   try {
     body = (await request.json()) as Body;
@@ -33,7 +52,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "sourceKind required" }, { status: 400 });
   }
 
-  const actor = body.actor?.trim() || "ops/healing";
+  const actor = body.actor?.trim() || "ops/healing-ui";
 
   const result = await applyHealingAlbumLink(
     {
@@ -49,7 +68,10 @@ export async function POST(request: Request) {
   );
 
   if (!result.ok) {
-    return NextResponse.json({ ok: false, code: result.code, message: result.message }, { status: 409 });
+    return NextResponse.json(
+      { ok: false, code: result.code, message: result.message },
+      { status: 409 },
+    );
   }
 
   return NextResponse.json({
@@ -57,5 +79,6 @@ export async function POST(request: Request) {
     proposalId: result.proposalId,
     catRowId: result.catRowId,
     revalidated: result.revalidated,
+    revalidatedPaths: result.revalidatedPaths,
   });
 }

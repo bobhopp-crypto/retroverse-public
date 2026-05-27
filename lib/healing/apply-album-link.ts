@@ -2,56 +2,83 @@ import "server-only";
 
 import { inspectQuery } from "@/lib/inspect/pg";
 import { appendHealingAudit } from "@/lib/healing/file-audit-log";
-import { revalidateTrackPage } from "@/lib/healing/revalidate-track";
+import { revalidateHealingEntities } from "@/lib/healing/revalidate-healing-entity";
+import type { AlbumLinkApplyRequest } from "@/lib/healing/types";
+import {
+  loadHealingApplyPreviousState,
+  validateHealingAlbumLinkApply,
+} from "@/lib/healing/validate-healing-apply";
 import {
   applyApprovedAlbumLinkProposal,
   type ApplyProposalResult,
 } from "@/lib/track/album-link-recovery/apply-proposal";
-import type { AlbumLinkApplyRequest } from "@/lib/healing/types";
-import type { AlbumLinkWriteProposal } from "@/lib/track/album-link-recovery/types";
-
 export type HealingApplyResult = ApplyProposalResult & {
   revalidated?: boolean;
+  revalidatedPaths?: string[];
 };
 
 export async function applyHealingAlbumLink(
   request: AlbumLinkApplyRequest,
   actor: string,
 ): Promise<HealingApplyResult> {
-  const proposal: AlbumLinkWriteProposal = {
-    rvtr: request.rvtr.trim().toUpperCase(),
-    albumId: request.albumId,
-    position: request.position ?? null,
-    sequenceTitle: request.sequenceTitle,
-    confidence: request.confidence,
-    reasons: request.reasons,
-    sourceKind: request.sourceKind,
-    proposedBy: actor,
-  };
+  const validation = await validateHealingAlbumLinkApply(request);
+  if (!validation.ok) {
+    await appendHealingAudit({
+      action: "apply",
+      rvtr: request.rvtr.trim().toUpperCase(),
+      albumId: request.albumId,
+      confidence: request.confidence,
+      actor,
+      ok: false,
+      message: validation.message,
+      reasons: request.reasons,
+    });
+    return validation;
+  }
 
+  const { proposal, previousState } = validation;
   const result = await applyApprovedAlbumLinkProposal(proposal, actor);
+
+  if (!result.ok) {
+    await appendHealingAudit({
+      action: "apply",
+      rvtr: proposal.rvtr,
+      albumId: proposal.albumId,
+      confidence: proposal.confidence,
+      actor,
+      ok: false,
+      message: result.message,
+      reasons: proposal.reasons,
+      previousState,
+    });
+    return result;
+  }
+
+  const paths = await revalidateHealingEntities(proposal.rvtr, proposal.albumId);
+  const revalidatedPaths = [paths.track, paths.album, paths.artist].filter(
+    (p): p is string => Boolean(p),
+  );
+
   await appendHealingAudit({
     action: "apply",
     rvtr: proposal.rvtr,
     albumId: proposal.albumId,
-    proposalId: result.ok ? result.proposalId : undefined,
-    catRowId: result.ok ? result.catRowId : undefined,
+    proposalId: result.proposalId,
+    catRowId: result.catRowId,
     confidence: proposal.confidence,
     actor,
-    ok: result.ok,
-    message: result.ok ? "Applied canonical_album_tracks row." : result.message,
+    ok: true,
+    message: "Applied canonical_album_tracks row (healing_approved).",
     reasons: proposal.reasons,
+    previousState,
+    revalidatedPaths,
   });
 
-  if (result.ok) {
-    revalidateTrackPage(proposal.rvtr);
-    return { ...result, revalidated: true };
-  }
-  return result;
+  return { ...result, revalidated: true, revalidatedPaths };
 }
 
 export type RollbackResult =
-  | { ok: true; proposalId: number; catRowId: number }
+  | { ok: true; proposalId: number; catRowId: number; revalidatedPaths: string[] }
   | { ok: false; code: string; message: string };
 
 /**
@@ -64,11 +91,12 @@ export async function rollbackHealingAlbumLink(
   const rows = await inspectQuery<{
     id: number;
     rvtr: string;
+    album_id: number;
     status: string;
     applied_cat_row_id: number | null;
   }>(
     `
-    SELECT id, rvtr, status, applied_cat_row_id
+    SELECT id, rvtr, album_id, status, applied_cat_row_id
     FROM track_album_link_proposals
     WHERE id = $1
     LIMIT 1
@@ -93,6 +121,8 @@ export async function rollbackHealingAlbumLink(
       message: "No applied_cat_row_id on proposal — cannot rollback safely.",
     };
   }
+
+  const previousState = await loadHealingApplyPreviousState(row.rvtr);
 
   const deleted = await inspectQuery<{ id: number }>(
     `
@@ -121,16 +151,23 @@ export async function rollbackHealingAlbumLink(
   );
 
   const rvtr = row.rvtr.trim().toUpperCase();
-  revalidateTrackPage(rvtr);
+  const paths = await revalidateHealingEntities(rvtr, row.album_id);
+  const revalidatedPaths = [paths.track, paths.album, paths.artist].filter(
+    (p): p is string => Boolean(p),
+  );
+
   await appendHealingAudit({
     action: "rollback",
     rvtr,
+    albumId: row.album_id,
     proposalId,
     catRowId: row.applied_cat_row_id,
     actor,
     ok: true,
     message: "Rolled back healing-approved canonical_album_tracks row.",
+    previousState: previousState ?? undefined,
+    revalidatedPaths,
   });
 
-  return { ok: true, proposalId, catRowId: row.applied_cat_row_id };
+  return { ok: true, proposalId, catRowId: row.applied_cat_row_id, revalidatedPaths };
 }

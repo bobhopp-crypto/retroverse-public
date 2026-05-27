@@ -33,6 +33,15 @@ export type HealingAuditAction =
   | "reject"
   | "cover_preview";
 
+export type HealingApplyPreviousState = {
+  rvtr: string;
+  trackTitle: string;
+  artistName: string;
+  albumLinkCount: number;
+  linkedAlbumIds: number[];
+  hasCanonicalCover: boolean;
+};
+
 export type HealingAuditEntry = {
   ts: string;
   action: HealingAuditAction;
@@ -45,6 +54,8 @@ export type HealingAuditEntry = {
   ok: boolean;
   message: string;
   reasons?: string[];
+  previousState?: HealingApplyPreviousState;
+  revalidatedPaths?: string[];
 };
 
 export type CoverArtworkCandidate = {

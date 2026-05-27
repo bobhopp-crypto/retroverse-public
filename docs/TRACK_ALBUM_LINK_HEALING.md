@@ -63,7 +63,7 @@ npm run track:audit-album-links -- RVTR430551
 | Method | Path | Purpose |
 |--------|------|---------|
 | GET | `/api/ops/healing/review` | Degraded queue (default), `?mode=cluster`, or `?rvtr=` audit + cover |
-| POST | `/api/ops/healing/apply` | Human-approved INSERT (needs `RETROVERSE_HEALING_APPLY=1`) |
+| POST | `/api/ops/healing/apply` | Human-approved INSERT — validates RVTR + album, logs previous state, revalidates track/album/artist (`RETROVERSE_HEALING_APPLY=1`) |
 | POST | `/api/ops/healing/rollback` | Roll back by `proposalId` |
 
 Dev preview (control center): `GET /api/healing/album-links?rvtr=…`

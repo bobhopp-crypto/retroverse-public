@@ -1,12 +1,24 @@
 import { NextResponse } from "next/server";
 
 import { rollbackHealingAlbumLink } from "@/lib/healing/apply-album-link";
+import { isOpsEnabled } from "@/lib/ops/ops-gate";
+import { healingWritesEnabled } from "@/lib/track/album-link-recovery/guardrails";
 
 export const dynamic = "force-dynamic";
 
 type Body = { proposalId?: number; actor?: string };
 
 export async function POST(request: Request) {
+  if (!isOpsEnabled()) {
+    return NextResponse.json({ ok: false, error: "ops_disabled" }, { status: 403 });
+  }
+  if (!healingWritesEnabled()) {
+    return NextResponse.json(
+      { ok: false, code: "writes_disabled", message: "RETROVERSE_HEALING_APPLY=1 required." },
+      { status: 403 },
+    );
+  }
+
   let body: Body;
   try {
     body = (await request.json()) as Body;
@@ -30,5 +42,6 @@ export async function POST(request: Request) {
     ok: true,
     proposalId: result.proposalId,
     catRowId: result.catRowId,
+    revalidatedPaths: result.revalidatedPaths,
   });
 }

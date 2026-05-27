@@ -14,6 +14,9 @@ import {
   type WeightedReason,
 } from "@/lib/healing/format-scored-reasons";
 import type { HealingDegradedQueue, HealingQueueRow } from "@/lib/healing/load-degraded-queue";
+import type { ScoredAlbumLinkCandidate } from "@/lib/track/album-link-recovery/types";
+
+const APPROVAL_CONFIDENCE_MIN = 0.45;
 
 type FilterKey =
   | "all"
@@ -72,11 +75,24 @@ function WeightedReasonsList(props: { reasons: WeightedReason[]; compact?: boole
   );
 }
 
-export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
+type ApplyNotice = {
+  rvtr: string;
+  proposalId: number;
+  catRowId: number;
+  revalidatedPaths: string[];
+};
+
+export function OpsHealingPanel(props: {
+  queue: HealingDegradedQueue;
+  writesEnabled: boolean;
+}) {
   const [filter, setFilter] = useState<FilterKey>("grouped");
   const [expandedRvtr, setExpandedRvtr] = useState<string | null>(null);
   const [rowDetails, setRowDetails] = useState<Record<string, HealingQueueRow>>({});
   const [loadingRvtr, setLoadingRvtr] = useState<string | null>(null);
+  const [applyingKey, setApplyingKey] = useState<string | null>(null);
+  const [applyNotice, setApplyNotice] = useState<ApplyNotice | null>(null);
+  const [applyError, setApplyError] = useState<string | null>(null);
 
   const mergedRows = useMemo(
     () => props.queue.rows.map((row) => rowDetails[row.rvtr] ?? row),
@@ -119,7 +135,119 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
       return;
     }
     setExpandedRvtr(rvtr);
+    setApplyError(null);
     await loadRowAudit(rvtr);
+  }
+
+  function canApproveCandidate(detail: HealingQueueRow, candidate: ScoredAlbumLinkCandidate): boolean {
+    return (
+      props.writesEnabled &&
+      detail.albumLinkCount === 0 &&
+      detail.healingState !== "linked" &&
+      candidate.confidence >= APPROVAL_CONFIDENCE_MIN
+    );
+  }
+
+  async function approveCandidate(detail: HealingQueueRow, candidate: ScoredAlbumLinkCandidate) {
+    if (!canApproveCandidate(detail, candidate)) return;
+
+    const confirmed = window.confirm(
+      [
+        "Approve candidate album link?",
+        "",
+        `${detail.rvtr} → album ${candidate.albumId}`,
+        `"${candidate.albumTitle}" · ${candidate.artistName}`,
+        `confidence ${candidate.confidence.toFixed(2)}`,
+        "",
+        "Writes ONE canonical_album_tracks row (healing_approved).",
+        "No merge. No replace. Reversible via rollback.",
+        "",
+        "Continue?",
+      ].join("\n"),
+    );
+    if (!confirmed) return;
+
+    const applyKey = `${detail.rvtr}-${candidate.albumId}`;
+    setApplyingKey(applyKey);
+    setApplyError(null);
+    try {
+      const res = await fetch("/api/ops/healing/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          rvtr: detail.rvtr,
+          albumId: candidate.albumId,
+          position: candidate.trackPosition,
+          sequenceTitle: candidate.sequenceTitle ?? detail.title,
+          confidence: candidate.confidence,
+          reasons: candidate.reasons,
+          sourceKind: candidate.sourceKind,
+          actor: "ops/healing-ui",
+        }),
+      });
+      const data = (await res.json()) as {
+        ok: boolean;
+        proposalId?: number;
+        catRowId?: number;
+        revalidatedPaths?: string[];
+        message?: string;
+        code?: string;
+      };
+      if (!res.ok || !data.ok) {
+        setApplyError(data.message || data.code || "Apply failed.");
+        return;
+      }
+
+      setApplyNotice({
+        rvtr: detail.rvtr,
+        proposalId: data.proposalId!,
+        catRowId: data.catRowId!,
+        revalidatedPaths: data.revalidatedPaths ?? [],
+      });
+
+      const refreshed = await fetch(
+        `/api/ops/healing/review?rvtr=${encodeURIComponent(detail.rvtr)}`,
+      );
+      const refreshedData = (await refreshed.json()) as { ok: boolean; row?: HealingQueueRow };
+      if (refreshed.ok && refreshedData.ok && refreshedData.row) {
+        setRowDetails((prev) => ({ ...prev, [detail.rvtr]: refreshedData.row! }));
+      }
+    } catch (e) {
+      setApplyError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setApplyingKey(null);
+    }
+  }
+
+  async function rollbackLastApply() {
+    if (!applyNotice) return;
+    const confirmed = window.confirm(
+      `Rollback proposal #${applyNotice.proposalId}?\n\nDeletes healing_approved row #${applyNotice.catRowId} only.`,
+    );
+    if (!confirmed) return;
+    setApplyingKey("rollback");
+    setApplyError(null);
+    try {
+      const res = await fetch("/api/ops/healing/rollback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          proposalId: applyNotice.proposalId,
+          actor: "ops/healing-ui",
+        }),
+      });
+      const data = (await res.json()) as { ok: boolean; message?: string };
+      if (!res.ok || !data.ok) {
+        setApplyError(data.message || "Rollback failed.");
+        return;
+      }
+      setApplyNotice(null);
+      await loadRowAudit(applyNotice.rvtr);
+    } catch (e) {
+      setApplyError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setApplyingKey(null);
+    }
   }
 
   const counts = props.queue.countsByType;
@@ -136,6 +264,31 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
           What to fix first: cover-critical chart tracks → high-confidence album matches → duplicate
           clusters → weak joins → orphan VDJ variants.
         </p>
+        {props.writesEnabled ? (
+          <p className="ops-notice">
+            Controlled writes enabled (RETROVERSE_HEALING_APPLY=1) — one approve per candidate,
+            explicit confirm only.
+          </p>
+        ) : (
+          <p className="ops-dim">
+            Writes disabled — set RETROVERSE_HEALING_APPLY=1 locally to enable Approve Candidate
+            Album.
+          </p>
+        )}
+        {applyNotice ? (
+          <p className="ops-notice">
+            Healed <OpsInlineLink href={`/track/${applyNotice.rvtr}`}>{applyNotice.rvtr}</OpsInlineLink>{" "}
+            · proposal #{applyNotice.proposalId} · cat #{applyNotice.catRowId}
+            {applyNotice.revalidatedPaths.length > 0
+              ? ` · revalidated ${applyNotice.revalidatedPaths.join(", ")}`
+              : ""}
+            {" · "}
+            <button type="button" className="ops-link--button" onClick={rollbackLastApply}>
+              Rollback
+            </button>
+          </p>
+        ) : null}
+        {applyError ? <p className="ops-banner ops-banner--bad">{applyError}</p> : null}
       </section>
 
       <section className="ops-panel">
@@ -379,41 +532,64 @@ export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
                     { key: "conf", label: "Confidence" },
                     { key: "album", label: "Candidate album" },
                     { key: "reasons", label: "Why matched" },
+                    { key: "action", label: "Action", align: "right" },
                   ]}
-                  rows={detail.candidates.map((c) => ({
-                    id: `${detail.rvtr}-${c.albumId}`,
-                    tone: toneForConfidence(c.confidence),
-                    cells: {
-                      conf: (
-                        <OpsPill tone={toneForConfidence(c.confidence)}>
-                          {c.confidence.toFixed(2)}
-                        </OpsPill>
-                      ),
-                      album: (
-                        <>
-                          <strong>{c.albumTitle}</strong>
-                          <br />
+                  rows={detail.candidates.map((c) => {
+                    const applyKey = `${detail.rvtr}-${c.albumId}`;
+                    const showApprove = canApproveCandidate(detail, c);
+                    return {
+                      id: applyKey,
+                      tone: toneForConfidence(c.confidence),
+                      cells: {
+                        conf: (
+                          <OpsPill tone={toneForConfidence(c.confidence)}>
+                            {c.confidence.toFixed(2)}
+                          </OpsPill>
+                        ),
+                        album: (
+                          <>
+                            <strong>{c.albumTitle}</strong>
+                            <br />
+                            <span className="ops-dim">
+                              {c.artistName} · {c.releaseYear ?? "?"} · id {c.albumId}
+                            </span>
+                            {c.sequenceTitle ? (
+                              <>
+                                <br />
+                                <span className="ops-dim">
+                                  slot #{c.trackPosition ?? "?"} &quot;{c.sequenceTitle}&quot;
+                                </span>
+                              </>
+                            ) : null}
+                          </>
+                        ),
+                        reasons: (
+                          <WeightedReasonsList
+                            reasons={formatWeightedReasons(c.reasons)}
+                            compact
+                          />
+                        ),
+                        action: showApprove ? (
+                          <button
+                            type="button"
+                            className="ops-btn ops-btn--ok"
+                            disabled={applyingKey === applyKey}
+                            onClick={() => approveCandidate(detail, c)}
+                          >
+                            {applyingKey === applyKey ? "…" : "Approve"}
+                          </button>
+                        ) : (
                           <span className="ops-dim">
-                            {c.artistName} · {c.releaseYear ?? "?"} · id {c.albumId}
+                            {c.confidence < APPROVAL_CONFIDENCE_MIN
+                              ? "<0.45"
+                              : detail.albumLinkCount > 0
+                                ? "linked"
+                                : "—"}
                           </span>
-                          {c.sequenceTitle ? (
-                            <>
-                              <br />
-                              <span className="ops-dim">
-                                slot #{c.trackPosition ?? "?"} &quot;{c.sequenceTitle}&quot;
-                              </span>
-                            </>
-                          ) : null}
-                        </>
-                      ),
-                      reasons: (
-                        <WeightedReasonsList
-                          reasons={formatWeightedReasons(c.reasons)}
-                          compact
-                        />
-                      ),
-                    },
-                  }))}
+                        ),
+                      },
+                    };
+                  })}
                 />
               ) : loadingRvtr !== detail.rvtr ? (
                 <p className="ops-empty">No candidates — likely needs album ingest.</p>

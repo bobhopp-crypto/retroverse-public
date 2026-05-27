@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { OpsHealingPanel } from "@/components/ops/OpsHealingPanel";
 import { loadHealingDegradedQueue } from "@/lib/healing/load-degraded-queue";
+import { healingWritesEnabled } from "@/lib/track/album-link-recovery/guardrails";
 
 import "../ops.css";
 
@@ -25,6 +26,7 @@ export default async function OpsHealingPage() {
   }
 
   const queue = await loadHealingDegradedQueue();
+  const writesEnabled = healingWritesEnabled();
 
   return (
     <main className="ops-page">
@@ -41,17 +43,20 @@ export default async function OpsHealingPage() {
                 ← Ops
               </Link>
             </div>
-            <div>Read-only · visibility first · no auto-merge</div>
+            <div>
+              {writesEnabled
+                ? "Controlled writes on · one approve per candidate"
+                : "Read-only until RETROVERSE_HEALING_APPLY=1"}
+            </div>
           </div>
         </header>
 
         <p className="ops-banner">
-          <strong>Archive restoration desk</strong> — grouped degradation queues, duplicate
-          cluster intelligence, weighted match signals, healthy reference tracks. Read-only —
-          no apply, merge, or auto-fix.
+          <strong>Archive restoration desk</strong> — prioritize degradation, review weighted
+          candidates, then approve one album link at a time. No bulk apply, merge, or auto-heal.
         </p>
 
-        <OpsHealingPanel queue={queue} />
+        <OpsHealingPanel queue={queue} writesEnabled={writesEnabled} />
       </div>
     </main>
   );
