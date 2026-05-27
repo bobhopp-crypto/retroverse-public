@@ -718,3 +718,56 @@
   border-color: rgba(90, 200, 120, 0.25);
 }
 
+.ops-healing__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ops-healing__control-card {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 3px;
+}
+
+.ops-healing__control-card .ops-link {
+  font-weight: 800;
+}
+
+.ops-healing__dup-note {
+  margin: 0 0 0.65rem;
+}
+
+.ops-healing__weights {
+  margin: 0 0 0.85rem;
+  padding: 0;
+  list-style: none;
+}
+
+.ops-healing__weights li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.28rem 0;
+  font-size: 0.82rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ops-healing__weight-label {
+  color: var(--dim);
+}
+
+.ops-healing__weight-pts {
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.ops-healing__weight-pts--\+ {
+  color: var(--ok);
+}
+
+.ops-healing__weight-pts--- {
+  color: #ffb8b8;
+}
+

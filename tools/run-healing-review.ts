@@ -26,10 +26,16 @@ function formatCounts(queue: Awaited<ReturnType<typeof loadHealingDegradedQueue>
     const count = queue.countsByType[key as keyof typeof queue.countsByType];
     lines.push(`- ${label}: ${count.toLocaleString()}`);
   }
-  lines.push("", "## Queue preview", "");
-  for (const row of queue.rows.slice(0, 15)) {
+  lines.push("", "## Duplicate clusters (top)", "");
+  for (const c of queue.duplicateClusters.slice(0, 5)) {
     lines.push(
-      `- ${row.rvtr} · ${row.title} · ${row.artistName} · links ${row.albumLinkCount} · conf ${row.topConfidence?.toFixed(2) ?? "—"} · ${row.degradationFlags.join(", ")}`,
+      `- ${c.displayTitle} · ${c.displayArtist} · size ${c.clusterSize} · canonical ${c.probableCanonicalRvtr} · dup ${c.duplicateConfidence.toFixed(2)}`,
+    );
+  }
+  lines.push("", "## Queue preview (by impact)", "");
+  for (const row of [...queue.rows].sort((a, b) => b.impactScore - a.impactScore).slice(0, 12)) {
+    lines.push(
+      `- ${row.rvtr} · ${row.title} · impact ${row.impactScore} · conf ${row.topConfidence?.toFixed(2) ?? "—"} · ${row.degradationFlags.join(", ")}`,
     );
   }
   return lines.join("\n");

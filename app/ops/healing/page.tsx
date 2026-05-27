@@ -46,9 +46,9 @@ export default async function OpsHealingPage() {
         </header>
 
         <p className="ops-banner">
-          <strong>Curator visibility only</strong> — surface degraded canonical entities,
-          album-link candidates, and confidence reasoning. No apply, merge, heal, or bulk
-          actions.
+          <strong>Archive restoration desk</strong> — grouped degradation queues, duplicate
+          cluster intelligence, weighted match signals, healthy reference tracks. Read-only —
+          no apply, merge, or auto-fix.
         </p>
 
         <OpsHealingPanel queue={queue} />
