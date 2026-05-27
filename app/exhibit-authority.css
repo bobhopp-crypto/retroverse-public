@@ -1,0 +1,142 @@
+/* Archive authority — editorial confidence, institutional framing (restrained) */
+
+.track-exhibit,
+.artist-exhibit {
+  --frame: 3px solid #2d3e46;
+  --ink: #243038;
+}
+
+/* Register strip — filed catalog entry */
+.track-topbar,
+.artist-topbar {
+  border-bottom-color: rgba(45, 62, 70, 0.2);
+}
+
+.track-exhibit .track-file-tag,
+.artist-exhibit .artist-file-tag {
+  border-color: #2d3e46;
+  color: var(--ink);
+}
+
+/* Eyebrow — institutional stamp (track, album, artist) */
+.track-exhibit .track-hero__eyebrow,
+.artist-exhibit .artist-hero__eyebrow {
+  letter-spacing: 0.14em;
+  color: #1a5559;
+}
+
+/* Hero titles hold the record */
+.track-exhibit .track-hero__title {
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.artist-exhibit .artist-hero__name {
+  font-weight: 900;
+  color: var(--ink);
+}
+
+/* Section heads — governed register */
+.track-exhibit .track-section-head h2,
+.artist-exhibit .artist-section-head h2,
+.album-exhibit .track-section-head h2 {
+  color: var(--ink);
+}
+
+.track-exhibit .track-section-head--dark {
+  background: #1a5559;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.12);
+  padding: 0.9rem 1rem;
+}
+
+.track-exhibit .track-section-head--dark h2,
+.album-exhibit .track-section-head--dark h2 {
+  color: #f4e9d3;
+  letter-spacing: 0.05em;
+}
+
+.track-exhibit .track-section-head:not(.track-section-head--dark) {
+  margin-bottom: 0.85rem;
+}
+
+/* Year link — catalog reference, not CTA */
+.track-exhibit .track-section-link {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(26, 85, 89, 0.92);
+}
+
+.track-exhibit .track-section-link--light {
+  color: rgba(244, 233, 211, 0.92);
+}
+
+/* Filed lists — contained stacks */
+.track-exhibit .track-albums .track-related__list,
+.track-exhibit .track-related__list {
+  border: 2px solid rgba(45, 62, 70, 0.16);
+  background: rgba(255, 248, 238, 0.55);
+}
+
+.track-exhibit .track-related__title {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* Mount frames — institutional certainty */
+.track-exhibit .track-hero__cover-wrap,
+.artist-exhibit .artist-hero,
+.track-exhibit .track-journey,
+.album-exhibit .album-tracklist__list {
+  border-color: #2d3e46;
+}
+
+/* Footer — quiet institutional authority */
+.exhibit-footer-nav {
+  background: #2a3a42;
+  border-top: 3px solid #2d3e46;
+  padding-top: 0.85rem;
+  padding-bottom: calc(0.85rem + env(safe-area-inset-bottom));
+}
+
+.exhibit-footer-nav a {
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: rgba(214, 228, 223, 0.94);
+}
+
+.exhibit-footer-nav a:hover {
+  color: #f0e6d4;
+}
+
+/* Brand mark — present but subordinate to exhibit */
+.track-exhibit .track-logo,
+.artist-exhibit .artist-logo {
+  font-size: 1.65rem;
+  opacity: 0.9;
+}
+
+/* Sparse — same authority as healed shell */
+.track-exhibit--sparse .track-hero__title,
+.track-exhibit--sparse .track-hero__eyebrow {
+  font-weight: 900;
+}
+
+.track-exhibit--sparse .track-hero__eyebrow {
+  font-weight: 800;
+}
+
+/* Discipline — minimal row response */
+.track-exhibit .track-related__row:hover {
+  background: rgba(230, 214, 184, 0.16);
+}
+
+.album-exhibit .album-tracklist__row--link:hover .album-tracklist__title {
+  opacity: 0.8;
+}
+
+.artist-exhibit .artist-exhibit-nav__pill[aria-current="page"] {
+  font-weight: 900;
+}
