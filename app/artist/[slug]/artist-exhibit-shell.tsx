@@ -47,18 +47,15 @@ export function ArtistExhibitShell({ shell, children }: Props) {
 
       <main className="artist-exhibit__main">{children}</main>
 
-      <nav className="artist-footer-nav" aria-label="Site">
+      <nav className="exhibit-footer-nav" aria-label="Site">
         <Link href="/" prefetch>
           Home
         </Link>
         <Link href="/search" prefetch>
           Search
         </Link>
-        <Link href={`/inspect?q=${encodeURIComponent(displayName)}`} prefetch>
-          Inspect
-        </Link>
         <Link href={`/artist/${slug}`} prefetch>
-          Artist
+          {displayName}
         </Link>
       </nav>
     </div>

@@ -67,16 +67,33 @@ export function TrackPageView({ data }: TrackPageViewProps) {
               </>
             ) : null}
           </p>
-          {(data.hasHot100 || data.hasVdjMedia) && (
+          {data.hasHot100 ? (
             <div className="track-hero__badges">
-              {data.hasHot100 ? <span className="track-badge">Hot 100</span> : null}
-              {data.hasVdjMedia ? (
-                <span className="track-badge track-badge--library">In library</span>
-              ) : null}
+              <span className="track-badge">Hot 100</span>
             </div>
-          )}
+          ) : null}
         </div>
       </section>
+
+      {data.albums.length > 0 ? (
+        <section className="track-albums" aria-labelledby="track-on-albums">
+          <div className="track-section-head">
+            <h2 id="track-on-albums">Appears on</h2>
+          </div>
+          <ul className="track-related__list">
+            {data.albums.map((album) => (
+              <li key={album.href}>
+                <Link href={album.href} prefetch className="track-related__row">
+                  <span className="track-related__title">{album.title}</span>
+                  <span className="track-related__meta">
+                    {formatSongYear(album.releaseYear)}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       {hasTrajectory ? (
         <section className="track-journey" aria-labelledby="track-chart-journey">

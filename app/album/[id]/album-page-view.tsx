@@ -39,7 +39,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
       <div className="track-exhibit__grain" aria-hidden />
 
       <header className="track-topbar">
-        <Link href="/" className="track-logo">
+        <Link href="/" className="track-logo" prefetch>
           Retroverse
         </Link>
         <span className="track-file-tag">Album File · {data.rval}</span>
@@ -58,7 +58,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
           <p className="track-hero__eyebrow">Now entering</p>
           <h1 className="track-hero__title">{data.title}</h1>
           <p className="track-hero__artist-line">
-            <Link href={data.artistHref} className="track-hero__artist">
+            <Link href={data.artistHref} prefetch className="track-hero__artist">
               {data.artistName}
             </Link>
             {data.releaseYear != null ? (
@@ -75,7 +75,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
         <section className="album-tracklist" aria-labelledby="album-tracks">
           <div className="track-section-head track-section-head--dark">
             <h2 id="album-tracks">Tracks</h2>
-            <Link href={data.artistHref} className="track-section-link track-section-link--light">
+            <Link href={data.artistHref} prefetch className="track-section-link track-section-link--light">
               {data.artistName} →
             </Link>
           </div>
