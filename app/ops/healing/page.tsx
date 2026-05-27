@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { OpsHealingPanel } from "@/components/ops/OpsHealingPanel";
 import { loadHealingDegradedQueue } from "@/lib/healing/load-degraded-queue";
+import { buildFamilyConsolidationReport } from "@/lib/healing/build-family-consolidation";
 import { loadHealingRestorationPatterns } from "@/lib/healing/load-restoration-patterns";
 import { loadHealingTrustCalibration } from "@/lib/healing/load-trust-calibration";
 import { loadPublicContinuityReport } from "@/lib/healing/load-public-continuity-report";
@@ -44,7 +45,7 @@ export default async function OpsHealingPage() {
       <div className="ops-page__inner">
         <header className="ops-topbar">
           <div>
-            <p className="ops-topbar__kicker">Internal · public continuity verification</p>
+            <p className="ops-topbar__kicker">Internal · restoration family consolidation</p>
             <h1 className="ops-topbar__title">Healing Console</h1>
           </div>
           <div className="ops-topbar__meta">
@@ -62,15 +63,20 @@ export default async function OpsHealingPage() {
         </header>
 
         <p className="ops-banner">
-          <strong>Did this restoration make Retroverse feel more complete?</strong> — public track
-          exhibit before/after, continuity signals, and highest-impact heals. One approve at a
-          time; no bulk apply or auto-heal.
+          <strong>What restoration family is this?</strong> — recurring families, safe vs
+          high-risk patterns, and public continuity impact. One approve at a time; curator-led only.
         </p>
 
         <OpsHealingPanel
           queue={queue}
           trust={trust}
           patterns={patterns}
+          consolidation={buildFamilyConsolidationReport(
+            queue,
+            patterns,
+            validation,
+            continuity,
+          )}
           validation={validation}
           continuity={continuity}
           writesEnabled={writesEnabled}

@@ -20,6 +20,7 @@ import type {
 } from "@/lib/healing/load-degraded-queue";
 import type { HealingRestorationPatterns } from "@/lib/healing/pattern-types";
 import type { HealingTrustCalibration } from "@/lib/healing/trust-types";
+import type { FamilyConsolidationReport } from "@/lib/healing/consolidation-types";
 import type { PublicContinuityReport } from "@/lib/healing/continuity-types";
 import type { HealingValidationReport } from "@/lib/healing/validation-types";
 
@@ -103,10 +104,18 @@ function trustLabel(level: string): string {
   return level;
 }
 
+function safetyTone(tier: string): "ok" | "warn" | "bad" | "info" {
+  if (tier === "safe") return "ok";
+  if (tier === "cautious") return "warn";
+  if (tier === "high_risk") return "bad";
+  return "info";
+}
+
 export function OpsHealingPanel(props: {
   queue: HealingDegradedQueue;
   trust: HealingTrustCalibration;
   patterns: HealingRestorationPatterns;
+  consolidation: FamilyConsolidationReport;
   validation: HealingValidationReport;
   continuity: PublicContinuityReport;
   writesEnabled: boolean;
@@ -283,9 +292,106 @@ export function OpsHealingPanel(props: {
   const pat = props.patterns;
   const val = props.validation;
   const cont = props.continuity;
+  const fam = props.consolidation;
 
   return (
     <div className="ops-healing">
+      <section className="ops-panel">
+        <header className="ops-panel__header">
+          <h2 className="ops-panel__title">Restoration families</h2>
+          <OpsPill tone="info">consolidated</OpsPill>
+        </header>
+        <p className="ops-dim">{fam.summary}</p>
+        <p className="ops-dim">{fam.governanceNote}</p>
+        {fam.consolidatedFamilies.length > 0 ? (
+          <OpsTable
+            columns={[
+              { key: "rank", label: "#" },
+              { key: "family", label: "Family" },
+              { key: "scale", label: "~Scale" },
+              { key: "safety", label: "Safety" },
+              { key: "public", label: "Public" },
+              { key: "rollback", label: "Rollback" },
+            ]}
+            rows={fam.consolidatedFamilies.slice(0, 10).map((f) => ({
+              id: f.id,
+              tone: safetyTone(f.safetyTier),
+              cells: {
+                rank: String(f.recurrenceRank),
+                family: (
+                  <>
+                    <strong>{f.name}</strong>
+                    {f.sampleInQueue > 0 ? (
+                      <span className="ops-dim"> · {f.sampleInQueue} in queue</span>
+                    ) : null}
+                  </>
+                ),
+                scale: `~${f.approximateCount.toLocaleString()}`,
+                safety: (
+                  <OpsPill tone={safetyTone(f.safetyTier)}>{f.safetyTier}</OpsPill>
+                ),
+                public: f.publicImpactTier,
+                rollback: f.rollbackRisk,
+              },
+            }))}
+          />
+        ) : null}
+        {fam.safestFamilies.length > 0 ? (
+          <>
+            <h3 className="ops-healing__trust-heading">Safest families</h3>
+            <ul className="ops-healing__trust-list">
+              {fam.safestFamilies.map((f) => (
+                <li key={f.id}>
+                  <strong>{f.name}</strong> — {f.safestApproach}
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
+        {fam.highestRiskFamilies.length > 0 ? (
+          <>
+            <h3 className="ops-healing__trust-heading">Highest-risk families</h3>
+            <ul className="ops-healing__trust-list">
+              {fam.highestRiskFamilies.map((f) => (
+                <li key={f.id}>
+                  <OpsPill tone="bad">risk</OpsPill> <strong>{f.name}</strong>
+                  {f.riskWhy ? <span className="ops-dim"> — {f.riskWhy}</span> : null}
+                  {f.falseConfidenceNote ? (
+                    <>
+                      <br />
+                      <span className="ops-dim">False confidence: {f.falseConfidenceNote}</span>
+                    </>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
+        {fam.biggestPublicImpact.length > 0 ? (
+          <>
+            <h3 className="ops-healing__trust-heading">Biggest public continuity wins</h3>
+            <ul className="ops-healing__trust-list">
+              {fam.biggestPublicImpact.map((h) => (
+                <li key={h.rvtr}>
+                  <OpsInlineLink href={h.trackHref}>{h.rvtr}</OpsInlineLink> · {h.title} ·{" "}
+                  {h.familyName} · score {h.score}
+                  <br />
+                  <span className="ops-dim">{h.note}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
+        <h3 className="ops-healing__trust-heading">Safe restoration patterns</h3>
+        <ul className="ops-healing__trust-list">
+          {fam.safeRestorationPatterns.map((line) => (
+            <li key={line}>
+              <OpsPill tone="ok">safe</OpsPill> {line}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <section className="ops-panel">
         <header className="ops-panel__header">
           <h2 className="ops-panel__title">Public continuity</h2>
