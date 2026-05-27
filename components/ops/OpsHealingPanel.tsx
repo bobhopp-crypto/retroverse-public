@@ -20,6 +20,7 @@ import type {
 } from "@/lib/healing/load-degraded-queue";
 import type { HealingRestorationPatterns } from "@/lib/healing/pattern-types";
 import type { HealingTrustCalibration } from "@/lib/healing/trust-types";
+import type { PublicContinuityReport } from "@/lib/healing/continuity-types";
 import type { HealingValidationReport } from "@/lib/healing/validation-types";
 
 const APPROVAL_CONFIDENCE_MIN = 0.45;
@@ -107,6 +108,7 @@ export function OpsHealingPanel(props: {
   trust: HealingTrustCalibration;
   patterns: HealingRestorationPatterns;
   validation: HealingValidationReport;
+  continuity: PublicContinuityReport;
   writesEnabled: boolean;
 }) {
   const [filter, setFilter] = useState<FilterKey>("grouped");
@@ -280,9 +282,86 @@ export function OpsHealingPanel(props: {
   const tc = props.trust;
   const pat = props.patterns;
   const val = props.validation;
+  const cont = props.continuity;
 
   return (
     <div className="ops-healing">
+      <section className="ops-panel">
+        <header className="ops-panel__header">
+          <h2 className="ops-panel__title">Public continuity</h2>
+          <OpsPill tone="info">/track exhibit</OpsPill>
+        </header>
+        <p className="ops-dim">
+          Verifies what visitors see on the track page — not just graph rows.
+        </p>
+        <p className="ops-dim">
+          Verified {cont.summary.verified} · more complete {cont.summary.moreComplete} · partial{" "}
+          {cont.summary.partialGain} · cover gain {cont.summary.withCoverGain} · album shelf gain{" "}
+          {cont.summary.withAlbumShelfGain}
+        </p>
+        {cont.verifications.length === 0 ? (
+          <p className="ops-dim">
+            No heals to verify yet — after approve, reload to compare public before/after snapshots.
+          </p>
+        ) : (
+          <>
+            {cont.highImpact.length > 0 ? (
+              <>
+                <h3 className="ops-healing__trust-heading">Highest public impact</h3>
+                <ul className="ops-healing__trust-list">
+                  {cont.highImpact.map((h) => (
+                    <li key={h.rvtr}>
+                      <OpsInlineLink href={h.trackHref}>{h.rvtr}</OpsInlineLink> · {h.title} · score{" "}
+                      {h.score}
+                      <br />
+                      <span className="ops-dim">{h.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            {cont.examples.length > 0 ? (
+              <>
+                <h3 className="ops-healing__trust-heading">Before / after snapshots</h3>
+                {cont.examples.map((v) => (
+                  <div key={v.proposalId} className="ops-healing__family-card">
+                    <p className="ops-healing__cluster-title">
+                      <OpsInlineLink href={v.before.trackHref}>{v.rvtr}</OpsInlineLink>
+                      {" · "}
+                      <OpsPill tone={v.verdict === "more_complete" ? "ok" : "warn"}>
+                        {v.verdict}
+                      </OpsPill>
+                    </p>
+                    <p className="ops-dim">{v.trustAnswer}</p>
+                    <p className="ops-dim">
+                      <strong>Before:</strong> {v.before.pacingNote}
+                      {v.before.albumCount === 0 ? " · no album shelf" : ""}
+                      {!v.before.coverVisible ? " · no hero cover" : ""}
+                    </p>
+                    {v.after ? (
+                      <p className="ops-dim">
+                        <strong>After:</strong> {v.after.pacingNote}
+                        {v.after.albumLabels.length > 0
+                          ? ` · albums: ${v.after.albumLabels.slice(0, 3).join(", ")}`
+                          : ""}
+                        {v.after.coverVisible ? " · cover visible" : " · cover still missing"}
+                      </p>
+                    ) : null}
+                    <ul className="ops-healing__trust-list">
+                      {v.signals.map((s) => (
+                        <li key={s.kind}>
+                          {s.improved ? "✓" : "·"} {s.label}: {s.before} → {s.after}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </>
+            ) : null}
+          </>
+        )}
+      </section>
+
       <section className="ops-panel">
         <header className="ops-panel__header">
           <h2 className="ops-panel__title">Post-healing validation</h2>
