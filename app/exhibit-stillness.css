@@ -1,0 +1,76 @@
+/* Archive stillness — shared exhibit tone (track, album, artist shell) */
+
+/* Breathing room on intentionally sparse pages */
+.track-exhibit--sparse {
+  min-height: 72vh;
+  padding-bottom: 3.5rem;
+}
+
+/* Softer hero — tactile frame without loud drop shadow */
+.track-exhibit .track-hero__cover-wrap {
+  box-shadow: 3px 4px 0 rgba(45, 62, 70, 0.2);
+}
+
+.track-exhibit .track-hero__artist {
+  text-decoration: none;
+  color: var(--teal-deep);
+}
+
+.track-exhibit .track-hero__artist:hover {
+  color: var(--orange-dusty);
+}
+
+/* Journey panel: border only, no second shadow stack */
+.track-exhibit .track-journey {
+  box-shadow: none;
+}
+
+/* Quieter chart weeks — less glow competition */
+.track-exhibit .track-trajectory-week {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.35),
+    0 1px 0 rgba(45, 62, 70, 0.1);
+}
+
+.track-exhibit .track-trajectory-track::after {
+  box-shadow: 0 0 calc(2px + var(--heat-intensity) * 6px) var(--heat-glow);
+}
+
+/* Section rhythm — slightly lighter headings */
+.track-exhibit .track-section-head h2 {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.track-exhibit .track-related__row,
+.track-exhibit .album-tracklist__row--link {
+  padding-top: 0.95rem;
+  padding-bottom: 0.95rem;
+}
+
+/* Footer: observed, not operated */
+.exhibit-footer-nav a {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Artist exhibit */
+.artist-exhibit .artist-section-head h2 {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.artist-view-all--dark:hover,
+.artist-view-all--light:hover {
+  filter: none;
+  opacity: 0.88;
+}
+
+/* Song stack — quieter periphery (artist exhibit) */
+.artist-exhibit .song-stack-card--preview {
+  opacity: 0.32;
+}
+
+.song-stack__arrow:hover:not(:disabled) {
+  background: var(--stack-cream);
+}

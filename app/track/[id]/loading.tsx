@@ -4,7 +4,7 @@ import "./track-page.css";
 
 export default function TrackLoading() {
   return (
-    <div className="track-exhibit" aria-busy="true" aria-label="Loading song">
+    <div className="track-exhibit track-exhibit--sparse" aria-busy="true" aria-label="Loading">
       <div className="track-exhibit__grain" aria-hidden />
       <header className="track-topbar">
         <Link href="/" className="track-logo" prefetch>

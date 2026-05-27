@@ -1,6 +1,7 @@
 /* Song page exhibit — collectible song world (artist palette family) */
 
 @import "../../exhibit-footer.css";
+@import "../../exhibit-stillness.css";
 
 .track-exhibit {
   --paper-warm: #f4e9d3;
@@ -90,7 +91,6 @@
   background: linear-gradient(145deg, var(--charcoal), var(--teal-deep));
 }
 
-/* Degraded / orphan exhibits — sparse but intentional, not empty-app */
 .track-exhibit--sparse .track-hero {
   margin-bottom: 2.5rem;
 }

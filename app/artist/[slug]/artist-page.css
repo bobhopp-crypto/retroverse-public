@@ -1,6 +1,7 @@
 /* Artist exhibit — canonical palette v2 (art-direction refinement only) */
 
 @import "../../exhibit-footer.css";
+@import "../../exhibit-stillness.css";
 
 .artist-exhibit {
   --paper-warm: #f4e9d3;
@@ -252,11 +253,6 @@
   background: var(--orange-dusty);
   border-color: var(--charcoal);
   box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.35);
-}
-
-.artist-view-all--dark:hover,
-.artist-view-all--light:hover {
-  filter: brightness(1.05);
 }
 
 .artist-shelf__grid {
