@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadRelatedArtistsFromGraph } from "@/lib/artist/load-related-artists";
@@ -12,10 +11,9 @@ type Props = { params: Promise<{ slug: string }> };
 export default async function ArtistRelatedPage({ params }: Props) {
   const { slug } = await params;
   const data = await loadArtistPage(slug);
-  if (!data) notFound();
 
   let related = data.relatedArtists;
-  if (related.length < 8) {
+  if (related.length < 8 && data.artistId > 0) {
     const graph = await loadRelatedArtistsFromGraph(data.artistId, data.slug, 12);
     const seen = new Set(related.map((r) => r.slug));
     for (const row of graph) {

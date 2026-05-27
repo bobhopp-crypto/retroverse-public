@@ -52,6 +52,11 @@ export function TrackPageView({ data }: TrackPageViewProps) {
               </>
             ) : null}
           </p>
+          {exhibitSparse ? (
+            <p className="track-sparse-message" role="status">
+              Nothing in the archive yet — this recording is still being indexed.
+            </p>
+          ) : null}
         </div>
       </section>
 

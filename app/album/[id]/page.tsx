@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
 
 import { loadAlbumPage } from "@/lib/album/load-album-page";
+import type { AlbumPageData } from "@/lib/album/load-album-page";
 import { resolveAlbumRvalParam } from "@/lib/album/resolve-album-route";
-import { loadTrackPage } from "@/lib/track/load-track-page";
-import { welcomeOrigin } from "@/lib/search/welcome-origin";
 
 import { AlbumPageView } from "./album-page-view";
 
@@ -15,12 +13,6 @@ type Props = {
 };
 
 export const dynamic = "force-dynamic";
-
-function redirectWelcomeAlbum(rval: string) {
-  const origin = welcomeOrigin();
-  if (origin) redirect(`${origin}/albums/${rval.toUpperCase()}`);
-  notFound();
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
@@ -35,22 +27,45 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function fallbackAlbumPageData(idParam: string): AlbumPageData {
+  const raw = decodeURIComponent(idParam).trim();
+  const isRval = RE_RVAL.test(raw);
+  const rval = isRval ? raw.toUpperCase() : "RVAL000000";
+
+  const title =
+    raw
+      .replace(/-/g, " ")
+      .replace(/\s+/g, " ")
+      .trim() || (isRval ? rval : "Album");
+
+  return {
+    rval,
+    title,
+    artistName: "Unknown artist",
+    artistSlug: "unknown-artist",
+    artistHref: `/search?q=${encodeURIComponent(title)}`,
+    releaseYear: null,
+    coverUrl: null,
+    b200Peak: null,
+    chartWeeks: 0,
+    firstChartDate: null,
+    trajectoryWeeks: [],
+    chartRunLabel: "Billboard 200",
+    tracks: [],
+    relatedAlbums: [],
+    rvYearHref: null,
+  };
+}
+
 export default async function AlbumPage({ params }: Props) {
   const id = decodeURIComponent((await params).id).trim();
-  if (!id) notFound();
 
   const rval = RE_RVAL.test(id) ? id.toUpperCase() : await resolveAlbumRvalParam(id);
 
   if (rval) {
     const data = await loadAlbumPage(rval);
-    if (data) return <AlbumPageView data={data} />;
-    redirectWelcomeAlbum(rval);
+    return <AlbumPageView data={data ?? fallbackAlbumPageData(rval)} />;
   }
 
-  const track = await loadTrackPage(id);
-  if (track) {
-    redirect(`/track/${track.rvtr}`);
-  }
-
-  redirect(`/search?q=${encodeURIComponent(id.replace(/-/g, " "))}`);
+  return <AlbumPageView data={fallbackAlbumPageData(id)} />;
 }

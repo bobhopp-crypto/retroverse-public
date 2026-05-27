@@ -54,6 +54,11 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
               </>
             ) : null}
           </p>
+          {exhibitSparse ? (
+            <p className="track-sparse-message" role="status">
+              Nothing in the archive yet — this album is still being indexed.
+            </p>
+          ) : null}
         </div>
       </section>
 

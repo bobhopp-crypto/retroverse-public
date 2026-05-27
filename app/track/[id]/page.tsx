@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 import { loadTrackPage } from "@/lib/track/load-track-page";
+import type { TrackPageData } from "@/lib/track/load-track-page";
 
 import { TrackPageView } from "./track-page-view";
 
@@ -20,10 +20,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function fallbackTrackPageData(idParam: string): TrackPageData {
+  const raw = decodeURIComponent(idParam).trim();
+  const isRvtr = /^RVTR\d{6}$/i.test(raw);
+  const rvtr = isRvtr ? raw.toUpperCase() : raw.toUpperCase();
+
+  const title = raw
+    ? raw
+        .replace(/-/g, " ")
+        .replace(/\s+/g, " ")
+        .trim()
+    : "Unknown recording";
+
+  const artistName = "Unknown artist";
+  const artistSlug = "unknown-artist";
+
+  return {
+    rvtr,
+    title,
+    artistName,
+    artistSlug,
+    artistHref: `/search?q=${encodeURIComponent(title)}`,
+    releaseYear: null,
+    peakHot100: null,
+    chartWeeks: 0,
+    firstChartDate: null,
+    coverUrl: null,
+    hasHot100: false,
+    hasVdjMedia: false,
+    albums: [],
+    trajectoryWeeks: [],
+    chartRunLabel: "Hot 100",
+    relatedTracks: [],
+    rvYearHref: null,
+  };
+}
+
 export default async function TrackPage({ params }: Props) {
   const { id } = await params;
   const data = await loadTrackPage(id);
-  if (!data) notFound();
-
-  return <TrackPageView data={data} />;
+  return <TrackPageView data={data ?? fallbackTrackPageData(id)} />;
 }

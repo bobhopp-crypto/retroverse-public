@@ -1,5 +1,3 @@
-import { notFound } from "next/navigation";
-
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 
 import { ArtistSectionPlaceholder } from "../section-placeholder";
@@ -9,7 +7,6 @@ type Props = { params: Promise<{ slug: string }> };
 export default async function ArtistExplorePage({ params }: Props) {
   const { slug } = await params;
   const data = await loadArtistPage(slug);
-  if (!data) notFound();
 
   if (data.exploreLinks.length === 0) {
     return (

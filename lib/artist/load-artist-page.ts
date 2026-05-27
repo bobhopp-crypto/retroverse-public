@@ -3,7 +3,12 @@ import { cache } from "react";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { coverPathToUrl } from "@/lib/artist/cover-url";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
-import { artistFileCode, slugFromArtistName } from "@/lib/artist/slug";
+import {
+  artistFileCode,
+  artistNameFromSlug,
+  displayArtistName,
+  slugFromArtistName,
+} from "@/lib/artist/slug";
 import type {
   ArtistAlbumCard,
   ArtistPageData,
@@ -33,6 +38,43 @@ function pickCoverUrl(
   return null;
 }
 
+function fallbackArtistPageData(slugParam: string): ArtistPageData {
+  const key = slugParam.trim().toLowerCase();
+  const knownName = artistNameFromSlug(key);
+  const displayName = knownName
+    ? displayArtistName(knownName)
+    : displayArtistName(key.replace(/-/g, " "));
+
+  return {
+    slug: key || slugFromArtistName(displayName),
+    displayName,
+    canonicalName: displayName,
+    artistId: 0,
+    fileCode: artistFileCode(0, displayName),
+    heroImageUrl: null,
+    activeRange: "—",
+    libraryTracks: 0,
+    libraryAlbums: 0,
+    essentialAlbums: [],
+    signatureTracks: [],
+    dominantYears: [],
+    hasDominantYearData: false,
+    chartAlbumSpotlight: null,
+    chartHighlights: {
+      hot100Appearances: 0,
+      b200Albums: 0,
+      top10Hits: 0,
+      top10Albums: 0,
+    },
+    chartHistory: null,
+    relatedArtists: [],
+    exploreLinks: [
+      { label: "Search catalog", href: `/search?q=${encodeURIComponent(displayName)}` },
+      { label: "Inspect graph", href: `/inspect?q=${encodeURIComponent(displayName)}` },
+    ],
+  };
+}
+
 async function fetchHomeSearch(name: string) {
   const base =
     process.env.SEARCH_UPSTREAM_BASE_URL?.trim() ||
@@ -60,14 +102,14 @@ export type LoadArtistPageOptions = {
 async function loadArtistPageImpl(
   slug: string,
   options?: LoadArtistPageOptions,
-): Promise<ArtistPageData | null> {
+): Promise<ArtistPageData> {
   const chartScope = options?.chartScope ?? "preview";
   const includeChartHistory = options?.includeChartHistory === true;
   const ping = await inspectPing();
-  if (!ping.ok) return null;
+  if (!ping.ok) return fallbackArtistPageData(slug);
 
   const resolved = await resolveArtistFromSlug(slug);
-  if (!resolved) return null;
+  if (!resolved) return fallbackArtistPageData(slug);
 
   const { artistId, canonicalName, displayName, slug: canonicalSlug } = resolved;
 

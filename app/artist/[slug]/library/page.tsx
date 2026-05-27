@@ -1,5 +1,3 @@
-import { notFound } from "next/navigation";
-
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 
 import { ArtistCover } from "../artist-cover";
@@ -10,7 +8,6 @@ type Props = { params: Promise<{ slug: string }> };
 export default async function ArtistLibraryPage({ params }: Props) {
   const { slug } = await params;
   const data = await loadArtistPage(slug);
-  if (!data) notFound();
 
   const covers = data.essentialAlbums.filter((a) => a.coverUrl);
   if (data.libraryTracks <= 0 || covers.length === 0) {

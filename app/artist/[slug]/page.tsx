@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { artistSectionHref } from "@/lib/artist/routes";
@@ -33,7 +32,43 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArtistPage({ params }: Props) {
   const { slug } = await params;
   const data = await loadArtistPage(slug);
-  if (!data) notFound();
+
+  const exhibitEmpty =
+    data.essentialAlbums.length === 0 &&
+    data.signatureTracks.length === 0 &&
+    data.dominantYears.length === 0 &&
+    !data.chartAlbumSpotlight &&
+    data.relatedArtists.length === 0;
+
+  if (exhibitEmpty) {
+    const searchHref =
+      data.exploreLinks.find((l) => l.label === "Search catalog")?.href ??
+      `/search?q=${encodeURIComponent(data.displayName)}`;
+    const inspectHref =
+      data.exploreLinks.find((l) => l.label === "Inspect graph")?.href ??
+      `/inspect?q=${encodeURIComponent(data.displayName)}`;
+
+    return (
+      <section className="artist-missing" aria-label="Nothing in the archive">
+        <h2 className="artist-placeholder__title">Nothing in the archive yet</h2>
+        <p className="artist-placeholder__note">
+          {data.displayName} is on the list, but the archive is still indexing.
+        </p>
+        <p className="artist-placeholder__note">
+          Try the catalog search or inspect the graph.
+        </p>
+        <p className="artist-placeholder__note">
+          <Link href={searchHref} prefetch>
+            Search catalog →
+          </Link>{" "}
+          ·{" "}
+          <Link href={inspectHref} prefetch>
+            Inspect graph →
+          </Link>
+        </p>
+      </section>
+    );
+  }
 
   const maxYearCount = data.hasDominantYearData
     ? Math.max(...data.dominantYears.map((y) => y.count), 1)
