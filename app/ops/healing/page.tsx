@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { OpsHealingPanel } from "@/components/ops/OpsHealingPanel";
 import { loadHealingDegradedQueue } from "@/lib/healing/load-degraded-queue";
+import { loadHealingRestorationPatterns } from "@/lib/healing/load-restoration-patterns";
 import { loadHealingTrustCalibration } from "@/lib/healing/load-trust-calibration";
 import { healingWritesEnabled } from "@/lib/track/album-link-recovery/guardrails";
 
@@ -28,6 +29,7 @@ export default async function OpsHealingPage() {
 
   const queue = await loadHealingDegradedQueue();
   const trust = await loadHealingTrustCalibration(queue);
+  const patterns = await loadHealingRestorationPatterns(queue, trust.eraPatterns);
   const writesEnabled = healingWritesEnabled();
 
   return (
@@ -36,7 +38,7 @@ export default async function OpsHealingPage() {
       <div className="ops-page__inner">
         <header className="ops-topbar">
           <div>
-            <p className="ops-topbar__kicker">Internal · curator trust calibration</p>
+            <p className="ops-topbar__kicker">Internal · restoration pattern discovery</p>
             <h1 className="ops-topbar__title">Healing Console</h1>
           </div>
           <div className="ops-topbar__meta">
@@ -54,12 +56,17 @@ export default async function OpsHealingPage() {
         </header>
 
         <p className="ops-banner">
-          <strong>Can I trust this candidate?</strong> — outcome history, compilation risk, era
-          patterns, and duplicate distortion before you approve one album link. No bulk apply or
-          auto-heal.
+          <strong>What kind of restoration problem is this?</strong> — recurring families, safe vs
+          dangerous patterns, era behavior, and confidence reliability. One approve at a time; no
+          bulk apply or auto-heal.
         </p>
 
-        <OpsHealingPanel queue={queue} trust={trust} writesEnabled={writesEnabled} />
+        <OpsHealingPanel
+          queue={queue}
+          trust={trust}
+          patterns={patterns}
+          writesEnabled={writesEnabled}
+        />
       </div>
     </main>
   );

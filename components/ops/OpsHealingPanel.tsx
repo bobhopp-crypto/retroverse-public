@@ -18,6 +18,7 @@ import type {
   HealingQueueRow,
   HealingScoredCandidate,
 } from "@/lib/healing/load-degraded-queue";
+import type { HealingRestorationPatterns } from "@/lib/healing/pattern-types";
 import type { HealingTrustCalibration } from "@/lib/healing/trust-types";
 
 const APPROVAL_CONFIDENCE_MIN = 0.45;
@@ -103,6 +104,7 @@ function trustLabel(level: string): string {
 export function OpsHealingPanel(props: {
   queue: HealingDegradedQueue;
   trust: HealingTrustCalibration;
+  patterns: HealingRestorationPatterns;
   writesEnabled: boolean;
 }) {
   const [filter, setFilter] = useState<FilterKey>("grouped");
@@ -274,9 +276,102 @@ export function OpsHealingPanel(props: {
   const counts = props.queue.countsByType;
   const ws = props.queue.workflowSummary;
   const tc = props.trust;
+  const pat = props.patterns;
 
   return (
     <div className="ops-healing">
+      <section className="ops-panel">
+        <header className="ops-panel__header">
+          <h2 className="ops-panel__title">Restoration patterns</h2>
+          <OpsPill tone="info">read-only</OpsPill>
+        </header>
+        <p className="ops-dim">
+          Recurring degradation families and fix classes — recognition only, not automation.
+        </p>
+        {pat.families.length > 0 ? (
+          <div className="ops-healing__family-list">
+            {pat.families.map((f) => (
+              <div key={f.id} className="ops-healing__family-card">
+                <p className="ops-healing__cluster-title">
+                  <strong>{f.name}</strong>
+                  {f.approximateCount != null ? (
+                    <span className="ops-dim">
+                      {" "}
+                      · ~{f.approximateCount.toLocaleString()}{" "}
+                      {f.countSource === "corpus" ? "(corpus)" : "(sample)"}
+                    </span>
+                  ) : null}
+                </p>
+                <p className="ops-dim">{f.strategy}</p>
+                {f.examples.length > 0 ? (
+                  <p className="ops-dim">
+                    Examples:{" "}
+                    {f.examples.map((ex) => (
+                      <span key={ex.rvtr}>
+                        <OpsInlineLink href={`/track/${ex.rvtr}`}>{ex.rvtr}</OpsInlineLink>
+                        {" · "}
+                      </span>
+                    ))}
+                  </p>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
+        <h3 className="ops-healing__trust-heading">Safe-fix patterns</h3>
+        <ul className="ops-healing__trust-list">
+          {pat.safeFixPatterns.map((p) => (
+            <li key={p.pattern}>
+              <OpsPill tone={p.reliability === "high" ? "ok" : "warn"}>{p.reliability}</OpsPill>{" "}
+              <span className="ops-healing__pattern-name">{p.pattern}</span>
+              <span className="ops-dim">
+                {" "}
+                · {p.confidenceRange} — {p.note}
+                {p.sampleCount > 0 ? ` (${p.sampleCount} in sample)` : ""}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <h3 className="ops-healing__trust-heading">Dangerous patterns</h3>
+        <ul className="ops-healing__trust-list">
+          {pat.dangerousPatterns.map((p) => (
+            <li key={p.pattern}>
+              <OpsPill tone="bad">risk</OpsPill>{" "}
+              <strong>{p.pattern}</strong>
+              <span className="ops-dim"> — {p.whyDangerous}</span>
+              <br />
+              <span className="ops-dim">False positive: {p.falsePositiveBehavior}</span>
+              {p.sampleCount > 0 ? (
+                <span className="ops-dim"> · {p.sampleCount} in sample</span>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+        <h3 className="ops-healing__trust-heading">Era restoration</h3>
+        <ul className="ops-healing__trust-list">
+          {pat.eraObservations.map((e) => (
+            <li key={e.era}>
+              <strong>{e.era}</strong> — {e.observation}
+              <br />
+              <span className="ops-dim">{e.restorationCharacter}</span>
+            </li>
+          ))}
+        </ul>
+        <h3 className="ops-healing__trust-heading">Confidence reliability</h3>
+        <p className="ops-dim">{pat.confidenceReliability.summary}</p>
+        <ul className="ops-healing__trust-list">
+          {pat.confidenceReliability.bands.map((b) => (
+            <li key={b.band}>
+              <strong>{b.band}</strong> — match {b.matchConfidence}, trust {b.curatorTrust}
+              <br />
+              <span className="ops-dim">{b.observation}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="ops-dim">{pat.confidenceReliability.rollbackNote}</p>
+        <p className="ops-dim">{pat.confidenceReliability.uncertaintyNote}</p>
+      </section>
+
       <section className="ops-panel">
         <header className="ops-panel__header">
           <h2 className="ops-panel__title">Trust calibration</h2>
@@ -674,6 +769,7 @@ export function OpsHealingPanel(props: {
         .filter((item) => expandedRvtr === item.rvtr)
         .map((item) => {
           const detail = rowDetails[item.rvtr] ?? item;
+          const family = pat.byRvtr[detail.rvtr];
           return (
             <section key={detail.rvtr} className="ops-panel ops-panel--nested">
               <header className="ops-panel__header">
@@ -682,6 +778,13 @@ export function OpsHealingPanel(props: {
                 </h2>
                 <OpsPill tone="info">impact {detail.impactScore}</OpsPill>
               </header>
+              {family ? (
+                <p className="ops-notice">
+                  <strong>{family.name}</strong> — {family.guidance}
+                  <br />
+                  <span className="ops-dim">Strategy: {family.strategy}</span>
+                </p>
+              ) : null}
               {detail.duplicateCluster ? (
                 <p className="ops-dim ops-healing__dup-note">
                   Duplicate cluster ×{detail.duplicateCluster.clusterSize} · probable{" "}
