@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 
 import { auditCoverForRvtr } from "@/lib/healing/cover-audit";
+import {
+  loadHealingDegradedQueue,
+  loadHealingQueueRowAudit,
+} from "@/lib/healing/load-degraded-queue";
 import { loadHealingReviewSet } from "@/lib/healing/load-review-set";
 import type { HealingClusterId } from "@/lib/healing/types";
 import { auditTrackAlbumLinks } from "@/lib/track/album-link-recovery/audit-track";
@@ -17,10 +21,12 @@ function parseCluster(value: string | null): HealingClusterId {
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const rvtr = url.searchParams.get("rvtr")?.trim();
+  const mode = url.searchParams.get("mode")?.trim();
 
   try {
     if (rvtr) {
-      const [audit, cover] = await Promise.all([
+      const [row, audit, cover] = await Promise.all([
+        loadHealingQueueRowAudit(rvtr),
         auditTrackAlbumLinks(rvtr),
         auditCoverForRvtr(rvtr),
       ]);
@@ -29,17 +35,30 @@ export async function GET(request: Request) {
       }
       return NextResponse.json({
         ok: true,
+        row,
         audit,
         cover,
+        readOnly: true,
         writesEnabled: healingWritesEnabled(),
       });
     }
 
-    const cluster = parseCluster(url.searchParams.get("cluster"));
-    const review = await loadHealingReviewSet(cluster);
+    if (mode === "cluster") {
+      const cluster = parseCluster(url.searchParams.get("cluster"));
+      const review = await loadHealingReviewSet(cluster);
+      return NextResponse.json({
+        ok: true,
+        review,
+        readOnly: true,
+        writesEnabled: healingWritesEnabled(),
+      });
+    }
+
+    const queue = await loadHealingDegradedQueue();
     return NextResponse.json({
       ok: true,
-      review,
+      queue,
+      readOnly: true,
       writesEnabled: healingWritesEnabled(),
     });
   } catch (e) {

@@ -20,11 +20,11 @@
 | Entity pages | Heavy hydration |
 | `lib/track/album-link-recovery/` | Audit, candidate ranking, guarded apply |
 | `lib/healing/` | Review sets, audit log, revalidate, cover preview |
-| `/ops/healing` | Human review surface (local, `RETROVERSE_OPS=1`) |
+| `/ops/healing` | Human review surface v1 — degraded queue, filters, read-only (local, `RETROVERSE_OPS=1`) |
 
 ## Review workflow
 
-1. **Identify** — `loadHealingReviewSet("stand_by_me")` or `npm run healing:review`
+1. **Identify** — `loadHealingDegradedQueue()` or `npm run healing:review` (writes `tools/out/healing-degraded-queue.json`)
 2. **Propose** — deterministic `rankCandidates()` → confidence + `reasons[]`
 3. **Review** — `/ops/healing` or JSON from `tools/out/healing-review-set.json`
 4. **Approve** — explicit button / POST (no auto-apply)
@@ -62,7 +62,7 @@ npm run track:audit-album-links -- RVTR430551
 
 | Method | Path | Purpose |
 |--------|------|---------|
-| GET | `/api/ops/healing/review` | Cluster or `?rvtr=` audit + cover preview |
+| GET | `/api/ops/healing/review` | Degraded queue (default), `?mode=cluster`, or `?rvtr=` audit + cover |
 | POST | `/api/ops/healing/apply` | Human-approved INSERT (needs `RETROVERSE_HEALING_APPLY=1`) |
 | POST | `/api/ops/healing/rollback` | Roll back by `proposalId` |
 

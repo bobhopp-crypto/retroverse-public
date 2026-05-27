@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { OpsHealingPanel } from "@/components/ops/OpsHealingPanel";
-import { loadHealingReviewSet } from "@/lib/healing/load-review-set";
-import { healingWritesEnabled } from "@/lib/track/album-link-recovery/guardrails";
+import { loadHealingDegradedQueue } from "@/lib/healing/load-degraded-queue";
 
 import "../ops.css";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Healing Review — Retroverse Ops",
+  title: "Canonical Healing — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 
@@ -25,7 +24,7 @@ export default async function OpsHealingPage() {
     );
   }
 
-  const review = await loadHealingReviewSet("stand_by_me");
+  const queue = await loadHealingDegradedQueue();
 
   return (
     <main className="ops-page">
@@ -33,8 +32,8 @@ export default async function OpsHealingPage() {
       <div className="ops-page__inner">
         <header className="ops-topbar">
           <div>
-            <p className="ops-topbar__kicker">Internal · canonical healing</p>
-            <h1 className="ops-topbar__title">Album links</h1>
+            <p className="ops-topbar__kicker">Internal · canonical enrichment healing</p>
+            <h1 className="ops-topbar__title">Healing v1</h1>
           </div>
           <div className="ops-topbar__meta">
             <div>
@@ -42,16 +41,17 @@ export default async function OpsHealingPage() {
                 ← Ops
               </Link>
             </div>
-            <div>Preview + human approve · no auto-apply</div>
+            <div>Read-only · visibility first · no auto-merge</div>
           </div>
         </header>
 
         <p className="ops-banner">
-          <strong>Missing canonical_album_tracks</strong> — first healing pass. Stand By Me
-          cluster (≤20 tracks). Confidence reports only until you approve a single candidate.
+          <strong>Human-guided archive restoration</strong> — missing album links, covers,
+          duplicate RVTR clusters, orphan VDJ tracks. Review candidates and confidence
+          reasoning before any future write pass.
         </p>
 
-        <OpsHealingPanel review={review} writesEnabled={healingWritesEnabled()} />
+        <OpsHealingPanel queue={queue} />
       </div>
     </main>
   );

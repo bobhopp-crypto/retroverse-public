@@ -1,18 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { OpsInlineLink, OpsPill, OpsTable } from "@/components/ops/OpsTable";
-import type {
-  HealingReviewItem,
-  HealingReviewSet,
-} from "@/lib/healing/types";
-import type {
-  ScoredAlbumLinkCandidate,
-  TrackAlbumLinkAudit,
-} from "@/lib/track/album-link-recovery/types";
+import {
+  HEALING_DEGRADATION_LABELS,
+  type HealingDegradationFlag,
+} from "@/lib/healing/degradation";
+import type { HealingDegradedQueue, HealingQueueRow } from "@/lib/healing/load-degraded-queue";
 
-type ScoredCandidate = ScoredAlbumLinkCandidate;
+type FilterKey = "all" | HealingDegradationFlag;
 
 function toneForConfidence(c: number | null): "ok" | "warn" | "bad" | "info" {
   if (c == null) return "info";
@@ -26,125 +23,140 @@ function confidenceLabel(c: number | null): string {
   return c.toFixed(2);
 }
 
-export function OpsHealingPanel(props: {
-  review: HealingReviewSet;
-  writesEnabled: boolean;
-}) {
-  const [items, setItems] = useState(props.review.items);
-  const [message, setMessage] = useState<string | null>(null);
-  const [busyRvtr, setBusyRvtr] = useState<string | null>(null);
+function coverPill(status: HealingQueueRow["coverStatus"]) {
+  if (status === "ok") return <OpsPill tone="ok">cover ok</OpsPill>;
+  if (status === "missing") return <OpsPill tone="warn">no cover</OpsPill>;
+  return <OpsPill tone="bad">no album</OpsPill>;
+}
 
-  async function applyCandidate(item: HealingReviewItem, candidate: ScoredCandidate) {
-    if (!props.writesEnabled) {
-      setMessage("Writes disabled — set RETROVERSE_HEALING_APPLY=1 locally.");
-      return;
-    }
-    const ok = window.confirm(
-      `Apply album link?\n\n${item.rvtr} → album ${candidate.albumId} "${candidate.albumTitle}"\nconfidence ${candidate.confidence}\n\nNo auto-merge. Single INSERT only.`,
-    );
-    if (!ok) return;
+function statePill(state: HealingQueueRow["healingState"]) {
+  const map = {
+    degraded: ["warn", "degraded"] as const,
+    linked: ["ok", "linked"] as const,
+    no_candidates: ["bad", "no candidates"] as const,
+    candidates_ready: ["info", "review"] as const,
+  };
+  const [tone, label] = map[state];
+  return <OpsPill tone={tone}>{label}</OpsPill>;
+}
 
-    setBusyRvtr(item.rvtr);
-    setMessage(null);
+function flagPills(flags: HealingDegradationFlag[]) {
+  return (
+    <span className="ops-healing__flags">
+      {flags.map((f) => (
+        <OpsPill key={f} tone="info">
+          {HEALING_DEGRADATION_LABELS[f]}
+        </OpsPill>
+      ))}
+    </span>
+  );
+}
+
+export function OpsHealingPanel(props: { queue: HealingDegradedQueue }) {
+  const [filter, setFilter] = useState<FilterKey>("all");
+  const [expandedRvtr, setExpandedRvtr] = useState<string | null>(null);
+  const [rowDetails, setRowDetails] = useState<Record<string, HealingQueueRow>>({});
+  const [loadingRvtr, setLoadingRvtr] = useState<string | null>(null);
+
+  const mergedRows = useMemo(
+    () =>
+      props.queue.rows.map((row) => rowDetails[row.rvtr] ?? row),
+    [props.queue.rows, rowDetails],
+  );
+
+  const filtered = useMemo(() => {
+    if (filter === "all") return mergedRows;
+    return mergedRows.filter((r) => r.degradationFlags.includes(filter));
+  }, [filter, mergedRows]);
+
+  async function loadRowAudit(rvtr: string) {
+    if (rowDetails[rvtr]?.candidates.length) return;
+    setLoadingRvtr(rvtr);
     try {
-      const res = await fetch("/api/ops/healing/apply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          rvtr: item.rvtr,
-          albumId: candidate.albumId,
-          position: candidate.trackPosition,
-          sequenceTitle: candidate.sequenceTitle ?? item.title,
-          confidence: candidate.confidence,
-          reasons: candidate.reasons,
-          sourceKind: candidate.sourceKind,
-          actor: "ops/healing-ui",
-        }),
-      });
-      const data = (await res.json()) as {
-        ok: boolean;
-        message?: string;
-        proposalId?: number;
-        catRowId?: number;
-        code?: string;
-      };
-      if (!res.ok || !data.ok) {
-        setMessage(data.message || data.code || "Apply failed.");
-        return;
+      const res = await fetch(`/api/ops/healing/review?rvtr=${encodeURIComponent(rvtr)}`);
+      const data = (await res.json()) as { ok: boolean; row?: HealingQueueRow };
+      if (res.ok && data.ok && data.row) {
+        setRowDetails((prev) => ({ ...prev, [rvtr]: data.row! }));
       }
-      setItems((prev) =>
-        prev.map((row) =>
-          row.rvtr === item.rvtr
-            ? { ...row, reviewStatus: "applied", existingLinkCount: 1, gap: "none" }
-            : row,
-        ),
-      );
-      setMessage(
-        `Applied ${item.rvtr} → proposal #${data.proposalId}, cat row #${data.catRowId}. Track page revalidated.`,
-      );
-    } catch (e) {
-      setMessage(e instanceof Error ? e.message : String(e));
     } finally {
-      setBusyRvtr(null);
+      setLoadingRvtr(null);
     }
   }
 
-  const degraded = items.filter((i) => i.gap === "missing_album_links");
+  async function toggleExpand(rvtr: string) {
+    if (expandedRvtr === rvtr) {
+      setExpandedRvtr(null);
+      return;
+    }
+    setExpandedRvtr(rvtr);
+    await loadRowAudit(rvtr);
+  }
+
+  const counts = props.queue.countsByType;
 
   return (
     <div className="ops-healing">
       <section className="ops-panel">
         <header className="ops-panel__header">
-          <h2 className="ops-panel__title">Summary</h2>
+          <h2 className="ops-panel__title">Archive degradation</h2>
+          <OpsPill tone="info">read-only</OpsPill>
         </header>
         <p className="ops-dim">
           Hot 100 missing album links:{" "}
           <strong>
-            {props.review.summary.hot100MissingLinks.toLocaleString()} /{" "}
-            {props.review.summary.hot100Total.toLocaleString()}
+            {props.queue.summary.hot100MissingLinks.toLocaleString()} /{" "}
+            {props.queue.summary.hot100Total.toLocaleString()}
           </strong>{" "}
-          ({props.review.summary.pctMissing}%)
+          ({props.queue.summary.pctMissing}%)
         </p>
         <p className="ops-dim">
-          Cluster <strong>{props.review.clusterLabel}</strong> · degraded{" "}
-          {props.review.summary.degradedCount} / {props.review.summary.clusterSize}
+          Review queue: <strong>{props.queue.summary.queueSize}</strong> tracks · top rows
+          pre-scored · expand for full candidate audit · no auto-apply
         </p>
-        <p className="ops-dim">
-          Writes:{" "}
-          {props.writesEnabled ? (
-            <OpsPill tone="ok">RETROVERSE_HEALING_APPLY=1</OpsPill>
-          ) : (
-            <OpsPill tone="warn">preview only</OpsPill>
-          )}
-        </p>
-        {message ? <p className="ops-banner">{message}</p> : null}
       </section>
-
-      {props.review.healthyControl ? (
-        <section className="ops-panel">
-        <header className="ops-panel__header">
-          <h2 className="ops-panel__title">Healthy control</h2>
-        </header>
-          <ControlRow audit={props.review.healthyControl} />
-        </section>
-      ) : null}
 
       <section className="ops-panel">
         <header className="ops-panel__header">
-          <h2 className="ops-panel__title">Degraded tracks ({degraded.length})</h2>
+          <h2 className="ops-panel__title">Filter by degradation</h2>
+        </header>
+        <div className="ops-healing__filters">
+          <FilterButton
+            active={filter === "all"}
+            label={`All (${props.queue.rows.length})`}
+            onClick={() => setFilter("all")}
+          />
+          {(Object.keys(HEALING_DEGRADATION_LABELS) as HealingDegradationFlag[]).map((key) => (
+            <FilterButton
+              key={key}
+              active={filter === key}
+              label={`${HEALING_DEGRADATION_LABELS[key]} (${counts[key].toLocaleString()})`}
+              onClick={() => setFilter(key)}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="ops-panel">
+        <header className="ops-panel__header">
+          <h2 className="ops-panel__title">Degraded tracks ({filtered.length})</h2>
         </header>
         <OpsTable
-          empty="No degraded tracks in this cluster."
+          empty="No tracks match this filter."
           columns={[
             { key: "rvtr", label: "RVTR" },
             { key: "track", label: "Track" },
+            { key: "year", label: "Year" },
             { key: "chart", label: "Chart" },
-            { key: "top", label: "Top conf." },
-            { key: "gap", label: "Gap" },
+            { key: "links", label: "Album links" },
+            { key: "cover", label: "Cover" },
+            { key: "conf", label: "Top conf." },
+            { key: "state", label: "Healing" },
+            { key: "detail", label: "", align: "right" },
           ]}
-          rows={degraded.map((item) => ({
+          rows={filtered.map((item) => ({
             id: item.rvtr,
             tone: toneForConfidence(item.topConfidence),
+            className: expandedRvtr === item.rvtr ? "ops-table__row--open" : undefined,
             cells: {
               rvtr: (
                 <OpsInlineLink href={`/track/${item.rvtr}`}>{item.rvtr}</OpsInlineLink>
@@ -154,108 +166,115 @@ export function OpsHealingPanel(props: {
                   <strong>{item.title}</strong>
                   <br />
                   <span className="ops-dim">{item.artistName}</span>
+                  <br />
+                  {flagPills(item.degradationFlags)}
                 </>
               ),
-              chart: `${item.chartWeeks}w · peak ${item.peakHot100 ?? "—"}`,
-              top: (
+              year: item.releaseYear ?? "—",
+              chart: item.chartStatus,
+              links: String(item.albumLinkCount),
+              cover: coverPill(item.coverStatus),
+              conf: (
                 <OpsPill tone={toneForConfidence(item.topConfidence)}>
                   {confidenceLabel(item.topConfidence)}
                 </OpsPill>
               ),
-              gap: item.coverGap ? "links + cover" : "links only",
+              state: statePill(item.healingState),
+              detail: (
+                <button
+                  type="button"
+                  className="ops-btn ops-btn--info"
+                  disabled={loadingRvtr === item.rvtr}
+                  onClick={() => toggleExpand(item.rvtr)}
+                >
+                  {loadingRvtr === item.rvtr
+                    ? "…"
+                    : expandedRvtr === item.rvtr
+                      ? "Hide"
+                      : "Candidates"}
+                </button>
+              ),
             },
           }))}
         />
       </section>
 
-      {degraded.map((item) => (
-        <section key={item.rvtr} className="ops-panel">
-          <header className="ops-panel__header">
-            <h2 className="ops-panel__title">
-              {item.rvtr} · {item.title}
-            </h2>
-            <OpsPill tone={item.reviewStatus === "applied" ? "ok" : "warn"}>
-              {item.reviewStatus}
-            </OpsPill>
-          </header>
-          <ul className="ops-dim" style={{ margin: "0 0 0.75rem", paddingLeft: "1.1rem" }}>
-            {item.diagnosis.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
-          {item.candidates.length === 0 ? (
-            <p className="ops-empty">No candidates — likely needs album ingest.</p>
-          ) : (
-            <OpsTable
-              columns={[
-                { key: "conf", label: "Conf." },
-                { key: "album", label: "Album candidate" },
-                { key: "reasons", label: "Evidence" },
-                { key: "action", label: "Action", align: "right" },
-              ]}
-              rows={item.candidates.slice(0, 6).map((c) => ({
-                id: `${item.rvtr}-${c.albumId}`,
-                tone: toneForConfidence(c.confidence),
-                cells: {
-                  conf: (
-                    <OpsPill tone={toneForConfidence(c.confidence)}>
-                      {c.confidence.toFixed(2)}
-                    </OpsPill>
-                  ),
-                  album: (
-                    <>
-                      <strong>{c.albumTitle}</strong>
-                      <br />
-                      <span className="ops-dim">
-                        {c.artistName} · {c.releaseYear ?? "?"} · id {c.albumId}
-                      </span>
-                      {c.sequenceTitle ? (
-                        <>
-                          <br />
-                          <span className="ops-dim">
-                            slot #{c.trackPosition ?? "?"} &quot;{c.sequenceTitle}&quot;
-                          </span>
-                        </>
-                      ) : null}
-                    </>
-                  ),
-                  reasons: c.reasons.join(", "),
-                  action: (
-                    <button
-                      type="button"
-                      className="ops-btn ops-btn--warn"
-                      disabled={
-                        !props.writesEnabled ||
-                        item.reviewStatus === "applied" ||
-                        busyRvtr === item.rvtr ||
-                        c.confidence < 0.45
-                      }
-                      title={
-                        c.confidence < 0.45
-                          ? "Below approval threshold (0.45)"
-                          : "Human approve + single INSERT"
-                      }
-                      onClick={() => applyCandidate(item, c)}
-                    >
-                      {busyRvtr === item.rvtr ? "…" : "Approve apply"}
-                    </button>
-                  ),
-                },
-              }))}
-            />
-          )}
-        </section>
-      ))}
+      {filtered
+        .filter((item) => expandedRvtr === item.rvtr)
+        .map((item) => {
+          const detail = rowDetails[item.rvtr] ?? item;
+          return (
+          <section key={detail.rvtr} className="ops-panel ops-panel--nested">
+            <header className="ops-panel__header">
+              <h2 className="ops-panel__title">
+                {detail.rvtr} · {detail.title}
+              </h2>
+              <OpsPill tone="info">{detail.candidateCount} candidates</OpsPill>
+            </header>
+            {loadingRvtr === detail.rvtr ? (
+              <p className="ops-dim">Loading candidate audit…</p>
+            ) : null}
+            <ul className="ops-dim" style={{ margin: "0 0 0.75rem", paddingLeft: "1.1rem" }}>
+              {detail.diagnosis.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            {detail.candidates.length === 0 && loadingRvtr !== detail.rvtr ? (
+              <p className="ops-empty">No album candidates — likely needs album ingest.</p>
+            ) : null}
+            {detail.candidates.length > 0 ? (
+              <OpsTable
+                columns={[
+                  { key: "conf", label: "Conf." },
+                  { key: "album", label: "Album candidate" },
+                  { key: "reasons", label: "Why matched" },
+                ]}
+                rows={detail.candidates.map((c) => ({
+                  id: `${detail.rvtr}-${c.albumId}`,
+                  tone: toneForConfidence(c.confidence),
+                  cells: {
+                    conf: (
+                      <OpsPill tone={toneForConfidence(c.confidence)}>
+                        {c.confidence.toFixed(2)}
+                      </OpsPill>
+                    ),
+                    album: (
+                      <>
+                        <strong>{c.albumTitle}</strong>
+                        <br />
+                        <span className="ops-dim">
+                          {c.artistName} · {c.releaseYear ?? "?"} · id {c.albumId}
+                        </span>
+                        {c.sequenceTitle ? (
+                          <>
+                            <br />
+                            <span className="ops-dim">
+                              slot #{c.trackPosition ?? "?"} &quot;{c.sequenceTitle}&quot;
+                            </span>
+                          </>
+                        ) : null}
+                      </>
+                    ),
+                    reasons: c.reasons.join(" · "),
+                  },
+                }))}
+              />
+            ) : null}
+          </section>
+          );
+        })}
     </div>
   );
 }
 
-function ControlRow(props: { audit: TrackAlbumLinkAudit }) {
-  const a = props.audit;
+function FilterButton(props: { active: boolean; label: string; onClick: () => void }) {
   return (
-    <p className="ops-dim">
-      <OpsInlineLink href={`/track/${a.rvtr}`}>{a.rvtr}</OpsInlineLink> — {a.title} ·{" "}
-      {a.artistName} · links {a.existingLinkCount} · peak {a.peakHot100 ?? "—"}
-    </p>
+    <button
+      type="button"
+      className={`ops-healing__filter${props.active ? " ops-healing__filter--active" : ""}`}
+      onClick={props.onClick}
+    >
+      {props.label}
+    </button>
   );
 }
