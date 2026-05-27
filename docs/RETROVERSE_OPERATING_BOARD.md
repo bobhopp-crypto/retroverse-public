@@ -71,6 +71,7 @@
 | **Overlay search** | Deterministic grouped PG entities; lightweight payloads; direct RVTR/RVAL routing |
 | **Hydration** | Overlay omits covers; entity pages hydrate albums/charts/covers |
 | **Canonical IDs** | RVTR / RVAL / artist slug routing preserved |
+| **Fail-open entities** | If a canonical entity exists, render the exhibit (sparse allowed). Never redirect to home, never 404 due to enrichment/ping failure. |
 | **Songs + RV History** | Locked on `/search` interim page |
 | **`/search` page** | Deep-dive interim only — not homepage path; frozen |
 
@@ -191,6 +192,15 @@ Anchors: `search-songs-jukebox-panel.tsx`, `songs-jukebox-reel.tsx`, `search.css
 ---
 
 ## Current active priority
+
+### Public Search Reliability (primary)
+
+**Fail-open rendering is mandatory.**
+
+- All public entity routes must render sparse exhibits instead of redirecting or 404ing when enrichment is missing.
+- Required before deploy: `npm run smoke:public-search` against `https://retroverse.live`.
+
+---
 
 ### Canonical enrichment healing
 
