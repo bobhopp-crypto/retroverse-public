@@ -209,6 +209,8 @@ export default function SearchClient() {
 
   const hasSongs = showPanels.songs.length > 0;
   const hasAlbums = showPanels.albums.length > 0;
+  const artistResults = showPanels.artistsCharts.filter((a) => a.kind === "artist");
+  const hasArtists = artistResults.length > 0;
   const albumsViewAllHref = useMemo(
     () => searchAlbumsViewAllHref(showPanels, showChartHistory?.artistSlug),
     [showPanels, showChartHistory?.artistSlug],
@@ -281,6 +283,33 @@ export default function SearchClient() {
             className={`search-panels${panelBusy ? " search-panels--pending" : ""}`}
             aria-busy={panelBusy}
           >
+            {hasArtists ? (
+              <ResultsPanel
+                id="artists"
+                title="Artists"
+                subtitle={panelSubtitle("artists", subject, trimmedQuery)}
+                viewAllHref={
+                  artistResults.find((a) => a.artistHref?.startsWith("/artist/"))
+                    ?.artistHref ?? "/charts"
+                }
+                viewAllLabel="Artist exhibit →"
+                tone="artists"
+              >
+                {artistResults.map((item, index) => (
+                  <DiscoverCard
+                    key={`artist-${item.id}-${index}`}
+                    variant="artist-chart"
+                    title={item.title}
+                    line2={item.subtitle}
+                    coverUrl={item.coverUrl}
+                    coverInitials={coverInitialsFromTitle(item.title)}
+                    ariaLabel={`Artist: ${item.title}`}
+                    href={item.artistHref ?? item.href}
+                  />
+                ))}
+              </ResultsPanel>
+            ) : null}
+
             {hasAlbums ? (
               <ResultsPanel
                 id="albums"

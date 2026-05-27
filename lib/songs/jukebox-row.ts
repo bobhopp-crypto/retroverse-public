@@ -1,5 +1,9 @@
 import { parsePeakPosition, parseYearFromText } from "@/lib/search/display-format";
-import { trackPageHref, trackSuggestionHref } from "@/lib/search/entity-routes";
+import {
+  coerceTrackPublicHref,
+  sanitizePublicNavigationHref,
+  trackPageHref,
+} from "@/lib/search/entity-routes";
 import { rvtrFromToken } from "@/lib/songs/song-actions";
 import type { SongResult } from "@/lib/search/types";
 import type { ArtistTrackCard } from "@/lib/artist/types";
@@ -26,16 +30,13 @@ export function songHrefFromId(
   if (!raw && !title?.trim()) return undefined;
 
   if (upstreamHref?.trim()) {
-    return trackSuggestionHref(title ?? "", upstreamHref);
+    const coerced = coerceTrackPublicHref(title ?? "", upstreamHref, raw);
+    return coerced ? sanitizePublicNavigationHref(coerced) ?? undefined : undefined;
   }
 
-  if (raw.startsWith("/")) return raw.split("?")[0];
-  if (/^https?:\/\//i.test(raw)) {
-    try {
-      return new URL(raw).pathname;
-    } catch {
-      return undefined;
-    }
+  if (raw.startsWith("/") || /^https?:\/\//i.test(raw)) {
+    const safe = sanitizePublicNavigationHref(raw);
+    if (safe) return safe;
   }
 
   const rvtrInId = raw.match(/RVTR\d{6}/i)?.[0];

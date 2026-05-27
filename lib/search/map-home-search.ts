@@ -1,4 +1,4 @@
-import { artistPagePath } from "@/lib/artist/resolve-artist";
+import { coerceArtistPublicHref } from "@/lib/search/entity-routes";
 import { albumSuggestionHref, trackSuggestionHref } from "@/lib/search/entity-routes";
 import type { HomeSearchPayload } from "./home-search-types";
 import { artistKeysMatch, formatCanonicalSearchHeader } from "./canonicalize-search";
@@ -128,7 +128,7 @@ export function mapHomeSearchToPanels(
         hasVdj: row.relation === "VDJ",
         coverAccent: accentFromKey(id),
         coverUrl: row.coverUrl ?? undefined,
-        href: albumSuggestionHref(title, row.href),
+        href: albumSuggestionHref(title, row.href) ?? undefined,
       };
     });
 
@@ -151,7 +151,7 @@ export function mapHomeSearchToPanels(
         hasVdj: row.relation === "VDJ" || row.hasVideo === true,
         coverAccent: accentFromKey(id),
         coverUrl: row.coverUrl ?? undefined,
-        href: trackSuggestionHref(title, row.href),
+        href: trackSuggestionHref(title, row.href) ?? undefined,
       };
     });
 
@@ -185,7 +185,12 @@ export function mapHomeSearchToPanels(
           kind: "artist" as const,
           coverAccent: accentFromKey(id),
           coverUrl: row.coverUrl ?? undefined,
-          artistHref: artistPagePath(canonicalArtist ?? row.name),
+          href:
+            coerceArtistPublicHref(canonicalArtist ?? row.name, row.href) ??
+            undefined,
+          artistHref:
+            coerceArtistPublicHref(canonicalArtist ?? row.name, row.href) ??
+            undefined,
         };
       }),
       ...payload.charts.map((row, index) => {

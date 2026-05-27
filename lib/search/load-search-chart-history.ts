@@ -96,7 +96,7 @@ export async function loadSearchChartHistory(
     artistName,
     artistSlug: resolved?.slug ?? "",
     viewAllHref: resolved
-      ? `${artistPagePath(resolved.displayName)}/charts`
+      ? `${artistPagePath(resolved.displayName) ?? `/artist/${resolved.slug}`}/charts`
       : "/charts",
     highlightTrackIds,
     history,

@@ -98,6 +98,8 @@ function buildArtistSuggestions(
       const matchKey = normalizeArtistMatchKey(label);
       if (!matchKey || seen.has(matchKey)) continue;
       seen.add(matchKey);
+      const href = artistSuggestionHref(label, row.href);
+      if (!href) continue;
       items.push({
         id: suggestionId("artist", matchKey),
         kind: "artist",
@@ -106,7 +108,7 @@ function buildArtistSuggestions(
         year: null,
         coverUrl: row.coverUrl ?? null,
         label,
-        href: artistSuggestionHref(label, row.href),
+        href,
         routeQuery: matchKey,
       });
     }
@@ -128,6 +130,8 @@ function buildArtistSuggestions(
 
     seen.add(matchKey);
     const row = group.items.find((entry) => entry.href?.trim()) ?? group.items[0];
+    const href = artistSuggestionHref(label, row?.href);
+    if (!href) continue;
     items.push({
       id: suggestionId("artist", matchKey),
       kind: "artist",
@@ -136,7 +140,7 @@ function buildArtistSuggestions(
       year: null,
       coverUrl: row?.coverUrl ?? null,
       label,
-      href: artistSuggestionHref(label, row?.href),
+      href,
       routeQuery: matchKey,
     });
   }
@@ -160,6 +164,8 @@ function buildSongSuggestions(
     if (tier === "tight" && !isDiscoverableSuggestion(title, query, tier)) continue;
     seen.add(key);
     const year = row.year != null && row.year > 0 ? row.year : null;
+    const href = trackSuggestionHref(title, row.href);
+    if (!href) continue;
     items.push({
       id: suggestionId("song", key),
       kind: "song",
@@ -168,7 +174,7 @@ function buildSongSuggestions(
       year,
       coverUrl: row.coverUrl ?? null,
       label: suggestionLabel(title, artist, year),
-      href: trackSuggestionHref(title, row.href),
+      href,
       routeQuery: title,
     });
   }
@@ -199,6 +205,8 @@ function buildAlbumSuggestions(
     }
     seen.add(key);
     const year = row.year != null && row.year > 0 ? row.year : null;
+    const href = albumSuggestionHref(title, row.href);
+    if (!href) continue;
     items.push({
       id: suggestionId("album", key),
       kind: "album",
@@ -207,7 +215,7 @@ function buildAlbumSuggestions(
       year,
       coverUrl: row.coverUrl ?? null,
       label: suggestionLabel(title, artist, year),
-      href: albumSuggestionHref(title, row.href),
+      href,
       routeQuery: title,
     });
   }

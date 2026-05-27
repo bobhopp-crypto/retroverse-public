@@ -47,6 +47,7 @@ export function entitiesToSuggestionGroups(
   };
 
   for (const entity of entities) {
+    if (!entity.href?.trim()) continue;
     const item = entityToItem(entity);
     if (entity.entityType === "artist") groups.artists.push(item);
     else if (entity.entityType === "track") groups.songs.push(item);

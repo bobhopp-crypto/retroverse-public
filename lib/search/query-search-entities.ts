@@ -1,12 +1,13 @@
 import "server-only";
 
-import { artistPagePath } from "@/lib/artist/resolve-artist";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { dedupeSearchEntities } from "@/lib/search/dedupe-search-entities";
 import { refineOverlayEntities } from "@/lib/search/refine-overlay-entities";
 import {
   albumSuggestionHref,
+  coerceArtistPublicHref,
+  coerceTrackPublicHref,
   trackPageHref,
   yearSuggestionHref,
 } from "@/lib/search/entity-routes";
@@ -47,15 +48,24 @@ function sanitizePattern(query: string): string {
   return normalizeSearchLabel(query).replace(/[%_]/g, "");
 }
 
-function entityHref(row: EntityRow): string {
+function entityHref(row: EntityRow): string | null {
   const type = row.entity_type as SearchEntityType;
   if (type === "artist") {
-    const slug = row.slug?.trim() || slugFromArtistName(row.label);
-    return artistPagePath(row.label) || `/artist/${slug}`;
+    const upstream =
+      row.slug?.trim() && !/^RVAR\d{6}$/i.test(row.slug.trim())
+        ? `/artist/${row.slug.trim().toLowerCase()}`
+        : null;
+    return (
+      coerceArtistPublicHref(row.label, upstream) ??
+      coerceArtistPublicHref(row.label, null)
+    );
   }
   if (type === "track") {
     const id = row.rv_id?.trim() || row.slug?.trim() || row.label;
-    return trackPageHref(id);
+    return (
+      coerceTrackPublicHref(row.label, row.rv_id ? `/tracks/${row.rv_id}` : null, id) ??
+      trackPageHref(id)
+    );
   }
   if (type === "album") {
     return albumSuggestionHref(
@@ -67,7 +77,7 @@ function entityHref(row: EntityRow): string {
     const y = row.release_year ?? Number.parseInt(row.label, 10);
     if (Number.isFinite(y)) return yearSuggestionHref(y);
   }
-  return "/";
+  return null;
 }
 
 function rowToEntity(row: EntityRow): SearchEntity {
@@ -78,7 +88,7 @@ function rowToEntity(row: EntityRow): SearchEntity {
     normalizedLabel: row.normalized_label,
     rvId: row.rv_id,
     slug: row.slug?.trim() || slugFromArtistName(row.label),
-    href: entityHref(row),
+    href: entityHref(row) ?? "",
     artist: row.artist_name,
     year: row.release_year,
     // Overlay is a lightweight archive drawer; cover art is a hydration-time concern.

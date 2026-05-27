@@ -218,7 +218,9 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
       releaseYear: row.release_year,
       rval,
       coverUrl: pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key),
-      href: albumSuggestionHref(row.title.trim(), rval ? `/albums/${rval}` : null),
+      href:
+        albumSuggestionHref(row.title.trim(), rval ? `/albums/${rval}` : null) ??
+        `/album/${row.title.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`,
     };
   });
 

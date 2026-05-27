@@ -1,6 +1,6 @@
 import "server-only";
 
-import { artistPagePath } from "@/lib/artist/resolve-artist";
+import { coerceArtistPublicHref } from "@/lib/search/entity-routes";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { coverPathToUrl } from "@/lib/artist/cover-url";
 import { albumSuggestionHref } from "@/lib/search/entity-routes";
@@ -95,7 +95,7 @@ export async function loadPgPrefixSearchPayload(
     artists: artistRows.map((row) => ({
       kind: "artist" as const,
       name: row.canonical_name,
-      href: artistPagePath(row.canonical_name),
+      href: coerceArtistPublicHref(row.canonical_name, null) ?? "",
       coverUrl: coverPathToUrl(row.cover_path),
     })),
     tracks: trackRows.map((row) => ({
@@ -107,17 +107,23 @@ export async function loadPgPrefixSearchPayload(
       year: null,
       coverUrl: null,
     })),
-    albums: albumRows.map((row) => ({
-      kind: "album" as const,
-      title: row.title,
-      artist: row.artist_name,
-      year: row.release_year,
-      href: albumSuggestionHref(
-        row.title,
-        row.rval ? `/albums/${row.rval}` : null,
-      ),
-      coverUrl: coverPathToUrl(row.cover_path),
-    })),
+    albums: albumRows
+      .map((row) => {
+        const href = albumSuggestionHref(
+          row.title,
+          row.rval ? `/albums/${row.rval}` : null,
+        );
+        if (!href) return null;
+        return {
+          kind: "album" as const,
+          title: row.title,
+          artist: row.artist_name,
+          year: row.release_year,
+          href,
+          coverUrl: coverPathToUrl(row.cover_path),
+        };
+      })
+      .filter((row): row is NonNullable<typeof row> => row != null),
     charts: [],
     incomplete: true,
   };

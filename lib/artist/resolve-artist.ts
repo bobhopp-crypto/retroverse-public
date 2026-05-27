@@ -52,8 +52,9 @@ async function resolveArtistId(
 }
 
 /** Public artist exhibit route — slug matches search + `/artist/[slug]`. */
-export function artistPagePath(name: string): string {
-  return `/artist/${slugFromArtistName(name)}`;
+export function artistPagePath(name: string): string | null {
+  const slug = slugFromArtistName(name);
+  return slug ? `/artist/${slug}` : null;
 }
 
 async function resolveArtistFromSlugImpl(slug: string): Promise<{

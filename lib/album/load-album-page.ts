@@ -237,12 +237,14 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
         rval: relatedRval,
         b200Peak: row.b200_peak,
         coverUrl: pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key),
-        href: albumSuggestionHref(
-          row.title.trim(),
-          relatedRval ? `/albums/${relatedRval}` : null,
-        ),
+        href:
+          albumSuggestionHref(
+            row.title.trim(),
+            relatedRval ? `/albums/${relatedRval}` : null,
+          ) ?? "",
       };
-    });
+    })
+    .filter((row) => row.href.startsWith("/album/"));
 
   const rvYear = releaseYear ?? yearFromDate(firstChartDate ?? trajectoryWeeks[0]?.issueDate);
 

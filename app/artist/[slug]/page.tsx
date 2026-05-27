@@ -55,6 +55,7 @@ export default async function ArtistPage({ params }: Props) {
                 album.title,
                 album.rval ? `/albums/${album.rval}` : null,
               );
+              if (!href) return null;
               return (
                 <a key={album.pgAlbumId} className="artist-album-tile" href={href}>
                   <ArtistCover
@@ -151,17 +152,19 @@ export default async function ArtistPage({ params }: Props) {
               fallbackClassName="artist-era__cover artist-album-tile__fallback"
             />
           </div>
-          {data.chartAlbumSpotlight.rval ? (
-            <a
-              className="artist-era__cta"
-              href={albumSuggestionHref(
-                data.chartAlbumSpotlight.albumTitle,
-                `/albums/${data.chartAlbumSpotlight.rval}`,
-              )}
-            >
-              {data.chartAlbumSpotlight.albumTitle}
-            </a>
-          ) : null}
+          {(() => {
+            const eraHref = data.chartAlbumSpotlight.rval
+              ? albumSuggestionHref(
+                  data.chartAlbumSpotlight.albumTitle,
+                  `/albums/${data.chartAlbumSpotlight.rval}`,
+                )
+              : null;
+            return eraHref ? (
+              <a className="artist-era__cta" href={eraHref}>
+                {data.chartAlbumSpotlight.albumTitle}
+              </a>
+            ) : null;
+          })()}
         </section>
       )}
 

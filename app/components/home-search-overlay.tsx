@@ -13,6 +13,8 @@ import {
   pickFirstSuggestion,
   suggestionGroupsHaveResults,
 } from "@/lib/search/pick-first-suggestion";
+import { sanitizePublicNavigationHref } from "@/lib/search/entity-routes";
+import { warnSearchRouteIssue } from "@/lib/search/log-search-route";
 import { resolveSuggestionHref } from "@/lib/search/resolve-suggestion-href";
 import {
   isRvYearOnlyQuery,
@@ -92,8 +94,13 @@ export function HomeSearchOverlay({ onClose }: Props) {
 
   const navigateTo = useCallback(
     (href: string) => {
+      const target = sanitizePublicNavigationHref(href);
+      if (!target) {
+        warnSearchRouteIssue("blocked-nav", { href });
+        return;
+      }
       onClose();
-      router.push(href);
+      router.push(target);
     },
     [router, onClose],
   );

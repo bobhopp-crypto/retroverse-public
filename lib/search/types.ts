@@ -41,6 +41,8 @@ export type ArtistChartResult = {
   coverUrl?: string;
   /** Set for `kind: "artist"` — links to `/artist/[slug]` on retroverse.live */
   artistHref?: string;
+  /** Same target as artistHref — used by discover cards */
+  href?: string;
 };
 
 export type SearchPanels = {
