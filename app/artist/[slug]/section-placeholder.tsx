@@ -13,7 +13,9 @@ export function ArtistSectionPlaceholder({ slug, title, displayName }: Props) {
         ← {displayName}
       </Link>
       <h2 className="artist-placeholder__title">{title}</h2>
-      <p className="artist-placeholder__note">Full view coming soon.</p>
+      <p className="artist-placeholder__note">
+        Nothing in the archive for this section yet.
+      </p>
     </div>
   );
 }

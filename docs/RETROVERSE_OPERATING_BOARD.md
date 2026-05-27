@@ -1,8 +1,8 @@
 # Retroverse Operating Board
 
 **Purpose:** Operational truth for RETROVERSE_PUBLIC — what is live, locked, local-only, and next.  
-**Updated:** 2026-05-25 (final board stabilization)  
-**Source of truth:** Deployed behavior at https://retroverse.live + commit `3c00d6f` on `main`
+**Updated:** 2026-05-27 (artist exhibit baseline)  
+**Source of truth:** Deployed behavior at https://retroverse.live + commit on `main`
 
 ---
 
@@ -48,6 +48,7 @@
 | Navigation integrity — Tier A / B1 / B2 | **DONE** — `e48fee9` → `a6fdf83` |
 | Homepage search overlay v1 | **DONE** — `b74f32c` → `3c00d6f` |
 | Songs section (v1) | **DONE** — locked |
+| Artist exhibit continuity | **DONE** — vertical mobile baseline; charts explorer on `/charts` only |
 | RV History on `/search` | **DONE** — locked |
 | `/search` monolithic page | **LIVE interim** — frozen; do not extend |
 | Album-link recovery audit | **DONE** code (`4c94d19`); writes not live on track pages |
@@ -146,7 +147,23 @@ Public site, overlay search API, `/search` interim page, album-link audit code +
 | B1 — persistent artist exhibit shell | `a2e1689` |
 | B2 — URL-addressable chart state (`/artist/[slug]/charts`) | `a6fdf83` |
 
-Remaining: B2 client-hydrated only; charts route still heavy; mode nav pills incomplete.
+Remaining: charts route still heavy (~2.5–3s); exhibit nav Library pill may land on honest empty state when no VDJ media.
+
+---
+
+## Artist exhibit continuity (DONE)
+
+| Change | Notes |
+|--------|--------|
+| Main exhibit | Vertical one-column flow; no horizontal album/library rails |
+| Chart explorer | Moved off main exhibit → `/artist/[slug]/charts` only |
+| Chart highlights | Stats panel on main + link to charts sub-route |
+| Dominant years | Suppressed on main when no Hot 100 year data |
+| Related artists | Vertical cards + PG co-chart fallback |
+| Placeholder sub-routes | Honest empty copy (no “coming soon”) when section has no data |
+| CSS | Restored `.artist-footer-nav` selector |
+
+Anchors: `app/artist/[slug]/page.tsx`, `artist-page.css`, `load-artist-page.ts`, `load-related-artists.ts`
 
 ---
 
