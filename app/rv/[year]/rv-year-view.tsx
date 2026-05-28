@@ -3,14 +3,20 @@
 import Link from "next/link";
 import { useMemo } from "react";
 
-import { ArtistChartsHistoryClient } from "@/app/artist/[slug]/artist-charts-history-client";
 import {
   isUsableChartHistory,
   normalizeArtistChartHistory,
 } from "@/lib/artist/chart-history";
 import type { ArtistChartHistory } from "@/lib/artist/chart-history-types";
+import {
+  isAlbumChartSnapshot,
+  monthChartSnapshotGroups,
+  monthLabel,
+  weeklyEntriesFromHistory,
+} from "@/lib/artist/chart-history-display";
 import { rvYearEditorial } from "@/lib/rv-year/rv-year-editorial";
 import { rvYearStats } from "@/lib/rv-year/rv-year-stats";
+import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
 import { MAX_RV_YEAR, MIN_RV_YEAR } from "@/lib/search/normalize-rv-year";
 
 import "@/app/artist/[slug]/artist-charts-history.css";
@@ -20,6 +26,27 @@ type RvYearViewProps = {
   rvYear: number;
   history: ArtistChartHistory;
 };
+
+function monthFullName(month: number): string {
+  const d = new Date(2000, Math.max(0, Math.min(11, month - 1)), 1);
+  return d.toLocaleString("en-US", { month: "long" });
+}
+
+function monthSnapshotHref(
+  snapshot:
+    | {
+        trackId: string;
+        title: string;
+        chartName: string;
+      }
+    | undefined,
+): string | null {
+  if (!snapshot) return null;
+  if (isAlbumChartSnapshot(snapshot as never)) {
+    return albumSuggestionHref(snapshot.title, null);
+  }
+  return trackPageHref(snapshot.trackId || snapshot.title);
+}
 
 export function RvYearView({ rvYear, history }: RvYearViewProps) {
   const artistName = `RV ${rvYear}`;
@@ -36,14 +63,45 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
     return rvYearStats(safeHistory, rvYear);
   }, [safeHistory, rvYear]);
 
+  const monthCards = useMemo(() => {
+    if (!safeHistory) return [];
+    const weekly = weeklyEntriesFromHistory(safeHistory);
+    return Array.from({ length: 12 }, (_, idx) => {
+      const month = idx + 1;
+      const groups = monthChartSnapshotGroups(weekly, rvYear, month, 3);
+      const song = groups.singleSnapshots[0] ?? null;
+      const album = groups.albumSnapshots[0] ?? null;
+      const notable = [...groups.singleSnapshots, ...groups.albumSnapshots]
+        .slice(0, 4)
+        .map((row) => ({
+          id: row.id,
+          title: row.title,
+          artist: row.artist,
+          href: monthSnapshotHref(row),
+          isAlbum: isAlbumChartSnapshot(row),
+        }));
+      const weekDates = new Set(
+        weekly
+          .filter((entry) => entry.year === rvYear && entry.month === month)
+          .map((entry) => entry.chartDate),
+      );
+      return {
+        month,
+        song,
+        album,
+        notable,
+        weeks: weekDates.size,
+        hasActivity: weekDates.size > 0,
+      };
+    });
+  }, [safeHistory, rvYear]);
+
   if (!safeHistory || !isUsableChartHistory(safeHistory)) {
     return null;
   }
 
   const prevYear = rvYear > MIN_RV_YEAR ? rvYear - 1 : null;
   const nextYear = rvYear < MAX_RV_YEAR ? rvYear + 1 : null;
-  const stackKey = `${rvYear}-${safeHistory.activeYears.join(",")}-${safeHistory.entries.length}`;
-
   return (
     <div className="rv-year-world">
       <div className="rv-year-world__grain" aria-hidden />
@@ -105,7 +163,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
       <div className="rv-year-bridge">
         <h2 className="rv-year-bridge__title">Chart chronicle</h2>
         <p className="rv-year-bridge__hint">
-          Pick a month — each week reveals who held #1. Tap a chart card to open the artist, album, or track exhibit.
+          Twelve months of #1 movement. Open any month card to continue into the same artist, album, and track exhibits.
         </p>
         <p className="rv-year-bridge__continuity">
           Shorthand direction: <strong>67</strong>, <strong>78</strong>, <strong>92</strong> map to RV year worlds.
@@ -114,14 +172,81 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
       </div>
 
       <section className="rv-year-chronicle" aria-label={`${rvYear} chart chronicle`}>
-        <ArtistChartsHistoryClient
-          key={stackKey}
-          artistName={artistName}
-          history={safeHistory}
-          highlightTrackIds={[]}
-          hideBanner
-          initialRvYear={rvYear}
-        />
+        <div className="rv-month-stack">
+          {monthCards.map((card) => {
+            const monthAnchor = `month-${monthLabel(card.month).toLowerCase()}`;
+            const openHref =
+              monthSnapshotHref(card.song ?? undefined) ??
+              monthSnapshotHref(card.album ?? undefined) ??
+              `/search?q=${encodeURIComponent(`${monthFullName(card.month)} ${rvYear}`)}`;
+            return (
+              <article key={card.month} id={monthAnchor} className="rv-month-card">
+                <header className="rv-month-card__head">
+                  <p className="rv-month-card__kicker">Month {String(card.month).padStart(2, "0")}</p>
+                  <h3 className="rv-month-card__month">{monthFullName(card.month).toUpperCase()}</h3>
+                  <p className="rv-month-card__meta">
+                    {card.hasActivity ? `${card.weeks} chart weeks captured` : "No chart weeks captured"}
+                  </p>
+                </header>
+
+                <div className="rv-month-card__leaders">
+                  <div className="rv-month-card__leader">
+                    <p className="rv-month-card__label">#1 Song</p>
+                    {card.song ? (
+                      <Link href={monthSnapshotHref(card.song) ?? openHref} prefetch className="rv-month-card__value">
+                        {card.song.title} · {card.song.artist}
+                      </Link>
+                    ) : (
+                      <p className="rv-month-card__value rv-month-card__value--muted">No Hot 100 #1 captured</p>
+                    )}
+                  </div>
+
+                  <div className="rv-month-card__leader">
+                    <p className="rv-month-card__label">#1 Album</p>
+                    {card.album ? (
+                      <Link href={monthSnapshotHref(card.album) ?? openHref} prefetch className="rv-month-card__value">
+                        {card.album.title} · {card.album.artist}
+                      </Link>
+                    ) : (
+                      <p className="rv-month-card__value rv-month-card__value--muted">No Album 200 #1 captured</p>
+                    )}
+                  </div>
+                </div>
+
+                {card.notable.length > 0 ? (
+                  <ul className="rv-month-card__notable" aria-label={`${monthFullName(card.month)} notable chart entries`}>
+                    {card.notable.slice(0, 3).map((item) => (
+                      <li key={item.id}>
+                        {item.href ? (
+                          <Link href={item.href} prefetch>
+                            {item.isAlbum ? "Album" : "Song"} · {item.title} · {item.artist}
+                          </Link>
+                        ) : (
+                          <span>
+                            {item.isAlbum ? "Album" : "Song"} · {item.title} · {item.artist}
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+
+                <div className="rv-month-card__actions">
+                  <Link href={openHref} prefetch className="rv-month-card__open">
+                    Open month
+                  </Link>
+                  <Link
+                    href={`/search?q=${encodeURIComponent(`${monthFullName(card.month)} ${rvYear} chart`)}`}
+                    prefetch
+                    className="rv-month-card__weeks"
+                  >
+                    View weeks
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </section>
 
       <footer className="rv-year-footer">

@@ -244,9 +244,130 @@
   margin: 0;
 }
 
-.rv-year-chronicle .charts-history {
-  border-top: var(--frame);
-  border-bottom: var(--frame);
+.rv-month-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 0 1rem;
+}
+
+.rv-month-card {
+  border: var(--frame);
+  border-radius: 4px;
+  background: #fff8ee;
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.18);
+  padding: 0.8rem 0.85rem;
+}
+
+.rv-month-card__head {
+  margin-bottom: 0.55rem;
+}
+
+.rv-month-card__kicker {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.72);
+}
+
+.rv-month-card__month {
+  margin: 0.22rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.rv-month-card__meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(45, 62, 70, 0.8);
+}
+
+.rv-month-card__leaders {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.42rem;
+}
+
+.rv-month-card__label {
+  margin: 0;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(31, 94, 99, 0.88);
+}
+
+.rv-month-card__value {
+  margin: 0.14rem 0 0;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.93rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.rv-month-card__value--muted {
+  color: rgba(45, 62, 70, 0.62);
+}
+
+.rv-month-card__value:hover {
+  text-decoration: underline;
+}
+
+.rv-month-card__notable {
+  margin: 0.6rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.rv-month-card__notable li,
+.rv-month-card__notable a {
+  font-size: 0.83rem;
+  line-height: 1.3;
+  color: rgba(45, 62, 70, 0.9);
+}
+
+.rv-month-card__notable a {
+  text-decoration: none;
+}
+
+.rv-month-card__notable a:hover {
+  text-decoration: underline;
+}
+
+.rv-month-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+.rv-month-card__open,
+.rv-month-card__weeks {
+  text-decoration: none;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid rgba(31, 94, 99, 0.44);
+  border-radius: 3px;
+  padding: 0.4rem 0.55rem;
+  color: var(--teal-deep);
+}
+
+.rv-month-card__open {
+  background: rgba(31, 94, 99, 0.09);
+}
+
+.rv-month-card__open:hover,
+.rv-month-card__weeks:hover {
+  background: rgba(31, 94, 99, 0.15);
 }
 
 .rv-year-footer {
@@ -289,7 +410,11 @@
   }
 
   .rv-year-chronicle {
-    max-width: 52rem;
+    max-width: 62rem;
     margin-inline: auto;
+  }
+
+  .rv-month-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
