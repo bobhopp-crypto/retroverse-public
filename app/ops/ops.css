@@ -918,3 +918,210 @@
   color: var(--ok);
 }
 
+/* —— Cover review workbench (RV12) —— */
+
+.ops-cover-review__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dim);
+}
+
+.ops-cover-review__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.ops-cover-review__card {
+  border: 2px solid var(--grid);
+  background: var(--panel);
+  padding: 1rem;
+}
+
+.ops-cover-review__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.ops-cover-review__title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.ops-cover-review__meta {
+  margin: 0.35rem 0 0;
+  color: var(--dim);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.ops-cover-review__issue {
+  margin: 0 0 1rem;
+  font-size: 0.82rem;
+  color: var(--warn);
+  word-break: break-word;
+}
+
+.ops-cover-review__covers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 720px) {
+  .ops-cover-review__covers {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ops-cover-review__covers figure {
+  margin: 0;
+  border: 1px solid var(--grid);
+  padding: 0.65rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.ops-cover-review__covers figcaption {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  margin-bottom: 0.5rem;
+}
+
+.ops-cover-review__covers img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border: 1px solid var(--grid);
+  object-fit: contain;
+  background: #000;
+}
+
+.ops-cover-review__covers code {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.68rem;
+  word-break: break-all;
+  color: var(--dim);
+}
+
+.ops-cover-review__hash {
+  opacity: 0.75;
+}
+
+.ops-cover-review__reason {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--dim);
+  line-height: 1.35;
+}
+
+.ops-cover-review__notes {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--dim);
+}
+
+.ops-cover-review__notes textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.5rem;
+  background: var(--panel-2);
+  border: 1px solid var(--grid);
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.ops-cover-review__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ops-cover-review__btn {
+  padding: 0.45rem 0.75rem;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 2px solid var(--grid);
+  background: var(--panel-2);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.ops-cover-review__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.ops-cover-review__btn--approve {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.ops-cover-review__btn--reject {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.ops-cover-review__btn--ghost {
+  background: transparent;
+}
+
+.ops-cover-review__badge {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 2px solid var(--grid);
+}
+
+.ops-cover-review__badge--approve {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.ops-cover-review__badge--reject {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.ops-cover-review__badge--skip {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+.ops-cover-review__error {
+  color: var(--bad);
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+
+.ops-cover-review__hint {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+}
+

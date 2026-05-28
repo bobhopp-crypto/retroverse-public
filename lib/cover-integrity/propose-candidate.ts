@@ -1,5 +1,6 @@
 import { coverPathToUrl } from "@/lib/artist/cover-url";
-import { artistSlugFromName, slugFromNormalizedLabel as albumSlugFromTitle } from "@/lib/cover-integrity/normalize";
+import { artistSlugFromName } from "@/lib/cover-integrity/normalize";
+import { slugFromNormalizedLabel } from "@/lib/search/normalize-search-label";
 import { defaultCoverFsRoot, resolveCoverFilePath } from "@/lib/cover-integrity/score";
 import type { ScoredCoverWithTrust } from "@/lib/cover-integrity/trust-tier";
 
@@ -36,7 +37,7 @@ function expectedCanonicalRelPath(
   album: string,
 ): string {
   const artistSlug = artistSlugFromName(artist);
-  const albumSlug = albumSlugFromTitle(album);
+  const albumSlug = slugFromNormalizedLabel(album);
   return `retroverse/covers/${rval}/${rval}__${artistSlug}__${albumSlug}.jpg`;
 }
 
