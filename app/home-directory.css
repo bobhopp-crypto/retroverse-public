@@ -147,15 +147,20 @@ main.home-directory::before {
   gap: 0.65rem;
 }
 
-.home-directory__pad {
+.home-directory__pad,
+button.home-directory__pad {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 4.5rem;
   padding: 0.75rem 0.8rem 0.75rem 0.95rem;
+  margin: 0;
+  font: inherit;
   text-decoration: none;
   color: var(--home-ink);
+  appearance: none;
+  -webkit-appearance: none;
   background: linear-gradient(180deg, #fcf6ec 0%, #f6eedc 100%);
   border: 2px solid rgba(45, 62, 70, 0.26);
   border-radius: 2px;

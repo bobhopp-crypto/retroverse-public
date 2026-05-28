@@ -21,6 +21,12 @@ import {
   resolveRvYearOnlyQuery,
 } from "@/lib/rv-year/rv-year-intent";
 import { yearSuggestionHref } from "@/lib/search/entity-routes";
+import {
+  filterSuggestionGroupsByScope,
+  scopeSearchLabel,
+  scopeSearchPlaceholder,
+  type HomeSearchScope,
+} from "@/lib/search/home-search-scope";
 
 import { HomeSearchOverlayRecovery } from "./home-search-overlay-recovery";
 import { HomeSearchOverlaySearching } from "./home-search-overlay-searching";
@@ -33,9 +39,10 @@ type OverlayPhase = "idle" | "year" | "searching" | "results" | "empty" | "error
 
 type Props = {
   onClose: () => void;
+  scope?: HomeSearchScope;
 };
 
-export function HomeSearchOverlay({ onClose }: Props) {
+export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const requestIdRef = useRef(0);
@@ -49,7 +56,12 @@ export function HomeSearchOverlay({ onClose }: Props) {
 
   const trimmed = query.trim();
   const isYearPowerRoute = isRvYearOnlyQuery(trimmed);
-  const hasResults = suggestionGroupsHaveResults(suggestions);
+  const displaySuggestions = useMemo(
+    () => filterSuggestionGroupsByScope(suggestions, scope),
+    [suggestions, scope],
+  );
+  const hasResults = suggestionGroupsHaveResults(displaySuggestions);
+  const scopeLabel = scopeSearchLabel(scope);
 
   const phase: OverlayPhase = useMemo(() => {
     if (trimmed.length < 2) return "idle";
@@ -112,7 +124,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
       navigateTo(yearSuggestionHref(resolvedYear));
       return;
     }
-    const first = pickFirstSuggestion(suggestions);
+    const first = pickFirstSuggestion(displaySuggestions);
     if (first) {
       routeFromSuggestion(first);
     }
@@ -122,6 +134,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
     suggestions,
     navigateTo,
     routeFromSuggestion,
+    displaySuggestions,
   ]);
 
   useEffect(() => {
@@ -200,7 +213,9 @@ export function HomeSearchOverlay({ onClose }: Props) {
       >
         <header className="home-search-overlay__chrome">
           <div className="home-search-overlay__top">
-            <p className="home-search-overlay__kicker">Archive terminal</p>
+            <p className="home-search-overlay__kicker">
+              {scopeLabel ? `Archive terminal · ${scopeLabel}` : "Archive terminal"}
+            </p>
             <button
               type="button"
               className="home-search-overlay__close"
@@ -219,7 +234,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
               autoComplete="off"
               spellCheck={false}
               enterKeyHint="go"
-              placeholder="Search the stacks…"
+              placeholder={scopeSearchPlaceholder(scope)}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => {
@@ -260,7 +275,7 @@ export function HomeSearchOverlay({ onClose }: Props) {
                 overlayMode
                 pending={suggestLoading}
                 highlightQuery={trimmed}
-                groups={suggestions}
+                groups={displaySuggestions}
                 loading={false}
                 rvYearIntent={rvYearIntent}
                 onSelect={routeFromSuggestion}

@@ -1,21 +1,41 @@
 "use client";
 
 import Link from "next/link";
+import { useCallback, useState } from "react";
+
+import type { HomeSearchScope } from "@/lib/search/home-search-scope";
 
 import { HomeSearchInput } from "./home-search-input";
 
-const ACCESS_PADS = [
-  { label: "Artists", href: "/browse/artists", hint: "Artist exhibits", tone: "teal" },
-  { label: "Albums", href: "/browse/albums", hint: "Album exhibits", tone: "brass" },
-  { label: "Tracks", href: "/browse/tracks", hint: "Song exhibits", tone: "orange" },
-  { label: "Charts", href: "/charts", hint: "Chart history", tone: "rust" },
-] as const;
+const SEARCH_PADS: {
+  label: string;
+  hint: string;
+  tone: "teal" | "brass" | "orange";
+  scope: HomeSearchScope;
+}[] = [
+  { label: "Artists", hint: "Search artists", tone: "teal", scope: "artists" },
+  { label: "Albums", hint: "Search albums", tone: "brass", scope: "albums" },
+  { label: "Tracks", hint: "Search songs", tone: "orange", scope: "songs" },
+];
 
 type Props = {
   opsEnabled: boolean;
 };
 
 export function HomeDirectory({ opsEnabled }: Props) {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchScope, setSearchScope] = useState<HomeSearchScope>("all");
+
+  const openScopedSearch = useCallback((scope: HomeSearchScope) => {
+    setSearchScope(scope);
+    setSearchOpen(true);
+  }, []);
+
+  const handleSearchOpenChange = useCallback((open: boolean) => {
+    setSearchOpen(open);
+    if (!open) setSearchScope("all");
+  }, []);
+
   return (
     <div className="home-directory__board">
       <div className="home-directory__mount" aria-hidden />
@@ -27,23 +47,35 @@ export function HomeDirectory({ opsEnabled }: Props) {
 
       <section className="home-directory__search" aria-label="Search the archive">
         <p className="home-directory__search-label">Primary terminal</p>
-        <HomeSearchInput />
+        <HomeSearchInput
+          open={searchOpen}
+          onOpenChange={handleSearchOpenChange}
+          scope={searchScope}
+        />
       </section>
 
       <nav className="home-directory__pads" aria-label="Browse the archive">
         <p className="home-directory__pads-label">Directory pads</p>
         <div className="home-directory__pads-grid">
-          {ACCESS_PADS.map((pad) => (
-            <Link
-              key={pad.href}
-              href={pad.href}
-              prefetch
+          {SEARCH_PADS.map((pad) => (
+            <button
+              key={pad.scope}
+              type="button"
               className={`home-directory__pad home-directory__pad--${pad.tone}`}
+              onClick={() => openScopedSearch(pad.scope)}
             >
               <span className="home-directory__pad-label">{pad.label}</span>
               <span className="home-directory__pad-hint">{pad.hint}</span>
-            </Link>
+            </button>
           ))}
+          <Link
+            href="/rv/1978"
+            prefetch
+            className="home-directory__pad home-directory__pad--rust"
+          >
+            <span className="home-directory__pad-label">Charts</span>
+            <span className="home-directory__pad-hint">RV chronology</span>
+          </Link>
         </div>
       </nav>
 
