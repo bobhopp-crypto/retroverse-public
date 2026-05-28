@@ -4,7 +4,7 @@
 **Scope:** Grounded in the current repo layout (May 2026). Do not treat this file as a product spec for unbuilt features.
 
 **Related guidance:** `.cursor/rules/retroverse-design.mdc`, `.cursor/rules/retroverse-data.mdc`  
-**Live priorities:** [RETROVERSE_OPERATING_BOARD.md](./RETROVERSE_OPERATING_BOARD.md)
+**Live priorities (single source of truth):** [RETROVERSE_OPERATING_BOARD.md](./RETROVERSE_OPERATING_BOARD.md) — only authoritative copy in repo; pull latest `main` if board looks poster-first or “search v1 complete”.
 
 ---
 

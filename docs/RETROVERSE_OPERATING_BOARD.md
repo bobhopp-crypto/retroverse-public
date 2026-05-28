@@ -1,8 +1,35 @@
 # Retroverse Operating Board
 
 **Purpose:** Operational truth for RETROVERSE_PUBLIC — what is live, locked, local-only, and next.  
-**Updated:** 2026-05-28 (homepage + public-search reality)  
-**Source of truth:** Deployed behavior at https://retroverse.live + `main` commit after deploy
+**Updated:** 2026-05-28 (source-of-truth audit)  
+**Also known as:** “Operating Board Live” — same document; no separate live file exists in this repo.
+
+---
+
+## Governance — single source of truth
+
+| Item | Value |
+|------|--------|
+| **Authoritative path** | `/Users/bobhopp/RETROVERSE_PUBLIC/docs/RETROVERSE_OPERATING_BOARD.md` |
+| **Duplicates in repo** | **None** — only this file |
+| **Not authoritative** | Cursor Canvas exports, chat summaries, GitHub `origin/main` if behind local `main`, any copy dated before `a042518` |
+| **Board doc commits** | `f78a9c1` (archive-first alignment) → `a042518` (homepage + public-search reality) |
+| **Related product commits** | Homepage pads `d9d770a`; browse redirect guard `03d8d82` |
+| **Verify you have current board** | File must contain sections: *Pads / search accelerator policy*, *Fail-open rendering policy*, *Public reliability governance*, and the line **Search “complete” / “v1 done” \| FALSE** |
+
+**Sync check:**
+
+```bash
+git log -1 --oneline -- docs/RETROVERSE_OPERATING_BOARD.md
+# expect: a042518 or later
+
+grep -c "directory board" docs/RETROVERSE_OPERATING_BOARD.md
+# expect: >= 1
+```
+
+If you still see **poster-first homepage** or **Search stabilization COMPLETE v1**, you are on a **stale branch, unpushed remote, or a non-repo copy** — not this file.
+
+**Production runtime truth:** https://retroverse.live + deployed SHA (may lag git until push).
 
 ---
 
@@ -20,7 +47,7 @@ Retroverse is a **navigable music archive**. Public behavior is judged on **prod
 
 **Not current focus:** poster/atmosphere passes, patina/stillness refinement, or declaring search “done.”
 
-**Board commit (docs):** `f78a9c1` and later on `main` — verify deployed SHA after push.
+**Board commit (docs):** `a042518` on local `main` — push to update `origin/main` and Canvas/GitHub views.
 
 ---
 
@@ -86,7 +113,7 @@ Retroverse is a **navigable music archive**. Public behavior is judged on **prod
 |-------|------|
 | **Homepage** | Directory board; **search-forward**; primary terminal always visible |
 | **Four pads** | Artists · Albums · Tracks · Charts — see [Pads / search accelerator policy](#pads--search-accelerator-policy) |
-| **No browse silos** | No `/browse/*` starter pages; no fake category destinations |
+| **No browse silos** | No `/browse/*` starter pages; legacy URLs redirect home (`03d8d82` `next.config.js`) |
 | **Overlay search** | Deterministic grouped PG entities; scoped filter when opened from a pad |
 | **Hydration** | Overlay lightweight; exhibits hydrate covers/charts/albums |
 | **Canonical IDs** | RVTR / RVAL / artist slug end-to-end |
