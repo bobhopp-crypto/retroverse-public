@@ -7,6 +7,8 @@ import type { SearchCountPart } from "@/lib/search/types";
 type SearchHeaderProps = {
   query: string;
   onQueryChange: (value: string) => void;
+  /** Enter — commit trimmed query to ?q= and run search flow. */
+  onQueryCommit?: () => void;
   queryDisplay: string;
   countsLabel: string;
   countParts: SearchCountPart[];
@@ -45,6 +47,7 @@ function SearchSaucerArt() {
 export function SearchHeader({
   query,
   onQueryChange,
+  onQueryCommit,
   queryDisplay,
   countsLabel,
   countParts,
@@ -82,7 +85,9 @@ export function SearchHeader({
           value={query}
           onChange={(e) => onQueryChange(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === "Enter") e.preventDefault();
+            if (e.key !== "Enter") return;
+            e.preventDefault();
+            onQueryCommit?.();
           }}
           autoComplete="off"
           autoFocus

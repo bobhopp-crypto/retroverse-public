@@ -86,7 +86,7 @@ function searchHasResults(
 }
 
 export default function SearchClient() {
-  const { query, setQuery, trimmedQuery } = useSearchQuery();
+  const { query, setQuery, commitQuery, trimmedQuery } = useSearchQuery();
   const [panels, setPanels] = useState<SearchPanels>(EMPTY_SEARCH_PANELS);
   const [canonicalHeader, setCanonicalHeader] = useState<string | null>(null);
   const [chartHistory, setChartHistory] = useState<SearchChartHistoryContext | null>(null);
@@ -253,6 +253,7 @@ export default function SearchClient() {
         <SearchHeader
           query={query}
           onQueryChange={setQuery}
+          onQueryCommit={commitQuery}
           queryDisplay={queryDisplay}
           countsLabel={countsLabel}
           countParts={countParts}

@@ -28,5 +28,14 @@ export function useSearchQuery() {
     [pathname, router, searchParams],
   );
 
-  return { query, setQuery, trimmedQuery: query.trim() };
+  /** Enter / explicit submit — trim and sync ?q= (idempotent with setQuery). */
+  const commitQuery = useCallback(
+    (value?: string) => {
+      const next = (value ?? query).trim();
+      setQuery(next);
+    },
+    [query, setQuery],
+  );
+
+  return { query, setQuery, commitQuery, trimmedQuery: query.trim() };
 }
