@@ -3,7 +3,10 @@ import Link from "next/link";
 
 import { OpsCoverTrainWorkbench } from "@/components/ops/OpsCoverTrainWorkbench";
 import { loadHashMatchIndexForBatch } from "@/lib/cover-integrity/load-cover-audit-csv";
-import { prepareTrainingBatchForUi } from "@/lib/cover-integrity/prepare-training-batch";
+import {
+  prepareTrainingBatchForUi,
+  type TrainingQueueReport,
+} from "@/lib/cover-integrity/prepare-training-batch";
 import type { RepairBatchCsvRow } from "@/lib/cover-integrity/load-repair-batch-csv";
 import { loadTrainingBatchRows, TRAINING_BATCH_SIZE } from "@/lib/cover-integrity/training-batch";
 import { loadTrainingDecisions } from "@/lib/rv12/training-decisions";
@@ -33,6 +36,7 @@ export default async function OpsCoverTrainPage() {
   let manifestRows: RepairBatchCsvRow[] = [];
   let hashMatches: Awaited<ReturnType<typeof loadHashMatchIndexForBatch>> = {};
   let loadError: string | null = null;
+  let queueReport: TrainingQueueReport | null = null;
 
   try {
     const loaded = await loadTrainingBatchRows();
@@ -42,6 +46,8 @@ export default async function OpsCoverTrainPage() {
     hashMatches = await loadHashMatchIndexForBatch(hashes);
     const prepared = await prepareTrainingBatchForUi(loaded.rows, hashMatches);
     batch = prepared.rows;
+    queueReport = prepared.queueReport;
+    console.info("[cover-train] queue report", queueReport);
   } catch (e) {
     loadError = e instanceof Error ? e.message : String(e);
   }
@@ -70,6 +76,13 @@ export default async function OpsCoverTrainPage() {
             ← Back
           </Link>
         </header>
+
+        {queueReport ? (
+          <p className="ops-cover-train__queue-report" aria-live="polite">
+            Queue: {queueReport.totalInManifest} loaded · {queueReport.removedIdentical}{" "}
+            removed (same image) · {queueReport.remaining} ready to review
+          </p>
+        ) : null}
 
         {loadError ? (
           <p className="ops-cover-train__error">

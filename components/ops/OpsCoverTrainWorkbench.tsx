@@ -7,8 +7,10 @@ import { OpsCoverInspectImage } from "@/components/ops/OpsCoverInspectImage";
 import type { CoverAuditHashRow } from "@/lib/cover-integrity/load-cover-audit-csv";
 import type { RepairBatchCsvRow } from "@/lib/cover-integrity/load-repair-batch-csv";
 import {
+  buildPathToHashIndex,
   getTrainingRowContext,
-  trainingSameImageNote,
+  isTrivialTrainingPair,
+  trainingCandidateSourceLabel,
   trainingWhyExplanation,
 } from "@/lib/cover-integrity/training-display";
 import type { CoverTrainingDecisionValue } from "@/lib/rv12/training-decisions";
@@ -35,10 +37,17 @@ export function OpsCoverTrainWorkbench({
   const [error, setError] = useState<string | null>(null);
   const [advancing, setAdvancing] = useState(false);
   const advanceStarted = useRef(false);
+  const skipTrivialStarted = useRef<string | null>(null);
+
+  const pathToHash = useMemo(
+    () => buildPathToHashIndex(batch, hashMatches),
+    [batch, hashMatches],
+  );
 
   useEffect(() => {
     setAdvancing(false);
     advanceStarted.current = false;
+    skipTrivialStarted.current = null;
   }, [batchId, batch.map((r) => r.rval).join(",")]);
 
   const pendingIndices = useMemo(
@@ -55,9 +64,9 @@ export function OpsCoverTrainWorkbench({
   const row = queue[safeIndex];
   const batchComplete = queue.length === 0 && batch.length > 0;
 
-  const ctx = row ? getTrainingRowContext(row, hashMatches) : null;
-  const whyText = row && ctx ? trainingWhyExplanation(row, ctx.replacement) : "";
-  const sameImageNote = ctx?.replacement ? trainingSameImageNote(ctx.replacement) : null;
+  const ctx = row ? getTrainingRowContext(row, hashMatches, pathToHash) : null;
+  const whyText = row && ctx ? trainingWhyExplanation(row, ctx.candidateSource) : "";
+  const candidateLabel = ctx ? trainingCandidateSourceLabel(ctx.candidateSource) : null;
 
   const completedCount = batch.filter((r) => decisions[r.rval]).length;
 
@@ -129,6 +138,14 @@ export function OpsCoverTrainWorkbench({
   );
 
   useEffect(() => {
+    if (!row || !ctx || saving || advancing) return;
+    if (!isTrivialTrainingPair(row, ctx)) return;
+    if (skipTrivialStarted.current === row.rval) return;
+    skipTrivialStarted.current = row.rval;
+    void saveDecision("correct");
+  }, [row, ctx, saving, advancing, saveDecision]);
+
+  useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const inField =
         e.target instanceof HTMLTextAreaElement || e.target instanceof HTMLInputElement;
@@ -195,17 +212,25 @@ export function OpsCoverTrainWorkbench({
 
   if (!row || !ctx) return null;
 
+  if (isTrivialTrainingPair(row, ctx)) {
+    return (
+      <p className="ops-cover-train__text" aria-live="polite">
+        Skipping a duplicate image pair…
+      </p>
+    );
+  }
+
   return (
     <div className="ops-cover-train">
       <p className="ops-cover-train__progress-bar" aria-live="polite">
         Progress: <strong>{completedCount}</strong> of {batch.length} completed
       </p>
 
-      <p className="ops-cover-train__question">Is Retroverse using the right album cover?</p>
+      <p className="ops-cover-train__task">Is this the correct album cover for this album?</p>
 
-      <header className="ops-cover-train__header">
-        <h2 className="ops-cover-train__artist">{row.artist}</h2>
-        <p className="ops-cover-train__album">{row.album}</p>
+      <header className="ops-cover-train__album-card">
+        <p className="ops-cover-train__artist">{row.artist}</p>
+        <h2 className="ops-cover-train__album-title">{row.album}</h2>
         {row.releaseYear != null ? (
           <p className="ops-cover-train__year">{row.releaseYear}</p>
         ) : null}
@@ -221,23 +246,32 @@ export function OpsCoverTrainWorkbench({
       <div className="ops-cover-train__pair">
         <figure className="ops-cover-train__pane">
           <figcaption>Current Cover</figcaption>
-          <OpsCoverInspectImage
-            path={row.currentCoverPath}
-            label="Current cover"
-            className="ops-cover-train__art"
-          />
+          <div className="ops-cover-train__frame">
+            <OpsCoverInspectImage
+              path={row.currentCoverPath}
+              label="Current cover"
+              className="ops-cover-train__art"
+              fit="contain"
+            />
+          </div>
         </figure>
         <figure className="ops-cover-train__pane">
           <figcaption>Possible Better Cover</figcaption>
-          {sameImageNote ? (
-            <p className="ops-cover-train__same-image-note">{sameImageNote}</p>
+          {candidateLabel ? (
+            <p className="ops-cover-train__candidate-source">
+              <span className="ops-cover-train__candidate-source-label">Candidate source:</span>
+              {candidateLabel}
+            </p>
           ) : null}
           {ctx.proposedPath ? (
-            <OpsCoverInspectImage
-              path={ctx.proposedPath}
-              label="Possible better cover"
-              className="ops-cover-train__art"
-            />
+            <div className="ops-cover-train__frame">
+              <OpsCoverInspectImage
+                path={ctx.proposedPath}
+                label="Possible better cover"
+                className="ops-cover-train__art"
+                fit="contain"
+              />
+            </div>
           ) : (
             <div className="ops-cover-train__empty">
               No other picture to compare yet. If the current cover looks wrong, choose
@@ -261,7 +295,7 @@ export function OpsCoverTrainWorkbench({
         <button
           type="button"
           className="ops-cover-train__choice ops-cover-train__choice--use"
-          disabled={saving}
+          disabled={saving || !ctx.proposedPath}
           onClick={() => void saveDecision("wrong")}
         >
           <span className="ops-cover-train__choice-label">Use Suggested</span>

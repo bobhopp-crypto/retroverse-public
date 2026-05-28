@@ -3,7 +3,8 @@ import type { RepairBatchCsvRow } from "@/lib/cover-integrity/load-repair-batch-
 import { isSafeCanonicalCoverPath } from "@/lib/cover-integrity/validate-cover-path";
 
 export type TrainingRowContext = {
-  replacement: CoverAuditHashRow | null;
+  /** Album the candidate image is associated with (may differ from row under review). */
+  candidateSource: CoverAuditHashRow | null;
   proposedPath: string | null;
   proposedHash: string | null;
 };
@@ -17,44 +18,94 @@ export function siblingReplacement(
   return siblings.find((s) => s.rval !== row.rval) ?? null;
 }
 
+function normalizeHash(hash: string | null | undefined): string {
+  return (hash ?? "").trim().toLowerCase();
+}
+
+function normalizePath(path: string | null | undefined): string {
+  return (path ?? "").trim();
+}
+
 export function getTrainingRowContext(
   row: RepairBatchCsvRow,
   hashMatches: Record<string, CoverAuditHashRow[]>,
+  pathToHash?: Map<string, string>,
 ): TrainingRowContext {
   const replacement = siblingReplacement(row, hashMatches);
-  const proposedPath =
-    isSafeCanonicalCoverPath(row.proposedCoverUrlOrPath)
-      ? row.proposedCoverUrlOrPath
-      : replacement?.canonicalPath ?? null;
-  const proposedHash = replacement?.fileHash ?? row.currentHash ?? null;
-  return { replacement, proposedPath, proposedHash };
+  const curHash = normalizeHash(row.currentHash);
+  const curPath = normalizePath(row.currentCoverPath);
+
+  const csvPath = isSafeCanonicalCoverPath(row.proposedCoverUrlOrPath)
+    ? normalizePath(row.proposedCoverUrlOrPath)
+    : "";
+
+  let proposedPath: string | null = null;
+  let proposedHash: string | null = null;
+  let candidateSource: CoverAuditHashRow | null = null;
+
+  if (csvPath && csvPath !== curPath) {
+    const csvHash = normalizeHash(pathToHash?.get(csvPath) ?? null);
+    if (!csvHash || csvHash !== curHash) {
+      proposedPath = csvPath;
+      proposedHash = csvHash || null;
+    }
+  }
+
+  if (replacement) {
+    const sibHash = normalizeHash(replacement.fileHash);
+    const sibPath = normalizePath(replacement.canonicalPath);
+
+    if (sibHash && sibHash !== curHash && sibPath) {
+      candidateSource = replacement;
+      if (!proposedPath) {
+        proposedPath = sibPath;
+        proposedHash = sibHash;
+      }
+    } else if (sibHash === curHash && sibHash) {
+      candidateSource = replacement;
+    }
+  }
+
+  return { candidateSource, proposedPath, proposedHash };
 }
 
-/** Skip when both sides would show the same image — nothing useful to decide. */
+/** True when both sides would show the same bytes — never show in training. */
 export function isTrivialTrainingPair(
   row: RepairBatchCsvRow,
   ctx: TrainingRowContext,
 ): boolean {
-  const curPath = row.currentCoverPath?.trim() ?? "";
-  const propPath = ctx.proposedPath?.trim() ?? "";
+  const curHash = normalizeHash(row.currentHash);
+  const propHash = normalizeHash(ctx.proposedHash);
+  const curPath = normalizePath(row.currentCoverPath);
+  const propPath = normalizePath(ctx.proposedPath);
 
   if (curPath && propPath && curPath === propPath) return true;
 
-  if (ctx.replacement) return false;
+  if (curHash && propHash && curHash === propHash) return true;
 
-  const curHash = row.currentHash?.trim() ?? "";
-  const propHash = ctx.proposedHash?.trim() ?? "";
-  if (curHash && propHash && curHash === propHash) {
-    if (propPath && curPath && propPath !== curPath) return false;
-    return true;
+  if (curHash && ctx.candidateSource) {
+    const sourceHash = normalizeHash(ctx.candidateSource.fileHash);
+    if (sourceHash === curHash && !propPath) return true;
+    if (sourceHash === curHash && propPath && propHash === curHash) return true;
   }
+
+  if (curHash && !propPath && ctx.candidateSource) return true;
 
   return false;
 }
 
+export function trainingCandidateSourceLabel(
+  source: CoverAuditHashRow | null,
+): string | null {
+  if (!source) return null;
+  const artist = source.artist?.trim() || "Unknown artist";
+  const album = source.album?.trim();
+  return album ? `${artist} — ${album}` : artist;
+}
+
 export function trainingWhyExplanation(
   row: RepairBatchCsvRow,
-  replacement: CoverAuditHashRow | null,
+  candidateSource: CoverAuditHashRow | null,
 ): string {
   const artist = row.artist?.trim() || "This artist";
   const album = row.album?.trim() || "this album";
@@ -65,9 +116,9 @@ export function trainingWhyExplanation(
     return "Retroverse does not have a cover image for this album yet.";
   }
 
-  if (replacement) {
-    const otherAlbum = replacement.album?.trim() || "another album";
-    const otherArtist = replacement.artist?.trim() || artist;
+  if (candidateSource) {
+    const otherAlbum = candidateSource.album?.trim() || "another album";
+    const otherArtist = candidateSource.artist?.trim() || artist;
     if (otherArtist.toLowerCase() === artist.toLowerCase()) {
       return `Retroverse thinks this album may have the wrong cover because another ${artist} album (“${otherAlbum}”) is using the same image.`;
     }
@@ -94,24 +145,37 @@ export function trainingWhyExplanation(
   return `Retroverse wants a quick check on “${album}” by ${artist} to make sure the cover looks right.`;
 }
 
-export function trainingSameImageNote(replacement: CoverAuditHashRow | null): string | null {
-  if (!replacement) return null;
-  const other = replacement.album?.trim();
-  if (other) {
-    return `Retroverse found another album using the exact same image (“${other}”).`;
+export function buildPathToHashIndex(
+  rows: RepairBatchCsvRow[],
+  hashMatches: Record<string, CoverAuditHashRow[]>,
+): Map<string, string> {
+  const index = new Map<string, string>();
+  for (const row of rows) {
+    const path = normalizePath(row.currentCoverPath);
+    const hash = normalizeHash(row.currentHash);
+    if (path && hash) index.set(path, hash);
   }
-  return "Retroverse found another album using the exact same image.";
+  for (const group of Object.values(hashMatches)) {
+    for (const entry of group) {
+      const path = normalizePath(entry.canonicalPath);
+      const hash = normalizeHash(entry.fileHash);
+      if (path && hash) index.set(path, hash);
+    }
+  }
+  return index;
 }
 
 export function filterActionableTrainingRows(
   rows: RepairBatchCsvRow[],
   hashMatches: Record<string, CoverAuditHashRow[]>,
+  pathToHash?: Map<string, string>,
 ): { actionable: RepairBatchCsvRow[]; skippedRvals: string[] } {
   const actionable: RepairBatchCsvRow[] = [];
   const skippedRvals: string[] = [];
+  const pathIndex = pathToHash ?? buildPathToHashIndex(rows, hashMatches);
 
   for (const row of rows) {
-    const ctx = getTrainingRowContext(row, hashMatches);
+    const ctx = getTrainingRowContext(row, hashMatches, pathIndex);
     if (isTrivialTrainingPair(row, ctx)) {
       skippedRvals.push(row.rval);
     } else {

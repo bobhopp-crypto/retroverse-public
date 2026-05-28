@@ -10,6 +10,11 @@ import {
   loadRepairBatchCsv,
   type RepairBatchCsvRow,
 } from "@/lib/cover-integrity/load-repair-batch-csv";
+import { loadHashMatchIndexForBatch } from "@/lib/cover-integrity/load-cover-audit-csv";
+import {
+  buildPathToHashIndex,
+  filterActionableTrainingRows,
+} from "@/lib/cover-integrity/training-display";
 import { loadTrainingWeights, applyTrainingScoreAdjustments } from "@/lib/cover-integrity/training-weights";
 import { runCoverIntegrityAudit } from "@/lib/cover-integrity/run-audit";
 import { buildRepairQueue } from "@/lib/cover-integrity/repair-queue";
@@ -106,13 +111,37 @@ export async function generateNextTrainingBatch(): Promise<TrainingBatchManifest
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score);
 
-  const picked = candidates.slice(0, TRAINING_BATCH_SIZE).map((x) => x.row);
+  const pool = candidates.slice(0, 150).map((x) => x.row);
+  const actionable: Awaited<ReturnType<typeof buildRepairBatchRows>> = [];
+
+  for (let offset = 0; offset < pool.length && actionable.length < TRAINING_BATCH_SIZE; offset += 25) {
+    const chunk = pool.slice(offset, offset + 25);
+    if (chunk.length === 0) break;
+
+    const built = await buildRepairBatchRows(chunk, scored);
+    const hashes = built.map((r) => r.currentHash).filter((h): h is string => !!h);
+    const hashMatches = await loadHashMatchIndexForBatch(hashes);
+    const pathToHash = buildPathToHashIndex(built, hashMatches);
+    const { actionable: chunkActionable } = filterActionableTrainingRows(
+      built,
+      hashMatches,
+      pathToHash,
+    );
+
+    for (const row of chunkActionable) {
+      if (reviewed.has(row.rval)) continue;
+      if (actionable.some((a) => a.rval === row.rval)) continue;
+      actionable.push(row);
+      if (actionable.length >= TRAINING_BATCH_SIZE) break;
+    }
+  }
+
+  const batchRows = actionable.slice(0, TRAINING_BATCH_SIZE);
 
   const prev = await loadTrainingBatchManifest();
   const nextNum = prev ? Number(prev.batchId) + 1 : 2;
   const batchId = String(nextNum).padStart(3, "0");
 
-  const batchRows = await buildRepairBatchRows(picked, scored);
   const csvFile = `repair_batch_${batchId}.csv`;
   const csvPath = repairBatchCsvPath(batchId);
   await mkdir(join(process.cwd(), "reports/cover_integrity"), { recursive: true });

@@ -18,6 +18,7 @@
     "cover:rv12-pilot": "npx --yes tsx tools/run-rv12-pilot.ts",
     "cover:retrain": "npx --yes tsx tools/run-cover-retrain.ts",
     "cover:next-batch": "npx --yes tsx tools/run-cover-next-batch.ts",
+    "cover:train-queue-report": "npx --yes tsx tools/run-cover-train-queue-report.ts",
     "healing:review": "npx --yes tsx tools/run-healing-review.ts",
     "smoke:public-search": "node tools/smoke-public-search.mjs"
   },

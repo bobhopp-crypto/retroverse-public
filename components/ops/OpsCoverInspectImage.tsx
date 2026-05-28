@@ -8,13 +8,20 @@ type Props = {
   path: string | null;
   label: string;
   className?: string;
+  /** contain = full cover in square frame; cover = fill crop (default) */
+  fit?: "contain" | "cover";
 };
 
 function thumbSrc(path: string): string {
   return `/api/ops/covers/thumbnail?path=${encodeURIComponent(path)}`;
 }
 
-export function OpsCoverInspectImage({ path, label, className = "" }: Props) {
+export function OpsCoverInspectImage({
+  path,
+  label,
+  className = "",
+  fit = "cover",
+}: Props) {
   const [lightbox, setLightbox] = useState(false);
   const safe = path && isSafeCanonicalCoverPath(path);
   const src = safe ? thumbSrc(path) : null;
@@ -42,11 +49,15 @@ export function OpsCoverInspectImage({ path, label, className = "" }: Props) {
     <>
       <button
         type="button"
-        className={`ops-cover-art__btn ${className}`}
+        className={`ops-cover-art__btn ${fit === "contain" ? "ops-cover-art__btn--contain " : ""}${className}`}
         onClick={() => setLightbox(true)}
         aria-label={`Zoom ${label}`}
       >
-        <img className="ops-cover-art__img" src={src} alt="" />
+        <img
+          className={`ops-cover-art__img${fit === "contain" ? " ops-cover-art__img--contain" : ""}`}
+          src={src}
+          alt=""
+        />
       </button>
       {lightbox ? (
         <div
