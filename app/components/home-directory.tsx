@@ -4,8 +4,6 @@ import Link from "next/link";
 
 import { HomeSearchInput } from "./home-search-input";
 
-import { HomeArchiveStatus } from "./home-archive-status";
-
 const ACCESS_PADS = [
   { label: "Artists", href: "/browse/artists", hint: "Artist exhibits", tone: "teal" },
   { label: "Albums", href: "/browse/albums", hint: "Album exhibits", tone: "brass" },
@@ -25,13 +23,6 @@ export function HomeDirectory({ opsEnabled }: Props) {
         <p className="home-directory__kicker">Archive directory</p>
         <h1 className="home-directory__title">Retroverse</h1>
         <p className="home-directory__tagline">Press Play for the Past</p>
-        <p className="home-directory__subline">Search the music archive</p>
-        <HomeArchiveStatus />
-        {opsEnabled ? (
-          <Link href="/ops" prefetch className="home-directory__ops-bar">
-            Ops panel →
-          </Link>
-        ) : null}
       </header>
 
       <section className="home-directory__search" aria-label="Search the archive">
@@ -67,18 +58,14 @@ export function HomeDirectory({ opsEnabled }: Props) {
           >
             Send feedback
           </a>
-          {opsEnabled ? (
-            <>
-              <span className="home-directory__footer-dot" aria-hidden>
-                ·
-              </span>
-              <Link href="/ops" prefetch className="home-directory__ops-link">
-                Ops console
-              </Link>
-            </>
-          ) : null}
         </p>
       </footer>
+
+      {opsEnabled ? (
+        <Link href="/ops" prefetch className="home-directory__ops-utility" aria-label="Archive operations">
+          Archive Ops
+        </Link>
+      ) : null}
     </div>
   );
 }

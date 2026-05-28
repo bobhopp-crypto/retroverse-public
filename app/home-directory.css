@@ -57,7 +57,7 @@ main.home-directory::before {
   z-index: 1;
   max-width: 28rem;
   margin: 0 auto;
-  padding: 1.35rem 1.15rem 1.35rem;
+  padding: 1.35rem 1.15rem 2.1rem;
   background: var(--home-paper);
   border: var(--home-frame);
   border-radius: 2px;
@@ -105,110 +105,14 @@ main.home-directory::before {
 }
 
 .home-directory__tagline {
-  margin: 0.55rem 0 0;
-  font-size: clamp(1.15rem, 4.5vw, 1.35rem);
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  color: var(--home-ink);
-  line-height: 1.2;
-}
-
-.home-directory__subline {
-  margin: 0.35rem 0 0;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: rgba(45, 62, 70, 0.72);
-}
-
-.home-directory__ops-bar {
-  display: inline-block;
-  margin-top: 0.65rem;
-  padding: 0.4rem 0.65rem;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #f4ead8;
-  background: var(--home-teal);
-  border: 2px solid rgba(31, 94, 99, 0.55);
-  border-radius: 2px;
-  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.18);
-  touch-action: manipulation;
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
-}
-
-.home-directory__ops-bar:active {
-  transform: translateY(1px);
-  box-shadow: 1px 1px 0 rgba(45, 62, 70, 0.14);
-}
-
-@media (hover: hover) {
-  .home-directory__ops-bar:hover {
-    background: #267378;
-  }
-}
-
-/* Archive status strip — directly under Retroverse */
-.home-directory__status {
-  margin: 0.85rem 0 0;
-  padding: 0.65rem 0.7rem;
-  background: linear-gradient(180deg, #f8f0e0 0%, #f0e6d4 100%);
-  border: 2px solid rgba(45, 62, 70, 0.18);
-  border-radius: 2px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-
-.home-directory__status-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-bottom: 0.45rem;
-}
-
-.home-directory__chip {
-  display: inline-block;
-  padding: 0.2rem 0.45rem;
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border-radius: 2px;
-  border: 1px solid rgba(45, 62, 70, 0.15);
-}
-
-.home-directory__chip--teal {
-  color: #f4ead8;
-  background: var(--home-teal);
-  border-color: rgba(31, 94, 99, 0.5);
-}
-
-.home-directory__chip--rust {
-  color: #fff8f2;
-  background: var(--home-rust);
-  border-color: rgba(155, 77, 58, 0.45);
-}
-
-.home-directory__chip--brass {
-  color: #2d3e46;
-  background: linear-gradient(180deg, #e8d49a 0%, #d4bc6a 100%);
-  border-color: rgba(184, 134, 11, 0.35);
-}
-
-.home-directory__status-fact {
-  margin: 0;
-  font-size: 0.82rem;
-  font-weight: 600;
+  margin: 0.5rem 0 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(0.95rem, 3.8vw, 1.08rem);
+  font-weight: 400;
   font-style: italic;
-  color: rgba(45, 62, 70, 0.78);
-  min-height: 1.2em;
-  transition: opacity 0.35s ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-directory__status-fact {
-    transition: none;
-  }
+  letter-spacing: 0.04em;
+  color: rgba(45, 62, 70, 0.72);
+  line-height: 1.35;
 }
 
 .home-directory__search {
@@ -344,17 +248,48 @@ main.home-directory::before {
   font-size: 0.82rem;
 }
 
-.home-directory__feedback,
-.home-directory__ops-link {
+.home-directory__feedback {
   font-weight: 700;
   color: var(--home-teal);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.home-directory__footer-dot {
-  margin: 0 0.25rem;
-  color: rgba(45, 62, 70, 0.45);
+/* Operator utility — bottom-right of directory board */
+.home-directory__ops-utility {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.5rem;
+  z-index: 2;
+  padding: 0.32rem 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(45, 62, 70, 0.75);
+  background: linear-gradient(180deg, #ebe4d4 0%, #ddd4c4 100%);
+  border: 1px solid rgba(45, 62, 70, 0.28);
+  border-radius: 2px;
+  box-shadow: 1px 2px 0 rgba(45, 62, 70, 0.1);
+  touch-action: manipulation;
+  transition:
+    color 0.12s ease,
+    border-color 0.12s ease,
+    background 0.12s ease;
+}
+
+@media (hover: hover) {
+  .home-directory__ops-utility:hover {
+    color: var(--home-teal);
+    border-color: rgba(31, 94, 99, 0.4);
+    background: #f0e8d8;
+  }
+}
+
+.home-directory__ops-utility:active {
+  transform: translateY(1px);
+  box-shadow: none;
 }
 
 /* Search trigger — block layout */

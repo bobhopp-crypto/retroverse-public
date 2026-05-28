@@ -5,8 +5,7 @@ import "./home-directory.css";
 import "./home.css";
 
 export default function HomePage() {
-  const opsEnabled =
-    isOpsEnabled() || process.env.NODE_ENV === "development";
+  const opsEnabled = isOpsEnabled();
 
   return (
     <main className="home-directory">
