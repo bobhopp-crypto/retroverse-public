@@ -21,6 +21,14 @@ function coverProxyOrigin() {
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
   serverExternalPackages: ["pg"],
+  async redirects() {
+    return [
+      { source: "/browse/artists", destination: "/", permanent: false },
+      { source: "/browse/albums", destination: "/", permanent: false },
+      { source: "/browse/tracks", destination: "/", permanent: false },
+      { source: "/browse/:path*", destination: "/", permanent: false },
+    ];
+  },
   async rewrites() {
     const origin = coverProxyOrigin();
     if (!origin) return [];
