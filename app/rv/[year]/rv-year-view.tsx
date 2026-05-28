@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useRouter } from "next/navigation";
+import { useCallback, useMemo } from "react";
 
 import {
   isUsableChartHistory,
@@ -16,6 +17,9 @@ import {
   weeklyEntriesFromHistory,
 } from "@/lib/artist/chart-history-display";
 import { MAX_RV_YEAR, MIN_RV_YEAR } from "@/lib/search/normalize-rv-year";
+import { rvMonthHref, rvWeekHref, rvYearHref } from "@/lib/rv/rv-chronology-paths";
+
+import { RvChronologyScrollRestore } from "../components/rv-chronology-scroll-restore";
 
 import "@/app/artist/[slug]/artist-charts-history.css";
 import "./rv-year.css";
@@ -31,8 +35,16 @@ function monthFullName(month: number): string {
 }
 
 export function RvYearView({ rvYear, history }: RvYearViewProps) {
+  const router = useRouter();
   const artistName = `RV ${rvYear}`;
   const searchHref = `/search?q=${encodeURIComponent(String(rvYear))}`;
+
+  const openMonth = useCallback(
+    (month: number) => {
+      router.push(rvMonthHref(rvYear, month));
+    },
+    [router, rvYear],
+  );
 
   const safeHistory = useMemo(
     () => normalizeArtistChartHistory(history, artistName),
@@ -52,7 +64,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
           id: row.id,
           title: row.title,
           artist: row.artist,
-          href: `/charts?year=${rvYear}&month=${month}&week=${encodeURIComponent(row.chartDate)}`,
+          href: rvWeekHref(rvYear, month, row.chartDate),
           chartDate: row.chartDate,
           isAlbum: isAlbumChartSnapshot(row),
         }))
@@ -89,6 +101,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
   const nextYear = rvYear < MAX_RV_YEAR ? rvYear + 1 : null;
   return (
     <div className="rv-year-world">
+      <RvChronologyScrollRestore />
       <div className="rv-year-world__grain" aria-hidden />
 
       <header className="rv-year-topbar">
@@ -107,7 +120,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
 
       <nav className="rv-year-nav" aria-label="Year navigation">
         {prevYear != null ? (
-          <Link href={`/rv/${prevYear}`} prefetch className="rv-year-nav__link">
+          <Link href={rvYearHref(prevYear)} prefetch className="rv-year-nav__link">
             ← {prevYear}
           </Link>
         ) : (
@@ -119,7 +132,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
           Search
         </Link>
         {nextYear != null ? (
-          <Link href={`/rv/${nextYear}`} prefetch className="rv-year-nav__link">
+          <Link href={rvYearHref(nextYear)} prefetch className="rv-year-nav__link">
             {nextYear} →
           </Link>
         ) : (
@@ -140,10 +153,21 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
         <div className="rv-month-stack">
           {monthCards.map((card) => {
             const monthAnchor = `month-${monthLabel(card.month).toLowerCase()}`;
-            const openMonthHref = `/charts?year=${rvYear}&month=${card.month}`;
             return (
-              <Link key={card.month} href={openMonthHref} prefetch className="rv-month-card-link">
-                <article id={monthAnchor} className="rv-month-card">
+              <article
+                key={card.month}
+                id={monthAnchor}
+                className="rv-month-card rv-month-card--tappable"
+                role="link"
+                tabIndex={0}
+                onClick={() => openMonth(card.month)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openMonth(card.month);
+                  }
+                }}
+              >
                   <header className="rv-month-card__head">
                     <h3 className="rv-month-card__month">{monthFullName(card.month).toUpperCase()}</h3>
                     {!card.hasActivity ? <p className="rv-month-card__meta">No chart weeks captured</p> : null}
@@ -177,7 +201,11 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
                     <ul className="rv-month-card__notable" aria-label={`${monthFullName(card.month)} notable chart entries`}>
                       {card.notable.map((item) => (
                         <li key={item.id}>
-                          <Link href={item.href} prefetch>
+                          <Link
+                            href={item.href}
+                            prefetch
+                            onClick={(e) => e.stopPropagation()}
+                          >
                             {item.isAlbum ? "Album" : "Song"} · {item.title} · {item.artist}
                             <span className="rv-month-card__week"> · {formatChartDateLabel(item.chartDate)}</span>
                           </Link>
@@ -185,8 +213,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
                       ))}
                     </ul>
                   ) : null}
-                </article>
-              </Link>
+              </article>
             );
           })}
         </div>
@@ -195,8 +222,8 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
       <footer className="rv-year-footer">
         <Link href="/">← Home</Link>
         <Link href={searchHref}>Search entities</Link>
-        {prevYear != null ? <Link href={`/rv/${prevYear}`}>← {prevYear}</Link> : null}
-        {nextYear != null ? <Link href={`/rv/${nextYear}`}>{nextYear} →</Link> : null}
+        {prevYear != null ? <Link href={rvYearHref(prevYear)}>← {prevYear}</Link> : null}
+        {nextYear != null ? <Link href={rvYearHref(nextYear)}>{nextYear} →</Link> : null}
       </footer>
     </div>
   );

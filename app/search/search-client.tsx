@@ -291,7 +291,7 @@ export default function SearchClient() {
                 subtitle={panelSubtitle("artists", subject, trimmedQuery)}
                 viewAllHref={
                   artistResults.find((a) => a.artistHref?.startsWith("/artist/"))
-                    ?.artistHref ?? "/charts"
+                    ?.artistHref ?? "/rv/1978"
                 }
                 viewAllLabel="Artist exhibit →"
                 tone="artists"

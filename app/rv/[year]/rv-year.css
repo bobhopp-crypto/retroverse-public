@@ -86,6 +86,43 @@
   border-radius: 2px;
 }
 
+.rv-chronology-crumb {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 1rem 0.65rem;
+  padding: 0.45rem 0.65rem;
+  border: var(--frame);
+  border-radius: 4px;
+  background: #fff8ee;
+  box-shadow: 3px 3px 0 rgba(45, 62, 70, 0.16);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.rv-chronology-crumb__link {
+  color: var(--teal-deep);
+  text-decoration: none;
+}
+
+.rv-chronology-crumb__link:hover {
+  text-decoration: underline;
+}
+
+.rv-chronology-crumb__link--current {
+  color: var(--ink);
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.rv-chronology-crumb__sep {
+  opacity: 0.55;
+}
+
 .rv-year-nav {
   position: relative;
   z-index: 1;
@@ -260,10 +297,15 @@
     border-color 0.12s ease;
 }
 
-.rv-month-card-link:hover .rv-month-card {
+.rv-month-card-link:hover .rv-month-card,
+.rv-month-card--tappable:hover {
   transform: translateY(-1px);
   border-color: rgba(31, 94, 99, 0.45);
   box-shadow: 5px 5px 0 rgba(45, 62, 70, 0.2);
+}
+
+.rv-month-card--tappable {
+  cursor: pointer;
 }
 
 .rv-month-card__head {

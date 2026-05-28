@@ -18,7 +18,7 @@ export function SearchRvHistoryEntryPanel() {
         <p className="search-rv-history-entry__message">
           Explore RV Rankings by year, month, or chart week.
         </p>
-        <Link className="search-rv-history-entry__cta" href="/charts">
+        <Link className="search-rv-history-entry__cta" href="/rv/1978">
           EXPLORE CHARTS
         </Link>
       </div>

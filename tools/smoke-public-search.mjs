@@ -99,8 +99,40 @@ function fmtResult(r) {
   return `FAIL ${r.status}`;
 }
 
+async function checkRvChronologyRedirects() {
+  const cases = [
+    {
+      label: "legacy charts week query",
+      url: `${BASE}/charts?year=1967&month=11&week=1967-11-04`,
+      expectPath: "/rv/1967/11/1967-11-04",
+    },
+    {
+      label: "legacy charts bare",
+      url: `${BASE}/charts`,
+      expectPath: "/rv/1978",
+    },
+  ];
+
+  for (const c of cases) {
+    const res = await fetch(c.url, { redirect: "manual" });
+    const loc = res.headers.get("location") ?? "";
+    const ok =
+      (res.status === 307 || res.status === 308 || res.status === 301 || res.status === 302) &&
+      loc.includes(c.expectPath);
+    console.log(`${ok ? "PASS" : "FAIL"}: chronology redirect — ${c.label}`);
+    if (!ok) {
+      console.log(`  expected Location containing ${c.expectPath}, got ${res.status} ${loc}`);
+    }
+    if (!ok) return false;
+  }
+  return true;
+}
+
 async function main() {
   console.log(`Public smoke test (production): ${BASE}`);
+
+  const chronologyOk = await checkRvChronologyRedirects();
+  if (!chronologyOk) process.exit(1);
 
   const rows = [];
   for (const q of QUERIES) {

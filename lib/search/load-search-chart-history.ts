@@ -11,6 +11,7 @@ import {
   normalizeRVYear,
   stripYearTokensFromQuery,
 } from "@/lib/search/normalize-rv-year";
+import { rvYearHref } from "@/lib/rv/rv-chronology-paths";
 
 export type SearchChartHistoryContext = {
   artistName: string;
@@ -97,7 +98,7 @@ export async function loadSearchChartHistory(
     artistSlug: resolved?.slug ?? "",
     viewAllHref: resolved
       ? `${artistPagePath(resolved.displayName) ?? `/artist/${resolved.slug}`}/charts`
-      : "/charts",
+      : rvYearHref(rvYear),
     highlightTrackIds,
     history,
     rvYear,

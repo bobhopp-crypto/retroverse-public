@@ -3,6 +3,7 @@ import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
 import { chartsToTrajectoryWeeks } from "@/lib/track/charts-to-trajectory-weeks";
+import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import type { TrackTrajectoryWeek } from "@/lib/track/track-trajectory-types";
 
 const RE_RVAL = /^RVAL\d{6}$/i;
@@ -248,6 +249,13 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
 
   const rvYear = releaseYear ?? yearFromDate(firstChartDate ?? trajectoryWeeks[0]?.issueDate);
 
+  const peakWeekDate =
+    (typeof b200Peak === "number"
+      ? trajectoryWeeks.find((w) => w.rank === b200Peak)?.issueDate
+      : null) ??
+    trajectoryWeeks[trajectoryWeeks.length - 1]?.issueDate ??
+    firstChartDate;
+
   return {
     rval,
     title,
@@ -263,6 +271,6 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
     chartRunLabel: "Billboard 200",
     tracks,
     relatedAlbums,
-    rvYearHref: rvYear != null ? `/rv/${rvYear}` : null,
+    rvYearHref: rvChronologyHrefFromChartDate(peakWeekDate ?? firstChartDate, rvYear),
   };
 }

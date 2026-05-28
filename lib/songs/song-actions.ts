@@ -1,4 +1,5 @@
 import { slugFromArtistName } from "@/lib/artist/slug";
+import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import { trackPageHref } from "@/lib/search/entity-routes";
 
 export type SongActionTarget = {
@@ -8,6 +9,8 @@ export type SongActionTarget = {
   href?: string | null;
   artistSlug?: string | null;
   chartYear?: number | null;
+  /** Chart week date (YYYY-MM-DD) for RV chronology deep links. */
+  chartDate?: string | null;
   chartsHref?: string | null;
 };
 
@@ -35,9 +38,8 @@ export function songArtistHref(target: SongActionTarget): string | null {
 }
 
 export function songRvYearHref(target: SongActionTarget): string | null {
-  const y = target.chartYear;
-  if (typeof y !== "number" || !Number.isFinite(y) || y < 1950 || y > 2035) return null;
-  return `/rv/${Math.trunc(y)}`;
+  if (target.chartsHref?.trim()) return target.chartsHref.trim();
+  return rvChronologyHrefFromChartDate(target.chartDate, target.chartYear);
 }
 
 export function songChartsHref(target: SongActionTarget): string | null {
@@ -62,6 +64,7 @@ export function songActionTargetFromParts(parts: {
   href?: string | null;
   artistSlug?: string | null;
   chartYear?: number | null;
+  chartDate?: string | null;
   chartsHref?: string | null;
 }): SongActionTarget {
   return {
@@ -71,6 +74,7 @@ export function songActionTargetFromParts(parts: {
     href: parts.href ?? null,
     artistSlug: parts.artistSlug ?? null,
     chartYear: parts.chartYear ?? null,
+    chartDate: parts.chartDate ?? null,
     chartsHref: parts.chartsHref ?? null,
   };
 }

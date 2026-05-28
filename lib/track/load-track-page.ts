@@ -5,6 +5,7 @@ import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
 import { chartsToTrajectoryWeeks } from "@/lib/track/charts-to-trajectory-weeks";
+import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import type { TrackTrajectoryWeek } from "@/lib/track/track-trajectory-types";
 
 export type TrackAlbumLink = {
@@ -254,6 +255,13 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
     releaseYear ??
     yearFromDate(trajectoryWeeks[0]?.issueDate ?? track.first_chart_date);
 
+  const peakWeekDate =
+    (typeof track.peak_hot100_position === "number"
+      ? trajectoryWeeks.find((w) => w.rank === track.peak_hot100_position)?.issueDate
+      : null) ??
+    trajectoryWeeks[trajectoryWeeks.length - 1]?.issueDate ??
+    track.first_chart_date;
+
   return {
     rvtr,
     title,
@@ -271,7 +279,10 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
     trajectoryWeeks,
     chartRunLabel,
     relatedTracks,
-    rvYearHref: rvYear != null ? `/rv/${rvYear}` : null,
+    rvYearHref: rvChronologyHrefFromChartDate(
+      peakWeekDate ?? track.first_chart_date,
+      rvYear,
+    ),
   };
 }
 

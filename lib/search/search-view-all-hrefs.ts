@@ -1,4 +1,5 @@
 import { slugFromArtistName } from "@/lib/artist/slug";
+import { rvYearHref, RV_CHRONOLOGY_DEFAULT_YEAR } from "@/lib/rv/rv-chronology-paths";
 
 import type { SearchPanels } from "./types";
 
@@ -33,7 +34,7 @@ export function searchAlbumsViewAllHref(
   const slug = resolveSearchArtistSlug(panels, artistSlug);
   if (slug) return `/artist/${slug}#essential-albums`;
   const firstAlbum = panels.albums.find((item) => item.href?.startsWith("/album/"));
-  return firstAlbum?.href ?? "/charts";
+  return firstAlbum?.href ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR);
 }
 
 export function searchSongsViewAllHref(
@@ -43,5 +44,5 @@ export function searchSongsViewAllHref(
   const slug = resolveSearchArtistSlug(panels, artistSlug);
   if (slug) return `/artist/${slug}#artist-songs`;
   const firstSong = panels.songs.find((item) => item.href?.startsWith("/track/"));
-  return firstSong?.href ?? "/charts";
+  return firstSong?.href ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR);
 }

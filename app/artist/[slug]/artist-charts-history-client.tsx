@@ -34,6 +34,12 @@ import {
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
+import {
+  matchRvChronologyPath,
+  parseRvWeekParam,
+  rvChronologyPathFromState,
+  rvWeekHref,
+} from "@/lib/rv/rv-chronology-paths";
 import { songActionTargetFromParts } from "@/lib/songs/song-actions";
 import type {
   ArtistChartHistory,
@@ -53,6 +59,8 @@ type Props = {
   initialRvYear?: number | null;
   /** Optional preload month for views linking directly into a year month. */
   initialMonth?: number | null;
+  /** Highlight a specific chart week card (YYYY-MM-DD) on RV chronology drill. */
+  highlightChartDate?: string | null;
   /** Charts explore — year chosen upstream; skip duplicate year step. */
   hideYearStep?: boolean;
 };
@@ -90,6 +98,7 @@ export function ArtistChartsHistoryClient({
   hideBanner = false,
   initialRvYear = null,
   initialMonth = null,
+  highlightChartDate = null,
   hideYearStep = false,
 }: Props) {
   const safeHistory = useMemo(
@@ -111,11 +120,14 @@ export function ArtistChartsHistoryClient({
   const [selectedDecade, setSelectedDecade] = useState<number | null>(null);
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null);
+  const [selectedWeek, setSelectedWeek] = useState<string | null>(null);
 
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const syncChartUrl = /\/artist\/[^/]+\/charts\/?$/.test(pathname);
+  const rvChronologyPath = useMemo(() => matchRvChronologyPath(pathname), [pathname]);
+  const syncRvChronologyUrl = rvChronologyPath != null;
   const hydratedRef = useRef(false);
   const applyingUrlRef = useRef(false);
 
@@ -147,11 +159,38 @@ export function ArtistChartsHistoryClient({
     [selectedDecade, selectedYear, selectedMonth],
   );
 
+  const rvContextWeek = useMemo(
+    () =>
+      selectedWeek ??
+      rvChronologyPath?.week ??
+      (highlightChartDate ? highlightChartDate.slice(0, 10) : null),
+    [selectedWeek, rvChronologyPath?.week, highlightChartDate],
+  );
+
   const chartsContextHref = useMemo(() => {
+    if (syncRvChronologyUrl) {
+      return (
+        rvChronologyPathFromState(
+          asPillNumber(selectedYear),
+          asPillNumber(selectedMonth),
+          rvContextWeek,
+        ) ?? viewAllHref ?? null
+      );
+    }
     if (!syncChartUrl) return viewAllHref ?? null;
     const qs = chartHistoryQueryString(currentChartState, { useDecades });
     return qs ? `${pathname}?${qs}` : pathname;
-  }, [syncChartUrl, pathname, currentChartState, useDecades, viewAllHref]);
+  }, [
+    syncRvChronologyUrl,
+    syncChartUrl,
+    pathname,
+    currentChartState,
+    useDecades,
+    viewAllHref,
+    selectedYear,
+    selectedMonth,
+    rvContextWeek,
+  ]);
 
   useEffect(() => {
     if (hydratedRef.current) return;
@@ -192,14 +231,22 @@ export function ArtistChartsHistoryClient({
       return;
     }
 
+    const month =
+      initialMonth != null && initialMonth >= 1 && initialMonth <= 12
+        ? initialMonth
+        : null;
     applyChartState({
       decade: useDecades ? Math.floor(preload / 10) * 10 : null,
       year: preload,
-      month:
-        initialMonth != null && initialMonth >= 1 && initialMonth <= 12
-          ? initialMonth
-          : null,
+      month,
     });
+    if (syncRvChronologyUrl) {
+      const weekFromPath = rvChronologyPath?.week ?? null;
+      const weekFromHighlight = highlightChartDate
+        ? parseRvWeekParam(highlightChartDate)
+        : null;
+      setSelectedWeek(weekFromPath ?? weekFromHighlight);
+    }
     hydratedRef.current = true;
   }, [
     artistStorageKey,
@@ -209,8 +256,27 @@ export function ArtistChartsHistoryClient({
     useDecades,
     activeYears,
     syncChartUrl,
+    syncRvChronologyUrl,
+    rvChronologyPath?.week,
+    highlightChartDate,
     urlState,
   ]);
+
+  /** Browser back/forward: pathname is source of truth (not in-flight week taps). */
+  useEffect(() => {
+    if (!syncRvChronologyUrl || !hydratedRef.current || applyingUrlRef.current) return;
+    const path = rvChronologyPath;
+    if (!path) return;
+    const pathYear = path.year;
+    const pathMonth = path.month;
+    const pathWeek = path.week ?? null;
+    if (pathYear !== asPillNumber(selectedYear)) setSelectedYear(pathYear);
+    if (pathMonth != null && pathMonth !== asPillNumber(selectedMonth)) {
+      setSelectedMonth(pathMonth);
+    }
+    if (pathWeek !== selectedWeek) setSelectedWeek(pathWeek);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- sync only when URL changes
+  }, [pathname, syncRvChronologyUrl, rvChronologyPath]);
 
   useEffect(() => {
     if (!syncChartUrl || !hydratedRef.current || applyingUrlRef.current) return;
@@ -257,6 +323,35 @@ export function ArtistChartsHistoryClient({
   ]);
 
   useEffect(() => {
+    if (!syncRvChronologyUrl || !hydratedRef.current || applyingUrlRef.current) return;
+    const path = rvChronologyPath;
+    const year = asPillNumber(currentChartState.year);
+    const month = asPillNumber(currentChartState.month);
+    if (year == null) return;
+
+    const monthChanged =
+      path?.month != null && month != null && path.month !== month;
+    const yearChanged = path != null && path.year !== year;
+    const weekCleared = selectedWeek == null && path?.week != null;
+    if (!monthChanged && !yearChanged && !weekCleared) return;
+
+    const next = rvChronologyPathFromState(year, month, null);
+    if (!next || next === pathname) return;
+    applyingUrlRef.current = true;
+    router.replace(next, { scroll: false });
+    queueMicrotask(() => {
+      applyingUrlRef.current = false;
+    });
+  }, [
+    syncRvChronologyUrl,
+    currentChartState,
+    selectedWeek,
+    rvChronologyPath,
+    pathname,
+    router,
+  ]);
+
+  useEffect(() => {
     writeChartHistorySession(artistStorageKey, currentChartState);
   }, [artistStorageKey, currentChartState]);
 
@@ -292,15 +387,63 @@ export function ArtistChartsHistoryClient({
 
   const hasSnapshots = singleSnapshots.length > 0 || albumSnapshots.length > 0;
 
+  const activeRvWeekKey =
+    selectedWeek ??
+    rvChronologyPath?.week ??
+    (highlightChartDate ? highlightChartDate.slice(0, 10) : null);
+
+  const pickWeek = (chartDate: string | undefined) => {
+    if (!syncRvChronologyUrl) return;
+    const key = chartDate?.trim().slice(0, 10) ?? "";
+    if (!parseRvWeekParam(key)) return;
+    const year = asPillNumber(selectedYear);
+    const month = asPillNumber(selectedMonth);
+    if (year == null || month == null) return;
+    const href = rvWeekHref(year, month, key);
+    if (href === pathname) {
+      setSelectedWeek(key);
+      return;
+    }
+    setSelectedWeek(key);
+    applyingUrlRef.current = true;
+    router.push(href, { scroll: false });
+    queueMicrotask(() => {
+      applyingUrlRef.current = false;
+    });
+  };
+
   const renderSnapshotCard = (snapshot: RvChartSnapshot) => {
     if (!snapshot?.id) return null;
-    const active = isHighlighted(snapshot.trackId, highlightIds);
+    const weekKey = snapshot.chartDate?.trim().slice(0, 10) ?? "";
+    const active =
+      isHighlighted(snapshot.trackId, highlightIds) ||
+      (activeRvWeekKey != null && weekKey === activeRvWeekKey);
     const isAlbum = isAlbumChartSnapshot(snapshot);
     const peak =
       typeof snapshot.peakPosition === "number" && snapshot.peakPosition > 0
         ? snapshot.peakPosition
         : "—";
-    const href = snapshotEntityHref(snapshot);
+    const entityHref = snapshotEntityHref(snapshot);
+    const year = asPillNumber(selectedYear);
+    const month = asPillNumber(selectedMonth);
+    const rvWeekNavHref =
+      syncRvChronologyUrl && year != null && month != null && parseRvWeekParam(weekKey)
+        ? rvWeekHref(year, month, weekKey)
+        : null;
+
+    const titleNode =
+      entityHref && syncRvChronologyUrl ? (
+        <Link
+          href={entityHref}
+          prefetch
+          className="charts-history-card__title-link"
+          onClick={(event) => event.stopPropagation()}
+        >
+          {snapshot.title || "—"}
+        </Link>
+      ) : (
+        snapshot.title || "—"
+      );
 
     const cardBody = (
       <>
@@ -313,7 +456,7 @@ export function ArtistChartsHistoryClient({
           />
         </div>
         <div className="charts-history-card__body">
-          <h4 className="charts-history-card__title">{snapshot.title || "—"}</h4>
+          <h4 className="charts-history-card__title">{titleNode}</h4>
           <p className="charts-history-card__artist">{snapshot.artist || artistName}</p>
           <p className="charts-history-card__facts">
             <span>{formatChartDateLabel(snapshot.chartDate ?? "")}</span>
@@ -333,9 +476,19 @@ export function ArtistChartsHistoryClient({
         key={snapshot.id}
         className={`charts-history-card${active ? " charts-history-card--active" : ""}`}
       >
-        {href ? (
+        {rvWeekNavHref ? (
+          <button
+            type="button"
+            className="charts-history-card__link"
+            aria-label={`Chart week ${formatChartDateLabel(weekKey)}`}
+            aria-current={active ? "true" : undefined}
+            onClick={() => pickWeek(snapshot.chartDate)}
+          >
+            {cardBody}
+          </button>
+        ) : entityHref ? (
           <Link
-            href={href}
+            href={entityHref}
             prefetch
             className="charts-history-card__link"
             aria-label={`Open ${snapshot.title}`}
@@ -353,9 +506,10 @@ export function ArtistChartsHistoryClient({
               title: snapshot.title,
               artist: snapshot.artist || artistName,
               rvtr: snapshot.trackId,
-              href,
+              href: entityHref,
               artistSlug: artistStorageKey,
               chartYear: snapshot.year,
+              chartDate: snapshot.chartDate,
               chartsHref: chartsContextHref,
             })}
           />
@@ -369,6 +523,7 @@ export function ArtistChartsHistoryClient({
     if (y == null) return;
     setSelectedYear(y);
     setSelectedMonth(null);
+    setSelectedWeek(null);
   };
 
   const pickDecade = (decadeStart: unknown) => {
@@ -377,18 +532,21 @@ export function ArtistChartsHistoryClient({
     setSelectedDecade(d);
     setSelectedYear(null);
     setSelectedMonth(null);
+    setSelectedWeek(null);
   };
 
   const pickMonth = (month: unknown) => {
     const m = asPillNumber(month);
     if (m == null || m < 1 || m > 12) return;
     setSelectedMonth(m);
+    setSelectedWeek(null);
   };
 
   const clearFilters = () => {
     setSelectedDecade(null);
     setSelectedYear(null);
     setSelectedMonth(null);
+    setSelectedWeek(null);
   };
 
   if (!isUsableChartHistory(safeHistory)) {

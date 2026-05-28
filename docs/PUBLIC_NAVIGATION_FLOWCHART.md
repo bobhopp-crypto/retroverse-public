@@ -92,7 +92,7 @@ flowchart TB
     SP["/search?q="]
     SP --> SP_HOME["→ /"]
     SP --> SP_RES["panels → entities"]
-    SP --> SP_CHARTS["RV panel → /charts"]
+    SP --> SP_CHARTS["RV panel → /rv/1978"]
   end
 
   subgraph ENTITY_SYS["EXHIBITS"]
@@ -107,10 +107,13 @@ flowchart TB
 
   subgraph CHRONO_SYS["CHRONOLOGY"]
     RV["/rv/YEAR"]
-    CH["/charts"]
-    API["/api/charts/year"]
+    RVM["/rv/YEAR/MONTH"]
+    RVW["/rv/YEAR/MONTH/DATE"]
+    CH["/charts redirect"]
     WK["week cards<br/>ArtistChartsHistoryClient"]
-    CH --> API --> WK
+    RV --> RVM --> WK
+    RVM --> RVW --> WK
+    CH --> RV
     AR_CH --> WK
   end
 
@@ -135,9 +138,11 @@ flowchart TB
   AR_CH --> AL
   AR_CH --> TR
 
-  RV -->|"month card"| CH
-  RV -->|"notable week"| CH
-  CH -->|"open year world"| RV
+  RV -->|"month card"| RVM
+  RV -->|"notable week"| RVW
+  CH --> RV
+  CH --> RVM
+  CH --> RVW
   WK --> AL
   WK --> TR
 
@@ -180,70 +185,55 @@ flowchart TB
 
 ## 3. Chronology flow
 
-**Split:** `/rv/[year]` (year world) and `/charts` (decade explorer) share week UI but different entry chrome.
+**Canonical:** `/rv/[year]` → `/rv/[year]/[month]` → `/rv/[year]/[month]/[YYYY-MM-DD]`. Legacy `/charts?…` redirects into this tree.
 
 ```mermaid
 flowchart LR
-  subgraph ENTRY["3 entry paths — DUPLICATE"]
+  subgraph ENTRY["Entry paths"]
     E1["Charts pad<br/>/rv/1978"]
-    E2["Overlay recovery<br/>/rv/YEAR or /charts"]
-    E3["/search RV panel<br/>→ /charts"]
+    E2["Overlay recovery<br/>/rv/YEAR"]
+    E3["/search RV panel<br/>→ /rv/1978"]
+    LEG["/charts?…"]
   end
 
-  subgraph RV_SHELL["/rv/YEAR — year world"]
-    RV["/rv/1967"]
+  subgraph RV_SHELL["RV chronology — single chrome"]
+    RV["/rv/YEAR"]
+    RVM["/rv/YEAR/MONTH"]
+    RVW["/rv/YEAR/MONTH/DATE"]
     RV_PREV["← year"]
     RV_NEXT["year →"]
-    RV_MON["month cards"]
     RV_SEARCH["topbar Search"]
   end
 
-  subgraph CHARTS_SHELL["/charts — time travel UI"]
-    CH["/charts"]
-    DEC["decade pills"]
-    YR["year pills"]
-    BRIDGE["link → /rv/YEAR"]
-    CH_SEARCH["footer Search"]
-  end
-
   subgraph SHARED["Shared week layer"]
-    API["GET /api/charts/year"]
     WK["ArtistChartsHistoryClient<br/>month → week cards"]
     ENT["/album /track"]
   end
 
   E1 --> RV
   E2 --> RV
-  E2 --> CH
-  E3 --> CH
+  E3 --> RV
+  LEG --> RV
+  LEG --> RVM
+  LEG --> RVW
 
   RV --> RV_PREV
   RV --> RV_NEXT
-  RV_MON -->|"cross-route jump"| CH
-  CH --> DEC --> YR --> API --> WK
-  RV --> API
+  RV --> RVM
+  RVM --> WK
+  RVW --> WK
   WK --> ENT
-  ENT --> RV
-  ENT --> CH
 
   RV_SEARCH --> SEARCH["/search"]
-  CH_SEARCH --> SEARCH
-  BRIDGE --> RV
-
-  RV -.->|"back from /charts"| RV
-  CH -.->|"different chrome"| RV
+  RVM --> SEARCH
 
   classDef locked fill:#c8e6c9,stroke:#2e7d32
-  classDef fragile fill:#fff9c4,stroke:#f9a825
-  classDef dup fill:#e1bee7,stroke:#7b1fa2
-  classDef weak fill:#ffcdd2,stroke:#c62828
+  classDef legacy fill:#eeeeee,stroke:#757575
 
-  class API,WK,ENT locked
-  class RV,CH,RV_MON fragile
-  class E1,E2,E3,CH,RV dup
+  class WK,ENT locked
+  class RV,RVM,RVW locked
+  class LEG legacy
 ```
-
-**Annotation:** Month tap on `/rv` does not show weeks inline — it routes to `/charts?year&month[&week]`. Back stack crosses two systems.
 
 ---
 

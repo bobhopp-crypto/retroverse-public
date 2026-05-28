@@ -11,12 +11,12 @@ import { HomeSearchCalibrator } from "./home-search-calibrator";
 import { HomeSearchInput } from "./home-search-input";
 
 const LINK_HOTSPOTS = [
-  { key: "charts", label: "CHARTS", href: "/charts", aria: "Explore chart history" },
+  { key: "charts", label: "CHARTS", href: "/rv/1978", aria: "Explore chart history" },
   {
     key: "albums",
     label: "ALBUMS",
-    href: "/charts",
-    aria: "Browse album covers",
+    href: "/search",
+    aria: "Search albums in the archive",
   },
   {
     key: "feedback",

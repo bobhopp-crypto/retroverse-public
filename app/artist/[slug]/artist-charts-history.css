@@ -255,6 +255,27 @@
   text-decoration: none;
 }
 
+button.charts-history-card__link {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+.charts-history-card__title-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(31, 94, 99, 0.45);
+  text-underline-offset: 2px;
+}
+
+.charts-history-card__title-link:hover {
+  text-decoration-color: rgba(31, 94, 99, 0.85);
+}
+
 .charts-history-card__song-actions {
   flex: 0 0 auto;
   align-self: center;

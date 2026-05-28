@@ -21,7 +21,7 @@ Legend:
 ├── Primary terminal → (overlay) HomeSearchOverlay
 │   ├── Suggestion click → /artist/[slug] | /album/[id] | /track/[id] | /rv/[year]
 │   ├── Enter → first scoped suggestion OR /rv/[year] if year-only query
-│   ├── Idle recovery pills → /rv/1973|1978|1984|1999, /artist/[slug], /charts
+│   ├── Idle recovery pills → /rv/1973|1978|1984|1999, /artist/[slug], /rv/1978
 │   └── Close → stays on /
 ├── Pads (scoped overlay openers — no route)
 │   ├── Artists → overlay scope=artists
@@ -36,9 +36,9 @@ Legend:
 ├── Query ?q= drives panels fetch
 ├── Enter → commits ?q= (URL update, results refresh)
 ├── Result cards → /artist | /album | /track
-├── View-all panels → /artist/[slug]#anchors | /charts fallback
-├── RV history panel → /charts OR embedded chart history
-└── RV year entry panel → /charts
+├── View-all panels → /artist/[slug]#anchors | /rv/[year] fallback
+├── RV history panel → /rv/[year] OR embedded chart history
+└── RV year entry panel → /rv/1978
 
 /artist/[slug]  ARTIST EXHIBIT (shared layout shell)
 ├── Topbar → / , /search , /artist/[slug]
@@ -71,20 +71,25 @@ Legend:
 ├── Chart year link (if data) → /rv/[year]
 └── Footer → / , /search , /artist/[slug]
 
-/rv/[year]  RV YEAR CHRONICLE
+/rv/[year]  RV YEAR CHRONICLE (canonical public chronology)
 ├── Topbar → / , /search?q=[year]
 ├── Year nav → /rv/[year±1]
-├── Month cards → /charts?year=&month=
-├── Notable rows → /charts?year=&month=&week=
+├── Month cards → /rv/[year]/[month]
+├── Notable rows → /rv/[year]/[month]/[YYYY-MM-DD]
 └── Footer → / , /search , prev/next year
 
-/charts  CHART TIME TRAVEL (second chronology surface)
-├── Topbar → /
-├── Step 1 decade pills (in-page state)
-├── Step 2 year pills → loads /api/charts/year?year=
-├── Embedded ArtistChartsHistoryClient (same week cards as artist charts)
-├── Bridge link → /rv/[selectedYear]
-└── Footer → / , /search
+/rv/[year]/[month]  RV MONTH DRILL
+├── Shared RvChronologyChrome (same topbar/nav/footer as year)
+├── ArtistChartsHistoryClient (year step hidden; month pre-selected)
+├── Month pill changes → router.replace /rv/[year]/[month]
+└── Week cards → /album | /track (when IDs resolve)
+
+/rv/[year]/[month]/[week]  RV WEEK DEEP LINK
+├── Same drill UI; highlightChartDate = week segment
+└── Invalid week/month combo → 404
+
+/charts  LEGACY REDIRECT ONLY
+└── ?year=&month=&week= → 302 to matching /rv/... path (default /rv/1978)
 
 LEGACY / REDIRECT
 └── /browse/* → 301/302 → /
@@ -147,14 +152,14 @@ flowchart LR
 
 ## 3. Chronology-flow map
 
-Two public chronology entry systems coexist:
+**Canonical public chronology:** `/rv/[year]` → `/rv/[year]/[month]` → `/rv/[year]/[month]/[YYYY-MM-DD]`.
 
 | Entry | Default path | Interaction model | Returns to search? |
 |-------|--------------|-------------------|--------------------|
-| Charts pad | `/rv/1978` | Vertical year → month cards → `/charts` deep link | Yes (topbar/footer Search) |
-| Overlay recovery | `/charts` or `/rv/YEAR` | Split by pill | Partial |
-| Search RV panel | `/charts` | Secondary entry | Via `/search` only |
-| `/charts` direct | decade → year → week UI | 3-step explorer + API load | Footer Search only |
+| Charts pad | `/rv/1978` | Year → month route → week deep link | Yes (topbar/footer Search) |
+| Overlay recovery | `/rv/YEAR` or `/rv/1978` | Pills | Partial |
+| Search RV panel | `/rv/1978` | Secondary entry | Via `/search` only |
+| `/charts?…` legacy | redirect | Maps query to `/rv/...` | N/A |
 
 **Mermaid — chronology paths:**
 
@@ -162,20 +167,23 @@ Two public chronology entry systems coexist:
 flowchart TB
   Home["/"] --> RvPad["Charts pad /rv/1978"]
   Home --> RvSearch["Overlay year /rv/YEAR"]
-  Home --> ChartsRecovery["Overlay /charts"]
-  Search["/search"] --> ChartsPanel["RV panel → /charts"]
+  Home --> RvRecovery["Overlay /rv/1978"]
+  Search["/search"] --> RvPanel["RV panel → /rv/1978"]
   RvPad --> RvYear["/rv/YEAR"]
-  RvYear --> ChartsDeep["/charts?year&month&week"]
-  ChartsExplore["/charts"] --> ApiYear["GET /api/charts/year"]
-  ApiYear --> WeekCards["ArtistChartsHistoryClient"]
+  RvYear --> RvMonth["/rv/YEAR/MONTH"]
+  RvMonth --> RvWeek["/rv/YEAR/MONTH/DATE"]
+  RvMonth --> WeekCards["ArtistChartsHistoryClient"]
+  RvWeek --> WeekCards
   WeekCards --> Album["/album/*"]
   WeekCards --> Track["/track/*"]
-  ChartsExplore --> RvYear
+  LegacyCharts["/charts?year&month&week"] --> RvYear
+  LegacyCharts --> RvMonth
+  LegacyCharts --> RvWeek
   RvYear --> Search
-  ChartsExplore --> Search
+  RvMonth --> Search
 ```
 
-**Isolation risk:** Users entering via `/rv/1978` get year stepping and month cards; users entering `/charts` get decade/year pills and a different chrome. Both land on the same week-card component but with different surrounding IA.
+**Continuity:** Month drill and week deep links stay under `RvChronologyChrome`; browser back moves year → month → week within `/rv` (no charts shell).
 
 ---
 
@@ -217,10 +225,10 @@ Chronology crossover: artist charts week cards → album/track exhibits. Artist 
 | Home overlay → entity → browser back | Returns to bare home; search query gone | Overlay state is component-local |
 | `/artist/[slug]/years` | Bar chart only; no navigation to `/rv/[year]` | Section is display-only |
 | Sparse artist exhibit | "Inspect graph" link | `/inspect` 404 in production unless flag set |
-| `/charts` with failed year load | Error string only | No automatic fallback to `/rv/[year]` |
+| `/charts` bare | Redirect to `/rv/1978` | Legacy path only |
 | `/rv/[year]` months with no Album 200 | "No Album 200 #1 captured" | Data gap (not nav dead-end, feels like one) |
 | Scoped pad with zero results + Enter | No navigation | Enter only routes when suggestion/year match exists |
-| `view-all` fallbacks in search | May send user to `/charts` | When artist slug cannot be resolved |
+| `view-all` fallbacks in search | May send user to `/rv/[year]` | When artist slug cannot be resolved |
 
 ---
 
@@ -228,11 +236,11 @@ Chronology crossover: artist charts week cards → album/track exhibits. Artist 
 
 | Duplicate | Paths | Notes |
 |-----------|-------|-------|
-| **Dual chronology shells** | `/rv/[year]` vs `/charts` | Same week data component; different entry and chrome |
+| **Artist vs RV chronology** | `/artist/[slug]/charts` vs `/rv/...` | Same week card component; artist shell vs RV chrome |
 | **Dual search surfaces** | Home overlay vs `/search` | Different Enter semantics, different panel richness |
-| **Chronology entry trio** | `/rv/1978` pad, `/charts` recovery, search RV panel | Three ways into chart history |
-| **Year navigation** | `/rv/Y` prev/next vs `/charts` decade/year pills | Same years, different controls |
-| **Artist chart history** | `/artist/[slug]/charts` vs `/charts` vs `/rv/[year]` | Shared `ArtistChartsHistoryClient` |
+| **Chronology entry trio** | `/rv/1978` pad, overlay recovery, search RV panel | Same `/rv` family; legacy `/charts` redirects |
+| **Year navigation** | `/rv/Y` prev/next vs in-drill month pills | Same year data; year page vs month drill |
+| **Artist chart history** | `/artist/[slug]/charts` vs `/rv/[year]` | Shared `ArtistChartsHistoryClient`; `/charts` redirects to `/rv` |
 
 ---
 
@@ -251,9 +259,9 @@ Chronology crossover: artist charts week cards → album/track exhibits. Artist 
 
 ## 8. Biggest architectural confusion points
 
-1. **Two chronology products** — `/rv/[year]` reads as "year world"; `/charts` reads as "chart control panel." Users cannot tell they are one system.
+1. **Artist vs RV chronology shells** — `/artist/[slug]/charts` uses entity chrome; `/rv/...` uses year chrome. Same week component, different surrounding IA.
 2. **Search is split-brain** — Overlay (modal, best-match Enter) vs `/search` (URL-backed, panels, commit Enter). Mental model differs by entry point.
-3. **Month navigation indirection** — `/rv` month card does not show weeks inline; it jumps to `/charts` with query params. Back button crosses systems.
+3. **Week vs entity on RV cards** — Card surface → `/rv/Y/M/DATE`; title link → entity exhibit (explicit).
 4. **Artist IA vs routes** — Four nav pills vs eight section routes; hidden sections feel like dead ends if user never hits View-all.
 5. **Chronology ↔ entity ID resolution** — Week cards without RVAR/RVAL/RVTR may render non-linkable; feels broken though data-sparse.
 6. **Dev tools in public copy** — Inspect links on sparse artist exhibits leak internal tooling language.
@@ -264,8 +272,8 @@ Chronology crossover: artist charts week cards → album/track exhibits. Artist 
 
 **Do not implement in this pass.** Ordered by human clarity impact:
 
-1. **Declare canonical chronology entry:** `/rv/[year]` for discovery; `/charts` as deep drill tool only (or merge chrome).
-2. **Unify month/week destination:** Either weeks live on `/rv/[year]` OR `/charts` — avoid cross-route month cards with different chrome.
+1. ~~Declare canonical chronology entry~~ — **Done (2026-05-27):** `/rv/[year]/[month]/[week]`; `/charts` redirects.
+2. ~~Push week segment on in-drill week card tap~~ — **Done (2026-05-27):** `router.push` to `/rv/Y/M/DATE`.
 3. **Single search contract document:** Overlay Enter = `/search` Enter behavior table in this doc; keep both but identical outcomes where possible.
 4. **URL-backed overlay optional:** `/?q=&scope=` for back-button continuity (future).
 5. **Hide inspect links in production** when `!isInspectEnabled()`.
@@ -293,7 +301,7 @@ Chronology crossover: artist charts week cards → album/track exhibits. Artist 
 | Classification | Systems |
 |----------------|---------|
 | **Stable / foundational** | Entity exhibits, search suggestion routing, homepage directory board, ops gate, fail-open loading |
-| **Fragile (change carefully)** | Dual chronology (`/rv` + `/charts`), overlay session state, chart week → entity ID mapping |
+| **Fragile (change carefully)** | RV chronology URL sync (`artist-charts-history-client`), overlay session state, chart week → entity ID mapping |
 | **Legacy / duplicated** | `home-poster-frame`, `/browse` redirects, hidden artist section routes, inspect links on public sparse exhibits |
 
 ---
@@ -324,7 +332,7 @@ Overlay keyboard: `Escape` closes; `Enter` → `routeBestMatch()` (first suggest
 Scoped filters: `lib/search/home-search-scope.ts` filters suggestion groups on homepage only.
 
 Chronology crossover on `/search`:
-- `SearchRvHistoryEntryPanel` → `/charts`
+- `SearchRvHistoryEntryPanel` → `/rv/1978`
 - `SearchChartsHistoryPanel` → embedded history + view-all hrefs
 - Year-detected queries may surface RV panels
 
@@ -357,13 +365,10 @@ Wait - when RETROVERSE_OPS is not 1, middleware returns 404 for /ops routes. Goo
               │
 [WEAK]        ├── overlay back loses query
               │
-[CONFUSED]    ├── Charts pad ──► /rv/1978 ──month──► /charts?...
-              │       ▲                           │
-              │       └──── "Open full year" ───────┘
-              │
-              └── /search ──RV panel──► /charts (third entry)
+[STABLE]      Charts pad ──► /rv/1978 ──month──► /rv/Y/M ──week──► /rv/Y/M/DATE
+              └── /search ──RV panel──► /rv/1978
 
-[ISOLATED]    /charts decade UI (no direct pad from home)
+[LEGACY]      /charts?... ──redirect──► /rv/...
 
 [GATED]       /ops  /inspect  /control-center
 ```

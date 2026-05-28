@@ -2,6 +2,7 @@
 
 import { ARTIST_SLUGS } from "@/lib/artist/slug";
 import { yearSuggestionHref } from "@/lib/search/entity-routes";
+import { rvYearHref, RV_CHRONOLOGY_DEFAULT_YEAR } from "@/lib/rv/rv-chronology-paths";
 
 const FEATURED_YEARS = [1973, 1978, 1984, 1999] as const;
 
@@ -58,7 +59,7 @@ export function HomeSearchOverlayRecovery({ mode, query, onNavigate }: Props) {
         <button
           type="button"
           className="home-search-overlay-recovery__pill home-search-overlay-recovery__pill--wide"
-          onClick={() => onNavigate("/charts")}
+          onClick={() => onNavigate(rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR))}
         >
           Open chart history
         </button>
