@@ -304,6 +304,13 @@
   background: repeating-radial-gradient(circle, var(--charcoal) 0 2px, var(--paper-tan) 2px 4px);
 }
 
+.artist-album-tile__fallback.cover-fallback--variant .cover-fallback__initials {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: rgba(244, 233, 211, 0.4);
+}
+
 .artist-album-tile__title {
   margin: 0.5rem 0 0.1rem;
   font-size: 1.15rem;

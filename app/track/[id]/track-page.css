@@ -96,6 +96,23 @@
 
 .track-hero__cover-fallback {
   background: linear-gradient(145deg, var(--charcoal), var(--teal-deep));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-hero__cover-fallback.cover-fallback--variant .cover-fallback__initials {
+  font-size: clamp(1.5rem, 8vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(244, 233, 211, 0.42);
+  text-shadow: 0 1px 0 rgba(45, 62, 70, 0.35);
+  pointer-events: none;
+}
+
+.track-hero__cover-fallback[data-ph-compilation="1"] .cover-fallback__initials {
+  color: rgba(244, 233, 211, 0.55);
 }
 
 .track-exhibit--sparse .track-hero {

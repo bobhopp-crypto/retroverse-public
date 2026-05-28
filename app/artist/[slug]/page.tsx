@@ -98,6 +98,12 @@ export default async function ArtistPage({ params }: Props) {
                     alt=""
                     className="artist-album-tile__cover"
                     fallbackClassName="artist-album-tile__fallback"
+                    placeholderContext={{
+                      rval: album.rval,
+                      artist: data.displayName,
+                      album: album.title,
+                      releaseYear: album.releaseYear,
+                    }}
                   />
                   <p className="artist-album-tile__title">{album.title}</p>
                   <p className="artist-album-tile__meta">{album.releaseYear ?? "—"}</p>

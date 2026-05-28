@@ -38,6 +38,12 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
             className="track-hero__cover"
             fallbackClassName="track-hero__cover-fallback"
             fallbackVariant="plate"
+            placeholderContext={{
+              rval: data.rval,
+              artist: data.artistName,
+              album: data.title,
+              releaseYear: data.releaseYear,
+            }}
           />
         </div>
         <div className="track-hero__identity">
