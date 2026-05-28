@@ -3,6 +3,7 @@
 
 # next.js
 /.next/
+/.retroverse-dev-active
 /out/
 
 # production
@@ -22,3 +23,6 @@ yarn-error.log*
 next-env.d.ts
 .vercel
 tools/out/
+reports/cover_integrity/*.csv
+reports/cover_integrity/summary.json
+reports/cover_integrity/trust_registry.json
