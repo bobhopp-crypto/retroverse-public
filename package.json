@@ -14,6 +14,7 @@
     "track:audit-album-links": "npx --yes tsx tools/run-album-link-recovery-audit.ts",
     "cover:audit": "npx --yes tsx tools/run-cover-integrity-audit.ts",
     "cover:verify": "npx --yes tsx tools/run-cover-repair-verify.ts",
+    "cover:repair-batch": "npx --yes tsx tools/run-cover-repair-batch.ts",
     "healing:review": "npx --yes tsx tools/run-healing-review.ts",
     "smoke:public-search": "node tools/smoke-public-search.mjs"
   },
