@@ -34,7 +34,37 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 0.75rem;
   padding: 0.75rem 1rem 0;
+}
+
+.rv-year-topbar__brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.rv-year-topbar__actions {
+  display: flex;
+  align-items: center;
+}
+
+.rv-year-topbar__action {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--teal-deep);
+  border: 2px solid rgba(31, 94, 99, 0.5);
+  border-radius: 3px;
+  padding: 0.4rem 0.55rem;
+  background: rgba(255, 248, 238, 0.9);
+}
+
+.rv-year-topbar__action:hover {
+  background: rgba(31, 94, 99, 0.1);
 }
 
 .rv-year-logo {
@@ -198,6 +228,14 @@
   font-weight: 600;
   line-height: 1.35;
   color: rgba(45, 62, 70, 0.82);
+}
+
+.rv-year-bridge__continuity {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: rgba(45, 62, 70, 0.78);
 }
 
 .rv-year-chronicle {
