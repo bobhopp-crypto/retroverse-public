@@ -38,8 +38,9 @@ export function TrackPageView({ data }: TrackPageViewProps) {
             fallbackVariant="plate"
             placeholderContext={{
               artist: data.artistName,
-              album: data.title,
-              releaseYear: data.releaseYear,
+              album: data.albums[0]?.title ?? data.title,
+              releaseYear: data.releaseYear ?? data.albums[0]?.releaseYear ?? null,
+              rval: data.albums[0]?.rval ?? undefined,
             }}
           />
         </div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { highlightMatchText } from "@/lib/search/highlight-match";
 import { resolveSuggestionHref } from "@/lib/search/resolve-suggestion-href";
 import { OVERLAY_VISIBLE_INITIAL } from "@/lib/search/search-breadth";
@@ -36,9 +37,6 @@ const SECTIONS: {
 ];
 
 function SuggestionThumb({ item }: { item: SearchSuggestionItem }) {
-  const [broken, setBroken] = useState(false);
-  const src = item.coverUrl?.trim();
-
   if (item.kind === "year") {
     return (
       <span className="home-search-suggestions__thumb home-search-suggestions__thumb--year" aria-hidden>
@@ -47,20 +45,58 @@ function SuggestionThumb({ item }: { item: SearchSuggestionItem }) {
     );
   }
 
-  if (!src || broken) {
+  if (item.kind === "album") {
     return (
-      <span
-        className={`home-search-suggestions__thumb home-search-suggestions__thumb--fallback home-search-suggestions__thumb--${item.kind}`}
-        aria-hidden
-      >
-        {item.title.charAt(0).toUpperCase()}
+      <span className="home-search-suggestions__thumb home-search-suggestions__thumb--album" aria-hidden>
+        <ArtistCover
+          src={item.coverUrl}
+          alt=""
+          className="home-search-suggestions__thumb-img"
+          fallbackClassName="home-search-suggestions__thumb home-search-suggestions__thumb--plate"
+          fallbackVariant="plate"
+          plateDensity="dense"
+          placeholderContext={{
+            artist: item.artist ?? item.title,
+            album: item.title,
+            releaseYear: item.year,
+            rval: item.rvId?.match(/^RVAL\d{6}$/i)?.[0] ?? undefined,
+          }}
+        />
+      </span>
+    );
+  }
+
+  if (item.kind === "artist") {
+    return (
+      <span className="home-search-suggestions__thumb home-search-suggestions__thumb--artist" aria-hidden>
+        <ArtistCover
+          src={item.coverUrl}
+          alt=""
+          className="home-search-suggestions__thumb-img"
+          fallbackClassName="home-search-suggestions__thumb home-search-suggestions__thumb--plate"
+          fallbackVariant="vinyl"
+          plateDensity="dense"
+          placeholderContext={{ artist: item.title, album: item.artist ?? "Artist" }}
+        />
       </span>
     );
   }
 
   return (
-    <span className="home-search-suggestions__thumb" aria-hidden>
-      <img src={src} alt="" onError={() => setBroken(true)} />
+    <span className="home-search-suggestions__thumb home-search-suggestions__thumb--song" aria-hidden>
+      <ArtistCover
+        src={item.coverUrl}
+        alt=""
+        className="home-search-suggestions__thumb-img"
+        fallbackClassName="home-search-suggestions__thumb home-search-suggestions__thumb--plate"
+        fallbackVariant="plate"
+        plateDensity="dense"
+        placeholderContext={{
+          artist: item.artist ?? "",
+          album: item.title,
+          releaseYear: item.year,
+        }}
+      />
     </span>
   );
 }

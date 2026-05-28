@@ -73,9 +73,8 @@ export default async function ArtistPage({ params }: Props) {
   const maxYearCount = data.hasDominantYearData
     ? Math.max(...data.dominantYears.map((y) => y.count), 1)
     : 1;
-  const libraryAlbumCovers = data.essentialAlbums.filter((a) => a.coverUrl).slice(0, 8);
-  const showLibrary =
-    data.libraryTracks > 0 && libraryAlbumCovers.length > 0;
+  const libraryAlbums = data.essentialAlbums.slice(0, 8);
+  const showLibrary = data.libraryTracks > 0 && libraryAlbums.length > 0;
   return (
     <>
       {data.essentialAlbums.length > 0 && (
@@ -98,6 +97,8 @@ export default async function ArtistPage({ params }: Props) {
                     alt=""
                     className="artist-album-tile__cover"
                     fallbackClassName="artist-album-tile__fallback"
+                    fallbackVariant="plate"
+                    plateDensity="compact"
                     placeholderContext={{
                       rval: album.rval,
                       artist: data.displayName,
@@ -158,15 +159,41 @@ export default async function ArtistPage({ params }: Props) {
             <ArtistViewAll href={artistSectionHref(slug, "library")} variant="light" />
           </div>
           <div className="artist-library__grid">
-            {libraryAlbumCovers.map((a) => (
-              <ArtistCover
-                key={a.pgAlbumId}
-                src={a.coverUrl}
-                alt=""
-                className="artist-library__thumb"
-                fallbackClassName="artist-library__thumb artist-album-tile__fallback"
-              />
-            ))}
+            {libraryAlbums.map((a) => {
+              const libHref = albumSuggestionHref(
+                a.title,
+                a.rval ? `/albums/${a.rval}` : null,
+              );
+              const thumb = (
+                <ArtistCover
+                  src={a.coverUrl}
+                  alt=""
+                  className="artist-library__thumb"
+                  fallbackClassName="artist-library__thumb artist-album-tile__fallback"
+                  fallbackVariant="plate"
+                  plateDensity="compact"
+                  placeholderContext={{
+                    rval: a.rval,
+                    artist: data.displayName,
+                    album: a.title,
+                    releaseYear: a.releaseYear,
+                  }}
+                />
+              );
+              return libHref ? (
+                <Link
+                  key={a.pgAlbumId}
+                  href={libHref}
+                  prefetch
+                  className="artist-library__thumb-link"
+                  aria-label={`${a.title} album`}
+                >
+                  {thumb}
+                </Link>
+              ) : (
+                <div key={a.pgAlbumId}>{thumb}</div>
+              );
+            })}
           </div>
         </section>
       )}
@@ -185,26 +212,47 @@ export default async function ArtistPage({ params }: Props) {
               ? ` · ${data.chartAlbumSpotlight.releaseYear}`
               : ""}
           </p>
-          <div className="artist-era__cover-wrap">
-            <ArtistCover
-              src={data.chartAlbumSpotlight.coverUrl}
-              alt={data.chartAlbumSpotlight.albumTitle}
-              className="artist-era__cover"
-              fallbackClassName="artist-era__cover artist-album-tile__fallback"
-            />
-          </div>
           {(() => {
-            const eraHref = data.chartAlbumSpotlight.rval
+            const spotlight = data.chartAlbumSpotlight;
+            const eraHref = spotlight.rval
               ? albumSuggestionHref(
-                  data.chartAlbumSpotlight.albumTitle,
-                  `/albums/${data.chartAlbumSpotlight.rval}`,
+                  spotlight.albumTitle,
+                  `/albums/${spotlight.rval}`,
                 )
               : null;
-            return eraHref ? (
-              <a className="artist-era__cta" href={eraHref}>
-                {data.chartAlbumSpotlight.albumTitle}
-              </a>
-            ) : null;
+            const spotlightCover = (
+              <ArtistCover
+                src={spotlight.coverUrl}
+                alt={spotlight.albumTitle}
+                className="artist-era__cover"
+                fallbackClassName="artist-era__cover artist-album-tile__fallback"
+                fallbackVariant="plate"
+                placeholderContext={{
+                  rval: spotlight.rval,
+                  artist: data.displayName,
+                  album: spotlight.albumTitle,
+                  releaseYear: spotlight.releaseYear,
+                }}
+              />
+            );
+            return (
+              <>
+                <div className="artist-era__cover-wrap">
+                  {eraHref ? (
+                    <Link href={eraHref} prefetch className="artist-era__cover-link">
+                      {spotlightCover}
+                    </Link>
+                  ) : (
+                    spotlightCover
+                  )}
+                </div>
+                {eraHref ? (
+                  <a className="artist-era__cta" href={eraHref}>
+                    {spotlight.albumTitle}
+                  </a>
+                ) : null}
+              </>
+            );
           })()}
         </section>
       )}
@@ -219,16 +267,14 @@ export default async function ArtistPage({ params }: Props) {
             {data.relatedArtists.map((rel) => (
               <li key={rel.slug}>
                 <Link href={`/artist/${rel.slug}`} prefetch className="artist-related__card">
-                  {rel.coverUrl ? (
-                    <ArtistCover
-                      src={rel.coverUrl}
-                      alt=""
-                      className="artist-related__avatar"
-                      fallbackClassName="artist-related__avatar-fallback"
-                    />
-                  ) : (
-                    <span className="artist-related__avatar-fallback" aria-hidden />
-                  )}
+                  <ArtistCover
+                    src={rel.coverUrl}
+                    alt=""
+                    className="artist-related__avatar"
+                    fallbackClassName="artist-related__avatar-fallback"
+                    fallbackVariant="vinyl"
+                    placeholderContext={{ artist: rel.name, album: rel.name }}
+                  />
                   <span className="artist-related__name">{rel.name}</span>
                 </Link>
               </li>

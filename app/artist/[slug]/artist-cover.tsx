@@ -1,22 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import {
-  albumPlaceholderStyle,
-  computeAlbumPlaceholderVariant,
-  type AlbumPlaceholderContext,
-} from "@/lib/artwork/album-placeholder-variant";
+import { ArchiveCoverPlate } from "@/components/artwork/ArchiveCoverPlate";
+import type { AlbumPlaceholderContext } from "@/lib/artwork/album-placeholder-variant";
 
 type Props = {
   src: string | null | undefined;
   alt: string;
   className?: string;
   fallbackClassName?: string;
-  /** plate = calm archival gradient; vinyl = decorative deck (artist tiles) */
+  /** plate = archival metadata plate; vinyl = decorative deck (artist hero tiles) */
   fallbackVariant?: "plate" | "vinyl";
-  /** Deterministic era/artist placeholder when cover URL missing or broken. */
   placeholderContext?: AlbumPlaceholderContext;
+  plateDensity?: "default" | "compact" | "dense";
 };
 
 export function ArtistCover({
@@ -26,30 +23,30 @@ export function ArtistCover({
   fallbackClassName = "artist-cover-fallback",
   fallbackVariant = "vinyl",
   placeholderContext,
+  plateDensity = "default",
 }: Props) {
   const [broken, setBroken] = useState(false);
+
+  useEffect(() => {
+    setBroken(false);
+  }, [src]);
+
   const show = Boolean(src?.trim()) && !broken;
 
   if (!show) {
-    const ph =
-      placeholderContext != null
-        ? computeAlbumPlaceholderVariant(placeholderContext)
-        : null;
-    const phStyle =
-      placeholderContext != null ? albumPlaceholderStyle(placeholderContext) : undefined;
+    if (placeholderContext) {
+      return (
+        <ArchiveCoverPlate
+          context={placeholderContext}
+          className={fallbackClassName}
+          density={plateDensity}
+        />
+      );
+    }
 
     return (
-      <div
-        className={`${fallbackClassName}${ph ? " cover-fallback--variant" : ""}`}
-        style={phStyle}
-        data-ph-era={ph?.era}
-        data-ph-compilation={ph?.isCompilation ? "1" : undefined}
-        aria-hidden
-      >
+      <div className={fallbackClassName} aria-hidden>
         {fallbackVariant === "vinyl" ? <span className="artist-cover-fallback__vinyl" /> : null}
-        {ph && fallbackVariant === "plate" ? (
-          <span className="cover-fallback__initials">{ph.initials}</span>
-        ) : null}
       </div>
     );
   }

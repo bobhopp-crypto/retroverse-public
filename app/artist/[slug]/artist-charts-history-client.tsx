@@ -453,6 +453,24 @@ export function ArtistChartsHistoryClient({
             alt=""
             className="charts-history-card__cover-img"
             fallbackClassName="charts-history-card__cover-fallback"
+            fallbackVariant={isAlbum ? "plate" : "vinyl"}
+            plateDensity="compact"
+            placeholderContext={
+              isAlbum
+                ? {
+                    artist: snapshot.artist || artistName,
+                    album: snapshot.title,
+                    releaseYear: snapshot.releaseYear ?? null,
+                    rval: /^RVAL\d{6}$/i.test(snapshot.trackId)
+                      ? snapshot.trackId.toUpperCase()
+                      : undefined,
+                  }
+                : {
+                    artist: snapshot.artist || artistName,
+                    album: snapshot.title,
+                    releaseYear: snapshot.releaseYear ?? null,
+                  }
+            }
           />
         </div>
         <div className="charts-history-card__body">

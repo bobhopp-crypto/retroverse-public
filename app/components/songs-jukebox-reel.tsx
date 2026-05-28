@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+
+import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
+import { rvalFromPublicHref } from "@/lib/artwork/rval-from-href";
 import {
   formatSongPeakLabel,
   formatSongWeeksLabel,
@@ -22,20 +25,24 @@ type Props = {
 
 type CardVariant = "preview" | "active";
 
-function SongThumb({ coverUrl }: { coverUrl?: string }) {
-  const [broken, setBroken] = useState(false);
-  const src = coverUrl?.trim();
-  if (!src || broken) {
-    return <div className="song-stack-card__thumb song-stack-card__thumb--empty" aria-hidden />;
-  }
+function SongThumb({ row }: { row: JukeboxSongRow }) {
+  const rval = rvalFromPublicHref(row.href);
 
   return (
     <div className="song-stack-card__thumb" aria-hidden>
-      <img
-        src={src}
+      <ArtistCover
+        src={row.coverUrl}
         alt=""
         className="song-stack-card__thumb-img"
-        onError={() => setBroken(true)}
+        fallbackClassName="song-stack-card__thumb"
+        fallbackVariant="plate"
+        plateDensity="compact"
+        placeholderContext={{
+          artist: row.artist,
+          album: row.title,
+          releaseYear: row.releaseYear,
+          rval: rval ?? undefined,
+        }}
       />
     </div>
   );
@@ -118,7 +125,7 @@ function SongStackCard({
     <article id={id} className="song-stack-card song-stack-card--active">
       <div className="song-stack-card__shell">
         <div className="song-stack-card__layout">
-          <SongThumb coverUrl={row.coverUrl} />
+          <SongThumb row={row} />
           {row.href ? (
             <Link
               href={row.href}

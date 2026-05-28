@@ -325,6 +325,17 @@
   color: var(--aqua-faded);
 }
 
+.artist-library__thumb-link,
+.artist-era__cover-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.artist-era__cover-link {
+  width: 100%;
+}
+
 /* —— Songs: centered vertical jukebox (NOT a cover rail) —— */
 
 .artist-songs-scroll,

@@ -42,16 +42,14 @@ export default async function ArtistRelatedPage({ params }: Props) {
         {related.map((rel) => (
           <li key={rel.slug}>
             <Link href={`/artist/${rel.slug}`} prefetch className="artist-related__card">
-              {rel.coverUrl ? (
-                <ArtistCover
-                  src={rel.coverUrl}
-                  alt=""
-                  className="artist-related__avatar"
-                  fallbackClassName="artist-related__avatar-fallback"
-                />
-              ) : (
-                <span className="artist-related__avatar-fallback" aria-hidden />
-              )}
+              <ArtistCover
+                src={rel.coverUrl}
+                alt=""
+                className="artist-related__avatar"
+                fallbackClassName="artist-related__avatar-fallback"
+                fallbackVariant="vinyl"
+                placeholderContext={{ artist: rel.name, album: rel.name }}
+              />
               <span className="artist-related__name">{rel.name}</span>
             </Link>
           </li>

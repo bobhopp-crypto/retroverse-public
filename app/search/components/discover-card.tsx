@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 
+import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
+import { rvalFromPublicHref } from "@/lib/artwork/rval-from-href";
+import type { AlbumPlaceholderContext } from "@/lib/artwork/album-placeholder-variant";
 import { sanitizePublicNavigationHref } from "@/lib/search/entity-routes";
 
 type CardVariant = "album" | "artist-chart";
@@ -31,9 +33,16 @@ export function DiscoverCard({
   href,
 }: DiscoverCardProps) {
   const safeHref = href ? sanitizePublicNavigationHref(href) : null;
-  const icon = variant === "album" ? "◉" : "★";
-  const [imgBroken, setImgBroken] = useState(false);
-  const showCover = Boolean(coverUrl?.trim()) && !imgBroken;
+
+  const albumPlaceholder: AlbumPlaceholderContext | undefined =
+    variant === "album"
+      ? {
+          artist: line2,
+          album: title,
+          releaseYear: line3 ? Number.parseInt(line3, 10) || null : null,
+          rval: rvalFromPublicHref(href) ?? undefined,
+        }
+      : undefined;
 
   const artClass =
     variant === "album"
@@ -43,25 +52,31 @@ export function DiscoverCard({
   const body = (
     <>
       <div className={artClass}>
-        {showCover ? (
-          <img
+        {variant === "album" ? (
+          <ArtistCover
             src={coverUrl}
             alt=""
             className="discover-card__art-img"
-            onError={() => setImgBroken(true)}
+            fallbackClassName="discover-card__art discover-card__art--album discover-card__art--placeholder"
+            fallbackVariant="plate"
+            placeholderContext={albumPlaceholder}
+            plateDensity="compact"
+          />
+        ) : coverUrl ? (
+          <ArtistCover
+            src={coverUrl}
+            alt=""
+            className="discover-card__art-img"
+            fallbackClassName="discover-card__art"
+            fallbackVariant="vinyl"
+            placeholderContext={{ artist: title, album: line2 }}
+            plateDensity="compact"
           />
         ) : (
-          <>
-            <span className="discover-card__art-icon" aria-hidden="true">
-              {icon}
-            </span>
-            {variant === "album" ? (
-              <span className="discover-card__art-label">Album cover</span>
-            ) : null}
-            <span className="discover-card__art-initials" aria-hidden="true">
-              {coverInitials}
-            </span>
-          </>
+          <span className="discover-card__art-fallback" aria-hidden>
+            <span className="discover-card__art-icon">★</span>
+            <span className="discover-card__art-initials">{coverInitials}</span>
+          </span>
         )}
       </div>
       <div className="discover-card__footer">
