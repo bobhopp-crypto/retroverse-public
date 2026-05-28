@@ -1383,3 +1383,82 @@
   font-size: 0.78rem;
 }
 
+/* RV12 pilot actions */
+.ops-cover-rv12 {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--info);
+}
+
+.ops-cover-rv12__title {
+  margin: 0 0 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--info);
+}
+
+.ops-cover-rv12__warn {
+  margin: 0 0 0.75rem;
+  padding: 0.5rem;
+  border: 1px solid var(--warn);
+  color: var(--warn);
+  font-size: 0.82rem;
+}
+
+.ops-cover-rv12__ingest {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ops-cover-rv12__ingest label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--dim);
+}
+
+.ops-cover-rv12__ingest input[type="url"],
+.ops-cover-rv12__ingest input[type="file"] {
+  padding: 0.35rem;
+  background: var(--panel-2);
+  border: 1px solid var(--grid);
+  color: var(--ink);
+}
+
+.ops-cover-rv12__candidate-img {
+  max-width: min(60vw, 480px);
+  min-height: 200px;
+}
+
+.ops-cover-rv12__promote-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.ops-cover-rv12__status {
+  margin-top: 0.65rem;
+  color: var(--ok);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.ops-cover-rv12__ledger {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+}
+
+.ops-cover-rv12__force {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+}
+

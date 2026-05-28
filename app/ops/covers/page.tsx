@@ -5,6 +5,7 @@ import { OpsCoverReviewWorkbench } from "@/components/ops/OpsCoverReviewWorkbenc
 import { loadHashMatchIndexForBatch } from "@/lib/cover-integrity/load-cover-audit-csv";
 import { loadRepairBatchCsv } from "@/lib/cover-integrity/load-repair-batch-csv";
 import { loadRepairDecisions } from "@/lib/cover-integrity/repair-decisions-store";
+import { coverApplyEnabled } from "@/lib/rv12/guardrails";
 
 import "../ops.css";
 
@@ -74,6 +75,7 @@ export default async function OpsCoversPage() {
             batch={batch}
             initialDecisions={decisionsState.decisions}
             hashMatches={hashMatches}
+            coverApplyEnabled={coverApplyEnabled()}
           />
         )}
       </div>

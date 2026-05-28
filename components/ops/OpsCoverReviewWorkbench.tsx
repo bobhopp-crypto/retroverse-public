@@ -12,11 +12,13 @@ import type {
   CuratorConfidence,
 } from "@/lib/cover-integrity/repair-decisions-store";
 import { isSafeCanonicalCoverPath } from "@/lib/cover-integrity/validate-cover-path";
+import { OpsCoverRv12Actions } from "@/components/ops/OpsCoverRv12Actions";
 
 type Props = {
   batch: RepairBatchCsvRow[];
   initialDecisions: Record<string, CoverRepairDecision>;
   hashMatches: Record<string, CoverAuditHashRow[]>;
+  coverApplyEnabled: boolean;
 };
 
 function isHttpUrl(value: string): boolean {
@@ -36,7 +38,12 @@ function trustTierClass(tier: string): string {
   return "ops-cover-review__tier--review";
 }
 
-export function OpsCoverReviewWorkbench({ batch, initialDecisions, hashMatches }: Props) {
+export function OpsCoverReviewWorkbench({
+  batch,
+  initialDecisions,
+  hashMatches,
+  coverApplyEnabled,
+}: Props) {
   const [index, setIndex] = useState(0);
   const [decisions, setDecisions] = useState(initialDecisions);
   const [notes, setNotes] = useState("");
@@ -404,6 +411,12 @@ export function OpsCoverReviewWorkbench({ batch, initialDecisions, hashMatches }
               Next (J) →
             </button>
           </div>
+
+          <OpsCoverRv12Actions
+            row={row}
+            coverApplyEnabled={coverApplyEnabled}
+            isPilot={row.rval === "RVAL823723"}
+          />
 
           {error ? <p className="ops-cover-review__error">{error}</p> : null}
           {saving ? <p className="ops-dim">Saving…</p> : null}

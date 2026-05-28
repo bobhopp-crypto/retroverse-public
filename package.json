@@ -15,6 +15,7 @@
     "cover:audit": "npx --yes tsx tools/run-cover-integrity-audit.ts",
     "cover:verify": "npx --yes tsx tools/run-cover-repair-verify.ts",
     "cover:repair-batch": "npx --yes tsx tools/run-cover-repair-batch.ts",
+    "cover:rv12-pilot": "npx --yes tsx tools/run-rv12-pilot.ts",
     "healing:review": "npx --yes tsx tools/run-healing-review.ts",
     "smoke:public-search": "node tools/smoke-public-search.mjs"
   },

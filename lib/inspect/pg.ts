@@ -34,6 +34,11 @@ export async function inspectQuery<T extends Record<string, unknown>>(
   return result.rows as T[];
 }
 
+export async function inspectExecute(text: string, params?: unknown[]): Promise<number> {
+  const result = await getInspectPool().query(text, params);
+  return result.rowCount ?? 0;
+}
+
 export async function inspectPing(): Promise<{ ok: boolean; error?: string }> {
   try {
     await inspectQuery<{ ok: number }>("SELECT 1::int AS ok");
