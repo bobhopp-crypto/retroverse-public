@@ -13,7 +13,7 @@ export function HomeSearchInput() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="home-search-wrap">
+    <div className={`home-search-wrap${open ? " home-search-wrap--open" : ""}`}>
       <button
         type="button"
         className="home-search-trigger"
