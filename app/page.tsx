@@ -1,12 +1,15 @@
-import { HomePosterFrame } from "./components/home-poster-frame";
+import { HomeDirectory } from "./components/home-directory";
+import { isOpsEnabled } from "@/lib/ops/ops-gate";
+
+import "./home-directory.css";
 import "./home.css";
 
 export default function HomePage() {
+  const opsEnabled = isOpsEnabled();
+
   return (
-    <main className="home-main">
-      <div className="poster-shell">
-        <HomePosterFrame />
-      </div>
+    <main className="home-directory">
+      <HomeDirectory opsEnabled={opsEnabled} />
     </main>
   );
 }

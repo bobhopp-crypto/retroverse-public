@@ -515,6 +515,7 @@ html.home-search-overlay-open body {
   overflow: hidden;
 }
 
-html.home-search-overlay-open .home-main {
+html.home-search-overlay-open .home-main,
+html.home-search-overlay-open .home-directory {
   pointer-events: none;
 }

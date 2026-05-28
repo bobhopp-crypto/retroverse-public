@@ -2,23 +2,18 @@
 
 import { useState } from "react";
 
-import { HOME_SEARCH_ZONE, posterRectPctStyle } from "@/lib/home/poster-layout";
-
 import { HomeSearchOverlay } from "./home-search-overlay";
 import "./home-search-overlay.css";
 
 /**
- * Poster search trigger — opens isolated fullscreen terminal.
+ * Homepage search trigger — opens isolated fullscreen terminal.
  * No inline input, autocomplete, or layout expansion on the homepage.
  */
 export function HomeSearchInput() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div
-      className="home-search-wrap"
-      style={posterRectPctStyle(HOME_SEARCH_ZONE)}
-    >
+    <div className="home-search-wrap">
       <button
         type="button"
         className="home-search-trigger"
