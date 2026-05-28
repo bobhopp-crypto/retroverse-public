@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import { ArtistChartsHistoryClient } from "@/app/artist/[slug]/artist-charts-history-client";
 import type { ArtistChartHistory } from "@/lib/artist/chart-history-types";
@@ -17,18 +18,22 @@ import "../rv/[year]/rv-year.css";
 import "./charts-page.css";
 
 export function ChartsExploreView() {
+  const searchParams = useSearchParams();
   const decades = chartExploreDecades();
   const [selectedDecade, setSelectedDecade] = useState<number | null>(null);
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [history, setHistory] = useState<ArtistChartHistory | null>(null);
   const [loadingYear, setLoadingYear] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [initialMonth, setInitialMonth] = useState<number | null>(null);
+  const hydratedFromQueryRef = useRef(false);
 
   const yearsInDecade =
     selectedDecade != null ? chartExploreYearsInDecade(selectedDecade) : [];
 
-  const loadYear = useCallback(async (year: number) => {
+  const loadYear = useCallback(async (year: number, month?: number | null) => {
     setSelectedYear(year);
+    setInitialMonth(month ?? null);
     setLoadingYear(true);
     setLoadError(null);
     setHistory(null);
@@ -51,6 +56,21 @@ export function ChartsExploreView() {
       setLoadingYear(false);
     }
   }, []);
+
+  useEffect(() => {
+    if (hydratedFromQueryRef.current) return;
+    const yearParam = Number(searchParams.get("year"));
+    if (!Number.isInteger(yearParam)) return;
+    const monthParamRaw = Number(searchParams.get("month"));
+    const monthParam =
+      Number.isInteger(monthParamRaw) && monthParamRaw >= 1 && monthParamRaw <= 12
+        ? monthParamRaw
+        : null;
+    hydratedFromQueryRef.current = true;
+    const decade = Math.floor(yearParam / 10) * 10;
+    setSelectedDecade(decade);
+    void loadYear(yearParam, monthParam);
+  }, [searchParams, loadYear]);
 
   const pickDecade = (decade: number) => {
     setSelectedDecade(decade);
@@ -181,6 +201,7 @@ export function ChartsExploreView() {
               hideBanner
               hideYearStep
               initialRvYear={selectedYear}
+              initialMonth={initialMonth}
             />
           ) : null}
         </section>

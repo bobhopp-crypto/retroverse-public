@@ -51,6 +51,8 @@ type Props = {
   hideBanner?: boolean;
   /** Search RV History: preload this RV year when present in chart data. */
   initialRvYear?: number | null;
+  /** Optional preload month for views linking directly into a year month. */
+  initialMonth?: number | null;
   /** Charts explore — year chosen upstream; skip duplicate year step. */
   hideYearStep?: boolean;
 };
@@ -87,6 +89,7 @@ export function ArtistChartsHistoryClient({
   viewAllHref,
   hideBanner = false,
   initialRvYear = null,
+  initialMonth = null,
   hideYearStep = false,
 }: Props) {
   const safeHistory = useMemo(
@@ -192,13 +195,17 @@ export function ArtistChartsHistoryClient({
     applyChartState({
       decade: useDecades ? Math.floor(preload / 10) * 10 : null,
       year: preload,
-      month: null,
+      month:
+        initialMonth != null && initialMonth >= 1 && initialMonth <= 12
+          ? initialMonth
+          : null,
     });
     hydratedRef.current = true;
   }, [
     artistStorageKey,
     entries.length,
     initialRvYear,
+    initialMonth,
     useDecades,
     activeYears,
     syncChartUrl,
