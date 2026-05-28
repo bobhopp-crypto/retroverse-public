@@ -72,14 +72,28 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
       const song = groups.singleSnapshots[0] ?? null;
       const album = groups.albumSnapshots[0] ?? null;
       const notable = [...groups.singleSnapshots, ...groups.albumSnapshots]
-        .slice(0, 4)
         .map((row) => ({
           id: row.id,
           title: row.title,
           artist: row.artist,
           href: monthSnapshotHref(row),
           isAlbum: isAlbumChartSnapshot(row),
-        }));
+        }))
+        .filter((row, index, list) => {
+          const dedupeKey = `${row.isAlbum ? "album" : "song"}|${row.title}|${row.artist}`.toLowerCase();
+          return (
+            list.findIndex((entry) => {
+              const entryKey = `${entry.isAlbum ? "album" : "song"}|${entry.title}|${entry.artist}`.toLowerCase();
+              return entryKey === dedupeKey;
+            }) === index
+          );
+        })
+        .filter((row) => {
+          if (song && !row.isAlbum && row.title === song.title && row.artist === song.artist) return false;
+          if (album && row.isAlbum && row.title === album.title && row.artist === album.artist) return false;
+          return true;
+        })
+        .slice(0, 2);
       const weekDates = new Set(
         weekly
           .filter((entry) => entry.year === rvYear && entry.month === month)
@@ -90,7 +104,6 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
         song,
         album,
         notable,
-        weeks: weekDates.size,
         hasActivity: weekDates.size > 0,
       };
     });
@@ -163,11 +176,8 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
       <div className="rv-year-bridge">
         <h2 className="rv-year-bridge__title">Chart chronicle</h2>
         <p className="rv-year-bridge__hint">
-          Twelve months of #1 movement. Open any month card to continue into the same artist, album, and track exhibits.
-        </p>
-        <p className="rv-year-bridge__continuity">
-          Shorthand direction: <strong>67</strong>, <strong>78</strong>, <strong>92</strong> map to RV year worlds.
-          Use Search to continue into entities.
+          Twelve months of #1 movement.
+          Open any month to continue into artists, albums, and recordings.
         </p>
       </div>
 
@@ -182,11 +192,8 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
             return (
               <article key={card.month} id={monthAnchor} className="rv-month-card">
                 <header className="rv-month-card__head">
-                  <p className="rv-month-card__kicker">Month {String(card.month).padStart(2, "0")}</p>
                   <h3 className="rv-month-card__month">{monthFullName(card.month).toUpperCase()}</h3>
-                  <p className="rv-month-card__meta">
-                    {card.hasActivity ? `${card.weeks} chart weeks captured` : "No chart weeks captured"}
-                  </p>
+                  {!card.hasActivity ? <p className="rv-month-card__meta">No chart weeks captured</p> : null}
                 </header>
 
                 <div className="rv-month-card__leaders">
@@ -215,7 +222,7 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
 
                 {card.notable.length > 0 ? (
                   <ul className="rv-month-card__notable" aria-label={`${monthFullName(card.month)} notable chart entries`}>
-                    {card.notable.slice(0, 3).map((item) => (
+                    {card.notable.map((item) => (
                       <li key={item.id}>
                         {item.href ? (
                           <Link href={item.href} prefetch>
