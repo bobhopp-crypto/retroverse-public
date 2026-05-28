@@ -14,6 +14,8 @@ type DiscoverCardProps = {
   title: string;
   line2: string;
   line3?: string;
+  /** Album release year (preferred over parsing line3 chart notes). */
+  releaseYear?: number | null;
   duration?: string;
   coverUrl?: string;
   coverInitials: string;
@@ -26,6 +28,7 @@ export function DiscoverCard({
   title,
   line2,
   line3,
+  releaseYear,
   duration,
   coverUrl,
   coverInitials,
@@ -39,7 +42,12 @@ export function DiscoverCard({
       ? {
           artist: line2,
           album: title,
-          releaseYear: line3 ? Number.parseInt(line3, 10) || null : null,
+          releaseYear:
+            releaseYear != null && releaseYear > 0
+              ? releaseYear
+              : line3
+                ? Number.parseInt(line3, 10) || null
+                : null,
           rval: rvalFromPublicHref(href) ?? undefined,
         }
       : undefined;

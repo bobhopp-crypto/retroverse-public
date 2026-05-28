@@ -330,6 +330,7 @@ export default function SearchClient() {
                       item.chartNote ??
                       (item.year > 0 ? String(item.year) : undefined)
                     }
+                    releaseYear={item.year > 0 ? item.year : null}
                     coverUrl={item.coverUrl}
                     coverInitials={coverInitialsFromTitle(item.title)}
                     ariaLabel={`Album: ${item.title} by ${item.artist}, ${item.year}`}

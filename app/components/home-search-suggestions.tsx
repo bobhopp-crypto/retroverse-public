@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
+import { rvalFromPublicHref } from "@/lib/artwork/rval-from-href";
 import { highlightMatchText } from "@/lib/search/highlight-match";
 import { resolveSuggestionHref } from "@/lib/search/resolve-suggestion-href";
 import { OVERLAY_VISIBLE_INITIAL } from "@/lib/search/search-breadth";
@@ -59,7 +60,10 @@ function SuggestionThumb({ item }: { item: SearchSuggestionItem }) {
             artist: item.artist ?? item.title,
             album: item.title,
             releaseYear: item.year,
-            rval: item.rvId?.match(/^RVAL\d{6}$/i)?.[0] ?? undefined,
+            rval:
+              rvalFromPublicHref(item.href) ??
+              item.rvId?.match(/^RVAL\d{6}$/i)?.[0] ??
+              undefined,
           }}
         />
       </span>
