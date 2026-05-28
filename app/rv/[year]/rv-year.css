@@ -243,12 +243,27 @@
   margin: 0 1rem;
 }
 
+.rv-month-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .rv-month-card {
   border: var(--frame);
   border-radius: 4px;
   background: #fff8ee;
   box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.18);
   padding: 0.68rem 0.78rem;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.rv-month-card-link:hover .rv-month-card {
+  transform: translateY(-1px);
+  border-color: rgba(31, 94, 99, 0.45);
+  box-shadow: 5px 5px 0 rgba(45, 62, 70, 0.2);
 }
 
 .rv-month-card__head {
@@ -324,33 +339,111 @@
   text-decoration: underline;
 }
 
-.rv-month-card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
+.rv-month-detail {
+  margin: 0 1rem;
+  border: var(--frame);
+  border-radius: 4px;
+  background: #fff8ee;
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.18);
+  padding: 0.75rem 0.82rem;
 }
 
-.rv-month-card__open,
-.rv-month-card__weeks {
+.rv-month-detail__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  margin-bottom: 0.55rem;
+}
+
+.rv-month-detail__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.rv-month-detail__back {
   text-decoration: none;
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 2px solid rgba(31, 94, 99, 0.44);
   border-radius: 3px;
-  padding: 0.4rem 0.55rem;
+  padding: 0.34rem 0.5rem;
   color: var(--teal-deep);
-}
-
-.rv-month-card__open {
   background: rgba(31, 94, 99, 0.09);
 }
 
-.rv-month-card__open:hover,
-.rv-month-card__weeks:hover {
+.rv-month-detail__back:hover {
   background: rgba(31, 94, 99, 0.15);
+}
+
+.rv-month-detail__cards {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.rv-month-detail-card {
+  border: 2px solid rgba(45, 62, 70, 0.24);
+  border-radius: 3px;
+  background: #fcf6ec;
+  padding: 0.55rem 0.6rem;
+}
+
+.rv-month-detail-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.2rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.74);
+}
+
+.rv-month-detail-card__title {
+  margin: 0.28rem 0 0;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.rv-month-detail-card__title:hover {
+  text-decoration: underline;
+}
+
+.rv-month-detail-card__artist {
+  margin: 0.18rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(45, 62, 70, 0.86);
+}
+
+.rv-month-detail-card__rank {
+  margin: 0.28rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+.rv-month-detail__empty {
+  margin: 0.3rem 0 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: rgba(45, 62, 70, 0.78);
 }
 
 .rv-year-footer {
@@ -398,6 +491,10 @@
   }
 
   .rv-month-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rv-month-detail__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
 import {
@@ -9,6 +10,7 @@ import {
 } from "@/lib/artist/chart-history";
 import type { ArtistChartHistory } from "@/lib/artist/chart-history-types";
 import {
+  formatChartDateLabel,
   isAlbumChartSnapshot,
   monthChartSnapshotGroups,
   monthLabel,
@@ -26,6 +28,13 @@ type RvYearViewProps = {
   rvYear: number;
   history: ArtistChartHistory;
 };
+
+function parseSelectedMonth(value: string | null): number | null {
+  if (!value) return null;
+  const asNum = Number(value);
+  if (!Number.isInteger(asNum) || asNum < 1 || asNum > 12) return null;
+  return asNum;
+}
 
 function monthFullName(month: number): string {
   const d = new Date(2000, Math.max(0, Math.min(11, month - 1)), 1);
@@ -49,6 +58,9 @@ function monthSnapshotHref(
 }
 
 export function RvYearView({ rvYear, history }: RvYearViewProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const selectedMonth = parseSelectedMonth(searchParams.get("month"));
   const artistName = `RV ${rvYear}`;
   const editorial = rvYearEditorial(rvYear);
   const searchHref = `/search?q=${encodeURIComponent(String(rvYear))}`;
@@ -108,6 +120,15 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
       };
     });
   }, [safeHistory, rvYear]);
+
+  const monthDetailSnapshots = useMemo(() => {
+    if (!safeHistory || selectedMonth == null) return [];
+    const weekly = weeklyEntriesFromHistory(safeHistory);
+    const groups = monthChartSnapshotGroups(weekly, rvYear, selectedMonth, 5);
+    return [...groups.singleSnapshots, ...groups.albumSnapshots]
+      .sort((a, b) => a.chartDate.localeCompare(b.chartDate))
+      .slice(0, 5);
+  }, [safeHistory, rvYear, selectedMonth]);
 
   if (!safeHistory || !isUsableChartHistory(safeHistory)) {
     return null;
@@ -173,87 +194,99 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
         ) : null}
       </section>
 
-      <div className="rv-year-bridge">
-        <h2 className="rv-year-bridge__title">Chart chronicle</h2>
-        <p className="rv-year-bridge__hint">
-          Twelve months of #1 movement.
-          Open any month to continue into artists, albums, and recordings.
-        </p>
-      </div>
-
       <section className="rv-year-chronicle" aria-label={`${rvYear} chart chronicle`}>
-        <div className="rv-month-stack">
-          {monthCards.map((card) => {
-            const monthAnchor = `month-${monthLabel(card.month).toLowerCase()}`;
-            const openHref =
-              monthSnapshotHref(card.song ?? undefined) ??
-              monthSnapshotHref(card.album ?? undefined) ??
-              `/search?q=${encodeURIComponent(`${monthFullName(card.month)} ${rvYear}`)}`;
-            return (
-              <article key={card.month} id={monthAnchor} className="rv-month-card">
-                <header className="rv-month-card__head">
-                  <h3 className="rv-month-card__month">{monthFullName(card.month).toUpperCase()}</h3>
-                  {!card.hasActivity ? <p className="rv-month-card__meta">No chart weeks captured</p> : null}
-                </header>
+        {selectedMonth == null ? (
+          <div className="rv-month-stack">
+            {monthCards.map((card) => {
+              const monthAnchor = `month-${monthLabel(card.month).toLowerCase()}`;
+              const openMonthHref = `${pathname}?month=${card.month}`;
+              return (
+                <Link key={card.month} href={openMonthHref} prefetch className="rv-month-card-link">
+                  <article id={monthAnchor} className="rv-month-card">
+                    <header className="rv-month-card__head">
+                      <h3 className="rv-month-card__month">{monthFullName(card.month).toUpperCase()}</h3>
+                      {!card.hasActivity ? <p className="rv-month-card__meta">No chart weeks captured</p> : null}
+                    </header>
 
-                <div className="rv-month-card__leaders">
-                  <div className="rv-month-card__leader">
-                    <p className="rv-month-card__label">#1 Song</p>
-                    {card.song ? (
-                      <Link href={monthSnapshotHref(card.song) ?? openHref} prefetch className="rv-month-card__value">
-                        {card.song.title} · {card.song.artist}
-                      </Link>
-                    ) : (
-                      <p className="rv-month-card__value rv-month-card__value--muted">No Hot 100 #1 captured</p>
-                    )}
-                  </div>
-
-                  <div className="rv-month-card__leader">
-                    <p className="rv-month-card__label">#1 Album</p>
-                    {card.album ? (
-                      <Link href={monthSnapshotHref(card.album) ?? openHref} prefetch className="rv-month-card__value">
-                        {card.album.title} · {card.album.artist}
-                      </Link>
-                    ) : (
-                      <p className="rv-month-card__value rv-month-card__value--muted">No Album 200 #1 captured</p>
-                    )}
-                  </div>
-                </div>
-
-                {card.notable.length > 0 ? (
-                  <ul className="rv-month-card__notable" aria-label={`${monthFullName(card.month)} notable chart entries`}>
-                    {card.notable.map((item) => (
-                      <li key={item.id}>
-                        {item.href ? (
-                          <Link href={item.href} prefetch>
-                            {item.isAlbum ? "Album" : "Song"} · {item.title} · {item.artist}
-                          </Link>
+                    <div className="rv-month-card__leaders">
+                      <div className="rv-month-card__leader">
+                        <p className="rv-month-card__label">#1 Song</p>
+                        {card.song ? (
+                          <p className="rv-month-card__value">
+                            {card.song.title} · {card.song.artist}
+                          </p>
                         ) : (
-                          <span>
-                            {item.isAlbum ? "Album" : "Song"} · {item.title} · {item.artist}
-                          </span>
+                          <p className="rv-month-card__value rv-month-card__value--muted">No Hot 100 #1 captured</p>
                         )}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+                      </div>
 
-                <div className="rv-month-card__actions">
-                  <Link href={openHref} prefetch className="rv-month-card__open">
-                    Open month
-                  </Link>
-                  <Link
-                    href={`/search?q=${encodeURIComponent(`${monthFullName(card.month)} ${rvYear} chart`)}`}
-                    prefetch
-                    className="rv-month-card__weeks"
-                  >
-                    View weeks
-                  </Link>
-                </div>
-              </article>
-            );
-          })}
-        </div>
+                      <div className="rv-month-card__leader">
+                        <p className="rv-month-card__label">#1 Album</p>
+                        {card.album ? (
+                          <p className="rv-month-card__value">
+                            {card.album.title} · {card.album.artist}
+                          </p>
+                        ) : (
+                          <p className="rv-month-card__value rv-month-card__value--muted">No Album 200 #1 captured</p>
+                        )}
+                      </div>
+                    </div>
+
+                    {card.notable.length > 0 ? (
+                      <ul className="rv-month-card__notable" aria-label={`${monthFullName(card.month)} notable chart entries`}>
+                        {card.notable.map((item) => (
+                          <li key={item.id}>
+                            <span>
+                              {item.isAlbum ? "Album" : "Song"} · {item.title} · {item.artist}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </article>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="rv-month-detail">
+            <div className="rv-month-detail__head">
+              <h2 className="rv-month-detail__title">
+                {monthFullName(selectedMonth).toUpperCase()} {rvYear}
+              </h2>
+              <Link href={pathname} prefetch className="rv-month-detail__back">
+                Back to months
+              </Link>
+            </div>
+
+            {monthDetailSnapshots.length > 0 ? (
+              <ul className="rv-month-detail__cards" aria-label={`${monthFullName(selectedMonth)} chart cards`}>
+                {monthDetailSnapshots.map((snapshot) => {
+                  const href = monthSnapshotHref(snapshot);
+                  return (
+                    <li key={snapshot.id} className="rv-month-detail-card">
+                      <div className="rv-month-detail-card__meta">
+                        <span>{snapshot.chartDisplayName}</span>
+                        <span>{formatChartDateLabel(snapshot.chartDate)}</span>
+                      </div>
+                      {href ? (
+                        <Link href={href} prefetch className="rv-month-detail-card__title">
+                          {snapshot.title}
+                        </Link>
+                      ) : (
+                        <p className="rv-month-detail-card__title">{snapshot.title}</p>
+                      )}
+                      <p className="rv-month-detail-card__artist">{snapshot.artist}</p>
+                      <p className="rv-month-detail-card__rank">#1 peak</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              <p className="rv-month-detail__empty">No chart cards available for this month.</p>
+            )}
+          </div>
+        )}
       </section>
 
       <footer className="rv-year-footer">
