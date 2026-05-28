@@ -1,45 +1,58 @@
 # Retroverse Operating Board
 
 **Purpose:** Operational truth for RETROVERSE_PUBLIC — what is live, locked, local-only, and next.  
-**Updated:** 2026-05-27 (artist exhibit baseline)  
+**Updated:** 2026-05-28 (operating board reality alignment)  
 **Source of truth:** Deployed behavior at https://retroverse.live + commit on `main`
 
 ---
 
-## Live production (verified 2026-05-27)
+## Product direction (current)
+
+Retroverse is a **navigable music archive** — not a poster-only atmosphere piece.
+
+| Pillar | Direction |
+|--------|-----------|
+| **Public priority** | **User navigation trust** — search → click → exhibit must work every time |
+| **Homepage** | Directory-board archive entry; search-forward; tactile “primary terminal”; mobile-first |
+| **Search** | Primary public interaction; deterministic archive narrowing; scoped accelerators on home |
+| **Exhibits** | Fail-open mandatory — sparse plate beats redirect or 404 |
+| **Chronology** | Charts / years are core navigation; `/rv/1978`-style archive years are strategic (future expansion: `67`, `78`, `92`, …) |
+| **Not current focus** | Conceptual atmospheric refinement without navigation impact |
+
+**Repo HEAD (this board):** `d9d770a` — homepage pads as search accelerators; browse starter pages removed.
+
+---
+
+## Live production (verify after each deploy)
 
 | Field | Value |
 |-------|--------|
 | **URL** | https://retroverse.live |
-| **Commit** | `ff33450` — Artist exhibit continuity stabilization (vertical mobile baseline) |
-| **Search stabilization** | `384765a` → `d65931f` → `3c00d6f` — **COMPLETE v1** |
-| **Artist exhibit** | `75f55e2` → `ff33450` — **DONE** — charts on `/charts` only; vertical main exhibit |
+| **Commit** | Verify `git log -1` on deployed `main` — may lag repo until push |
+| **Homepage** | Code-generated **archive directory board** (`HomeDirectory`) — inline search terminal + scoped pads |
+| **Search overlay** | Deterministic PG `search_entities` suggestions; scoped groups via pads |
+| **Routing integrity** | `e0d4319` → entity href coercion, overlay `<Link>` navigation |
+| **Fail-open exhibits** | `0e9582f` — sparse render when enrichment/ping fails |
 | **Data plane** | Neon Postgres (pooler) + `search_entities` matview + `pg_trgm` |
-| **Homepage** | Poster-first; search trigger opens fullscreen drawer |
-| **Mobile search** | Fullscreen overlay — **DONE v1, stabilized** |
+| **Deploy gate** | `npm run smoke:public-search` (CI: `.github/workflows/smoke-public-search.yml`) |
 
-### Production smoke (curl, 2026-05-27)
+### Production smoke (curl + smoke script)
 
-| Route | HTTP | Notes |
-|-------|------|--------|
-| `/` | 200 | Poster shell + `home-search-trigger` |
-| `/api/search/suggestions?q=supremes` | 200 | Grouped index; `index.entitySource: matview` |
-| `/artist/elton-john` | 200 | Vertical exhibit; `chart-highlights`; no `charts-history` on main |
-| `/artist/madonna` | 200 | Same baseline |
-| `/artist/ben-e-king` | 200 | Same baseline |
-| `/artist/the-supremes` | 200 | Same baseline |
-| `/artist/*/charts` | 200 | Chart explorer isolated to sub-route |
-| `/track/RVTR336241` | 200 | Thriller — healthy control |
-| `/track/RVTR898681` | 200 | Stand By Me — degraded (missing album join) |
-| `/ops`, `/api/events` | 404 | Local-only / gated |
-| `/api/healing/album-links` | 403 | Gated (control-center) |
+| Check | Requirement |
+|-------|-------------|
+| `npm run smoke:public-search` | **Required before declaring deploy good** — 10 queries, HTTP 200 + “From the archive” on entity landings |
+| `/` | 200 — directory board + search terminal (not poster-only shell) |
+| `/api/search/suggestions?q=supremes` | 200 — grouped index; `index.entitySource: matview` |
+| `/artist/*`, `/track/RVTR*`, `/album/RVAL*` | 200 — fail-open; no redirect-to-home on missing enrichment |
+| `/ops`, `/api/events` | 404 — local-only / gated |
+| `/api/healing/album-links` | 403 — gated (control-center) |
 
-### Warm latency snapshot (production)
+### Warm latency snapshot (production — indicative)
 
 | Route | Typical |
 |-------|---------|
-| `/api/search/suggestions?q=supremes` | **~0.21s** warm |
-| `/api/search?q=madonna` | **~4s** |
+| `/api/search/suggestions?q=supremes` | **~0.2s** warm |
+| `/api/search?q=madonna` | **~4s** (interim `/search` page — frozen) |
 | `/track/RVTR*` | **~0.5–1.5s** |
 | `/artist/*` | **~2–3s** |
 
@@ -49,17 +62,22 @@
 
 | Workstream | Status |
 |------------|--------|
-| Navigation integrity — Tier A / B1 / B2 | **DONE** — `e48fee9` → `a6fdf83` |
-| Homepage search overlay v1 | **DONE** — `b74f32c` → `3c00d6f` |
-| Songs section (v1) | **DONE** — locked |
-| Artist exhibit continuity | **DONE** — vertical mobile baseline; charts explorer on `/charts` only |
-| RV History on `/search` | **DONE** — locked |
-| `/search` monolithic page | **LIVE interim** — frozen; do not extend |
+| Homepage — archive directory board | **DONE** — `d86c7ed` → `d9d770a` (replaces poster-first landing) |
+| Homepage search overlay + scoped pads | **DONE** — Artists / Albums / Tracks open scoped overlay; Charts → `/rv/1978` |
+| Navigation integrity — routing + overlay links | **DONE** — `e0d4319`, `0dd73ac` |
+| Fail-open public exhibits | **DONE** — `0e9582f`; policy locked below |
+| Public search smoke governance | **DONE** — `8470566`, `2f85854` |
+| Search API + overlay architecture | **LOCKED** — deterministic matview groups; do not fuzzy-broaden |
+| Public navigation trust | **ACTIVE** — not “solved”; smoke + manual journeys required each release |
+| Artist exhibit continuity | **DONE** — vertical mobile baseline; charts on `/charts` only |
+| RV History on `/search` | **DONE** — locked on interim page |
+| `/search` monolithic page | **LIVE interim** — frozen; not homepage path |
 | Album-link recovery audit | **DONE** code (`4c94d19`); writes not live on track pages |
+| Chronology-first year archives (`/rv/*`) | **STRATEGIC** — partial live (`/rv/1978` pad); expand `67` / `78` / `92` style navigation |
 | Feedback inbox | **OPS** — verify delivery periodically |
 | Ops console / events / workflows | **LOCAL ONLY** — not on `main` |
 | Search Intent Interceptor (full) | **DEFERRED** — no current work planned |
-| Canonical enrichment healing | **ACTIVE** — see below |
+| Canonical enrichment healing | **ACTIVE** — parallel to public trust |
 
 ---
 
@@ -67,23 +85,114 @@
 
 | Layer | Rule |
 |-------|------|
-| **Homepage** | Poster-first; fullscreen search drawer only |
-| **Overlay search** | Deterministic grouped PG entities; lightweight payloads; direct RVTR/RVAL routing |
+| **Homepage** | Directory board — **search-forward**; primary terminal always visible; pads are **scope accelerators**, not category mini-sites |
+| **Directory pads** | Artists / Albums / Tracks → open overlay with `artists` / `albums` / `songs` scope; **no** `/browse/*` starter pages |
+| **Charts pad** | Chronology entry (e.g. `/rv/1978`) — year/archive navigation, not search replacement |
+| **Overlay search** | Deterministic grouped PG entities; lightweight payloads; direct RVTR/RVAL/slug routing |
 | **Hydration** | Overlay omits covers; entity pages hydrate albums/charts/covers |
-| **Canonical IDs** | RVTR / RVAL / artist slug routing preserved |
-| **Fail-open entities** | If a canonical entity exists, render the exhibit (sparse allowed). Never redirect to home, never 404 due to enrichment/ping failure. |
-| **Songs + RV History** | Locked on `/search` interim page |
-| **`/search` page** | Deep-dive interim only — not homepage path; frozen |
+| **Canonical IDs** | RVTR / RVAL / artist slug routing preserved end-to-end |
+| **Fail-open entities** | If a canonical entity exists, render the exhibit (sparse allowed). Never redirect to home; never 404 due to enrichment/ping failure alone |
+| **Sparse exhibit** | Honest “still indexing” plates — never fake richness; never `notFound()` for resolvable IDs |
+| **Songs + RV History** | Locked on `/search` interim page only |
+| **`/search` page** | Deep-dive interim — not homepage path; frozen |
 
-**Do not:** revert overlay, add command-palette UI, or extend monolithic `/search` without a new board entry.
+**Do not:** revert to poster-only home without board entry; add `/browse/*` category silos; extend monolithic `/search`; add command-palette or AI search; treat atmosphere work as higher priority than navigation trust.
 
 ---
 
-## Search architecture (reference — stabilized)
+## Homepage architecture (current)
+
+| Element | Behavior | Anchors |
+|---------|----------|---------|
+| **Board shell** | Code-generated directory — tactile pads, cream/teal/orange retro framing | `app/page.tsx`, `home-directory.tsx`, `home-directory.css` |
+| **Primary terminal** | Inline `HomeSearchInput` — full archive scope (`all`) | `home-search-input.tsx` |
+| **Scoped pads** | Button → overlay with filtered suggestion groups | `lib/search/home-search-scope.ts`, `home-search-overlay.tsx` |
+| **Charts pad** | Link to year archive (`/rv/1978` today) | `home-directory.tsx` |
+| **Ops utility** | `Archive Ops` bottom-right when `RETROVERSE_OPS=1` only | `lib/ops/ops-gate.ts` |
+| **Removed** | Poster image homepage; `/browse/artists|albums|tracks` starter routes | — |
+
+**Philosophy:** Fast public usability and immediate search — not “tap poster to discover search.”
+
+---
+
+## Public usability philosophy
+
+| Principle | Meaning |
+|-----------|---------|
+| **Archive, not brochure** | User should narrow and land on real entities in few taps |
+| **Search-first** | Home terminal + overlay are the main front door; atmosphere serves legibility, not replacement |
+| **Mobile-first** | Touch targets, overlay as fullscreen drawer, `<Link>` rows for stable Safari navigation |
+| **Trust over polish** | A sparse honest exhibit beats a redirect, 404, or homepage flash |
+| **Ongoing, not done** | Routing fixes shipped; latency, cold starts, and graph gaps remain |
+
+---
+
+## Fail-open rendering policy
+
+**Mandatory on all public entity routes.**
+
+| Situation | Required behavior |
+|-----------|-------------------|
+| PG ping / loader partial failure | Render exhibit shell with available fields |
+| Missing album join / cover | Show sparse plate; keep canonical RVTR/RVAL on page |
+| Unknown slug pattern only | May 404 — not “enrichment failed” |
+| Bad suggestion href | Coerce or block in overlay — never `router.push('/')` |
+
+**Forbidden:** `notFound()` when slug/ID is recognizable; redirect to `/` after search click; silent drop to home on enrichment error.
+
+Anchors: `load-artist-page.ts`, `load-artist-exhibit-shell.ts`, `app/track/[id]/page.tsx`, `app/album/[id]/page.tsx`  
+Doc: [REAL_USER_RELIABILITY.md](./REAL_USER_RELIABILITY.md)
+
+---
+
+## Sparse exhibit fallback policy
+
+When enrichment is thin but the entity is real:
+
+| Surface | User sees |
+|---------|-----------|
+| **Track** | Title/artist stub + “still being indexed” plate |
+| **Album** | Album stub + same honest messaging |
+| **Artist** | Slug-derived name + links to search/inspect; sections omit empty modules |
+
+**Do not:** invent chart rows, covers, or albums; use “coming soon” marketing copy; auto-heal graph on page load.
+
+---
+
+## Public reliability governance
+
+| Control | Rule |
+|---------|--------|
+| **Pre-deploy smoke** | Run `npm run smoke:public-search` against production URL after deploy |
+| **CI** | `smoke-public-search` workflow on `main` |
+| **Routing changes** | Require [SEARCH_ROUTING_INTEGRITY.md](./SEARCH_ROUTING_INTEGRITY.md) checklist |
+| **Regression class** | Search → click → homepage flash, 404 on valid artist, `/` from overlay |
+| **Dev stability** | `npm run dev` clears stale `.next` — see [DEV_STABILITY.md](./DEV_STABILITY.md) |
+
+Public usability is **governed**, not assumed complete after any single pass.
+
+---
+
+## Search stabilization status
+
+| Layer | Status | Notes |
+|-------|--------|-------|
+| **Overlay API + matview groups** | **Architecture locked** | Deterministic narrowing; no fuzzy public scan |
+| **Routing / href coercion** | **Shipped** | `e0d4319` → `SEARCH_ROUTING_INTEGRITY.md` |
+| **Overlay UX (Link nav, scope pads)** | **Shipped** | Home directory integration `d9d770a` |
+| **Public trust / fail-open** | **Shipped, ongoing governance** | Smoke required each release |
+| **“Search is done”** | **FALSE** | Residual latency, graph noise, cold starts remain |
+| **Monolithic `/search` page** | **Frozen interim** | Slower upstream path; not homepage |
+
+Search is **primary public interaction** — not secondary to atmosphere. Stabilization means **locked architecture + enforced reliability**, not “no more search work.”
+
+---
+
+## Search architecture (reference)
 
 ### A. Overlay search — **LIVE** (homepage)
 
-`GET /api/search/suggestions?q=` → `querySearchEntities(overlay)` → grouped artists / songs / albums / years → direct entity navigation.
+`GET /api/search/suggestions?q=` → `querySearchEntities(overlay)` → grouped artists / songs / albums / years → scoped by `home-search-scope` when opened from pads → direct entity navigation.
 
 Anchors: `home-search-overlay.tsx`, `load-suggestion-response.ts`, `query-search-entities.ts`, `refine-overlay-entities.ts`
 
@@ -95,11 +204,18 @@ Anchors: `home-search-overlay.tsx`, `load-suggestion-response.ts`, `query-search
 
 ## Search Intent Interceptor — deferred
 
-Overlay v1 already ships grouped entity lookup + tap-to-route (partial Step 1).
+Overlay ships grouped entity lookup + tap-to-route. Full interceptor (dedicated choice UX + immersive results shell) is **deferred**. Do not extend monolithic `/search` to compensate.
 
-Full interceptor (dedicated choice UX + immersive results shell) is **deferred**. No implementation work is planned. Search v1 is considered production-stable.
+---
 
-Do not extend monolithic `/search` to compensate.
+## Chronology & history vision
+
+| Item | Status |
+|------|--------|
+| **Strategic direction** | Chronology-first exploration — years and charts as first-class archive navigation |
+| **Live today** | Charts pad → `/rv/1978`; RV History panel on interim `/search` |
+| **Future** | Expand year surfaces (`67`, `78`, `92`, …) as navigable archive rooms — not separate search products |
+| **Rule** | Year/chart routes complement search; they do not replace entity resolution |
 
 ---
 
@@ -109,16 +225,13 @@ Do not extend monolithic `/search` to compensate.
 
 - **~56% album-link coverage** — degraded tracks correlate with missing `canonical_album_tracks`
 - **Stand By Me** (`RVTR898681`) — wrong artist label, no cover (Thriller `RVTR336241` = healthy control)
-- Duplicate RVTR / duplicate title rows in graph (e.g. two “Baby Love” entries)
+- Duplicate RVTR / duplicate title rows in graph
 - Healing API deployed but gated; no auto-heal on track page load
 
-### Search (residual — not blocking)
+### Search & navigation (residual)
 
 - Cold serverless first hit may spike >1s
-- Residual graph noise on broad title queries (e.g. multiple “Stand By Me” artists)
-
-### Navigation / perf
-
+- Residual graph noise on broad title queries
 - `fetchHomeSearch()` serial welcome hop on artist load
 - `/artist/[slug]/charts` full payload ~2.5–3s
 
@@ -132,7 +245,7 @@ Do not extend monolithic `/search` to compensate.
 
 ### Deployed (`main`)
 
-Public site, overlay search API, `/search` interim page, album-link audit code + CLI (`npm run track:audit-album-links`), matview refresh script (`npm run search:refresh-entities`).
+Public site, directory homepage, overlay search API, `/search` interim page, fail-open exhibits, smoke script + CI, album-link audit CLI, matview refresh script.
 
 ### Local-only (not on production)
 
@@ -152,28 +265,15 @@ Public site, overlay search API, `/search` interim page, album-link audit code +
 | B1 — persistent artist exhibit shell | `a2e1689` |
 | B2 — URL-addressable chart state (`/artist/[slug]/charts`) | `a6fdf83` |
 
-Remaining: charts route still heavy (~2.5–3s); exhibit nav Library pill may land on honest empty state when no VDJ media.
-
 ---
 
 ## Artist exhibit continuity stabilization — DONE
 
-**Deployed:** `ff33450` on https://retroverse.live (2026-05-27)
+**Baseline:** vertical mobile exhibit; chart explorer on `/artist/[slug]/charts` only.
 
-| Change | Notes |
-|--------|--------|
-| Horizontal rails removed | Album + library shelves → vertical grids |
-| Chart explorer isolated | `ArtistChartsHistory` off main exhibit → `/artist/[slug]/charts` only |
-| Chart highlights on main | Stats panel + link to charts sub-route |
-| Placeholder modules suppressed | Dominant years / library hidden on main when no data |
-| Honest empty states | Sub-routes: “Nothing in the archive…” (no “coming soon”) |
-| Related artists | Vertical cards + PG co-chart fallback |
-| Footer CSS | Restored `.artist-footer-nav` selector |
-| Main exhibit flow | Vertical editorial document — hero → albums → songs → years → highlights → related → explore |
+**Do not:** reopen main exhibit layout or re-embed chart wizard on `/artist/[slug]` without board entry.
 
-**Do not:** reopen layout on main exhibit without board entry; do not re-embed chart wizard on `/artist/[slug]`.
-
-Anchors: `app/artist/[slug]/page.tsx`, `artist-page.css`, `load-artist-page.ts`, `load-related-artists.ts`
+Anchors: `app/artist/[slug]/page.tsx`, `artist-page.css`, `load-artist-page.ts`
 
 ---
 
@@ -181,55 +281,60 @@ Anchors: `app/artist/[slug]/page.tsx`, `artist-page.css`, `load-artist-page.ts`,
 
 Songs jukebox v1 and RV History on `/search` — do not restyle or rebuild without new board entry.
 
-Anchors: `search-songs-jukebox-panel.tsx`, `songs-jukebox-reel.tsx`, `search.css`
-
 ---
 
 ## Feedback inbox
 
-**feedback@retroverse.live** — poster mailto hotspot. Delivery path not verified.
+**feedback@retroverse.live** — mailto from directory footer. Delivery path not verified.
 
 ---
 
 ## Current active priority
 
-### Public Search Reliability (primary)
+### 1. User navigation trust (top public priority)
 
-**Fail-open rendering is mandatory.**
+Every release must preserve: **search → click → correct exhibit → back** without homepage flash, spurious 404, or redirect home.
 
-- All public entity routes must render sparse exhibits instead of redirecting or 404ing when enrichment is missing.
-- Required before deploy: `npm run smoke:public-search` against `https://retroverse.live`.
+| Requirement | Action |
+|-------------|--------|
+| Pre-deploy | `npm run smoke:public-search` |
+| Routing changes | Manual overlay + `/search` panel checks per `REAL_USER_RELIABILITY.md` |
+| Fail-open | No new `notFound()` gates on resolvable entities |
 
----
+### 2. Canonical enrichment healing (parallel)
 
-### Canonical enrichment healing
-
-Search v1 is stabilized. The project now focuses on **archive integrity**.
+Search **architecture** is locked; **graph quality** work continues.
 
 | Focus | Notes |
 |-------|--------|
-| Album-link recovery | Audit + **review workflow** (`npm run healing:review`, `/ops/healing` local) |
-| Degraded track enrichment | Stand By Me cluster (≤20); Ben E. King needs album ingest before high-confidence link |
+| Album-link recovery | Audit + review workflow (`npm run healing:review`, `/ops/healing` local) |
+| Degraded track enrichment | Stand By Me cluster; Ben E. King album ingest |
 | Duplicate RVTR cleanup | Graph dedupe where safe |
-| Cover enrichment | `auditCoverForRvtr` → curator pipeline preview; no auto-approve |
-| Healing approval workflow | POST `/api/ops/healing/apply` gated by `RETROVERSE_HEALING_APPLY=1`; JSONL audit log |
+| Cover enrichment | Curator pipeline; no auto-approve |
+| Healing approval | POST `/api/ops/healing/apply` gated; JSONL audit log |
 
-**Local ops tooling** (`/ops`, media-sync) may support this phase once merged and deployed — currently local-only.
+**Local ops tooling** may support healing once merged — currently local-only.
 
 ---
 
 ## Do not (current phase)
 
-- Redesign homepage, overlay, or Songs / RV History
-- Reopen search architecture or extend monolithic `/search`
-- Build interceptor Step 2/3, command palette, or AI search
+- Treat public usability or search as “finished”
+- Redesign homepage back to poster-only or atmosphere-first without board entry
+- Add `/browse/*` category mini-sites or pad links that bypass search scope model
+- Reopen overlay architecture, extend monolithic `/search`, or build interceptor / command palette / AI search
+- Prioritize conceptual atmospheric passes over navigation trust failures
 - Assume `/ops` or `/api/events` are live on production
 - Auto-heal canonical graph without approved workflow
+- Deploy without smoke pass when entity routing changed
 
 ---
 
 ## Related docs
 
 - [RETROVERSE_PROJECT_CONTEXT.md](./RETROVERSE_PROJECT_CONTEXT.md)
+- [REAL_USER_RELIABILITY.md](./REAL_USER_RELIABILITY.md)
+- [SEARCH_ROUTING_INTEGRITY.md](./SEARCH_ROUTING_INTEGRITY.md)
+- [DEV_STABILITY.md](./DEV_STABILITY.md)
 - `.cursor/rules/retroverse-design.mdc`
 - `.cursor/rules/retroverse-data.mdc`
