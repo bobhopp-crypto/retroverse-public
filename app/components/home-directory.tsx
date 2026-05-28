@@ -24,10 +24,15 @@ export function HomeDirectory({ opsEnabled }: Props) {
       <header className="home-directory__header">
         <p className="home-directory__kicker">Archive directory</p>
         <h1 className="home-directory__title">Retroverse</h1>
-        <p className="home-directory__tagline">Search the music archive</p>
+        <p className="home-directory__tagline">Press Play for the Past</p>
+        <p className="home-directory__subline">Search the music archive</p>
+        <HomeArchiveStatus />
+        {opsEnabled ? (
+          <Link href="/ops" prefetch className="home-directory__ops-bar">
+            Ops panel →
+          </Link>
+        ) : null}
       </header>
-
-      <HomeArchiveStatus />
 
       <section className="home-directory__search" aria-label="Search the archive">
         <p className="home-directory__search-label">Primary terminal</p>

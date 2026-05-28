@@ -105,16 +105,53 @@ main.home-directory::before {
 }
 
 .home-directory__tagline {
-  margin: 0.65rem 0 0;
-  font-size: 1.12rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  margin: 0.55rem 0 0;
+  font-size: clamp(1.15rem, 4.5vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
   color: var(--home-ink);
+  line-height: 1.2;
 }
 
-/* Archive status strip */
+.home-directory__subline {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: rgba(45, 62, 70, 0.72);
+}
+
+.home-directory__ops-bar {
+  display: inline-block;
+  margin-top: 0.65rem;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f4ead8;
+  background: var(--home-teal);
+  border: 2px solid rgba(31, 94, 99, 0.55);
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.18);
+  touch-action: manipulation;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.home-directory__ops-bar:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 rgba(45, 62, 70, 0.14);
+}
+
+@media (hover: hover) {
+  .home-directory__ops-bar:hover {
+    background: #267378;
+  }
+}
+
+/* Archive status strip — directly under Retroverse */
 .home-directory__status {
-  margin-bottom: 1rem;
+  margin: 0.85rem 0 0;
   padding: 0.65rem 0.7rem;
   background: linear-gradient(180deg, #f8f0e0 0%, #f0e6d4 100%);
   border: 2px solid rgba(45, 62, 70, 0.18);
