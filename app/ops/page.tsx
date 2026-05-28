@@ -70,8 +70,12 @@ export default async function OpsPage() {
                 healing
               </Link>
               {" · "}
-              <Link className="ops-link" href="/ops/covers">
-                Cover Review
+              <Link className="ops-link" href="/ops/covers/train">
+                cover check
+              </Link>
+              {" · "}
+              <Link className="ops-link" href="/ops/covers/corrections">
+                cover fix (ops)
               </Link>
             </div>
           </div>

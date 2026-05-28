@@ -368,6 +368,39 @@ Not a poster hotspot. Delivery path not verified.
 
 ---
 
+## RV12 TRAINING + CORRECTION SPLIT
+
+Two ops surfaces — do not mix triage with canonical repair.
+
+| Route | Mode | Writes canonical? |
+|-------|------|-------------------|
+| `/ops/covers/train` | **Training** — teach bad vs good assignments | **No** — signals only |
+| `/ops/covers/corrections` | **Correction** — RV12, Discogs, promote/rollback | Yes (APPLY-gated) |
+
+### Training-mode philosophy
+
+Bob is **not** manually fixing ~25k covers. Training is **human-in-the-loop archive intelligence**: helpers use plain language (“Keep Current”, “Use Suggested”, “Need Better Image”) — no hashes, RV12, or audit jargon in the main UI. After each set of ~10, the app auto-builds the next set (retrain + next-batch). Technical details live behind “Show technical details”.
+
+Decisions persist at `RETROVERSE_DATA/ops/rv12/training_decisions.json`.
+
+### Batch-learning workflow
+
+1. Review ~10 rows at `/ops/covers/train`
+2. `npm run cover:retrain` — update `training_weights.json`, boost/demote patterns (same-artist hash collisions, compilations, etc.)
+3. `npm run cover:next-batch` — emit `repair_batch_NNN.csv` + `training_batch_current.json`, **excluding** already-reviewed RVALs
+
+Goal: each batch surfaces **new** high-value problems, not the same 10 forever.
+
+### Correction-mode purpose
+
+Slower, surgical curator work: RV12 asset creation, canonical promotion, rollback, Discogs pulls, provenance. Requires `RETROVERSE_COVER_APPLY=1` for filesystem/DB apply.
+
+### Direction
+
+**Train the system** on patterns; **correct** only when a specific album needs a real canonical fix.
+
+---
+
 ## Current active priority
 
 ### 1. Public user reliability (mandatory)

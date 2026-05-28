@@ -51,7 +51,7 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
     try {
       const form = new FormData();
       form.set("actor", "ops/covers-ui");
-      form.set("curatorNotes", `pilot ${row.rval}`);
+      form.set("curatorNotes", `operator ${row.rval}`);
       if (file) {
         form.set("file", file);
         form.set("sourceType", "upload");
@@ -70,7 +70,7 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
         throw new Error(data.error ?? `HTTP ${res.status}`);
       }
       setCandidate(data.asset);
-      setStatus(`Created ${data.asset.rv12Id} · hash ${data.asset.contentHash.slice(0, 12)}…`);
+      setStatus("New cover image staged for review.");
     } catch (e) {
       setStatus(e instanceof Error ? e.message : String(e));
     } finally {
@@ -96,11 +96,11 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
           actor: "ops/covers-ui",
         }),
       });
-      const data = (await res.json()) as { ok?: boolean; message?: string; newHash?: string };
+      const data = (await res.json()) as { ok?: boolean; message?: string };
       if (!res.ok || !data.ok) {
         throw new Error((data as { message?: string }).message ?? `HTTP ${res.status}`);
       }
-      setStatus(`Promoted · new hash ${data.newHash?.slice(0, 12) ?? "—"}…`);
+      setStatus("Final cover applied to the archive.");
       await refreshState();
     } catch (e) {
       setStatus(e instanceof Error ? e.message : String(e));
@@ -122,7 +122,7 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
       if (!res.ok || !data.ok) {
         throw new Error((data as { message?: string }).message ?? `HTTP ${res.status}`);
       }
-      setStatus("Rollback complete — prior cover restored from backup");
+      setStatus("Previous cover restored.");
       await refreshState();
     } catch (e) {
       setStatus(e instanceof Error ? e.message : String(e));
@@ -137,13 +137,13 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
 
   return (
     <section className="ops-cover-rv12">
-      <h3 className="ops-cover-rv12__title">RV12 pilot · canonical assignment</h3>
+      <h3 className="ops-cover-rv12__title">Apply final cover to archive</h3>
       {!isPilot ? (
-        <p className="ops-dim">Promotion locked — pilot is RVAL823723 only.</p>
+        <p className="ops-dim">Live apply is limited to the current pilot album only.</p>
       ) : null}
       {!coverApplyEnabled ? (
         <p className="ops-cover-rv12__warn">
-          <strong>RETROVERSE_COVER_APPLY=0</strong> — create/preview only; promote & rollback disabled.
+          Apply is turned off in this environment — you can stage images but not publish them yet.
         </p>
       ) : null}
 
@@ -154,7 +154,7 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
             type="url"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-            placeholder="https://… or https://www.discogs.com/release/…"
+            placeholder="https://…"
           />
         </label>
         <label>
@@ -166,19 +166,16 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
           />
         </label>
         <button type="button" className="ops-cover-review__btn" disabled={busy} onClick={() => void createAsset()}>
-          Create RV12 asset
+          Stage new image
         </button>
       </div>
 
       {candidate ? (
         <div className="ops-cover-rv12__candidate">
-          <p>
-            <strong>{candidate.rv12Id}</strong> · {candidate.contentHash.slice(0, 16)}…
-            {candidate.width ? ` · ${candidate.width}×${candidate.height}` : ""}
-          </p>
+          <p>Staged image ready to apply.</p>
           <div className="ops-cover-rv12__preview-row">
             <figure>
-              <figcaption>Candidate</figcaption>
+              <figcaption>Preview</figcaption>
               {candidateThumb ? (
                 <img
                   className="ops-cover-art__img ops-cover-rv12__candidate-img"
@@ -198,12 +195,12 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
             checked={forceTrusted}
             onChange={(e) => setForceTrusted(e.target.checked)}
           />
-          Force TRUSTED override
+          Override “looks OK” safety check
           <input
             type="text"
             value={forceReason}
             onChange={(e) => setForceReason(e.target.value)}
-            placeholder="Reason required"
+            placeholder="Reason (required)"
           />
         </label>
       ) : null}
@@ -215,7 +212,7 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
           disabled={busy || !coverApplyEnabled || !isPilot || !candidate}
           onClick={() => void promote()}
         >
-          Promote to Canonical
+          Set as final cover
         </button>
         <button
           type="button"
@@ -223,14 +220,11 @@ export function OpsCoverRv12Actions({ row, coverApplyEnabled, isPilot }: Props) 
           disabled={busy || !coverApplyEnabled || !isPilot}
           onClick={() => void rollback()}
         >
-          Rollback last promote
+          Undo last change
         </button>
       </div>
 
       {status ? <p className="ops-cover-rv12__status">{status}</p> : null}
-      <p className="ops-dim ops-cover-rv12__ledger">
-        Ledger: RETROVERSE_DATA/ops/rv12/ · audit in promotion_audit.jsonl
-      </p>
     </section>
   );
 }

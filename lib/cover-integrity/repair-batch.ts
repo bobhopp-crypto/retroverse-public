@@ -135,16 +135,15 @@ export function selectRepairBatch001(
     .map((x) => x.row);
 }
 
-export async function buildRepairBatch001(
-  scored: ScoredCoverWithTrust[],
+export async function buildRepairBatchRows(
+  selected: ScoredCoverWithTrust[],
+  allScored: ScoredCoverWithTrust[],
 ): Promise<RepairBatchRow[]> {
-  const queue = buildRepairQueue(scored);
-  const selected = selectRepairBatch001(scored, queue);
   const rvals = selected.map((r) => r.rval);
   const artworkLinks = await loadArtworkLinksForRvals(rvals);
 
   return selected.map((row, index) => {
-    const proposal = proposeReplacementCandidate(row, scored, artworkLinks);
+    const proposal = proposeReplacementCandidate(row, allScored, artworkLinks);
     return {
       batchRank: index + 1,
       rval: row.rval,
@@ -164,6 +163,14 @@ export async function buildRepairBatch001(
       curatorNotes: "",
     };
   });
+}
+
+export async function buildRepairBatch001(
+  scored: ScoredCoverWithTrust[],
+): Promise<RepairBatchRow[]> {
+  const queue = buildRepairQueue(scored);
+  const selected = selectRepairBatch001(scored, queue);
+  return buildRepairBatchRows(selected, scored);
 }
 
 export function repairBatchToCsv(rows: RepairBatchRow[]): string {
