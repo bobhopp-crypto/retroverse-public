@@ -1,11 +1,18 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
-export type CoverRepairDecisionValue = "approve" | "reject" | "skip";
+export type CoverRepairDecisionValue =
+  | "approve"
+  | "reject"
+  | "skip"
+  | "needs_discogs_pull";
+
+export type CuratorConfidence = "high" | "medium" | "low";
 
 export type CoverRepairDecision = {
   rval: string;
   decision: CoverRepairDecisionValue;
+  curatorConfidence: CuratorConfidence | null;
   curatorNotes: string;
   reviewedAt: string;
   proposedSource: string;
@@ -13,7 +20,7 @@ export type CoverRepairDecision = {
 };
 
 export type CoverRepairDecisionsFile = {
-  version: 1;
+  version: 2;
   batchId: "repair_batch_001";
   updatedAt: string;
   decisions: Record<string, CoverRepairDecision>;
@@ -31,13 +38,20 @@ export async function loadRepairDecisions(): Promise<CoverRepairDecisionsFile> {
     const raw = await readFile(path, "utf8");
     const parsed = JSON.parse(raw) as CoverRepairDecisionsFile;
     if (parsed?.decisions && typeof parsed.decisions === "object") {
-      return parsed;
+      const decisions = parsed.decisions as Record<string, CoverRepairDecision>;
+      for (const key of Object.keys(decisions)) {
+        const d = decisions[key]!;
+        if (d.curatorConfidence === undefined) {
+          d.curatorConfidence = null;
+        }
+      }
+      return { ...parsed, version: 2, decisions } as CoverRepairDecisionsFile;
     }
   } catch {
     // missing file
   }
   return {
-    version: 1,
+    version: 2,
     batchId: "repair_batch_001",
     updatedAt: new Date().toISOString(),
     decisions: {},

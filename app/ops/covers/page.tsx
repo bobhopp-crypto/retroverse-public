@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { OpsCoverReviewWorkbench } from "@/components/ops/OpsCoverReviewWorkbench";
+import { loadHashMatchIndexForBatch } from "@/lib/cover-integrity/load-cover-audit-csv";
 import { loadRepairBatchCsv } from "@/lib/cover-integrity/load-repair-batch-csv";
 import { loadRepairDecisions } from "@/lib/cover-integrity/repair-decisions-store";
 
@@ -26,10 +27,13 @@ export default async function OpsCoversPage() {
   }
 
   let batch: Awaited<ReturnType<typeof loadRepairBatchCsv>> = [];
+  let hashMatches: Awaited<ReturnType<typeof loadHashMatchIndexForBatch>> = {};
   let loadError: string | null = null;
 
   try {
     batch = await loadRepairBatchCsv();
+    const hashes = batch.map((r) => r.currentHash).filter((h): h is string => !!h);
+    hashMatches = await loadHashMatchIndexForBatch(hashes);
   } catch (e) {
     loadError = e instanceof Error ? e.message : String(e);
   }
@@ -69,6 +73,7 @@ export default async function OpsCoversPage() {
           <OpsCoverReviewWorkbench
             batch={batch}
             initialDecisions={decisionsState.decisions}
+            hashMatches={hashMatches}
           />
         )}
       </div>

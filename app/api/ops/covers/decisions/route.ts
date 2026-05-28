@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
-import type { CoverRepairDecisionValue } from "@/lib/cover-integrity/repair-decisions-store";
+import type {
+  CoverRepairDecisionValue,
+  CuratorConfidence,
+} from "@/lib/cover-integrity/repair-decisions-store";
 import {
   loadRepairDecisions,
   saveRepairDecision,
@@ -9,7 +12,14 @@ import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 export const dynamic = "force-dynamic";
 
-const DECISIONS = new Set<CoverRepairDecisionValue>(["approve", "reject", "skip"]);
+const DECISIONS = new Set<CoverRepairDecisionValue>([
+  "approve",
+  "reject",
+  "skip",
+  "needs_discogs_pull",
+]);
+
+const CONFIDENCE = new Set<CuratorConfidence>(["high", "medium", "low"]);
 
 export async function GET() {
   if (!isOpsEnabled()) {
@@ -28,6 +38,7 @@ export async function POST(request: Request) {
   let body: {
     rval?: string;
     decision?: string;
+    curatorConfidence?: string | null;
     curatorNotes?: string;
     proposedSource?: string;
     proposedCoverUrlOrPath?: string;
@@ -49,9 +60,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "invalid_decision" }, { status: 400 });
   }
 
+  let curatorConfidence: CuratorConfidence | null = null;
+  const confRaw = body.curatorConfidence?.trim().toLowerCase();
+  if (confRaw) {
+    if (!CONFIDENCE.has(confRaw as CuratorConfidence)) {
+      return NextResponse.json({ ok: false, error: "invalid_confidence" }, { status: 400 });
+    }
+    curatorConfidence = confRaw as CuratorConfidence;
+  }
+
   const state = await saveRepairDecision({
     rval,
     decision,
+    curatorConfidence,
     curatorNotes: body.curatorNotes?.trim() ?? "",
     reviewedAt: new Date().toISOString(),
     proposedSource: body.proposedSource?.trim() ?? "",
