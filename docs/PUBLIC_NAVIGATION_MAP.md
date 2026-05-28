@@ -373,6 +373,7 @@ Wait - when RETROVERSE_OPS is not 1, middleware returns 404 for /ops routes. Goo
 ## Governance
 
 - **Authoritative path:** `docs/PUBLIC_NAVIGATION_MAP.md`
+- **Visual flowcharts:** `docs/PUBLIC_NAVIGATION_FLOWCHART.md`
 - **Update when:** new public routes, pad behavior, chronology links, or search contracts change
 - **Companion docs:** `docs/PUBLIC_FLOW_AUDIT_2026-05-27.md` (issue log), `docs/RETROVERSE_OPERATING_BOARD.md` (priorities)
 
