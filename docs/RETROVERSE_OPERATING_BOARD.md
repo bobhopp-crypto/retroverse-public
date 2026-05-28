@@ -56,7 +56,7 @@ Retroverse is a **navigable music archive**. Public behavior is judged on **prod
 | Field | Value |
 |-------|--------|
 | **URL** | https://retroverse.live |
-| **Deployed commit** | Check Vercel / `curl` deploy — update this row after each production push |
+| **Deployed commit** | `3496036` — RV chronology consolidation (verify Vercel if redeployed since) |
 | **Homepage** | Code-generated **archive directory board** — inline primary search terminal + four pads |
 | **Search** | Overlay = primary public interaction; deterministic matview groups; scoped pads narrow scope |
 | **Public trust** | **ACTIVE** — architecture locked; behavior governed by smoke + fail-open policy |
@@ -70,6 +70,8 @@ Retroverse is a **navigable music archive**. Public behavior is judged on **prod
 |-------|-------------|
 | `npm run smoke:public-search` | **Required** — see [Public reliability governance](#public-reliability-governance) |
 | `/` | 200 — directory board + search terminal (no poster-only shell) |
+| `/charts?…` | 307 → canonical `/rv/...` (no legacy charts shell) |
+| `/rv/1967/11/1967-11-04` | 200 — week drill under RV chrome |
 | `/api/search/suggestions?q=supremes` | 200 — grouped suggestions |
 | Entity routes from smoke | HTTP 200, body contains **“From the archive”**, no redirect to `/` |
 | `/ops` (no ops env) | 404 or gated — not a public nav destination |
@@ -97,11 +99,12 @@ Retroverse is a **navigable music archive**. Public behavior is judged on **prod
 | Public search smoke + CI | **DONE** — `8470566`, `2f85854` |
 | Search overlay architecture | **LOCKED** — deterministic groups; no public fuzzy scan |
 | **#2 Ops / DJ workflow** | **ACTIVE (secondary)** — local tooling on branch; env-gated on production |
-| Artist exhibit continuity | **DONE** — vertical baseline; charts on `/charts` only |
+| Artist exhibit continuity | **DONE** — vertical baseline; artist charts on `/artist/[slug]/charts` |
+| Public chronology (`/rv/*`) | **DONE** — `3496036`; `/charts` → redirect only |
 | `/search` interim page | **LIVE, frozen** — not homepage path |
 | RV History + Songs on `/search` | **DONE, locked** |
 | Canonical enrichment healing | **ACTIVE (parallel)** — not priority #1 |
-| Chronology year archives (`/rv/*`, `67`/`78`/`92`) | **FUTURE** — partial live today; see below |
+| Chronology year archives (`/rv/*`) | **DONE** — `/rv/[year]/[month]/[week]`; legacy `/charts` redirects |
 | Search Intent Interceptor (full) | **DEFERRED** |
 | Atmosphere / patina / stillness passes | **NOT ACTIVE** — do not prioritize over #1 |
 
@@ -295,14 +298,18 @@ Healing and restoration run **in parallel** with public reliability; they do **n
 
 ---
 
-## Chronology direction (future — do not implement here)
+## Chronology (canonical — locked)
 
-| Future | Notes |
-|--------|--------|
-| Two-digit entry (`67`, `78`, `92`, …) | Should route to year/chronology experiences |
-| Year pages | Become a core navigation model alongside entity exhibits |
-| Charts / history | Remain differentiators — complement search, not replace entity resolution |
-| **Today** | Charts pad → `/rv/1978`; expand deliberately with board entry |
+| Route | Role |
+|-------|------|
+| `/rv/[year]` | Year chronicle entry |
+| `/rv/[year]/[month]` | Month drill |
+| `/rv/[year]/[month]/[week]` | Week deep link (`YYYY-MM-DD`) |
+| `/charts` | **Compatibility redirect only** → matching `/rv/...` path |
+| Charts pad (home) | `/rv/1978` |
+| `/artist/[slug]/charts` | Artist-scoped chart history (separate shell) |
+
+Future (board entry required): two-digit shortcuts (`67` → `/rv/1967`), richer year IA — do not reopen `/charts` public shell.
 
 ---
 
