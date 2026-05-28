@@ -28,7 +28,15 @@ export function ArtistChartsHistory(props: Props) {
     : [];
 
   return (
-    <Suspense fallback={<p className="charts-history__empty">Loading chart history…</p>}>
+    <Suspense
+      fallback={
+        <div className="charts-history charts-history--loading-hold" aria-busy="true">
+          <p className="charts-history__empty charts-history__empty--archival">
+            Opening chart history…
+          </p>
+        </div>
+      }
+    >
       <ArtistChartsHistoryClient
         artistName={props.artistName}
         history={safe}

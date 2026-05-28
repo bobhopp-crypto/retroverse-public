@@ -552,7 +552,9 @@ export function ArtistChartsHistoryClient({
   if (!isUsableChartHistory(safeHistory)) {
     return (
       <section className="charts-history charts-history--empty" role="status">
-        <p className="charts-history__empty">No chart history available for this artist yet.</p>
+        <p className="charts-history__empty charts-history__empty--archival">
+          No chart history filed for this artist in the archive yet.
+        </p>
       </section>
     );
   }
@@ -736,16 +738,16 @@ export function ArtistChartsHistoryClient({
           </p>
         </div>
       ) : yearForLabel != null && monthForLabel != null ? (
-        <p className="charts-history__empty" role="status">
-          No RV Week snapshots for this month.
+        <p className="charts-history__empty charts-history__empty--archival" role="status">
+          No chart week on file for this month — the archive is quiet here.
         </p>
       ) : yearForLabel != null ? (
         <p className="charts-history__empty charts-history__empty--hint" role="status">
-          Tap a month to see RV Week chart snapshots.
+          Choose a month to open chart weeks from the archive.
         </p>
       ) : (
         <p className="charts-history__empty charts-history__empty--hint" role="status">
-          Tap an RV Year to choose a month.
+          Choose a year to browse months in the archive.
         </p>
       )}
 

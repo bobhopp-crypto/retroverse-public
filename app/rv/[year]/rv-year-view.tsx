@@ -181,7 +181,9 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
                           {card.song.title} · {card.song.artist}
                         </p>
                       ) : (
-                        <p className="rv-month-card__value rv-month-card__value--muted">No Hot 100 #1 captured</p>
+                        <p className="rv-month-card__value rv-month-card__value--muted">
+                          Hot 100 #1 not on file this month
+                        </p>
                       )}
                     </div>
 
@@ -192,7 +194,9 @@ export function RvYearView({ rvYear, history }: RvYearViewProps) {
                           {card.album.title} · {card.album.artist}
                         </p>
                       ) : (
-                        <p className="rv-month-card__value rv-month-card__value--muted">No Album 200 #1 captured</p>
+                        <p className="rv-month-card__value rv-month-card__value--muted">
+                          Album 200 #1 not on file this month
+                        </p>
                       )}
                     </div>
                   </div>

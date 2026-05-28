@@ -1,18 +1,18 @@
 import Link from "next/link";
 
-import "./track-page.css";
+import "../../track/[id]/track-page.css";
 
-export default function TrackLoading() {
+export default function AlbumLoading() {
   return (
-    <div className="track-exhibit track-exhibit--sparse" aria-busy="true" aria-label="Loading song exhibit">
+    <div className="track-exhibit album-exhibit track-exhibit--sparse" aria-busy="true" aria-label="Loading album">
       <div className="track-exhibit__grain" aria-hidden />
       <header className="track-topbar">
         <Link href="/" className="track-logo" prefetch>
           Retroverse
         </Link>
-        <span className="track-file-tag">Song</span>
+        <span className="track-file-tag">Album</span>
       </header>
-      <section className="track-hero" aria-label="Loading song">
+      <section className="track-hero" aria-label="Loading album">
         <div className="track-hero__cover-wrap">
           <div className="track-hero__cover-fallback" aria-hidden />
         </div>
@@ -24,7 +24,6 @@ export default function TrackLoading() {
           </p>
         </div>
       </section>
-
       <nav className="exhibit-footer-nav" aria-label="Site">
         <Link href="/" prefetch>
           Home

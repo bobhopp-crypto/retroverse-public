@@ -1,0 +1,117 @@
+/* Public trust polish — loading hold, tap confidence, archival empty tone */
+
+/* —— Loading: stable shell, no layout collapse —— */
+.artist-exhibit__body--loading {
+  min-height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.rv-year-world--loading .rv-year-hero--loading {
+  min-height: 8rem;
+}
+
+.rv-year-world--loading .rv-year-hero__year,
+.rv-year-world--loading .rv-year-hero__lead {
+  color: rgba(45, 62, 70, 0.55);
+}
+
+.charts-history--loading-hold {
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.charts-history--loading-hold .charts-history__empty {
+  border-style: solid;
+  border-color: rgba(79, 53, 96, 0.35);
+  opacity: 0.9;
+}
+
+.search-page[aria-busy="true"] .search-page__inner {
+  min-height: 50vh;
+}
+
+/* —— Archival empty / sparse (not error UI) —— */
+.charts-history__empty--archival,
+.charts-history__empty--hint {
+  border-style: solid;
+  border-color: rgba(79, 53, 96, 0.28);
+  background: rgba(244, 233, 211, 0.65);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.track-sparse-message,
+.rv-month-card__value--muted {
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* —— Mobile tap confidence —— */
+.charts-history__pill {
+  min-height: 2.75rem;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.charts-history__pill:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 var(--ch-ink);
+}
+
+.charts-history-card {
+  touch-action: manipulation;
+}
+
+button.charts-history-card__link:active {
+  opacity: 0.94;
+}
+
+.charts-history-card--active {
+  outline: 2px solid rgba(31, 94, 99, 0.45);
+  outline-offset: 2px;
+}
+
+.rv-month-card--tappable:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.16);
+}
+
+.rv-year-nav__link,
+.rv-chronology-crumb__link,
+.exhibit-footer-nav a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rv-year-nav__link:active,
+.rv-chronology-crumb__link:active,
+.exhibit-footer-nav a:active {
+  opacity: 0.82;
+}
+
+.album-tracklist__row--link {
+  min-height: 2.75rem;
+  touch-action: manipulation;
+}
+
+.album-tracklist__row--link:active {
+  background: rgba(36, 88, 92, 0.08);
+}
+
+.rv-year-footer a:active {
+  opacity: 0.85;
+}
+
+/* Overlay suggestion rows — clearer press on touch */
+.home-search-overlay-results .home-search-suggestions__item {
+  min-height: 2.75rem;
+}
