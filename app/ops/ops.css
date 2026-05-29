@@ -1972,3 +1972,145 @@
   font-size: 0.8rem;
 }
 
+/* Year Workspace */
+
+.ops-yw {
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border: 2px solid var(--grid);
+  background: var(--panel);
+}
+
+.ops-yw__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.ops-yw__title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ops-yw__subtitle {
+  margin: 0.35rem 0 0;
+  max-width: 42rem;
+}
+
+.ops-yw-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.ops-yw-tab-count {
+  margin-left: 0.35rem;
+  opacity: 0.75;
+}
+
+.ops-tr--clickable {
+  cursor: pointer;
+}
+
+.ops-tr--clickable:hover {
+  background: rgba(70, 194, 255, 0.06);
+}
+
+.ops-yw-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.ops-yw-keywords--compact .ops-yw-keyword {
+  font-size: 0.62rem;
+  padding: 0.1rem 0.3rem;
+}
+
+.ops-yw-keyword {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(70, 194, 255, 0.35);
+  background: rgba(70, 194, 255, 0.1);
+  color: var(--ink);
+}
+
+.ops-yw-modal {
+  width: min(36rem, 100%);
+}
+
+.ops-yw-detail-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.5rem 0.75rem;
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+.ops-yw-detail-facts dt {
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.ops-yw-detail-facts dd {
+  margin: 0.15rem 0 0;
+  font-weight: 700;
+}
+
+.ops-mono {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.72rem;
+  word-break: break-all;
+}
+
+.ops-yw-keyword-picker {
+  padding: 0 0.9rem 0.75rem;
+}
+
+.ops-yw-keyword-picker__label {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.ops-yw-keyword-picker__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ops-yw-keyword-toggle {
+  padding: 0.35rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  border: 1px solid var(--grid);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--dim);
+  cursor: pointer;
+}
+
+.ops-yw-keyword-toggle--on {
+  color: var(--ink);
+  border-color: rgba(47, 210, 122, 0.5);
+  background: rgba(47, 210, 122, 0.12);
+}
+

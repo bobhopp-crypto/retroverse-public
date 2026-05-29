@@ -62,6 +62,10 @@ export default async function OpsPage() {
                 media-sync
               </Link>
               {" · "}
+              <Link className="ops-link" href={`/ops/year/${ops.year}`}>
+                year workspace
+              </Link>
+              {" · "}
               <Link className="ops-link" href="/ops/acquisition">
                 acquisition
               </Link>

@@ -67,6 +67,7 @@ export function OpsTable(props: {
     cells: Record<string, ReactNode>;
     tone?: "ok" | "warn" | "bad" | "info";
     className?: string;
+    onClick?: () => void;
   }[];
   empty?: string;
 }) {
@@ -97,10 +98,24 @@ export function OpsTable(props: {
               className={[
                 "ops-tr",
                 row.tone ? `ops-tr--${row.tone}` : "",
+                row.onClick ? "ops-tr--clickable" : "",
                 row.className || "",
               ]
                 .filter(Boolean)
                 .join(" ")}
+              onClick={row.onClick}
+              onKeyDown={
+                row.onClick
+                  ? (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        row.onClick?.();
+                      }
+                    }
+                  : undefined
+              }
+              tabIndex={row.onClick ? 0 : undefined}
+              role={row.onClick ? "button" : undefined}
             >
               {props.columns.map((col) => (
                 <td
