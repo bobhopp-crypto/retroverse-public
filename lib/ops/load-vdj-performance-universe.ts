@@ -49,7 +49,7 @@ export async function loadVdjPerformanceUniverse(
       SELECT mtl.track_id AS graph_track_id
       FROM media_track_links mtl
       WHERE mtl.media_asset_id = ma.id
-      ORDER BY mtl.confidence_score DESC NULLS LAST, mtl.updated_at DESC NULLS LAST
+      ORDER BY mtl.confidence_score DESC NULLS LAST, ma.updated_at DESC NULLS LAST
       LIMIT 1
     ) link ON true
     WHERE ma.id IS NOT NULL
