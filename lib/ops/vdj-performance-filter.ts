@@ -18,6 +18,7 @@ export function vdjPerformanceYearSql(year: number, alias = "ma"): string {
     )
     AND (
       coalesce(${a}.source_path, ${a}.directory_path, '') ~* '/${decade}s(/|$)'
+      OR coalesce(${a}.source_path, ${a}.directory_path, '') ~* '/${decade}''s(/|$)'
       OR coalesce(${a}.source_path, ${a}.directory_path, '') ~* '/${year}(/|$)'
     )
     ${opsVideoMediaAndClause(a)}

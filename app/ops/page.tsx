@@ -66,6 +66,10 @@ export default async function OpsPage() {
                 year workspace
               </Link>
               {" · "}
+              <Link className="ops-link" href={`/ops/rvtags-review/${ops.year}`}>
+                RV tags review
+              </Link>
+              {" · "}
               <Link className="ops-link" href="/ops/acquisition">
                 acquisition
               </Link>

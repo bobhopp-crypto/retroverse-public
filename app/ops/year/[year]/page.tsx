@@ -62,6 +62,9 @@ export default async function OpsYearWorkspacePage({ params }: Props) {
             <Link className="ops-link" href="/ops">
               ← Ops console
             </Link>
+            <Link className="ops-link" href={`/ops/rvtags-review/${year}`}>
+              RV tags review
+            </Link>
             {year !== OPS_FOCUS_YEAR ? (
               <Link className="ops-link" href={`/ops/year/${OPS_FOCUS_YEAR}`}>
                 Pilot {OPS_FOCUS_YEAR}
