@@ -12,7 +12,7 @@ import { ArtistAlbumTile } from "./artist-album-tile";
 import { ArtistChartActivity } from "./artist-chart-activity";
 import { ArtistCover } from "./artist-cover";
 import { ArtistViewAll } from "./artist-view-all";
-import { RetroverseSongList } from "@/app/components/retroverse-song-list";
+import { ChartHistorySongList } from "@/app/components/chart-history-song-list";
 
 const EXHIBIT_SINGLES_LIMIT = 8;
 const EXHIBIT_ALBUMS_LIMIT = 7;
@@ -91,14 +91,14 @@ export default async function ArtistPage({ params }: Props) {
           <div className="artist-section-head artist-section-head--songs">
             <h2 id="artist-singles-hub">Singles</h2>
           </div>
-          <RetroverseSongList
+          <ChartHistorySongList
             artistName={data.displayName}
             artistSlug={data.slug}
             songs={exhibitSingles}
             mode="embed"
             previewLimit={EXHIBIT_SINGLES_LIMIT}
             songsHref={songsHref}
-            moreLabel="All singles →"
+            moreLabel="All songs →"
           />
         </section>
       ) : null}
