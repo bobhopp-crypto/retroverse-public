@@ -1,0 +1,62 @@
+/* Artist albums browsing surface — chronological discography */
+
+.artist-albums-catalog {
+  margin: 0;
+  padding: 0.55rem 0.6rem 0.75rem;
+  background: var(--rv-plum-band, #c9b8e8);
+  border-top: 2px solid var(--rv-ink, #1a2f35);
+  border-bottom: 2px solid var(--rv-ink, #1a2f35);
+}
+
+.artist-albums-catalog__head {
+  margin-bottom: 0.45rem;
+  padding: 0.45rem 0.5rem;
+  border: 2px solid var(--rv-ink, #1a2f35);
+  border-radius: 1px;
+  background: var(--rv-paper, #f7edd8);
+  box-shadow: 2px 2px 0 var(--rv-ink, #1a2f35);
+}
+
+.artist-albums-catalog__eyebrow {
+  margin: 0;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rv-plum, #5c2d82);
+}
+
+.artist-albums-catalog__title {
+  margin: 0.1rem 0 0;
+  font-size: clamp(1.2rem, 5vw, 1.45rem);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--rv-ink, #1a2f35);
+}
+
+.artist-albums-catalog__count {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rv-teal, #0d6e7a);
+}
+
+.artist-albums-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  gap: 0.55rem;
+}
+
+.artist-albums-catalog__empty {
+  margin: 0.35rem 0 0;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--rv-ink, #1a2f35);
+  background: var(--rv-paper, #f7edd8);
+  border: 2px solid var(--rv-ink, #1a2f35);
+}
