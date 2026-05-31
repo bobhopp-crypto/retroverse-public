@@ -1,0 +1,104 @@
+/* Canonical chart-history song row — compact list context */
+
+.chart-history-song-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 0.4rem;
+  align-items: center;
+  padding: 0.28rem 0.34rem;
+  background: var(--rv-paper, #f7edd8);
+  border: 2px solid var(--rv-ink, #1a2f35);
+  border-radius: 1px;
+  box-shadow: 2px 2px 0 var(--rv-ink, #1a2f35);
+}
+
+.chart-history-song-row__body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.chart-history-song-row__title {
+  margin: 0;
+  font-size: clamp(1.02rem, 4.4vw, 1.14rem);
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--rv-ink, #1a2f35);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chart-history-song-row__title:hover {
+  color: var(--rv-teal, #0d6e7a);
+}
+
+.chart-history-journey {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.chart-history-journey__peak {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  color: var(--rv-teal-deep, #0a4f58);
+  min-width: 2.1rem;
+}
+
+.chart-history-journey__track {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 0.95rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(45, 62, 70, 0.12);
+  box-shadow: inset 0 0 0 1px var(--heat-rail, rgba(31, 94, 99, 0.22));
+}
+
+.chart-history-journey__track::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--rank-x, 0%);
+  min-width: 3px;
+  border-radius: inherit;
+  background: var(--heat-bar, rgba(31, 94, 99, 0.72));
+  box-shadow: 0 0 calc(4px + var(--heat-intensity, 0.35) * 12px) var(--heat-glow, transparent);
+}
+
+.chart-history-song-row__meta {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--rv-orange, #d44f1a);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chart-history-song-row__actions {
+  align-self: center;
+}
+
+.chart-history-song-row__actions.song-actions--minimal .song-actions__btn {
+  width: 1.65rem;
+  height: 1.65rem;
+  min-width: 1.65rem;
+  font-size: 0.65rem;
+  border-radius: 1px;
+  box-shadow: 1px 1px 0 rgba(26, 47, 53, 0.28);
+}
+
+.chart-history-song-row__actions.song-actions--minimal {
+  gap: 0.2rem;
+}

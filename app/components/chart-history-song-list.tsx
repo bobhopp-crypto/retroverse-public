@@ -1,0 +1,83 @@
+"use client";
+
+import Link from "next/link";
+
+import type { ChartHistorySongRowData } from "@/lib/songs/chart-history-song-row";
+
+import { ChartHistorySongRow } from "./chart-history-song-row";
+
+import "./chart-history-song-list.css";
+
+type Props = {
+  artistName: string;
+  artistSlug: string;
+  songs: ChartHistorySongRowData[];
+  mode?: "page" | "embed";
+  previewLimit?: number;
+  songsHref?: string;
+  moreLabel?: string;
+};
+
+export function ChartHistorySongList({
+  artistName,
+  artistSlug,
+  songs,
+  mode = "page",
+  previewLimit,
+  songsHref,
+  moreLabel = "All songs →",
+}: Props) {
+  const isEmbed = mode === "embed";
+  const visible =
+    previewLimit != null && previewLimit > 0 ? songs.slice(0, previewLimit) : songs;
+
+  return (
+    <section
+      className={
+        isEmbed ? "chart-history-song-list chart-history-song-list--embed" : "chart-history-song-list chart-history-song-list--page"
+      }
+      aria-labelledby={isEmbed ? "artist-songs-preview" : "artist-charted-songs"}
+    >
+      {!isEmbed ? (
+        <header className="chart-history-song-list__head">
+          <p className="chart-history-song-list__eyebrow">Singles · Hot 100</p>
+          <h2 id="artist-charted-songs" className="chart-history-song-list__title">
+            Charted songs
+          </h2>
+          <p className="chart-history-song-list__count">
+            {songs.length === 0
+              ? "No Hot 100 chart entries on file"
+              : `${songs.length} charted song${songs.length === 1 ? "" : "s"}`}
+          </p>
+        </header>
+      ) : (
+        <h2 id="artist-songs-preview" className="sr-only">
+          Singles chronology
+        </h2>
+      )}
+
+      {visible.length > 0 ? (
+        <ol className="chart-history-song-list__rows">
+          {visible.map((song) => (
+            <ChartHistorySongRow
+              key={song.rvtr}
+              song={song}
+              artistName={artistName}
+              artistSlug={artistSlug}
+            />
+          ))}
+        </ol>
+      ) : (
+        <p className="chart-history-song-list__empty" role="status">
+          Nothing charted on the Hot 100 yet — check back as the archive grows.
+        </p>
+      )}
+
+      {isEmbed && songsHref && songs.length > 0 ? (
+        <Link href={songsHref} prefetch className="chart-history-song-list__more">
+          {moreLabel}
+        </Link>
+      ) : null}
+    </section>
+  );
+}

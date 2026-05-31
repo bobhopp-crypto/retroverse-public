@@ -1,0 +1,87 @@
+/* Chart-history song list — page and exhibit embed share row styling */
+
+.chart-history-song-list {
+  --ch-list-ink: var(--rv-ink, #1a2f35);
+  --ch-list-frame: 2px solid var(--ch-list-ink);
+}
+
+.chart-history-song-list--page {
+  margin: 0;
+  padding: 0.55rem 0.6rem 0.75rem;
+  background: var(--rv-plum-band, #c9b8e8);
+  border-top: var(--ch-list-frame);
+  border-bottom: var(--ch-list-frame);
+}
+
+.chart-history-song-list--embed {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.chart-history-song-list__head {
+  margin-bottom: 0.45rem;
+  padding: 0.45rem 0.5rem;
+  border: var(--ch-list-frame);
+  border-radius: 1px;
+  background: var(--rv-paper, #f7edd8);
+  box-shadow: 2px 2px 0 var(--ch-list-ink);
+}
+
+.chart-history-song-list__eyebrow {
+  margin: 0;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rv-plum, #5c2d82);
+}
+
+.chart-history-song-list__title {
+  margin: 0.1rem 0 0;
+  font-size: clamp(1.2rem, 5vw, 1.45rem);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ch-list-ink);
+}
+
+.chart-history-song-list__count {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rv-teal, #0d6e7a);
+}
+
+.chart-history-song-list__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.chart-history-song-list__empty {
+  margin: 0.35rem 0 0;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ch-list-ink);
+  background: var(--rv-paper, #f7edd8);
+  border: var(--ch-list-frame);
+}
+
+.chart-history-song-list__more {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rv-teal, #0d6e7a);
+  text-decoration: none;
+}
