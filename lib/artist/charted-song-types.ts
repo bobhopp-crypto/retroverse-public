@@ -3,6 +3,7 @@ export type ArtistChartedSong = {
   title: string;
   albumTitle: string | null;
   firstChartYear: number | null;
+  firstChartDate: string | null;
   peakHot100: number | null;
   chartWeeks: number;
   inLibrary: boolean;

@@ -904,6 +904,17 @@
   border-top: var(--frame);
 }
 
+.artist-exhibit-footer {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rv-teal, #0d6e7a);
+  text-decoration: none;
+}
+
 .artist-exhibit-nav__pill[aria-current="page"] {
   background: var(--rv-orange, #d44f1a);
   color: #fff8ee;

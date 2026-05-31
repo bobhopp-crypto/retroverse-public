@@ -95,6 +95,7 @@ async function loadArtistChartedSongsImpl(slug: string): Promise<ArtistChartedSo
       title: row.canonical_title.trim(),
       albumTitle: albumByTrack.get(rvtr) ?? null,
       firstChartYear: yearFromDate(row.first_chart_date),
+      firstChartDate: row.first_chart_date?.trim() || null,
       peakHot100: row.peak_hot100_position,
       chartWeeks: row.chart_weeks,
       inLibrary: row.has_vdj_media,

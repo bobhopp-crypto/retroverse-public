@@ -16,6 +16,7 @@ type Props = {
   mode?: "page" | "embed";
   previewLimit?: number;
   songsHref?: string;
+  moreLabel?: string;
 };
 
 export function RetroverseSongList({
@@ -25,6 +26,7 @@ export function RetroverseSongList({
   mode = "page",
   previewLimit,
   songsHref,
+  moreLabel = "All singles →",
 }: Props) {
   const isEmbed = mode === "embed";
   const visible =
@@ -49,7 +51,7 @@ export function RetroverseSongList({
         </header>
       ) : (
         <h2 id="artist-songs-preview" className="sr-only">
-          Top charted songs
+          Singles chronology
         </h2>
       )}
 
@@ -70,9 +72,9 @@ export function RetroverseSongList({
         </p>
       )}
 
-      {isEmbed && songsHref && songs.length > (previewLimit ?? 0) ? (
+      {isEmbed && songsHref && songs.length > 0 ? (
         <Link href={songsHref} prefetch className="rv-song-list__more">
-          All charted songs →
+          {moreLabel}
         </Link>
       ) : null}
     </section>

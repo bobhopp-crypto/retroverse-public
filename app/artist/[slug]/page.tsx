@@ -5,6 +5,7 @@ import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadArtistChartedSongs } from "@/lib/artist/load-artist-charted-songs";
 import { artistSectionHref } from "@/lib/artist/routes";
 import { albumSuggestionHref } from "@/lib/search/entity-routes";
+import { sortChartedSongsChronologically } from "@/lib/songs/sort-charted-songs";
 import { ARTIST_SLUGS } from "@/lib/artist/slug";
 
 import { ArtistAlbumTile } from "./artist-album-tile";
@@ -12,6 +13,9 @@ import { ArtistChartActivity } from "./artist-chart-activity";
 import { ArtistCover } from "./artist-cover";
 import { ArtistViewAll } from "./artist-view-all";
 import { RetroverseSongList } from "@/app/components/retroverse-song-list";
+
+const EXHIBIT_SINGLES_LIMIT = 8;
+const EXHIBIT_ALBUMS_LIMIT = 7;
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -76,34 +80,36 @@ export default async function ArtistPage({ params }: Props) {
   }
 
   const songsHref = artistSectionHref(slug, "songs");
+  const albumsHref = artistSectionHref(slug, "albums");
+  const exhibitSingles = sortChartedSongsChronologically(chartedSongs.songs);
+  const exhibitAlbums = data.essentialAlbums.slice(0, EXHIBIT_ALBUMS_LIMIT);
 
   return (
     <>
-      {chartedSongs.songs.length > 0 ? (
-        <section className="artist-exhibit-songs" aria-labelledby="artist-songs-hub">
+      {exhibitSingles.length > 0 ? (
+        <section className="artist-exhibit-songs" aria-labelledby="artist-singles-hub">
           <div className="artist-section-head artist-section-head--songs">
-            <h2 id="artist-songs-hub">Songs</h2>
-            <ArtistViewAll href={songsHref} variant="dark" />
+            <h2 id="artist-singles-hub">Singles</h2>
           </div>
           <RetroverseSongList
             artistName={data.displayName}
             artistSlug={data.slug}
-            songs={chartedSongs.songs}
+            songs={exhibitSingles}
             mode="embed"
-            previewLimit={10}
+            previewLimit={EXHIBIT_SINGLES_LIMIT}
             songsHref={songsHref}
+            moreLabel="All singles →"
           />
         </section>
       ) : null}
 
-      {data.essentialAlbums.length > 0 ? (
-        <section className="artist-shelf" aria-labelledby="essential-albums">
+      {exhibitAlbums.length > 0 ? (
+        <section className="artist-shelf" aria-labelledby="artist-albums-hub">
           <div className="artist-section-head artist-section-head--light">
-            <h2 id="essential-albums">Albums</h2>
-            <ArtistViewAll href={artistSectionHref(slug, "albums")} variant="light" />
+            <h2 id="artist-albums-hub">Albums</h2>
           </div>
           <div className="artist-shelf__grid">
-            {data.essentialAlbums.map((album) => {
+            {exhibitAlbums.map((album) => {
               const href = albumSuggestionHref(
                 album.title,
                 album.rval ? `/albums/${album.rval}` : null,
@@ -123,6 +129,9 @@ export default async function ArtistPage({ params }: Props) {
               );
             })}
           </div>
+          <Link href={albumsHref} prefetch className="artist-exhibit-footer">
+            All albums →
+          </Link>
         </section>
       ) : null}
 
