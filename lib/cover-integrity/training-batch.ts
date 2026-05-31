@@ -53,30 +53,27 @@ export async function saveTrainingBatchManifest(manifest: TrainingBatchManifest)
   await writeFile(trainingBatchManifestPath(), JSON.stringify(manifest, null, 2));
 }
 
+const EMPTY_TRAINING_MANIFEST: TrainingBatchManifest = {
+  batchId: "000",
+  csvFile: "",
+  rvals: [],
+  size: 0,
+  generatedAt: "",
+  excludedReviewed: 0,
+};
+
 export async function loadTrainingBatchRows(): Promise<{
   manifest: TrainingBatchManifest;
   rows: RepairBatchCsvRow[];
+  emptyPool: boolean;
 }> {
-  let manifest = await loadTrainingBatchManifest();
-  if (!manifest) {
-    manifest = {
-      batchId: "001",
-      csvFile: "repair_batch_001.csv",
-      rvals: [],
-      size: TRAINING_BATCH_SIZE,
-      generatedAt: new Date().toISOString(),
-      excludedReviewed: 0,
+  const manifest = await loadTrainingBatchManifest();
+  if (!manifest || manifest.rvals.length === 0) {
+    return {
+      manifest: manifest ?? EMPTY_TRAINING_MANIFEST,
+      rows: [],
+      emptyPool: true,
     };
-    const all = await loadRepairBatchCsv(
-      join(process.cwd(), "reports/cover_integrity/repair_batch_001.csv"),
-    );
-    const training = await loadTrainingDecisions();
-    const reviewed = reviewedRvalSet(training);
-    manifest.rvals = all
-      .filter((r) => !reviewed.has(r.rval))
-      .slice(0, TRAINING_BATCH_SIZE)
-      .map((r) => r.rval);
-    await saveTrainingBatchManifest(manifest);
   }
 
   const csvPath = join(process.cwd(), "reports/cover_integrity", manifest.csvFile);
@@ -86,7 +83,7 @@ export async function loadTrainingBatchRows(): Promise<{
     .map((id) => byRval.get(id))
     .filter((r): r is RepairBatchCsvRow => !!r);
 
-  return { manifest, rows };
+  return { manifest, rows, emptyPool: false };
 }
 
 export async function generateNextTrainingBatch(): Promise<TrainingBatchManifest> {
