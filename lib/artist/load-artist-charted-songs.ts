@@ -58,8 +58,7 @@ async function loadArtistChartedSongsImpl(slug: string): Promise<ArtistChartedSo
     WHERE ${ARTIST_NAME_MATCH}
       AND has_hot100 = true
       AND peak_hot100_position IS NOT NULL
-    ORDER BY peak_hot100_position ASC NULLS LAST,
-             chart_weeks DESC,
+    ORDER BY first_chart_date ASC NULLS LAST,
              canonical_title ASC
     LIMIT ${CHARTED_SONGS_LIMIT}
     `,

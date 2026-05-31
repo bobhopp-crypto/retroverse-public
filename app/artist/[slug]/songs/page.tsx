@@ -26,6 +26,8 @@ export default async function ArtistSongsPage({ params }: Props) {
       artistSlug={data.slug}
       songs={data.songs}
       mode="page"
+      showSortControls
+      defaultSortMode="performance"
     />
   );
 }

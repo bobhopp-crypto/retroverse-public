@@ -28,6 +28,38 @@
   box-shadow: 2px 2px 0 var(--ch-list-ink);
 }
 
+.chart-history-song-list__head-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.chart-history-song-list__sort {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.25rem;
+}
+
+.chart-history-song-list__sort-btn {
+  padding: 0.28rem 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ch-list-ink);
+  background: var(--rv-plum-band, #c9b8e8);
+  border: 2px solid var(--ch-list-ink);
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.chart-history-song-list__sort-btn--active {
+  color: #fff8ee;
+  background: var(--rv-teal, #0d6e7a);
+  border-color: var(--ch-list-ink);
+}
+
 .chart-history-song-list__eyebrow {
   margin: 0;
   font-size: 0.62rem;

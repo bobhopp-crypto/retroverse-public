@@ -6,6 +6,7 @@ export type ChartHistorySongRowData = {
   peakHot100: number | null;
   chartWeeks: number;
   firstChartYear: number | null;
+  firstChartDate?: string | null;
   inLibrary?: boolean;
   /** Optional override for album or neighborhood contexts. */
   metaLine?: string;

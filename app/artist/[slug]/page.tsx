@@ -5,7 +5,7 @@ import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import { loadArtistChartedSongs } from "@/lib/artist/load-artist-charted-songs";
 import { artistSectionHref } from "@/lib/artist/routes";
 import { albumSuggestionHref } from "@/lib/search/entity-routes";
-import { sortChartedSongsChronologically } from "@/lib/songs/sort-charted-songs";
+import { sortChartedSongsByDate } from "@/lib/songs/sort-charted-songs";
 import { ARTIST_SLUGS } from "@/lib/artist/slug";
 
 import { ArtistAlbumTile } from "./artist-album-tile";
@@ -81,7 +81,7 @@ export default async function ArtistPage({ params }: Props) {
 
   const songsHref = artistSectionHref(slug, "songs");
   const albumsHref = artistSectionHref(slug, "albums");
-  const exhibitSingles = sortChartedSongsChronologically(chartedSongs.songs);
+  const exhibitSingles = sortChartedSongsByDate(chartedSongs.songs);
   const exhibitAlbums = data.essentialAlbums.slice(0, EXHIBIT_ALBUMS_LIMIT);
 
   return (
