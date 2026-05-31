@@ -7,8 +7,9 @@ import { artistSectionHref } from "@/lib/artist/routes";
 
 type Props = { slug: string };
 
-const MODES: { section: "" | "charts" | "library" | "explore"; label: string }[] = [
+const MODES: { section: "" | "songs" | "charts" | "library" | "explore"; label: string }[] = [
   { section: "", label: "Exhibit" },
+  { section: "songs", label: "Songs" },
   { section: "charts", label: "Charts" },
   { section: "library", label: "Collected" },
   { section: "explore", label: "More" },

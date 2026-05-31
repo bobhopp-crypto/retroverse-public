@@ -1,5 +1,6 @@
 export type ArtistSection =
   | "albums"
+  | "songs"
   | "tracks"
   | "years"
   | "library"

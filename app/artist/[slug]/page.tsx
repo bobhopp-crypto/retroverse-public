@@ -123,7 +123,7 @@ export default async function ArtistPage({ params }: Props) {
         >
           <div className="artist-section-head artist-section-head--songs">
             <h2 id="artist-songs">Recordings</h2>
-            <ArtistViewAll href={artistSectionHref(slug, "tracks")} variant="dark" />
+            <ArtistViewAll href={artistSectionHref(slug, "songs")} variant="dark" />
           </div>
           <ArtistSongsRotator
             tracks={data.signatureTracks}

@@ -42,7 +42,7 @@ export function searchSongsViewAllHref(
   artistSlug?: string | null,
 ): string {
   const slug = resolveSearchArtistSlug(panels, artistSlug);
-  if (slug) return `/artist/${slug}#artist-songs`;
+  if (slug) return `/artist/${slug}/songs`;
   const firstSong = panels.songs.find((item) => item.href?.startsWith("/track/"));
   return firstSong?.href ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR);
 }

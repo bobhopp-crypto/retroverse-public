@@ -1,0 +1,214 @@
+/* Charted songs catalog — Singles · Hot 100 */
+
+.artist-songs-catalog {
+  --asc-purple: #6b3496;
+  --asc-purple-soft: rgba(123, 63, 168, 0.14);
+  --asc-cream: #f4e9d3;
+  --asc-ink: #2d3e46;
+  --asc-orange: #e07a4f;
+  --asc-teal: #0a5560;
+  --asc-frame: 3px solid var(--asc-ink);
+
+  margin: 0;
+  padding: 0.85rem 0.75rem 1.25rem;
+  background: var(--asc-purple-soft);
+  border-top: var(--asc-frame);
+  border-bottom: var(--asc-frame);
+}
+
+.artist-songs-catalog__head {
+  margin-bottom: 0.75rem;
+  padding: 0.55rem 0.65rem;
+  border: var(--asc-frame);
+  border-radius: 0.45rem;
+  background: var(--asc-cream);
+  box-shadow: 3px 3px 0 var(--asc-ink);
+}
+
+.artist-songs-catalog__eyebrow {
+  margin: 0 0 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--asc-purple);
+}
+
+.artist-songs-catalog__title {
+  margin: 0;
+  font-size: clamp(1.35rem, 5.5vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--asc-ink);
+}
+
+.artist-songs-catalog__count {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--asc-teal);
+}
+
+.artist-songs-catalog__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.artist-song-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0.45rem;
+  padding: 0.45rem;
+  background: var(--asc-cream);
+  border: var(--asc-frame);
+  border-radius: 0.4rem;
+  box-shadow: 3px 3px 0 var(--asc-ink);
+}
+
+.artist-song-row__marker {
+  flex: 0 0 clamp(3.25rem, 18vw, 4rem);
+  width: clamp(3.25rem, 18vw, 4rem);
+  align-self: center;
+}
+
+.retroverse-single-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid var(--asc-ink);
+  border-radius: 0.3rem;
+  background: var(--asc-purple-soft);
+}
+
+.retroverse-single-marker__disc {
+  display: block;
+  width: 72%;
+  height: 72%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle,
+    var(--asc-ink) 0 2px,
+    #5a4a6a 2px 4px
+  );
+  box-shadow: inset 0 0 0 2px rgba(244, 233, 211, 0.35);
+}
+
+.artist-song-row__main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.05rem 0;
+}
+
+.artist-song-row__title-link {
+  margin: 0;
+  font-size: clamp(1rem, 4.4vw, 1.15rem);
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--asc-ink);
+  text-decoration: none;
+}
+
+.artist-song-row__title-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.artist-song-row__meta {
+  margin: 0;
+  font-size: clamp(0.78rem, 3.2vw, 0.88rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--asc-orange);
+}
+
+.artist-song-row__peak-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.artist-song-row__peak-bar {
+  flex: 1 1 auto;
+  height: 0.55rem;
+  min-width: 0;
+  border: 2px solid var(--asc-ink);
+  border-radius: 999px;
+  background: rgba(45, 62, 70, 0.08);
+  overflow: hidden;
+}
+
+.artist-song-row__peak-bar-fill {
+  display: block;
+  height: 100%;
+  min-width: 0.35rem;
+  border-radius: 999px 0 0 999px;
+  background: linear-gradient(90deg, var(--asc-purple), var(--asc-orange));
+}
+
+.artist-song-row__stamp {
+  flex: 0 0 clamp(3.4rem, 16vw, 4.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  padding: 0.3rem 0.25rem;
+  text-align: center;
+  color: #fff;
+  background: var(--asc-ink);
+  border: 2px solid var(--asc-ink);
+  border-radius: 0.32rem;
+  align-self: center;
+}
+
+.artist-song-row__stamp-peak {
+  font-size: clamp(1.1rem, 4.8vw, 1.35rem);
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.artist-song-row__stamp-label {
+  font-size: clamp(0.52rem, 2.2vw, 0.62rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  opacity: 0.92;
+}
+
+.artist-song-row__actions {
+  flex: 0 0 auto;
+  align-self: center;
+  padding-right: 0.1rem;
+}
+
+.artist-song-row__actions .song-actions__btn {
+  width: 2.15rem;
+  height: 2.15rem;
+  min-width: 2.15rem;
+  font-size: 0.76rem;
+}
+
+.artist-songs-catalog__empty {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--asc-ink);
+  background: var(--asc-cream);
+  border: var(--asc-frame);
+  border-radius: 0.35rem;
+}
