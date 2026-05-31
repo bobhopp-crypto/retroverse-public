@@ -10,8 +10,8 @@ import { ARTIST_SLUGS } from "@/lib/artist/slug";
 import { ArtistAlbumTile } from "./artist-album-tile";
 import { ArtistChartActivity } from "./artist-chart-activity";
 import { ArtistCover } from "./artist-cover";
-import { ArtistSongsCatalog } from "./artist-songs-catalog";
 import { ArtistViewAll } from "./artist-view-all";
+import { RetroverseSongList } from "@/app/components/retroverse-song-list";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -85,11 +85,12 @@ export default async function ArtistPage({ params }: Props) {
             <h2 id="artist-songs-hub">Songs</h2>
             <ArtistViewAll href={songsHref} variant="dark" />
           </div>
-          <ArtistSongsCatalog
+          <RetroverseSongList
             artistName={data.displayName}
             artistSlug={data.slug}
             songs={chartedSongs.songs}
-            previewLimit={6}
+            mode="embed"
+            previewLimit={10}
             songsHref={songsHref}
           />
         </section>
