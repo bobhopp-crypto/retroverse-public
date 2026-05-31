@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
+import { RetroverseSongList } from "@/app/components/retroverse-song-list";
 import { loadArtistChartedSongs } from "@/lib/artist/load-artist-charted-songs";
-
-import { ArtistSongsCatalog } from "../artist-songs-catalog";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -22,10 +21,11 @@ export default async function ArtistSongsPage({ params }: Props) {
   const data = await loadArtistChartedSongs(slug);
 
   return (
-    <ArtistSongsCatalog
+    <RetroverseSongList
       artistName={data.displayName}
       artistSlug={data.slug}
       songs={data.songs}
+      mode="page"
     />
   );
 }
