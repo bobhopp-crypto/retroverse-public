@@ -21,6 +21,11 @@ export type DominantYearBar = {
   count: number;
 };
 
+export type ChartDecadeBar = {
+  decade: number;
+  count: number;
+};
+
 /** Highest-ranked album on the album chart — facts only */
 export type ChartAlbumSpotlight = {
   albumTitle: string;
@@ -53,6 +58,7 @@ export type ArtistPageData = {
   essentialAlbums: ArtistAlbumCard[];
   signatureTracks: ArtistTrackCard[];
   dominantYears: DominantYearBar[];
+  chartDecades: ChartDecadeBar[];
   /** True when Hot 100 year histogram has real rows (not a synthetic fallback). */
   hasDominantYearData: boolean;
   chartAlbumSpotlight: ChartAlbumSpotlight | null;

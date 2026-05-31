@@ -14,6 +14,7 @@ import type {
   ArtistPageData,
   ArtistTrackCard,
   ChartAlbumSpotlight,
+  ChartDecadeBar,
   DominantYearBar,
   RelatedArtistCard,
 } from "@/lib/artist/types";
@@ -58,6 +59,7 @@ function fallbackArtistPageData(slugParam: string): ArtistPageData {
     essentialAlbums: [],
     signatureTracks: [],
     dominantYears: [],
+    chartDecades: [],
     hasDominantYearData: false,
     chartAlbumSpotlight: null,
     chartHighlights: {
@@ -113,7 +115,7 @@ async function loadArtistPageImpl(
 
   const { artistId, canonicalName, displayName, slug: canonicalSlug } = resolved;
 
-  const [albumRows, trackRows, yearRows, statsRows, homeSearch] = await Promise.all([
+  const [albumRows, trackRows, yearRows, decadeRows, statsRows, homeSearch] = await Promise.all([
     inspectQuery<{
       pg_album_id: number;
       title: string;
@@ -186,6 +188,20 @@ async function loadArtistPageImpl(
       HAVING extract(year FROM ca.chart_date)::int IS NOT NULL
       ORDER BY count DESC, year ASC
       LIMIT 8
+      `,
+      [artistId],
+    ),
+    inspectQuery<{ decade: number; count: number }>(
+      `
+      SELECT
+        (extract(year FROM ca.chart_date)::int / 10) * 10 AS decade,
+        count(*)::int AS count
+      FROM chart_appearances ca
+      JOIN tracks t ON t.id = ca.track_id
+      WHERE t.artist_id = $1 AND ca.chart_name = 'Billboard Hot 100'
+      GROUP BY 1
+      HAVING (extract(year FROM ca.chart_date)::int / 10) * 10 IS NOT NULL
+      ORDER BY decade ASC
       `,
       [artistId],
     ),
@@ -298,6 +314,9 @@ async function loadArtistPageImpl(
 
   const hasDominantYearData = dominantYearsRaw.length > 0;
   const dominantYears = dominantYearsRaw;
+  const chartDecades: ChartDecadeBar[] = decadeRows
+    .filter((d) => d.decade >= 1960 && d.decade <= 2030)
+    .sort((a, b) => a.decade - b.decade);
 
   const chartAlbumSpotlightAlbum = essentialAlbums.find((a) => a.b200Peak != null);
 
@@ -402,6 +421,7 @@ async function loadArtistPageImpl(
     essentialAlbums,
     signatureTracks,
     dominantYears,
+    chartDecades,
     hasDominantYearData,
     chartAlbumSpotlight,
     chartHighlights: {

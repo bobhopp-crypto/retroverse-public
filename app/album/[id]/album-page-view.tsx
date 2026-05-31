@@ -1,9 +1,10 @@
 import Link from "next/link";
 
-import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { TrackChartRunRail } from "@/app/track/[id]/track-chart-run-rail";
 import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { AlbumPageData } from "@/lib/album/load-album-page";
+
+import { AlbumHeroCover } from "./album-hero-cover";
 
 import "../../track/[id]/track-page.css";
 import "./album-page.css";
@@ -32,18 +33,12 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
 
       <section className="track-hero" aria-label={`${data.title} album page`}>
         <div className="track-hero__cover-wrap">
-          <ArtistCover
-            src={data.coverUrl}
-            alt=""
-            className="track-hero__cover"
-            fallbackClassName="track-hero__cover-fallback"
-            fallbackVariant="plate"
-            placeholderContext={{
-              rval: data.rval,
-              artist: data.artistName,
-              album: data.title,
-              releaseYear: data.releaseYear,
-            }}
+          <AlbumHeroCover
+            rval={data.rval}
+            title={data.title}
+            artistName={data.artistName}
+            releaseYear={data.releaseYear}
+            coverUrl={data.coverUrl}
           />
         </div>
         <div className="track-hero__identity">

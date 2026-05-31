@@ -5,6 +5,7 @@ export type ArtistChartedSong = {
   firstChartYear: number | null;
   peakHot100: number | null;
   chartWeeks: number;
+  inLibrary: boolean;
   trackHref: string;
 };
 

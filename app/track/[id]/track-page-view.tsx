@@ -100,6 +100,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
             weeks={data.trajectoryWeeks}
             peak={data.peakHot100}
             chartLabel={data.chartRunLabel}
+            portalFocusTrackId={data.rvtr}
           />
         </section>
       ) : null}

@@ -1,5 +1,7 @@
+import Link from "next/link";
 import type { CSSProperties } from "react";
 
+import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import { trajectoryMomentClasses } from "@/lib/track/trajectory-moment-classes";
 import type { TrackTrajectoryWeek } from "@/lib/track/track-trajectory-types";
 import { resolveTrajectoryHistoricalHeat } from "@/lib/track/trajectory-historical-heat";
@@ -11,10 +13,10 @@ type Props = {
   scaleFloorLabel?: string;
   maxRank?: number;
   ariaLabel?: string;
-  /** Optional extra class on the panel root (e.g. album journey tone). */
   panelClassName?: string;
-  /** When set, only render these indices (full `weeks` still used for heat context). */
   visibleIndices?: number[];
+  /** When set, each week row opens the chart-week neighborhood portal. */
+  portalFocusTrackId?: string | null;
 };
 
 function formatChartDate(value: string): string {
@@ -37,14 +39,19 @@ export function TrackChartRunRail({
   ariaLabel = "Song chart journey",
   panelClassName,
   visibleIndices,
+  portalFocusTrackId = null,
 }: Props) {
   if (weeks.length === 0) return null;
 
   const indices = visibleIndices ?? weeks.map((_, index) => index);
   const panelClass = ["track-trajectory-panel", panelClassName].filter(Boolean).join(" ");
+  const portalEnabled = Boolean(portalFocusTrackId?.trim());
 
   return (
     <div className={panelClass} aria-label={ariaLabel}>
+      {portalEnabled ? (
+        <p className="track-trajectory-portal-hint">Tap a week to see what surrounded this song.</p>
+      ) : null}
       <div className="track-trajectory-scale" aria-hidden>
         <span>{scaleFloorLabel}</span>
         <span>{chartLabel.replace(/^Billboard\s+/i, "")}</span>
@@ -56,22 +63,16 @@ export function TrackChartRunRail({
           if (!week) return null;
           const momentClasses = trajectoryMomentClasses(weeks, index);
           const heat = resolveTrajectoryHistoricalHeat(week, index, weeks, peak, maxRank);
-          return (
-            <li
-              key={`${week.issueDate}-${index}`}
-              className={`track-trajectory-week ${momentClasses}`.trim()}
-              style={
-                {
-                  "--rank-x": `${week.x}%`,
-                  "--heat-intensity": String(heat.intensity),
-                  "--heat-bg": heat.atmosphereBg,
-                  "--heat-border": heat.atmosphereBorder,
-                  "--heat-glow": heat.atmosphereGlow,
-                  "--heat-rail": heat.railTint,
-                  "--heat-bar": heat.barFill,
-                } as CSSProperties
-              }
-            >
+          const portalHref =
+            portalEnabled && week.issueDate
+              ? chartWeekPortalHref(week.issueDate, {
+                  focus: portalFocusTrackId,
+                  rank: week.rank,
+                })
+              : null;
+
+          const cardBody = (
+            <>
               <div className="track-trajectory-date">
                 <span>{formatChartDate(week.issueDate)}</span>
                 <small>week {week.weeksOnChart ?? index + 1}</small>
@@ -80,6 +81,46 @@ export function TrackChartRunRail({
               <div className="track-trajectory-rank">
                 <strong>#{week.rank}</strong>
               </div>
+            </>
+          );
+
+          const className = `track-trajectory-week ${momentClasses}${
+            portalHref ? " track-trajectory-week--portal" : ""
+          }`.trim();
+
+          const style = {
+            "--rank-x": `${week.x}%`,
+            "--heat-intensity": String(heat.intensity),
+            "--heat-bg": heat.atmosphereBg,
+            "--heat-border": heat.atmosphereBorder,
+            "--heat-glow": heat.atmosphereGlow,
+            "--heat-rail": heat.railTint,
+            "--heat-bar": heat.barFill,
+          } as CSSProperties;
+
+          if (portalHref) {
+            return (
+              <li key={`${week.issueDate}-${index}`}>
+                <Link
+                  href={portalHref}
+                  prefetch
+                  className={className}
+                  style={style}
+                  aria-label={`Chart neighborhood for ${formatChartDate(week.issueDate)}, rank ${week.rank}`}
+                >
+                  {cardBody}
+                </Link>
+              </li>
+            );
+          }
+
+          return (
+            <li
+              key={`${week.issueDate}-${index}`}
+              className={className}
+              style={style}
+            >
+              {cardBody}
             </li>
           );
         })}

@@ -225,6 +225,39 @@
   margin: 0;
 }
 
+.track-trajectory-portal-hint {
+  margin: 0 0 0.55rem;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  background: rgba(221, 208, 255, 0.45);
+  border: 2px solid rgba(31, 94, 99, 0.28);
+  border-radius: 4px;
+}
+
+a.track-trajectory-week--portal {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "date rank"
+    "rail rail";
+  gap: 0.5rem 0.75rem;
+  align-items: end;
+  text-decoration: none;
+  color: inherit;
+  touch-action: manipulation;
+}
+
+a.track-trajectory-week--portal:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.45),
+    0 1px 0 rgba(45, 62, 70, 0.14);
+}
+
 .track-trajectory-scale {
   display: flex;
   justify-content: space-between;

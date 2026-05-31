@@ -16,6 +16,8 @@ import "./song-actions.css";
 type SongActionsProps = {
   target: SongActionTarget;
   layout?: "stack" | "inline";
+  /** Hub rows: ▶ + ◎ only */
+  minimal?: boolean;
   className?: string;
 };
 
@@ -43,7 +45,12 @@ function ActionLink({
   );
 }
 
-export function SongActions({ target, layout = "stack", className }: SongActionsProps) {
+export function SongActions({
+  target,
+  layout = "stack",
+  minimal = false,
+  className,
+}: SongActionsProps) {
   const inspectHref = songInspectHref(target);
   const trackHref = songPageHrefForTarget(target);
   const artistHref = songArtistHref(target);
@@ -56,7 +63,7 @@ export function SongActions({ target, layout = "stack", className }: SongActions
 
   return (
     <div
-      className={`song-actions song-actions--${layout}${className ? ` ${className}` : ""}`}
+      className={`song-actions song-actions--${layout}${minimal ? " song-actions--minimal" : ""}${className ? ` ${className}` : ""}`}
       onClick={stopBubble}
       role="group"
       aria-label={`Actions for ${target.title}`}
@@ -79,22 +86,22 @@ export function SongActions({ target, layout = "stack", className }: SongActions
       >
         +
       </button>
-      {trackHref ? (
+      {!minimal && trackHref ? (
         <ActionLink href={trackHref} label={`Open ${target.title}`} onClick={stopBubble}>
           ↗
         </ActionLink>
       ) : null}
-      {artistHref ? (
+      {!minimal && artistHref ? (
         <ActionLink href={artistHref} label={`Open ${target.artist}`} onClick={stopBubble}>
           ★
         </ActionLink>
       ) : null}
-      {yearHref ? (
+      {!minimal && yearHref ? (
         <ActionLink href={yearHref} label={`Open RV year for ${target.title}`} onClick={stopBubble}>
           Y
         </ActionLink>
       ) : null}
-      {chartsHref ? (
+      {!minimal && chartsHref ? (
         <ActionLink href={chartsHref} label={`Chart journey for ${target.artist}`} onClick={stopBubble}>
           ⌁
         </ActionLink>

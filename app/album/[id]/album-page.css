@@ -4,6 +4,28 @@
   max-width: min(28rem, 94vw);
 }
 
+.album-hero-cover {
+  position: relative;
+}
+
+.album-hero-cover__curator {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  width: 2.15rem;
+  height: 2.15rem;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #fff8ee;
+  background: var(--rv-plum, #5c2d82);
+  border: 2px solid var(--rv-ink, #1a2f35);
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 var(--rv-ink, #1a2f35);
+  cursor: pointer;
+}
+
 .album-tracklist {
   margin: 0 1rem 2.25rem;
 }

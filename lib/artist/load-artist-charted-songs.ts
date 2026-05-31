@@ -49,10 +49,11 @@ async function loadArtistChartedSongsImpl(slug: string): Promise<ArtistChartedSo
     peak_hot100_position: number | null;
     chart_weeks: number;
     first_chart_date: string | null;
+    has_vdj_media: boolean;
   }>(
     `
     SELECT track_id, canonical_title, peak_hot100_position, chart_weeks,
-           first_chart_date::text AS first_chart_date
+           first_chart_date::text AS first_chart_date, has_vdj_media
     FROM canonical_track_display
     WHERE ${ARTIST_NAME_MATCH}
       AND has_hot100 = true
@@ -96,6 +97,7 @@ async function loadArtistChartedSongsImpl(slug: string): Promise<ArtistChartedSo
       firstChartYear: yearFromDate(row.first_chart_date),
       peakHot100: row.peak_hot100_position,
       chartWeeks: row.chart_weeks,
+      inLibrary: row.has_vdj_media,
       trackHref: trackPageHref(rvtr),
     };
   });

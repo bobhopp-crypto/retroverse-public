@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
+import { loadArtistChartedSongs } from "@/lib/artist/load-artist-charted-songs";
 import { artistSectionHref } from "@/lib/artist/routes";
 import { albumSuggestionHref } from "@/lib/search/entity-routes";
 import { ARTIST_SLUGS } from "@/lib/artist/slug";
 
+import { ArtistAlbumTile } from "./artist-album-tile";
+import { ArtistChartActivity } from "./artist-chart-activity";
 import { ArtistCover } from "./artist-cover";
-import { ArtistSongsRotator } from "./artist-songs-rotator";
+import { ArtistSongsCatalog } from "./artist-songs-catalog";
 import { ArtistViewAll } from "./artist-view-all";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -24,20 +27,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: data ? `${data.displayName} — Retroverse` : "Artist — Retroverse",
     description: data
-      ? `${data.displayName} — albums, songs, and years in Retroverse.`
+      ? `${data.displayName} — charted songs, albums, and chart activity in Retroverse.`
       : undefined,
   };
 }
 
 export default async function ArtistPage({ params }: Props) {
   const { slug } = await params;
-  const data = await loadArtistPage(slug);
+  const [data, chartedSongs] = await Promise.all([
+    loadArtistPage(slug),
+    loadArtistChartedSongs(slug),
+  ]);
 
   const exhibitEmpty =
     data.essentialAlbums.length === 0 &&
-    data.signatureTracks.length === 0 &&
-    data.dominantYears.length === 0 &&
-    !data.chartAlbumSpotlight &&
+    chartedSongs.songs.length === 0 &&
+    data.chartDecades.length === 0 &&
     data.relatedArtists.length === 0;
 
   if (exhibitEmpty) {
@@ -70,14 +75,27 @@ export default async function ArtistPage({ params }: Props) {
     );
   }
 
-  const maxYearCount = data.hasDominantYearData
-    ? Math.max(...data.dominantYears.map((y) => y.count), 1)
-    : 1;
-  const libraryAlbums = data.essentialAlbums.slice(0, 8);
-  const showLibrary = data.libraryTracks > 0 && libraryAlbums.length > 0;
+  const songsHref = artistSectionHref(slug, "songs");
+
   return (
     <>
-      {data.essentialAlbums.length > 0 && (
+      {chartedSongs.songs.length > 0 ? (
+        <section className="artist-exhibit-songs" aria-labelledby="artist-songs-hub">
+          <div className="artist-section-head artist-section-head--songs">
+            <h2 id="artist-songs-hub">Songs</h2>
+            <ArtistViewAll href={songsHref} variant="dark" />
+          </div>
+          <ArtistSongsCatalog
+            artistName={data.displayName}
+            artistSlug={data.slug}
+            songs={chartedSongs.songs}
+            previewLimit={6}
+            songsHref={songsHref}
+          />
+        </section>
+      ) : null}
+
+      {data.essentialAlbums.length > 0 ? (
         <section className="artist-shelf" aria-labelledby="essential-albums">
           <div className="artist-section-head artist-section-head--light">
             <h2 id="essential-albums">Albums</h2>
@@ -91,173 +109,25 @@ export default async function ArtistPage({ params }: Props) {
               );
               if (!href) return null;
               return (
-                <a key={album.pgAlbumId} className="artist-album-tile" href={href}>
-                  <ArtistCover
-                    src={album.coverUrl}
-                    alt=""
-                    className="artist-album-tile__cover"
-                    fallbackClassName="artist-album-tile__fallback"
-                    fallbackVariant="plate"
-                    plateDensity="compact"
-                    placeholderContext={{
-                      rval: album.rval,
-                      artist: data.displayName,
-                      album: album.title,
-                      releaseYear: album.releaseYear,
-                    }}
-                  />
-                  <p className="artist-album-tile__title">{album.title}</p>
-                  <p className="artist-album-tile__meta">{album.releaseYear ?? "—"}</p>
-                </a>
+                <ArtistAlbumTile
+                  key={album.pgAlbumId}
+                  pgAlbumId={album.pgAlbumId}
+                  title={album.title}
+                  releaseYear={album.releaseYear}
+                  rval={album.rval}
+                  coverUrl={album.coverUrl}
+                  artistName={data.displayName}
+                  href={href}
+                />
               );
             })}
           </div>
         </section>
-      )}
+      ) : null}
 
-      {data.signatureTracks.length > 0 && (
-        <section
-          className="artist-songs-panel"
-          data-songs-ui="song-stack"
-          aria-labelledby="artist-songs"
-        >
-          <div className="artist-section-head artist-section-head--songs">
-            <h2 id="artist-songs">Recordings</h2>
-            <ArtistViewAll href={artistSectionHref(slug, "songs")} variant="dark" />
-          </div>
-          <ArtistSongsRotator
-            tracks={data.signatureTracks}
-            artistName={data.displayName}
-          />
-        </section>
-      )}
+      <ArtistChartActivity slug={slug} decades={data.chartDecades} />
 
-      {data.hasDominantYearData && data.dominantYears.length > 0 && (
-        <section className="artist-years" aria-labelledby="dominant-years">
-          <div className="artist-section-head artist-section-head--aqua">
-            <h2 id="dominant-years">Chart years</h2>
-            <ArtistViewAll href={artistSectionHref(slug, "years")} variant="dark" />
-          </div>
-          <div className="artist-years__chart">
-            {data.dominantYears.map((bar) => (
-              <div key={bar.year} className="artist-years__bar-wrap">
-                <div
-                  className="artist-years__bar"
-                  style={{ height: `${Math.round((bar.count / maxYearCount) * 100)}%` }}
-                />
-                <span className="artist-years__label">{bar.year}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {showLibrary && (
-        <section className="artist-library" aria-labelledby="in-library">
-          <div className="artist-section-head artist-section-head--light">
-            <h2 id="in-library">Collected recordings</h2>
-            <ArtistViewAll href={artistSectionHref(slug, "library")} variant="light" />
-          </div>
-          <div className="artist-library__grid">
-            {libraryAlbums.map((a) => {
-              const libHref = albumSuggestionHref(
-                a.title,
-                a.rval ? `/albums/${a.rval}` : null,
-              );
-              const thumb = (
-                <ArtistCover
-                  src={a.coverUrl}
-                  alt=""
-                  className="artist-library__thumb"
-                  fallbackClassName="artist-library__thumb artist-album-tile__fallback"
-                  fallbackVariant="plate"
-                  plateDensity="compact"
-                  placeholderContext={{
-                    rval: a.rval,
-                    artist: data.displayName,
-                    album: a.title,
-                    releaseYear: a.releaseYear,
-                  }}
-                />
-              );
-              return libHref ? (
-                <Link
-                  key={a.pgAlbumId}
-                  href={libHref}
-                  prefetch
-                  className="artist-library__thumb-link"
-                  aria-label={`${a.title} album`}
-                >
-                  {thumb}
-                </Link>
-              ) : (
-                <div key={a.pgAlbumId}>{thumb}</div>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {data.chartAlbumSpotlight && (
-        <section className="artist-era" aria-labelledby="chart-album">
-          <div className="artist-section-head artist-section-head--light">
-            <h2 id="chart-album" className="artist-era__title-inline">
-              Chart album
-            </h2>
-            <ArtistViewAll href={artistSectionHref(slug, "albums")} variant="light" />
-          </div>
-          <p className="artist-era__facts">
-            {data.chartAlbumSpotlight.albumTitle}
-            {data.chartAlbumSpotlight.releaseYear != null
-              ? ` · ${data.chartAlbumSpotlight.releaseYear}`
-              : ""}
-          </p>
-          {(() => {
-            const spotlight = data.chartAlbumSpotlight;
-            const eraHref = spotlight.rval
-              ? albumSuggestionHref(
-                  spotlight.albumTitle,
-                  `/albums/${spotlight.rval}`,
-                )
-              : null;
-            const spotlightCover = (
-              <ArtistCover
-                src={spotlight.coverUrl}
-                alt={spotlight.albumTitle}
-                className="artist-era__cover"
-                fallbackClassName="artist-era__cover artist-album-tile__fallback"
-                fallbackVariant="plate"
-                placeholderContext={{
-                  rval: spotlight.rval,
-                  artist: data.displayName,
-                  album: spotlight.albumTitle,
-                  releaseYear: spotlight.releaseYear,
-                }}
-              />
-            );
-            return (
-              <>
-                <div className="artist-era__cover-wrap">
-                  {eraHref ? (
-                    <Link href={eraHref} prefetch className="artist-era__cover-link">
-                      {spotlightCover}
-                    </Link>
-                  ) : (
-                    spotlightCover
-                  )}
-                </div>
-                {eraHref ? (
-                  <a className="artist-era__cta" href={eraHref}>
-                    {spotlight.albumTitle}
-                  </a>
-                ) : null}
-              </>
-            );
-          })()}
-        </section>
-      )}
-
-      {data.relatedArtists.length > 0 && (
+      {data.relatedArtists.length > 0 ? (
         <section className="artist-related" aria-labelledby="related-artists">
           <div className="artist-section-head artist-section-head--dark">
             <h2 id="related-artists">Related artists</h2>
@@ -281,12 +151,12 @@ export default async function ArtistPage({ params }: Props) {
             ))}
           </ul>
         </section>
-      )}
+      ) : null}
 
-      {data.exploreLinks.length > 0 && (
+      {data.exploreLinks.length > 0 ? (
         <section className="artist-explore" aria-labelledby="explore-deeper">
           <div className="artist-section-head artist-section-head--dark">
-            <h2 id="explore-deeper">Further in the archive</h2>
+            <h2 id="explore-deeper">Further exploration</h2>
             <ArtistViewAll href={artistSectionHref(slug, "explore")} variant="dark" />
           </div>
           <div className="artist-explore__pills">
@@ -301,7 +171,7 @@ export default async function ArtistPage({ params }: Props) {
             ))}
           </div>
         </section>
-      )}
+      ) : null}
     </>
   );
 }
