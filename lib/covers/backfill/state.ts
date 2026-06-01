@@ -40,6 +40,7 @@ type LegacyStateV1 = {
   failureCount?: number;
   currentBatchIndex?: number;
   cursor?: number;
+  totalQueued?: number;
   [key: string]: unknown;
 };
 

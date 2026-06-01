@@ -70,7 +70,7 @@ async function main() {
 
   const verified = await verifyCoverPromotedByRval(row.rval);
   console.log(`promotion_path=${verified.canonicalCoverPath ?? coverPath}`);
-  console.log(`pg_verify=${verified.ok ? "ok" : verified.reason}`);
+  console.log(`pg_verify=${verified.ok ? "ok" : "missing_or_mismatch"}`);
   console.log(`final_result=${verified.ok ? "PROMOTED" : "NOT_FOUND"}`);
 
   if (!verified.ok) {

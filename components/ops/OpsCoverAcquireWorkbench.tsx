@@ -3,36 +3,27 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { OpsCoverInspectImage } from "@/components/ops/OpsCoverInspectImage";
-import type { CoverAuditHashRow } from "@/lib/cover-integrity/load-cover-audit-csv";
-import type { RepairBatchCsvRow } from "@/lib/cover-integrity/load-repair-batch-csv";
-import {
-  buildPathToHashIndex,
-  getTrainingRowContext,
-  isTrivialTrainingPair,
-  trainingCandidateSourceLabel,
-  trainingWhyExplanation,
-} from "@/lib/cover-integrity/training-display";
+import { ArchiveCoverPlate } from "@/components/artwork/ArchiveCoverPlate";
+import { buildDiscogsSearchUrl } from "@/lib/cover-integrity/discogs-url";
+import type { AcquireBatchRow } from "@/lib/ops/review/covers/acquire-batch";
 import type { CoverTrainingDecisionValue } from "@/lib/rv12/training-decisions";
 
 type Props = {
   batchId: string;
-  batch: RepairBatchCsvRow[];
+  batch: AcquireBatchRow[];
   batchSize: number;
   initialDecisions: Record<string, { decision: CoverTrainingDecisionValue }>;
-  hashMatches: Record<string, CoverAuditHashRow[]>;
   decisionsApi?: string;
   advanceBatchApi?: string;
 };
 
-export function OpsCoverTrainWorkbench({
+export function OpsCoverAcquireWorkbench({
   batchId,
   batch,
   batchSize,
   initialDecisions,
-  hashMatches,
   decisionsApi = "/api/ops/covers/train/decisions",
-  advanceBatchApi = "/api/ops/covers/train/advance-batch",
+  advanceBatchApi = "/api/ops/review/covers/advance-batch?mode=acquire",
 }: Props) {
   const router = useRouter();
   const [index, setIndex] = useState(0);
@@ -41,17 +32,10 @@ export function OpsCoverTrainWorkbench({
   const [error, setError] = useState<string | null>(null);
   const [advancing, setAdvancing] = useState(false);
   const advanceStarted = useRef(false);
-  const skipTrivialStarted = useRef<string | null>(null);
-
-  const pathToHash = useMemo(
-    () => buildPathToHashIndex(batch, hashMatches),
-    [batch, hashMatches],
-  );
 
   useEffect(() => {
     setAdvancing(false);
     advanceStarted.current = false;
-    skipTrivialStarted.current = null;
   }, [batchId, batch.map((r) => r.rval).join(",")]);
 
   const pendingIndices = useMemo(
@@ -67,11 +51,6 @@ export function OpsCoverTrainWorkbench({
   const safeIndex = queue.length === 0 ? 0 : Math.min(index, queue.length - 1);
   const row = queue[safeIndex];
   const batchComplete = queue.length === 0 && batch.length > 0;
-
-  const ctx = row ? getTrainingRowContext(row, hashMatches, pathToHash) : null;
-  const whyText = row && ctx ? trainingWhyExplanation(row, ctx.candidateSource) : "";
-  const candidateLabel = ctx ? trainingCandidateSourceLabel(ctx.candidateSource) : null;
-
   const completedCount = batch.filter((r) => decisions[r.rval]).length;
 
   const advanceBatch = useCallback(async () => {
@@ -88,7 +67,7 @@ export function OpsCoverTrainWorkbench({
       setError(
         e instanceof Error
           ? e.message
-          : "Could not load the next covers. Please ask an operator for help.",
+          : "Could not load the next albums. Please ask an operator for help.",
       );
       setAdvancing(false);
     }
@@ -102,14 +81,10 @@ export function OpsCoverTrainWorkbench({
 
   const saveDecision = useCallback(
     async (decision: CoverTrainingDecisionValue) => {
-      if (!row || !ctx) return;
+      if (!row) return;
       setSaving(true);
       setError(null);
       try {
-        const reason = row.issueReason.includes("same_artist")
-          ? "same_artist_shared_image"
-          : row.issueReason.split("|")[0] ?? "review";
-
         const res = await fetch(decisionsApi, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -118,12 +93,12 @@ export function OpsCoverTrainWorkbench({
             artist: row.artist,
             album: row.album,
             releaseYear: row.releaseYear,
-            currentHash: row.currentHash,
-            proposedHash: ctx.proposedHash,
-            proposedSource: row.proposedSource,
+            currentHash: null,
+            proposedHash: null,
+            proposedSource: "acquire_queue",
             decision,
             confidence: "medium",
-            reason,
+            reason: "acquire_missing_cover",
           }),
         });
         const data = (await res.json()) as { ok?: boolean; error?: string };
@@ -138,16 +113,8 @@ export function OpsCoverTrainWorkbench({
         setSaving(false);
       }
     },
-    [row, ctx, decisionsApi],
+    [row, decisionsApi],
   );
-
-  useEffect(() => {
-    if (!row || !ctx || saving || advancing) return;
-    if (!isTrivialTrainingPair(row, ctx)) return;
-    if (skipTrivialStarted.current === row.rval) return;
-    skipTrivialStarted.current = row.rval;
-    void saveDecision("correct");
-  }, [row, ctx, saving, advancing, saveDecision]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -165,19 +132,11 @@ export function OpsCoverTrainWorkbench({
       }
       if (e.key === "1") {
         e.preventDefault();
-        void saveDecision("correct");
+        void saveDecision("needs_pull");
       }
       if (e.key === "2") {
         e.preventDefault();
-        void saveDecision("wrong");
-      }
-      if (e.key === "3") {
-        e.preventDefault();
         void saveDecision("unsure");
-      }
-      if (e.key === "4") {
-        e.preventDefault();
-        void saveDecision("needs_pull");
       }
     };
     window.addEventListener("keydown", onKey);
@@ -187,10 +146,9 @@ export function OpsCoverTrainWorkbench({
   if (batch.length === 0 && !advancing) {
     return (
       <div className="ops-cover-train__learning" aria-live="polite">
-        <h2>No integrity reviews queued</h2>
+        <h2>No acquire reviews queued</h2>
         <p className="ops-cover-train__text">
-          The suspicious-cover pool is exhausted or all candidates were already reviewed.
-          Try <strong>Retrain weights</strong> or run <code>npm run cover:repair-batch</code> then refresh.
+          Could not load missing-cover albums. Check Postgres connectivity.
         </p>
       </div>
     );
@@ -201,24 +159,17 @@ export function OpsCoverTrainWorkbench({
       <div className="ops-cover-train__learning" aria-live="polite">
         <div className="ops-cover-train__learning-spinner" aria-hidden />
         <h2>Retroverse is learning from your decisions…</h2>
-        <p className="ops-cover-train__text">Building the next review set.</p>
         <p className="ops-cover-train__text">
-          You&apos;ll see <strong>{batchSize} new covers</strong> in a moment.
+          Retraining weights and building the next {batchSize} albums.
         </p>
         {error ? <p className="ops-cover-train__error">{error}</p> : null}
       </div>
     );
   }
 
-  if (!row || !ctx) return null;
+  if (!row) return null;
 
-  if (isTrivialTrainingPair(row, ctx)) {
-    return (
-      <p className="ops-cover-train__text" aria-live="polite">
-        Skipping a duplicate image pair…
-      </p>
-    );
-  }
+  const discogsUrl = buildDiscogsSearchUrl(row.artist, row.album, row.releaseYear);
 
   return (
     <div className="ops-cover-train">
@@ -226,7 +177,7 @@ export function OpsCoverTrainWorkbench({
         Progress: <strong>{completedCount}</strong> of {batch.length} completed
       </p>
 
-      <p className="ops-cover-train__task">Is this the correct album cover for this album?</p>
+      <p className="ops-cover-train__task">This album has no cover yet. How should we prioritize it?</p>
 
       <header className="ops-cover-train__album-card">
         <p className="ops-cover-train__artist">{row.artist}</p>
@@ -234,73 +185,54 @@ export function OpsCoverTrainWorkbench({
         {row.releaseYear != null ? (
           <p className="ops-cover-train__year">{row.releaseYear}</p>
         ) : null}
+        <p className="ops-cover-train__rval">{row.rval}</p>
       </header>
 
-      <section className="ops-cover-train__why" aria-labelledby="why-heading">
-        <h3 id="why-heading" className="ops-cover-train__why-title">
+      <section className="ops-cover-train__why" aria-labelledby="acquire-why-heading">
+        <h3 id="acquire-why-heading" className="ops-cover-train__why-title">
           Why are you seeing this?
         </h3>
-        <p className="ops-cover-train__why-body">{whyText}</p>
+        <p className="ops-cover-train__why-body">
+          Retroverse has chart metadata for this album but no cover image in the graph yet.
+          {row.b200Peak != null
+            ? ` Billboard 200 peak: #${row.b200Peak}.`
+            : " No Billboard 200 peak on file."}
+        </p>
       </section>
 
-      <div className="ops-cover-train__pair">
-        <figure className="ops-cover-train__pane">
-          <figcaption>Current Cover</figcaption>
-          <div className="ops-cover-train__frame">
-            <OpsCoverInspectImage
-              path={row.currentCoverPath}
-              label="Current cover"
-              className="ops-cover-train__art"
-              fit="contain"
-            />
-          </div>
-        </figure>
-        <figure className="ops-cover-train__pane">
-          <figcaption>Possible Better Cover</figcaption>
-          {candidateLabel ? (
-            <p className="ops-cover-train__candidate-source">
-              <span className="ops-cover-train__candidate-source-label">Candidate source:</span>
-              {candidateLabel}
-            </p>
-          ) : null}
-          {ctx.proposedPath ? (
-            <div className="ops-cover-train__frame">
-              <OpsCoverInspectImage
-                path={ctx.proposedPath}
-                label="Possible better cover"
-                className="ops-cover-train__art"
-                fit="contain"
-              />
-            </div>
-          ) : (
-            <div className="ops-cover-train__empty">
-              No other picture to compare yet. If the current cover looks wrong, choose
-              &ldquo;Need better image.&rdquo;
-            </div>
-          )}
-        </figure>
-      </div>
+      <figure className="ops-cover-train__pane ops-cover-train__pane--solo">
+        <figcaption>Current state</figcaption>
+        <div className="ops-cover-train__frame ops-cover-train__frame--plate">
+          <ArchiveCoverPlate
+            context={{
+              rval: row.rval,
+              artist: row.artist,
+              album: row.album,
+              releaseYear: row.releaseYear,
+            }}
+            density="compact"
+            className="ops-cover-train__fallback-plate"
+          />
+        </div>
+      </figure>
 
-      <div className="ops-cover-train__actions">
+      <p className="ops-cover-train__discogs">
+        <a href={discogsUrl} target="_blank" rel="noopener noreferrer">
+          Search Discogs for this album ↗
+        </a>
+        <span className="ops-cover-train__discogs-note"> (reference only — no auto-download)</span>
+      </p>
+
+      <div className="ops-cover-train__actions ops-cover-train__actions--acquire">
         <button
           type="button"
-          className="ops-cover-train__choice ops-cover-train__choice--keep"
+          className="ops-cover-train__choice ops-cover-train__choice--pull"
           disabled={saving}
-          onClick={() => void saveDecision("correct")}
+          onClick={() => void saveDecision("needs_pull")}
         >
-          <span className="ops-cover-train__choice-label">Keep Current</span>
-          <span className="ops-cover-train__choice-help">The current cover looks correct.</span>
+          <span className="ops-cover-train__choice-label">Needs Cover</span>
+          <span className="ops-cover-train__choice-help">Prioritize sourcing this album.</span>
           <span className="ops-cover-train__choice-key">Press 1</span>
-        </button>
-        <button
-          type="button"
-          className="ops-cover-train__choice ops-cover-train__choice--use"
-          disabled={saving || !ctx.proposedPath}
-          onClick={() => void saveDecision("wrong")}
-        >
-          <span className="ops-cover-train__choice-label">Use Suggested</span>
-          <span className="ops-cover-train__choice-help">The new cover is better.</span>
-          <span className="ops-cover-train__choice-key">Press 2</span>
         </button>
         <button
           type="button"
@@ -309,18 +241,8 @@ export function OpsCoverTrainWorkbench({
           onClick={() => void saveDecision("unsure")}
         >
           <span className="ops-cover-train__choice-label">Not Sure</span>
-          <span className="ops-cover-train__choice-help">I can&apos;t tell.</span>
-          <span className="ops-cover-train__choice-key">Press 3</span>
-        </button>
-        <button
-          type="button"
-          className="ops-cover-train__choice ops-cover-train__choice--pull"
-          disabled={saving}
-          onClick={() => void saveDecision("needs_pull")}
-        >
-          <span className="ops-cover-train__choice-label">Need Better Image</span>
-          <span className="ops-cover-train__choice-help">Neither image is good enough.</span>
-          <span className="ops-cover-train__choice-key">Press 4</span>
+          <span className="ops-cover-train__choice-help">Skip priority for now.</span>
+          <span className="ops-cover-train__choice-key">Press 2</span>
         </button>
       </div>
 

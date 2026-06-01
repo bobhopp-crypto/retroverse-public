@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 920" width="1400" height="920">
+  <defs>
+    <style>
+      .title { font: bold 28px Georgia, serif; fill: #1a1a1a; }
+      .subtitle { font: 14px Helvetica, Arial, sans-serif; fill: #555; }
+      .box { fill: #f4eeda; stroke: #1a1a1a; stroke-width: 3; rx: 8; }
+      .box-ops { fill: #e8f0ee; stroke: #1a5c52; stroke-width: 3; rx: 8; }
+      .box-warn { fill: #fff3d6; stroke: #b45309; stroke-width: 2; rx: 8; stroke-dasharray: 6 4; }
+      .label { font: bold 15px Helvetica, Arial, sans-serif; fill: #1a1a1a; }
+      .small { font: 12px Helvetica, Arial, sans-serif; fill: #333; }
+      .arrow { stroke: #1a1a1a; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-ops { stroke: #1a5c52; stroke-width: 2; fill: none; marker-end: url(#arrowhead-ops); }
+      .section { font: bold 18px Helvetica, Arial, sans-serif; fill: #c2410c; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a1a1a"/>
+    </marker>
+    <marker id="arrowhead-ops" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a5c52"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="920" fill="#fffdf6"/>
+  <text x="40" y="42" class="title">Retroverse Navigation Map</text>
+  <text x="40" y="68" class="subtitle">Public discovery + RV chronology + Ops (audit only  no redesign)</text>
+
+  <!-- HOME -->
+  <rect x="40" y="100" width="150" height="56" class="box"/>
+  <text x="115" y="133" text-anchor="middle" class="label">Home /</text>
+
+  <!-- SEARCH -->
+  <rect x="240" y="100" width="150" height="56" class="box"/>
+  <text x="315" y="128" text-anchor="middle" class="label">Search</text>
+  <text x="315" y="146" text-anchor="middle" class="small">/search</text>
+
+  <!-- ARTIST -->
+  <rect x="440" y="100" width="170" height="56" class="box"/>
+  <text x="525" y="128" text-anchor="middle" class="label">Artist Exhibit</text>
+  <text x="525" y="146" text-anchor="middle" class="small">/artist/[slug]</text>
+
+  <!-- ARTIST SUB -->
+  <rect x="660" y="70" width="120" height="44" class="box"/>
+  <text x="720" y="98" text-anchor="middle" class="small">Songs</text>
+  <rect x="660" y="130" width="120" height="44" class="box"/>
+  <text x="720" y="158" text-anchor="middle" class="small">Charts</text>
+  <rect x="800" y="70" width="120" height="44" class="box"/>
+  <text x="860" y="98" text-anchor="middle" class="small">Library</text>
+  <rect x="800" y="130" width="120" height="44" class="box-warn"/>
+  <text x="860" y="152" text-anchor="middle" class="small">Albums*</text>
+  <text x="860" y="168" text-anchor="middle" class="small">(orphan)</text>
+
+  <!-- ALBUM TRACK -->
+  <rect x="980" y="70" width="130" height="44" class="box"/>
+  <text x="1045" y="98" text-anchor="middle" class="small">Album</text>
+  <rect x="980" y="130" width="130" height="44" class="box"/>
+  <text x="1045" y="158" text-anchor="middle" class="small">Track</text>
+
+  <!-- RV CHRONOLOGY -->
+  <text x="40" y="230" class="section">RV Chronology</text>
+  <rect x="40" y="250" width="130" height="50" class="box"/>
+  <text x="105" y="280" text-anchor="middle" class="label">RV Year</text>
+  <rect x="200" y="250" width="130" height="50" class="box"/>
+  <text x="265" y="280" text-anchor="middle" class="label">Month</text>
+  <rect x="360" y="250" width="130" height="50" class="box"/>
+  <text x="425" y="280" text-anchor="middle" class="label">Week</text>
+  <rect x="520" y="250" width="150" height="50" class="box-warn"/>
+  <text x="595" y="272" text-anchor="middle" class="small">/week/[date]</text>
+  <text x="595" y="290" text-anchor="middle" class="small">chart portal</text>
+
+  <!-- LEGACY -->
+  <rect x="720" y="250" width="120" height="50" class="box-warn"/>
+  <text x="780" y="272" text-anchor="middle" class="small">/charts</text>
+  <text x="780" y="290" text-anchor="middle" class="small">’ /rv/*</text>
+
+  <!-- OPS -->
+  <text x="40" y="370" class="section">Ops (PIN gated)</text>
+  <rect x="40" y="390" width="110" height="50" class="box-ops"/>
+  <text x="95" y="420" text-anchor="middle" class="label">/ops</text>
+  <rect x="180" y="390" width="170" height="50" class="box-ops"/>
+  <text x="265" y="412" text-anchor="middle" class="small">Cover Review</text>
+  <text x="265" y="430" text-anchor="middle" class="small">/ops/review/covers</text>
+  <rect x="380" y="390" width="170" height="50" class="box-ops"/>
+  <text x="465" y="412" text-anchor="middle" class="small">Cover Backfill</text>
+  <text x="465" y="430" text-anchor="middle" class="small">/ops/covers/backfill</text>
+  <rect x="580" y="390" width="150" height="50" class="box-ops"/>
+  <text x="655" y="420" text-anchor="middle" class="small">Healing / Year / &</text>
+
+  <!-- ARROWS PUBLIC FLOW 1 -->
+  <path d="M190 128 L238 128" class="arrow"/>
+  <path d="M390 128 L438 128" class="arrow"/>
+  <path d="M610 128 L658 128" class="arrow"/>
+  <path d="M740 128 L978 92" class="arrow"/>
+  <path d="M740 152 L978 152" class="arrow"/>
+  <path d="M1110 114 L1110 200 L105 200 L105 248" class="arrow"/>
+  <path d="M170 275 L198 275" class="arrow"/>
+  <path d="M330 275 L358 275" class="arrow"/>
+  <path d="M490 275 L518 275" class="arrow"/>
+
+  <!-- ARROWS OPS -->
+  <path d="M150 415 L178 415" class="arrow-ops"/>
+  <path d="M350 415 L378 415" class="arrow-ops"/>
+
+  <!-- LEGEND -->
+  <rect x="40" y="500" width="1320" height="380" fill="#faf7ef" stroke="#1a1a1a" stroke-width="2" rx="10"/>
+  <text x="60" y="530" class="label">Major flows</text>
+  <text x="60" y="560" class="small">1. Home ’ Search overlay OR /search ’ Artist | Album | Track ’ related entities ’ footer back to Home/Search</text>
+  <text x="60" y="582" class="small">2. Home Charts pad ’ /rv/1978 ’ Month ’ Week ’ Album/Track (ArtistChartsHistoryClient)</text>
+  <text x="60" y="604" class="small">3. Artist ’ Songs ’ Track ’ Chart run rail ’ /week/[date] portal ’ Open full week ’ /rv/.../week</text>
+  <text x="60" y="626" class="small">4. Artist ’ Library/Albums ’ Album ’ Tracklist ’ Track</text>
+  <text x="60" y="660" class="label">Known problems (dashed = weak/orphan)</text>
+  <text x="60" y="688" class="small">" Home overlay bypasses /search page entirely</text>
+  <text x="60" y="710" class="small">" Search view-all albums uses #essential-albums anchor (missing on artist page)</text>
+  <text x="60" y="732" class="small">" /artist/albums, /related, /years exist but not in nav pills</text>
+  <text x="60" y="754" class="small">" /tracks redirects to /songs; /charts redirects to /rv; /browse/* redirects home</text>
+  <text x="60" y="776" class="small">" /week vs /rv/.../week  parallel week UX (portal vs full chronology)</text>
+  <text x="60" y="798" class="small">" Ops /ops/covers/corrections links to /ops/covers/train which redirects to review/covers</text>
+  <text x="60" y="830" class="label">Redirects</text>
+  <text x="60" y="852" class="small">/browse/* ’ /  |  /charts ’ /rv/*  |  /artist/.../tracks ’ /songs  |  /ops/covers ’ /ops/review/covers  |  /ops/covers/train ’ /ops/review/covers</text>
+</svg>

@@ -90,7 +90,8 @@ export function AlbumCoverCuratorModal({
         throw new Error(promoteBody.error ?? promoteBody.message ?? "Could not apply cover.");
       }
 
-      onAccepted?.(previewUrl ?? (sourceUrl.trim() || null) ?? coverUrl);
+      const nextCover = previewUrl ?? (sourceUrl.trim() || coverUrl);
+      onAccepted?.(nextCover);
       onClose();
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));

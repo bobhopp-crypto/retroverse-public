@@ -18,7 +18,7 @@ async function main() {
   console.log(`  rows: ${manifest.size}`);
   console.log(`  excluded reviewed: ${manifest.excludedReviewed}`);
   console.log(`  rvals: ${manifest.rvals.join(", ")}`);
-  console.log("\nOpen /ops/covers/train");
+  console.log("\nOpen /ops/review/covers");
 }
 
 main().catch((e) => {
