@@ -19,6 +19,11 @@
     "cover:retrain": "npx --yes tsx tools/run-cover-retrain.ts",
     "cover:next-batch": "npx --yes tsx tools/run-cover-next-batch.ts",
     "cover:train-queue-report": "npx --yes tsx tools/run-cover-train-queue-report.ts",
+    "cover:backfill": "npx --yes tsx tools/run-cover-backfill.ts",
+    "cover:backfill:once": "npx --yes tsx tools/run-cover-backfill.ts --once",
+    "cover:backfill:test-one": "npx --yes tsx tools/test-cover-backfill-one.ts",
+    "cover:backfill:skip-failed": "npx --yes tsx tools/run-cover-backfill-skip-failed.ts",
+    "cover:backfill:safe": "npx --yes tsx tools/run-cover-backfill-safe.ts",
     "healing:review": "npx --yes tsx tools/run-healing-review.ts",
     "smoke:public-search": "node tools/smoke-public-search.mjs"
   },

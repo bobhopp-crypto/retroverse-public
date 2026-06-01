@@ -2629,6 +2629,80 @@
   cursor: not-allowed;
 }
 
+.ops-cover-backfill__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.ops-cover-backfill__stat {
+  border: 3px solid var(--train-ink);
+  background: var(--train-paper, #f4eeda);
+  padding: 0.65rem 0.75rem;
+}
+
+.ops-cover-backfill__label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.ops-cover-backfill__value {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.ops-cover-backfill__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.ops-cover-backfill__projection {
+  border: 3px solid var(--train-ink);
+  background: var(--train-paper, #f4eeda);
+  padding: 1rem 1.1rem;
+  margin: 0 0 1rem;
+}
+
+.ops-cover-backfill__projection-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.ops-cover-backfill__projection-note {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.ops-cover-backfill__grid--compact {
+  margin: 0;
+}
+
+.ops-cover-backfill__stat--muted {
+  opacity: 0.55;
+}
+
+.ops-cover-backfill__reasons {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.ops-cover-backfill__reasons li {
+  margin-bottom: 0.35rem;
+}
+
 .ops-cover-train__rval {
   margin: 0.5rem 0 0;
   font-size: 0.8rem;
