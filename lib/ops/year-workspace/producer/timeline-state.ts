@@ -1,9 +1,12 @@
+import "server-only";
+
 import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 import { randomUUID } from "crypto";
 
 import { yearWorkspaceDir } from "../paths";
 
+import { emptyProducerTimeline } from "./empty-timeline";
 import { PRODUCER_TIMELINE_BLOCKS } from "./config";
 import type {
   ProducerTimelineAsset,
@@ -15,22 +18,7 @@ function timelinePath(year: number): string {
   return join(yearWorkspaceDir(year), "producer", "timeline.json");
 }
 
-function emptyBlocks(): Record<ProducerTimelineBlockId, ProducerTimelineAsset[]> {
-  const blocks = {} as Record<ProducerTimelineBlockId, ProducerTimelineAsset[]>;
-  for (const { id } of PRODUCER_TIMELINE_BLOCKS) {
-    blocks[id] = [];
-  }
-  return blocks;
-}
-
-export function emptyProducerTimeline(year: number): ProducerTimelineState {
-  return {
-    version: 1,
-    year,
-    blocks: emptyBlocks(),
-    updatedAt: new Date().toISOString(),
-  };
-}
+export { emptyProducerTimeline } from "./empty-timeline";
 
 function normalizeAsset(raw: unknown): ProducerTimelineAsset | null {
   if (!raw || typeof raw !== "object") return null;

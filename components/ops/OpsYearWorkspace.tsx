@@ -11,7 +11,7 @@ import { YearWorkspaceProductionTab } from "@/components/ops/year-workspace/Year
 import { YearWorkspaceSourceDrawer } from "@/components/ops/year-workspace/YearWorkspaceSourceDrawer";
 import { YearWorkspaceProducerView } from "@/components/ops/year-workspace/YearWorkspaceProducerView";
 import { YearWorkspaceSummary } from "@/components/ops/year-workspace/YearWorkspaceSummary";
-import { emptyProducerTimeline } from "@/lib/ops/year-workspace/producer/timeline-state";
+import { emptyProducerTimeline } from "@/lib/ops/year-workspace/producer/empty-timeline";
 import type { ProducerTimelineState } from "@/lib/ops/year-workspace/producer/types";
 import type {
   ProductionItem,
