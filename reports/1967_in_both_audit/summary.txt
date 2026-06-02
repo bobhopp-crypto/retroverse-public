@@ -1,0 +1,29 @@
+1967 In Both Reconciliation Audit
+=================================
+Matched songs audited: 58
+In Both (workspace current): 0
+In Both (correct): 34
+Chart Only (current): 58
+Missing RVTR: 0
+Manual overrides: 10
+
+Exclusion categories:
+  workspace_set_type_coercion_bug: 34
+  performance_year_mismatch: 13
+  manual_override_without_performance_link: 9
+  decade_folder_mismatch: 1
+  performance_year_and_folder_mismatch: 1
+
+Sample rows (first 10):
+  The Doors — Light My Fire · workspace_set_type_coercion_bug · 
+  lulu — To Sir With Love · manual_override_without_performance_link · Manual match override marked matched without ops VIDEO media_track_link
+  The Box Tops — The Letter · manual_override_without_performance_link · Manual match override marked matched without ops VIDEO media_track_link
+  The Turtles — Happy Together · workspace_set_type_coercion_bug · 
+  strawberry alarm clock — Incense And Peppermints · workspace_set_type_coercion_bug · 
+  bobbie gentry — Ode To Billie Joe · workspace_set_type_coercion_bug · 
+  The Young Rascals — Groovin' · manual_override_without_performance_link · Manual match override marked matched without ops VIDEO media_track_link
+  nancy sinatra — Somethin' Stupid · manual_override_without_performance_link · Manual match override marked matched without ops VIDEO media_track_link
+  The Buckinghams — Kind Of A Drag · workspace_set_type_coercion_bug · 
+  aretha franklin — Respect · performance_year_mismatch · Linked ops VIDEO exists but year_text is not classified as performance year 1967
+
+Hypothetical In Both (ops-VIDEO only): 49/58

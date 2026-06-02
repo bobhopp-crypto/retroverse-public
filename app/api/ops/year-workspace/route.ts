@@ -26,6 +26,11 @@ import type {
   YearWorkspaceCategoryId,
   YearWorkspaceWorkflowAction,
 } from "@/lib/ops/year-workspace/types";
+
+type YearWorkspaceProductionCategoryId = Exclude<
+  YearWorkspaceCategoryId,
+  "songs"
+>;
 import { YEAR_WORKSPACE_CATEGORIES } from "@/lib/ops/year-workspace/types";
 import {
   normalizeYearWorkspaceKeywords,
@@ -59,7 +64,11 @@ function recommendationPoolMeta(
   >["production"],
 ) {
   if (!hasCuratedProvider(year)) return null;
-  const categories = YEAR_WORKSPACE_CATEGORIES.filter((c) => c.id !== "songs");
+  const categories = YEAR_WORKSPACE_CATEGORIES.filter(
+    (c): c is (typeof YEAR_WORKSPACE_CATEGORIES)[number] & {
+      id: YearWorkspaceProductionCategoryId;
+    } => c.id !== "songs",
+  );
   const pools: Record<string, { total: number; remaining: number }> = {};
   for (const { id } of categories) {
     const ids = new Set(production[id].items.map((i) => i.id));

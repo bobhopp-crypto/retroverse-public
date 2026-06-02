@@ -1,0 +1,132 @@
+{
+  "mode": "safe",
+  "generatedAt": "2026-06-02T09:36:03.885Z",
+  "uniqueAlbumsProcessed": 8831,
+  "uniqueSuccesses": 6136,
+  "uniqueFailures": 2695,
+  "successRate": 69.5,
+  "mainCursorBefore": 4650,
+  "mainCursorAfter": 8544,
+  "retryQueueSize": 1986,
+  "topFailureReasons": [
+    {
+      "reason": "no_catalog_hit:low_album_similarity",
+      "count": 1861
+    },
+    {
+      "reason": "no_catalog_hit:no_results",
+      "count": 386
+    },
+    {
+      "reason": "no_catalog_hit:artist_mismatch",
+      "count": 299
+    },
+    {
+      "reason": "itunes_no_file_on_disk",
+      "count": 72
+    },
+    {
+      "reason": "no_catalog_hit:score_below_threshold",
+      "count": 51
+    },
+    {
+      "reason": "no_catalog_hit:remaster_noise",
+      "count": 14
+    },
+    {
+      "reason": "no_catalog_hit:ambiguous_match",
+      "count": 11
+    },
+    {
+      "reason": "The operation was aborted due to timeout",
+      "count": 1
+    }
+  ],
+  "topFailurePatterns": [
+    {
+      "pattern": "standard_studio_album",
+      "count": 1403,
+      "examples": [
+        "double — Blue (RVAL911336)",
+        "The Fixx — Walkabout (RVAL465275)",
+        "rainbow — Straight Between The Eyes (RVAL870323)"
+      ]
+    },
+    {
+      "pattern": "punctuation_only_title",
+      "count": 809,
+      "examples": [
+        "? — ? (RVAL906016)",
+        "? — ? (RVAL267427)",
+        "? — ? (RVAL266278)"
+      ]
+    },
+    {
+      "pattern": "various_artists",
+      "count": 322,
+      "examples": [
+        "various artists — Themes Like Old Times (RVAL771179)",
+        "various artists — Musique Pop De Paris (RVAL819136)",
+        "various artists — Cities 97 Sampler 21: Live From Studio C (RVAL120444)"
+      ]
+    },
+    {
+      "pattern": "title_punctuation_heavy",
+      "count": 59,
+      "examples": [
+        "total — Kima, Keisha & Pam (RVAL929725)",
+        "e-40 — The Block Brochure: Welcome To The Soil 1, 2 & 3 (RVAL647189)",
+        "dr. hook — Dr. Hook & The Medicine Show (RVAL764456)"
+      ]
+    },
+    {
+      "pattern": "compilation_or_variant_title",
+      "count": 47,
+      "examples": [
+        "pearl jam — Let's Play Two: Live At Wrigley Field (Soundtrack) (RVAL381681)",
+        "grateful dead — Dave's Picks, Volume 17: Selland Arena, Fresno, CA 7/19/1974 (RVAL245540)",
+        "grateful dead — Dave's Picks Volume 14: Academy Of Music, New York, NY, 3/26/72 (RVAL407207)"
+      ]
+    },
+    {
+      "pattern": "artist_name_special_chars",
+      "count": 26,
+      "examples": [
+        "lil' romeo — Game Time (RVAL465095)",
+        "ol' dirty bastard — The Trials And Tribulations Of Russell Jones (RVAL843911)",
+        "ginger baker's air force — Ginger Baker's Air Force (RVAL893154)"
+      ]
+    },
+    {
+      "pattern": "title_with_year_noise",
+      "count": 19,
+      "examples": [
+        "dave matthews band — DMBLivetrax Vol. 6: Fenway Park, Boston, MA July 7 -- 8, 2006 (RVAL656416)",
+        "jefferson starship — Flight Log (1966-1976) (RVAL187438)",
+        "grateful dead — Spring 1990: The Other One (RVAL246500)"
+      ]
+    },
+    {
+      "pattern": "short_title_le2",
+      "count": 8,
+      "examples": [
+        "david guetta — 7 (RVAL513999)",
+        "sza — Z (RVAL565644)",
+        "matchbox twenty — EP (RVAL254252)"
+      ]
+    },
+    {
+      "pattern": "artist_name_live",
+      "count": 2,
+      "examples": [
+        "live — Songs From Black Mountain (RVAL762341)",
+        "live — The Turn (RVAL798420)"
+      ]
+    }
+  ],
+  "currentlyCovered": 13188,
+  "coversRemaining": 8482,
+  "projectedAdditionalCovers": 5895,
+  "projectedTotalCovered": 19083,
+  "projectedCoveragePct": 88.1
+}

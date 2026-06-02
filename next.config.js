@@ -21,6 +21,11 @@ function coverProxyOrigin() {
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
   serverExternalPackages: ["pg"],
+  // Ops video uploads hit /api/ops/* (middleware matcher). Default 10MB truncates
+  // multipart bodies and breaks req.formData() for Media Lab transcripts.
+  experimental: {
+    middlewareClientMaxBodySize: "2gb",
+  },
   async redirects() {
     return [
       { source: "/browse/artists", destination: "/", permanent: false },

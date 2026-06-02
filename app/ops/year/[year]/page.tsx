@@ -80,9 +80,10 @@ export default async function OpsYearWorkspacePage({ params }: Props) {
           </p>
         ) : (
           <p className="ops-banner">
-            <strong>Year Workspace</strong> — collection and event prep for {year}. Four buckets:
-            what you have (In Both), what you need (Chart Only), extras (VDJ Only), and what to
-            work on (Review). Chart-only rows support Acquire / Skip / Review workflow (saved locally).
+            <strong>Year Workspace</strong> — central production desk for {year}. Songs tab keeps
+            Billboard reconciliation; other tabs track Wanted / Acquired / Approved assets with
+            recommendations, workflow actions, and drop-zone metadata (stored under{" "}
+            <code className="ops-mono">RETROVERSE_DATA/ops/year-workspace/{year}/</code>).
           </p>
         )}
 

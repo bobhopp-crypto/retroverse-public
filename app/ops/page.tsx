@@ -74,6 +74,10 @@ export default async function OpsPage() {
                 acquisition
               </Link>
               {" · "}
+              <Link className="ops-link" href="/ops/media-lab">
+                media lab
+              </Link>
+              {" · "}
               <Link className="ops-link" href="/ops/healing">
                 healing
               </Link>

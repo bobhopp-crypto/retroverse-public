@@ -3,10 +3,11 @@ import { ensureUniqueRowIds } from "@/lib/ops/ensure-unique-ids";
 import { inspectPing } from "@/lib/inspect/pg";
 import { loadRecentActivityQueue } from "@/lib/ops/load-recent-activity";
 import { loadWeeklyRefreshStatus } from "@/lib/ops/load-weekly-refresh";
+import { OPS_FOCUS_YEAR } from "@/lib/ops/ops-focus-year";
 import { loadOpsState } from "@/lib/ops/ops-state-store";
 import type { OpsActivityRow, OpsConsoleData } from "@/lib/ops/types";
 
-export const OPS_FOCUS_YEAR = 1967;
+export { OPS_FOCUS_YEAR };
 
 export async function loadOpsConsoleData(): Promise<OpsConsoleData> {
   const ping = await inspectPing();

@@ -28,6 +28,8 @@
     "ops:chart-orbit": "npx --yes tsx tools/run-chart-orbit.ts",
     "ops:in-both-audit": "npx --yes tsx tools/run-in-both-reconciliation-audit.ts",
     "ops:year-workspace-counts": "npx --yes tsx tools/run-year-workspace-counts.ts",
+    "ops:media-lab": "npx --yes tsx tools/run-media-lab-transcribe.ts",
+    "ops:media-lab-labels": "npx --yes tsx tools/media-lab/build-segment-labels-cli.ts",
     "smoke:public-search": "node tools/smoke-public-search.mjs"
   },
   "dependencies": {

@@ -1,0 +1,108 @@
+{
+  "mode": "skip_failed",
+  "generatedAt": "2026-06-01T11:56:25.139Z",
+  "uniqueAlbumsProcessed": 2000,
+  "successfulAcquisitions": 1291,
+  "failedAcquisitions": 709,
+  "successRate": 64.6,
+  "mainCursorStart": 100,
+  "mainCursorEnd": 2100,
+  "topFailureReasons": [
+    {
+      "reason": "no_catalog_hit:low_album_similarity",
+      "count": 341
+    },
+    {
+      "reason": "no_catalog_hit:no_results",
+      "count": 241
+    },
+    {
+      "reason": "itunes_no_file_on_disk",
+      "count": 72
+    },
+    {
+      "reason": "no_catalog_hit:artist_mismatch",
+      "count": 52
+    },
+    {
+      "reason": "no_catalog_hit:score_below_threshold",
+      "count": 2
+    },
+    {
+      "reason": "The operation was aborted due to timeout",
+      "count": 1
+    }
+  ],
+  "topFailurePatterns": [
+    {
+      "pattern": "standard_studio_album",
+      "count": 571,
+      "examples": [
+        "wings — London Town",
+        "The Beatles — Hey Jude",
+        "a perfect circle — Eat The Elephant"
+      ]
+    },
+    {
+      "pattern": "various_artists",
+      "count": 67,
+      "examples": [
+        "various artists — NOW 54",
+        "various artists — NOW 45",
+        "various artists — NOW 46"
+      ]
+    },
+    {
+      "pattern": "title_punctuation_heavy",
+      "count": 29,
+      "examples": [
+        "The Script — Science & Faith",
+        "rush — Snakes & Arrows",
+        "The Lox — Money, Power & Respect"
+      ]
+    },
+    {
+      "pattern": "artist_name_special_chars",
+      "count": 21,
+      "examples": [
+        "cam'ron — Crime Pays",
+        "Too $hort — Gettin' It (Album Number Ten)",
+        "terence trent d'arby — Indtroducing The Hardline According To Terence Trent D'Arby"
+      ]
+    },
+    {
+      "pattern": "compilation_or_variant_title",
+      "count": 12,
+      "examples": [
+        "funkmaster flex — Funkmaster Flex The Mix Tape Volume III: 60 Minutes Of Funk The Final Chapt",
+        "mariah carey — Glitter (Soundtrack)",
+        "The Who — The Kids Are Alright (Soundtrack)"
+      ]
+    },
+    {
+      "pattern": "title_with_year_noise",
+      "count": 5,
+      "examples": [
+        "jack white — Acoustic Recordings: 1998-2016",
+        "my chemical romance — May Death Never Stop You: The Greatest Hits 2001-2013",
+        "dierks bentley — Greatest Hits // Every Mile A Memory 2003-2008"
+      ]
+    },
+    {
+      "pattern": "short_title_le2",
+      "count": 3,
+      "examples": [
+        "incubus — 8",
+        "gerald levert — G",
+        "peter gabriel — Up"
+      ]
+    },
+    {
+      "pattern": "punctuation_only_title",
+      "count": 1,
+      "examples": [
+        "ed sheeran — +"
+      ]
+    }
+  ]
+}
