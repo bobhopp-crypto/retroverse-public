@@ -43,10 +43,19 @@ export type ProducerTimelineAsset = {
   approvedRuntime?: boolean;
 };
 
+export type ProducerEraId = "1967" | "1978" | "1992" | "mixed";
+
+export type ProducerEraTargets = {
+  1967: number;
+  1978: number;
+  1992: number;
+};
+
 export type ProducerShowBlock = {
   id: string;
   title: string;
   notes: string | null;
+  eraId: ProducerEraId;
   collapsed?: boolean;
   /** Set when migrated from v1 fixed sections. */
   legacyKey?: ProducerTimelineLegacyBlockId;
@@ -57,6 +66,7 @@ export type ProducerTimelineState = {
   version: 2;
   year: number;
   targetRuntimeMinutes: number;
+  eraTargets: ProducerEraTargets;
   blocks: ProducerShowBlock[];
   updatedAt: string;
 };
@@ -78,4 +88,7 @@ export type ProducerBlockTemplateId =
   | "tv_memory"
   | "news_segment"
   | "feature_segment"
+  | "segment_1967"
+  | "segment_1978"
+  | "segment_1992"
   | "custom";

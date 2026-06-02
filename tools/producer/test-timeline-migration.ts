@@ -2,7 +2,10 @@
  * Verify v1 → v2 producer timeline migration (no fs).
  * Run: npx tsx tools/producer/test-timeline-migration.ts
  */
+import { buildEraBalanceRows, computeEraRuntimeSeconds } from "../../lib/ops/year-workspace/producer/era-balance";
+import { buildPlanningZones, planningRulerTicks } from "../../lib/ops/year-workspace/producer/planning-grid";
 import { migrateV1ToV2 } from "../../lib/ops/year-workspace/producer/migrate";
+import { normalizeEraTargets } from "../../lib/ops/year-workspace/producer/era";
 import {
   computeShowRuntimeSeconds,
   effectiveRuntimeSeconds,
@@ -52,6 +55,33 @@ if (total !== 180) throw new Error(`show total expected 180, got ${total}`);
 
 const blockTotal = sumBlockRuntimeSeconds(music);
 if (blockTotal !== 180) throw new Error(`block total expected 180, got ${blockTotal}`);
+
+if (music.eraId !== "mixed") throw new Error("migrated block eraId should default mixed");
+if (migrated.eraTargets[1967] !== 30) throw new Error("era targets default missing");
+
+const eraTotals = computeEraRuntimeSeconds(migrated);
+if (eraTotals.mixed !== 180) {
+  throw new Error(`mixed era total expected 180, got ${eraTotals.mixed}`);
+}
+
+const balance = buildEraBalanceRows(migrated);
+if (balance.length !== 4) throw new Error(`expected 4 era balance rows, got ${balance.length}`);
+
+const ticks = planningRulerTicks(120);
+if (!ticks.includes(0) || !ticks.includes(120) || ticks[1] !== 15) {
+  throw new Error(`unexpected planning ticks: ${ticks.join(",")}`);
+}
+
+const zones = buildPlanningZones(120);
+if (zones.length !== 8) throw new Error(`expected 8 zones for 120min, got ${zones.length}`);
+
+const v2Legacy = {
+  ...migrated,
+  blocks: migrated.blocks.map((b) => ({ ...b, eraId: undefined as unknown })),
+  eraTargets: undefined,
+};
+const eraFromMissing = normalizeEraTargets(v2Legacy.eraTargets);
+if (eraFromMissing[1992] !== 30) throw new Error("normalizeEraTargets failed");
 
 console.log(
   JSON.stringify({

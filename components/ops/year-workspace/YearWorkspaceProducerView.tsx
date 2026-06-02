@@ -6,6 +6,12 @@ import { PRODUCER_BLOCK_TEMPLATES } from "@/lib/ops/year-workspace/producer/bloc
 import { producerCountsForCategory } from "@/lib/ops/year-workspace/producer/counts";
 import { buildProducerLibraryAssets } from "@/lib/ops/year-workspace/producer/assets";
 import {
+  buildEraBalanceRows,
+  buildEraBreakdown,
+} from "@/lib/ops/year-workspace/producer/era-balance";
+import { eraDisplayLabel, PRODUCER_ERA_IDS } from "@/lib/ops/year-workspace/producer/era";
+import { buildZonePlacements, planningRulerTicks } from "@/lib/ops/year-workspace/producer/planning-grid";
+import {
   PRODUCER_ASSET_CATEGORIES,
   PRODUCER_DASHBOARD_CATEGORIES,
   producerCategoryLabel,
@@ -18,7 +24,6 @@ import {
   formatProducerMmSs,
   isAssetRuntimeApproved,
   parseProducerMmSs,
-  rulerMarkersMinutes,
   showRuntimeSummary,
   sumBlockRuntimeSeconds,
 } from "@/lib/ops/year-workspace/producer/runtime";
@@ -26,6 +31,7 @@ import { showRuntimeHealth } from "@/lib/ops/year-workspace/producer/show-health
 import type {
   ProducerAssetCategoryId,
   ProducerBlockTemplateId,
+  ProducerEraId,
   ProducerLibraryAsset,
   ProducerNeedFoundReady,
   ProducerShowBlock,
@@ -70,6 +76,23 @@ function RuntimeDotsRow(props: { label: string; seconds: number }) {
       <span className="ops-producer-runtime-row__label">{props.label}</span>
       <span className="ops-producer-runtime-row__dots" aria-hidden />
       <span className="ops-producer-runtime-row__time">
+        {formatProducerDuration(props.seconds)}
+      </span>
+    </div>
+  );
+}
+
+function BlockEraHeader(props: {
+  eraId: ProducerEraId;
+  title: string;
+  seconds: number;
+}) {
+  return (
+    <div className={`ops-producer-block__header ops-producer-era--${props.eraId}`}>
+      <span className="ops-producer-block__era-badge">[{eraDisplayLabel(props.eraId)}]</span>
+      <span className="ops-producer-block__header-title">{props.title}</span>
+      <span className="ops-producer-block__header-dots" aria-hidden />
+      <span className="ops-producer-block__header-time">
         {formatProducerDuration(props.seconds)}
       </span>
     </div>
@@ -299,17 +322,41 @@ function ShowBlockCard(props: {
 
   return (
     <article
-      className={`ops-producer-block${props.dragOver ? " ops-producer-block--over" : ""}${
-        block.collapsed ? " ops-producer-block--collapsed" : ""
-      }`}
+      className={`ops-producer-block ops-producer-era--${block.eraId}${
+        props.dragOver ? " ops-producer-block--over" : ""
+      }${block.collapsed ? " ops-producer-block--collapsed" : ""}`}
       onDragOver={props.onDragOver}
       onDragLeave={props.onDragLeave}
       onDrop={props.onDrop}
     >
       <header className="ops-producer-block__head">
         <div className="ops-producer-block__head-row">
-          <RuntimeDotsRow label={block.title.toUpperCase()} seconds={props.blockSeconds} />
+          <BlockEraHeader
+            eraId={block.eraId}
+            title={block.title}
+            seconds={props.blockSeconds}
+          />
           <div className="ops-producer-block__toolbar">
+            <label className="ops-producer-block__era-select">
+              <span className="ops-dim">Era</span>
+              <select
+                value={block.eraId}
+                disabled={props.busy}
+                onChange={(e) =>
+                  void patch({
+                    op: "producerSetBlockEra",
+                    blockId: block.id,
+                    eraId: e.target.value,
+                  })
+                }
+              >
+                {PRODUCER_ERA_IDS.map((id) => (
+                  <option key={id} value={id}>
+                    {eraDisplayLabel(id)}
+                  </option>
+                ))}
+              </select>
+            </label>
             <button
               type="button"
               className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
@@ -477,11 +524,24 @@ export function YearWorkspaceProducerView(props: Props) {
   const [targetDraft, setTargetDraft] = useState(
     String(props.timeline.targetRuntimeMinutes),
   );
+  const [eraTargetDrafts, setEraTargetDrafts] = useState(() => ({
+    1967: String(props.timeline.eraTargets[1967]),
+    1978: String(props.timeline.eraTargets[1978]),
+    1992: String(props.timeline.eraTargets[1992]),
+  }));
   const [showAddAtEnd, setShowAddAtEnd] = useState(false);
 
   useEffect(() => {
     setTargetDraft(String(props.timeline.targetRuntimeMinutes));
   }, [props.timeline.targetRuntimeMinutes]);
+
+  useEffect(() => {
+    setEraTargetDrafts({
+      1967: String(props.timeline.eraTargets[1967]),
+      1978: String(props.timeline.eraTargets[1978]),
+      1992: String(props.timeline.eraTargets[1992]),
+    });
+  }, [props.timeline.eraTargets]);
 
   const completion = props.workspace?.completion;
   const runtimeSummary = useMemo(
@@ -497,11 +557,23 @@ export function YearWorkspaceProducerView(props: Props) {
     () => computeShowRuntimeSeconds(props.timeline),
     [props.timeline],
   );
-  const rulerMarkers = useMemo(
-    () => rulerMarkersMinutes(props.timeline.targetRuntimeMinutes),
+  const planningTicks = useMemo(
+    () => planningRulerTicks(props.timeline.targetRuntimeMinutes),
     [props.timeline.targetRuntimeMinutes],
   );
   const rulerScaleSeconds = props.timeline.targetRuntimeMinutes * 60;
+  const eraBalanceRows = useMemo(
+    () => buildEraBalanceRows(props.timeline),
+    [props.timeline],
+  );
+  const eraBreakdown = useMemo(
+    () => buildEraBreakdown(props.timeline),
+    [props.timeline],
+  );
+  const { zones: planningZones, placements: zonePlacements } = useMemo(
+    () => buildZonePlacements(props.timeline),
+    [props.timeline],
+  );
 
   const dashboardCounts = useMemo(() => {
     if (!props.summary) return null;
@@ -558,6 +630,15 @@ export function YearWorkspaceProducerView(props: Props) {
     await patch({
       op: "producerSetTargetRuntime",
       targetRuntimeMinutes: Math.round(minutes),
+    });
+  }
+
+  async function commitEraTarget(era: "1967" | "1978" | "1992") {
+    const minutes = Number(eraTargetDrafts[era]);
+    if (!Number.isFinite(minutes) || minutes <= 0) return;
+    await patch({
+      op: "producerSetEraTargets",
+      eraTargets: { [era]: Math.round(minutes) },
     });
   }
 
@@ -684,8 +765,38 @@ export function YearWorkspaceProducerView(props: Props) {
         </aside>
 
         <section className="ops-producer-timeline" aria-label="Show timeline">
+          <h3 className="ops-producer-timeline__title">Show Rundown</h3>
+
+          <section className="ops-producer-show-overview" aria-label="Show overview">
+            <h4 className="ops-producer-show-overview__title">Show Overview</h4>
+            <dl className="ops-producer-show-overview__stats">
+              <div>
+                <dt>Target Runtime</dt>
+                <dd>{props.timeline.targetRuntimeMinutes} min</dd>
+              </div>
+              <div>
+                <dt>Current Runtime</dt>
+                <dd>{Math.round(runtimeSummary.currentSeconds / 60)} min</dd>
+              </div>
+              <div>
+                <dt>Remaining</dt>
+                <dd>{Math.round(runtimeSummary.remainingSeconds / 60)} min</dd>
+              </div>
+            </dl>
+            <ul className="ops-producer-show-overview__eras">
+              {eraBreakdown.map((line) => (
+                <li
+                  key={line.eraId}
+                  className={`ops-producer-show-overview__era ops-producer-era--${line.eraId}`}
+                >
+                  <span className="ops-producer-show-overview__era-label">{line.label}</span>
+                  <span>{line.minutes} min</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
           <header className="ops-producer-planning">
-            <h3 className="ops-producer-timeline__title">Show Rundown</h3>
             <div className="ops-producer-planning__targets">
               <label className="ops-producer-planning__field">
                 <span className="ops-producer-planning__field-label">Target Runtime</span>
@@ -708,18 +819,6 @@ export function YearWorkspaceProducerView(props: Props) {
                 </span>
               </label>
               <div className="ops-producer-planning__live">
-                <span>
-                  <em>Current</em>{" "}
-                  <strong>{Math.round(runtimeSummary.currentSeconds / 60)} min</strong>
-                  <span className="ops-dim">
-                    {" "}
-                    ({formatProducerDuration(runtimeSummary.currentSeconds)})
-                  </span>
-                </span>
-                <span>
-                  <em>Remaining</em>{" "}
-                  <strong>{Math.round(runtimeSummary.remainingSeconds / 60)} min</strong>
-                </span>
                 <span
                   className={`ops-producer-health ops-producer-health--${health.tone}`}
                 >
@@ -729,66 +828,113 @@ export function YearWorkspaceProducerView(props: Props) {
             </div>
           </header>
 
-          <div className="ops-producer-visual-stack" aria-label="Visual show length">
-            <div className="ops-producer-ruler ops-producer-ruler--stack">
-              <div className="ops-producer-ruler__track">
-                {rulerMarkers.map((m) => (
+          <section className="ops-producer-era-balance" aria-label="Era balance">
+            <h4 className="ops-producer-era-balance__title">Era Balance</h4>
+            <ul className="ops-producer-era-balance__list">
+              {eraBalanceRows.map((row) => (
+                <li
+                  key={row.eraId}
+                  className={`ops-producer-era-balance__row ops-producer-era--${row.eraId}`}
+                >
+                  <span className="ops-producer-era-balance__era">{row.label}</span>
+                  <span className="ops-producer-era-balance__runtime">
+                    <span>{row.currentClock}</span>
+                    {row.targetClock != null ? (
+                      <span className="ops-dim"> / {row.targetClock}</span>
+                    ) : null}
+                  </span>
+                  {row.targetMinutes != null ? (
+                    <label className="ops-producer-era-balance__target">
+                      <span className="ops-dim">Target</span>
+                      <input
+                        type="number"
+                        min={1}
+                        max={600}
+                        className="ops-producer-target-input ops-producer-target-input--compact"
+                        value={eraTargetDrafts[row.eraId as "1967" | "1978" | "1992"]}
+                        disabled={props.busy}
+                        onChange={(e) =>
+                          setEraTargetDrafts((d) => ({
+                            ...d,
+                            [row.eraId]: e.target.value,
+                          }))
+                        }
+                        onBlur={() =>
+                          void commitEraTarget(row.eraId as "1967" | "1978" | "1992")
+                        }
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            void commitEraTarget(row.eraId as "1967" | "1978" | "1992");
+                          }
+                        }}
+                      />
+                      <span>min</span>
+                    </label>
+                  ) : null}
+                  {row.health ? (
+                    <span
+                      className={`ops-producer-health ops-producer-health--${row.health.tone}`}
+                    >
+                      {row.health.label}
+                    </span>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <div className="ops-producer-planning-grid" aria-label="15 minute show grid">
+            <div className="ops-producer-planning-grid__ruler">
+              <div className="ops-producer-planning-grid__ruler-track">
+                {planningTicks.map((m) => (
                   <span
                     key={m}
-                    className="ops-producer-ruler__tick"
+                    className="ops-producer-planning-grid__tick"
                     style={{ left: `${(m * 60) / rulerScaleSeconds * 100}%` }}
                   >
-                    <span className="ops-producer-ruler__tick-label">{m}</span>
+                    {m}
                   </span>
                 ))}
+                {blockRuntimes.map((block) =>
+                  block.totalSeconds > 0 ? (
+                    <span
+                      key={block.blockId}
+                      className={`ops-producer-planning-grid__segment ops-producer-era--${
+                        props.timeline.blocks.find((b) => b.id === block.blockId)?.eraId ??
+                        "mixed"
+                      }`}
+                      title={`${block.label}: ${formatProducerDuration(block.totalSeconds)}`}
+                      style={{
+                        left: `${(block.startSeconds / rulerScaleSeconds) * 100}%`,
+                        width: `${(block.totalSeconds / rulerScaleSeconds) * 100}%`,
+                      }}
+                    />
+                  ) : null,
+                )}
               </div>
             </div>
-            <div className="ops-producer-stack-bars">
-              {blockRuntimes.map((br) =>
-                br.totalSeconds > 0 ? (
-                  <div
-                    key={br.blockId}
-                    className="ops-producer-stack-bar"
-                    style={{
-                      flexGrow: br.totalSeconds,
-                      flexBasis: `${(br.totalSeconds / rulerScaleSeconds) * 100}%`,
-                    }}
-                    title={`${br.label}: ${formatProducerDuration(br.totalSeconds)}`}
-                  >
-                    <span className="ops-producer-stack-bar__label">{br.label}</span>
+            <div className="ops-producer-planning-grid__zones">
+              {planningZones.map((zone) => (
+                <div key={zone.index} className="ops-producer-planning-grid__zone">
+                  <span className="ops-producer-planning-grid__zone-label">
+                    [{zone.startMinutes}–{zone.endMinutes}]
+                  </span>
+                  <div className="ops-producer-planning-grid__zone-blocks">
+                    {zonePlacements
+                      .filter((p) => p.zoneIndex === zone.index)
+                      .map((p) => (
+                        <span
+                          key={`${p.blockId}-${zone.index}`}
+                          className={`ops-producer-planning-grid__block ops-producer-era--${p.eraId}`}
+                          style={{ flexGrow: p.weight }}
+                          title={p.title}
+                        >
+                          {p.title}
+                        </span>
+                      ))}
                   </div>
-                ) : null,
-              )}
-            </div>
-          </div>
-
-          <div
-            className="ops-producer-ruler"
-            aria-label="Timeline ruler (15 minute markers)"
-          >
-            <div className="ops-producer-ruler__track">
-              {rulerMarkers.map((m) => (
-                <span
-                  key={`seg-${m}`}
-                  className="ops-producer-ruler__tick"
-                  style={{ left: `${(m * 60) / rulerScaleSeconds * 100}%` }}
-                >
-                  <span className="ops-producer-ruler__tick-label">{m}</span>
-                </span>
+                </div>
               ))}
-              {blockRuntimes.map((block) =>
-                block.totalSeconds > 0 ? (
-                  <span
-                    key={block.blockId}
-                    className="ops-producer-ruler__span"
-                    title={`${block.label}: ${formatProducerDuration(block.totalSeconds)}`}
-                    style={{
-                      left: `${(block.startSeconds / rulerScaleSeconds) * 100}%`,
-                      width: `${(block.totalSeconds / rulerScaleSeconds) * 100}%`,
-                    }}
-                  />
-                ) : null,
-              )}
             </div>
           </div>
 

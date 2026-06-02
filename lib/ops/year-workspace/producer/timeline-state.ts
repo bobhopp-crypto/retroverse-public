@@ -8,6 +8,7 @@ import { yearWorkspaceDir } from "../paths";
 
 import { templateById } from "./block-templates";
 import { emptyProducerTimeline } from "./empty-timeline";
+import { normalizeEraTargets, parseProducerEraId } from "./era";
 import { isV1TimelineRaw, migrateV1ToV2 } from "./migrate";
 import {
   defaultApprovedRuntimeForCategory,
@@ -16,6 +17,8 @@ import {
 import type {
   ProducerAssetCategoryId,
   ProducerBlockTemplateId,
+  ProducerEraId,
+  ProducerEraTargets,
   ProducerShowBlock,
   ProducerTimelineAsset,
   ProducerTimelineState,
@@ -91,6 +94,7 @@ function normalizeBlock(raw: unknown): ProducerShowBlock | null {
     id: o.id,
     title: o.title.trim() || "Block",
     notes: typeof o.notes === "string" ? o.notes : null,
+    eraId: parseProducerEraId(o.eraId),
     collapsed: o.collapsed === true,
     ...(typeof o.legacyKey === "string"
       ? { legacyKey: o.legacyKey as ProducerShowBlock["legacyKey"] }
@@ -130,6 +134,7 @@ function normalizeState(raw: unknown, year: number): ProducerTimelineState {
     version: 2,
     year,
     targetRuntimeMinutes,
+    eraTargets: normalizeEraTargets(o.eraTargets),
     blocks: blocks.length > 0 ? blocks : base.blocks,
     updatedAt:
       typeof o.updatedAt === "string" ? o.updatedAt : new Date().toISOString(),
@@ -310,6 +315,7 @@ export async function addProducerBlock(
         : template?.notes
           ? template.notes
           : null,
+    eraId: template?.eraId ?? "mixed",
     collapsed: false,
     assets: [],
   };
@@ -337,6 +343,7 @@ export async function duplicateProducerBlock(
     id: randomUUID(),
     title: `${source.title} (copy)`,
     notes: source.notes,
+    eraId: source.eraId,
     collapsed: false,
     assets: source.assets.map(cloneAsset),
   };
@@ -422,6 +429,38 @@ export async function setProducerBlockCollapsed(
     i === idx ? { ...b, collapsed } : b,
   );
   const next = { ...state, blocks };
+  await saveProducerTimeline(next);
+  return next;
+}
+
+export async function setProducerBlockEra(
+  year: number,
+  blockId: string,
+  eraId: ProducerEraId,
+): Promise<ProducerTimelineState> {
+  const state = await loadProducerTimeline(year);
+  const idx = requireBlock(state, blockId);
+  const blocks = state.blocks.map((b, i) =>
+    i === idx ? { ...b, eraId: parseProducerEraId(eraId) } : b,
+  );
+  const next = { ...state, blocks };
+  await saveProducerTimeline(next);
+  return next;
+}
+
+export async function setProducerEraTargets(
+  year: number,
+  eraTargets: Partial<ProducerEraTargets>,
+): Promise<ProducerTimelineState> {
+  const state = await loadProducerTimeline(year);
+  const nextTargets = { ...state.eraTargets };
+  for (const era of ["1967", "1978", "1992"] as const) {
+    const v = eraTargets[era];
+    if (typeof v === "number" && Number.isFinite(v) && v > 0 && v <= 24 * 60) {
+      nextTargets[era] = Math.round(v);
+    }
+  }
+  const next = { ...state, eraTargets: nextTargets };
   await saveProducerTimeline(next);
   return next;
 }

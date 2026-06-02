@@ -1,13 +1,35 @@
-import type { ProducerBlockTemplateId } from "./types";
+import type { ProducerBlockTemplateId, ProducerEraId } from "./types";
 
 export type ProducerBlockTemplate = {
   id: ProducerBlockTemplateId;
   label: string;
   title: string;
   notes: string;
+  eraId?: ProducerEraId;
 };
 
 export const PRODUCER_BLOCK_TEMPLATES: ProducerBlockTemplate[] = [
+  {
+    id: "segment_1967",
+    label: "Create 1967 Segment",
+    title: "1967 Music Segment",
+    notes: "1967 spine · period tone",
+    eraId: "1967",
+  },
+  {
+    id: "segment_1978",
+    label: "Create 1978 Segment",
+    title: "1978 TV Segment",
+    notes: "1978 couch · disco · network TV",
+    eraId: "1978",
+  },
+  {
+    id: "segment_1992",
+    label: "Create 1992 Segment",
+    title: "1992 Feature Segment",
+    notes: "1992 feature · news · pop culture",
+    eraId: "1992",
+  },
   {
     id: "music_segment",
     label: "Music Segment",
@@ -46,23 +68,34 @@ export const PRODUCER_BLOCK_TEMPLATES: ProducerBlockTemplate[] = [
   },
 ];
 
-export const PRODUCER_STARTER_BLOCKS: { title: string; notes: string }[] = [
-  { title: "Opening", notes: "Cold open · station ID · first energy" },
+export const PRODUCER_STARTER_BLOCKS: {
+  title: string;
+  notes: string;
+  eraId: ProducerEraId;
+}[] = [
+  {
+    title: "Opening",
+    notes: "Cold open · station ID · first energy",
+    eraId: "mixed",
+  },
   {
     title: "Music Block",
     notes: "Billboard spine · singalongs · dance floor",
+    eraId: "mixed",
   },
   {
     title: "Commercial Break",
     notes: "Period ads · sponsors · bumpers in and out",
+    eraId: "mixed",
   },
-  { title: "TV Memory", notes: "Clips · promos · couch moments" },
-  { title: "News Break", notes: "Headlines · wire · local color" },
+  { title: "TV Memory", notes: "Clips · promos · couch moments", eraId: "mixed" },
+  { title: "News Break", notes: "Headlines · wire · local color", eraId: "mixed" },
   {
     title: "Feature Segment",
     notes: "Sports · movies · deep cut · event hook",
+    eraId: "mixed",
   },
-  { title: "Closing", notes: "Last songs · sign-off · night cap" },
+  { title: "Closing", notes: "Last songs · sign-off · night cap", eraId: "mixed" },
 ];
 
 /** Legacy v1 section order and metadata for migration. */

@@ -52,6 +52,7 @@ export function computeShowRuntimeSeconds(state: ProducerTimelineState): number 
 export type ProducerBlockRuntime = {
   blockId: string;
   label: string;
+  eraId: import("./types").ProducerEraId;
   totalSeconds: number;
   startSeconds: number;
   endSeconds: number;
@@ -69,6 +70,7 @@ export function computeBlockRuntimes(
     out.push({
       blockId: block.id,
       label: block.title,
+      eraId: block.eraId,
       totalSeconds,
       startSeconds,
       endSeconds: cursor,

@@ -42,6 +42,7 @@ export function migrateV1ToV2(
         id: crypto.randomUUID(),
         title: legacy.title,
         notes: legacy.notes,
+        eraId: "mixed",
         collapsed: false,
         legacyKey: legacy.id,
         assets,
@@ -56,6 +57,7 @@ export function migrateV1ToV2(
         id: crypto.randomUUID(),
         title: key.replace(/_/g, " "),
         notes: null,
+        eraId: "mixed",
         collapsed: false,
         legacyKey: key as ProducerTimelineLegacyBlockId,
         assets: list as ProducerTimelineAsset[],
@@ -67,6 +69,7 @@ export function migrateV1ToV2(
     version: 2,
     year,
     targetRuntimeMinutes,
+    eraTargets: base.eraTargets,
     blocks: migrated.length > 0 ? migrated : base.blocks,
     updatedAt:
       typeof raw.updatedAt === "string" ? raw.updatedAt : new Date().toISOString(),

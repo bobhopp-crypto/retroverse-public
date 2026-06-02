@@ -46,11 +46,14 @@ import {
   removeAssetFromProducerBlock,
   renameProducerBlock,
   setProducerBlockCollapsed,
+  setProducerBlockEra,
+  setProducerEraTargets,
   setProducerRuntimeApproval,
   setProducerRuntimeOverride,
   setProducerTargetRuntimeMinutes,
   updateProducerBlockNotes,
 } from "@/lib/ops/year-workspace/producer/timeline-state";
+import { parseProducerEraId } from "@/lib/ops/year-workspace/producer/era";
 import type { ProducerBlockTemplateId } from "@/lib/ops/year-workspace/producer/types";
 import { inspectPing } from "@/lib/inspect/pg";
 
@@ -107,6 +110,8 @@ const PRODUCER_OPS = new Set([
   "producerDeleteBlock",
   "producerMoveBlock",
   "producerSetBlockCollapsed",
+  "producerSetBlockEra",
+  "producerSetEraTargets",
 ]);
 
 function parseBlockId(value: unknown): string | null {
@@ -117,6 +122,9 @@ function parseBlockId(value: unknown): string | null {
 
 function parseTemplateId(value: unknown): ProducerBlockTemplateId | null {
   const ids: ProducerBlockTemplateId[] = [
+    "segment_1967",
+    "segment_1978",
+    "segment_1992",
     "music_segment",
     "commercial_break",
     "tv_memory",
@@ -226,6 +234,29 @@ export async function PATCH(req: Request) {
   if (op && PRODUCER_OPS.has(op)) {
     const p = payload as Record<string, unknown>;
     const blockId = parseBlockId(p.blockId);
+
+    if (op === "producerSetEraTargets") {
+      const eraTargets = p.eraTargets;
+      if (!eraTargets || typeof eraTargets !== "object") {
+        return NextResponse.json({ error: "eraTargets required" }, { status: 400 });
+      }
+      const et = eraTargets as Record<string, unknown>;
+      return producerOpError(year, () =>
+        setProducerEraTargets(year, {
+          1967: typeof et["1967"] === "number" ? et["1967"] : undefined,
+          1978: typeof et["1978"] === "number" ? et["1978"] : undefined,
+          1992: typeof et["1992"] === "number" ? et["1992"] : undefined,
+        }),
+      );
+    }
+
+    if (op === "producerSetBlockEra") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const eraId = parseProducerEraId(p.eraId);
+      return producerOpError(year, () => setProducerBlockEra(year, blockId, eraId));
+    }
 
     if (op === "producerSetTargetRuntime") {
       const targetRuntimeMinutes = p.targetRuntimeMinutes;
