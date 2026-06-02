@@ -2,30 +2,34 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 
+import { PRODUCER_BLOCK_TEMPLATES } from "@/lib/ops/year-workspace/producer/block-templates";
+import { producerCountsForCategory } from "@/lib/ops/year-workspace/producer/counts";
+import { buildProducerLibraryAssets } from "@/lib/ops/year-workspace/producer/assets";
 import {
   PRODUCER_ASSET_CATEGORIES,
   PRODUCER_DASHBOARD_CATEGORIES,
-  PRODUCER_TIMELINE_BLOCKS,
   producerCategoryLabel,
 } from "@/lib/ops/year-workspace/producer/config";
-import { producerCountsForCategory } from "@/lib/ops/year-workspace/producer/counts";
-import { buildProducerLibraryAssets } from "@/lib/ops/year-workspace/producer/assets";
 import {
   computeBlockRuntimes,
   computeShowRuntimeSeconds,
   effectiveRuntimeSeconds,
   formatProducerDuration,
   formatProducerMmSs,
+  isAssetRuntimeApproved,
   parseProducerMmSs,
   rulerMarkersMinutes,
   showRuntimeSummary,
+  sumBlockRuntimeSeconds,
 } from "@/lib/ops/year-workspace/producer/runtime";
+import { showRuntimeHealth } from "@/lib/ops/year-workspace/producer/show-health";
 import type {
   ProducerAssetCategoryId,
+  ProducerBlockTemplateId,
   ProducerLibraryAsset,
   ProducerNeedFoundReady,
+  ProducerShowBlock,
   ProducerTimelineAsset,
-  ProducerTimelineBlockId,
   ProducerTimelineState,
 } from "@/lib/ops/year-workspace/producer/types";
 import type {
@@ -49,14 +53,26 @@ type Props = {
 function CountsCompact(props: { counts: ProducerNeedFoundReady }) {
   const { counts } = props;
   return (
-    <p className="ops-producer-counts-compact">
+    <span className="ops-producer-counts-compact">
       <span>N {counts.need}</span>
       <span>F {counts.found}</span>
       <span>R {counts.ready}</span>
       {counts.missing > 0 ? (
         <span className="ops-producer-counts-compact__miss">−{counts.missing}</span>
       ) : null}
-    </p>
+    </span>
+  );
+}
+
+function RuntimeDotsRow(props: { label: string; seconds: number }) {
+  return (
+    <div className="ops-producer-runtime-row">
+      <span className="ops-producer-runtime-row__label">{props.label}</span>
+      <span className="ops-producer-runtime-row__dots" aria-hidden />
+      <span className="ops-producer-runtime-row__time">
+        {formatProducerDuration(props.seconds)}
+      </span>
+    </div>
   );
 }
 
@@ -97,28 +113,17 @@ function parseDragPayload(
   }
 }
 
-function RuntimeDotsRow(props: { label: string; seconds: number }) {
-  return (
-    <div className="ops-producer-runtime-row">
-      <span className="ops-producer-runtime-row__label">{props.label}</span>
-      <span className="ops-producer-runtime-row__dots" aria-hidden />
-      <span className="ops-producer-runtime-row__time">
-        {formatProducerDuration(props.seconds)}
-      </span>
-    </div>
-  );
-}
-
 function TimelineAssetRow(props: {
-  blockId: ProducerTimelineBlockId;
   item: ProducerTimelineAsset;
   busy: boolean;
   onRemove: () => void;
   onSetOverride: (seconds: number) => void;
   onClearOverride: () => void;
+  onToggleApproval: (approved: boolean) => void;
 }) {
   const { item } = props;
   const effective = effectiveRuntimeSeconds(item);
+  const approved = isAssetRuntimeApproved(item);
   const hasOverride =
     item.runtimeOverrideSeconds != null &&
     Number.isFinite(item.runtimeOverrideSeconds);
@@ -152,16 +157,34 @@ function TimelineAssetRow(props: {
           <span className="ops-dim ops-producer-block__item-sub">{item.subtitle}</span>
         ) : null}
         <div className="ops-producer-block__item-runtime">
-          <span className="ops-producer-block__item-runtime-used" title="Runtime used">
+          <span className="ops-producer-block__item-runtime-label">Runtime:</span>
+          <span className="ops-producer-block__item-runtime-used">
             {formatProducerDuration(effective)}
           </span>
-          <span className="ops-dim ops-producer-block__item-runtime-src" title="Source runtime">
-            src {formatProducerDuration(item.runtimeSeconds)}
-          </span>
+          <span className="ops-dim">src {formatProducerDuration(item.runtimeSeconds)}</span>
           {hasOverride ? (
             <span className="ops-producer-block__item-runtime-ovr">override</span>
           ) : null}
         </div>
+        <div
+          className={`ops-producer-runtime-status${
+            approved ? " ops-producer-runtime-status--ok" : " ops-producer-runtime-status--warn"
+          }`}
+        >
+          <span className="ops-producer-runtime-status__icon" aria-hidden>
+            {approved ? "✓" : "⚠"}
+          </span>
+          <span>{approved ? "Approved" : "Estimated"}</span>
+        </div>
+        <label className="ops-producer-approve">
+          <input
+            type="checkbox"
+            checked={approved}
+            disabled={props.busy}
+            onChange={(e) => void props.onToggleApproval(e.target.checked)}
+          />
+          <span>Approved time ✓</span>
+        </label>
         {editing ? (
           <div className="ops-producer-block__item-edit">
             <input
@@ -225,42 +248,259 @@ function TimelineAssetRow(props: {
   );
 }
 
+function ShowBlockCard(props: {
+  block: ProducerShowBlock;
+  blockSeconds: number;
+  dragOver: boolean;
+  busy: boolean;
+  isFirst: boolean;
+  isLast: boolean;
+  onPatch: (body: Record<string, unknown>) => Promise<void>;
+  onDragOver: (e: React.DragEvent) => void;
+  onDragLeave: () => void;
+  onDrop: (e: React.DragEvent) => void;
+}) {
+  const { block } = props;
+  const [notesDraft, setNotesDraft] = useState(block.notes ?? "");
+  const [showAddMenu, setShowAddMenu] = useState(false);
+
+  useEffect(() => {
+    setNotesDraft(block.notes ?? "");
+  }, [block.notes]);
+
+  async function patch(body: Record<string, unknown>) {
+    await props.onPatch(body);
+  }
+
+  function confirmDelete() {
+    const n = block.assets.length;
+    const msg =
+      n > 0
+        ? `Delete block "${block.title}"?\n\nThis removes ${n} asset(s) from the rundown. Library items are unchanged.`
+        : `Delete block "${block.title}"?`;
+    if (!window.confirm(msg)) return;
+    void patch({ op: "producerDeleteBlock", blockId: block.id });
+  }
+
+  function renameBlock() {
+    const next = window.prompt("Block name", block.title);
+    if (next == null || !next.trim()) return;
+    void patch({ op: "producerRenameBlock", blockId: block.id, title: next.trim() });
+  }
+
+  async function addFromTemplate(templateId: ProducerBlockTemplateId) {
+    setShowAddMenu(false);
+    await patch({
+      op: "producerAddBlock",
+      afterBlockId: block.id,
+      templateId,
+    });
+  }
+
+  return (
+    <article
+      className={`ops-producer-block${props.dragOver ? " ops-producer-block--over" : ""}${
+        block.collapsed ? " ops-producer-block--collapsed" : ""
+      }`}
+      onDragOver={props.onDragOver}
+      onDragLeave={props.onDragLeave}
+      onDrop={props.onDrop}
+    >
+      <header className="ops-producer-block__head">
+        <div className="ops-producer-block__head-row">
+          <RuntimeDotsRow label={block.title.toUpperCase()} seconds={props.blockSeconds} />
+          <div className="ops-producer-block__toolbar">
+            <button
+              type="button"
+              className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
+              disabled={props.busy}
+              onClick={() =>
+                void patch({
+                  op: "producerSetBlockCollapsed",
+                  blockId: block.id,
+                  collapsed: !block.collapsed,
+                })
+              }
+              aria-expanded={!block.collapsed}
+            >
+              {block.collapsed ? "Expand" : "Collapse"}
+            </button>
+          </div>
+        </div>
+        <div className="ops-producer-block__actions">
+          <div className="ops-producer-block__add-wrap">
+            <button
+              type="button"
+              className="ops-btn ops-btn--info ops-producer-block__runtime-btn"
+              disabled={props.busy}
+              onClick={() => setShowAddMenu((v) => !v)}
+            >
+              Add Block
+            </button>
+            {showAddMenu ? (
+              <div className="ops-producer-block__add-menu" role="menu">
+                {PRODUCER_BLOCK_TEMPLATES.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    role="menuitem"
+                    className="ops-producer-block__add-menu-item"
+                    onClick={() => void addFromTemplate(t.id)}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            ) : null}
+          </div>
+          <button
+            type="button"
+            className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
+            disabled={props.busy}
+            onClick={() => void patch({ op: "producerDuplicateBlock", blockId: block.id })}
+          >
+            Duplicate
+          </button>
+          <button
+            type="button"
+            className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
+            disabled={props.busy}
+            onClick={renameBlock}
+          >
+            Rename
+          </button>
+          <button
+            type="button"
+            className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
+            disabled={props.busy}
+            onClick={confirmDelete}
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
+            disabled={props.busy || props.isFirst}
+            onClick={() =>
+              void patch({ op: "producerMoveBlock", blockId: block.id, direction: "up" })
+            }
+          >
+            Move Up
+          </button>
+          <button
+            type="button"
+            className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
+            disabled={props.busy || props.isLast}
+            onClick={() =>
+              void patch({ op: "producerMoveBlock", blockId: block.id, direction: "down" })
+            }
+          >
+            Move Down
+          </button>
+        </div>
+      </header>
+      {!block.collapsed ? (
+        <>
+          <label className="ops-producer-block__notes">
+            <span className="ops-dim">Notes</span>
+            <textarea
+              className="ops-producer-block__notes-input"
+              value={notesDraft}
+              disabled={props.busy}
+              rows={2}
+              onChange={(e) => setNotesDraft(e.target.value)}
+              onBlur={() => {
+                const trimmed = notesDraft.trim();
+                if (trimmed === (block.notes ?? "")) return;
+                void patch({
+                  op: "producerUpdateBlockNotes",
+                  blockId: block.id,
+                  notes: trimmed || null,
+                });
+              }}
+            />
+          </label>
+          {block.assets.length === 0 ? (
+            <p className="ops-producer-block__drop">Drop assets here</p>
+          ) : (
+            <ul className="ops-producer-block__list">
+              {block.assets.map((item) => (
+                <TimelineAssetRow
+                  key={item.id}
+                  item={item}
+                  busy={props.busy}
+                  onRemove={() =>
+                    void patch({
+                      op: "producerRemoveFromBlock",
+                      blockId: block.id,
+                      timelineAssetId: item.id,
+                    })
+                  }
+                  onSetOverride={(seconds) =>
+                    void patch({
+                      op: "producerSetRuntimeOverride",
+                      blockId: block.id,
+                      timelineAssetId: item.id,
+                      runtimeOverrideSeconds: seconds,
+                    })
+                  }
+                  onClearOverride={() =>
+                    void patch({
+                      op: "producerSetRuntimeOverride",
+                      blockId: block.id,
+                      timelineAssetId: item.id,
+                      runtimeOverrideSeconds: null,
+                    })
+                  }
+                  onToggleApproval={(approvedRuntime) =>
+                    void patch({
+                      op: "producerSetRuntimeApproval",
+                      blockId: block.id,
+                      timelineAssetId: item.id,
+                      approvedRuntime,
+                    })
+                  }
+                />
+              ))}
+            </ul>
+          )}
+        </>
+      ) : null}
+    </article>
+  );
+}
+
 export function YearWorkspaceProducerView(props: Props) {
   const [libraryCategory, setLibraryCategory] =
     useState<ProducerAssetCategoryId>("commercials");
-  const [dragOverBlock, setDragOverBlock] = useState<ProducerTimelineBlockId | null>(
-    null,
-  );
+  const [dragOverBlockId, setDragOverBlockId] = useState<string | null>(null);
   const [targetDraft, setTargetDraft] = useState(
     String(props.timeline.targetRuntimeMinutes),
   );
+  const [showAddAtEnd, setShowAddAtEnd] = useState(false);
 
   useEffect(() => {
     setTargetDraft(String(props.timeline.targetRuntimeMinutes));
   }, [props.timeline.targetRuntimeMinutes]);
 
   const completion = props.workspace?.completion;
-
   const runtimeSummary = useMemo(
     () => showRuntimeSummary(props.timeline),
     [props.timeline],
   );
-
+  const health = useMemo(() => showRuntimeHealth(props.timeline), [props.timeline]);
   const blockRuntimes = useMemo(
     () => computeBlockRuntimes(props.timeline),
     [props.timeline],
   );
-
   const showTotalSeconds = useMemo(
     () => computeShowRuntimeSeconds(props.timeline),
     [props.timeline],
   );
-
   const rulerMarkers = useMemo(
     () => rulerMarkersMinutes(props.timeline.targetRuntimeMinutes),
     [props.timeline.targetRuntimeMinutes],
   );
-
   const rulerScaleSeconds = props.timeline.targetRuntimeMinutes * 60;
 
   const dashboardCounts = useMemo(() => {
@@ -274,11 +514,7 @@ export function YearWorkspaceProducerView(props: Props) {
 
   const libraryCounts = useMemo(() => {
     if (!props.summary) return null;
-    return producerCountsForCategory(
-      libraryCategory,
-      props.summary,
-      completion,
-    );
+    return producerCountsForCategory(libraryCategory, props.summary, completion);
   }, [props.summary, completion, libraryCategory]);
 
   const libraryAssets = useMemo(
@@ -303,63 +539,23 @@ export function YearWorkspaceProducerView(props: Props) {
     return { need, found, ready };
   }, [libraryAssets]);
 
+  const patch = props.onPatchTimeline;
+
   const addToBlock = useCallback(
-    async (
-      blockId: ProducerTimelineBlockId,
-      asset: Omit<ProducerLibraryAsset, "id" | "status">,
-    ) => {
-      await props.onPatchTimeline({
+    async (blockId: string, asset: Omit<ProducerLibraryAsset, "id" | "status">) => {
+      await patch({
         op: "producerAddToBlock",
         blockId,
         asset,
       });
     },
-    [props],
-  );
-
-  const removeFromBlock = useCallback(
-    async (blockId: ProducerTimelineBlockId, timelineAssetId: string) => {
-      await props.onPatchTimeline({
-        op: "producerRemoveFromBlock",
-        blockId,
-        timelineAssetId,
-      });
-    },
-    [props],
-  );
-
-  const setOverride = useCallback(
-    async (
-      blockId: ProducerTimelineBlockId,
-      timelineAssetId: string,
-      runtimeOverrideSeconds: number,
-    ) => {
-      await props.onPatchTimeline({
-        op: "producerSetRuntimeOverride",
-        blockId,
-        timelineAssetId,
-        runtimeOverrideSeconds,
-      });
-    },
-    [props],
-  );
-
-  const clearOverride = useCallback(
-    async (blockId: ProducerTimelineBlockId, timelineAssetId: string) => {
-      await props.onPatchTimeline({
-        op: "producerSetRuntimeOverride",
-        blockId,
-        timelineAssetId,
-        runtimeOverrideSeconds: null,
-      });
-    },
-    [props],
+    [patch],
   );
 
   async function commitTargetRuntime() {
     const minutes = Number(targetDraft);
     if (!Number.isFinite(minutes) || minutes <= 0) return;
-    await props.onPatchTimeline({
+    await patch({
       op: "producerSetTargetRuntime",
       targetRuntimeMinutes: Math.round(minutes),
     });
@@ -370,15 +566,15 @@ export function YearWorkspaceProducerView(props: Props) {
     e.dataTransfer.effectAllowed = "copy";
   }
 
-  function onBlockDragOver(e: React.DragEvent, blockId: ProducerTimelineBlockId) {
+  function onBlockDragOver(e: React.DragEvent, blockId: string) {
     e.preventDefault();
     e.dataTransfer.dropEffect = "copy";
-    setDragOverBlock(blockId);
+    setDragOverBlockId(blockId);
   }
 
-  async function onBlockDrop(e: React.DragEvent, blockId: ProducerTimelineBlockId) {
+  async function onBlockDrop(e: React.DragEvent, blockId: string) {
     e.preventDefault();
-    setDragOverBlock(null);
+    setDragOverBlockId(null);
     const raw = e.dataTransfer.getData(DRAG_MIME);
     const asset = parseDragPayload(raw);
     if (!asset) return;
@@ -425,27 +621,37 @@ export function YearWorkspaceProducerView(props: Props) {
     );
   }
 
+  const readinessSummary = dashboardCounts ? (
+    <span className="ops-producer-readiness-line">
+      {PRODUCER_DASHBOARD_CATEGORIES.map((id) => (
+        <span key={id}>
+          {producerCategoryLabel(id)}{" "}
+          <CountsCompact counts={dashboardCounts[id]} />
+        </span>
+      ))}
+    </span>
+  ) : null;
+
   return (
     <div className="ops-producer">
       {dashboardCounts ? (
-        <section
-          className="ops-producer-dashboard ops-producer-dashboard--compact"
-          aria-labelledby="ops-producer-dash"
-        >
-          <h3 id="ops-producer-dash" className="ops-producer-dashboard__title">
-            Readiness
-          </h3>
-          <div className="ops-producer-dashboard__grid">
-            {PRODUCER_DASHBOARD_CATEGORIES.map((id) => (
-              <article key={id} className="ops-producer-dashboard__card">
-                <h4 className="ops-producer-dashboard__card-label">
-                  {producerCategoryLabel(id)}
-                </h4>
-                <CountsCompact counts={dashboardCounts[id]} />
-              </article>
-            ))}
+        <details className="ops-producer-readiness">
+          <summary className="ops-producer-readiness__summary">
+            Readiness {readinessSummary}
+          </summary>
+          <div className="ops-producer-dashboard ops-producer-dashboard--compact">
+            <div className="ops-producer-dashboard__grid">
+              {PRODUCER_DASHBOARD_CATEGORIES.map((id) => (
+                <article key={id} className="ops-producer-dashboard__card">
+                  <h4 className="ops-producer-dashboard__card-label">
+                    {producerCategoryLabel(id)}
+                  </h4>
+                  <CountsCompact counts={dashboardCounts[id]} />
+                </article>
+              ))}
+            </div>
           </div>
-        </section>
+        </details>
       ) : null}
 
       <div className="ops-producer-board">
@@ -479,7 +685,7 @@ export function YearWorkspaceProducerView(props: Props) {
 
         <section className="ops-producer-timeline" aria-label="Show timeline">
           <header className="ops-producer-planning">
-            <h3 className="ops-producer-timeline__title">Show Timeline</h3>
+            <h3 className="ops-producer-timeline__title">Show Rundown</h3>
             <div className="ops-producer-planning__targets">
               <label className="ops-producer-planning__field">
                 <span className="ops-producer-planning__field-label">Target Runtime</span>
@@ -497,7 +703,6 @@ export function YearWorkspaceProducerView(props: Props) {
                     onKeyDown={(e) => {
                       if (e.key === "Enter") void commitTargetRuntime();
                     }}
-                    aria-label="Target runtime minutes"
                   />
                   <span>min</span>
                 </span>
@@ -505,9 +710,7 @@ export function YearWorkspaceProducerView(props: Props) {
               <div className="ops-producer-planning__live">
                 <span>
                   <em>Current</em>{" "}
-                  <strong>
-                    {Math.round(runtimeSummary.currentSeconds / 60)} min
-                  </strong>
+                  <strong>{Math.round(runtimeSummary.currentSeconds / 60)} min</strong>
                   <span className="ops-dim">
                     {" "}
                     ({formatProducerDuration(runtimeSummary.currentSeconds)})
@@ -515,31 +718,58 @@ export function YearWorkspaceProducerView(props: Props) {
                 </span>
                 <span>
                   <em>Remaining</em>{" "}
-                  <strong>
-                    {Math.round(runtimeSummary.remainingSeconds / 60)} min
-                  </strong>
-                  <span className="ops-dim">
-                    {" "}
-                    ({formatProducerDuration(runtimeSummary.remainingSeconds)})
-                  </span>
+                  <strong>{Math.round(runtimeSummary.remainingSeconds / 60)} min</strong>
+                </span>
+                <span
+                  className={`ops-producer-health ops-producer-health--${health.tone}`}
+                >
+                  {health.label}
                 </span>
               </div>
             </div>
           </header>
 
+          <div className="ops-producer-visual-stack" aria-label="Visual show length">
+            <div className="ops-producer-ruler ops-producer-ruler--stack">
+              <div className="ops-producer-ruler__track">
+                {rulerMarkers.map((m) => (
+                  <span
+                    key={m}
+                    className="ops-producer-ruler__tick"
+                    style={{ left: `${(m * 60) / rulerScaleSeconds * 100}%` }}
+                  >
+                    <span className="ops-producer-ruler__tick-label">{m}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="ops-producer-stack-bars">
+              {blockRuntimes.map((br) =>
+                br.totalSeconds > 0 ? (
+                  <div
+                    key={br.blockId}
+                    className="ops-producer-stack-bar"
+                    style={{
+                      flexGrow: br.totalSeconds,
+                      flexBasis: `${(br.totalSeconds / rulerScaleSeconds) * 100}%`,
+                    }}
+                    title={`${br.label}: ${formatProducerDuration(br.totalSeconds)}`}
+                  >
+                    <span className="ops-producer-stack-bar__label">{br.label}</span>
+                  </div>
+                ) : null,
+              )}
+            </div>
+          </div>
+
           <div
             className="ops-producer-ruler"
             aria-label="Timeline ruler (15 minute markers)"
-            style={
-              {
-                "--ruler-scale-seconds": String(rulerScaleSeconds),
-              } as React.CSSProperties
-            }
           >
             <div className="ops-producer-ruler__track">
               {rulerMarkers.map((m) => (
                 <span
-                  key={m}
+                  key={`seg-${m}`}
                   className="ops-producer-ruler__tick"
                   style={{ left: `${(m * 60) / rulerScaleSeconds * 100}%` }}
                 >
@@ -563,51 +793,68 @@ export function YearWorkspaceProducerView(props: Props) {
           </div>
 
           <div className="ops-producer-timeline__stack">
-            {PRODUCER_TIMELINE_BLOCKS.map((block) => {
-              const items = props.timeline.blocks[block.id] ?? [];
-              const blockRuntime = blockRuntimes.find((b) => b.blockId === block.id);
-              const over = dragOverBlock === block.id;
-              return (
-                <article
-                  key={block.id}
-                  className={`ops-producer-block${over ? " ops-producer-block--over" : ""}`}
-                  onDragOver={(e) => onBlockDragOver(e, block.id)}
-                  onDragLeave={() => setDragOverBlock(null)}
-                  onDrop={(e) => void onBlockDrop(e, block.id)}
-                >
-                  <header className="ops-producer-block__head">
-                    <RuntimeDotsRow
-                      label={block.label.toUpperCase()}
-                      seconds={blockRuntime?.totalSeconds ?? 0}
-                    />
-                    <p className="ops-dim ops-producer-block__hint">{block.hint}</p>
-                  </header>
-                  {items.length === 0 ? (
-                    <p className="ops-producer-block__drop">Drop assets here</p>
-                  ) : (
-                    <ul className="ops-producer-block__list">
-                      {items.map((item) => (
-                        <TimelineAssetRow
-                          key={item.id}
-                          blockId={block.id}
-                          item={item}
-                          busy={props.busy}
-                          onRemove={() => void removeFromBlock(block.id, item.id)}
-                          onSetOverride={(seconds) =>
-                            void setOverride(block.id, item.id, seconds)
-                          }
-                          onClearOverride={() => void clearOverride(block.id, item.id)}
-                        />
-                      ))}
-                    </ul>
-                  )}
-                </article>
-              );
-            })}
+            {props.timeline.blocks.map((block, index) => (
+              <ShowBlockCard
+                key={block.id}
+                block={block}
+                blockSeconds={sumBlockRuntimeSeconds(block)}
+                dragOver={dragOverBlockId === block.id}
+                busy={props.busy}
+                isFirst={index === 0}
+                isLast={index === props.timeline.blocks.length - 1}
+                onPatch={patch}
+                onDragOver={(e) => onBlockDragOver(e, block.id)}
+                onDragLeave={() => setDragOverBlockId(null)}
+                onDrop={(e) => void onBlockDrop(e, block.id)}
+              />
+            ))}
+            <div className="ops-producer-add-end">
+              <button
+                type="button"
+                className="ops-btn ops-btn--info"
+                disabled={props.busy}
+                onClick={() => setShowAddAtEnd((v) => !v)}
+              >
+                + Add Block
+              </button>
+              {showAddAtEnd ? (
+                <div className="ops-producer-block__add-menu ops-producer-block__add-menu--end">
+                  {PRODUCER_BLOCK_TEMPLATES.map((t) => (
+                    <button
+                      key={t.id}
+                      type="button"
+                      className="ops-producer-block__add-menu-item"
+                      onClick={() => {
+                        setShowAddAtEnd(false);
+                        void patch({ op: "producerAddBlock", templateId: t.id });
+                      }}
+                    >
+                      {t.label}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+            </div>
             <footer className="ops-producer-show-total">
               <RuntimeDotsRow label="TOTAL SHOW" seconds={showTotalSeconds} />
             </footer>
           </div>
+
+          <section className="ops-producer-export" aria-label="Export show">
+            <h4 className="ops-producer-export__title">Export Show</h4>
+            <p className="ops-dim ops-producer-export__soon">Coming Soon</p>
+            <div className="ops-producer-export__actions">
+              <button type="button" className="ops-btn ops-btn--ghost" disabled>
+                Export CSV
+              </button>
+              <button type="button" className="ops-btn ops-btn--ghost" disabled>
+                Export M3U
+              </button>
+            </div>
+            <p className="ops-dim ops-producer-export__hint">
+              Retroverse → VirtualDJ playlist workflow
+            </p>
+          </section>
         </section>
       </div>
     </div>

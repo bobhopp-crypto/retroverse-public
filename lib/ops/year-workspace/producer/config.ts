@@ -1,6 +1,9 @@
 import type { YearWorkspaceCategoryId } from "../types";
 
-import type { ProducerAssetCategoryId, ProducerTimelineBlockId } from "./types";
+import type { ProducerAssetCategoryId } from "./types";
+
+/** @deprecated v1 — use ordered blocks in timeline v2. Kept for docs/tests. */
+export type { ProducerTimelineLegacyBlockId as ProducerTimelineBlockId } from "./types";
 
 export const PRODUCER_ASSET_CATEGORIES: {
   id: ProducerAssetCategoryId;
@@ -27,32 +30,6 @@ export const PRODUCER_DASHBOARD_CATEGORIES: ProducerAssetCategoryId[] = [
   "tv_clips",
   "events",
   "bumpers",
-];
-
-export const PRODUCER_TIMELINE_BLOCKS: {
-  id: ProducerTimelineBlockId;
-  label: string;
-  hint: string;
-}[] = [
-  { id: "opening", label: "Opening", hint: "Cold open · station ID · first energy" },
-  {
-    id: "music_block",
-    label: "Music Block",
-    hint: "Billboard spine · singalongs · dance floor",
-  },
-  {
-    id: "commercial_break",
-    label: "Commercial Break",
-    hint: "Period ads · sponsors · bumpers in and out",
-  },
-  { id: "tv_memory", label: "TV Memory", hint: "Clips · promos · couch moments" },
-  { id: "news_moment", label: "News Moment", hint: "Headlines · wire · local color" },
-  {
-    id: "feature_segment",
-    label: "Feature Segment",
-    hint: "Sports · movies · deep cut · event hook",
-  },
-  { id: "closing", label: "Closing", hint: "Last songs · sign-off · night cap" },
 ];
 
 export function producerCategoryLabel(id: ProducerAssetCategoryId): string {

@@ -4264,3 +4264,246 @@
   color: var(--dim);
 }
 
+/* —— Producer Phase 3: rundown builder —— */
+
+.ops-producer-readiness {
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--grid);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.ops-producer-readiness__summary {
+  padding: 0.4rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+}
+
+.ops-producer-readiness__summary::-webkit-details-marker {
+  display: none;
+}
+
+.ops-producer-readiness-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin-left: 0.5rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.ops-producer-health {
+  padding: 0.2rem 0.5rem;
+  border: 2px solid;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.ops-producer-health--ok {
+  border-color: var(--ok);
+  color: #7dffb0;
+  background: rgba(47, 210, 122, 0.12);
+}
+
+.ops-producer-health--warn {
+  border-color: var(--warn);
+  color: #ffd080;
+  background: rgba(255, 176, 32, 0.12);
+}
+
+.ops-producer-health--bad {
+  border-color: var(--bad);
+  color: #ff9a9a;
+  background: rgba(255, 77, 77, 0.12);
+}
+
+.ops-producer-visual-stack {
+  margin-bottom: 0.75rem;
+}
+
+.ops-producer-stack-bars {
+  display: flex;
+  gap: 2px;
+  min-height: 2.25rem;
+  margin-top: 0.35rem;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.ops-producer-stack-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2px;
+  padding: 0.2rem 0.35rem;
+  background: rgba(46, 184, 184, 0.55);
+  overflow: hidden;
+}
+
+.ops-producer-stack-bar__label {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--accent-ink);
+}
+
+.ops-producer-block__head-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.ops-producer-block__toolbar {
+  flex-shrink: 0;
+}
+
+.ops-producer-block__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.45rem;
+}
+
+.ops-producer-block__add-wrap {
+  position: relative;
+}
+
+.ops-producer-block__add-menu {
+  position: absolute;
+  z-index: 5;
+  top: 100%;
+  left: 0;
+  min-width: 10rem;
+  margin-top: 0.2rem;
+  border: 2px solid var(--grid);
+  background: var(--panel-2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.ops-producer-block__add-menu--end {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin-top: 0.35rem;
+}
+
+.ops-producer-block__add-menu-item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.45rem 0.55rem;
+  border: 0;
+  border-bottom: 1px solid var(--grid);
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ops-producer-block__add-menu-item:hover {
+  background: rgba(46, 184, 184, 0.15);
+}
+
+.ops-producer-block__notes {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.ops-producer-block__notes-input {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.35rem 0.45rem;
+  border: 2px solid var(--grid);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.ops-producer-block--collapsed .ops-producer-block__actions {
+  margin-bottom: 0;
+}
+
+.ops-producer-add-end {
+  position: relative;
+  margin-top: 0.35rem;
+}
+
+.ops-producer-runtime-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.ops-producer-runtime-status--ok {
+  color: var(--ok);
+}
+
+.ops-producer-runtime-status--warn {
+  color: var(--warn);
+}
+
+.ops-producer-approve {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ops-producer-approve input {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ops-producer-export {
+  margin-top: 1rem;
+  padding: 0.75rem 0.85rem;
+  border: 2px dashed rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.ops-producer-export__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ops-producer-export__soon {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.ops-producer-export__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ops-producer-export__hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.68rem;
+}
+

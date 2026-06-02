@@ -38,15 +38,20 @@ import {
 } from "@/lib/ops/year-workspace/vocabulary";
 import {
   addAssetToProducerBlock,
+  addProducerBlock,
+  deleteProducerBlock,
+  duplicateProducerBlock,
   loadProducerTimeline,
+  moveProducerBlock,
   removeAssetFromProducerBlock,
+  renameProducerBlock,
+  setProducerBlockCollapsed,
+  setProducerRuntimeApproval,
   setProducerRuntimeOverride,
   setProducerTargetRuntimeMinutes,
+  updateProducerBlockNotes,
 } from "@/lib/ops/year-workspace/producer/timeline-state";
-import type {
-  ProducerTimelineBlockId,
-} from "@/lib/ops/year-workspace/producer/types";
-import { PRODUCER_TIMELINE_BLOCKS } from "@/lib/ops/year-workspace/producer/config";
+import type { ProducerBlockTemplateId } from "@/lib/ops/year-workspace/producer/types";
 import { inspectPing } from "@/lib/inspect/pg";
 
 export const dynamic = "force-dynamic";
@@ -89,15 +94,55 @@ function recommendationPoolMeta(
   return pools;
 }
 
-const PRODUCER_BLOCK_IDS = new Set(
-  PRODUCER_TIMELINE_BLOCKS.map((b) => b.id),
-);
+const PRODUCER_OPS = new Set([
+  "producerAddToBlock",
+  "producerRemoveFromBlock",
+  "producerSetTargetRuntime",
+  "producerSetRuntimeOverride",
+  "producerSetRuntimeApproval",
+  "producerAddBlock",
+  "producerDuplicateBlock",
+  "producerRenameBlock",
+  "producerUpdateBlockNotes",
+  "producerDeleteBlock",
+  "producerMoveBlock",
+  "producerSetBlockCollapsed",
+]);
 
-function parseProducerBlock(value: unknown): ProducerTimelineBlockId | null {
+function parseBlockId(value: unknown): string | null {
   if (typeof value !== "string") return null;
-  return PRODUCER_BLOCK_IDS.has(value as ProducerTimelineBlockId)
-    ? (value as ProducerTimelineBlockId)
+  const id = value.trim();
+  return id.length > 0 ? id : null;
+}
+
+function parseTemplateId(value: unknown): ProducerBlockTemplateId | null {
+  const ids: ProducerBlockTemplateId[] = [
+    "music_segment",
+    "commercial_break",
+    "tv_memory",
+    "news_segment",
+    "feature_segment",
+    "custom",
+  ];
+  if (typeof value !== "string") return null;
+  return ids.includes(value as ProducerBlockTemplateId)
+    ? (value as ProducerBlockTemplateId)
     : null;
+}
+
+async function producerOpError(
+  year: number,
+  fn: () => Promise<unknown>,
+): Promise<Response> {
+  try {
+    await fn();
+    return NextResponse.json(await fullPayload(year));
+  } catch (err) {
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : "Producer update failed" },
+      { status: 400 },
+    );
+  }
 }
 
 async function fullPayload(year: number) {
@@ -178,19 +223,12 @@ export async function PATCH(req: Request) {
 
   const op = payload.op?.trim();
 
-  if (
-    op === "producerAddToBlock" ||
-    op === "producerRemoveFromBlock" ||
-    op === "producerSetTargetRuntime" ||
-    op === "producerSetRuntimeOverride"
-  ) {
-    const blockId = parseProducerBlock(
-      (payload as { blockId?: string }).blockId,
-    );
+  if (op && PRODUCER_OPS.has(op)) {
+    const p = payload as Record<string, unknown>;
+    const blockId = parseBlockId(p.blockId);
 
     if (op === "producerSetTargetRuntime") {
-      const targetRuntimeMinutes = (payload as { targetRuntimeMinutes?: number })
-        .targetRuntimeMinutes;
+      const targetRuntimeMinutes = p.targetRuntimeMinutes;
       if (
         typeof targetRuntimeMinutes !== "number" ||
         !Number.isFinite(targetRuntimeMinutes)
@@ -200,31 +238,40 @@ export async function PATCH(req: Request) {
           { status: 400 },
         );
       }
-      try {
-        await setProducerTargetRuntimeMinutes(year, targetRuntimeMinutes);
-      } catch (err) {
-        return NextResponse.json(
-          { error: err instanceof Error ? err.message : "Invalid target" },
-          { status: 400 },
-        );
-      }
-      return NextResponse.json(await fullPayload(year));
+      return producerOpError(year, () =>
+        setProducerTargetRuntimeMinutes(year, targetRuntimeMinutes),
+      );
+    }
+
+    if (op === "producerAddBlock") {
+      const templateId = parseTemplateId(p.templateId);
+      const afterBlockId = parseBlockId(p.afterBlockId);
+      return producerOpError(year, () =>
+        addProducerBlock(year, {
+          afterBlockId: afterBlockId ?? undefined,
+          templateId: templateId ?? undefined,
+          title: typeof p.title === "string" ? p.title : undefined,
+          notes:
+            p.notes === null || typeof p.notes === "string"
+              ? (p.notes as string | null)
+              : undefined,
+        }),
+      );
     }
 
     if (op === "producerSetRuntimeOverride") {
       if (!blockId) {
         return NextResponse.json({ error: "blockId required" }, { status: 400 });
       }
-      const timelineAssetId = (payload as { timelineAssetId?: string })
-        .timelineAssetId?.trim();
+      const timelineAssetId =
+        typeof p.timelineAssetId === "string" ? p.timelineAssetId.trim() : "";
       if (!timelineAssetId) {
         return NextResponse.json(
           { error: "timelineAssetId required" },
           { status: 400 },
         );
       }
-      const overrideRaw = (payload as { runtimeOverrideSeconds?: unknown })
-        .runtimeOverrideSeconds;
+      const overrideRaw = p.runtimeOverrideSeconds;
       const runtimeOverrideSeconds =
         overrideRaw === null || overrideRaw === undefined
           ? null
@@ -237,34 +284,116 @@ export async function PATCH(req: Request) {
           { status: 400 },
         );
       }
-      try {
-        await setProducerRuntimeOverride(
+      return producerOpError(year, () =>
+        setProducerRuntimeOverride(
           year,
           blockId,
           timelineAssetId,
           runtimeOverrideSeconds as number | null,
-        );
-      } catch (err) {
+        ),
+      );
+    }
+
+    if (op === "producerSetRuntimeApproval") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const timelineAssetId =
+        typeof p.timelineAssetId === "string" ? p.timelineAssetId.trim() : "";
+      if (!timelineAssetId) {
         return NextResponse.json(
-          { error: err instanceof Error ? err.message : "Update failed" },
+          { error: "timelineAssetId required" },
           { status: 400 },
         );
       }
-      return NextResponse.json(await fullPayload(year));
+      if (typeof p.approvedRuntime !== "boolean") {
+        return NextResponse.json(
+          { error: "approvedRuntime boolean required" },
+          { status: 400 },
+        );
+      }
+      return producerOpError(year, () =>
+        setProducerRuntimeApproval(
+          year,
+          blockId,
+          timelineAssetId,
+          p.approvedRuntime as boolean,
+        ),
+      );
+    }
+
+    if (op === "producerDuplicateBlock") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      return producerOpError(year, () => duplicateProducerBlock(year, blockId));
+    }
+
+    if (op === "producerRenameBlock") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const title = typeof p.title === "string" ? p.title : "";
+      return producerOpError(year, () => renameProducerBlock(year, blockId, title));
+    }
+
+    if (op === "producerUpdateBlockNotes") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const notes =
+        p.notes === null || typeof p.notes === "string"
+          ? (p.notes as string | null)
+          : null;
+      return producerOpError(year, () =>
+        updateProducerBlockNotes(year, blockId, notes),
+      );
+    }
+
+    if (op === "producerDeleteBlock") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      return producerOpError(year, () => deleteProducerBlock(year, blockId));
+    }
+
+    if (op === "producerMoveBlock") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const direction = p.direction === "up" || p.direction === "down" ? p.direction : null;
+      if (!direction) {
+        return NextResponse.json({ error: "direction up|down required" }, { status: 400 });
+      }
+      return producerOpError(year, () => moveProducerBlock(year, blockId, direction));
+    }
+
+    if (op === "producerSetBlockCollapsed") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      if (typeof p.collapsed !== "boolean") {
+        return NextResponse.json({ error: "collapsed boolean required" }, { status: 400 });
+      }
+      return producerOpError(year, () =>
+        setProducerBlockCollapsed(year, blockId, p.collapsed as boolean),
+      );
     }
 
     if (!blockId) {
       return NextResponse.json({ error: "blockId required" }, { status: 400 });
     }
+
     if (op === "producerAddToBlock") {
-      const asset = (payload as { asset?: Record<string, unknown> }).asset;
+      const asset = p.asset;
       if (!asset || typeof asset !== "object") {
         return NextResponse.json({ error: "asset required" }, { status: 400 });
       }
-      const producerCategory = asset.producerCategory;
-      const productionCategory = asset.productionCategory;
-      const productionItemId = asset.productionItemId;
-      const title = asset.title;
+      const a = asset as Record<string, unknown>;
+      const producerCategory = a.producerCategory;
+      const productionCategory = a.productionCategory;
+      const productionItemId = a.productionItemId;
+      const title = a.title;
       if (
         typeof producerCategory !== "string" ||
         typeof productionCategory !== "string" ||
@@ -274,33 +403,36 @@ export async function PATCH(req: Request) {
         return NextResponse.json({ error: "Invalid asset" }, { status: 400 });
       }
       const runtimeSeconds =
-        typeof asset.runtimeSeconds === "number" ? asset.runtimeSeconds : undefined;
-      await addAssetToProducerBlock(year, blockId, {
-        producerCategory: producerCategory as Parameters<
-          typeof addAssetToProducerBlock
-        >[2]["producerCategory"],
-        productionCategory: productionCategory as Parameters<
-          typeof addAssetToProducerBlock
-        >[2]["productionCategory"],
-        productionItemId,
-        title,
-        subtitle:
-          typeof asset.subtitle === "string" ? asset.subtitle : null,
-        runtimeSeconds:
-          typeof runtimeSeconds === "number" ? runtimeSeconds : 0,
-      });
-      return NextResponse.json(await fullPayload(year));
+        typeof a.runtimeSeconds === "number" ? a.runtimeSeconds : 0;
+      return producerOpError(year, () =>
+        addAssetToProducerBlock(year, blockId, {
+          producerCategory: producerCategory as Parameters<
+            typeof addAssetToProducerBlock
+          >[2]["producerCategory"],
+          productionCategory: productionCategory as Parameters<
+            typeof addAssetToProducerBlock
+          >[2]["productionCategory"],
+          productionItemId,
+          title,
+          subtitle: typeof a.subtitle === "string" ? a.subtitle : null,
+          runtimeSeconds,
+          approvedRuntime:
+            typeof a.approvedRuntime === "boolean" ? a.approvedRuntime : undefined,
+        }),
+      );
     }
-    const timelineAssetId = (payload as { timelineAssetId?: string })
-      .timelineAssetId?.trim();
+
+    const timelineAssetId =
+      typeof p.timelineAssetId === "string" ? p.timelineAssetId.trim() : "";
     if (!timelineAssetId) {
       return NextResponse.json(
         { error: "timelineAssetId required" },
         { status: 400 },
       );
     }
-    await removeAssetFromProducerBlock(year, blockId, timelineAssetId);
-    return NextResponse.json(await fullPayload(year));
+    return producerOpError(year, () =>
+      removeAssetFromProducerBlock(year, blockId, timelineAssetId),
+    );
   }
 
   if (op) {

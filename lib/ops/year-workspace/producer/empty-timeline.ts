@@ -1,33 +1,27 @@
 /**
  * Client-safe producer timeline defaults (no fs/path).
- * Server persistence: producer/timeline-state.ts
  */
 
-import { PRODUCER_TIMELINE_BLOCKS } from "./config";
+import { PRODUCER_STARTER_BLOCKS } from "./block-templates";
 import { PRODUCER_DEFAULT_TARGET_RUNTIME_MINUTES } from "./runtime-defaults";
-import type {
-  ProducerTimelineAsset,
-  ProducerTimelineBlockId,
-  ProducerTimelineState,
-} from "./types";
+import type { ProducerShowBlock, ProducerTimelineState } from "./types";
 
-export function emptyProducerTimelineBlocks(): Record<
-  ProducerTimelineBlockId,
-  ProducerTimelineAsset[]
-> {
-  const blocks = {} as Record<ProducerTimelineBlockId, ProducerTimelineAsset[]>;
-  for (const { id } of PRODUCER_TIMELINE_BLOCKS) {
-    blocks[id] = [];
-  }
-  return blocks;
+export function createStarterBlocks(): ProducerShowBlock[] {
+  return PRODUCER_STARTER_BLOCKS.map((s) => ({
+    id: crypto.randomUUID(),
+    title: s.title,
+    notes: s.notes,
+    collapsed: false,
+    assets: [],
+  }));
 }
 
 export function emptyProducerTimeline(year: number): ProducerTimelineState {
   return {
-    version: 1,
+    version: 2,
     year,
     targetRuntimeMinutes: PRODUCER_DEFAULT_TARGET_RUNTIME_MINUTES,
-    blocks: emptyProducerTimelineBlocks(),
+    blocks: createStarterBlocks(),
     updatedAt: new Date().toISOString(),
   };
 }

@@ -1,7 +1,6 @@
-import { PRODUCER_TIMELINE_BLOCKS } from "./config";
 import type {
+  ProducerShowBlock,
   ProducerTimelineAsset,
-  ProducerTimelineBlockId,
   ProducerTimelineState,
 } from "./types";
 
@@ -23,7 +22,6 @@ export function formatProducerDuration(totalSeconds: number): string {
   return `${mins}:${String(secs).padStart(2, "0")}`;
 }
 
-/** Parse M:SS or MM:SS (e.g. 0:30, 3:42). Returns null if invalid. */
 export function parseProducerMmSs(value: string): number | null {
   const trimmed = value.trim();
   if (!trimmed) return null;
@@ -40,24 +38,19 @@ export function formatProducerMmSs(totalSeconds: number): string {
   return formatProducerDuration(totalSeconds);
 }
 
-export function sumBlockRuntimeSeconds(
-  assets: ProducerTimelineAsset[],
-): number {
-  return assets.reduce((sum, a) => sum + effectiveRuntimeSeconds(a), 0);
+export function sumBlockRuntimeSeconds(block: ProducerShowBlock): number {
+  return block.assets.reduce((sum, a) => sum + effectiveRuntimeSeconds(a), 0);
 }
 
-export function computeShowRuntimeSeconds(
-  state: ProducerTimelineState,
-): number {
-  let total = 0;
-  for (const { id } of PRODUCER_TIMELINE_BLOCKS) {
-    total += sumBlockRuntimeSeconds(state.blocks[id] ?? []);
-  }
-  return total;
+export function computeShowRuntimeSeconds(state: ProducerTimelineState): number {
+  return state.blocks.reduce(
+    (sum, block) => sum + sumBlockRuntimeSeconds(block),
+    0,
+  );
 }
 
 export type ProducerBlockRuntime = {
-  blockId: ProducerTimelineBlockId;
+  blockId: string;
   label: string;
   totalSeconds: number;
   startSeconds: number;
@@ -69,14 +62,13 @@ export function computeBlockRuntimes(
 ): ProducerBlockRuntime[] {
   let cursor = 0;
   const out: ProducerBlockRuntime[] = [];
-  for (const block of PRODUCER_TIMELINE_BLOCKS) {
-    const assets = state.blocks[block.id] ?? [];
-    const totalSeconds = sumBlockRuntimeSeconds(assets);
+  for (const block of state.blocks) {
+    const totalSeconds = sumBlockRuntimeSeconds(block);
     const startSeconds = cursor;
     cursor += totalSeconds;
     out.push({
       blockId: block.id,
-      label: block.label,
+      label: block.title,
       totalSeconds,
       startSeconds,
       endSeconds: cursor,
@@ -104,4 +96,8 @@ export function showRuntimeSummary(state: ProducerTimelineState): {
   const currentSeconds = computeShowRuntimeSeconds(state);
   const remainingSeconds = Math.max(0, targetSeconds - currentSeconds);
   return { targetMinutes, currentSeconds, remainingSeconds };
+}
+
+export function isAssetRuntimeApproved(asset: ProducerTimelineAsset): boolean {
+  return asset.approvedRuntime === true;
 }

@@ -13,15 +13,8 @@ export type ProducerAssetCategoryId =
   | "bumpers"
   | "promos";
 
-export type ProducerNeedFoundReady = {
-  need: number;
-  found: number;
-  ready: number;
-  /** Assets still not cleared for air (need − ready). */
-  missing: number;
-};
-
-export type ProducerTimelineBlockId =
+/** Legacy v1 block keys (migration only). */
+export type ProducerTimelineLegacyBlockId =
   | "opening"
   | "music_block"
   | "commercial_break"
@@ -30,6 +23,13 @@ export type ProducerTimelineBlockId =
   | "feature_segment"
   | "closing";
 
+export type ProducerNeedFoundReady = {
+  need: number;
+  found: number;
+  ready: number;
+  missing: number;
+};
+
 export type ProducerTimelineAsset = {
   id: string;
   producerCategory: ProducerAssetCategoryId;
@@ -37,17 +37,27 @@ export type ProducerTimelineAsset = {
   productionItemId: string;
   title: string;
   subtitle: string | null;
-  /** Source/metadata runtime in seconds. */
   runtimeSeconds: number;
-  /** Trimmed or faded runtime; when set, used instead of runtimeSeconds. */
   runtimeOverrideSeconds?: number | null;
+  /** Producer confirmed runtime is close enough for show planning. */
+  approvedRuntime?: boolean;
+};
+
+export type ProducerShowBlock = {
+  id: string;
+  title: string;
+  notes: string | null;
+  collapsed?: boolean;
+  /** Set when migrated from v1 fixed sections. */
+  legacyKey?: ProducerTimelineLegacyBlockId;
+  assets: ProducerTimelineAsset[];
 };
 
 export type ProducerTimelineState = {
-  version: 1;
+  version: 2;
   year: number;
   targetRuntimeMinutes: number;
-  blocks: Record<ProducerTimelineBlockId, ProducerTimelineAsset[]>;
+  blocks: ProducerShowBlock[];
   updatedAt: string;
 };
 
@@ -61,3 +71,11 @@ export type ProducerLibraryAsset = {
   status: "need" | "found" | "ready";
   runtimeSeconds: number;
 };
+
+export type ProducerBlockTemplateId =
+  | "music_segment"
+  | "commercial_break"
+  | "tv_memory"
+  | "news_segment"
+  | "feature_segment"
+  | "custom";
