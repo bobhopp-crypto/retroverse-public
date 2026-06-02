@@ -2,9 +2,24 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-import { YearWorkspacePanel } from "@/components/ops/year-workspace/YearWorkspacePanel";
+import {
+  OpsYearWorkspaceSongDetailModal,
+  OpsYearWorkspaceSongs,
+} from "@/components/ops/year-workspace/OpsYearWorkspaceSongs";
+import { YearWorkspaceDropZone } from "@/components/ops/year-workspace/YearWorkspaceDropZone";
+import { YearWorkspaceProductionTab } from "@/components/ops/year-workspace/YearWorkspaceProductionTab";
+import { YearWorkspaceSourceDrawer } from "@/components/ops/year-workspace/YearWorkspaceSourceDrawer";
+import { YearWorkspaceSummary } from "@/components/ops/year-workspace/YearWorkspaceSummary";
 import type {
-  YearWorkspaceCompletion,
+  ProductionItem,
+  ProductionWorkflowAction,
+  ShowReadinessSummary,
+  YearWorkspaceProductionBundle,
+  YearWorkspaceProductionState,
+} from "@/lib/ops/year-workspace/production-types";
+import type { SourceDiscoveryDrawerPayload } from "@/lib/ops/year-workspace/source-discovery/types";
+import type {
+  YearWorkspaceCategoryId,
   YearWorkspaceData,
   YearWorkspaceRow,
   YearWorkspaceWorkflowAction,
@@ -12,101 +27,98 @@ import type {
 import { YEAR_WORKSPACE_CATEGORIES } from "@/lib/ops/year-workspace/types";
 import type { YearWorkspaceKeyword } from "@/lib/ops/year-workspace/vocabulary";
 
-function CompletionBar(props: {
-  label: string;
-  value: number;
-  max: number;
-  tone?: "ok" | "warn" | "info";
-}) {
-  const pct = props.max > 0 ? Math.round((props.value / props.max) * 100) : 0;
-  return (
-    <div className="ops-yw-completion__row">
-      <div className="ops-yw-completion__label">
-        <span>{props.label}</span>
-        <span className="ops-yw-completion__nums">
-          <strong>{props.value}</strong>
-          <span className="ops-dim"> / {props.max}</span>
-        </span>
-      </div>
-      <div className="ops-yw-completion__track" role="presentation">
-        <div
-          className={`ops-yw-completion__fill ops-yw-completion__fill--${props.tone ?? "info"}`}
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-    </div>
-  );
-}
+type PoolMeta = { total: number; remaining: number };
 
-function YearCompletion(props: { year: number; c: YearWorkspaceCompletion }) {
-  const { c } = props;
-  return (
-    <section className="ops-yw-completion" aria-labelledby="ops-yw-completion-heading">
-      <h2 id="ops-yw-completion-heading" className="ops-yw-completion__title">
-        {props.year} Completion
-      </h2>
-      <CompletionBar label="Billboard songs" value={c.billboardTotal} max={c.billboardTotal} />
-      <CompletionBar label="Matched" value={c.matched} max={c.billboardTotal} tone="info" />
-      <CompletionBar label="In Both" value={c.inBoth} max={c.billboardTotal} tone="ok" />
-      <CompletionBar label="Missing" value={c.missing} max={c.billboardTotal} tone="warn" />
-      <CompletionBar
-        label="Reviewed"
-        value={c.reviewed}
-        max={Math.max(c.reviewed + c.chartOnlyPending, 1)}
-      />
-      <CompletionBar label="Tagged" value={c.tagged} max={c.billboardTotal} tone="ok" />
-      <p className="ops-dim ops-yw-completion__queue">
-        Review queue: <strong>{c.reviewQueue}</strong>
-        {c.chartOnlyPending > 0 ? (
-          <>
-            {" "}
-            · Chart-only pending action: <strong>{c.chartOnlyPending}</strong>
-          </>
-        ) : null}
-      </p>
-    </section>
-  );
-}
+type ApiPayload = {
+  ok?: boolean;
+  workspace?: YearWorkspaceData;
+  production?: YearWorkspaceProductionState;
+  summary?: YearWorkspaceProductionBundle["summary"];
+  recommendationPools?: Record<string, PoolMeta>;
+  recommendationResult?: PoolMeta & { added: number; poolTotal: number };
+  showReadiness?: ShowReadinessSummary;
+  sourceDrawer?: SourceDiscoveryDrawerPayload;
+  vocabulary?: YearWorkspaceKeyword[];
+  error?: string;
+};
 
 export function OpsYearWorkspace(props: { year: number }) {
   const [workspace, setWorkspace] = useState<YearWorkspaceData | null>(null);
+  const [production, setProduction] = useState<YearWorkspaceProductionState | null>(null);
+  const [summary, setSummary] = useState<YearWorkspaceProductionBundle["summary"] | null>(
+    null,
+  );
+  const [showReadiness, setShowReadiness] = useState<ShowReadinessSummary | null>(
+    null,
+  );
   const [vocabulary, setVocabulary] = useState<YearWorkspaceKeyword[]>([]);
-  const [category, setCategory] = useState<string>("songs");
+  const [category, setCategory] = useState<YearWorkspaceCategoryId>("songs");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [detailRow, setDetailRow] = useState<YearWorkspaceRow | null>(null);
   const [draftKeywords, setDraftKeywords] = useState<YearWorkspaceKeyword[]>([]);
   const [saving, setSaving] = useState(false);
   const [busyKey, setBusyKey] = useState<string | null>(null);
+  const [busyItemId, setBusyItemId] = useState<string | null>(null);
+  const [generating, setGenerating] = useState(false);
+  const [recommendationPools, setRecommendationPools] = useState<
+    Record<string, PoolMeta> | null
+  >(null);
   const [notice, setNotice] = useState<string | null>(null);
+  const [sourceDrawer, setSourceDrawer] = useState<SourceDiscoveryDrawerPayload | null>(
+    null,
+  );
+  const [drawerRecommendationId, setDrawerRecommendationId] = useState<string | null>(
+    null,
+  );
+  const [busySourceId, setBusySourceId] = useState<string | null>(null);
+  const [attachQueueItemId, setAttachQueueItemId] = useState<string | null>(null);
+
+  const applyPayload = useCallback((data: ApiPayload) => {
+    if (data.workspace) setWorkspace(data.workspace);
+    if (data.production) setProduction(data.production);
+    if (data.summary) setSummary(data.summary);
+    if (data.vocabulary) setVocabulary(data.vocabulary);
+    if (data.recommendationPools) setRecommendationPools(data.recommendationPools);
+    if (data.showReadiness) setShowReadiness(data.showReadiness);
+    if (data.sourceDrawer) setSourceDrawer(data.sourceDrawer);
+  }, []);
 
   const load = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const res = await fetch(`/api/ops/year-workspace?year=${props.year}`);
-      const data = (await res.json()) as {
-        ok?: boolean;
-        workspace?: YearWorkspaceData;
-        vocabulary?: YearWorkspaceKeyword[];
-        error?: string;
-      };
+      const data = (await res.json()) as ApiPayload;
       if (!res.ok || !data.ok || !data.workspace) {
         setError(data.error ?? `Load failed (${res.status})`);
         return;
       }
-      setWorkspace(data.workspace);
-      setVocabulary(data.vocabulary ?? []);
+      applyPayload(data);
     } catch {
       setError("Failed to load year workspace");
     } finally {
       setLoading(false);
     }
-  }, [props.year]);
+  }, [applyPayload, props.year]);
 
   useEffect(() => {
     void load();
   }, [load]);
+
+  async function patchApi(body: Record<string, unknown>) {
+    const res = await fetch("/api/ops/year-workspace", {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ year: props.year, ...body }),
+    });
+    const data = (await res.json()) as ApiPayload;
+    if (!res.ok || !data.ok) {
+      throw new Error(data.error ?? "Request failed");
+    }
+    applyPayload(data);
+    return data;
+  }
 
   function openDetail(row: YearWorkspaceRow) {
     setDetailRow(row);
@@ -120,30 +132,12 @@ export function OpsYearWorkspace(props: { year: number }) {
     );
   }
 
-  async function patchWorkspace(body: Record<string, unknown>) {
-    const res = await fetch("/api/ops/year-workspace", {
-      method: "PATCH",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ year: props.year, ...body }),
-    });
-    const data = (await res.json()) as {
-      ok?: boolean;
-      workspace?: YearWorkspaceData;
-      error?: string;
-    };
-    if (!res.ok || !data.ok || !data.workspace) {
-      throw new Error(data.error ?? "Save failed");
-    }
-    setWorkspace(data.workspace);
-    return data.workspace;
-  }
-
   async function saveKeywords() {
     if (!detailRow) return;
     setSaving(true);
     setNotice(null);
     try {
-      await patchWorkspace({
+      await patchApi({
         workspaceKey: detailRow.workspaceKey,
         keywords: draftKeywords,
       });
@@ -163,7 +157,7 @@ export function OpsYearWorkspace(props: { year: number }) {
     setBusyKey(row.workspaceKey);
     setNotice(null);
     try {
-      await patchWorkspace({
+      await patchApi({
         workspaceKey: row.workspaceKey,
         chartAction: action,
       });
@@ -175,34 +169,171 @@ export function OpsYearWorkspace(props: { year: number }) {
     }
   }
 
-  const completion = workspace?.completion;
+  async function runProductionOp(body: Record<string, unknown>) {
+    await patchApi(body);
+  }
+
+  async function generateRecommendations(
+    cat: YearWorkspaceCategoryId,
+    more = false,
+  ) {
+    setGenerating(true);
+    setNotice(null);
+    try {
+      const data = await patchApi({
+        op: more ? "generateMoreRecommendations" : "generateRecommendations",
+        category: cat,
+      });
+      const added = data.recommendationResult?.added ?? 0;
+      const remaining = data.recommendationResult?.remaining;
+      setNotice(
+        added > 0
+          ? `Added ${added} to Wanted${remaining != null ? ` · ${remaining} curated left` : ""}`
+          : "No new recommendations left in curated pool",
+      );
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Generate failed");
+    } finally {
+      setGenerating(false);
+    }
+  }
+
+  async function productionItemAction(
+    cat: YearWorkspaceCategoryId,
+    itemId: string,
+    action: ProductionWorkflowAction,
+  ) {
+    setBusyItemId(itemId);
+    setNotice(null);
+    try {
+      await runProductionOp({ op: "itemAction", category: cat, itemId, productionAction: action });
+      setNotice(`Saved: ${action}`);
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Action failed");
+    } finally {
+      setBusyItemId(null);
+    }
+  }
+
+  async function dropAssets(
+    cat: YearWorkspaceCategoryId,
+    filenames: string[],
+    queueItemId?: string | null,
+  ) {
+    setNotice(null);
+    try {
+      await runProductionOp({
+        op: "addAssets",
+        category: cat,
+        filenames,
+        ...(queueItemId ? { queueItemId } : {}),
+      });
+      setNotice(
+        queueItemId
+          ? `Attached ${filenames.length} file(s) to queue item`
+          : `Recorded ${filenames.length} file(s)`,
+      );
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Drop failed");
+    }
+  }
+
+  async function openFindSources(item: ProductionItem) {
+    setBusyItemId(item.id);
+    setDrawerRecommendationId(item.id);
+    setNotice(null);
+    try {
+      const data = await patchApi({
+        op: "findSources",
+        category,
+        recommendationId: item.id,
+      });
+      if (data.sourceDrawer) setSourceDrawer(data.sourceDrawer);
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Find sources failed");
+      setDrawerRecommendationId(null);
+    } finally {
+      setBusyItemId(null);
+    }
+  }
+
+  async function selectSource(sourceId: string) {
+    if (!drawerRecommendationId) return;
+    setBusySourceId(sourceId);
+    setNotice(null);
+    try {
+      await patchApi({
+        op: "selectSource",
+        category,
+        recommendationId: drawerRecommendationId,
+        sourceId,
+      });
+      setNotice("Added to Acquisition Queue");
+      setSourceDrawer(null);
+      setDrawerRecommendationId(null);
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Select failed");
+    } finally {
+      setBusySourceId(null);
+    }
+  }
+
+  async function rejectSource(sourceId: string) {
+    if (!drawerRecommendationId) return;
+    setBusySourceId(sourceId);
+    try {
+      const data = await patchApi({
+        op: "rejectSource",
+        category,
+        recommendationId: drawerRecommendationId,
+        sourceId,
+      });
+      if (data.sourceDrawer) setSourceDrawer(data.sourceDrawer);
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Reject failed");
+    } finally {
+      setBusySourceId(null);
+    }
+  }
+
+  const categoryMeta = YEAR_WORKSPACE_CATEGORIES.find((c) => c.id === category);
+  const categoryLabel = categoryMeta?.label ?? category;
+  const productionFile = production?.[category];
+  const poolMeta = recommendationPools?.[category] ?? null;
 
   return (
     <div className="ops-yw">
       <header className="ops-yw__head">
         <div>
-          <p className="ops-yw__kicker">Collection · acquisition · event prep</p>
-          <h2 className="ops-yw__title">What you have · what you need · what to do next</h2>
+          <p className="ops-yw__kicker">1967 production workspace</p>
+          <h2 className="ops-yw__title">
+            Build the full year experience — songs, media, and show layers
+          </h2>
         </div>
         <button type="button" className="ops-btn ops-btn--info" onClick={() => void load()}>
           Refresh
         </button>
       </header>
 
-      {completion ? <YearCompletion year={props.year} c={completion} /> : null}
+      {summary && showReadiness ? (
+        <YearWorkspaceSummary
+          year={props.year}
+          summary={summary}
+          showReadiness={showReadiness}
+          activeCategory={category}
+          onSelectCategory={(id) => setCategory(id as YearWorkspaceCategoryId)}
+        />
+      ) : null}
 
       <nav className="ops-yw-categories" aria-label="Year workspace categories">
         {YEAR_WORKSPACE_CATEGORIES.map((cat) => (
           <button
             key={cat.id}
             type="button"
-            className={`ops-yw-category${category === cat.id ? " ops-yw-category--on" : ""}${
-              !cat.active ? " ops-yw-category--soon" : ""
-            }`}
+            className={`ops-yw-category${category === cat.id ? " ops-yw-category--on" : ""}`}
             onClick={() => setCategory(cat.id)}
           >
             {cat.label}
-            {!cat.active ? <span className="ops-yw-category__badge">Soon</span> : null}
           </button>
         ))}
       </nav>
@@ -217,145 +348,67 @@ export function OpsYearWorkspace(props: { year: number }) {
         <p className="ops-empty">Loading {props.year} workspace…</p>
       ) : error ? (
         <p className="ops-empty">{error}</p>
-      ) : category !== "songs" ? (
-        <p className="ops-empty ops-yw-coming-soon">Coming Soon</p>
-      ) : workspace ? (
-        <div className="ops-yw-panels">
-          <YearWorkspacePanel
-            id="yw-in-both"
-            title="In Both"
-            subtitle="Billboard Hot 100 + VDJ performance video for this year"
-            rows={workspace.inBoth}
-            busyKey={busyKey}
-            onRowClick={openDetail}
-          />
-          <YearWorkspacePanel
-            id="yw-chart-only"
-            title="Chart Only"
-            subtitle="On the Billboard year chart but not in the VDJ performance universe"
-            rows={workspace.chartOnly}
-            showWorkflowActions
+      ) : category === "songs" && workspace ? (
+        <>
+          <OpsYearWorkspaceSongs
+            year={props.year}
+            workspace={workspace}
+            vocabulary={vocabulary}
             busyKey={busyKey}
             onRowClick={openDetail}
             onChartAction={(row, action) => void saveChartAction(row, action)}
           />
-          <YearWorkspacePanel
-            id="yw-vdj-only"
-            title="VDJ Only"
-            subtitle="Performance video exists but not matched to this year's Billboard chart"
-            rows={workspace.vdjOnly}
-            busyKey={busyKey}
-            onRowClick={openDetail}
+          <YearWorkspaceDropZone
+            categoryLabel="Songs"
+            onDropFilenames={(names) => void dropAssets("songs", names, null)}
           />
-          <YearWorkspacePanel
-            id="yw-review"
-            title="Review"
-            subtitle="Needs tagging, acquisition, or verification"
-            rows={workspace.review}
-            showReviewReason
-            busyKey={busyKey}
-            onRowClick={openDetail}
-          />
-        </div>
+        </>
+      ) : productionFile ? (
+        <YearWorkspaceProductionTab
+          year={props.year}
+          category={category}
+          categoryLabel={categoryLabel}
+          file={productionFile}
+          busyItemId={busyItemId}
+          generating={generating}
+          poolRemaining={poolMeta?.remaining ?? null}
+          poolTotal={poolMeta?.total ?? null}
+          attachQueueItemId={attachQueueItemId}
+          onAttachQueueItemChange={setAttachQueueItemId}
+          onGenerate={() => void generateRecommendations(category, false)}
+          onGenerateMore={() => void generateRecommendations(category, true)}
+          onItemAction={(itemId, action) =>
+            void productionItemAction(category, itemId, action)
+          }
+          onFindSources={(item) => void openFindSources(item)}
+          onDropFilenames={(names, queueId) =>
+            void dropAssets(category, names, queueId)
+          }
+        />
       ) : null}
 
+      <YearWorkspaceSourceDrawer
+        open={sourceDrawer != null}
+        drawer={sourceDrawer}
+        busySourceId={busySourceId}
+        onClose={() => {
+          setSourceDrawer(null);
+          setDrawerRecommendationId(null);
+        }}
+        onSelect={(id) => void selectSource(id)}
+        onReject={(id) => void rejectSource(id)}
+      />
+
       {detailRow ? (
-        <div
-          className="ops-modal-backdrop"
-          role="presentation"
-          onClick={() => setDetailRow(null)}
-        >
-          <div
-            className="ops-modal ops-yw-modal"
-            role="dialog"
-            aria-labelledby="ops-yw-detail-title"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <header className="ops-modal__header">
-              <div>
-                <p className="ops-modal__kicker">Why would you play this?</p>
-                <h3 id="ops-yw-detail-title" className="ops-modal__title">
-                  {detailRow.artist} — {detailRow.title}
-                </h3>
-              </div>
-              <button
-                type="button"
-                className="ops-modal__close"
-                aria-label="Close"
-                onClick={() => setDetailRow(null)}
-              >
-                ×
-              </button>
-            </header>
-
-            <dl className="ops-yw-detail-facts">
-              <div>
-                <dt>Bucket</dt>
-                <dd>{detailRow.bucket.replaceAll("_", " ")}</dd>
-              </div>
-              {detailRow.reviewReason ? (
-                <div>
-                  <dt>Review</dt>
-                  <dd>{detailRow.reviewReason}</dd>
-                </div>
-              ) : null}
-              <div>
-                <dt>Peak / Weeks</dt>
-                <dd>
-                  {detailRow.peak ?? "—"} / {detailRow.weeks ?? "—"}
-                </dd>
-              </div>
-              {detailRow.workflowAction ? (
-                <div>
-                  <dt>Workflow</dt>
-                  <dd>{detailRow.workflowAction}</dd>
-                </div>
-              ) : null}
-              {detailRow.vdjLabel ? (
-                <div>
-                  <dt>VDJ</dt>
-                  <dd>{detailRow.vdjLabel}</dd>
-                </div>
-              ) : null}
-              {detailRow.sourcePath ? (
-                <div>
-                  <dt>Path</dt>
-                  <dd className="ops-mono">{detailRow.sourcePath}</dd>
-                </div>
-              ) : null}
-            </dl>
-
-            <div className="ops-yw-keyword-picker">
-              <p className="ops-yw-keyword-picker__label">Keywords</p>
-              <div className="ops-yw-keyword-picker__grid">
-                {vocabulary.map((keyword) => {
-                  const on = draftKeywords.includes(keyword);
-                  return (
-                    <button
-                      key={keyword}
-                      type="button"
-                      className={`ops-yw-keyword-toggle${on ? " ops-yw-keyword-toggle--on" : ""}`}
-                      onClick={() => toggleKeyword(keyword)}
-                    >
-                      {keyword}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <footer className="ops-modal__actions">
-              <button
-                type="button"
-                className="ops-btn ops-btn--ok"
-                disabled={saving}
-                onClick={() => void saveKeywords()}
-              >
-                {saving ? "Saving…" : "Save keywords"}
-              </button>
-            </footer>
-          </div>
-        </div>
+        <OpsYearWorkspaceSongDetailModal
+          detailRow={detailRow}
+          vocabulary={vocabulary}
+          draftKeywords={draftKeywords}
+          saving={saving}
+          onClose={() => setDetailRow(null)}
+          onToggleKeyword={toggleKeyword}
+          onSave={() => void saveKeywords()}
+        />
       ) : null}
     </div>
   );

@@ -75,13 +75,12 @@ export type YearWorkspaceCategoryId =
 export const YEAR_WORKSPACE_CATEGORIES: {
   id: YearWorkspaceCategoryId;
   label: string;
-  active: boolean;
 }[] = [
-  { id: "songs", label: "Songs", active: true },
-  { id: "albums", label: "Albums", active: false },
-  { id: "commercials", label: "Commercials", active: false },
-  { id: "tv_clips", label: "TV Clips", active: false },
-  { id: "bumpers", label: "Bumpers", active: false },
-  { id: "promos", label: "Promos", active: false },
-  { id: "events", label: "Events", active: false },
+  { id: "songs", label: "Songs" },
+  { id: "albums", label: "Albums" },
+  { id: "commercials", label: "Commercials" },
+  { id: "tv_clips", label: "TV Clips" },
+  { id: "bumpers", label: "Bumpers" },
+  { id: "promos", label: "Promos" },
+  { id: "events", label: "Events" },
 ];
