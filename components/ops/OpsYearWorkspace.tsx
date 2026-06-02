@@ -326,7 +326,7 @@ export function OpsYearWorkspace(props: { year: number }) {
   const poolMeta = recommendationPools?.[category] ?? null;
 
   return (
-    <div className="ops-yw">
+    <div className={`ops-yw${viewMode === "producer" ? " ops-yw--producer" : ""}`}>
       <header className="ops-yw__head">
         <div>
           <p className="ops-yw__kicker">1967 production workspace</p>
