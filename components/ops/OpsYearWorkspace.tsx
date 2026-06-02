@@ -9,7 +9,10 @@ import {
 import { YearWorkspaceDropZone } from "@/components/ops/year-workspace/YearWorkspaceDropZone";
 import { YearWorkspaceProductionTab } from "@/components/ops/year-workspace/YearWorkspaceProductionTab";
 import { YearWorkspaceSourceDrawer } from "@/components/ops/year-workspace/YearWorkspaceSourceDrawer";
+import { YearWorkspaceProducerView } from "@/components/ops/year-workspace/YearWorkspaceProducerView";
 import { YearWorkspaceSummary } from "@/components/ops/year-workspace/YearWorkspaceSummary";
+import { emptyProducerTimeline } from "@/lib/ops/year-workspace/producer/timeline-state";
+import type { ProducerTimelineState } from "@/lib/ops/year-workspace/producer/types";
 import type {
   ProductionItem,
   ProductionWorkflowAction,
@@ -29,6 +32,8 @@ import type { YearWorkspaceKeyword } from "@/lib/ops/year-workspace/vocabulary";
 
 type PoolMeta = { total: number; remaining: number };
 
+type WorkspaceViewMode = "workspace" | "producer";
+
 type ApiPayload = {
   ok?: boolean;
   workspace?: YearWorkspaceData;
@@ -37,6 +42,7 @@ type ApiPayload = {
   recommendationPools?: Record<string, PoolMeta>;
   recommendationResult?: PoolMeta & { added: number; poolTotal: number };
   showReadiness?: ShowReadinessSummary;
+  producerTimeline?: ProducerTimelineState;
   sourceDrawer?: SourceDiscoveryDrawerPayload;
   vocabulary?: YearWorkspaceKeyword[];
   error?: string;
@@ -73,6 +79,11 @@ export function OpsYearWorkspace(props: { year: number }) {
   );
   const [busySourceId, setBusySourceId] = useState<string | null>(null);
   const [attachQueueItemId, setAttachQueueItemId] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<WorkspaceViewMode>("workspace");
+  const [producerTimeline, setProducerTimeline] = useState<ProducerTimelineState>(
+    () => emptyProducerTimeline(props.year),
+  );
+  const [producerBusy, setProducerBusy] = useState(false);
 
   const applyPayload = useCallback((data: ApiPayload) => {
     if (data.workspace) setWorkspace(data.workspace);
@@ -81,6 +92,7 @@ export function OpsYearWorkspace(props: { year: number }) {
     if (data.vocabulary) setVocabulary(data.vocabulary);
     if (data.recommendationPools) setRecommendationPools(data.recommendationPools);
     if (data.showReadiness) setShowReadiness(data.showReadiness);
+    if (data.producerTimeline) setProducerTimeline(data.producerTimeline);
     if (data.sourceDrawer) setSourceDrawer(data.sourceDrawer);
   }, []);
 
@@ -296,6 +308,18 @@ export function OpsYearWorkspace(props: { year: number }) {
     }
   }
 
+  async function patchProducerTimeline(body: Record<string, unknown>) {
+    setProducerBusy(true);
+    setNotice(null);
+    try {
+      await patchApi(body);
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Timeline update failed");
+    } finally {
+      setProducerBusy(false);
+    }
+  }
+
   const categoryMeta = YEAR_WORKSPACE_CATEGORIES.find((c) => c.id === category);
   const categoryLabel = categoryMeta?.label ?? category;
   const productionFile = production?.[category];
@@ -310,12 +334,46 @@ export function OpsYearWorkspace(props: { year: number }) {
             Build the full year experience — songs, media, and show layers
           </h2>
         </div>
-        <button type="button" className="ops-btn ops-btn--info" onClick={() => void load()}>
-          Refresh
-        </button>
+        <div className="ops-yw__head-actions">
+          <nav className="ops-yw-view-toggle" aria-label="Workspace view">
+            <button
+              type="button"
+              className={`ops-yw-view-toggle__btn${
+                viewMode === "workspace" ? " ops-yw-view-toggle__btn--on" : ""
+              }`}
+              onClick={() => setViewMode("workspace")}
+            >
+              Workspace
+            </button>
+            <button
+              type="button"
+              className={`ops-yw-view-toggle__btn${
+                viewMode === "producer" ? " ops-yw-view-toggle__btn--on" : ""
+              }`}
+              onClick={() => setViewMode("producer")}
+            >
+              Producer View
+            </button>
+          </nav>
+          <button type="button" className="ops-btn ops-btn--info" onClick={() => void load()}>
+            Refresh
+          </button>
+        </div>
       </header>
 
-      {summary && showReadiness ? (
+      {viewMode === "producer" && !loading && !error ? (
+        <YearWorkspaceProducerView
+          year={props.year}
+          workspace={workspace}
+          production={production}
+          summary={summary}
+          timeline={producerTimeline}
+          busy={producerBusy}
+          onPatchTimeline={patchProducerTimeline}
+        />
+      ) : null}
+
+      {viewMode === "workspace" && summary && showReadiness ? (
         <YearWorkspaceSummary
           year={props.year}
           summary={summary}
@@ -325,6 +383,7 @@ export function OpsYearWorkspace(props: { year: number }) {
         />
       ) : null}
 
+      {viewMode === "workspace" ? (
       <nav className="ops-yw-categories" aria-label="Year workspace categories">
         {YEAR_WORKSPACE_CATEGORIES.map((cat) => (
           <button
@@ -337,6 +396,7 @@ export function OpsYearWorkspace(props: { year: number }) {
           </button>
         ))}
       </nav>
+      ) : null}
 
       {notice ? (
         <p className="ops-notice" role="status">
@@ -348,7 +408,7 @@ export function OpsYearWorkspace(props: { year: number }) {
         <p className="ops-empty">Loading {props.year} workspace…</p>
       ) : error ? (
         <p className="ops-empty">{error}</p>
-      ) : category === "songs" && workspace ? (
+      ) : viewMode === "workspace" && category === "songs" && workspace ? (
         <>
           <OpsYearWorkspaceSongs
             year={props.year}
@@ -363,7 +423,7 @@ export function OpsYearWorkspace(props: { year: number }) {
             onDropFilenames={(names) => void dropAssets("songs", names, null)}
           />
         </>
-      ) : productionFile ? (
+      ) : viewMode === "workspace" && productionFile ? (
         <YearWorkspaceProductionTab
           year={props.year}
           category={category}

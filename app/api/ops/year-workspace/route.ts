@@ -36,6 +36,15 @@ import {
   normalizeYearWorkspaceKeywords,
   YEAR_WORKSPACE_KEYWORDS,
 } from "@/lib/ops/year-workspace/vocabulary";
+import {
+  addAssetToProducerBlock,
+  loadProducerTimeline,
+  removeAssetFromProducerBlock,
+} from "@/lib/ops/year-workspace/producer/timeline-state";
+import type {
+  ProducerTimelineBlockId,
+} from "@/lib/ops/year-workspace/producer/types";
+import { PRODUCER_TIMELINE_BLOCKS } from "@/lib/ops/year-workspace/producer/config";
 import { inspectPing } from "@/lib/inspect/pg";
 
 export const dynamic = "force-dynamic";
@@ -78,6 +87,17 @@ function recommendationPoolMeta(
   return pools;
 }
 
+const PRODUCER_BLOCK_IDS = new Set(
+  PRODUCER_TIMELINE_BLOCKS.map((b) => b.id),
+);
+
+function parseProducerBlock(value: unknown): ProducerTimelineBlockId | null {
+  if (typeof value !== "string") return null;
+  return PRODUCER_BLOCK_IDS.has(value as ProducerTimelineBlockId)
+    ? (value as ProducerTimelineBlockId)
+    : null;
+}
+
 async function fullPayload(year: number) {
   const workspace = await loadYearWorkspace(year);
   const bundle = await loadYearWorkspaceProductionBundleForYear(
@@ -85,12 +105,14 @@ async function fullPayload(year: number) {
     workspace.completion,
   );
   const keywordState = await loadYearWorkspaceState(year);
+  const producerTimeline = await loadProducerTimeline(year);
   return {
     ok: true as const,
     year,
     workspace,
     production: bundle.production,
     summary: bundle.summary,
+    producerTimeline,
     recommendationPools: recommendationPoolMeta(year, bundle.production),
     vocabulary: YEAR_WORKSPACE_KEYWORDS,
     keywordState: {
@@ -153,6 +175,56 @@ export async function PATCH(req: Request) {
       : OPS_FOCUS_YEAR;
 
   const op = payload.op?.trim();
+
+  if (op === "producerAddToBlock" || op === "producerRemoveFromBlock") {
+    const blockId = parseProducerBlock(
+      (payload as { blockId?: string }).blockId,
+    );
+    if (!blockId) {
+      return NextResponse.json({ error: "blockId required" }, { status: 400 });
+    }
+    if (op === "producerAddToBlock") {
+      const asset = (payload as { asset?: Record<string, unknown> }).asset;
+      if (!asset || typeof asset !== "object") {
+        return NextResponse.json({ error: "asset required" }, { status: 400 });
+      }
+      const producerCategory = asset.producerCategory;
+      const productionCategory = asset.productionCategory;
+      const productionItemId = asset.productionItemId;
+      const title = asset.title;
+      if (
+        typeof producerCategory !== "string" ||
+        typeof productionCategory !== "string" ||
+        typeof productionItemId !== "string" ||
+        typeof title !== "string"
+      ) {
+        return NextResponse.json({ error: "Invalid asset" }, { status: 400 });
+      }
+      await addAssetToProducerBlock(year, blockId, {
+        producerCategory: producerCategory as Parameters<
+          typeof addAssetToProducerBlock
+        >[2]["producerCategory"],
+        productionCategory: productionCategory as Parameters<
+          typeof addAssetToProducerBlock
+        >[2]["productionCategory"],
+        productionItemId,
+        title,
+        subtitle:
+          typeof asset.subtitle === "string" ? asset.subtitle : null,
+      });
+      return NextResponse.json(await fullPayload(year));
+    }
+    const timelineAssetId = (payload as { timelineAssetId?: string })
+      .timelineAssetId?.trim();
+    if (!timelineAssetId) {
+      return NextResponse.json(
+        { error: "timelineAssetId required" },
+        { status: 400 },
+      );
+    }
+    await removeAssetFromProducerBlock(year, blockId, timelineAssetId);
+    return NextResponse.json(await fullPayload(year));
+  }
 
   if (op) {
     const category = parseCategory(payload.category);
