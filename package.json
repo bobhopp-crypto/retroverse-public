@@ -25,6 +25,9 @@
     "cover:backfill:skip-failed": "npx --yes tsx tools/run-cover-backfill-skip-failed.ts",
     "cover:backfill:safe": "npx --yes tsx tools/run-cover-backfill-safe.ts",
     "healing:review": "npx --yes tsx tools/run-healing-review.ts",
+    "ops:chart-orbit": "npx --yes tsx tools/run-chart-orbit.ts",
+    "ops:in-both-audit": "npx --yes tsx tools/run-in-both-reconciliation-audit.ts",
+    "ops:year-workspace-counts": "npx --yes tsx tools/run-year-workspace-counts.ts",
     "smoke:public-search": "node tools/smoke-public-search.mjs"
   },
   "dependencies": {

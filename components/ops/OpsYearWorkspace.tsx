@@ -1,59 +1,83 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-import { OpsPill, OpsTable } from "@/components/ops/OpsTable";
-import type { YearWorkspaceData, YearWorkspaceRow } from "@/lib/ops/year-workspace/types";
+import { YearWorkspacePanel } from "@/components/ops/year-workspace/YearWorkspacePanel";
+import type {
+  YearWorkspaceCompletion,
+  YearWorkspaceData,
+  YearWorkspaceRow,
+  YearWorkspaceWorkflowAction,
+} from "@/lib/ops/year-workspace/types";
+import { YEAR_WORKSPACE_CATEGORIES } from "@/lib/ops/year-workspace/types";
 import type { YearWorkspaceKeyword } from "@/lib/ops/year-workspace/vocabulary";
-import type { MatchStatus } from "@/lib/ops/reconciliation-model";
 
-type TabId = "in_both" | "chart_only" | "vdj_only";
-
-const TABS: { id: TabId; label: string }[] = [
-  { id: "in_both", label: "In Both" },
-  { id: "chart_only", label: "Chart Only" },
-  { id: "vdj_only", label: "VDJ Only" },
-];
-
-function toneForMatch(status: MatchStatus) {
-  if (status === "matched") return "ok";
-  if (status === "possible_match") return "info";
-  if (status === "needs_review") return "warn";
-  if (status === "ignored") return "info";
-  return "bad";
-}
-
-function matchLabel(status: MatchStatus) {
-  return status.replaceAll("_", " ").toUpperCase();
-}
-
-function KeywordChips(props: {
-  keywords: YearWorkspaceKeyword[];
-  compact?: boolean;
+function CompletionBar(props: {
+  label: string;
+  value: number;
+  max: number;
+  tone?: "ok" | "warn" | "info";
 }) {
-  if (props.keywords.length === 0) {
-    return <span className="ops-dim">—</span>;
-  }
+  const pct = props.max > 0 ? Math.round((props.value / props.max) * 100) : 0;
   return (
-    <span className={`ops-yw-keywords${props.compact ? " ops-yw-keywords--compact" : ""}`}>
-      {props.keywords.map((k) => (
-        <span key={k} className="ops-yw-keyword">
-          {k}
+    <div className="ops-yw-completion__row">
+      <div className="ops-yw-completion__label">
+        <span>{props.label}</span>
+        <span className="ops-yw-completion__nums">
+          <strong>{props.value}</strong>
+          <span className="ops-dim"> / {props.max}</span>
         </span>
-      ))}
-    </span>
+      </div>
+      <div className="ops-yw-completion__track" role="presentation">
+        <div
+          className={`ops-yw-completion__fill ops-yw-completion__fill--${props.tone ?? "info"}`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
+function YearCompletion(props: { year: number; c: YearWorkspaceCompletion }) {
+  const { c } = props;
+  return (
+    <section className="ops-yw-completion" aria-labelledby="ops-yw-completion-heading">
+      <h2 id="ops-yw-completion-heading" className="ops-yw-completion__title">
+        {props.year} Completion
+      </h2>
+      <CompletionBar label="Billboard songs" value={c.billboardTotal} max={c.billboardTotal} />
+      <CompletionBar label="Matched" value={c.matched} max={c.billboardTotal} tone="info" />
+      <CompletionBar label="In Both" value={c.inBoth} max={c.billboardTotal} tone="ok" />
+      <CompletionBar label="Missing" value={c.missing} max={c.billboardTotal} tone="warn" />
+      <CompletionBar
+        label="Reviewed"
+        value={c.reviewed}
+        max={Math.max(c.reviewed + c.chartOnlyPending, 1)}
+      />
+      <CompletionBar label="Tagged" value={c.tagged} max={c.billboardTotal} tone="ok" />
+      <p className="ops-dim ops-yw-completion__queue">
+        Review queue: <strong>{c.reviewQueue}</strong>
+        {c.chartOnlyPending > 0 ? (
+          <>
+            {" "}
+            · Chart-only pending action: <strong>{c.chartOnlyPending}</strong>
+          </>
+        ) : null}
+      </p>
+    </section>
   );
 }
 
 export function OpsYearWorkspace(props: { year: number }) {
   const [workspace, setWorkspace] = useState<YearWorkspaceData | null>(null);
   const [vocabulary, setVocabulary] = useState<YearWorkspaceKeyword[]>([]);
-  const [tab, setTab] = useState<TabId>("in_both");
+  const [category, setCategory] = useState<string>("songs");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [detailRow, setDetailRow] = useState<YearWorkspaceRow | null>(null);
   const [draftKeywords, setDraftKeywords] = useState<YearWorkspaceKeyword[]>([]);
   const [saving, setSaving] = useState(false);
+  const [busyKey, setBusyKey] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -84,13 +108,6 @@ export function OpsYearWorkspace(props: { year: number }) {
     void load();
   }, [load]);
 
-  const activeRows = useMemo(() => {
-    if (!workspace) return [];
-    if (tab === "in_both") return workspace.inBoth;
-    if (tab === "chart_only") return workspace.chartOnly;
-    return workspace.vdjOnly;
-  }, [workspace, tab]);
-
   function openDetail(row: YearWorkspaceRow) {
     setDetailRow(row);
     setDraftKeywords([...row.keywords]);
@@ -103,101 +120,92 @@ export function OpsYearWorkspace(props: { year: number }) {
     );
   }
 
+  async function patchWorkspace(body: Record<string, unknown>) {
+    const res = await fetch("/api/ops/year-workspace", {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ year: props.year, ...body }),
+    });
+    const data = (await res.json()) as {
+      ok?: boolean;
+      workspace?: YearWorkspaceData;
+      error?: string;
+    };
+    if (!res.ok || !data.ok || !data.workspace) {
+      throw new Error(data.error ?? "Save failed");
+    }
+    setWorkspace(data.workspace);
+    return data.workspace;
+  }
+
   async function saveKeywords() {
     if (!detailRow) return;
     setSaving(true);
     setNotice(null);
     try {
-      const res = await fetch("/api/ops/year-workspace", {
-        method: "PATCH",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          year: props.year,
-          workspaceKey: detailRow.workspaceKey,
-          keywords: draftKeywords,
-        }),
+      await patchWorkspace({
+        workspaceKey: detailRow.workspaceKey,
+        keywords: draftKeywords,
       });
-      const data = (await res.json()) as {
-        ok?: boolean;
-        workspace?: YearWorkspaceData;
-        error?: string;
-      };
-      if (!res.ok || !data.ok || !data.workspace) {
-        setNotice(data.error ?? "Save failed");
-        return;
-      }
-      setWorkspace(data.workspace);
       setNotice("Keywords saved");
       setDetailRow(null);
-    } catch {
-      setNotice("Save failed");
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Save failed");
     } finally {
       setSaving(false);
     }
   }
 
-  const stats = workspace?.stats;
+  async function saveChartAction(
+    row: YearWorkspaceRow,
+    action: YearWorkspaceWorkflowAction,
+  ) {
+    setBusyKey(row.workspaceKey);
+    setNotice(null);
+    try {
+      await patchWorkspace({
+        workspaceKey: row.workspaceKey,
+        chartAction: action,
+      });
+      setNotice(`${row.title}: ${action}`);
+    } catch (err) {
+      setNotice(err instanceof Error ? err.message : "Action failed");
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  const completion = workspace?.completion;
 
   return (
-    <section className="ops-yw" aria-labelledby="ops-yw-heading">
+    <div className="ops-yw">
       <header className="ops-yw__head">
         <div>
-          <h2 id="ops-yw-heading" className="ops-yw__title">
-            Year Workspace · {props.year}
-          </h2>
-          <p className="ops-dim ops-yw__subtitle">
-            Event prep — Billboard Hot 100 vs VirtualDJ performance library (VDJ year is
-            authoritative for performance universe).
-          </p>
+          <p className="ops-yw__kicker">Collection · acquisition · event prep</p>
+          <h2 className="ops-yw__title">What you have · what you need · what to do next</h2>
         </div>
         <button type="button" className="ops-btn ops-btn--info" onClick={() => void load()}>
           Refresh
         </button>
       </header>
 
-      {stats ? (
-        <div className="ops-yw-stats" role="status">
-          <span>
-            Billboard <strong>{stats.billboardTotal}</strong>
-          </span>
-          <span>
-            VDJ <strong>{stats.vdjTotal}</strong>
-          </span>
-          <span>
-            In Both <strong>{stats.inBoth}</strong>
-          </span>
-          <span>
-            Chart Only <strong>{stats.chartOnly}</strong>
-          </span>
-          <span>
-            VDJ Only <strong>{stats.vdjOnly}</strong>
-          </span>
-        </div>
-      ) : null}
+      {completion ? <YearCompletion year={props.year} c={completion} /> : null}
 
-      <div className="ops-filters" role="tablist" aria-label="Year workspace buckets">
-        {TABS.map((t) => (
+      <nav className="ops-yw-categories" aria-label="Year workspace categories">
+        {YEAR_WORKSPACE_CATEGORIES.map((cat) => (
           <button
-            key={t.id}
+            key={cat.id}
             type="button"
-            role="tab"
-            aria-selected={tab === t.id}
-            className={`ops-filter${tab === t.id ? " ops-filter--active" : ""}`}
-            onClick={() => setTab(t.id)}
+            className={`ops-yw-category${category === cat.id ? " ops-yw-category--on" : ""}${
+              !cat.active ? " ops-yw-category--soon" : ""
+            }`}
+            onClick={() => setCategory(cat.id)}
           >
-            {t.label}
-            {stats ? (
-              <span className="ops-yw-tab-count">
-                {t.id === "in_both"
-                  ? stats.inBoth
-                  : t.id === "chart_only"
-                    ? stats.chartOnly
-                    : stats.vdjOnly}
-              </span>
-            ) : null}
+            {cat.label}
+            {!cat.active ? <span className="ops-yw-category__badge">Soon</span> : null}
           </button>
         ))}
-      </div>
+      </nav>
 
       {notice ? (
         <p className="ops-notice" role="status">
@@ -209,35 +217,47 @@ export function OpsYearWorkspace(props: { year: number }) {
         <p className="ops-empty">Loading {props.year} workspace…</p>
       ) : error ? (
         <p className="ops-empty">{error}</p>
-      ) : (
-        <OpsTable
-          columns={[
-            { key: "artist", label: "Artist" },
-            { key: "title", label: "Title" },
-            { key: "peak", label: "Peak", align: "right" },
-            { key: "weeks", label: "Weeks", align: "right" },
-            { key: "status", label: "Match" },
-            { key: "keywords", label: "Keywords" },
-          ]}
-          rows={activeRows.map((row) => ({
-            id: row.id,
-            tone: toneForMatch(row.matchStatus),
-            onClick: () => openDetail(row),
-            cells: {
-              artist: <span className="ops-strong">{row.artist}</span>,
-              title: row.title,
-              peak: row.peak ?? "—",
-              weeks: row.weeks ?? "—",
-              status: (
-                <OpsPill tone={toneForMatch(row.matchStatus)}>
-                  {matchLabel(row.matchStatus)}
-                </OpsPill>
-              ),
-              keywords: <KeywordChips keywords={row.keywords} compact />,
-            },
-          }))}
-        />
-      )}
+      ) : category !== "songs" ? (
+        <p className="ops-empty ops-yw-coming-soon">Coming Soon</p>
+      ) : workspace ? (
+        <div className="ops-yw-panels">
+          <YearWorkspacePanel
+            id="yw-in-both"
+            title="In Both"
+            subtitle="Billboard Hot 100 + VDJ performance video for this year"
+            rows={workspace.inBoth}
+            busyKey={busyKey}
+            onRowClick={openDetail}
+          />
+          <YearWorkspacePanel
+            id="yw-chart-only"
+            title="Chart Only"
+            subtitle="On the Billboard year chart but not in the VDJ performance universe"
+            rows={workspace.chartOnly}
+            showWorkflowActions
+            busyKey={busyKey}
+            onRowClick={openDetail}
+            onChartAction={(row, action) => void saveChartAction(row, action)}
+          />
+          <YearWorkspacePanel
+            id="yw-vdj-only"
+            title="VDJ Only"
+            subtitle="Performance video exists but not matched to this year's Billboard chart"
+            rows={workspace.vdjOnly}
+            busyKey={busyKey}
+            onRowClick={openDetail}
+          />
+          <YearWorkspacePanel
+            id="yw-review"
+            title="Review"
+            subtitle="Needs tagging, acquisition, or verification"
+            rows={workspace.review}
+            showReviewReason
+            busyKey={busyKey}
+            onRowClick={openDetail}
+          />
+        </div>
+      ) : null}
 
       {detailRow ? (
         <div
@@ -273,20 +293,22 @@ export function OpsYearWorkspace(props: { year: number }) {
                 <dt>Bucket</dt>
                 <dd>{detailRow.bucket.replaceAll("_", " ")}</dd>
               </div>
+              {detailRow.reviewReason ? (
+                <div>
+                  <dt>Review</dt>
+                  <dd>{detailRow.reviewReason}</dd>
+                </div>
+              ) : null}
               <div>
                 <dt>Peak / Weeks</dt>
                 <dd>
                   {detailRow.peak ?? "—"} / {detailRow.weeks ?? "—"}
                 </dd>
               </div>
-              <div>
-                <dt>Match</dt>
-                <dd>{matchLabel(detailRow.matchStatus)}</dd>
-              </div>
-              {detailRow.rvtr ? (
+              {detailRow.workflowAction ? (
                 <div>
-                  <dt>RVTR</dt>
-                  <dd>{detailRow.rvtr}</dd>
+                  <dt>Workflow</dt>
+                  <dd>{detailRow.workflowAction}</dd>
                 </div>
               ) : null}
               {detailRow.vdjLabel ? (
@@ -335,6 +357,6 @@ export function OpsYearWorkspace(props: { year: number }) {
           </div>
         </div>
       ) : null}
-    </section>
+    </div>
   );
 }

@@ -1976,9 +1976,207 @@
 
 .ops-yw {
   margin-top: 1rem;
-  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ops-yw-completion {
+  padding: 0.85rem 1rem;
   border: 2px solid var(--grid);
   background: var(--panel);
+}
+
+.ops-yw-completion__title {
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ops-yw-completion__row {
+  margin-bottom: 0.45rem;
+}
+
+.ops-yw-completion__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ops-yw-completion__nums strong {
+  color: var(--ink);
+}
+
+.ops-yw-completion__track {
+  height: 0.35rem;
+  border: 1px solid var(--grid);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.ops-yw-completion__fill {
+  height: 100%;
+  transition: width 0.2s ease;
+}
+
+.ops-yw-completion__fill--info {
+  background: rgba(70, 194, 255, 0.75);
+}
+
+.ops-yw-completion__fill--ok {
+  background: rgba(47, 210, 122, 0.75);
+}
+
+.ops-yw-completion__fill--warn {
+  background: rgba(255, 160, 70, 0.75);
+}
+
+.ops-yw-completion__queue {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+}
+
+.ops-yw-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ops-yw-category {
+  padding: 0.4rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--grid);
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--dim);
+  cursor: pointer;
+}
+
+.ops-yw-category--on {
+  color: var(--ink);
+  border-color: rgba(70, 194, 255, 0.5);
+  background: rgba(70, 194, 255, 0.1);
+}
+
+.ops-yw-category--soon {
+  opacity: 0.65;
+}
+
+.ops-yw-category__badge {
+  margin-left: 0.35rem;
+  font-size: 0.62rem;
+  opacity: 0.8;
+}
+
+.ops-yw-coming-soon {
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px dashed var(--grid);
+}
+
+.ops-yw-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ops-yw-panel {
+  padding: 0.75rem 0.85rem;
+  border: 2px solid var(--grid);
+  background: var(--panel);
+}
+
+.ops-yw-panel__head {
+  margin-bottom: 0.55rem;
+}
+
+.ops-yw-panel__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ops-yw-panel__count {
+  margin-left: 0.45rem;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.85rem;
+  border: 1px solid var(--grid);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.ops-yw-panel__subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.78rem;
+}
+
+.ops-yw-panel__empty {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.ops-yw-panel__more {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px dashed var(--grid);
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+}
+
+.ops-yw-panel__more:hover {
+  color: var(--ink);
+  border-color: rgba(70, 194, 255, 0.45);
+}
+
+.ops-yw-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.ops-yw-action {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid var(--grid);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--dim);
+  cursor: pointer;
+}
+
+.ops-yw-action--on {
+  color: var(--ink);
+  border-color: rgba(47, 210, 122, 0.55);
+  background: rgba(47, 210, 122, 0.12);
+}
+
+.ops-yw-action--detail {
+  border-color: rgba(70, 194, 255, 0.35);
+}
+
+.ops-yw__kicker {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
 }
 
 .ops-yw__head {
@@ -1986,20 +2184,17 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.75rem;
+  padding: 0.85rem;
+  border: 2px solid var(--grid);
+  background: var(--panel);
 }
 
 .ops-yw__title {
-  margin: 0;
-  font-size: 1.35rem;
+  margin: 0.2rem 0 0;
+  font-size: 1.05rem;
   font-weight: 900;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.ops-yw__subtitle {
-  margin: 0.35rem 0 0;
-  max-width: 42rem;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
 }
 
 .ops-yw-stats {

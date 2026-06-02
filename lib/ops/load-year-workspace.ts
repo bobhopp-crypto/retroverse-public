@@ -7,13 +7,23 @@ import type { YearMatchRow } from "@/lib/ops/reconciliation-model";
 
 import { normalizeGraphTrackId } from "./year-workspace/graph-track-id";
 import { chartWorkspaceKey, mediaWorkspaceKey } from "./year-workspace/keys";
-import { keywordsForKey, loadYearWorkspaceState } from "./year-workspace/state";
-import type { YearWorkspaceData, YearWorkspaceRow } from "./year-workspace/types";
+import {
+  chartActionForKey,
+  keywordsForKey,
+  loadYearWorkspaceState,
+} from "./year-workspace/state";
+import type {
+  YearWorkspaceCompletion,
+  YearWorkspaceData,
+  YearWorkspaceRow,
+  YearWorkspaceWorkflowAction,
+} from "./year-workspace/types";
 
 function chartRowToWorkspace(
   row: YearMatchRow,
   bucket: "in_both" | "chart_only",
   keywords: YearWorkspaceRow["keywords"],
+  workflowAction: YearWorkspaceWorkflowAction | null,
 ): YearWorkspaceRow {
   const graphTrackId = normalizeGraphTrackId(row.graphTrackId);
   const workspaceKey = chartWorkspaceKey(graphTrackId!);
@@ -27,6 +37,8 @@ function chartRowToWorkspace(
     peak: row.peak,
     weeks: row.weeks,
     keywords,
+    workflowAction,
+    reviewReason: null,
     chartItemId: row.chartItemId,
     graphTrackId,
     rvtr: row.rvtr,
@@ -63,10 +75,11 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
     const inPerf = inPerformanceUniverse.has(graphTrackId);
     const key = chartWorkspaceKey(graphTrackId);
     const keywords = keywordsForKey(keywordState, key);
+    const workflowAction = chartActionForKey(keywordState, key);
     if (inPerf) {
-      inBoth.push(chartRowToWorkspace(row, "in_both", keywords));
+      inBoth.push(chartRowToWorkspace(row, "in_both", keywords, workflowAction));
     } else {
-      chartOnly.push(chartRowToWorkspace(row, "chart_only", keywords));
+      chartOnly.push(chartRowToWorkspace(row, "chart_only", keywords, workflowAction));
     }
   }
 
@@ -89,6 +102,8 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
       keywords: keywordsForKey(keywordState, workspaceKey),
       chartItemId: null,
       graphTrackId: mediaGraphId,
+      workflowAction: null,
+      reviewReason: null,
       rvtr: null,
       mediaId: media.mediaId,
       vdjLabel: media.label,
@@ -109,6 +124,9 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
   chartOnly.sort(sortChart);
   vdjOnly.sort((a, b) => a.artist.localeCompare(b.artist) || a.title.localeCompare(b.title));
 
+  const review = buildReviewQueue(inBoth, chartOnly, vdjOnly);
+  const completion = buildCompletion(chartRows, inBoth, chartOnly, keywordState, review.length);
+
   return {
     year,
     stats: {
@@ -118,8 +136,80 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
       chartOnly: chartOnly.length,
       vdjOnly: vdjOnly.length,
     },
+    completion,
     inBoth,
     chartOnly,
     vdjOnly,
+    review,
+  };
+}
+
+function buildReviewQueue(
+  inBoth: YearWorkspaceRow[],
+  chartOnly: YearWorkspaceRow[],
+  vdjOnly: YearWorkspaceRow[],
+): YearWorkspaceRow[] {
+  const review: YearWorkspaceRow[] = [];
+  const seen = new Set<string>();
+
+  const add = (row: YearWorkspaceRow, reason: string) => {
+    if (seen.has(row.workspaceKey)) return;
+    seen.add(row.workspaceKey);
+    review.push({ ...row, bucket: "review", reviewReason: reason });
+  };
+
+  for (const row of chartOnly) {
+    if (row.workflowAction === "skip") continue;
+    if (!row.workflowAction) {
+      add(row, "needs acquisition");
+    } else if (row.workflowAction === "review") {
+      add(row, "needs verification");
+    } else if (row.workflowAction === "acquire") {
+      add(row, "queued for acquisition");
+    }
+  }
+
+  for (const row of inBoth) {
+    if (row.keywords.length === 0) add(row, "needs tagging");
+  }
+  for (const row of vdjOnly) {
+    if (row.keywords.length === 0) add(row, "needs tagging");
+  }
+
+  review.sort((a, b) => {
+    const pa = a.peak ?? 999;
+    const pb = b.peak ?? 999;
+    if (pa !== pb) return pa - pb;
+    return a.title.localeCompare(b.title);
+  });
+
+  return review;
+}
+
+function buildCompletion(
+  chartRows: YearMatchRow[],
+  inBoth: YearWorkspaceRow[],
+  chartOnly: YearWorkspaceRow[],
+  keywordState: Awaited<ReturnType<typeof loadYearWorkspaceState>>,
+  reviewQueue: number,
+): YearWorkspaceCompletion {
+  const matched = chartRows.filter((r) => r.matchStatus === "matched").length;
+  const taggedKeys = new Set<string>();
+  for (const row of [...inBoth, ...chartOnly]) {
+    if (row.keywords.length > 0) taggedKeys.add(row.workspaceKey);
+  }
+  for (const [key, list] of Object.entries(keywordState.keywords)) {
+    if ((list?.length ?? 0) > 0) taggedKeys.add(key);
+  }
+
+  return {
+    billboardTotal: chartRows.length,
+    matched,
+    inBoth: inBoth.length,
+    missing: chartRows.filter((r) => r.matchStatus === "missing").length,
+    chartOnlyPending: chartOnly.filter((r) => !r.workflowAction).length,
+    tagged: taggedKeys.size,
+    reviewed: Object.keys(keywordState.chartActions).length,
+    reviewQueue,
   };
 }

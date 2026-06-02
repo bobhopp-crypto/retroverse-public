@@ -80,8 +80,9 @@ export default async function OpsYearWorkspacePage({ params }: Props) {
           </p>
         ) : (
           <p className="ops-banner">
-            <strong>Year Workspace</strong> — three buckets for live-event prep. Not a playlist.
-            Keywords answer &quot;why play this?&quot;
+            <strong>Year Workspace</strong> — collection and event prep for {year}. Four buckets:
+            what you have (In Both), what you need (Chart Only), extras (VDJ Only), and what to
+            work on (Review). Chart-only rows support Acquire / Skip / Review workflow (saved locally).
           </p>
         )}
 

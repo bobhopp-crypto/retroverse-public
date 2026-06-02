@@ -4,8 +4,10 @@ import { loadYearWorkspace } from "@/lib/ops/load-year-workspace";
 import { OPS_FOCUS_YEAR } from "@/lib/ops/load-ops-data";
 import {
   loadYearWorkspaceState,
+  saveYearWorkspaceChartAction,
   saveYearWorkspaceKeywords,
 } from "@/lib/ops/year-workspace/state";
+import type { YearWorkspaceWorkflowAction } from "@/lib/ops/year-workspace/types";
 import {
   normalizeYearWorkspaceKeywords,
   YEAR_WORKSPACE_KEYWORDS,
@@ -69,6 +71,7 @@ export async function PATCH(req: Request) {
     year?: number;
     workspaceKey?: string;
     keywords?: string[];
+    chartAction?: YearWorkspaceWorkflowAction | null;
   };
 
   const year =
@@ -81,21 +84,50 @@ export async function PATCH(req: Request) {
     return NextResponse.json({ error: "workspaceKey required" }, { status: 400 });
   }
 
-  const keywords = normalizeYearWorkspaceKeywords(
-    Array.isArray(payload.keywords) ? payload.keywords : [],
-  );
+  const hasKeywords = Array.isArray(payload.keywords);
+  const hasChartAction = "chartAction" in payload;
 
-  const keywordState = await saveYearWorkspaceKeywords(year, workspaceKey, keywords);
+  if (!hasKeywords && !hasChartAction) {
+    return NextResponse.json(
+      { error: "keywords or chartAction required" },
+      { status: 400 },
+    );
+  }
+
+  let keywordState = await loadYearWorkspaceState(year);
+
+  if (hasKeywords) {
+    const keywords = normalizeYearWorkspaceKeywords(payload.keywords ?? []);
+    keywordState = await saveYearWorkspaceKeywords(year, workspaceKey, keywords);
+  }
+
+  if (hasChartAction) {
+    const action = payload.chartAction ?? null;
+    if (
+      action != null &&
+      action !== "acquire" &&
+      action !== "skip" &&
+      action !== "review"
+    ) {
+      return NextResponse.json({ error: "Invalid chartAction" }, { status: 400 });
+    }
+    keywordState = await saveYearWorkspaceChartAction(year, workspaceKey, action);
+  }
+
   const workspace = await loadYearWorkspace(year);
 
   return NextResponse.json({
     ok: true,
     year,
     workspaceKey,
-    keywords,
+    keywords: hasKeywords
+      ? normalizeYearWorkspaceKeywords(payload.keywords ?? [])
+      : undefined,
+    chartAction: hasChartAction ? (payload.chartAction ?? null) : undefined,
     keywordState: {
       updatedAt: keywordState.updatedAt,
       assignedCount: Object.keys(keywordState.keywords).length,
+      chartActionCount: Object.keys(keywordState.chartActions).length,
     },
     workspace,
   });

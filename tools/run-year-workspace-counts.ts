@@ -10,6 +10,10 @@ async function main() {
   console.log(`  Chart Only: ${data.stats.chartOnly}`);
   console.log(`  VDJ Only:   ${data.stats.vdjOnly}`);
   console.log(`  VDJ total:  ${data.stats.vdjTotal}`);
+  if (data.completion) {
+    console.log(`  Matched:    ${data.completion.matched}`);
+    console.log(`  Review Q:   ${data.completion.reviewQueue}`);
+  }
 }
 
 main().catch((err) => {
