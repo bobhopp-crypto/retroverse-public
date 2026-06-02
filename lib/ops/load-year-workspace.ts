@@ -5,22 +5,18 @@ import {
 } from "@/lib/ops/load-vdj-performance-universe";
 import type { YearMatchRow } from "@/lib/ops/reconciliation-model";
 
+import { normalizeGraphTrackId } from "./year-workspace/graph-track-id";
 import { chartWorkspaceKey, mediaWorkspaceKey } from "./year-workspace/keys";
-import {
-  keywordsForKey,
-  loadYearWorkspaceState,
-} from "./year-workspace/state";
-import type {
-  YearWorkspaceData,
-  YearWorkspaceRow,
-} from "./year-workspace/types";
+import { keywordsForKey, loadYearWorkspaceState } from "./year-workspace/state";
+import type { YearWorkspaceData, YearWorkspaceRow } from "./year-workspace/types";
 
 function chartRowToWorkspace(
   row: YearMatchRow,
   bucket: "in_both" | "chart_only",
   keywords: YearWorkspaceRow["keywords"],
 ): YearWorkspaceRow {
-  const workspaceKey = chartWorkspaceKey(row.graphTrackId!);
+  const graphTrackId = normalizeGraphTrackId(row.graphTrackId);
+  const workspaceKey = chartWorkspaceKey(graphTrackId!);
   return {
     id: `ws-${row.id}`,
     workspaceKey,
@@ -32,7 +28,7 @@ function chartRowToWorkspace(
     weeks: row.weeks,
     keywords,
     chartItemId: row.chartItemId,
-    graphTrackId: row.graphTrackId,
+    graphTrackId,
     rvtr: row.rvtr,
     mediaId: row.mediaId,
     vdjLabel: row.bestMatch ?? row.label,
@@ -50,7 +46,7 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
   ]);
 
   const graphTrackIds = chartRows
-    .map((r) => r.graphTrackId)
+    .map((r) => normalizeGraphTrackId(r.graphTrackId))
     .filter((id): id is number => id != null);
   const chartTrackIdSet = new Set(graphTrackIds);
   const inPerformanceUniverse = await loadChartTrackIdsInPerformanceUniverse(
@@ -62,9 +58,10 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
   const chartOnly: YearWorkspaceRow[] = [];
 
   for (const row of chartRows) {
-    if (row.graphTrackId == null) continue;
-    const inPerf = inPerformanceUniverse.has(row.graphTrackId);
-    const key = chartWorkspaceKey(row.graphTrackId);
+    const graphTrackId = normalizeGraphTrackId(row.graphTrackId);
+    if (graphTrackId == null) continue;
+    const inPerf = inPerformanceUniverse.has(graphTrackId);
+    const key = chartWorkspaceKey(graphTrackId);
     const keywords = keywordsForKey(keywordState, key);
     if (inPerf) {
       inBoth.push(chartRowToWorkspace(row, "in_both", keywords));
@@ -75,10 +72,8 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
 
   const vdjOnly: YearWorkspaceRow[] = [];
   for (const media of vdjRows) {
-    if (
-      media.graphTrackId != null &&
-      chartTrackIdSet.has(media.graphTrackId)
-    ) {
+    const mediaGraphId = normalizeGraphTrackId(media.graphTrackId);
+    if (mediaGraphId != null && chartTrackIdSet.has(mediaGraphId)) {
       continue;
     }
     const workspaceKey = mediaWorkspaceKey(media.mediaId);
@@ -93,7 +88,7 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
       weeks: null,
       keywords: keywordsForKey(keywordState, workspaceKey),
       chartItemId: null,
-      graphTrackId: media.graphTrackId,
+      graphTrackId: mediaGraphId,
       rvtr: null,
       mediaId: media.mediaId,
       vdjLabel: media.label,
