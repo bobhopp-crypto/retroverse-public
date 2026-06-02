@@ -40,6 +40,8 @@ import {
   addAssetToProducerBlock,
   loadProducerTimeline,
   removeAssetFromProducerBlock,
+  setProducerRuntimeOverride,
+  setProducerTargetRuntimeMinutes,
 } from "@/lib/ops/year-workspace/producer/timeline-state";
 import type {
   ProducerTimelineBlockId,
@@ -176,10 +178,81 @@ export async function PATCH(req: Request) {
 
   const op = payload.op?.trim();
 
-  if (op === "producerAddToBlock" || op === "producerRemoveFromBlock") {
+  if (
+    op === "producerAddToBlock" ||
+    op === "producerRemoveFromBlock" ||
+    op === "producerSetTargetRuntime" ||
+    op === "producerSetRuntimeOverride"
+  ) {
     const blockId = parseProducerBlock(
       (payload as { blockId?: string }).blockId,
     );
+
+    if (op === "producerSetTargetRuntime") {
+      const targetRuntimeMinutes = (payload as { targetRuntimeMinutes?: number })
+        .targetRuntimeMinutes;
+      if (
+        typeof targetRuntimeMinutes !== "number" ||
+        !Number.isFinite(targetRuntimeMinutes)
+      ) {
+        return NextResponse.json(
+          { error: "targetRuntimeMinutes required" },
+          { status: 400 },
+        );
+      }
+      try {
+        await setProducerTargetRuntimeMinutes(year, targetRuntimeMinutes);
+      } catch (err) {
+        return NextResponse.json(
+          { error: err instanceof Error ? err.message : "Invalid target" },
+          { status: 400 },
+        );
+      }
+      return NextResponse.json(await fullPayload(year));
+    }
+
+    if (op === "producerSetRuntimeOverride") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const timelineAssetId = (payload as { timelineAssetId?: string })
+        .timelineAssetId?.trim();
+      if (!timelineAssetId) {
+        return NextResponse.json(
+          { error: "timelineAssetId required" },
+          { status: 400 },
+        );
+      }
+      const overrideRaw = (payload as { runtimeOverrideSeconds?: unknown })
+        .runtimeOverrideSeconds;
+      const runtimeOverrideSeconds =
+        overrideRaw === null || overrideRaw === undefined
+          ? null
+          : typeof overrideRaw === "number" && Number.isFinite(overrideRaw)
+            ? overrideRaw
+            : NaN;
+      if (Number.isNaN(runtimeOverrideSeconds as number) && overrideRaw != null) {
+        return NextResponse.json(
+          { error: "Invalid runtimeOverrideSeconds" },
+          { status: 400 },
+        );
+      }
+      try {
+        await setProducerRuntimeOverride(
+          year,
+          blockId,
+          timelineAssetId,
+          runtimeOverrideSeconds as number | null,
+        );
+      } catch (err) {
+        return NextResponse.json(
+          { error: err instanceof Error ? err.message : "Update failed" },
+          { status: 400 },
+        );
+      }
+      return NextResponse.json(await fullPayload(year));
+    }
+
     if (!blockId) {
       return NextResponse.json({ error: "blockId required" }, { status: 400 });
     }
@@ -200,6 +273,8 @@ export async function PATCH(req: Request) {
       ) {
         return NextResponse.json({ error: "Invalid asset" }, { status: 400 });
       }
+      const runtimeSeconds =
+        typeof asset.runtimeSeconds === "number" ? asset.runtimeSeconds : undefined;
       await addAssetToProducerBlock(year, blockId, {
         producerCategory: producerCategory as Parameters<
           typeof addAssetToProducerBlock
@@ -211,6 +286,8 @@ export async function PATCH(req: Request) {
         title,
         subtitle:
           typeof asset.subtitle === "string" ? asset.subtitle : null,
+        runtimeSeconds:
+          typeof runtimeSeconds === "number" ? runtimeSeconds : 0,
       });
       return NextResponse.json(await fullPayload(year));
     }

@@ -3,6 +3,7 @@ import { itemsInSection } from "../production-utils";
 import type { YearWorkspaceCategoryId, YearWorkspaceData } from "../types";
 
 import { productionCategoryForProducer } from "./config";
+import { defaultRuntimeSecondsForCategory } from "./runtime-defaults";
 import type { ProducerAssetCategoryId, ProducerLibraryAsset } from "./types";
 
 function itemToLibraryAsset(
@@ -19,6 +20,7 @@ function itemToLibraryAsset(
     title: item.title,
     subtitle: item.subtitle,
     status,
+    runtimeSeconds: defaultRuntimeSecondsForCategory(producerCategory),
   };
 }
 

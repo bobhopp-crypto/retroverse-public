@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import {
   PRODUCER_ASSET_CATEGORIES,
@@ -10,10 +10,21 @@ import {
 } from "@/lib/ops/year-workspace/producer/config";
 import { producerCountsForCategory } from "@/lib/ops/year-workspace/producer/counts";
 import { buildProducerLibraryAssets } from "@/lib/ops/year-workspace/producer/assets";
+import {
+  computeBlockRuntimes,
+  computeShowRuntimeSeconds,
+  effectiveRuntimeSeconds,
+  formatProducerDuration,
+  formatProducerMmSs,
+  parseProducerMmSs,
+  rulerMarkersMinutes,
+  showRuntimeSummary,
+} from "@/lib/ops/year-workspace/producer/runtime";
 import type {
   ProducerAssetCategoryId,
   ProducerLibraryAsset,
   ProducerNeedFoundReady,
+  ProducerTimelineAsset,
   ProducerTimelineBlockId,
   ProducerTimelineState,
 } from "@/lib/ops/year-workspace/producer/types";
@@ -35,25 +46,17 @@ type Props = {
   onPatchTimeline: (body: Record<string, unknown>) => Promise<void>;
 };
 
-function CountsRow(props: { counts: ProducerNeedFoundReady }) {
+function CountsCompact(props: { counts: ProducerNeedFoundReady }) {
   const { counts } = props;
   return (
-    <div className="ops-producer-counts">
-      <span>
-        Need: <strong>{counts.need}</strong>
-      </span>
-      <span>
-        Found: <strong>{counts.found}</strong>
-      </span>
-      <span>
-        Ready: <strong>{counts.ready}</strong>
-      </span>
+    <p className="ops-producer-counts-compact">
+      <span>N {counts.need}</span>
+      <span>F {counts.found}</span>
+      <span>R {counts.ready}</span>
       {counts.missing > 0 ? (
-        <span className="ops-producer-counts__missing">
-          Missing: <strong>{counts.missing}</strong>
-        </span>
+        <span className="ops-producer-counts-compact__miss">−{counts.missing}</span>
       ) : null}
-    </div>
+    </p>
   );
 }
 
@@ -64,26 +67,162 @@ function assetDragPayload(asset: ProducerLibraryAsset): string {
     productionItemId: asset.productionItemId,
     title: asset.title,
     subtitle: asset.subtitle,
+    runtimeSeconds: asset.runtimeSeconds,
   });
 }
 
-function parseDragPayload(raw: string): Omit<ProducerLibraryAsset, "id" | "status"> | null {
+function parseDragPayload(
+  raw: string,
+): Omit<ProducerLibraryAsset, "id" | "status"> | null {
   try {
     const o = JSON.parse(raw) as Record<string, unknown>;
     if (typeof o.producerCategory !== "string") return null;
     if (typeof o.productionCategory !== "string") return null;
     if (typeof o.productionItemId !== "string") return null;
     if (typeof o.title !== "string") return null;
+    const runtimeSeconds =
+      typeof o.runtimeSeconds === "number" && Number.isFinite(o.runtimeSeconds)
+        ? o.runtimeSeconds
+        : 60;
     return {
       producerCategory: o.producerCategory as ProducerAssetCategoryId,
       productionCategory: o.productionCategory as ProducerLibraryAsset["productionCategory"],
       productionItemId: o.productionItemId,
       title: o.title,
       subtitle: typeof o.subtitle === "string" ? o.subtitle : null,
+      runtimeSeconds,
     };
   } catch {
     return null;
   }
+}
+
+function RuntimeDotsRow(props: { label: string; seconds: number }) {
+  return (
+    <div className="ops-producer-runtime-row">
+      <span className="ops-producer-runtime-row__label">{props.label}</span>
+      <span className="ops-producer-runtime-row__dots" aria-hidden />
+      <span className="ops-producer-runtime-row__time">
+        {formatProducerDuration(props.seconds)}
+      </span>
+    </div>
+  );
+}
+
+function TimelineAssetRow(props: {
+  blockId: ProducerTimelineBlockId;
+  item: ProducerTimelineAsset;
+  busy: boolean;
+  onRemove: () => void;
+  onSetOverride: (seconds: number) => void;
+  onClearOverride: () => void;
+}) {
+  const { item } = props;
+  const effective = effectiveRuntimeSeconds(item);
+  const hasOverride =
+    item.runtimeOverrideSeconds != null &&
+    Number.isFinite(item.runtimeOverrideSeconds);
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState(() =>
+    formatProducerMmSs(hasOverride ? item.runtimeOverrideSeconds! : effective),
+  );
+
+  function openEdit() {
+    setDraft(
+      formatProducerMmSs(hasOverride ? item.runtimeOverrideSeconds! : effective),
+    );
+    setEditing(true);
+  }
+
+  async function saveEdit() {
+    const parsed = parseProducerMmSs(draft);
+    if (parsed == null) return;
+    setEditing(false);
+    await props.onSetOverride(parsed);
+  }
+
+  return (
+    <li className="ops-producer-block__item">
+      <div className="ops-producer-block__item-main">
+        <span className="ops-producer-block__item-cat">
+          {producerCategoryLabel(item.producerCategory)}
+        </span>
+        <span className="ops-producer-block__item-title">{item.title}</span>
+        {item.subtitle ? (
+          <span className="ops-dim ops-producer-block__item-sub">{item.subtitle}</span>
+        ) : null}
+        <div className="ops-producer-block__item-runtime">
+          <span className="ops-producer-block__item-runtime-used" title="Runtime used">
+            {formatProducerDuration(effective)}
+          </span>
+          <span className="ops-dim ops-producer-block__item-runtime-src" title="Source runtime">
+            src {formatProducerDuration(item.runtimeSeconds)}
+          </span>
+          {hasOverride ? (
+            <span className="ops-producer-block__item-runtime-ovr">override</span>
+          ) : null}
+        </div>
+        {editing ? (
+          <div className="ops-producer-block__item-edit">
+            <input
+              type="text"
+              className="ops-producer-runtime-input"
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              placeholder="M:SS"
+              disabled={props.busy}
+              aria-label="Runtime override"
+            />
+            <button
+              type="button"
+              className="ops-btn ops-btn--info"
+              disabled={props.busy}
+              onClick={() => void saveEdit()}
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              className="ops-btn ops-btn--ghost"
+              disabled={props.busy}
+              onClick={() => setEditing(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        ) : (
+          <div className="ops-producer-block__item-actions">
+            <button
+              type="button"
+              className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
+              disabled={props.busy}
+              onClick={openEdit}
+            >
+              Edit
+            </button>
+            {hasOverride ? (
+              <button
+                type="button"
+                className="ops-btn ops-btn--ghost ops-producer-block__runtime-btn"
+                disabled={props.busy}
+                onClick={() => void props.onClearOverride()}
+              >
+                Reset
+              </button>
+            ) : null}
+          </div>
+        )}
+      </div>
+      <button
+        type="button"
+        className="ops-btn ops-btn--ghost ops-producer-block__remove"
+        disabled={props.busy}
+        onClick={props.onRemove}
+      >
+        Remove
+      </button>
+    </li>
+  );
 }
 
 export function YearWorkspaceProducerView(props: Props) {
@@ -92,8 +231,37 @@ export function YearWorkspaceProducerView(props: Props) {
   const [dragOverBlock, setDragOverBlock] = useState<ProducerTimelineBlockId | null>(
     null,
   );
+  const [targetDraft, setTargetDraft] = useState(
+    String(props.timeline.targetRuntimeMinutes),
+  );
+
+  useEffect(() => {
+    setTargetDraft(String(props.timeline.targetRuntimeMinutes));
+  }, [props.timeline.targetRuntimeMinutes]);
 
   const completion = props.workspace?.completion;
+
+  const runtimeSummary = useMemo(
+    () => showRuntimeSummary(props.timeline),
+    [props.timeline],
+  );
+
+  const blockRuntimes = useMemo(
+    () => computeBlockRuntimes(props.timeline),
+    [props.timeline],
+  );
+
+  const showTotalSeconds = useMemo(
+    () => computeShowRuntimeSeconds(props.timeline),
+    [props.timeline],
+  );
+
+  const rulerMarkers = useMemo(
+    () => rulerMarkersMinutes(props.timeline.targetRuntimeMinutes),
+    [props.timeline.targetRuntimeMinutes],
+  );
+
+  const rulerScaleSeconds = props.timeline.targetRuntimeMinutes * 60;
 
   const dashboardCounts = useMemo(() => {
     if (!props.summary) return null;
@@ -136,7 +304,10 @@ export function YearWorkspaceProducerView(props: Props) {
   }, [libraryAssets]);
 
   const addToBlock = useCallback(
-    async (blockId: ProducerTimelineBlockId, asset: Omit<ProducerLibraryAsset, "id" | "status">) => {
+    async (
+      blockId: ProducerTimelineBlockId,
+      asset: Omit<ProducerLibraryAsset, "id" | "status">,
+    ) => {
       await props.onPatchTimeline({
         op: "producerAddToBlock",
         blockId,
@@ -156,6 +327,43 @@ export function YearWorkspaceProducerView(props: Props) {
     },
     [props],
   );
+
+  const setOverride = useCallback(
+    async (
+      blockId: ProducerTimelineBlockId,
+      timelineAssetId: string,
+      runtimeOverrideSeconds: number,
+    ) => {
+      await props.onPatchTimeline({
+        op: "producerSetRuntimeOverride",
+        blockId,
+        timelineAssetId,
+        runtimeOverrideSeconds,
+      });
+    },
+    [props],
+  );
+
+  const clearOverride = useCallback(
+    async (blockId: ProducerTimelineBlockId, timelineAssetId: string) => {
+      await props.onPatchTimeline({
+        op: "producerSetRuntimeOverride",
+        blockId,
+        timelineAssetId,
+        runtimeOverrideSeconds: null,
+      });
+    },
+    [props],
+  );
+
+  async function commitTargetRuntime() {
+    const minutes = Number(targetDraft);
+    if (!Number.isFinite(minutes) || minutes <= 0) return;
+    await props.onPatchTimeline({
+      op: "producerSetTargetRuntime",
+      targetRuntimeMinutes: Math.round(minutes),
+    });
+  }
 
   function onDragStartAsset(e: React.DragEvent, asset: ProducerLibraryAsset) {
     e.dataTransfer.setData(DRAG_MIME, assetDragPayload(asset));
@@ -197,12 +405,17 @@ export function YearWorkspaceProducerView(props: Props) {
                   draggable
                   disabled={props.busy}
                   onDragStart={(e) => onDragStartAsset(e, asset)}
-                  title="Drag onto a timeline block"
+                  title={`Drag onto timeline · ${formatProducerDuration(asset.runtimeSeconds)}`}
                 >
                   <span className="ops-producer-asset__title">{asset.title}</span>
-                  {asset.subtitle ? (
-                    <span className="ops-dim ops-producer-asset__sub">{asset.subtitle}</span>
-                  ) : null}
+                  <span className="ops-producer-asset__meta">
+                    {asset.subtitle ? (
+                      <span className="ops-dim ops-producer-asset__sub">{asset.subtitle}</span>
+                    ) : null}
+                    <span className="ops-producer-asset__dur">
+                      {formatProducerDuration(asset.runtimeSeconds)}
+                    </span>
+                  </span>
                 </button>
               </li>
             ))}
@@ -214,32 +427,23 @@ export function YearWorkspaceProducerView(props: Props) {
 
   return (
     <div className="ops-producer">
-      <header className="ops-producer__intro">
-        <p className="ops-producer__kicker">1967 · Producer View</p>
-        <h2 className="ops-producer__title">Rundown board</h2>
-        <p className="ops-dim ops-producer__hint">
-          Television-station layout — asset library on the left, show timeline on the right.
-          Drag assets into blocks. Classic Year Workspace is unchanged; switch views above.
-        </p>
-      </header>
-
       {dashboardCounts ? (
-        <section className="ops-producer-dashboard" aria-labelledby="ops-producer-dash">
+        <section
+          className="ops-producer-dashboard ops-producer-dashboard--compact"
+          aria-labelledby="ops-producer-dash"
+        >
           <h3 id="ops-producer-dash" className="ops-producer-dashboard__title">
-            Show Readiness
+            Readiness
           </h3>
           <div className="ops-producer-dashboard__grid">
-            {PRODUCER_DASHBOARD_CATEGORIES.map((id) => {
-              const counts = dashboardCounts[id];
-              return (
-                <article key={id} className="ops-producer-dashboard__card">
-                  <h4 className="ops-producer-dashboard__card-label">
-                    {producerCategoryLabel(id)}
-                  </h4>
-                  <CountsRow counts={counts} />
-                </article>
-              );
-            })}
+            {PRODUCER_DASHBOARD_CATEGORIES.map((id) => (
+              <article key={id} className="ops-producer-dashboard__card">
+                <h4 className="ops-producer-dashboard__card-label">
+                  {producerCategoryLabel(id)}
+                </h4>
+                <CountsCompact counts={dashboardCounts[id]} />
+              </article>
+            ))}
           </div>
         </section>
       ) : null}
@@ -263,7 +467,7 @@ export function YearWorkspaceProducerView(props: Props) {
           </nav>
           {libraryCounts ? (
             <div className="ops-producer-library__counts">
-              <CountsRow counts={libraryCounts} />
+              <CountsCompact counts={libraryCounts} />
             </div>
           ) : null}
           <div className="ops-producer-library__shelves">
@@ -274,10 +478,94 @@ export function YearWorkspaceProducerView(props: Props) {
         </aside>
 
         <section className="ops-producer-timeline" aria-label="Show timeline">
-          <h3 className="ops-producer-timeline__title">Show Timeline</h3>
+          <header className="ops-producer-planning">
+            <h3 className="ops-producer-timeline__title">Show Timeline</h3>
+            <div className="ops-producer-planning__targets">
+              <label className="ops-producer-planning__field">
+                <span className="ops-producer-planning__field-label">Target Runtime</span>
+                <span className="ops-producer-planning__target-input">
+                  <input
+                    type="number"
+                    min={15}
+                    max={600}
+                    step={15}
+                    className="ops-producer-target-input"
+                    value={targetDraft}
+                    disabled={props.busy}
+                    onChange={(e) => setTargetDraft(e.target.value)}
+                    onBlur={() => void commitTargetRuntime()}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") void commitTargetRuntime();
+                    }}
+                    aria-label="Target runtime minutes"
+                  />
+                  <span>min</span>
+                </span>
+              </label>
+              <div className="ops-producer-planning__live">
+                <span>
+                  <em>Current</em>{" "}
+                  <strong>
+                    {Math.round(runtimeSummary.currentSeconds / 60)} min
+                  </strong>
+                  <span className="ops-dim">
+                    {" "}
+                    ({formatProducerDuration(runtimeSummary.currentSeconds)})
+                  </span>
+                </span>
+                <span>
+                  <em>Remaining</em>{" "}
+                  <strong>
+                    {Math.round(runtimeSummary.remainingSeconds / 60)} min
+                  </strong>
+                  <span className="ops-dim">
+                    {" "}
+                    ({formatProducerDuration(runtimeSummary.remainingSeconds)})
+                  </span>
+                </span>
+              </div>
+            </div>
+          </header>
+
+          <div
+            className="ops-producer-ruler"
+            aria-label="Timeline ruler (15 minute markers)"
+            style={
+              {
+                "--ruler-scale-seconds": String(rulerScaleSeconds),
+              } as React.CSSProperties
+            }
+          >
+            <div className="ops-producer-ruler__track">
+              {rulerMarkers.map((m) => (
+                <span
+                  key={m}
+                  className="ops-producer-ruler__tick"
+                  style={{ left: `${(m * 60) / rulerScaleSeconds * 100}%` }}
+                >
+                  <span className="ops-producer-ruler__tick-label">{m}</span>
+                </span>
+              ))}
+              {blockRuntimes.map((block) =>
+                block.totalSeconds > 0 ? (
+                  <span
+                    key={block.blockId}
+                    className="ops-producer-ruler__span"
+                    title={`${block.label}: ${formatProducerDuration(block.totalSeconds)}`}
+                    style={{
+                      left: `${(block.startSeconds / rulerScaleSeconds) * 100}%`,
+                      width: `${(block.totalSeconds / rulerScaleSeconds) * 100}%`,
+                    }}
+                  />
+                ) : null,
+              )}
+            </div>
+          </div>
+
           <div className="ops-producer-timeline__stack">
             {PRODUCER_TIMELINE_BLOCKS.map((block) => {
               const items = props.timeline.blocks[block.id] ?? [];
+              const blockRuntime = blockRuntimes.find((b) => b.blockId === block.id);
               const over = dragOverBlock === block.id;
               return (
                 <article
@@ -288,7 +576,10 @@ export function YearWorkspaceProducerView(props: Props) {
                   onDrop={(e) => void onBlockDrop(e, block.id)}
                 >
                   <header className="ops-producer-block__head">
-                    <h4 className="ops-producer-block__title">{block.label}</h4>
+                    <RuntimeDotsRow
+                      label={block.label.toUpperCase()}
+                      seconds={blockRuntime?.totalSeconds ?? 0}
+                    />
                     <p className="ops-dim ops-producer-block__hint">{block.hint}</p>
                   </header>
                   {items.length === 0 ? (
@@ -296,31 +587,26 @@ export function YearWorkspaceProducerView(props: Props) {
                   ) : (
                     <ul className="ops-producer-block__list">
                       {items.map((item) => (
-                        <li key={item.id} className="ops-producer-block__item">
-                          <span className="ops-producer-block__item-cat">
-                            {producerCategoryLabel(item.producerCategory)}
-                          </span>
-                          <span className="ops-producer-block__item-title">{item.title}</span>
-                          {item.subtitle ? (
-                            <span className="ops-dim ops-producer-block__item-sub">
-                              {item.subtitle}
-                            </span>
-                          ) : null}
-                          <button
-                            type="button"
-                            className="ops-btn ops-btn--ghost ops-producer-block__remove"
-                            disabled={props.busy}
-                            onClick={() => void removeFromBlock(block.id, item.id)}
-                          >
-                            Remove
-                          </button>
-                        </li>
+                        <TimelineAssetRow
+                          key={item.id}
+                          blockId={block.id}
+                          item={item}
+                          busy={props.busy}
+                          onRemove={() => void removeFromBlock(block.id, item.id)}
+                          onSetOverride={(seconds) =>
+                            void setOverride(block.id, item.id, seconds)
+                          }
+                          onClearOverride={() => void clearOverride(block.id, item.id)}
+                        />
                       ))}
                     </ul>
                   )}
                 </article>
               );
             })}
+            <footer className="ops-producer-show-total">
+              <RuntimeDotsRow label="TOTAL SHOW" seconds={showTotalSeconds} />
+            </footer>
           </div>
         </section>
       </div>

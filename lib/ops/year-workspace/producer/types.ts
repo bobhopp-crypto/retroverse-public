@@ -37,11 +37,16 @@ export type ProducerTimelineAsset = {
   productionItemId: string;
   title: string;
   subtitle: string | null;
+  /** Source/metadata runtime in seconds. */
+  runtimeSeconds: number;
+  /** Trimmed or faded runtime; when set, used instead of runtimeSeconds. */
+  runtimeOverrideSeconds?: number | null;
 };
 
 export type ProducerTimelineState = {
   version: 1;
   year: number;
+  targetRuntimeMinutes: number;
   blocks: Record<ProducerTimelineBlockId, ProducerTimelineAsset[]>;
   updatedAt: string;
 };
@@ -54,4 +59,5 @@ export type ProducerLibraryAsset = {
   title: string;
   subtitle: string | null;
   status: "need" | "found" | "ready";
+  runtimeSeconds: number;
 };

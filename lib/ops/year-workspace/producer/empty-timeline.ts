@@ -4,6 +4,7 @@
  */
 
 import { PRODUCER_TIMELINE_BLOCKS } from "./config";
+import { PRODUCER_DEFAULT_TARGET_RUNTIME_MINUTES } from "./runtime-defaults";
 import type {
   ProducerTimelineAsset,
   ProducerTimelineBlockId,
@@ -25,6 +26,7 @@ export function emptyProducerTimeline(year: number): ProducerTimelineState {
   return {
     version: 1,
     year,
+    targetRuntimeMinutes: PRODUCER_DEFAULT_TARGET_RUNTIME_MINUTES,
     blocks: emptyProducerTimelineBlocks(),
     updatedAt: new Date().toISOString(),
   };
