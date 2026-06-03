@@ -10,6 +10,8 @@ export type VdjPoolSong = {
   bpm: string | null;
   musicalKey: string | null;
   sourceIdx: number | null;
+  /** VDJ rotation signal from database.xml — display only. */
+  playCount: number;
 };
 
 export type ShowSet = {

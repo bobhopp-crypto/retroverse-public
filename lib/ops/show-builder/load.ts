@@ -3,6 +3,7 @@ import { migrateLegacySongKeys } from "./migrate-keys";
 import { loadYearPool } from "./parse-vdjfolder";
 import { scanAvailableYears } from "./scan-my-lists";
 import { loadProjectFile, saveProjectFile } from "./state";
+import { loadVdjMetaForPaths } from "@/lib/ops/rvtags-review/vdj-lookup";
 import type {
   FlowEntry,
   ShowBuilderPayload,
@@ -10,6 +11,31 @@ import type {
   VdjPoolSong,
 } from "./types";
 import { vdjMyListsDir } from "./vdj-paths";
+
+function normPath(p: string): string {
+  return p
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/\\/g, "/")
+    .trim();
+}
+
+async function enrichPlayCounts(pools: Record<number, VdjPoolSong[]>): Promise<void> {
+  const paths = new Set<string>();
+  for (const list of Object.values(pools)) {
+    for (const song of list) paths.add(normPath(song.path));
+  }
+  if (paths.size === 0) return;
+  const vdjByPath = await loadVdjMetaForPaths([...paths]);
+  for (const list of Object.values(pools)) {
+    for (const song of list) {
+      const vdj = vdjByPath.get(normPath(song.path));
+      song.playCount =
+        typeof vdj?.playCount === "number" && Number.isFinite(vdj.playCount) ? vdj.playCount : 0;
+    }
+  }
+}
 
 export async function loadShowBuilderProject(): Promise<ShowBuilderPayload> {
   const availableYears = await scanAvailableYears();
@@ -29,6 +55,8 @@ export async function loadShowBuilderProject(): Promise<ShowBuilderPayload> {
       }
     }),
   );
+
+  await enrichPlayCounts(pools);
 
   const migrated = migrateLegacySongKeys(
     project.assignments,

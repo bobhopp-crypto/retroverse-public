@@ -3,31 +3,42 @@ import type { VdjPoolSong } from "./types";
 export type VisualClusterPaletteEntry = {
   id: string;
   color: string;
+  bg: string;
+  name: string;
   glyph: string;
 };
 
 export type SongClusterHint = {
   clusterId: string;
   color: string;
+  bg: string;
+  name: string;
   glyph: string;
   label: string;
 };
 
 export type VisualClusterResult = {
-  clusters: Array<{ id: string; color: string; glyph: string; label: string; count: number }>;
+  clusters: Array<{
+    id: string;
+    color: string;
+    bg: string;
+    name: string;
+    glyph: string;
+    label: string;
+    count: number;
+  }>;
   bySongKey: Map<string, SongClusterHint>;
 };
 
 /** Stable scan palette — suggestions only, never persisted. */
 export const CLUSTER_PALETTE: VisualClusterPaletteEntry[] = [
-  { id: "green", color: "#3ddc84", glyph: "🟩" },
-  { id: "blue", color: "#5eb8ff", glyph: "🟦" },
-  { id: "yellow", color: "#ffd54a", glyph: "🟨" },
-  { id: "purple", color: "#b48cff", glyph: "🟪" },
-  { id: "orange", color: "#ff9f43", glyph: "🟧" },
-  { id: "pink", color: "#ff7eb9", glyph: "🩷" },
-  { id: "teal", color: "#2eb8b8", glyph: "🩵" },
-  { id: "red", color: "#ff6b6b", glyph: "🟥" },
+  { id: "green", color: "#1f8f4a", bg: "#2ecc71", name: "Green", glyph: "🟩" },
+  { id: "purple", color: "#6b21a8", bg: "#a855f7", name: "Purple", glyph: "🟪" },
+  { id: "gold", color: "#92600a", bg: "#f0b429", name: "Gold", glyph: "🟨" },
+  { id: "blue", color: "#1d4ed8", bg: "#3b9eff", name: "Blue", glyph: "🟦" },
+  { id: "pink", color: "#be185d", bg: "#ff6eb4", name: "Pink", glyph: "🩷" },
+  { id: "orange", color: "#c2410c", bg: "#ff9f43", name: "Orange", glyph: "🟧" },
+  { id: "teal", color: "#0f766e", bg: "#2eb8b8", name: "Teal", glyph: "🩵" },
 ];
 
 type StyleProfile = {
@@ -218,6 +229,24 @@ const STYLE_PROFILES: StyleProfile[] = [
     artists: ["nirvana", "pearl jam", "soundgarden", "alice in chains", "ugly kid", "rem"],
     years: [1992],
   },
+  {
+    id: "novelty_tv",
+    label: "Novelty / TV",
+    keywords: [
+      "bandstand",
+      "theme",
+      "show",
+      "tv",
+      "commercial",
+      "intro",
+      "believe",
+      "monkee",
+      "batman",
+      "mash",
+    ],
+    artists: ["monkees", "archies", "lulu", "neil diamond", "box tops"],
+    years: [1967, 1978, 1992],
+  },
 ];
 
 const LABEL_BY_STYLE: Record<string, string> = Object.fromEntries(
@@ -386,6 +415,8 @@ export function clusterPoolSongs(songs: VdjPoolSong[]): VisualClusterResult {
     clusters.push({
       id: clusterId,
       color: palette.color,
+      bg: palette.bg,
+      name: palette.name,
       glyph: palette.glyph,
       label,
       count: memberIdx.length,
@@ -394,6 +425,8 @@ export function clusterPoolSongs(songs: VdjPoolSong[]): VisualClusterResult {
       bySongKey.set(songs[i].key, {
         clusterId,
         color: palette.color,
+        bg: palette.bg,
+        name: palette.name,
         glyph: palette.glyph,
         label,
       });
@@ -401,4 +434,49 @@ export function clusterPoolSongs(songs: VdjPoolSong[]): VisualClusterResult {
   });
 
   return { clusters, bySongKey };
+}
+
+function sortSongs(songs: VdjPoolSong[]): VdjPoolSong[] {
+  return [...songs].sort(
+    (a, b) => a.title.localeCompare(b.title) || a.artist.localeCompare(b.artist),
+  );
+}
+
+/** Group unassigned pool songs by cluster, sorted for visual scanning. */
+export function groupPoolByCluster(
+  unassigned: VdjPoolSong[],
+  result: VisualClusterResult,
+): Array<{ cluster: VisualClusterResult["clusters"][number]; songs: VdjPoolSong[] }> {
+  const byCluster = new Map<string, VdjPoolSong[]>();
+  for (const song of unassigned) {
+    const clusterId = result.bySongKey.get(song.key)?.clusterId ?? "__none__";
+    const list = byCluster.get(clusterId) ?? [];
+    list.push(song);
+    byCluster.set(clusterId, list);
+  }
+
+  const groups = result.clusters
+    .map((cluster) => ({
+      cluster,
+      songs: sortSongs(byCluster.get(cluster.id) ?? []),
+    }))
+    .filter((g) => g.songs.length > 0);
+
+  const leftover = sortSongs(byCluster.get("__none__") ?? []);
+  if (leftover.length > 0) {
+    groups.push({
+      cluster: {
+        id: "__none__",
+        color: "#64748b",
+        bg: "#94a3b8",
+        name: "Other",
+        glyph: "⬜",
+        label: "Other",
+        count: leftover.length,
+      },
+      songs: leftover,
+    });
+  }
+
+  return groups;
 }

@@ -51,6 +51,7 @@ export function parseVdjFolderXml(xml: string, year: number): VdjPoolSong[] {
       bpm: attrs.bpm?.trim() || null,
       musicalKey: attrs.key?.trim() || null,
       sourceIdx,
+      playCount: 0,
     });
     row += 1;
   }

@@ -5,14 +5,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ShowSongChip } from "@/components/ops/show-builder/ShowSongChip";
 import { songsInSet } from "@/lib/ops/show-builder/order";
 import { insertIntoOrder, removeFromAllOrders } from "@/lib/ops/show-builder/order";
-import { clusterPoolSongs } from "@/lib/ops/show-builder/visual-clustering";
+import { clusterPoolSongs, groupPoolByCluster } from "@/lib/ops/show-builder/visual-clustering";
 import type { SongClusterHint } from "@/lib/ops/show-builder/visual-clustering";
-import type {
-  FlowEntry,
-  ShowBuilderPayload,
-  ShowSet,
-  VdjPoolSong,
-} from "@/lib/ops/show-builder/types";
+import type { ShowBuilderPayload, ShowSet, VdjPoolSong } from "@/lib/ops/show-builder/types";
 
 const SONG_DRAG = "application/x-retroverse-show-song";
 const FLOW_DRAG = "application/x-retroverse-show-flow-index";
@@ -24,32 +19,14 @@ export function ShowBuilderWorkspace() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
-  const [selectedSetId, setSelectedSetId] = useState<string | null>(null);
+  const [activeYear, setActiveYear] = useState<number | null>(null);
+  const [dragOverSetId, setDragOverSetId] = useState<string | null>(null);
+  const [dragOverPool, setDragOverPool] = useState(false);
   const [dropHint, setDropHint] = useState<DropHint | null>(null);
   const dropHintRef = useRef<DropHint | null>(null);
   const [flowDragOver, setFlowDragOver] = useState<number | null>(null);
   const [exportName, setExportName] = useState("Sunday Night Show");
   const [aiClustering, setAiClustering] = useState(false);
-
-  const { clusterBySongKey, clusterLegendByYear } = useMemo(() => {
-    const clusterBySongKey = new Map<string, SongClusterHint>();
-    const clusterLegendByYear = new Map<
-      number,
-      ReturnType<typeof clusterPoolSongs>["clusters"]
-    >();
-    if (!aiClustering || !data) return { clusterBySongKey, clusterLegendByYear };
-    for (const year of data.selectedYears) {
-      const result = clusterPoolSongs(data.pools[year] ?? []);
-      clusterLegendByYear.set(year, result.clusters);
-      for (const [key, hint] of result.bySongKey) clusterBySongKey.set(key, hint);
-    }
-    return { clusterBySongKey, clusterLegendByYear };
-  }, [aiClustering, data]);
-
-  function clusterHint(key: string): SongClusterHint | null {
-    if (!aiClustering) return null;
-    return clusterBySongKey.get(key) ?? null;
-  }
 
   const catalog = useMemo(() => {
     const map = new Map<string, VdjPoolSong>();
@@ -59,6 +36,43 @@ export function ShowBuilderWorkspace() {
     }
     return map;
   }, [data]);
+
+  const activeYearPool =
+    data && activeYear != null ? (data.pools[activeYear] ?? []) : [];
+
+  const activeClusterResult = useMemo(() => {
+    if (!aiClustering || activeYear == null || activeYearPool.length === 0) return null;
+    return clusterPoolSongs(activeYearPool);
+  }, [aiClustering, activeYear, activeYearPool]);
+
+  const clusterBySongKey = useMemo(() => {
+    const map = new Map<string, SongClusterHint>();
+    if (!aiClustering || !data) return map;
+    if (activeClusterResult) {
+      for (const [key, hint] of activeClusterResult.bySongKey) map.set(key, hint);
+    }
+    for (const year of data.selectedYears) {
+      if (year === activeYear) continue;
+      const result = clusterPoolSongs(data.pools[year] ?? []);
+      for (const [key, hint] of result.bySongKey) map.set(key, hint);
+    }
+    return map;
+  }, [aiClustering, data, activeYear, activeClusterResult]);
+
+  const clusterLegend = activeClusterResult?.clusters ?? [];
+
+  const poolSongs =
+    data && activeYear != null ? (data.unassigned[activeYear] ?? []) : [];
+
+  const poolGroups = useMemo(() => {
+    if (!aiClustering || !activeClusterResult) return null;
+    return groupPoolByCluster(poolSongs, activeClusterResult);
+  }, [aiClustering, activeClusterResult, poolSongs]);
+
+  function clusterHint(key: string): SongClusterHint | null {
+    if (!aiClustering) return null;
+    return clusterBySongKey.get(key) ?? null;
+  }
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -72,9 +86,12 @@ export function ShowBuilderWorkspace() {
         return;
       }
       setData(json);
-      setSelectedSetId((prev) =>
-        prev && json.sets.some((s) => s.id === prev) ? prev : (json.sets[0]?.id ?? null),
-      );
+      setActiveYear((prev) => {
+        if (prev != null && json.availableYears.includes(prev)) return prev;
+        const fromSelected = json.selectedYears.find((y) => json.availableYears.includes(y));
+        if (fromSelected != null) return fromSelected;
+        return json.availableYears[0] ?? null;
+      });
     } catch {
       setError("Failed to load show builder");
       setData(null);
@@ -102,9 +119,11 @@ export function ShowBuilderWorkspace() {
     }
     if (json.exportedPath) setNotice(`Saved to ${json.exportedPath}`);
     setData(json);
-    setSelectedSetId((prev) =>
-      prev && json.sets.some((s) => s.id === prev) ? prev : (json.sets[0]?.id ?? null),
-    );
+    setActiveYear((prev) => {
+      if (prev != null && json.availableYears.includes(prev)) return prev;
+      const fromSelected = json.selectedYears.find((y) => json.availableYears.includes(y));
+      return fromSelected ?? json.availableYears[0] ?? null;
+    });
   }
 
   async function run(op: string, body: Record<string, unknown> = {}) {
@@ -177,20 +196,28 @@ export function ShowBuilderWorkspace() {
     return e.dataTransfer.getData(SONG_DRAG).trim() || null;
   }
 
+  function isLeavingDropZone(e: React.DragEvent) {
+    const rel = e.relatedTarget as Node | null;
+    return !rel || !e.currentTarget.contains(rel);
+  }
+
   function handleSongDrop(e: React.DragEvent, setId: string | null, insertBefore: string | null) {
     e.preventDefault();
     e.stopPropagation();
     setDropHintState(null);
+    setDragOverSetId(null);
+    setDragOverPool(false);
     const key = readSongKey(e);
     if (key) void assignSong(key, setId, insertBefore);
   }
 
-  function toggleYear(year: number) {
-    if (!data) return;
-    const selected = new Set(data.selectedYears);
-    if (selected.has(year)) selected.delete(year);
-    else selected.add(year);
-    void run("setSelectedYears", { selectedYears: [...selected].sort((a, b) => a - b) });
+  function selectYear(year: number) {
+    setActiveYear(year);
+    if (!data?.selectedYears.includes(year)) {
+      void run("setSelectedYears", {
+        selectedYears: [...(data?.selectedYears ?? []), year].sort((a, b) => a - b),
+      });
+    }
   }
 
   async function reorderFlow(fromIndex: number, toIndex: number) {
@@ -210,12 +237,6 @@ export function ShowBuilderWorkspace() {
     window.open(`/api/ops/show-builder?export=1&name=${name}`, "_blank");
   }
 
-  const selectedSet = data?.sets.find((s) => s.id === selectedSetId) ?? null;
-  const selectedSongs =
-    data && selectedSetId
-      ? songsInSet(selectedSetId, catalog, data.assignments, data.songOrder)
-      : [];
-
   if (loading && !data) return <p className="ops-empty">Loading show builder…</p>;
   if (error && !data) return <p className="ops-empty">{error}</p>;
   if (!data) return null;
@@ -228,281 +249,283 @@ export function ShowBuilderWorkspace() {
         </p>
       ) : null}
 
-      <section className="ops-show__panel ops-show__panel--years">
-        <h2 className="ops-show__panel-title">Year folders</h2>
-        <p className="ops-show__hint">From {data.myListsPath}</p>
-        <div className="ops-show__year-checks">
-          {data.availableYears.map((y) => (
-            <label key={y} className="ops-show__year-check">
-              <input
-                type="checkbox"
-                checked={data.selectedYears.includes(y)}
-                onChange={() => toggleYear(y)}
-              />
-              {y}
-            </label>
-          ))}
+      <header className="ops-show__toolbar">
+        <div className="ops-show__toolbar-row">
+          <div className="ops-show__year-tabs" role="tablist" aria-label="Active year">
+            {data.availableYears.map((y) => (
+              <button
+                key={y}
+                type="button"
+                role="tab"
+                aria-selected={activeYear === y}
+                className={`ops-show__year-tab${activeYear === y ? " ops-show__year-tab--active" : ""}`}
+                onClick={() => selectYear(y)}
+              >
+                {y}
+              </button>
+            ))}
+          </div>
+          <label className="ops-show__cluster-toggle">
+            <input
+              type="checkbox"
+              checked={aiClustering}
+              onChange={(e) => setAiClustering(e.target.checked)}
+            />
+            AI Clustering
+          </label>
         </div>
-        <label className="ops-show__cluster-toggle">
-          <input
-            type="checkbox"
-            checked={aiClustering}
-            onChange={(e) => setAiClustering(e.target.checked)}
-          />
-          AI Clustering
-        </label>
+        <p className="ops-show__hint">MyLists · {data.myListsPath}</p>
         {aiClustering ? (
-          <p className="ops-show__cluster-note">
-            Colored dots are visual hints only — not tags, not sets, not saved.
-          </p>
+          <p className="ops-show__cluster-note">Card colors group similar songs — drag up into sets.</p>
         ) : null}
         {data.availableYears.length === 0 ? (
           <p className="ops-empty">No YYYY.vdjfolder files found in MyLists.</p>
         ) : null}
-      </section>
+      </header>
 
-      {data.selectedYears.length > 0 ? (
+      {activeYear != null ? (
         <>
-          <section className="ops-show__pools">
-            {data.selectedYears.map((y) => (
-              <div
-                key={y}
-                className="ops-show__pool-col"
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={(e) => handleSongDrop(e, null, null)}
-              >
-                <h3 className="ops-show__pool-title">
-                  {y} Songs <span>({(data.unassigned[y] ?? []).length})</span>
-                </h3>
-                {aiClustering ? (
-                  <ul className="ops-show__cluster-legend" aria-label={`${y} visual clusters`}>
-                    {(clusterLegendByYear.get(y) ?? []).map((c) => (
-                      <li key={c.id} style={{ color: c.color }}>
-                        {c.glyph} {c.label} <span>({c.count})</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-                <div className="ops-show__chips">
-                  {(data.unassigned[y] ?? []).map((song) => (
-                    <ShowSongChip
-                      key={song.key}
-                      song={song}
-                      cluster={clusterHint(song.key)}
-                      onDragStart={onSongDragStart}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </section>
-
-          <div className="ops-show__work">
-            <section className="ops-show__panel">
-              <div className="ops-show__panel-head">
-                <h2 className="ops-show__panel-title">Sets</h2>
-                <button type="button" className="ops-show__blank" onClick={() => void run("createSet", { name: "New set" })}>
+          <section className="ops-show__sets" aria-label="Show sets">
+            <div className="ops-show__sets-head">
+              <h2 className="ops-show__panel-title">Sets</h2>
+              <div className="ops-show__sets-actions">
+                <button
+                  type="button"
+                  className="ops-show__blank"
+                  onClick={() => void run("createSet", { name: "New set" })}
+                >
                   + Add set
                 </button>
               </div>
-              <details className="ops-show__templates-drawer" open>
-                <summary>Template library</summary>
-                <div className="ops-show__templates">
-                  {data.templates.map((name) => (
-                    <button
-                      key={name}
-                      type="button"
-                      className="ops-show__template"
-                      onClick={() => void run("createSet", { name })}
-                    >
-                      {name}
-                    </button>
-                  ))}
-                </div>
-              </details>
-              <div className="ops-show__sets-grid">
-                {data.sets.map((set) => (
-                  <SetColumn
-                    key={set.id}
-                    set={set}
-                    songs={songsInSet(set.id, catalog, data.assignments, data.songOrder)}
-                    active={selectedSetId === set.id}
-                    dropHint={dropHint}
-                    onSelect={() => setSelectedSetId(set.id)}
-                    onRename={(name) => void run("renameSet", { setId: set.id, name })}
-                    onDelete={() => void run("deleteSet", { setId: set.id })}
-                    onToggleCollapse={(collapsed) =>
-                      void run("toggleCollapse", { setId: set.id, collapsed })
-                    }
-                    onAddFlow={() => void run("addFlowSet", { setId: set.id })}
-                    onDragStart={onSongDragStart}
-                    onAssign={(key, before) => void assignSong(key, set.id, before)}
-                    onDropHint={setDropHintState}
-                    onDropToPool={(e) => handleSongDrop(e, null, null)}
-                    onDropAppend={(e) => {
-                      const hint =
-                        dropHintRef.current?.setId === set.id
-                          ? dropHintRef.current.beforeKey
-                          : null;
-                      handleSongDrop(e, set.id, hint);
-                    }}
-                    clusterHint={clusterHint}
-                  />
+            </div>
+            <details className="ops-show__templates-drawer">
+              <summary>Template library</summary>
+              <div className="ops-show__templates">
+                {data.templates.map((name) => (
+                  <button
+                    key={name}
+                    type="button"
+                    className="ops-show__template"
+                    onClick={() => void run("createSet", { name })}
+                  >
+                    {name}
+                  </button>
                 ))}
               </div>
-            </section>
-
-            {selectedSet ? (
-              <section className="ops-show__panel">
-                <h2 className="ops-show__panel-title">Editing · {selectedSet.name}</h2>
-                <div
-                  className="ops-show__set-songs"
-                  onDragOver={(e) => {
-                    e.preventDefault();
-                    if (selectedSetId) setDropHintState({ setId: selectedSetId, beforeKey: null });
+            </details>
+            <div className="ops-show__sets-row">
+              {data.sets.map((set) => (
+                <SetPile
+                  key={set.id}
+                  set={set}
+                  songs={songsInSet(set.id, catalog, data.assignments, data.songOrder)}
+                  dragOver={dragOverSetId === set.id}
+                  dropHint={dropHint}
+                  clusterHint={clusterHint}
+                  onRename={(name) => void run("renameSet", { setId: set.id, name })}
+                  onDelete={() => void run("deleteSet", { setId: set.id })}
+                  onToggleCollapse={(collapsed) =>
+                    void run("toggleCollapse", { setId: set.id, collapsed })
+                  }
+                  onAddFlow={() => void run("addFlowSet", { setId: set.id })}
+                  onDragStart={onSongDragStart}
+                  onAssign={(key, before) => void assignSong(key, set.id, before)}
+                  onDropHint={setDropHintState}
+                  onDragOver={() => setDragOverSetId(set.id)}
+                  onDragLeave={(e) => {
+                    if (isLeavingDropZone(e)) {
+                      setDragOverSetId((prev) => (prev === set.id ? null : prev));
+                      if (dropHintRef.current?.setId === set.id) setDropHintState(null);
+                    }
                   }}
                   onDrop={(e) => {
                     const hint =
-                      dropHintRef.current?.setId === selectedSetId
+                      dropHintRef.current?.setId === set.id
                         ? dropHintRef.current.beforeKey
                         : null;
-                    handleSongDrop(e, selectedSetId, hint);
+                    handleSongDrop(e, set.id, hint);
                   }}
-                >
-                  {selectedSongs.map((song) => (
-                    <ShowSongChip
-                      key={song.key}
-                      song={song}
-                      compact
-                      cluster={clusterHint(song.key)}
-                      dropBefore={
-                        dropHint?.setId === selectedSetId && dropHint.beforeKey === song.key
-                      }
-                      onDragStart={onSongDragStart}
-                      onDragOverSong={() =>
-                        setDropHintState({ setId: selectedSetId!, beforeKey: song.key })
-                      }
-                      onDropOnSong={(e) => handleSongDrop(e, selectedSetId, song.key)}
-                    />
-                  ))}
-                </div>
-              </section>
-            ) : null}
+                />
+              ))}
+            </div>
+          </section>
 
-            <section className="ops-show__panel ops-show__panel--flow">
-              <div className="ops-show__panel-head">
-                <h2 className="ops-show__panel-title">Show flow</h2>
-                <button type="button" onClick={() => void run("addTransition", { note: "BTV transition" })}>
-                  + Transition
-                </button>
-              </div>
-              <ol className="ops-show__flow">
-                {data.flow.map((entry, index) => (
-                  <li key={entry.type === "set" ? `set-${entry.setId}` : `tr-${entry.id}`}>
-                    {entry.type === "set" ? (
-                      <div
-                        className={`ops-show__flow-card${flowDragOver === index ? " ops-show__flow-card--over" : ""}`}
-                        draggable
-                        onDragStart={(e) => {
-                          e.dataTransfer.setData(FLOW_DRAG, String(index));
-                          e.dataTransfer.effectAllowed = "move";
-                        }}
-                        onDragOver={(e) => {
-                          e.preventDefault();
-                          setFlowDragOver(index);
-                        }}
-                        onDrop={(e) => {
-                          e.preventDefault();
-                          const from = Number(e.dataTransfer.getData(FLOW_DRAG));
-                          setFlowDragOver(null);
-                          if (Number.isFinite(from)) void reorderFlow(from, index);
-                        }}
-                      >
-                        <span className="ops-show__flow-label">{entry.name}</span>
-                        <button
-                          type="button"
-                          className="ops-show__flow-remove"
-                          onClick={() => void run("removeFlowSet", { setId: entry.setId })}
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="ops-show__transition-card">
-                        <input
-                          className="ops-show__transition-input"
-                          value={entry.note}
-                          onChange={(e) =>
-                            setData((prev) =>
-                              prev
-                                ? {
-                                    ...prev,
-                                    flow: prev.flow.map((f) =>
-                                      f.type === "transition" && f.id === entry.id
-                                        ? { ...f, note: e.target.value }
-                                        : f,
-                                    ),
-                                  }
-                                : prev,
-                            )
-                          }
-                          onBlur={(e) =>
-                            void run("updateTransition", {
-                              transitionId: entry.id,
-                              note: e.target.value,
-                            })
-                          }
-                        />
-                        <button
-                          type="button"
-                          onClick={() => void run("removeTransition", { transitionId: entry.id })}
-                        >
-                          ×
-                        </button>
-                      </div>
-                    )}
-                    {index < data.flow.length - 1 ? (
-                      <span className="ops-show__flow-arrow" aria-hidden>
-                        ↓
-                      </span>
-                    ) : null}
+          <section
+            className={`ops-show__pool${dragOverPool ? " ops-show__pool--over" : ""}`}
+            aria-label={`${activeYear} song pool`}
+            onDragOver={(e) => {
+              e.preventDefault();
+              e.dataTransfer.dropEffect = "move";
+              setDragOverPool(true);
+              setDropHintState(null);
+            }}
+            onDragLeave={(e) => {
+              if (isLeavingDropZone(e)) setDragOverPool(false);
+            }}
+            onDrop={(e) => handleSongDrop(e, null, null)}
+          >
+            <h2 className="ops-show__pool-title">
+              {activeYear} Song Pool{" "}
+              <span className="ops-show__pool-count">{poolSongs.length}</span>
+            </h2>
+            {aiClustering && clusterLegend.length > 0 ? (
+              <ul className="ops-show__cluster-legend" aria-label={`${activeYear} visual clusters`}>
+                {clusterLegend.map((c) => (
+                  <li key={c.id}>
+                    <span className="ops-show__legend-swatch" style={{ background: c.bg }} />
+                    <span style={{ color: c.bg }}>{c.name}</span>
+                    <span className="ops-show__legend-dash">—</span>
+                    {c.label}
                   </li>
                 ))}
-              </ol>
-            </section>
-
-            <section className="ops-show__panel">
-              <h2 className="ops-show__panel-title">Export</h2>
-              <div className="ops-show__export">
-                <input
-                  value={exportName}
-                  onChange={(e) => setExportName(e.target.value)}
-                  aria-label="Playlist name"
-                />
-                <button type="button" onClick={downloadExport}>
-                  Download .vdjplaylist
-                </button>
-                <button
-                  type="button"
-                  onClick={() => void run("exportSave", { exportName })}
-                >
-                  Save to MyLists
-                </button>
+              </ul>
+            ) : null}
+            {poolGroups ? (
+              <div className="ops-show__pool-groups">
+                {poolGroups.map(({ cluster, songs }) => (
+                  <div key={cluster.id} className="ops-show__pool-group">
+                    <h3 className="ops-show__pool-group-label" style={{ color: cluster.bg }}>
+                      {cluster.name} · {cluster.label}
+                    </h3>
+                    <div className="ops-show__pool-grid">
+                      {songs.map((song) => (
+                        <ShowSongChip
+                          key={song.key}
+                          song={song}
+                          variant="pool"
+                          cluster={clusterHint(song.key)}
+                          onDragStart={onSongDragStart}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-            </section>
-          </div>
+            ) : (
+              <div className="ops-show__pool-grid">
+                {poolSongs.map((song) => (
+                  <ShowSongChip
+                    key={song.key}
+                    song={song}
+                    variant="pool"
+                    cluster={clusterHint(song.key)}
+                    onDragStart={onSongDragStart}
+                  />
+                ))}
+              </div>
+            )}
+          </section>
+
+          <section className="ops-show__panel ops-show__panel--flow">
+            <div className="ops-show__panel-head">
+              <h2 className="ops-show__panel-title">Show flow</h2>
+              <button type="button" onClick={() => void run("addTransition", { note: "BTV transition" })}>
+                + Transition
+              </button>
+            </div>
+            <ol className="ops-show__flow">
+              {data.flow.map((entry, index) => (
+                <li key={entry.type === "set" ? `set-${entry.setId}` : `tr-${entry.id}`}>
+                  {entry.type === "set" ? (
+                    <div
+                      className={`ops-show__flow-card${flowDragOver === index ? " ops-show__flow-card--over" : ""}`}
+                      draggable
+                      onDragStart={(e) => {
+                        e.dataTransfer.setData(FLOW_DRAG, String(index));
+                        e.dataTransfer.effectAllowed = "move";
+                      }}
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        setFlowDragOver(index);
+                      }}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        const from = Number(e.dataTransfer.getData(FLOW_DRAG));
+                        setFlowDragOver(null);
+                        if (Number.isFinite(from)) void reorderFlow(from, index);
+                      }}
+                    >
+                      <span className="ops-show__flow-label">{entry.name}</span>
+                      <button
+                        type="button"
+                        className="ops-show__flow-remove"
+                        onClick={() => void run("removeFlowSet", { setId: entry.setId })}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="ops-show__transition-card">
+                      <input
+                        className="ops-show__transition-input"
+                        value={entry.note}
+                        onChange={(e) =>
+                          setData((prev) =>
+                            prev
+                              ? {
+                                  ...prev,
+                                  flow: prev.flow.map((f) =>
+                                    f.type === "transition" && f.id === entry.id
+                                      ? { ...f, note: e.target.value }
+                                      : f,
+                                  ),
+                                }
+                              : prev,
+                          )
+                        }
+                        onBlur={(e) =>
+                          void run("updateTransition", {
+                            transitionId: entry.id,
+                            note: e.target.value,
+                          })
+                        }
+                      />
+                      <button
+                        type="button"
+                        onClick={() => void run("removeTransition", { transitionId: entry.id })}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                  {index < data.flow.length - 1 ? (
+                    <span className="ops-show__flow-arrow" aria-hidden>
+                      ↓
+                    </span>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section className="ops-show__panel">
+            <h2 className="ops-show__panel-title">Export</h2>
+            <div className="ops-show__export">
+              <input
+                value={exportName}
+                onChange={(e) => setExportName(e.target.value)}
+                aria-label="Playlist name"
+              />
+              <button type="button" onClick={downloadExport}>
+                Download .vdjplaylist
+              </button>
+              <button type="button" onClick={() => void run("exportSave", { exportName })}>
+                Save to MyLists
+              </button>
+            </div>
+          </section>
         </>
       ) : null}
     </div>
   );
 }
 
-function SetColumn(props: {
+function SetPile(props: {
   set: ShowSet;
   songs: VdjPoolSong[];
-  active: boolean;
+  dragOver: boolean;
   dropHint: DropHint | null;
-  onSelect: () => void;
+  clusterHint: (key: string) => SongClusterHint | null;
   onRename: (name: string) => void;
   onDelete: () => void;
   onToggleCollapse: (collapsed: boolean) => void;
@@ -510,48 +533,61 @@ function SetColumn(props: {
   onDragStart: (e: React.DragEvent, key: string) => void;
   onAssign: (key: string, before: string | null) => void;
   onDropHint: (hint: DropHint | null) => void;
-  onDropToPool: (e: React.DragEvent) => void;
-  onDropAppend: (e: React.DragEvent) => void;
-  clusterHint: (key: string) => SongClusterHint | null;
+  onDragOver: () => void;
+  onDragLeave: (e: React.DragEvent) => void;
+  onDrop: (e: React.DragEvent) => void;
 }) {
   const [name, setName] = useState(props.set.name);
   useEffect(() => setName(props.set.name), [props.set.name]);
+  const collapsed = props.set.collapsed;
 
   return (
     <div
-      className={`ops-show__set-col${props.active ? " ops-show__set-col--active" : ""}`}
-      onClick={props.onSelect}
-      onDragOver={(e) => e.preventDefault()}
-      onDrop={props.onDropAppend}
+      className={`ops-show__set${props.dragOver ? " ops-show__set--over" : ""}${collapsed ? " ops-show__set--collapsed" : ""}`}
+      onDragOver={(e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        props.onDragOver();
+        if (props.dropHint?.setId !== props.set.id) {
+          props.onDropHint({ setId: props.set.id, beforeKey: null });
+        }
+      }}
+      onDragLeave={props.onDragLeave}
+      onDrop={props.onDrop}
     >
-      <div className="ops-show__set-col-head" onClick={(e) => e.stopPropagation()}>
+      <div className="ops-show__set-head">
         <input
           className="ops-show__set-name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           onBlur={() => props.onRename(name)}
           onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
+          onDragStart={(e) => e.preventDefault()}
         />
-        <span className="ops-show__set-count">{props.set.count}</span>
-        <button type="button" onClick={() => props.onToggleCollapse(!props.set.collapsed)}>
-          {props.set.collapsed ? "Expand" : "Collapse"}
+        <span className="ops-show__set-count" aria-label={`${props.set.count} songs`}>
+          ({props.set.count})
+        </span>
+        <button type="button" className="ops-show__set-action" onClick={props.onAddFlow}>
+          Flow
         </button>
-      </div>
-      <div className="ops-show__set-col-actions" onClick={(e) => e.stopPropagation()}>
-        <button type="button" onClick={props.onAddFlow}>
-          + Flow
-        </button>
-        <button type="button" onClick={props.onDelete}>
+        <button type="button" className="ops-show__set-action" onClick={props.onDelete}>
           Delete
         </button>
+        <button
+          type="button"
+          className="ops-show__set-action"
+          onClick={() => props.onToggleCollapse(!collapsed)}
+        >
+          {collapsed ? "Expand" : "Collapse"}
+        </button>
       </div>
-      {!props.set.collapsed ? (
-        <div className="ops-show__set-col-songs">
+      {!collapsed ? (
+        <div className="ops-show__set-songs">
           {props.songs.map((song) => (
             <ShowSongChip
               key={song.key}
               song={song}
-              compact
+              variant="set"
               cluster={props.clusterHint(song.key)}
               dropBefore={
                 props.dropHint?.setId === props.set.id &&
