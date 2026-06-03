@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
+import { NeighborDiscoveryMode } from "@/components/ops/show-builder/NeighborDiscoveryPanel";
 import { ClusterComparePanel } from "@/components/ops/show-builder/ClusterComparePanel";
 import { ShowSongChip } from "@/components/ops/show-builder/ShowSongChip";
 import { songsInSet } from "@/lib/ops/show-builder/order";
@@ -24,6 +25,7 @@ export function ShowBuilderWorkspace() {
   const searchParams = useSearchParams();
   const clusterDebug = searchParams.get("clusterDebug") === "1";
   const clusterCompare = searchParams.get("clusterCompare") === "1";
+  const neighborsMode = searchParams.get("neighbors") === "1";
   const [data, setData] = useState<ShowBuilderPayload | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -450,6 +452,10 @@ export function ShowBuilderWorkspace() {
 
           {clusterCompare && activeYearPool.length > 0 ? (
             <ClusterComparePanel year={activeYear!} pool={activeYearPool} />
+          ) : null}
+
+          {neighborsMode && activeYearPool.length > 0 ? (
+            <NeighborDiscoveryMode year={activeYear!} pool={activeYearPool} />
           ) : null}
 
           <section className="ops-show__panel ops-show__panel--flow">

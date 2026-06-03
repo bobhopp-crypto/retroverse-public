@@ -397,6 +397,116 @@
   color: var(--sh-dim);
 }
 
+.ops-show__neighbors {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 2px dashed var(--sh-border);
+  background: var(--sh-panel);
+}
+
+.ops-show__neighbor-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0.75rem;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.ops-show__neighbor-pick {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--sh-border);
+  background: var(--sh-bg);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  max-width: 160px;
+}
+
+.ops-show__neighbor-pick--active {
+  border-color: var(--sh-accent);
+  background: color-mix(in srgb, var(--sh-accent) 12%, var(--sh-bg));
+}
+
+.ops-show__neighbor-pick-title {
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.ops-show__neighbor-pick-artist {
+  font-size: 0.58rem;
+  color: var(--sh-dim);
+}
+
+.ops-show__neighbor-focus {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+}
+
+.ops-show__neighbor-meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.62rem;
+  color: var(--sh-dim);
+}
+
+.ops-show__neighbor-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .ops-show__neighbor-methods {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ops-show__neighbor-col h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+}
+
+.ops-show__neighbor-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.65rem;
+}
+
+.ops-show__neighbor-list li {
+  margin-bottom: 0.2rem;
+}
+
+.ops-show__neighbor-link {
+  font: inherit;
+  font-weight: 700;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.ops-show__neighbor-artist {
+  display: block;
+  color: var(--sh-dim);
+  font-size: 0.58rem;
+}
+
+.ops-show__neighbor-score {
+  color: var(--sh-dim);
+  font-size: 0.55rem;
+  margin-left: 0.25rem;
+}
+
+.ops-show__empty-hint {
+  font-size: 0.72rem;
+  color: var(--sh-dim);
+}
+
 .ops-show__pool-grid {
   display: flex;
   flex-wrap: wrap;
