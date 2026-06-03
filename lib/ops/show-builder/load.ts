@@ -1,7 +1,8 @@
 import { SHOW_SET_TEMPLATES } from "./templates";
+import { migrateLegacySongKeys } from "./migrate-keys";
 import { loadYearPool } from "./parse-vdjfolder";
 import { scanAvailableYears } from "./scan-my-lists";
-import { loadProjectFile } from "./state";
+import { loadProjectFile, saveProjectFile } from "./state";
 import type {
   FlowEntry,
   ShowBuilderPayload,
@@ -28,6 +29,18 @@ export async function loadShowBuilderProject(): Promise<ShowBuilderPayload> {
       }
     }),
   );
+
+  const migrated = migrateLegacySongKeys(
+    project.assignments,
+    project.songOrder,
+    catalog,
+    pools,
+  );
+  if (migrated.changed) {
+    project.assignments = migrated.assignments;
+    project.songOrder = migrated.songOrder;
+    await saveProjectFile(project);
+  }
 
   const unassigned: Record<number, VdjPoolSong[]> = {};
   for (const year of project.selectedYears) {

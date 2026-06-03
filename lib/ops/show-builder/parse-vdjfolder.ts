@@ -23,19 +23,22 @@ function parseAttrs(tag: string): Record<string, string> {
   return attrs;
 }
 
-export function songKey(year: number, path: string): string {
-  return `${year}:${path}`;
+export function songKey(year: number, sourceIdx: number): string {
+  return `${year}#${sourceIdx}`;
 }
 
 export function parseVdjFolderXml(xml: string, year: number): VdjPoolSong[] {
   const songs: VdjPoolSong[] = [];
   const re = /<song\b([^>]*)\/?>/gi;
   let m: RegExpExecArray | null;
+  let row = 0;
   while ((m = re.exec(xml))) {
     const attrs = parseAttrs(m[1]);
     const path = attrs.path?.trim();
     if (!path) continue;
-    const key = songKey(year, path);
+    const parsedIdx = attrs.idx != null && attrs.idx !== "" ? Number(attrs.idx) : NaN;
+    const sourceIdx = Number.isFinite(parsedIdx) ? parsedIdx : row;
+    const key = songKey(year, sourceIdx);
     songs.push({
       key,
       year,
@@ -47,8 +50,9 @@ export function parseVdjFolderXml(xml: string, year: number): VdjPoolSong[] {
       songlength: attrs.songlength ? Number(attrs.songlength) : null,
       bpm: attrs.bpm?.trim() || null,
       musicalKey: attrs.key?.trim() || null,
-      sourceIdx: attrs.idx ? Number(attrs.idx) : null,
+      sourceIdx,
     });
+    row += 1;
   }
   return songs;
 }

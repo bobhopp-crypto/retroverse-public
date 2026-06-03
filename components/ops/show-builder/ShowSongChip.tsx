@@ -1,18 +1,20 @@
 "use client";
 
+import type { SongClusterHint } from "@/lib/ops/show-builder/visual-clustering";
 import type { VdjPoolSong } from "@/lib/ops/show-builder/types";
 
 export function ShowSongChip(props: {
   song: VdjPoolSong;
   compact?: boolean;
   dropBefore?: boolean;
+  cluster?: SongClusterHint | null;
   onDragStart?: (e: React.DragEvent, songKey: string) => void;
   onDragOverSong?: (e: React.DragEvent) => void;
   onDropOnSong?: (e: React.DragEvent) => void;
 }) {
   return (
     <div
-      className={`ops-show__chip${props.compact ? " ops-show__chip--compact" : ""}${props.dropBefore ? " ops-show__chip--drop-before" : ""}`}
+      className={`ops-show__chip${props.compact ? " ops-show__chip--compact" : ""}${props.dropBefore ? " ops-show__chip--drop-before" : ""}${props.cluster ? " ops-show__chip--clustered" : ""}`}
       draggable
       onDragStart={
         props.onDragStart
@@ -41,6 +43,16 @@ export function ShowSongChip(props: {
           : undefined
       }
     >
+      {props.cluster ? (
+        <span
+          className="ops-show__chip-cluster"
+          style={{ color: props.cluster.color }}
+          title={`${props.cluster.glyph} ${props.cluster.label} (visual hint only)`}
+          aria-label={`Visual cluster: ${props.cluster.label}`}
+        >
+          {props.cluster.glyph}
+        </span>
+      ) : null}
       <span className="ops-show__chip-artist">{props.song.artist}</span>
       <span className="ops-show__chip-title">{props.song.title}</span>
     </div>

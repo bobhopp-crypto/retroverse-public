@@ -5,6 +5,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ShowSongChip } from "@/components/ops/show-builder/ShowSongChip";
 import { songsInSet } from "@/lib/ops/show-builder/order";
 import { insertIntoOrder, removeFromAllOrders } from "@/lib/ops/show-builder/order";
+import { clusterPoolSongs } from "@/lib/ops/show-builder/visual-clustering";
+import type { SongClusterHint } from "@/lib/ops/show-builder/visual-clustering";
 import type {
   FlowEntry,
   ShowBuilderPayload,
@@ -27,6 +29,27 @@ export function ShowBuilderWorkspace() {
   const dropHintRef = useRef<DropHint | null>(null);
   const [flowDragOver, setFlowDragOver] = useState<number | null>(null);
   const [exportName, setExportName] = useState("Sunday Night Show");
+  const [aiClustering, setAiClustering] = useState(false);
+
+  const { clusterBySongKey, clusterLegendByYear } = useMemo(() => {
+    const clusterBySongKey = new Map<string, SongClusterHint>();
+    const clusterLegendByYear = new Map<
+      number,
+      ReturnType<typeof clusterPoolSongs>["clusters"]
+    >();
+    if (!aiClustering || !data) return { clusterBySongKey, clusterLegendByYear };
+    for (const year of data.selectedYears) {
+      const result = clusterPoolSongs(data.pools[year] ?? []);
+      clusterLegendByYear.set(year, result.clusters);
+      for (const [key, hint] of result.bySongKey) clusterBySongKey.set(key, hint);
+    }
+    return { clusterBySongKey, clusterLegendByYear };
+  }, [aiClustering, data]);
+
+  function clusterHint(key: string): SongClusterHint | null {
+    if (!aiClustering) return null;
+    return clusterBySongKey.get(key) ?? null;
+  }
 
   const catalog = useMemo(() => {
     const map = new Map<string, VdjPoolSong>();
@@ -220,6 +243,19 @@ export function ShowBuilderWorkspace() {
             </label>
           ))}
         </div>
+        <label className="ops-show__cluster-toggle">
+          <input
+            type="checkbox"
+            checked={aiClustering}
+            onChange={(e) => setAiClustering(e.target.checked)}
+          />
+          AI Clustering
+        </label>
+        {aiClustering ? (
+          <p className="ops-show__cluster-note">
+            Colored dots are visual hints only — not tags, not sets, not saved.
+          </p>
+        ) : null}
         {data.availableYears.length === 0 ? (
           <p className="ops-empty">No YYYY.vdjfolder files found in MyLists.</p>
         ) : null}
@@ -238,9 +274,23 @@ export function ShowBuilderWorkspace() {
                 <h3 className="ops-show__pool-title">
                   {y} Songs <span>({(data.unassigned[y] ?? []).length})</span>
                 </h3>
+                {aiClustering ? (
+                  <ul className="ops-show__cluster-legend" aria-label={`${y} visual clusters`}>
+                    {(clusterLegendByYear.get(y) ?? []).map((c) => (
+                      <li key={c.id} style={{ color: c.color }}>
+                        {c.glyph} {c.label} <span>({c.count})</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
                 <div className="ops-show__chips">
                   {(data.unassigned[y] ?? []).map((song) => (
-                    <ShowSongChip key={song.key} song={song} onDragStart={onSongDragStart} />
+                    <ShowSongChip
+                      key={song.key}
+                      song={song}
+                      cluster={clusterHint(song.key)}
+                      onDragStart={onSongDragStart}
+                    />
                   ))}
                 </div>
               </div>
@@ -296,6 +346,7 @@ export function ShowBuilderWorkspace() {
                           : null;
                       handleSongDrop(e, set.id, hint);
                     }}
+                    clusterHint={clusterHint}
                   />
                 ))}
               </div>
@@ -323,6 +374,7 @@ export function ShowBuilderWorkspace() {
                       key={song.key}
                       song={song}
                       compact
+                      cluster={clusterHint(song.key)}
                       dropBefore={
                         dropHint?.setId === selectedSetId && dropHint.beforeKey === song.key
                       }
@@ -460,6 +512,7 @@ function SetColumn(props: {
   onDropHint: (hint: DropHint | null) => void;
   onDropToPool: (e: React.DragEvent) => void;
   onDropAppend: (e: React.DragEvent) => void;
+  clusterHint: (key: string) => SongClusterHint | null;
 }) {
   const [name, setName] = useState(props.set.name);
   useEffect(() => setName(props.set.name), [props.set.name]);
@@ -499,6 +552,7 @@ function SetColumn(props: {
               key={song.key}
               song={song}
               compact
+              cluster={props.clusterHint(song.key)}
               dropBefore={
                 props.dropHint?.setId === props.set.id &&
                 props.dropHint.beforeKey === song.key
