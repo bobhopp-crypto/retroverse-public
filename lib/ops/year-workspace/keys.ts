@@ -6,6 +6,11 @@ export function chartWorkspaceKey(graphTrackId: number | string): string {
   return `chart-track-${id}`;
 }
 
-export function mediaWorkspaceKey(mediaId: number): string {
+export function mediaWorkspaceKey(mediaId: number | string): string {
   return `media-${mediaId}`;
+}
+
+/** Primary review key for VirtualDJ video-universe rows (always 1:1 with media_assets.id). */
+export function videoUniverseWorkspaceKey(mediaId: number | string): string {
+  return mediaWorkspaceKey(mediaId);
 }

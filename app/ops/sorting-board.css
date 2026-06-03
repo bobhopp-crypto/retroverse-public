@@ -1,0 +1,211 @@
+/* Sorting Board (temporary tag discovery) */
+.ops-sort-board {
+  --sort-ink: #141210;
+  --sort-paper: #f4eeda;
+  --sort-dim: #3a362e;
+  margin-top: 0.75rem;
+}
+
+.ops-sort-board__buckets {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .ops-sort-board__buckets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ops-sort-board__bucket {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border: 3px solid var(--sort-ink);
+  background: var(--sort-paper);
+  min-height: 4.5rem;
+  padding: 0.55rem 0.65rem;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.ops-sort-board__bucket--over {
+  border-color: #b45309;
+  box-shadow: inset 0 0 0 3px rgba(180, 83, 9, 0.25);
+}
+
+.ops-sort-board__bucket-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.ops-sort-board__bucket-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0.1rem 0.2rem;
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--sort-ink);
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 0;
+}
+
+.ops-sort-board__bucket-name:focus {
+  outline: none;
+  border-color: var(--teal, #1a6b6b);
+  background: #fff;
+}
+
+.ops-sort-board__bucket-count {
+  font-size: 0.95rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: var(--sort-dim);
+}
+
+.ops-sort-board__bucket-titles {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--sort-ink);
+  list-style: disc;
+}
+
+.ops-sort-board__bucket-titles li {
+  margin: 0.1rem 0;
+  word-break: break-word;
+}
+
+.ops-sort-board__bucket-more {
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--teal, #1a6b6b);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.ops-sort-board__bucket-songs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.ops-sort-board__unsorted {
+  border: 3px solid var(--sort-ink);
+  background: var(--sort-paper);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--sort-ink);
+}
+
+.ops-sort-board__unsorted--over {
+  border-color: #b45309;
+  box-shadow: inset 0 0 0 3px rgba(180, 83, 9, 0.2);
+}
+
+.ops-sort-board__unsorted-title {
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.ops-sort-board__unsorted-count {
+  font-variant-numeric: tabular-nums;
+}
+
+.ops-sort-board__song-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.ops-sort-board__song {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-width: 11rem;
+  max-width: 18rem;
+  padding: 0.45rem 0.55rem;
+  border: 2px solid var(--sort-ink);
+  background: #fff;
+  cursor: grab;
+  user-select: none;
+}
+
+.ops-sort-board__song--compact {
+  min-width: 0;
+  max-width: none;
+  width: 100%;
+  padding: 0.35rem 0.4rem;
+}
+
+.ops-sort-board__song:active {
+  cursor: grabbing;
+}
+
+.ops-sort-board__thumb {
+  flex-shrink: 0;
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: cover;
+  border: 2px solid var(--sort-ink);
+  background: #e8e4d8;
+}
+
+.ops-sort-board__thumb--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--sort-dim);
+}
+
+.ops-sort-board__song-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.ops-sort-board__song-artist {
+  font-size: 0.92rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--sort-ink);
+}
+
+.ops-sort-board__song-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--sort-ink);
+  word-break: break-word;
+}
+
+.ops-sort-board__song-plays {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--sort-dim);
+  font-variant-numeric: tabular-nums;
+}
