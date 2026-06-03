@@ -1,0 +1,23 @@
+/** Starter names only — selecting one creates an empty set, no songs. */
+export const SHOW_SET_TEMPLATES = [
+  "Opening Set",
+  "Closing Set",
+  "Singalongs",
+  "Crowd Favorites",
+  "One-Hit Wonders",
+  "TV Favorites",
+  "Summer Songs",
+  "Love Songs",
+  "Dance Set",
+  "Soul Block",
+  "Country Crossover",
+  "British Invasion",
+  "Psychedelic",
+  "Disco",
+  "Arena Rock",
+  "Alternative",
+  "Grunge",
+  "Deep Cuts",
+  "Novelty Songs",
+  "Local Favorites",
+] as const;
