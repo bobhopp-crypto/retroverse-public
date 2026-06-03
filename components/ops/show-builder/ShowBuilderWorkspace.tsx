@@ -1,11 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import { ShowSongChip } from "@/components/ops/show-builder/ShowSongChip";
 import { songsInSet } from "@/lib/ops/show-builder/order";
 import { insertIntoOrder, removeFromAllOrders } from "@/lib/ops/show-builder/order";
-import { clusterPoolSongs, groupPoolByCluster } from "@/lib/ops/show-builder/visual-clustering";
+import {
+  clusterMembershipReport,
+  clusterPoolSongs,
+  groupPoolByCluster,
+} from "@/lib/ops/show-builder/visual-clustering";
 import type { SongClusterHint } from "@/lib/ops/show-builder/visual-clustering";
 import type { ShowBuilderPayload, ShowSet, VdjPoolSong } from "@/lib/ops/show-builder/types";
 
@@ -15,6 +20,8 @@ const FLOW_DRAG = "application/x-retroverse-show-flow-index";
 type DropHint = { setId: string; beforeKey: string | null };
 
 export function ShowBuilderWorkspace() {
+  const searchParams = useSearchParams();
+  const clusterDebug = searchParams.get("clusterDebug") === "1";
   const [data, setData] = useState<ShowBuilderPayload | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -47,19 +54,17 @@ export function ShowBuilderWorkspace() {
 
   const clusterBySongKey = useMemo(() => {
     const map = new Map<string, SongClusterHint>();
-    if (!aiClustering || !data) return map;
-    if (activeClusterResult) {
-      for (const [key, hint] of activeClusterResult.bySongKey) map.set(key, hint);
-    }
-    for (const year of data.selectedYears) {
-      if (year === activeYear) continue;
-      const result = clusterPoolSongs(data.pools[year] ?? []);
-      for (const [key, hint] of result.bySongKey) map.set(key, hint);
-    }
+    if (!aiClustering || !activeClusterResult) return map;
+    for (const [key, hint] of activeClusterResult.bySongKey) map.set(key, hint);
     return map;
-  }, [aiClustering, data, activeYear, activeClusterResult]);
+  }, [aiClustering, activeClusterResult]);
 
   const clusterLegend = activeClusterResult?.clusters ?? [];
+
+  const clusterDebugRows = useMemo(() => {
+    if (!clusterDebug || !activeClusterResult || activeYearPool.length === 0) return [];
+    return clusterMembershipReport(activeYearPool, activeClusterResult);
+  }, [clusterDebug, activeClusterResult, activeYearPool]);
 
   const poolSongs =
     data && activeYear != null ? (data.unassigned[activeYear] ?? []) : [];
@@ -276,7 +281,9 @@ export function ShowBuilderWorkspace() {
         </div>
         <p className="ops-show__hint">MyLists · {data.myListsPath}</p>
         {aiClustering ? (
-          <p className="ops-show__cluster-note">Card colors group similar songs — drag up into sets.</p>
+          <p className="ops-show__cluster-note">
+            Colors group culturally similar songs — no genre labels. Drag up into sets.
+          </p>
         ) : null}
         {data.availableYears.length === 0 ? (
           <p className="ops-empty">No YYYY.vdjfolder files found in MyLists.</p>
@@ -385,7 +392,7 @@ export function ShowBuilderWorkspace() {
                 {poolGroups.map(({ cluster, songs }) => (
                   <div key={cluster.id} className="ops-show__pool-group">
                     <h3 className="ops-show__pool-group-label" style={{ color: cluster.bg }}>
-                      {cluster.name} · {cluster.label}
+                      {cluster.label}
                     </h3>
                     <div className="ops-show__pool-grid">
                       {songs.map((song) => (
@@ -414,6 +421,29 @@ export function ShowBuilderWorkspace() {
                 ))}
               </div>
             )}
+            {clusterDebug && aiClustering && clusterDebugRows.length > 0 ? (
+              <details className="ops-show__cluster-debug" open>
+                <summary>Cluster debug (dev)</summary>
+                <table className="ops-show__cluster-debug-table">
+                  <thead>
+                    <tr>
+                      <th>Cluster</th>
+                      <th>Artist</th>
+                      <th>Title</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {clusterDebugRows.map((row) => (
+                      <tr key={`${row.cluster}-${row.artist}-${row.title}`}>
+                        <td>{row.cluster}</td>
+                        <td>{row.artist}</td>
+                        <td>{row.title}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </details>
+            ) : null}
           </section>
 
           <section className="ops-show__panel ops-show__panel--flow">

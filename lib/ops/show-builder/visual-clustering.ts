@@ -1,3 +1,4 @@
+import { associationVector1967 } from "./cultural-association-1967";
 import type { VdjPoolSong } from "./types";
 
 export type VisualClusterPaletteEntry = {
@@ -14,6 +15,7 @@ export type SongClusterHint = {
   bg: string;
   name: string;
   glyph: string;
+  /** Neutral label only, e.g. "Cluster A" */
   label: string;
 };
 
@@ -39,219 +41,10 @@ export const CLUSTER_PALETTE: VisualClusterPaletteEntry[] = [
   { id: "pink", color: "#be185d", bg: "#ff6eb4", name: "Pink", glyph: "🩷" },
   { id: "orange", color: "#c2410c", bg: "#ff9f43", name: "Orange", glyph: "🟧" },
   { id: "teal", color: "#0f766e", bg: "#2eb8b8", name: "Teal", glyph: "🩵" },
+  { id: "red", color: "#b91c1c", bg: "#ef4444", name: "Red", glyph: "🟥" },
 ];
 
-type StyleProfile = {
-  id: string;
-  label: string;
-  keywords: string[];
-  artists: string[];
-  years?: number[];
-};
-
-const STYLE_PROFILES: StyleProfile[] = [
-  {
-    id: "psychedelic",
-    label: "Psychedelic",
-    keywords: [
-      "white rabbit",
-      "light my fire",
-      "purple haze",
-      "sunshine",
-      "trippy",
-      "acid",
-      "san francisco",
-      "dream",
-      "magic",
-      "strange",
-    ],
-    artists: [
-      "jefferson airplane",
-      "doors",
-      "grateful dead",
-      "jimi hendrix",
-      "cream",
-      "13th floor",
-      "strawberry alarm",
-      "country joe",
-    ],
-    years: [1967],
-  },
-  {
-    id: "sunshine_pop",
-    label: "Feel-Good Pop",
-    keywords: [
-      "happy",
-      "windy",
-      "daydream",
-      "believe",
-      "together",
-      "sunshine",
-      "love",
-      "smile",
-      "wonderful",
-      "groove",
-    ],
-    artists: [
-      "association",
-      "monkees",
-      "mamas",
-      "papas",
-      "herman's hermits",
-      "hollies",
-      "carpenters",
-      "abba",
-      "bee gees",
-    ],
-    years: [1967, 1978],
-  },
-  {
-    id: "soul_rnb",
-    label: "Soul & R&B",
-    keywords: ["soul", "respect", "groove", "funk", "shake", "chain", "fire", "feeling"],
-    artists: [
-      "aretha",
-      "otis",
-      "sam and dave",
-      "sam & dave",
-      "temptations",
-      "four tops",
-      "marvin",
-      "stevie",
-      "supremes",
-      "jackson 5",
-      "earth wind",
-      "chaka",
-      "whitney",
-      "prince",
-    ],
-    years: [1967, 1978, 1992],
-  },
-  {
-    id: "british_invasion",
-    label: "British Rock",
-    keywords: ["revolution", "yesterday", "help", "satisfaction"],
-    artists: [
-      "beatles",
-      "rolling stones",
-      "kinks",
-      "who",
-      "yardbirds",
-      "animals",
-      "hollies",
-      "dave clark",
-      "10cc",
-      "queen",
-      "police",
-      "u2",
-      "rem",
-    ],
-    years: [1967, 1978, 1992],
-  },
-  {
-    id: "folk_acoustic",
-    label: "Folk & Story Songs",
-    keywords: ["blowin", "wind", "times", "story", "home", "country", "cowboy", "friend"],
-    artists: [
-      "dylan",
-      "simon",
-      "garfunkel",
-      "peter paul",
-      "willie nelson",
-      "neil diamond",
-      "john denver",
-      "andrew gold",
-    ],
-    years: [1967, 1978, 1992],
-  },
-  {
-    id: "rock_anthem",
-    label: "Rock Anthems",
-    keywords: [
-      "fire",
-      "wild",
-      "born",
-      "highway",
-      "rock",
-      "power",
-      "now",
-      "away",
-      "surrender",
-      "moonlight",
-    ],
-    artists: [
-      "steppenwolf",
-      "hendrix",
-      "van halen",
-      "cheap trick",
-      "journey",
-      "foreigner",
-      "guns",
-      "chili peppers",
-      "warrant",
-      "def leppard",
-    ],
-    years: [1967, 1978, 1992],
-  },
-  {
-    id: "disco_dance",
-    label: "Disco & Dance",
-    keywords: ["dance", "night", "fever", "groove", "boogie", "shake", "party", "funk"],
-    artists: ["chic", "sister sledge", "village people", "kool", "snap", "ce ce"],
-    years: [1978, 1992],
-  },
-  {
-    id: "soft_ballad",
-    label: "Ballads & Soft Rock",
-    keywords: ["love", "eyes", "forever", "always", "tender", "baby", "heart", "magnet"],
-    artists: [
-      "frankie valli",
-      "barry manilow",
-      "air supply",
-      "bread",
-      "carpenters",
-      "walter egan",
-      "lulu",
-    ],
-    years: [1967, 1978, 1992],
-  },
-  {
-    id: "hip_hop",
-    label: "Hip-Hop & Street",
-    keywords: ["back", "rap", "beat", "street", "yo", "mix", "effect", "cantaloop"],
-    artists: ["sir mix", "wreckx", "us3", "public enemy", "dre", "snoop", "hammer"],
-    years: [1992],
-  },
-  {
-    id: "alt_grunge",
-    label: "Alt & Grunge",
-    keywords: ["moon", "black", "teen", "spirit", "alive", "everything", "man"],
-    artists: ["nirvana", "pearl jam", "soundgarden", "alice in chains", "ugly kid", "rem"],
-    years: [1992],
-  },
-  {
-    id: "novelty_tv",
-    label: "Novelty / TV",
-    keywords: [
-      "bandstand",
-      "theme",
-      "show",
-      "tv",
-      "commercial",
-      "intro",
-      "believe",
-      "monkee",
-      "batman",
-      "mash",
-    ],
-    artists: ["monkees", "archies", "lulu", "neil diamond", "box tops"],
-    years: [1967, 1978, 1992],
-  },
-];
-
-const LABEL_BY_STYLE: Record<string, string> = Object.fromEntries(
-  STYLE_PROFILES.map((p) => [p.id, p.label]),
-);
+const CLUSTER_LETTERS = "ABCDEFGH";
 
 function normalizeText(value: string): string {
   return value
@@ -262,34 +55,24 @@ function normalizeText(value: string): string {
     .trim();
 }
 
-function haystack(song: VdjPoolSong): string {
-  return normalizeText(`${song.artist} ${song.title} ${song.remix ?? ""}`);
-}
-
-function scoreProfile(song: VdjPoolSong, profile: StyleProfile): number {
-  const text = haystack(song);
-  let score = 0;
-  for (const kw of profile.keywords) {
-    if (text.includes(normalizeText(kw))) score += 1.2;
-  }
-  for (const artist of profile.artists) {
-    if (text.includes(normalizeText(artist))) score += 2.5;
-  }
-  if (profile.years?.includes(song.year)) score += 0.35;
-  return score;
-}
-
 function songFeatureVector(song: VdjPoolSong): number[] {
-  const scores = STYLE_PROFILES.map((p) => scoreProfile(song, p));
-  const artistBucket =
-    normalizeText(song.artist)
-      .split(" ")
-      .slice(0, 2)
-      .join(" ")
-      .charCodeAt(0) % 7;
-  scores.push(artistBucket * 0.15);
-  const sum = scores.reduce((a, b) => a + b, 0) || 1;
-  return scores.map((v) => v / sum);
+  if (song.year === 1967) {
+    return associationVector1967(song);
+  }
+  // Non-1967: artist/title token vector only (no genre lexicons)
+  const text = normalizeText(`${song.artist} ${song.title}`);
+  const tokens = text.split(" ").filter((t) => t.length > 2);
+  const dims = 12;
+  const vec = new Array(dims).fill(0);
+  for (const token of tokens) {
+    let h = 0;
+    for (let i = 0; i < token.length; i += 1) h = (h * 31 + token.charCodeAt(i)) % dims;
+    vec[h] += 1;
+  }
+  const artistKey = normalizeText(song.artist);
+  vec[dims - 1] = [...artistKey].reduce((n, c) => n + c.charCodeAt(0), 0) % 7;
+  const sum = vec.reduce((a, b) => a + b, 0) || 1;
+  return vec.map((v) => v / sum);
 }
 
 function vectorDistance(a: number[], b: number[]): number {
@@ -315,21 +98,61 @@ function pickClusterCount(songCount: number): number {
   if (songCount <= 6) return Math.max(2, Math.min(5, songCount));
   if (songCount <= 20) return 5;
   if (songCount <= 35) return 6;
-  if (songCount <= 50) return 7;
+  if (songCount <= 55) return 7;
   return 8;
 }
 
-function dominantStyleLabel(vectors: number[][], memberIdx: number[]): string {
-  const avg = averageVector(memberIdx.map((i) => vectors[i]));
-  let bestIdx = 0;
-  let best = -1;
-  for (let i = 0; i < STYLE_PROFILES.length; i += 1) {
-    if (avg[i] > best) {
-      best = avg[i];
-      bestIdx = i;
+function clusterCentroid(vectors: number[][], assignments: number[], clusterId: number): number[] {
+  const members = vectors.filter((_, i) => assignments[i] === clusterId);
+  return averageVector(members);
+}
+
+/** Fold tiny groups into nearest neighbor so palette stays readable (5–8 clusters). */
+function mergeSmallClusters(
+  vectors: number[][],
+  assignments: number[],
+  minSize: number,
+  minClusters: number,
+): number[] {
+  let next = [...assignments];
+
+  while (true) {
+    const sizes = new Map<number, number>();
+    for (const a of next) sizes.set(a, (sizes.get(a) ?? 0) + 1);
+
+    if (sizes.size <= minClusters) break;
+
+    let mergeFrom = -1;
+    let mergeSize = Infinity;
+    for (const [clusterId, size] of sizes) {
+      if (size < minSize && size < mergeSize) {
+        mergeSize = size;
+        mergeFrom = clusterId;
+      }
     }
+    if (mergeFrom < 0) break;
+
+    const fromCentroid = clusterCentroid(vectors, next, mergeFrom);
+    let mergeInto = -1;
+    let bestDist = Infinity;
+    for (const clusterId of sizes.keys()) {
+      if (clusterId === mergeFrom) continue;
+      const d = vectorDistance(fromCentroid, clusterCentroid(vectors, next, clusterId));
+      if (d < bestDist) {
+        bestDist = d;
+        mergeInto = clusterId;
+      }
+    }
+    if (mergeInto < 0) break;
+
+    next = next.map((a) => (a === mergeFrom ? mergeInto : a));
   }
-  return LABEL_BY_STYLE[STYLE_PROFILES[bestIdx].id] ?? "Pop Crossover";
+
+  return next;
+}
+
+function clusterLetter(index: number): string {
+  return `Cluster ${CLUSTER_LETTERS[index] ?? String(index + 1)}`;
 }
 
 function kMeansAssign(vectors: number[][], k: number): number[] {
@@ -356,7 +179,7 @@ function kMeansAssign(vectors: number[][], k: number): number[] {
   }
 
   const assignments = new Array(vectors.length).fill(0);
-  for (let iter = 0; iter < 12; iter += 1) {
+  for (let iter = 0; iter < 16; iter += 1) {
     for (let i = 0; i < vectors.length; i += 1) {
       let best = 0;
       let bestDist = Infinity;
@@ -377,7 +200,7 @@ function kMeansAssign(vectors: number[][], k: number): number[] {
   return assignments;
 }
 
-/** Visual-only cluster hints for a loaded pool. Does not mutate songs or sets. */
+/** Visual-only cluster hints. Neutral letters only — no genre taxonomy. */
 export function clusterPoolSongs(songs: VdjPoolSong[]): VisualClusterResult {
   const bySongKey = new Map<string, SongClusterHint>();
   if (songs.length === 0) {
@@ -386,7 +209,8 @@ export function clusterPoolSongs(songs: VdjPoolSong[]): VisualClusterResult {
 
   const vectors = songs.map(songFeatureVector);
   const k = pickClusterCount(songs.length);
-  const assignments = kMeansAssign(vectors, k);
+  let assignments = kMeansAssign(vectors, k);
+  assignments = mergeSmallClusters(vectors, assignments, 3, 5);
 
   const groups = new Map<number, number[]>();
   for (let i = 0; i < assignments.length; i += 1) {
@@ -396,22 +220,13 @@ export function clusterPoolSongs(songs: VdjPoolSong[]): VisualClusterResult {
     groups.set(g, list);
   }
 
-  const sortedGroups = [...groups.entries()].sort((a, b) => a[0] - b[0]);
+  const sortedGroups = [...groups.entries()].sort((a, b) => b[1].length - a[1].length);
   const clusters: VisualClusterResult["clusters"] = [];
-  const usedLabels = new Set<string>();
 
-  sortedGroups.forEach(([groupIdx, memberIdx], paletteIdx) => {
+  sortedGroups.forEach(([, memberIdx], paletteIdx) => {
     const palette = CLUSTER_PALETTE[paletteIdx % CLUSTER_PALETTE.length];
-    let label = dominantStyleLabel(vectors, memberIdx);
-    if (usedLabels.has(label)) {
-      const avg = averageVector(memberIdx.map((i) => vectors[i]));
-      const ranked = STYLE_PROFILES.map((p, i) => ({ label: p.label, score: avg[i] }))
-        .sort((a, b) => b.score - a.score)
-        .map((r) => r.label);
-      label = ranked.find((l) => !usedLabels.has(l)) ?? `${label} ${paletteIdx + 1}`;
-    }
-    usedLabels.add(label);
-    const clusterId = `${palette.id}-${groupIdx}`;
+    const label = clusterLetter(paletteIdx);
+    const clusterId = `${palette.id}-${label.replace(" ", "-").toLowerCase()}`;
     clusters.push({
       id: clusterId,
       color: palette.color,
@@ -469,9 +284,9 @@ export function groupPoolByCluster(
         id: "__none__",
         color: "#64748b",
         bg: "#94a3b8",
-        name: "Other",
+        name: "Gray",
         glyph: "⬜",
-        label: "Other",
+        label: "Cluster ?",
         count: leftover.length,
       },
       songs: leftover,
@@ -479,4 +294,16 @@ export function groupPoolByCluster(
   }
 
   return groups;
+}
+
+/** Dev evaluation: full pool membership for active year. */
+export function clusterMembershipReport(
+  songs: VdjPoolSong[],
+  result: VisualClusterResult,
+): Array<{ cluster: string; artist: string; title: string }> {
+  return sortSongs(songs).map((song) => ({
+    cluster: result.bySongKey.get(song.key)?.label ?? "—",
+    artist: song.artist,
+    title: song.title,
+  }));
 }

@@ -322,6 +322,36 @@
   letter-spacing: 0.04em;
 }
 
+.ops-show__cluster-debug {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+}
+
+.ops-show__cluster-debug summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--sh-dim);
+  margin-bottom: 0.25rem;
+}
+
+.ops-show__cluster-debug-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.68rem;
+}
+
+.ops-show__cluster-debug-table th,
+.ops-show__cluster-debug-table td {
+  border: 1px solid var(--sh-border);
+  padding: 0.2rem 0.35rem;
+  text-align: left;
+}
+
+.ops-show__cluster-debug-table th {
+  font-weight: 900;
+  background: var(--sh-bg);
+}
+
 .ops-show__pool-grid {
   display: flex;
   flex-wrap: wrap;

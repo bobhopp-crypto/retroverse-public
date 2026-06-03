@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 import { ShowBuilderWorkspace } from "@/components/ops/show-builder/ShowBuilderWorkspace";
 
@@ -39,7 +40,9 @@ export default function ShowBuilderPage() {
           Import year lists from MyLists → drag into sets → arrange show flow → export
           .vdjplaylist back to VirtualDJ.
         </p>
-        <ShowBuilderWorkspace />
+        <Suspense fallback={<p className="ops-empty">Loading show builder…</p>}>
+          <ShowBuilderWorkspace />
+        </Suspense>
       </div>
     </main>
   );

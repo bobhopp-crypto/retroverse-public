@@ -25,7 +25,7 @@ export function ShowSongChip(props: {
       className={`ops-show__chip ops-show__chip--${props.variant ?? "pool"}${clustered ? " ops-show__chip--clustered" : ""}${props.dropBefore ? " ops-show__chip--drop-before" : ""}`}
       style={style}
       draggable
-      title={clustered ? `${props.cluster!.name} · ${props.cluster!.label} (visual hint)` : undefined}
+      title={clustered ? `${props.cluster!.label} (${props.cluster!.name})` : undefined}
       onDragStart={
         props.onDragStart
           ? (e) => {
