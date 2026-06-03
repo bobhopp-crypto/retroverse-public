@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
+import { ClusterComparePanel } from "@/components/ops/show-builder/ClusterComparePanel";
 import { ShowSongChip } from "@/components/ops/show-builder/ShowSongChip";
 import { songsInSet } from "@/lib/ops/show-builder/order";
 import { insertIntoOrder, removeFromAllOrders } from "@/lib/ops/show-builder/order";
@@ -22,6 +23,7 @@ type DropHint = { setId: string; beforeKey: string | null };
 export function ShowBuilderWorkspace() {
   const searchParams = useSearchParams();
   const clusterDebug = searchParams.get("clusterDebug") === "1";
+  const clusterCompare = searchParams.get("clusterCompare") === "1";
   const [data, setData] = useState<ShowBuilderPayload | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -445,6 +447,10 @@ export function ShowBuilderWorkspace() {
               </details>
             ) : null}
           </section>
+
+          {clusterCompare && activeYearPool.length > 0 ? (
+            <ClusterComparePanel year={activeYear!} pool={activeYearPool} />
+          ) : null}
 
           <section className="ops-show__panel ops-show__panel--flow">
             <div className="ops-show__panel-head">

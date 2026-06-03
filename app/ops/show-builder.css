@@ -352,6 +352,51 @@
   background: var(--sh-bg);
 }
 
+.ops-show__cluster-compare {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 2px dashed var(--sh-border);
+  background: var(--sh-panel);
+}
+
+.ops-show__cluster-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 1100px) {
+  .ops-show__cluster-compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ops-show__cluster-compare-col {
+  min-width: 0;
+  font-size: 0.65rem;
+}
+
+.ops-show__cluster-compare-head {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.ops-show__cluster-compare-score {
+  display: block;
+  font-weight: 600;
+  color: var(--sh-dim);
+  font-size: 0.62rem;
+}
+
+.ops-show__cluster-seeds {
+  margin: 0 0 0.35rem;
+  padding-left: 1rem;
+  font-size: 0.62rem;
+  color: var(--sh-dim);
+}
+
 .ops-show__pool-grid {
   display: flex;
   flex-wrap: wrap;

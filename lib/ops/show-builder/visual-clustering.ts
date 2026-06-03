@@ -1,4 +1,6 @@
-import { associationVector1967 } from "./cultural-association-1967";
+import { runClustering, type ClusterRunResult } from "./clustering";
+import { runMethodA } from "./clustering/method-a-cultural";
+import { CLUSTER_PALETTE, paletteGlyph } from "./clustering/palette";
 import type { VdjPoolSong } from "./types";
 
 export type VisualClusterPaletteEntry = {
@@ -8,6 +10,9 @@ export type VisualClusterPaletteEntry = {
   name: string;
   glyph: string;
 };
+
+/** Re-export for UI consumers */
+export { CLUSTER_PALETTE };
 
 export type SongClusterHint = {
   clusterId: string;
@@ -32,68 +37,6 @@ export type VisualClusterResult = {
   bySongKey: Map<string, SongClusterHint>;
 };
 
-/** Stable scan palette — suggestions only, never persisted. */
-export const CLUSTER_PALETTE: VisualClusterPaletteEntry[] = [
-  { id: "green", color: "#1f8f4a", bg: "#2ecc71", name: "Green", glyph: "🟩" },
-  { id: "purple", color: "#6b21a8", bg: "#a855f7", name: "Purple", glyph: "🟪" },
-  { id: "gold", color: "#92600a", bg: "#f0b429", name: "Gold", glyph: "🟨" },
-  { id: "blue", color: "#1d4ed8", bg: "#3b9eff", name: "Blue", glyph: "🟦" },
-  { id: "pink", color: "#be185d", bg: "#ff6eb4", name: "Pink", glyph: "🩷" },
-  { id: "orange", color: "#c2410c", bg: "#ff9f43", name: "Orange", glyph: "🟧" },
-  { id: "teal", color: "#0f766e", bg: "#2eb8b8", name: "Teal", glyph: "🩵" },
-  { id: "red", color: "#b91c1c", bg: "#ef4444", name: "Red", glyph: "🟥" },
-];
-
-const CLUSTER_LETTERS = "ABCDEFGH";
-
-function normalizeText(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/['’]/g, "")
-    .replace(/[^a-z0-9\s&]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function songFeatureVector(song: VdjPoolSong): number[] {
-  if (song.year === 1967) {
-    return associationVector1967(song);
-  }
-  // Non-1967: artist/title token vector only (no genre lexicons)
-  const text = normalizeText(`${song.artist} ${song.title}`);
-  const tokens = text.split(" ").filter((t) => t.length > 2);
-  const dims = 12;
-  const vec = new Array(dims).fill(0);
-  for (const token of tokens) {
-    let h = 0;
-    for (let i = 0; i < token.length; i += 1) h = (h * 31 + token.charCodeAt(i)) % dims;
-    vec[h] += 1;
-  }
-  const artistKey = normalizeText(song.artist);
-  vec[dims - 1] = [...artistKey].reduce((n, c) => n + c.charCodeAt(0), 0) % 7;
-  const sum = vec.reduce((a, b) => a + b, 0) || 1;
-  return vec.map((v) => v / sum);
-}
-
-function vectorDistance(a: number[], b: number[]): number {
-  let sum = 0;
-  for (let i = 0; i < a.length; i += 1) {
-    const d = a[i] - b[i];
-    sum += d * d;
-  }
-  return Math.sqrt(sum);
-}
-
-function averageVector(vectors: number[][]): number[] {
-  if (vectors.length === 0) return [];
-  const dim = vectors[0].length;
-  const out = new Array(dim).fill(0);
-  for (const v of vectors) {
-    for (let i = 0; i < dim; i += 1) out[i] += v[i];
-  }
-  return out.map((v) => v / vectors.length);
-}
-
 function pickClusterCount(songCount: number): number {
   if (songCount <= 6) return Math.max(2, Math.min(5, songCount));
   if (songCount <= 20) return 5;
@@ -102,153 +45,107 @@ function pickClusterCount(songCount: number): number {
   return 8;
 }
 
-function clusterCentroid(vectors: number[][], assignments: number[], clusterId: number): number[] {
-  const members = vectors.filter((_, i) => assignments[i] === clusterId);
-  return averageVector(members);
-}
+function clusterRunToVisual(run: ClusterRunResult, songs: VdjPoolSong[]): VisualClusterResult {
+  const bySongKey = new Map<string, SongClusterHint>();
+  const clusters: VisualClusterResult["clusters"] = run.clusters.map((c) => ({
+    id: c.id,
+    color: c.color,
+    bg: c.bg,
+    name: c.name,
+    glyph: paletteGlyph(c.id),
+    label: c.label,
+    count: c.count,
+  }));
 
-/** Fold tiny groups into nearest neighbor so palette stays readable (5–8 clusters). */
-function mergeSmallClusters(
-  vectors: number[][],
-  assignments: number[],
-  minSize: number,
-  minClusters: number,
-): number[] {
-  let next = [...assignments];
-
-  while (true) {
-    const sizes = new Map<number, number>();
-    for (const a of next) sizes.set(a, (sizes.get(a) ?? 0) + 1);
-
-    if (sizes.size <= minClusters) break;
-
-    let mergeFrom = -1;
-    let mergeSize = Infinity;
-    for (const [clusterId, size] of sizes) {
-      if (size < minSize && size < mergeSize) {
-        mergeSize = size;
-        mergeFrom = clusterId;
-      }
-    }
-    if (mergeFrom < 0) break;
-
-    const fromCentroid = clusterCentroid(vectors, next, mergeFrom);
-    let mergeInto = -1;
-    let bestDist = Infinity;
-    for (const clusterId of sizes.keys()) {
-      if (clusterId === mergeFrom) continue;
-      const d = vectorDistance(fromCentroid, clusterCentroid(vectors, next, clusterId));
-      if (d < bestDist) {
-        bestDist = d;
-        mergeInto = clusterId;
-      }
-    }
-    if (mergeInto < 0) break;
-
-    next = next.map((a) => (a === mergeFrom ? mergeInto : a));
-  }
-
-  return next;
-}
-
-function clusterLetter(index: number): string {
-  return `Cluster ${CLUSTER_LETTERS[index] ?? String(index + 1)}`;
-}
-
-function kMeansAssign(vectors: number[][], k: number): number[] {
-  if (vectors.length === 0) return [];
-  const kClamped = Math.min(k, vectors.length);
-  const centroids: number[][] = [];
-  const used = new Set<number>();
-  centroids.push([...vectors[0]]);
-  used.add(0);
-  while (centroids.length < kClamped) {
-    let bestIdx = -1;
-    let bestDist = -1;
-    for (let i = 0; i < vectors.length; i += 1) {
-      if (used.has(i)) continue;
-      const nearest = Math.min(...centroids.map((c) => vectorDistance(c, vectors[i])));
-      if (nearest > bestDist) {
-        bestDist = nearest;
-        bestIdx = i;
-      }
-    }
-    if (bestIdx < 0) break;
-    centroids.push([...vectors[bestIdx]]);
-    used.add(bestIdx);
-  }
-
-  const assignments = new Array(vectors.length).fill(0);
-  for (let iter = 0; iter < 16; iter += 1) {
-    for (let i = 0; i < vectors.length; i += 1) {
-      let best = 0;
-      let bestDist = Infinity;
-      for (let c = 0; c < centroids.length; c += 1) {
-        const d = vectorDistance(centroids[c], vectors[i]);
-        if (d < bestDist) {
-          bestDist = d;
-          best = c;
-        }
-      }
-      assignments[i] = best;
-    }
-    for (let c = 0; c < centroids.length; c += 1) {
-      const members = vectors.filter((_, i) => assignments[i] === c);
-      if (members.length > 0) centroids[c] = averageVector(members);
+  const byIdentity = new Map<string, SongClusterHint>();
+  for (const c of run.clusters) {
+    const hint: SongClusterHint = {
+      clusterId: c.id,
+      color: c.color,
+      bg: c.bg,
+      name: c.name,
+      glyph: paletteGlyph(c.id),
+      label: c.label,
+    };
+    for (const m of c.members) {
+      byIdentity.set(`${m.artist.toLowerCase()}|${m.title.toLowerCase()}`, hint);
     }
   }
-  return assignments;
+  for (const song of songs) {
+    const id = `${song.artist.toLowerCase()}|${song.title.toLowerCase()}`;
+    const hint = byIdentity.get(id);
+    if (hint) bySongKey.set(song.key, hint);
+  }
+
+  return { clusters, bySongKey };
 }
 
 /** Visual-only cluster hints. Neutral letters only — no genre taxonomy. */
 export function clusterPoolSongs(songs: VdjPoolSong[]): VisualClusterResult {
-  const bySongKey = new Map<string, SongClusterHint>();
   if (songs.length === 0) {
-    return { clusters: [], bySongKey };
+    return { clusters: [], bySongKey: new Map() };
   }
-
-  const vectors = songs.map(songFeatureVector);
-  const k = pickClusterCount(songs.length);
-  let assignments = kMeansAssign(vectors, k);
-  assignments = mergeSmallClusters(vectors, assignments, 3, 5);
-
-  const groups = new Map<number, number[]>();
-  for (let i = 0; i < assignments.length; i += 1) {
-    const g = assignments[i];
-    const list = groups.get(g) ?? [];
-    list.push(i);
-    groups.set(g, list);
-  }
-
-  const sortedGroups = [...groups.entries()].sort((a, b) => b[1].length - a[1].length);
-  const clusters: VisualClusterResult["clusters"] = [];
-
-  sortedGroups.forEach(([, memberIdx], paletteIdx) => {
-    const palette = CLUSTER_PALETTE[paletteIdx % CLUSTER_PALETTE.length];
-    const label = clusterLetter(paletteIdx);
-    const clusterId = `${palette.id}-${label.replace(" ", "-").toLowerCase()}`;
-    clusters.push({
-      id: clusterId,
-      color: palette.color,
-      bg: palette.bg,
-      name: palette.name,
-      glyph: palette.glyph,
-      label,
-      count: memberIdx.length,
-    });
-    for (const i of memberIdx) {
-      bySongKey.set(songs[i].key, {
-        clusterId,
-        color: palette.color,
-        bg: palette.bg,
-        name: palette.name,
-        glyph: palette.glyph,
-        label,
-      });
-    }
+  const year = songs[0]?.year ?? 0;
+  const run = runMethodA(songs, year, {
+    passId: "default",
+    k: pickClusterCount(songs.length),
+    mergeMinSize: 3,
+    mergeMinClusters: 5,
   });
+  return clusterRunToVisual(run, songs);
+}
 
-  return { clusters, bySongKey };
+export type CompareClusterResult = VisualClusterResult & {
+  method: "A" | "B" | "C";
+  passId: string;
+  scores?: ClusterRunResult["scores"];
+  seeds?: Array<{ cluster: string; artist: string; title: string }>;
+  debugRows?: ClusterRunResult["debugRows"];
+};
+
+/** Dev compare mode: run Method A, B, or C for active year. */
+export function clusterPoolSongsWithMethod(
+  songs: VdjPoolSong[],
+  method: "A" | "B" | "C",
+  options?: {
+    passId?: string;
+    k?: number;
+    outlierThreshold?: number;
+    seedCount?: number;
+  },
+): CompareClusterResult {
+  if (songs.length === 0) {
+    return { clusters: [], bySongKey: new Map(), method, passId: "empty" };
+  }
+  const year = songs[0]?.year ?? 0;
+  const defaults =
+    method === "A"
+      ? { k: pickClusterCount(songs.length), mergeMinSize: 3, mergeMinClusters: 5 }
+      : method === "B"
+        ? { outlierThreshold: 0.42, minClusterSize: 3, k: 7 }
+        : { seedCount: pickClusterCount(songs.length), k: pickClusterCount(songs.length) };
+
+  const run = runClustering(method, songs, year, {
+    passId: options?.passId ?? "compare",
+    ...defaults,
+    ...options,
+  });
+  const visual = clusterRunToVisual(run, songs);
+  const seeds = run.clusters
+    .filter((c) => c.seedSong)
+    .map((c) => ({
+      cluster: c.label,
+      artist: c.seedSong!.artist,
+      title: c.seedSong!.title,
+    }));
+  return {
+    ...visual,
+    method,
+    passId: run.passId,
+    scores: run.scores,
+    seeds,
+    debugRows: run.debugRows,
+  };
 }
 
 function sortSongs(songs: VdjPoolSong[]): VdjPoolSong[] {
