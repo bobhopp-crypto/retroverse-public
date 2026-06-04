@@ -6,11 +6,13 @@ import type { VdjPoolSong } from "@/lib/ops/show-builder/types";
 export function ShowSongChip(props: {
   song: VdjPoolSong;
   variant?: "pool" | "set";
+  selected?: boolean;
   dropBefore?: boolean;
   cluster?: SongClusterHint | null;
   onDragStart?: (e: React.DragEvent, songKey: string) => void;
   onDragOverSong?: (e: React.DragEvent) => void;
   onDropOnSong?: (e: React.DragEvent) => void;
+  onSelect?: (songKey: string) => void;
 }) {
   const clustered = props.cluster != null;
   const style = clustered
@@ -22,10 +24,18 @@ export function ShowSongChip(props: {
 
   return (
     <div
-      className={`ops-show__chip ops-show__chip--${props.variant ?? "pool"}${clustered ? " ops-show__chip--clustered" : ""}${props.dropBefore ? " ops-show__chip--drop-before" : ""}`}
+      className={`ops-show__chip ops-show__chip--${props.variant ?? "pool"}${clustered ? " ops-show__chip--clustered" : ""}${props.selected ? " ops-show__chip--selected" : ""}${props.dropBefore ? " ops-show__chip--drop-before" : ""}`}
       style={style}
       draggable
       title={clustered ? `${props.cluster!.label} (${props.cluster!.name})` : undefined}
+      onClick={
+        props.onSelect
+          ? (e) => {
+              e.stopPropagation();
+              props.onSelect!(props.song.key);
+            }
+          : undefined
+      }
       onDragStart={
         props.onDragStart
           ? (e) => {

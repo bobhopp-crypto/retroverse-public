@@ -4,8 +4,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { ClusterComparePanel } from "@/components/ops/show-builder/ClusterComparePanel";
+import { NeighborhoodExplorerPanel } from "@/components/ops/show-builder/NeighborhoodExplorerPanel";
 import { NeighborDiscoveryMode } from "@/components/ops/show-builder/NeighborDiscoveryPanel";
 import { ShowSongChip } from "@/components/ops/show-builder/ShowSongChip";
+import { buildYearNeighborhoods } from "@/lib/ops/show-builder/neighborhoods";
+import type { SongNeighborBundle, YearNeighborhoodReport } from "@/lib/ops/show-builder/neighborhoods";
 import { songsInSet } from "@/lib/ops/show-builder/order";
 import { insertIntoOrder, removeFromAllOrders } from "@/lib/ops/show-builder/order";
 import {
@@ -21,24 +24,42 @@ const FLOW_DRAG = "application/x-retroverse-show-flow-index";
 
 type DropHint = { setId: string; beforeKey: string | null };
 
+function neighborBundleForKey(
+  report: YearNeighborhoodReport,
+  songKey: string,
+  catalog: Map<string, VdjPoolSong>,
+): SongNeighborBundle | null {
+  const song = catalog.get(songKey);
+  if (!song) return null;
+  const id = `${song.artist.toLowerCase()}|${song.title.toLowerCase()}`;
+  return (
+    report.songs.find(
+      (b) => `${b.artist.toLowerCase()}|${b.title.toLowerCase()}` === id,
+    ) ?? null
+  );
+}
+
 export function ShowBuilderWorkspace() {
   const searchParams = useSearchParams();
   const clusterDebug = searchParams.get("clusterDebug") === "1";
   const clusterCompare = searchParams.get("clusterCompare") === "1";
   const neighborsMode = searchParams.get("neighbors") === "1";
+  const neighborsDebug = searchParams.get("neighborsDebug") === "1";
 
   useEffect(() => {
     console.info("[ShowBuilder] ShowBuilderWorkspace mounted", {
       clusterCompare,
       clusterDebug,
       neighborsMode,
+      neighborsDebug,
     });
-  }, [clusterCompare, clusterDebug, neighborsMode]);
+  }, [clusterCompare, clusterDebug, neighborsMode, neighborsDebug]);
   const [data, setData] = useState<ShowBuilderPayload | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [activeYear, setActiveYear] = useState<number | null>(null);
+  const [explorerSongKey, setExplorerSongKey] = useState<string | null>(null);
   const [dragOverSetId, setDragOverSetId] = useState<string | null>(null);
   const [dragOverPool, setDragOverPool] = useState(false);
   const [dropHint, setDropHint] = useState<DropHint | null>(null);
@@ -58,6 +79,28 @@ export function ShowBuilderWorkspace() {
 
   const activeYearPool =
     data && activeYear != null ? (data.pools[activeYear] ?? []) : [];
+
+  const activeYearPoolKey = useMemo(
+    () => activeYearPool.map((s) => s.key).join("|"),
+    [activeYearPool],
+  );
+
+  const neighborhoodReport = useMemo(() => {
+    if (explorerSongKey == null || activeYear == null || activeYearPool.length === 0) {
+      return null;
+    }
+    return buildYearNeighborhoods(activeYearPool, activeYear);
+  }, [explorerSongKey, activeYear, activeYearPool, activeYearPoolKey]);
+
+  const explorerSong = explorerSongKey ? (catalog.get(explorerSongKey) ?? null) : null;
+  const explorerBundle =
+    neighborhoodReport && explorerSongKey
+      ? neighborBundleForKey(neighborhoodReport, explorerSongKey, catalog)
+      : null;
+
+  useEffect(() => {
+    setExplorerSongKey(null);
+  }, [activeYear]);
 
   const activeClusterResult = useMemo(() => {
     if (!aiClustering || activeYear == null || activeYearPool.length === 0) return null;
@@ -89,6 +132,10 @@ export function ShowBuilderWorkspace() {
   function clusterHint(key: string): SongClusterHint | null {
     if (!aiClustering) return null;
     return clusterBySongKey.get(key) ?? null;
+  }
+
+  function selectExplorerSong(songKey: string) {
+    setExplorerSongKey(songKey);
   }
 
   const load = useCallback(async () => {
@@ -341,6 +388,8 @@ export function ShowBuilderWorkspace() {
                   dragOver={dragOverSetId === set.id}
                   dropHint={dropHint}
                   clusterHint={clusterHint}
+                  onSelectSong={selectExplorerSong}
+                  explorerSongKey={explorerSongKey}
                   onRename={(name) => void run("renameSet", { setId: set.id, name })}
                   onDelete={() => void run("deleteSet", { setId: set.id })}
                   onToggleCollapse={(collapsed) =>
@@ -412,8 +461,10 @@ export function ShowBuilderWorkspace() {
                           key={song.key}
                           song={song}
                           variant="pool"
+                          selected={explorerSongKey === song.key}
                           cluster={clusterHint(song.key)}
                           onDragStart={onSongDragStart}
+                          onSelect={selectExplorerSong}
                         />
                       ))}
                     </div>
@@ -427,8 +478,10 @@ export function ShowBuilderWorkspace() {
                     key={song.key}
                     song={song}
                     variant="pool"
+                    selected={explorerSongKey === song.key}
                     cluster={clusterHint(song.key)}
                     onDragStart={onSongDragStart}
+                    onSelect={selectExplorerSong}
                   />
                 ))}
               </div>
@@ -457,6 +510,22 @@ export function ShowBuilderWorkspace() {
               </details>
             ) : null}
           </section>
+
+          {explorerSong && explorerBundle ? (
+            <NeighborhoodExplorerPanel
+              year={activeYear!}
+              song={explorerSong}
+              bundle={explorerBundle}
+              sets={data.sets}
+              debugMode={neighborsDebug}
+              showScores={neighborsDebug}
+              aiClustering={aiClustering}
+              clusterHint={clusterHint}
+              onSelectNeighbor={selectExplorerSong}
+              onAddToSet={(songKey, setId) => void assignSong(songKey, setId, null)}
+              onClose={() => setExplorerSongKey(null)}
+            />
+          ) : null}
 
           {clusterCompare && activeYearPool.length > 0 ? (
             <ClusterComparePanel year={activeYear!} pool={activeYearPool} />
@@ -576,6 +645,8 @@ function SetPile(props: {
   dragOver: boolean;
   dropHint: DropHint | null;
   clusterHint: (key: string) => SongClusterHint | null;
+  explorerSongKey: string | null;
+  onSelectSong: (key: string) => void;
   onRename: (name: string) => void;
   onDelete: () => void;
   onToggleCollapse: (collapsed: boolean) => void;
@@ -638,12 +709,14 @@ function SetPile(props: {
               key={song.key}
               song={song}
               variant="set"
+              selected={props.explorerSongKey === song.key}
               cluster={props.clusterHint(song.key)}
               dropBefore={
                 props.dropHint?.setId === props.set.id &&
                 props.dropHint.beforeKey === song.key
               }
               onDragStart={props.onDragStart}
+              onSelect={props.onSelectSong}
               onDragOverSong={() =>
                 props.onDropHint({ setId: props.set.id, beforeKey: song.key })
               }
