@@ -1,10 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-import { NeighborDiscoveryMode } from "@/components/ops/show-builder/NeighborDiscoveryPanel";
-import { ClusterComparePanel } from "@/components/ops/show-builder/ClusterComparePanel";
 import { ShowSongChip } from "@/components/ops/show-builder/ShowSongChip";
 import { songsInSet } from "@/lib/ops/show-builder/order";
 import { insertIntoOrder, removeFromAllOrders } from "@/lib/ops/show-builder/order";
@@ -19,13 +18,40 @@ import type { ShowBuilderPayload, ShowSet, VdjPoolSong } from "@/lib/ops/show-bu
 const SONG_DRAG = "application/x-retroverse-show-song";
 const FLOW_DRAG = "application/x-retroverse-show-flow-index";
 
+const ClusterComparePanel = dynamic(
+  () =>
+    import("@/components/ops/show-builder/ClusterComparePanel").then(
+      (m) => m.ClusterComparePanel,
+    ),
+  {
+    ssr: false,
+    loading: () => <p className="ops-empty">Loading cluster compare…</p>,
+  },
+);
+
+const NeighborDiscoveryMode = dynamic(
+  () =>
+    import("@/components/ops/show-builder/NeighborDiscoveryPanel").then(
+      (m) => m.NeighborDiscoveryMode,
+    ),
+  {
+    ssr: false,
+    loading: () => <p className="ops-empty">Loading neighborhood explorer…</p>,
+  },
+);
+
 type DropHint = { setId: string; beforeKey: string | null };
 
 export function ShowBuilderWorkspace() {
   const searchParams = useSearchParams();
-  const clusterDebug = searchParams.get("clusterDebug") === "1";
-  const clusterCompare = searchParams.get("clusterCompare") === "1";
-  const neighborsMode = searchParams.get("neighbors") === "1";
+  const [devFlagsReady, setDevFlagsReady] = useState(false);
+  useEffect(() => {
+    setDevFlagsReady(true);
+  }, []);
+
+  const clusterDebug = devFlagsReady && searchParams.get("clusterDebug") === "1";
+  const clusterCompare = devFlagsReady && searchParams.get("clusterCompare") === "1";
+  const neighborsMode = devFlagsReady && searchParams.get("neighbors") === "1";
   const [data, setData] = useState<ShowBuilderPayload | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -248,7 +274,7 @@ export function ShowBuilderWorkspace() {
 
   if (loading && !data) return <p className="ops-empty">Loading show builder…</p>;
   if (error && !data) return <p className="ops-empty">{error}</p>;
-  if (!data) return null;
+  if (!data) return <p className="ops-empty">Show builder data unavailable.</p>;
 
   return (
     <div className="ops-show">

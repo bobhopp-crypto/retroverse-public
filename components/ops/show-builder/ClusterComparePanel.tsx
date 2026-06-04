@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { clusterPoolSongsWithMethod } from "@/lib/ops/show-builder/visual-clustering";
+import type { CompareClusterResult } from "@/lib/ops/show-builder/visual-clustering";
 import type { VdjPoolSong } from "@/lib/ops/show-builder/types";
 
 type Props = {
@@ -12,15 +13,58 @@ type Props = {
 
 const METHODS = ["A", "B", "C"] as const;
 
+type MethodResult = {
+  method: (typeof METHODS)[number];
+  result: CompareClusterResult;
+};
+
 export function ClusterComparePanel({ year, pool }: Props) {
-  const results = useMemo(
-    () =>
-      METHODS.map((method) => ({
-        method,
-        result: clusterPoolSongsWithMethod(pool, method),
-      })),
-    [pool],
-  );
+  const poolKey = useMemo(() => pool.map((s) => s.key).join("|"), [pool]);
+  const [results, setResults] = useState<MethodResult[] | null>(null);
+  const [computeError, setComputeError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    setResults(null);
+    setComputeError(null);
+
+    const run = () => {
+      try {
+        const next = METHODS.map((method) => ({
+          method,
+          result: clusterPoolSongsWithMethod(pool, method),
+        }));
+        if (!cancelled) setResults(next);
+      } catch (err) {
+        if (!cancelled) {
+          setComputeError(err instanceof Error ? err.message : "Cluster compare failed");
+        }
+      }
+    };
+
+    // Defer heavy clustering off the first paint so the shell stays visible.
+    const timer = window.setTimeout(run, 0);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [pool, poolKey, year]);
+
+  if (computeError) {
+    return (
+      <section className="ops-show__cluster-compare">
+        <p className="ops-empty">Cluster compare error: {computeError}</p>
+      </section>
+    );
+  }
+
+  if (!results) {
+    return (
+      <section className="ops-show__cluster-compare">
+        <p className="ops-empty">Computing Method A / B / C clusters…</p>
+      </section>
+    );
+  }
 
   return (
     <section className="ops-show__cluster-compare" aria-label={`${year} clustering comparison`}>
