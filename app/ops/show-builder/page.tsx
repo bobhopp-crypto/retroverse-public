@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
-import { ShowBuilderWorkspace } from "@/components/ops/show-builder/ShowBuilderWorkspace";
+import { ShowBuilderClientShell } from "@/components/ops/show-builder/ShowBuilderClientShell";
 
 import "../ops.css";
 import "../show-builder.css";
@@ -41,7 +41,7 @@ export default function ShowBuilderPage() {
           .vdjplaylist back to VirtualDJ.
         </p>
         <Suspense fallback={<p className="ops-empty">Loading show builder…</p>}>
-          <ShowBuilderWorkspace />
+          <ShowBuilderClientShell />
         </Suspense>
       </div>
     </main>

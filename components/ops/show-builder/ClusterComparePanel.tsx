@@ -24,6 +24,10 @@ export function ClusterComparePanel({ year, pool }: Props) {
   const [computeError, setComputeError] = useState<string | null>(null);
 
   useEffect(() => {
+    console.info("[ShowBuilder] ClusterComparePanel mounted", { year, poolSize: pool.length });
+  }, [year, pool.length]);
+
+  useEffect(() => {
     let cancelled = false;
     setResults(null);
     setComputeError(null);
