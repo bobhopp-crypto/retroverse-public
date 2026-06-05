@@ -3,12 +3,17 @@ import { scanVdjFolderLists } from "@/lib/ops/show-builder/scan-my-lists";
 import { vdjMyListsDir } from "@/lib/ops/show-builder/vdj-paths";
 
 import {
+  loadSundayEventSongsFromSnapshots,
+  SUNDAY_SNAPSHOT_PLAYLISTS,
+} from "./load-snapshots";
+import {
   SUNDAY_EVENT_YEARS,
   type SundayEventPayload,
   type SundayPlaylistSong,
   type SundayYearFilter,
 } from "./playlist-types";
 import { resolveRvtrForSongs } from "./resolve-rvtr";
+import { useSundayNightsSnapshots } from "./storage-mode";
 import {
   loadWorkingListAdditions,
   mergeWorkingListSongs,
@@ -39,7 +44,7 @@ function parseYearFilter(raw: string | null): SundayYearFilter {
   return 1967;
 }
 
-async function loadYearSongs(year: number): Promise<SundayPlaylistSong[]> {
+async function loadYearSongsFromMyLists(year: number): Promise<SundayPlaylistSong[]> {
   const pool = await loadVdjFolderFile(String(year), year);
   const rvtrByPath = await resolveRvtrForSongs(
     pool.map((s) => ({ path: s.path, artist: s.artist, title: s.title })),
@@ -60,14 +65,24 @@ export async function loadSundayEventSongs(
   yearParam: string | null,
 ): Promise<SundayEventPayload> {
   const yearFilter = parseYearFilter(yearParam);
+
+  if (useSundayNightsSnapshots()) {
+    const songs = await loadSundayEventSongsFromSnapshots(yearFilter);
+    return {
+      yearFilter,
+      playlists: SUNDAY_SNAPSHOT_PLAYLISTS,
+      myListsPath: "snapshot",
+      songs,
+    };
+  }
+
   const playlists = await scanVdjFolderLists();
-  const years =
-    yearFilter === "all" ? [...SUNDAY_EVENT_YEARS] : [yearFilter];
+  const years = yearFilter === "all" ? [...SUNDAY_EVENT_YEARS] : [yearFilter];
 
   const chunks = await Promise.all(
     years.map(async (year) => {
       try {
-        return await loadYearSongs(year);
+        return await loadYearSongsFromMyLists(year);
       } catch {
         return [];
       }

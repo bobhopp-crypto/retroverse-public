@@ -8,16 +8,26 @@ import {
   SUNDAY_NIGHTS_FEATURED_YEARS,
   SUNDAY_NIGHTS_MONOLOGUE,
 } from "@/lib/sunday-nights/article-copy";
+import type { SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
 import type { TrackPageData } from "@/lib/track/load-track-page";
+
+import { OpsEntryLink } from "@/components/OpsEntryLink";
 
 import { SundayNightsLive } from "./sunday-nights-live";
 
 type Props = {
   initialTrack: TrackPageData | null;
+  initialLive: SundayNightsLiveSelection | null;
   initialUpdatedAt: string;
+  opsEnabled: boolean;
 };
 
-export function SundayNightsView({ initialTrack, initialUpdatedAt }: Props) {
+export function SundayNightsView({
+  initialTrack,
+  initialLive,
+  initialUpdatedAt,
+  opsEnabled,
+}: Props) {
   const [passNumber, setPassNumber] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -65,6 +75,7 @@ export function SundayNightsView({ initialTrack, initialUpdatedAt }: Props) {
         </Link>
         <SundayNightsLive
           initialTrack={initialTrack}
+          initialLive={initialLive}
           initialUpdatedAt={initialUpdatedAt}
         />
       </div>
@@ -224,6 +235,11 @@ export function SundayNightsView({ initialTrack, initialUpdatedAt }: Props) {
       <footer className="sn-about">
         <h2 className="sn-about__heading">About Retroverse</h2>
         <p className="sn-about__text">{SUNDAY_NIGHTS_ABOUT}</p>
+        {opsEnabled ? (
+          <p className="sn-about__ops">
+            <OpsEntryLink className="sn-about__ops-link" next="/ops/sunday-nights" />
+          </p>
+        ) : null}
       </footer>
     </main>
   );

@@ -65,6 +65,60 @@
   color: #4a4a4a;
 }
 
+.sn-live__fallback {
+  padding: 0.65rem 0 1rem;
+  border-bottom: 2px solid var(--sn-rule);
+}
+
+.sn-live__fallback-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sn-accent);
+}
+
+.sn-live__fallback-cover-wrap {
+  margin: 0 0 0.75rem;
+  max-width: 280px;
+}
+
+.sn-live__fallback-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--sn-rule);
+}
+
+.sn-live__fallback-artist {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sn-live__fallback-title {
+  margin: 0.2rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sn-live__fallback-year {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.sn-live__fallback-note {
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #4a4a4a;
+}
+
 /* —— Article (Casey monologue) —— */
 
 .sn-article {
@@ -246,6 +300,25 @@
   margin: 0;
   font-size: 0.95rem;
   color: #444;
+}
+
+.sn-about__ops {
+  margin: 1rem 0 0;
+}
+
+.sn-about__ops-link {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sn-ink);
+  opacity: 0.55;
+}
+
+.sn-about__ops-link:hover {
+  opacity: 1;
+  color: var(--sn-accent);
 }
 
 /* —— Responsive —— */

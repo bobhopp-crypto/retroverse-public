@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { SundayNightsAdmin } from "@/components/ops/sunday-nights/SundayNightsAdmin";
+import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 import "../ops.css";
 import "../show-builder.css";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function OpsSundayNightsPage() {
-  if (process.env.RETROVERSE_OPS !== "1") {
+  if (!isOpsEnabled()) {
     notFound();
   }
 

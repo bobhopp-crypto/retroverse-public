@@ -8,6 +8,7 @@ import {
   lookupAliasRvtrFromStore,
 } from "./rvtr-aliases";
 import type { SundayYearFilter } from "./playlist-types";
+import { useSundayNightsSnapshots } from "./storage-mode";
 
 export type SundaySearchSource = "mylist" | "retroverse" | "vdj-xml" | "alias";
 
@@ -226,11 +227,14 @@ export async function searchSundayNightsUnified(input: {
   const query = input.query.trim();
   if (query.length < MIN_QUERY_LEN) return [];
 
-  const aliasStore = await loadRvtrAliasStore();
+  const productionMode = useSundayNightsSnapshots();
+  const aliasStore = productionMode
+    ? { version: 1 as const, aliases: {}, updatedAt: new Date().toISOString() }
+    : await loadRvtrAliasStore();
   const [retroverse, vdjXml, aliasHits, allMylistEvent] = await Promise.all([
     searchRetroverse(query),
-    searchVdjXml(query),
-    searchAliases(query),
+    productionMode ? Promise.resolve([]) : searchVdjXml(query),
+    productionMode ? Promise.resolve([]) : searchAliases(query),
     loadSundayEventSongs("all"),
   ]);
 
@@ -253,7 +257,7 @@ export async function searchSundayNightsUnified(input: {
       year: song.year,
       path: song.path,
       songKey: song.key,
-      detail: "MyList",
+      detail: productionMode ? "Snapshot" : "MyList",
     });
     if (mylistHits.length >= MAX_PER_SOURCE) break;
   }

@@ -12,7 +12,7 @@ import {
   type SundayYearFilter,
 } from "@/lib/sunday-nights/playlist-types";
 import type { TrackPageData } from "@/lib/track/load-track-page";
-import type { SundayNightsState, SundayEventMode } from "@/lib/sunday-nights/types";
+import type { SundayNightsState, SundayEventMode, SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
 import { trackPageHref } from "@/lib/search/entity-routes";
 
 type OpsPayload = SundayEventPayload & {
@@ -54,13 +54,26 @@ function formatUpdatedAt(iso: string | undefined): string {
   }
 }
 
+type RvtrFilter = "all" | "rvtr" | "no-rvtr";
+
+const RVTR_FILTER_OPTIONS: { id: RvtrFilter; label: string }[] = [
+  { id: "all", label: "ALL" },
+  { id: "rvtr", label: "RVTR" },
+  { id: "no-rvtr", label: "NO RVTR" },
+];
+
 function songVisualState(
   song: SundayPlaylistSong,
-  liveRvtr: string | null,
-  playedRvtrs: Set<string>,
+  live: SundayNightsLiveSelection | null,
+  playedKeys: Set<string>,
 ): SongVisualState {
-  if (song.rvtr && song.rvtr === liveRvtr) return "live";
-  if (song.rvtr && playedRvtrs.has(song.rvtr)) return "played";
+  if (live) {
+    if (live.songKey && live.songKey === song.key) return "live";
+    if (live.rvtr && live.rvtr === song.rvtr) return "live";
+  }
+  if (playedKeys.has(song.key) || (song.rvtr && playedKeys.has(song.rvtr))) {
+    return "played";
+  }
   return "default";
 }
 
@@ -83,8 +96,9 @@ export function SundayNightsAdmin() {
   const [search, setSearch] = useState("");
   const [searchHits, setSearchHits] = useState<SundaySearchHit[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
-  const [busyRvtr, setBusyRvtr] = useState<string | null>(null);
-  const [playedRvtrs, setPlayedRvtrs] = useState<Set<string>>(() => new Set());
+  const [busyKey, setBusyKey] = useState<string | null>(null);
+  const [playedKeys, setPlayedKeys] = useState<Set<string>>(() => new Set());
+  const [rvtrFilter, setRvtrFilter] = useState<RvtrFilter>("all");
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [showAdvanced, setShowAdvanced] = useState(false);
@@ -213,61 +227,72 @@ export function SundayNightsAdmin() {
     await load(year);
   }
 
-  function markPreviouslyLive(liveRvtr: string | null) {
-    if (!liveRvtr) return;
-    setPlayedRvtrs((prev) => {
+  function markPreviouslyLive(live: SundayNightsLiveSelection | null) {
+    if (!live) return;
+    setPlayedKeys((prev) => {
       const next = new Set(prev);
-      next.add(liveRvtr);
+      if (live.songKey) next.add(live.songKey);
+      if (live.rvtr) next.add(live.rvtr);
       return next;
     });
   }
 
-  async function goLive(rvtr: string | null) {
-    if (!rvtr) {
-      setMessage("No RVTR — cannot go live.");
-      return;
-    }
-    setBusyRvtr(rvtr);
+  async function goLive(song: SundayPlaylistSong) {
+    const busyId = song.key;
+    setBusyKey(busyId);
     setMessage(null);
-    const previousLive = state?.currentTrackId ?? null;
+    const previousLive = state?.live ?? null;
     try {
       const res = await fetch("/api/ops/sunday-nights", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ op: "setTrack", currentTrackId: rvtr }),
+        body: JSON.stringify({
+          op: "setTrack",
+          live: {
+            rvtr: song.rvtr,
+            artist: song.artist,
+            title: song.title,
+            year: song.year,
+            songKey: song.key,
+          },
+        }),
       });
       const data = (await res.json()) as {
         state?: SundayNightsState;
         track?: TrackPageData | null;
+        live?: SundayNightsLiveSelection | null;
         error?: string;
       };
       if (!res.ok) {
         setMessage(data.error ?? "Update failed.");
         return;
       }
-      if (previousLive && previousLive !== rvtr) {
+      if (previousLive) {
         markPreviouslyLive(previousLive);
       }
-      setState(data.state ?? null);
+      if (data.state) setState(data.state);
       setTrack(data.track ?? null);
       setMessage("Live.");
     } catch {
       setMessage("Update failed.");
     } finally {
-      setBusyRvtr(null);
+      setBusyKey(null);
     }
   }
 
   async function clearLive() {
-    setBusyRvtr("__clear__");
-    const previousLive = state?.currentTrackId ?? null;
+    setBusyKey("__clear__");
+    const previousLive = state?.live ?? null;
     try {
       const res = await fetch("/api/ops/sunday-nights", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ op: "setTrack", currentTrackId: null }),
       });
-      const data = (await res.json()) as { state?: SundayNightsState; track?: TrackPageData | null };
+      const data = (await res.json()) as {
+        state?: SundayNightsState;
+        track?: TrackPageData | null;
+      };
       if (res.ok) {
         markPreviouslyLive(previousLive);
         setState(data.state ?? null);
@@ -275,13 +300,13 @@ export function SundayNightsAdmin() {
         setMessage("Cleared.");
       }
     } finally {
-      setBusyRvtr(null);
+      setBusyKey(null);
     }
   }
 
   function handleCardActivate(song: SundayPlaylistSong) {
-    if (busyRvtr != null) return;
-    void goLive(song.rvtr);
+    if (busyKey != null) return;
+    void goLive(song);
   }
 
   async function openMatch(song: SundayPlaylistSong, e: React.MouseEvent) {
@@ -383,13 +408,18 @@ export function SundayNightsAdmin() {
   }
 
   const liveRvtr = state?.currentTrackId ?? null;
-  const liveArtist = track?.artistName ?? (liveRvtr ? "—" : null);
-  const liveTitle = track?.title ?? (liveRvtr ? "Loading…" : null);
-  const liveYear = track?.releaseYear ?? null;
+  const liveSelection = state?.live ?? null;
+  const liveArtist = track?.artistName ?? liveSelection?.artist ?? null;
+  const liveTitle = track?.title ?? liveSelection?.title ?? null;
+  const liveYear = track?.releaseYear ?? liveSelection?.year ?? null;
 
-  const deckSongs = useMemo(() => songs, [songs]);
+  const deckSongs = useMemo(() => {
+    if (rvtrFilter === "rvtr") return songs.filter((s) => Boolean(s.rvtr));
+    if (rvtrFilter === "no-rvtr") return songs.filter((s) => !s.rvtr);
+    return songs;
+  }, [songs, rvtrFilter]);
 
-  const onAir = Boolean(liveRvtr && track);
+  const onAir = Boolean(liveSelection || (liveRvtr && track));
   const eventModeOn = eventMode?.enabled === true;
   const unmatchedCount = useMemo(
     () => deckSongs.filter((s) => !s.rvtr).length,
@@ -455,7 +485,7 @@ export function SundayNightsAdmin() {
           <button
             type="button"
             className="sn-admin__btn"
-            disabled={busyRvtr != null || !liveRvtr}
+            disabled={busyKey != null || !liveSelection}
             onClick={() => clearLive()}
           >
             Clear
@@ -514,6 +544,24 @@ export function SundayNightsAdmin() {
         </div>
       ) : null}
 
+      <div className="sn-admin__banks" role="tablist" aria-label="RVTR filter">
+        <p className="sn-admin__banks-label">Match</p>
+        <div className="sn-admin__banks-row">
+          {RVTR_FILTER_OPTIONS.map((opt) => (
+            <button
+              key={opt.id}
+              type="button"
+              className={`sn-admin__bank sn-admin__bank--filter${
+                rvtrFilter === opt.id ? " sn-admin__bank--active" : ""
+              }`}
+              onClick={() => setRvtrFilter(opt.id)}
+            >
+              <span className="sn-admin__bank-year">[{opt.label}]</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="sn-admin__banks" role="tablist" aria-label="Program year banks">
         <p className="sn-admin__banks-label">Years</p>
         <div className="sn-admin__banks-row">
@@ -557,9 +605,9 @@ export function SundayNightsAdmin() {
         ) : (
           <ul className="sn-admin__deck" role="list">
             {deckSongs.map((song) => {
-              const visual = songVisualState(song, liveRvtr, playedRvtrs);
+              const visual = songVisualState(song, liveSelection, playedKeys);
               const previewHref = song.rvtr ? trackPageHref(song.rvtr) : null;
-              const isBusy = busyRvtr === song.rvtr;
+              const isBusy = busyKey === song.key;
               const hasRvtr = Boolean(song.rvtr);
 
               return (

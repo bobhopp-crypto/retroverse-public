@@ -1,22 +1,15 @@
 import { NextResponse } from "next/server";
 
+import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
-import { loadTrackPage } from "@/lib/track/load-track-page";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
     const state = await loadSundayNightsState();
-    const track = state.currentTrackId
-      ? await loadTrackPage(state.currentTrackId)
-      : null;
-
-    return NextResponse.json({
-      currentTrackId: state.currentTrackId,
-      updatedAt: state.updatedAt,
-      track,
-    });
+    const payload = await buildSundayNightsCurrentPayload(state);
+    return NextResponse.json(payload);
   } catch (err) {
     console.error("[sunday-nights/current GET]", err);
     return NextResponse.json(

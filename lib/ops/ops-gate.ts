@@ -12,6 +12,13 @@ export function isOpsEnabled(): boolean {
   return process.env.RETROVERSE_OPS === "1";
 }
 
+/** True when ops PIN gate is configured (production or local). */
+export function isOpsGateConfigured(): boolean {
+  if (isOpsEnabled()) return true;
+  const pin = process.env.RETROVERSE_OPS_PIN?.trim();
+  return Boolean(pin && pin !== OPS_DEFAULT_PIN);
+}
+
 export function expectedOpsPin(): string {
   return process.env.RETROVERSE_OPS_PIN?.trim() || OPS_DEFAULT_PIN;
 }
