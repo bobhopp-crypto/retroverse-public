@@ -5,6 +5,8 @@ import {
 } from "@/lib/ops/load-vdj-performance-universe";
 import type { YearMatchRow } from "@/lib/ops/reconciliation-model";
 
+import { buildReviewRows } from "./year-workspace/enrich-vdj-meta";
+import type { YearReviewEnrichmentMetrics } from "./year-workspace/enrich-vdj-meta";
 import { normalizeGraphTrackId } from "./year-workspace/graph-track-id";
 import { chartWorkspaceKey, mediaWorkspaceKey } from "./year-workspace/keys";
 import {
@@ -18,6 +20,46 @@ import type {
   YearWorkspaceRow,
   YearWorkspaceWorkflowAction,
 } from "./year-workspace/types";
+
+const EMPTY_REVIEW_FIELDS: Pick<
+  YearWorkspaceRow,
+  | "playCount"
+  | "vdjUser2Raw"
+  | "historicalTags"
+  | "historicalTagsFromVdj"
+  | "classification"
+  | "classificationAutoPromoted"
+  | "vdjMatch"
+  | "ownership"
+  | "retroverseTagsSource"
+> = {
+  playCount: null,
+  vdjUser2Raw: null,
+  historicalTags: [],
+  historicalTagsFromVdj: false,
+  classification: "Fill",
+  classificationAutoPromoted: false,
+  vdjMatch: "missing",
+  ownership: "missing",
+  retroverseTagsSource: "none",
+};
+
+const EMPTY_REVIEW_METRICS: YearReviewEnrichmentMetrics = {
+  chartRows: 0,
+  vdjPathsRequested: 0,
+  vdjPathsResolved: 0,
+  playCountKnown: 0,
+  playCountGte5: 0,
+  autoPromotedCocktail: 0,
+  classificationFill: 0,
+  classificationCocktail: 0,
+  classificationDance: 0,
+  classificationSlow: 0,
+  needsReview: 0,
+  retroverseTagsCanonical: 0,
+  retroverseTagsLegacyReview: 0,
+  retroverseTagsVdjImport: 0,
+};
 
 function chartRowToWorkspace(
   row: YearMatchRow,
@@ -47,6 +89,8 @@ function chartRowToWorkspace(
     vdjYear: row.vdjYear,
     sourcePath: null,
     bestMatch: row.bestMatch,
+    ...EMPTY_REVIEW_FIELDS,
+    vdjMatch: bucket === "in_both" ? "matched" : "missing",
   };
 }
 
@@ -110,6 +154,8 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
       vdjYear: media.vdjYear,
       sourcePath: media.sourcePath,
       bestMatch: media.label,
+      ...EMPTY_REVIEW_FIELDS,
+      vdjMatch: "review",
     });
   }
 
@@ -125,6 +171,12 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
   vdjOnly.sort((a, b) => a.artist.localeCompare(b.artist) || a.title.localeCompare(b.title));
 
   const review = buildReviewQueue(inBoth, chartOnly, vdjOnly);
+  const reviewRows = buildReviewRows(inBoth, chartOnly);
+  const reviewMetrics: YearReviewEnrichmentMetrics = {
+    ...EMPTY_REVIEW_METRICS,
+    chartRows: reviewRows.length,
+    classificationFill: reviewRows.length,
+  };
   const completion = buildCompletion(chartRows, inBoth, chartOnly, keywordState, review.length);
 
   return {
@@ -141,6 +193,8 @@ export async function loadYearWorkspace(year: number): Promise<YearWorkspaceData
     chartOnly,
     vdjOnly,
     review,
+    reviewRows,
+    reviewMetrics,
   };
 }
 
