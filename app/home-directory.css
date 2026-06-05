@@ -260,6 +260,18 @@ button.home-directory__pad {
   text-underline-offset: 3px;
 }
 
+.home-directory__ops-link {
+  font-weight: 700;
+  color: var(--home-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.75;
+}
+
+.home-directory__ops-link:hover {
+  opacity: 1;
+}
+
 /* Operator utility — bottom-right of directory board */
 .home-directory__ops-utility {
   position: absolute;

@@ -6,7 +6,8 @@ import {
   loadSundayEventMode,
   setSundayEventMode,
 } from "@/lib/sunday-nights/event-mode";
-import { loadSundayNightsState, setCurrentTrackId } from "@/lib/sunday-nights/state";
+import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
+import { loadSundayNightsState, setLiveTrack } from "@/lib/sunday-nights/state";
 import { loadTrackPage } from "@/lib/track/load-track-page";
 import type { SundayYearFilter } from "@/lib/sunday-nights/playlist-types";
 import { SUNDAY_EVENT_YEARS } from "@/lib/sunday-nights/playlist-types";
@@ -56,6 +57,14 @@ export async function PATCH(req: Request) {
   const payload = body as {
     op?: string;
     currentTrackId?: string | null;
+    live?: {
+      rvtr?: string | null;
+      artist?: string;
+      title?: string;
+      year?: number | null;
+      coverUrl?: string | null;
+      songKey?: string | null;
+    };
     enabled?: boolean;
     artist?: string;
     title?: string;
@@ -81,11 +90,28 @@ export async function PATCH(req: Request) {
 
   if (payload.op === "setTrack") {
     try {
-      const state = await setCurrentTrackId(payload.currentTrackId ?? null);
-      const track = state.currentTrackId
-        ? await loadTrackPage(state.currentTrackId)
-        : null;
-      return NextResponse.json({ state, track });
+      let state;
+      if (payload.live && payload.live.artist?.trim() && payload.live.title?.trim()) {
+        state = await setLiveTrack({
+          rvtr: payload.live.rvtr ?? null,
+          artist: payload.live.artist.trim(),
+          title: payload.live.title.trim(),
+          year: typeof payload.live.year === "number" ? payload.live.year : null,
+          coverUrl: payload.live.coverUrl ?? null,
+          songKey: payload.live.songKey ?? null,
+        });
+      } else if (payload.currentTrackId === null || payload.currentTrackId === undefined) {
+        state = await setLiveTrack(null);
+      } else {
+        state = await setLiveTrack({
+          rvtr: payload.currentTrackId,
+          artist: "—",
+          title: "—",
+          year: null,
+        });
+      }
+      const current = await buildSundayNightsCurrentPayload(state);
+      return NextResponse.json({ state, ...current });
     } catch (err) {
       console.error("[ops/sunday-nights PATCH setTrack]", err);
       return NextResponse.json(

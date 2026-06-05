@@ -1,6 +1,16 @@
+export type SundayNightsLiveSelection = {
+  rvtr: string | null;
+  artist: string;
+  title: string;
+  year: number | null;
+  coverUrl?: string | null;
+  songKey?: string | null;
+};
+
 export type SundayNightsState = {
-  version: 1;
+  version: 2;
   currentTrackId: string | null;
+  live: SundayNightsLiveSelection | null;
   updatedAt: string;
 };
 

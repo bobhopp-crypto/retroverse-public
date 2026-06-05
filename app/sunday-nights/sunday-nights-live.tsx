@@ -3,23 +3,55 @@
 import { useEffect, useRef, useState } from "react";
 
 import { TrackPageEmbed } from "@/app/track/[id]/track-page-embed";
+import type { SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
 type Props = {
   initialTrack: TrackPageData | null;
+  initialLive: SundayNightsLiveSelection | null;
   initialUpdatedAt: string;
 };
 
 type CurrentPayload = {
   currentTrackId: string | null;
+  live: SundayNightsLiveSelection | null;
   updatedAt: string;
   track: TrackPageData | null;
 };
 
 const POLL_MS = 8000;
 
-export function SundayNightsLive({ initialTrack, initialUpdatedAt }: Props) {
+function FallbackExhibit({ live }: { live: SundayNightsLiveSelection }) {
+  return (
+    <section className="sn-live__fallback" aria-label="Now playing">
+      <p className="sn-live__fallback-label">Now playing</p>
+      {live.coverUrl ? (
+        <div className="sn-live__fallback-cover-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={live.coverUrl}
+            alt=""
+            className="sn-live__fallback-cover"
+            width={280}
+            height={280}
+          />
+        </div>
+      ) : null}
+      <p className="sn-live__fallback-artist">{live.artist}</p>
+      <p className="sn-live__fallback-title">{live.title}</p>
+      {live.year ? <p className="sn-live__fallback-year">[{live.year}]</p> : null}
+      <p className="sn-live__fallback-note">Not yet indexed in Retroverse</p>
+    </section>
+  );
+}
+
+export function SundayNightsLive({
+  initialTrack,
+  initialLive,
+  initialUpdatedAt,
+}: Props) {
   const [track, setTrack] = useState<TrackPageData | null>(initialTrack);
+  const [live, setLive] = useState<SundayNightsLiveSelection | null>(initialLive);
   const updatedAtRef = useRef(initialUpdatedAt);
 
   useEffect(() => {
@@ -33,6 +65,7 @@ export function SundayNightsLive({ initialTrack, initialUpdatedAt }: Props) {
         if (cancelled || data.updatedAt === updatedAtRef.current) return;
         updatedAtRef.current = data.updatedAt;
         setTrack(data.track);
+        setLive(data.live);
       } catch {
         /* ignore transient network errors */
       }
@@ -49,6 +82,8 @@ export function SundayNightsLive({ initialTrack, initialUpdatedAt }: Props) {
     <div className="sn-live" aria-live="polite" aria-atomic="true">
       {track ? (
         <TrackPageEmbed data={track} />
+      ) : live ? (
+        <FallbackExhibit live={live} />
       ) : (
         <section className="sn-live__waiting">
           <p className="sn-live__waiting-label">Now playing</p>

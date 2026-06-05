@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-import { loadTrackPage } from "@/lib/track/load-track-page";
+import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
+import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 import { SundayNightsView } from "./sunday-nights-view";
 
@@ -17,11 +18,15 @@ export const metadata: Metadata = {
 
 export default async function SundayNightsPage() {
   const state = await loadSundayNightsState();
-  const track = state.currentTrackId
-    ? await loadTrackPage(state.currentTrackId)
-    : null;
+  const current = await buildSundayNightsCurrentPayload(state);
+  const opsEnabled = isOpsEnabled();
 
   return (
-    <SundayNightsView initialTrack={track} initialUpdatedAt={state.updatedAt} />
+    <SundayNightsView
+      initialTrack={current.track}
+      initialLive={current.live}
+      initialUpdatedAt={current.updatedAt}
+      opsEnabled={opsEnabled}
+    />
   );
 }

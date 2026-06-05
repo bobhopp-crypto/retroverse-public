@@ -5,6 +5,8 @@ import { useCallback, useState, type MouseEvent } from "react";
 
 import type { HomeSearchScope } from "@/lib/search/home-search-scope";
 
+import { OpsEntryLink } from "@/components/OpsEntryLink";
+
 import { HomeSearchInput } from "./home-search-input";
 
 /** Scoped overlay only — never route to removed `/browse/*` mini-sites. */
@@ -103,11 +105,22 @@ export function HomeDirectory({ opsEnabled }: Props) {
           >
             Send feedback
           </a>
+          {opsEnabled ? (
+            <>
+              {" · "}
+              <OpsEntryLink className="home-directory__ops-link" next="/ops/sunday-nights" />
+            </>
+          ) : null}
         </p>
       </footer>
 
       {opsEnabled ? (
-        <Link href="/ops" prefetch className="home-directory__ops-utility" aria-label="Archive operations">
+        <Link
+          href="/internal/ops-pin?next=/ops"
+          prefetch={false}
+          className="home-directory__ops-utility"
+          aria-label="Archive operations"
+        >
           Archive Ops
         </Link>
       ) : null}
