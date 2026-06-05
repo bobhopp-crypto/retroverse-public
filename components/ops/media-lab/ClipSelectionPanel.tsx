@@ -42,11 +42,13 @@ type ClipSelectionPanelProps = {
   onTrimDragStart?: () => void;
   onTrimPreview?: (sec: number) => void;
   onTrimDragEnd?: (sec: number) => void;
+  onSplitAtPlayhead?: () => void;
 };
 
 export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [drag, setDrag] = useState<DragKind | null>(null);
+  const [playheadHover, setPlayheadHover] = useState(false);
   const dragRef = useRef<DragKind | null>(null);
   const selectionRef = useRef(props.selection);
   selectionRef.current = props.selection;
@@ -167,6 +169,7 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
 
   function handleTrackPointerDown(e: React.PointerEvent) {
     if ((e.target as HTMLElement).closest(".ops-ml-clip-timeline__handle")) return;
+    if ((e.target as HTMLElement).closest(".ops-ml-selection__playhead")) return;
 
     const sec = clientXToSec(e.clientX);
 
@@ -280,9 +283,23 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
         </div>
 
         <div
-          className="ops-ml-clip-timeline__playhead ops-ml-selection__playhead"
+          className={[
+            "ops-ml-clip-timeline__playhead",
+            "ops-ml-selection__playhead",
+            playheadHover && props.onSplitAtPlayhead ? "ops-ml-selection__playhead--hover" : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
           style={{ left: pct(Math.max(clipStart, Math.min(clipEnd, displayPlayheadSec))) }}
-          aria-hidden
+          role="separator"
+          aria-label="Playhead — double-click to split chapter"
+          onMouseEnter={() => setPlayheadHover(true)}
+          onMouseLeave={() => setPlayheadHover(false)}
+          onDoubleClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            props.onSplitAtPlayhead?.();
+          }}
         />
       </div>
 

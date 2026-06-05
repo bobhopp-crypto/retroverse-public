@@ -46,6 +46,8 @@ type FocusReviewDeckProps = {
   onToggleAdvanced: () => void;
   onToggleFocus: () => void;
   onOpenSetup?: () => void;
+  onMergeBoundary?: (boundaryIndex: number) => void;
+  onSplitAtPlayhead?: () => void;
   advancedPanel: ReactNode;
 };
 
@@ -172,6 +174,7 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
                 onTrimDragStart={props.onTrimDragStart}
                 onTrimPreview={props.onTrimPreview}
                 onTrimDragEnd={props.onTrimDragEnd}
+                onSplitAtPlayhead={props.onSplitAtPlayhead}
               />
             </div>
           </section>
@@ -253,6 +256,7 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
         thumbs={props.chapterThumbs}
         thumbsLoading={props.thumbsLoading}
         onSelect={props.onSelectClip}
+        onMergeBoundary={props.onMergeBoundary}
       />
 
       {queueOpen ? (

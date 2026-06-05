@@ -154,6 +154,9 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const mobileReview = useMediaLabMobileReview();
   const videoRef = useRef<HTMLVideoElement>(null);
   const trimWasPlayingRef = useRef(false);
+  const chapterUndoRef = useRef<{ chapters: EditorialChapterRow[]; previewId: string | null }[]>(
+    [],
+  );
   const workspaceRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
 
@@ -192,6 +195,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       setAssetRoutes(data.assetRoutes ?? []);
       setDirty(false);
       setSelected(new Set());
+      chapterUndoRef.current = [];
       const first = data.chapters?.[0];
       if (first) {
         setPreviewId(first.id);
@@ -669,6 +673,119 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     setDirty(true);
   }
 
+  function pushChapterUndo() {
+    chapterUndoRef.current.push({
+      chapters: chapters.map((ch) => ({ ...ch })),
+      previewId,
+    });
+    if (chapterUndoRef.current.length > 48) {
+      chapterUndoRef.current.shift();
+    }
+  }
+
+  function reindexChapters(
+    rows: EditorialChapterRow[],
+    keepPreviewId: string | null,
+  ): { rows: EditorialChapterRow[]; previewId: string | null } {
+    const keepIdx = keepPreviewId ? rows.findIndex((c) => c.id === keepPreviewId) : -1;
+    const reindexed = rows.map((ch, i) => ({ ...ch, id: `ch-${i}` }));
+    return {
+      rows: reindexed,
+      previewId: keepIdx >= 0 ? reindexed[keepIdx].id : keepPreviewId,
+    };
+  }
+
+  const undoChapterEdit = useCallback(() => {
+    const prev = chapterUndoRef.current.pop();
+    if (!prev) return;
+    setChapters(prev.chapters);
+    setPreviewId(prev.previewId);
+    setDirty(true);
+  }, []);
+
+  const mergeChaptersAtBoundary = useCallback(
+    (boundaryIndex: number) => {
+      const leftIdx = boundaryIndex;
+      const rightIdx = boundaryIndex + 1;
+      if (leftIdx < 0 || rightIdx >= chapters.length) return;
+
+      pushChapterUndo();
+      const left = chapters[leftIdx];
+      const right = chapters[rightIdx];
+      const merged: EditorialChapterRow = {
+        ...left,
+        endSec: right.endSec,
+        end: right.end,
+        durationSec: Math.round((right.endSec - left.startSec) * 10) / 10,
+      };
+      const out = [
+        ...chapters.slice(0, leftIdx),
+        merged,
+        ...chapters.slice(rightIdx + 1),
+      ];
+      const keepPreview =
+        previewId === left.id || previewId === right.id ? left.id : previewId;
+      const { rows, previewId: nextPreviewId } = reindexChapters(out, keepPreview);
+      setChapters(rows);
+      if (nextPreviewId) setPreviewId(nextPreviewId);
+      setDirty(true);
+    },
+    [chapters, previewId],
+  );
+
+  const splitChapterAtSec = useCallback(
+    (chapterId: string, at: number) => {
+      const idx = chapters.findIndex((c) => c.id === chapterId);
+      if (idx < 0) return false;
+      const ch = chapters[idx];
+      const splitAt = Math.round(at * 100) / 100;
+      if (splitAt <= ch.startSec + MIN_CLIP_SEC || splitAt >= ch.endSec - MIN_CLIP_SEC) {
+        return false;
+      }
+
+      pushChapterUndo();
+      const left: EditorialChapterRow = {
+        ...ch,
+        endSec: splitAt,
+        end: formatTimecode(splitAt),
+        durationSec: Math.round((splitAt - ch.startSec) * 10) / 10,
+        inSeconds: ch.inSeconds != null && ch.inSeconds < splitAt ? ch.inSeconds : undefined,
+        outSeconds: ch.outSeconds != null && ch.outSeconds <= splitAt ? ch.outSeconds : undefined,
+        lengthSeconds:
+          ch.inSeconds != null &&
+          ch.outSeconds != null &&
+          ch.outSeconds <= splitAt
+            ? ch.outSeconds - ch.inSeconds
+            : undefined,
+      };
+      const right: EditorialChapterRow = {
+        id: `${ch.id}-r`,
+        startSec: splitAt,
+        endSec: ch.endSec,
+        start: formatTimecode(splitAt),
+        end: ch.end,
+        title: `${ch.title} (cont.)`,
+        durationSec: Math.round((ch.endSec - splitAt) * 10) / 10,
+        clock: formatChapterClock(splitAt),
+      };
+      const out = [...chapters.slice(0, idx), left, right, ...chapters.slice(idx + 1)];
+      const { rows, previewId: nextPreviewId } = reindexChapters(out, ch.id);
+      setChapters(rows);
+      if (nextPreviewId) setPreviewId(nextPreviewId);
+      setDraftSelection({ inSeconds: left.startSec, outSeconds: left.endSec });
+      setPlayheadSec(splitAt);
+      setDirty(true);
+      return true;
+    },
+    [chapters],
+  );
+
+  const splitPreviewChapterAtPlayhead = useCallback(() => {
+    if (!previewChapter) return;
+    const at = videoRef.current?.currentTime ?? playheadSec;
+    splitChapterAtSec(previewChapter.id, at);
+  }, [playheadSec, previewChapter, splitChapterAtSec]);
+
   function splitChapterLocal() {
     if (!splitChapter) return;
     const at = Number(splitAtSec);
@@ -676,33 +793,10 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       props.onError?.("Enter a split time inside the chapter (seconds).");
       return;
     }
-    const idx = chapters.findIndex((c) => c.id === splitChapter.id);
-    const left: EditorialChapterRow = {
-      ...splitChapter,
-      endSec: at,
-      end: formatTimecode(at),
-      durationSec: Math.round((at - splitChapter.startSec) * 10) / 10,
-    };
-    const right: EditorialChapterRow = {
-      id: `${splitChapter.id}-r`,
-      startSec: at,
-      endSec: splitChapter.endSec,
-      start: formatTimecode(at),
-      end: splitChapter.end,
-      title: `${splitChapter.title} (cont.)`,
-      durationSec: Math.round((splitChapter.endSec - at) * 10) / 10,
-      clock: splitChapter.clock,
-    };
-    const out = [
-      ...chapters.slice(0, idx),
-      left,
-      right,
-      ...chapters.slice(idx + 1),
-    ].map((ch, i) => ({ ...ch, id: `ch-${i}` }));
-    setChapters(out);
-    setSplitId(null);
-    setSplitAtSec("");
-    setDirty(true);
+    if (splitChapterAtSec(splitChapter.id, at)) {
+      setSplitId(null);
+      setSplitAtSec("");
+    }
   }
 
   function formatTimecode(sec: number): string {
@@ -925,6 +1019,11 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
           categorizeAndAdvance(category);
           return;
         }
+        if ((e.metaKey || e.ctrlKey) && key === "z") {
+          e.preventDefault();
+          undoChapterEdit();
+          return;
+        }
         if (key === "escape") {
           e.preventDefault();
           closeReview();
@@ -972,6 +1071,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     prevClip,
     reviewMode,
     togglePlayPause,
+    undoChapterEdit,
   ]);
 
   function handleVideoTimeUpdate() {
@@ -1299,6 +1399,8 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             onToggleAdvanced={() => setShowAdvanced((v) => !v)}
             onToggleFocus={() => setFocusMode(false)}
             onOpenSetup={props.onOpenSetup}
+            onMergeBoundary={mergeChaptersAtBoundary}
+            onSplitAtPlayhead={splitPreviewChapterAtPlayhead}
             advancedPanel={
               <div className="ops-ml-deck-advanced">
                 <TranscriptModeControls
