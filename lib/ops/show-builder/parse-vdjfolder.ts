@@ -59,7 +59,14 @@ export function parseVdjFolderXml(xml: string, year: number): VdjPoolSong[] {
 }
 
 export async function loadYearPool(year: number): Promise<VdjPoolSong[]> {
-  const filePath = join(vdjMyListsDir(), `${year}.vdjfolder`);
+  return loadVdjFolderFile(String(year), year);
+}
+
+export async function loadVdjFolderFile(
+  baseName: string,
+  bucketYear: number,
+): Promise<VdjPoolSong[]> {
+  const filePath = join(vdjMyListsDir(), `${baseName}.vdjfolder`);
   const xml = await readFile(filePath, "utf8");
-  return parseVdjFolderXml(xml, year);
+  return parseVdjFolderXml(xml, bucketYear);
 }
