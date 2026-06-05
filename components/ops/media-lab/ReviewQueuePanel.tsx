@@ -17,6 +17,7 @@ type ReviewQueuePanelProps = {
   thumbsLoading: boolean;
   onSelect: (chapter: EditorialChapterRow) => void;
   onRemove: (chapterId: string) => void;
+  onClose?: () => void;
 };
 
 export function ReviewQueuePanel(props: ReviewQueuePanelProps) {
@@ -25,6 +26,16 @@ export function ReviewQueuePanel(props: ReviewQueuePanelProps) {
       <header className="ops-ml-review-queue__head">
         <h4 className="ops-ml-review-queue__label">Queue</h4>
         <span className="ops-ml-review-queue__count">{props.items.length} clips</span>
+        {props.onClose ? (
+          <button
+            type="button"
+            className="ops-ml-review-queue__close"
+            aria-label="Close queue"
+            onClick={() => props.onClose?.()}
+          >
+            ×
+          </button>
+        ) : null}
       </header>
       <div className="ops-ml-review-queue__list" role="list">
         {props.items.length === 0 ? (

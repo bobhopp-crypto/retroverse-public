@@ -67,6 +67,8 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
   const [savedJobs, setSavedJobs] = useState<MediaLabJobSummary[]>([]);
   const [selectedJobSlug, setSelectedJobSlug] = useState("");
   const [loadingJobs, setLoadingJobs] = useState(false);
+  const [showSetup, setShowSetup] = useState(false);
+  const workstationMode = preview != null && !showSetup;
 
   const fetchSavedJobs = useCallback(async (y: number) => {
     setLoadingJobs(true);
@@ -139,6 +141,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
         throw new Error(data.error ?? "Could not load job");
       }
       if (data.job.chapterMode) setChapterMode(data.job.chapterMode);
+      setShowSetup(false);
       setPreview({
         jobSlug: data.jobSlug,
         outputDir: data.outputDir,
@@ -186,6 +189,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
             "Transcription failed",
         );
       }
+      setShowSetup(false);
       setPreview({
         jobSlug: data.jobSlug,
         outputDir: data.outputDir,
@@ -224,6 +228,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
       if (!res.ok || !data.ok) {
         throw new Error(data.error ?? "Segment label generation failed");
       }
+      setShowSetup(false);
       setPreview({
         jobSlug: data.jobSlug,
         outputDir: data.outputDir,
@@ -263,6 +268,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
         throw new Error(data.error ?? "Chapter generation failed");
       }
       if (data.job.chapterMode) setChapterMode(data.job.chapterMode);
+      setShowSetup(false);
       setPreview({
         jobSlug: data.jobSlug,
         outputDir: data.outputDir,
@@ -287,8 +293,8 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
   }
 
   return (
-    <div className="ops-ml">
-      <section className="ops-ml-form">
+    <div className={`ops-ml${workstationMode ? " ops-ml--workstation" : ""}`}>
+      <section className={`ops-ml-form${workstationMode ? " ops-ml-form--hidden" : ""}`}>
         <h2 className="ops-ml-form__title">Turn a video into year assets</h2>
         <p className="ops-dim ops-ml-form__hint">
           Transcribe once. Everything after that reads{" "}
@@ -417,7 +423,21 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
       </section>
 
       {preview ? (
-        <div className="ops-ml-results">
+        <div
+          className={`ops-ml-results${workstationMode ? " ops-ml-results--workstation" : ""}`}
+        >
+          {workstationMode && (error || notice) ? (
+            <div
+              className={`ops-ml-workstation-alert${
+                error ? " ops-ml-workstation-alert--error" : ""
+              }`}
+              role={error ? "alert" : "status"}
+            >
+              {error ?? notice}
+            </div>
+          ) : null}
+          {!workstationMode ? (
+          <>
           <div className="ops-ml-path-row">
             <p className="ops-ml-results__path ops-mono">{preview.outputDir}</p>
             <button
@@ -483,10 +503,12 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
               : ""}
           </p>
 
-          <section className="ops-ml-panel">
+          <section className="ops-ml-panel ops-ml-panel--transcript">
             <h3 className="ops-ml-panel__title">Transcript preview</h3>
             <pre className="ops-ml-preview">{preview.transcriptPreview || "(empty)"}</pre>
           </section>
+          </>
+          ) : null}
 
           {preview.job.chapterCount > 0 || preview.chaptersPreview.length > 0 ? (
             <MediaLabEditorialReview
@@ -494,6 +516,8 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
               jobSlug={preview.jobSlug}
               outputDir={preview.outputDir}
               chapterMode={preview.job.chapterMode ?? chapterMode}
+              workstationMode={workstationMode}
+              onOpenSetup={() => setShowSetup(true)}
               onNotice={setNotice}
               onError={setError}
               onExported={(patch) => {

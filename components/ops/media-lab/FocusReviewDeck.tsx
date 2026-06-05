@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, type RefObject, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject, type ReactNode } from "react";
 
 import type { EditorialChapterRow } from "@/lib/ops/media-lab/editorial/editorial-types";
 
@@ -45,11 +45,13 @@ type FocusReviewDeckProps = {
   showAdvanced: boolean;
   onToggleAdvanced: () => void;
   onToggleFocus: () => void;
+  onOpenSetup?: () => void;
   advancedPanel: ReactNode;
 };
 
 export function FocusReviewDeck(props: FocusReviewDeckProps) {
   const titleRef = useRef<HTMLInputElement>(null);
+  const [queueOpen, setQueueOpen] = useState(false);
   const activeThumbs = props.chapterThumbs[props.clip.id] ?? null;
 
   const queueItems = useMemo(
@@ -101,11 +103,26 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
             ▶
           </button>
         </div>
-        <div className="ops-ml-review__queue-badge" aria-label={`Queue ${props.kept} clips`}>
+        <button
+          type="button"
+          className="ops-ml-review__queue-badge"
+          aria-label={`Queue ${props.kept} clips`}
+          aria-expanded={queueOpen}
+          onClick={() => setQueueOpen((open) => !open)}
+        >
           <span className="ops-ml-review__queue-badge-label">QUEUE</span>
           <strong className="ops-ml-review__queue-badge-count">{props.kept}</strong>
-        </div>
+        </button>
         <div className="ops-ml-review__topbar-tools">
+          {props.onOpenSetup ? (
+            <button
+              type="button"
+              className="ops-btn ops-ml-deck__bar-btn"
+              onClick={() => props.onOpenSetup?.()}
+            >
+              Setup
+            </button>
+          ) : null}
           <button
             type="button"
             className="ops-btn ops-ml-deck__bar-btn ops-ml-deck__bar-btn--focus"
@@ -142,99 +159,90 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
                 onTimeUpdate={props.onTimeUpdate}
               />
             </div>
+            <div className="ops-ml-review__trim">
+              <ClipSelectionPanel
+                clipStartSec={props.clip.startSec}
+                clipEndSec={props.clip.endSec}
+                playheadSec={props.playheadSec}
+                selection={props.selection}
+                thumbs={activeThumbs}
+                thumbsLoading={props.thumbsLoading}
+                onSelectionChange={props.onSelectionChange}
+                onSeek={props.onSeek}
+                onTrimDragStart={props.onTrimDragStart}
+                onTrimPreview={props.onTrimPreview}
+                onTrimDragEnd={props.onTrimDragEnd}
+              />
+            </div>
           </section>
 
           <aside className="ops-ml-review__side">
-          <div className="ops-ml-review__title-block">
-            <label className="ops-ml-review__field-label" htmlFor="ops-ml-review-title">
-              Suggested Name
-            </label>
-            <input
-              id="ops-ml-review-title"
-              ref={titleRef}
-              className="ops-ml-field__input ops-ml-review__title-input"
-              value={props.clip.title}
-              onChange={(e) => props.onTitleChange(e.target.value)}
-            />
-            <div className="ops-ml-review__title-actions">
+            <div className="ops-ml-review__title-block">
+              <label className="ops-ml-review__field-label" htmlFor="ops-ml-review-title">
+                Suggested Name
+              </label>
+              <input
+                id="ops-ml-review-title"
+                ref={titleRef}
+                className="ops-ml-field__input ops-ml-review__title-input"
+                value={props.clip.title}
+                onChange={(e) => props.onTitleChange(e.target.value)}
+              />
+              <div className="ops-ml-review__title-actions">
+                <button
+                  type="button"
+                  className="ops-btn ops-ml-review__accept-btn"
+                  onClick={() => props.onAcceptSuggestion()}
+                >
+                  Accept
+                </button>
+                <button
+                  type="button"
+                  className="ops-btn ops-ml-review__regen-btn"
+                  onClick={() => props.onRegenerateTitle()}
+                >
+                  Regenerate Name
+                </button>
+              </div>
+            </div>
+
+            <div className="ops-ml-review__type-block">
+              <p className="ops-ml-review__field-label">Suggested Type</p>
+              <CuratorClassificationPanel
+                title={props.clip.title}
+                category={props.clip.category}
+                onCategorize={(category) => props.onCategorize(category)}
+              />
+            </div>
+
+            <div className="ops-ml-review__actions">
               <button
                 type="button"
-                className="ops-btn ops-ml-review__accept-btn"
-                onClick={() => props.onAcceptSuggestion()}
+                className={`ops-ml-review__action ops-ml-review__action--favorite${
+                  props.isFavorite ? " ops-ml-review__action--on" : ""
+                }`}
+                onClick={() => props.onFavoriteClip()}
               >
-                Accept
+                ★ Favorite
               </button>
               <button
                 type="button"
-                className="ops-btn ops-ml-review__regen-btn"
-                onClick={() => props.onRegenerateTitle()}
+                className="ops-ml-review__action"
+                disabled={!props.canPrevious}
+                onClick={() => props.onPrevious()}
               >
-                Regenerate Name
+                ← Previous
+              </button>
+              <button
+                type="button"
+                className="ops-ml-review__action ops-ml-review__action--next"
+                disabled={!props.canNext}
+                onClick={() => props.onNext()}
+              >
+                Next Clip →
               </button>
             </div>
-          </div>
-
-          <div className="ops-ml-review__type-block">
-            <p className="ops-ml-review__field-label">Suggested Type</p>
-            <CuratorClassificationPanel
-              title={props.clip.title}
-              category={props.clip.category}
-              onCategorize={(category) => props.onCategorize(category)}
-            />
-          </div>
-
-          <ReviewQueuePanel
-            items={queueItems}
-            thumbs={props.chapterThumbs}
-            thumbsLoading={props.thumbsLoading}
-            onSelect={props.onSelectClip}
-            onRemove={props.onRemoveFromQueue}
-          />
-
-          <div className="ops-ml-review__actions">
-            <button
-              type="button"
-              className={`ops-ml-review__action ops-ml-review__action--favorite${
-                props.isFavorite ? " ops-ml-review__action--on" : ""
-              }`}
-              onClick={() => props.onFavoriteClip()}
-            >
-              ★ Favorite
-            </button>
-            <button
-              type="button"
-              className="ops-ml-review__action"
-              disabled={!props.canPrevious}
-              onClick={() => props.onPrevious()}
-            >
-              ← Previous
-            </button>
-            <button
-              type="button"
-              className="ops-ml-review__action ops-ml-review__action--next"
-              disabled={!props.canNext}
-              onClick={() => props.onNext()}
-            >
-              Next Clip →
-            </button>
-          </div>
           </aside>
-        </div>
-
-        <div className="ops-ml-review__trim">
-          <ClipSelectionPanel
-            clipStartSec={props.clip.startSec}
-            clipEndSec={props.clip.endSec}
-            playheadSec={props.playheadSec}
-            selection={props.selection}
-            thumbs={activeThumbs}
-            thumbsLoading={props.thumbsLoading}
-            onSelectionChange={props.onSelectionChange}
-            onSeek={props.onSeek}
-            onTrimDragStart={props.onTrimDragStart}
-            onTrimPreview={props.onTrimPreview}
-            onTrimDragEnd={props.onTrimDragEnd}
-          />
         </div>
       </div>
 
@@ -246,6 +254,33 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
         thumbsLoading={props.thumbsLoading}
         onSelect={props.onSelectClip}
       />
+
+      {queueOpen ? (
+        <button
+          type="button"
+          className="ops-ml-review-queue-drawer__backdrop"
+          aria-label="Close queue"
+          onClick={() => setQueueOpen(false)}
+        />
+      ) : null}
+      <aside
+        className={`ops-ml-review-queue-drawer${
+          queueOpen ? " ops-ml-review-queue-drawer--open" : ""
+        }`}
+        aria-hidden={!queueOpen}
+      >
+        <ReviewQueuePanel
+          items={queueItems}
+          thumbs={props.chapterThumbs}
+          thumbsLoading={props.thumbsLoading}
+          onSelect={(chapter) => {
+            props.onSelectClip(chapter);
+            setQueueOpen(false);
+          }}
+          onRemove={props.onRemoveFromQueue}
+          onClose={() => setQueueOpen(false)}
+        />
+      </aside>
     </div>
   );
 }

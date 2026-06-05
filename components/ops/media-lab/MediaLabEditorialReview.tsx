@@ -73,6 +73,8 @@ type MediaLabEditorialReviewProps = {
   jobSlug: string;
   outputDir: string;
   chapterMode: MediaLabChapterMode;
+  workstationMode?: boolean;
+  onOpenSetup?: () => void;
   onNotice?: (message: string) => void;
   onError?: (message: string) => void;
   onExported?: (patch: {
@@ -762,12 +764,14 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       setPreviewId(ch.id);
       setSplitId(null);
       seekToChapter(ch);
-      requestAnimationFrame(() => {
-        workspaceRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-        cardRefs.current.get(ch.id)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-      });
+      if (!props.workstationMode) {
+        requestAnimationFrame(() => {
+          workspaceRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+          cardRefs.current.get(ch.id)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        });
+      }
     },
-    [seekToChapter],
+    [props.workstationMode, seekToChapter],
   );
 
   const closeReview = useCallback(() => {
@@ -1017,6 +1021,9 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
         "ops-ml-editorial",
         "ops-ml-editorial--editor",
         focusMode && !mobileReview ? "ops-ml-editorial--focus" : "",
+        props.workstationMode && focusMode && !mobileReview
+          ? "ops-ml-editorial--workstation"
+          : "",
         mobileReview ? "ops-ml-editorial--mobile" : "",
       ]
         .filter(Boolean)
@@ -1253,7 +1260,10 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       ) : null}
 
       {!mobileReview && focusMode && previewChapter && videoUrl && !splitChapter ? (
-        <div ref={workspaceRef}>
+        <div
+          ref={workspaceRef}
+          className={props.workstationMode ? "ops-ml-editorial__workspace" : undefined}
+        >
           <FocusReviewDeck
             showTitle={humanizeJobSlug(props.jobSlug)}
             videoRef={videoRef}
@@ -1288,6 +1298,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             showAdvanced={showAdvanced}
             onToggleAdvanced={() => setShowAdvanced((v) => !v)}
             onToggleFocus={() => setFocusMode(false)}
+            onOpenSetup={props.onOpenSetup}
             advancedPanel={
               <div className="ops-ml-deck-advanced">
                 <TranscriptModeControls
