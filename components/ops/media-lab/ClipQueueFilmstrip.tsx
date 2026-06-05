@@ -13,8 +13,8 @@ type ClipQueueFilmstripProps = {
   thumbs: Record<string, ChapterThumbSet>;
   thumbsLoading: boolean;
   onSelect: (chapter: EditorialChapterRow) => void;
-  /** horizontal = bottom filmstrip; sidebar = vertical queue rail */
-  layout?: "horizontal" | "sidebar";
+  /** horizontal = legacy; filmstrip = full-width chapter nav; sidebar = deprecated */
+  layout?: "horizontal" | "filmstrip" | "sidebar";
   queueCount?: number;
 };
 
@@ -29,7 +29,7 @@ function itemClass(chapter: EditorialChapterRow, isActive: boolean): string {
 export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
   const stripRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef<HTMLButtonElement>(null);
-  const layout = props.layout ?? "horizontal";
+  const layout = props.layout ?? "filmstrip";
 
   const activeIndex = useMemo(
     () => props.chapters.findIndex((c) => c.id === props.activeId),
@@ -37,7 +37,7 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
   );
 
   const listChapters = useMemo(() => {
-    if (layout === "sidebar") {
+    if (layout === "filmstrip" || layout === "sidebar") {
       return props.chapters.map((chapter, index) => ({ chapter, index }));
     }
     if (props.chapters.length === 0) return [];
@@ -57,14 +57,56 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
     activeRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
-      inline: layout === "sidebar" ? "nearest" : "center",
+      inline: "center",
     });
-  }, [layout, props.activeId]);
+  }, [props.activeId]);
 
-  const rootClass =
-    layout === "sidebar"
-      ? "ops-ml-queue-strip ops-ml-queue-strip--sidebar"
-      : "ops-ml-queue-strip";
+  const rootClass = [
+    "ops-ml-queue-strip",
+    layout === "filmstrip" ? "ops-ml-queue-strip--filmstrip" : "",
+    layout === "sidebar" ? "ops-ml-queue-strip--sidebar" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  if (layout === "filmstrip") {
+    return (
+      <section className={rootClass} aria-label="Chapter filmstrip">
+        <div ref={stripRef} className="ops-ml-queue-strip__track ops-ml-queue-strip__track--filmstrip" role="list">
+          {listChapters.map(({ chapter, index }) => {
+            const thumb = props.thumbs[chapter.id]?.mid.url;
+            const isActive = chapter.id === props.activeId;
+            return (
+              <button
+                key={chapter.id}
+                ref={isActive ? activeRef : undefined}
+                type="button"
+                role="listitem"
+                className={itemClass(chapter, isActive)}
+                title={chapter.title}
+                onClick={() => props.onSelect(chapter)}
+              >
+                <span className="ops-ml-queue-strip__frame ops-ml-queue-strip__frame--filmstrip">
+                  {thumb ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img className="ops-ml-queue-strip__img" src={thumb} alt="" loading="lazy" />
+                  ) : props.thumbsLoading ? (
+                    <span className="ops-ml-queue-strip__placeholder">…</span>
+                  ) : (
+                    <span className="ops-ml-queue-strip__placeholder">—</span>
+                  )}
+                </span>
+                <span className="ops-ml-queue-strip__filmstrip-meta">
+                  <span className="ops-ml-queue-strip__clock">{chapter.clock}</span>
+                  <span className="ops-ml-queue-strip__filmstrip-title">{chapter.title}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={rootClass} aria-label="Clip queue">
@@ -72,12 +114,7 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
         <span className="ops-ml-queue-strip__icon" aria-hidden="true">
           🎞
         </span>
-        <h4 className="ops-ml-queue-strip__label">
-          {layout === "sidebar" ? "Queue" : "Clip queue"}
-        </h4>
-        {layout === "sidebar" && props.queueCount != null ? (
-          <span className="ops-ml-queue-strip__count">{props.queueCount} clips</span>
-        ) : null}
+        <h4 className="ops-ml-queue-strip__label">Clip queue</h4>
       </header>
       <div ref={stripRef} className="ops-ml-queue-strip__track" role="list">
         {listChapters.map(({ chapter, index }) => {
@@ -90,7 +127,7 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
               type="button"
               role="listitem"
               className={itemClass(chapter, isActive)}
-              title={`Clip ${index + 1}${chapter.favorite ? " · Favorite" : chapter.reviewStatus === "Keep" ? " · Kept" : ""}: ${chapter.title}`}
+              title={chapter.title}
               onClick={() => props.onSelect(chapter)}
             >
               {chapter.favorite ? (
@@ -108,12 +145,7 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
                   <span className="ops-ml-queue-strip__placeholder">—</span>
                 )}
               </span>
-              <span className="ops-ml-queue-strip__meta">
-                <span className="ops-ml-queue-strip__num">{index + 1}</span>
-                {layout === "sidebar" ? (
-                  <span className="ops-ml-queue-strip__title">{chapter.title}</span>
-                ) : null}
-              </span>
+              <span className="ops-ml-queue-strip__num">{index + 1}</span>
             </button>
           );
         })}

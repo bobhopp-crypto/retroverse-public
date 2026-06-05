@@ -22,8 +22,11 @@ export function selectionLengthSeconds(
   return outSeconds - inSeconds;
 }
 
-function formatSec(sec?: number): string {
-  return sec == null ? "—" : `${sec}s`;
+function formatReviewClock(sec?: number): string {
+  if (sec == null) return "—";
+  const m = Math.floor(sec / 60);
+  const s = Math.round(sec % 60);
+  return `00:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 
 type DragKind = "in" | "out";
@@ -232,21 +235,21 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
       <div className="ops-ml-selection__readouts" aria-live="polite">
         <div className="ops-ml-selection__readout">
           <span className="ops-ml-selection__readout-label">IN</span>
-          <span className="ops-ml-selection__readout-value">{formatSec(inSec)}</span>
+          <span className="ops-ml-selection__readout-value">{formatReviewClock(inSec)}</span>
         </div>
         <div className="ops-ml-selection__readout">
           <span className="ops-ml-selection__readout-label">PLAYHEAD</span>
           <span className="ops-ml-selection__readout-value">
-            {formatSec(Math.round(props.playheadSec))}
+            {formatReviewClock(Math.round(props.playheadSec))}
           </span>
         </div>
         <div className="ops-ml-selection__readout">
           <span className="ops-ml-selection__readout-label">OUT</span>
-          <span className="ops-ml-selection__readout-value">{formatSec(outSec)}</span>
+          <span className="ops-ml-selection__readout-value">{formatReviewClock(outSec)}</span>
         </div>
         <div className="ops-ml-selection__readout">
           <span className="ops-ml-selection__readout-label">LENGTH</span>
-          <span className="ops-ml-selection__readout-value">{formatSec(lenSec)}</span>
+          <span className="ops-ml-selection__readout-value">{formatReviewClock(lenSec)}</span>
         </div>
       </div>
     </section>

@@ -773,6 +773,35 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     else v.pause();
   }, []);
 
+  const regenerateTitle = useCallback(() => {
+    if (!previewChapter || segments.length === 0) return;
+    const inSec = draftSelection.inSeconds ?? previewChapter.startSec;
+    const outSec = draftSelection.outSeconds ?? previewChapter.endSec;
+    const tag = suggestClipTag(
+      { startSec: inSec, endSec: outSec, title: previewChapter.title },
+      segments,
+    );
+    const parsed = parseTypedTitle(tag.title);
+    updateTitle(previewChapter.id, parsed.subject || tag.title);
+  }, [draftSelection, previewChapter, segments]);
+
+  const removeFromQueue = useCallback((id: string) => {
+    setChapters((rows) =>
+      rows.map((c) => {
+        if (c.id !== id) return c;
+        const next = { ...c };
+        delete next.reviewStatus;
+        delete next.favorite;
+        delete next.category;
+        delete next.inSeconds;
+        delete next.outSeconds;
+        delete next.lengthSeconds;
+        return next;
+      }),
+    );
+    setDirty(true);
+  }, []);
+
   const keepClipAndNext = useCallback(() => {
     if (!previewChapter) return;
     patchChapterReview(previewChapter.id, {
@@ -859,11 +888,6 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
           favoriteClipAndNext();
           return;
         }
-        if (key === "k" && previewChapter) {
-          e.preventDefault();
-          keepClipAndNext();
-          return;
-        }
         const category = curatorCategoryForKey(e.key);
         if (category && previewChapter) {
           e.preventDefault();
@@ -912,7 +936,6 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     closeReview,
     favoriteClipAndNext,
     focusMode,
-    keepClipAndNext,
     nextClip,
     previewChapter,
     prevClip,
@@ -1206,27 +1229,20 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
         <div ref={workspaceRef}>
           <FocusReviewDeck
             showTitle={humanizeJobSlug(props.jobSlug)}
-            modeLabel={modeLabel}
-            sourceFilename={sourceFilename || humanizeJobSlug(props.jobSlug) + ".mp4"}
-            showDurationSec={showDurationSec || videoDurationSec}
             videoRef={videoRef}
             videoUrl={videoUrl}
             onTimeUpdate={handleVideoTimeUpdate}
             clip={previewChapter}
-            suggestion={previewChapter.tagSuggestion ?? null}
             playheadSec={playheadSec}
             selection={draftSelection}
             onSelectionChange={updateDraftSelection}
             onSeek={(sec) => seekToSec(sec, false)}
             onTitleChange={(title) => updateTitle(previewChapter.id, title)}
+            onRegenerateTitle={() => regenerateTitle()}
             previewIndex={previewIndex}
             totalClips={chapters.length}
-            favorites={reviewCounts.favorites}
             kept={reviewCounts.Keep}
-            remaining={reviewCounts.unreviewed}
-            isKept={previewChapter.reviewStatus === "Keep"}
             isFavorite={previewChapter.favorite === true}
-            onKeepClip={() => keepClipAndNext()}
             onFavoriteClip={() => favoriteClipAndNext()}
             onAcceptSuggestion={() => applySuggestedTitle(previewChapter.id)}
             onCategorize={(category) => categorizeAndAdvance(category)}
@@ -1238,6 +1254,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             chapterThumbs={chapterThumbs}
             thumbsLoading={thumbsLoading}
             onSelectClip={(ch) => openPreview(ch)}
+            onRemoveFromQueue={(id) => removeFromQueue(id)}
             showAdvanced={showAdvanced}
             onToggleAdvanced={() => setShowAdvanced((v) => !v)}
             onToggleFocus={() => setFocusMode(false)}
