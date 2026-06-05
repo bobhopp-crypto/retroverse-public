@@ -18,6 +18,8 @@ type ReviewQueuePanelProps = {
   onSelect: (chapter: EditorialChapterRow) => void;
   onRemove: (chapterId: string) => void;
   onClose?: () => void;
+  onExportQueue?: () => void;
+  exportBusy?: boolean;
 };
 
 export function ReviewQueuePanel(props: ReviewQueuePanelProps) {
@@ -85,6 +87,16 @@ export function ReviewQueuePanel(props: ReviewQueuePanelProps) {
           })
         )}
       </div>
+      {props.onExportQueue ? (
+        <button
+          type="button"
+          className="ops-btn ops-ml-review-queue__export-btn"
+          disabled={props.items.length === 0 || props.exportBusy}
+          onClick={() => props.onExportQueue?.()}
+        >
+          {props.exportBusy ? "Exporting…" : "EXPORT QUEUE"}
+        </button>
+      ) : null}
     </section>
   );
 }

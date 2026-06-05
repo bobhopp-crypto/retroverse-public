@@ -1019,15 +1019,61 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const categorizeAndAdvance = useCallback(
     (category: { contentType: ContentType; label: string }) => {
       if (!previewChapter) return;
+      const selection =
+        draftSelection.inSeconds != null && draftSelection.outSeconds != null
+          ? draftSelection
+          : {
+              inSeconds: previewChapter.inSeconds ?? previewChapter.startSec,
+              outSeconds: previewChapter.outSeconds ?? previewChapter.endSec,
+            };
       patchChapterReview(previewChapter.id, {
         reviewStatus: "Keep",
         category: category.label,
-        ...selectionPayloadFromDraft(draftSelection),
+        ...selectionPayloadFromDraft(selection),
       });
       nextClip();
     },
     [draftSelection, nextClip, previewChapter],
   );
+
+  const exportQueue = useCallback(async () => {
+    const kept = chapters.filter((ch) => ch.reviewStatus === "Keep");
+    if (kept.length === 0) {
+      props.onError?.("No clips in queue to export.");
+      return;
+    }
+    setBusy("export-queue");
+    try {
+      const res = await fetch("/api/ops/media-lab/editorial/export-queue", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          source: humanizeJobSlug(props.jobSlug),
+          items: kept.map((ch) => ({
+            title: ch.title,
+            category: ch.category,
+            inSeconds: ch.inSeconds ?? ch.startSec,
+            outSeconds: ch.outSeconds ?? ch.endSec,
+          })),
+        }),
+      });
+      const data = (await res.json()) as {
+        ok?: boolean;
+        error?: string;
+        count?: number;
+      };
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error ?? "Export failed");
+      }
+      props.onNotice?.(
+        `Exported ${data.count ?? kept.length} clips\n\nDesktop/MediaLabExports/\n\nqueue-export.json\nqueue-export.csv`,
+      );
+    } catch (e) {
+      props.onError?.(e instanceof Error ? e.message : "Export failed");
+    } finally {
+      setBusy(null);
+    }
+  }, [chapters, props.jobSlug, props.onError, props.onNotice]);
 
   useEffect(() => {
     if (!previewChapter) {
@@ -1473,6 +1519,8 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             onSplitAtPlayhead={splitPreviewChapterAtPlayhead}
             onDeleteChapter={deleteChapterFromTimeline}
             timelineFlashIds={timelineFlashIds}
+            onExportQueue={() => void exportQueue()}
+            exportQueueBusy={busy === "export-queue"}
             advancedPanel={
               <div className="ops-ml-deck-advanced">
                 <TranscriptModeControls

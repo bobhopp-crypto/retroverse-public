@@ -50,6 +50,8 @@ type FocusReviewDeckProps = {
   onSplitAtPlayhead?: () => void;
   onDeleteChapter?: (chapterId: string) => void;
   timelineFlashIds?: string[];
+  onExportQueue?: () => void;
+  exportQueueBusy?: boolean;
   advancedPanel: ReactNode;
 };
 
@@ -288,6 +290,8 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
           }}
           onRemove={props.onRemoveFromQueue}
           onClose={() => setQueueOpen(false)}
+          onExportQueue={props.onExportQueue}
+          exportBusy={props.exportQueueBusy}
         />
       </aside>
     </div>

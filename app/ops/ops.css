@@ -4626,6 +4626,15 @@
   cursor: pointer;
 }
 
+.ops-ml-review-queue__export-btn {
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+  width: 100%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
 .ops-ml-queue-strip--filmstrip {
   flex-shrink: 0;
   border: 2px solid var(--focus-border);
