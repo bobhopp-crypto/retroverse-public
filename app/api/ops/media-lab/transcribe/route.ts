@@ -8,7 +8,7 @@ import { runMediaLabTranscribe } from "@/lib/ops/media-lab/run-transcribe";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
-export const maxDuration = 600;
+export const maxDuration = 300;
 
 function parseYear(value: FormDataEntryValue | null): number | null {
   const y = Number(String(value ?? "").trim());
