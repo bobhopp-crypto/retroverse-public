@@ -1,12 +1,16 @@
 "use client";
 
-import { Fragment, useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 import type { EditorialChapterRow } from "@/lib/ops/media-lab/editorial/editorial-types";
 import type { ChapterThumbSet } from "./ChapterThumbTriplet";
 
 const WINDOW_SIZE = 15;
 const SHORT_CHAPTER_SEC = 5;
+/** Fixed scale — clip width = duration × px/sec (stable across merge/delete). */
+export const TIMELINE_PX_PER_SEC = 7;
+const MIN_CLIP_WIDTH_PX = 52;
+const MIN_CLIP_SEC_FALLBACK = 1;
 
 type ClipQueueFilmstripProps = {
   chapters: EditorialChapterRow[];
@@ -15,12 +19,30 @@ type ClipQueueFilmstripProps = {
   thumbsLoading: boolean;
   onSelect: (chapter: EditorialChapterRow) => void;
   onMergeBoundary?: (boundaryIndex: number) => void;
+  onDeleteChapter?: (chapterId: string) => void;
+  onSplitAtPlayhead?: () => void;
+  flashIds?: string[];
+  pxPerSec?: number;
   /** horizontal = legacy; filmstrip = full-width chapter nav; sidebar = deprecated */
   layout?: "horizontal" | "filmstrip" | "sidebar";
   queueCount?: number;
 };
 
-function itemClass(chapter: EditorialChapterRow, isActive: boolean): string {
+function clipDurationSec(chapter: EditorialChapterRow): number {
+  const span = chapter.endSec - chapter.startSec;
+  if (span > 0) return span;
+  return Math.max(chapter.durationSec, MIN_CLIP_SEC_FALLBACK);
+}
+
+function clipWidthPx(chapter: EditorialChapterRow, pxPerSec: number): number {
+  return Math.max(MIN_CLIP_WIDTH_PX, Math.round(clipDurationSec(chapter) * pxPerSec));
+}
+
+function itemClass(
+  chapter: EditorialChapterRow,
+  isActive: boolean,
+  isFlashing: boolean,
+): string {
   const parts = ["ops-ml-queue-strip__item"];
   if (isActive) parts.push("ops-ml-queue-strip__item--active");
   if (chapter.favorite) parts.push("ops-ml-queue-strip__item--favorite");
@@ -28,6 +50,7 @@ function itemClass(chapter: EditorialChapterRow, isActive: boolean): string {
   if (chapter.durationSec < SHORT_CHAPTER_SEC) {
     parts.push("ops-ml-queue-strip__item--short");
   }
+  if (isFlashing) parts.push("ops-ml-queue-strip__item--flash");
   return parts.join(" ");
 }
 
@@ -35,6 +58,8 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
   const stripRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef<HTMLButtonElement>(null);
   const layout = props.layout ?? "filmstrip";
+  const pxPerSec = props.pxPerSec ?? TIMELINE_PX_PER_SEC;
+  const flashSet = useMemo(() => new Set(props.flashIds ?? []), [props.flashIds]);
 
   const activeIndex = useMemo(
     () => props.chapters.findIndex((c) => c.id === props.activeId),
@@ -58,6 +83,14 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
     }));
   }, [activeIndex, layout, props.chapters]);
 
+  const trackWidthPx = useMemo(() => {
+    if (layout !== "filmstrip") return undefined;
+    return listChapters.reduce(
+      (sum, { chapter }) => sum + clipWidthPx(chapter, pxPerSec),
+      0,
+    );
+  }, [layout, listChapters, pxPerSec]);
+
   useEffect(() => {
     activeRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -77,12 +110,24 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
   if (layout === "filmstrip") {
     return (
       <section className={rootClass} aria-label="Chapter filmstrip">
-        <div ref={stripRef} className="ops-ml-queue-strip__track ops-ml-queue-strip__track--filmstrip" role="list">
+        <div
+          ref={stripRef}
+          className="ops-ml-queue-strip__track ops-ml-queue-strip__track--filmstrip"
+          role="list"
+          style={trackWidthPx != null ? { minWidth: trackWidthPx } : undefined}
+        >
           {listChapters.map(({ chapter, index }) => {
             const thumb = props.thumbs[chapter.id]?.mid.url;
             const isActive = chapter.id === props.activeId;
+            const isFlashing = flashSet.has(chapter.id);
+            const widthPx = clipWidthPx(chapter, pxPerSec);
             return (
-              <Fragment key={chapter.id}>
+              <div
+                key={chapter.id}
+                className="ops-ml-filmstrip-clip"
+                style={{ width: widthPx, flex: `0 0 ${widthPx}px` }}
+                role="presentation"
+              >
                 {index > 0 && props.onMergeBoundary ? (
                   <div
                     role="separator"
@@ -95,13 +140,34 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
                     }}
                   />
                 ) : null}
+                {props.onDeleteChapter ? (
+                  <button
+                    type="button"
+                    className="ops-ml-filmstrip-delete"
+                    aria-label={`Delete ${chapter.title}`}
+                    title="Delete clip"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      props.onDeleteChapter?.(chapter.id);
+                    }}
+                  >
+                    ×
+                  </button>
+                ) : null}
                 <button
                   ref={isActive ? activeRef : undefined}
                   type="button"
                   role="listitem"
-                  className={itemClass(chapter, isActive)}
-                  title={chapter.title}
+                  className={itemClass(chapter, isActive, isFlashing)}
+                  title={`${chapter.title} · ${Math.round(clipDurationSec(chapter))}s`}
                   onClick={() => props.onSelect(chapter)}
+                  onDoubleClick={(e) => {
+                    if (!isActive || !props.onSplitAtPlayhead) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    props.onSplitAtPlayhead();
+                  }}
                 >
                   {chapter.durationSec < SHORT_CHAPTER_SEC ? (
                     <span
@@ -125,7 +191,7 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
                     <span className="ops-ml-queue-strip__filmstrip-title">{chapter.title}</span>
                   </span>
                 </button>
-              </Fragment>
+              </div>
             );
           })}
         </div>
@@ -151,7 +217,7 @@ export function ClipQueueFilmstrip(props: ClipQueueFilmstripProps) {
               ref={isActive ? activeRef : undefined}
               type="button"
               role="listitem"
-              className={itemClass(chapter, isActive)}
+              className={itemClass(chapter, isActive, flashSet.has(chapter.id))}
               title={chapter.title}
               onClick={() => props.onSelect(chapter)}
             >

@@ -48,6 +48,8 @@ type FocusReviewDeckProps = {
   onOpenSetup?: () => void;
   onMergeBoundary?: (boundaryIndex: number) => void;
   onSplitAtPlayhead?: () => void;
+  onDeleteChapter?: (chapterId: string) => void;
+  timelineFlashIds?: string[];
   advancedPanel: ReactNode;
 };
 
@@ -257,6 +259,9 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
         thumbsLoading={props.thumbsLoading}
         onSelect={props.onSelectClip}
         onMergeBoundary={props.onMergeBoundary}
+        onDeleteChapter={props.onDeleteChapter}
+        onSplitAtPlayhead={props.onSplitAtPlayhead}
+        flashIds={props.timelineFlashIds}
       />
 
       {queueOpen ? (

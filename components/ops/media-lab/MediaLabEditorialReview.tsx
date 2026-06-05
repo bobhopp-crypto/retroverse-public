@@ -157,6 +157,8 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const chapterUndoRef = useRef<{ chapters: EditorialChapterRow[]; previewId: string | null }[]>(
     [],
   );
+  const [timelineFlashIds, setTimelineFlashIds] = useState<string[]>([]);
+  const timelineFlashTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const workspaceRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
 
@@ -683,6 +685,19 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     }
   }
 
+  function triggerTimelineFlash(ids: string[]) {
+    const unique = [...new Set(ids.filter(Boolean))];
+    if (unique.length === 0) return;
+    if (timelineFlashTimerRef.current) {
+      clearTimeout(timelineFlashTimerRef.current);
+    }
+    setTimelineFlashIds(unique);
+    timelineFlashTimerRef.current = setTimeout(() => {
+      setTimelineFlashIds([]);
+      timelineFlashTimerRef.current = null;
+    }, 250);
+  }
+
   function reindexChapters(
     rows: EditorialChapterRow[],
     keepPreviewId: string | null,
@@ -701,7 +716,8 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     setChapters(prev.chapters);
     setPreviewId(prev.previewId);
     setDirty(true);
-  }, []);
+    props.onNotice?.("Undo");
+  }, [props]);
 
   const mergeChaptersAtBoundary = useCallback(
     (boundaryIndex: number) => {
@@ -728,6 +744,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       const { rows, previewId: nextPreviewId } = reindexChapters(out, keepPreview);
       setChapters(rows);
       if (nextPreviewId) setPreviewId(nextPreviewId);
+      triggerTimelineFlash([rows[leftIdx]?.id].filter(Boolean) as string[]);
       setDirty(true);
     },
     [chapters, previewId],
@@ -774,10 +791,63 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       if (nextPreviewId) setPreviewId(nextPreviewId);
       setDraftSelection({ inSeconds: left.startSec, outSeconds: left.endSec });
       setPlayheadSec(splitAt);
+      triggerTimelineFlash([rows[idx]?.id, rows[idx + 1]?.id].filter(Boolean) as string[]);
       setDirty(true);
       return true;
     },
     [chapters],
+  );
+
+  const deleteChapterFromTimeline = useCallback(
+    (id: string) => {
+      const idx = chapters.findIndex((c) => c.id === id);
+      if (idx < 0) return;
+
+      pushChapterUndo();
+      const out = chapters.filter((c) => c.id !== id);
+      let keepPreview = previewId;
+      if (previewId === id) {
+        const fallback = chapters[idx + 1] ?? chapters[idx - 1];
+        keepPreview = fallback?.id ?? null;
+      }
+
+      const { rows, previewId: nextPreviewId } = reindexChapters(out, keepPreview);
+      const flashIds: string[] = [];
+      if (idx > 0) flashIds.push(rows[idx - 1]?.id);
+      if (idx < rows.length) flashIds.push(rows[idx]?.id);
+
+      setChapters(rows);
+      setSelected((prev) => {
+        const next = new Set(prev);
+        next.delete(id);
+        return next;
+      });
+
+      if (previewId === id) {
+        if (nextPreviewId) {
+          setPreviewId(nextPreviewId);
+          const ch = rows.find((c) => c.id === nextPreviewId);
+          if (ch) {
+            requestAnimationFrame(() => {
+              const v = videoRef.current;
+              if (v) {
+                v.currentTime = ch.startSec;
+                setPlayheadSec(ch.startSec);
+              }
+            });
+          }
+        } else {
+          setPreviewId(null);
+        }
+      } else if (nextPreviewId) {
+        setPreviewId(nextPreviewId);
+      }
+
+      triggerTimelineFlash(flashIds.filter(Boolean) as string[]);
+      setDirty(true);
+      props.onNotice?.("Clip deleted — Undo (⌘Z)");
+    },
+    [chapters, previewId, props],
   );
 
   const splitPreviewChapterAtPlayhead = useCallback(() => {
@@ -1401,6 +1471,8 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             onOpenSetup={props.onOpenSetup}
             onMergeBoundary={mergeChaptersAtBoundary}
             onSplitAtPlayhead={splitPreviewChapterAtPlayhead}
+            onDeleteChapter={deleteChapterFromTimeline}
+            timelineFlashIds={timelineFlashIds}
             advancedPanel={
               <div className="ops-ml-deck-advanced">
                 <TranscriptModeControls
