@@ -8,6 +8,7 @@ import {
   mergeEditorialMetaPayload,
   readEditorialMeta,
   writeEditorialMeta,
+  type ExportFilterMode,
 } from "@/lib/ops/media-lab/editorial/editorial-meta";
 import { exportAcquisitionMedia } from "@/lib/ops/media-lab/editorial/export-acquisition";
 import { exportEditorialChapters } from "@/lib/ops/media-lab/editorial/export-editorial";
@@ -32,8 +33,20 @@ export async function POST(req: Request) {
     year?: number;
     jobSlug?: string;
     chapters?: { id?: string; startSec?: number; endSec?: number; title?: string }[];
-    chapterMeta?: Record<string, { reviewStatus?: string }>;
+    chapterMeta?: Record<
+      string,
+      {
+        reviewStatus?: string;
+        favorite?: boolean;
+        category?: string;
+        inSeconds?: number;
+        outSeconds?: number;
+        lengthSeconds?: number;
+      }
+    >;
     sourceReviewStatus?: string;
+    /** Future UI: "favorites" | "kept" | "everything" */
+    exportMode?: ExportFilterMode;
   };
 
   try {
@@ -79,13 +92,22 @@ export async function POST(req: Request) {
     const editorialMeta = await readEditorialMeta(outputDir);
     const chaptersWithStatus = allChapters.map((ch) => {
       const row = chapterById.get(ch.id);
+      const meta = editorialMeta.chapters[ch.id];
       return {
         ...ch,
-        reviewStatus: editorialMeta.chapters[ch.id]?.reviewStatus,
+        reviewStatus: meta?.reviewStatus,
+        favorite: meta?.favorite,
+        category: meta?.category,
         tagSuggestion: row?.tagSuggestion ?? null,
       };
     });
-    const exportChapters = filterChaptersForExport(chaptersWithStatus);
+    const exportMode: ExportFilterMode =
+      body.exportMode === "favorites" ||
+      body.exportMode === "everything" ||
+      body.exportMode === "kept"
+        ? body.exportMode
+        : "kept";
+    const exportChapters = filterChaptersForExport(chaptersWithStatus, exportMode);
 
     const sourceVideo = bundle.job.sourceVideo?.trim();
     if (!sourceVideo || !existsSync(sourceVideo)) {

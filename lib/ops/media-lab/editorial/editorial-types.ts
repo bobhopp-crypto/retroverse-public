@@ -16,4 +16,10 @@ export type EditorialChapterRow = {
   reviewFlags?: ChapterReviewFlags;
   tagSuggestion?: ClipTagSuggestion;
   reviewStatus?: ClipReviewStatus;
+  favorite?: boolean;
+  category?: string;
+  /** Curator IN/OUT bumper selection (whole seconds). */
+  inSeconds?: number;
+  outSeconds?: number;
+  lengthSeconds?: number;
 };

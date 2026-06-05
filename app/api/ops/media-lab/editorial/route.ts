@@ -55,9 +55,20 @@ export async function PUT(req: Request) {
     year?: number;
     jobSlug?: string;
     chapters?: { id?: string; startSec?: number; endSec?: number; title?: string }[];
-    chapterMeta?: Record<string, { reviewStatus?: string }>;
+    chapterMeta?: Record<
+      string,
+      {
+        reviewStatus?: string;
+        favorite?: boolean;
+        category?: string;
+        inSeconds?: number;
+        outSeconds?: number;
+        lengthSeconds?: number;
+      }
+    >;
     sourceReviewStatus?: string;
     exportFiles?: boolean;
+    exportMode?: "favorites" | "kept" | "everything";
   };
 
   try {
@@ -93,11 +104,22 @@ export async function PUT(req: Request) {
 
     if (body.exportFiles) {
       const editorialMeta = await readEditorialMeta(outputDir);
-      const chaptersWithStatus = chapters.map((ch) => ({
-        ...ch,
-        reviewStatus: editorialMeta.chapters[ch.id]?.reviewStatus,
-      }));
-      const exportChapters = filterChaptersForExport(chaptersWithStatus);
+      const chaptersWithStatus = chapters.map((ch) => {
+        const meta = editorialMeta.chapters[ch.id];
+        return {
+          ...ch,
+          reviewStatus: meta?.reviewStatus,
+          favorite: meta?.favorite,
+          category: meta?.category,
+        };
+      });
+      const exportMode =
+        body.exportMode === "favorites" ||
+        body.exportMode === "everything" ||
+        body.exportMode === "kept"
+          ? body.exportMode
+          : "kept";
+      const exportChapters = filterChaptersForExport(chaptersWithStatus, exportMode);
       await exportEditorialChapters(outputDir, chapters, exportChapters);
     } else {
       const { writeChaptersFromRecords } = await import("@/lib/ops/media-lab/chapters-csv");

@@ -13,7 +13,35 @@ import {
 
 export type ChapterEditorialMeta = {
   reviewStatus?: ClipReviewStatus;
+  /** Exceptional show material — implies Keep when true. */
+  favorite?: boolean;
+  /** Curator-facing category label (e.g. Bumper, Commercial). */
+  category?: string;
+  /** Curator bumper IN/OUT (whole seconds in source video). */
+  inSeconds?: number;
+  outSeconds?: number;
+  lengthSeconds?: number;
 };
+
+function parseWholeSeconds(value: unknown): number | undefined {
+  if (typeof value !== "number" || !Number.isFinite(value)) return undefined;
+  const n = Math.round(value);
+  return n >= 0 ? n : undefined;
+}
+
+function hasChapterMeta(row: ChapterEditorialMeta): boolean {
+  return Boolean(
+    row.reviewStatus ||
+      row.favorite ||
+      row.category ||
+      row.inSeconds != null ||
+      row.outSeconds != null ||
+      row.lengthSeconds != null,
+  );
+}
+
+/** Future export modes: favorites-only, kept, or full timeline. */
+export type ExportFilterMode = "favorites" | "kept" | "everything";
 
 export type EditorialMetaFile = {
   sourceReviewStatus?: SourceReviewStatus;
@@ -37,10 +65,25 @@ export const isExportableReviewStatus = isExportableClipStatus;
 /** @deprecated use summarizeClipReviewCounts */
 export const summarizeReviewStatusCounts = summarizeClipReviewCounts;
 
-export function filterChaptersForExport<T extends { reviewStatus?: ClipReviewStatus }>(
-  chapters: T[],
-): T[] {
-  return chapters.filter((ch) => isExportableClipStatus(ch.reviewStatus));
+export function isKeptChapter(ch: {
+  reviewStatus?: ClipReviewStatus;
+  favorite?: boolean;
+}): boolean {
+  return isExportableClipStatus(ch.reviewStatus);
+}
+
+export function filterChaptersForExport<
+  T extends { reviewStatus?: ClipReviewStatus; favorite?: boolean },
+>(chapters: T[], mode: ExportFilterMode = "kept"): T[] {
+  switch (mode) {
+    case "favorites":
+      return chapters.filter((ch) => ch.favorite === true && isExportableClipStatus(ch.reviewStatus));
+    case "everything":
+      return chapters;
+    case "kept":
+    default:
+      return chapters.filter((ch) => isExportableClipStatus(ch.reviewStatus));
+  }
 }
 
 export async function readEditorialMeta(outputDir: string): Promise<EditorialMetaFile> {
@@ -54,7 +97,23 @@ export async function readEditorialMeta(outputDir: string): Promise<EditorialMet
     const chapters: EditorialMetaFile["chapters"] = {};
     for (const [id, row] of Object.entries(raw.chapters)) {
       const reviewStatus = normalizeClipReviewStatus(row?.reviewStatus);
-      if (reviewStatus) chapters[id] = { reviewStatus };
+      const favorite = row?.favorite === true;
+      const category =
+        typeof row?.category === "string" && row.category.trim()
+          ? row.category.trim()
+          : undefined;
+      const inSeconds = parseWholeSeconds(row?.inSeconds);
+      const outSeconds = parseWholeSeconds(row?.outSeconds);
+      const lengthSeconds = parseWholeSeconds(row?.lengthSeconds);
+      const next: ChapterEditorialMeta = {
+        ...(reviewStatus ? { reviewStatus } : {}),
+        ...(favorite ? { favorite: true } : {}),
+        ...(category ? { category } : {}),
+        ...(inSeconds != null ? { inSeconds } : {}),
+        ...(outSeconds != null ? { outSeconds } : {}),
+        ...(lengthSeconds != null ? { lengthSeconds } : {}),
+      };
+      if (hasChapterMeta(next)) chapters[id] = next;
     }
     return {
       sourceReviewStatus: parseSourceReviewStatus(raw.sourceReviewStatus),
@@ -80,7 +139,18 @@ export function mergeEditorialMetaPayload(
   existing: EditorialMetaFile,
   payload: {
     sourceReviewStatus?: unknown;
-    chapters?: Record<string, { reviewStatus?: unknown } | undefined>;
+    chapters?: Record<
+      string,
+      | {
+          reviewStatus?: unknown;
+          favorite?: unknown;
+          category?: unknown;
+          inSeconds?: unknown;
+          outSeconds?: unknown;
+          lengthSeconds?: unknown;
+        }
+      | undefined
+    >;
   },
 ): EditorialMetaFile {
   const chapters = { ...existing.chapters };
@@ -94,13 +164,34 @@ export function mergeEditorialMetaPayload(
     for (const [id, row] of Object.entries(payload.chapters)) {
       if (!row) continue;
       const reviewStatus = parseClipReviewStatus(row.reviewStatus);
-      if (reviewStatus) chapters[id] = { ...chapters[id], reviewStatus };
-      else if (chapters[id]) {
-        const next = { ...chapters[id] };
-        delete next.reviewStatus;
-        if (Object.keys(next).length === 0) delete chapters[id];
-        else chapters[id] = next;
+      const next: ChapterEditorialMeta = { ...chapters[id] };
+
+      if (reviewStatus) next.reviewStatus = reviewStatus;
+      else delete next.reviewStatus;
+
+      if (row.favorite === true) next.favorite = true;
+      else if (row.favorite === false || row.favorite === null) delete next.favorite;
+
+      if (typeof row.category === "string") {
+        const cat = row.category.trim();
+        if (cat) next.category = cat;
+        else delete next.category;
       }
+
+      const inSeconds = parseWholeSeconds(row.inSeconds);
+      if (inSeconds != null) next.inSeconds = inSeconds;
+      else if (row.inSeconds === null) delete next.inSeconds;
+
+      const outSeconds = parseWholeSeconds(row.outSeconds);
+      if (outSeconds != null) next.outSeconds = outSeconds;
+      else if (row.outSeconds === null) delete next.outSeconds;
+
+      const lengthSeconds = parseWholeSeconds(row.lengthSeconds);
+      if (lengthSeconds != null) next.lengthSeconds = lengthSeconds;
+      else if (row.lengthSeconds === null) delete next.lengthSeconds;
+
+      if (!hasChapterMeta(next)) delete chapters[id];
+      else chapters[id] = next;
     }
   }
 

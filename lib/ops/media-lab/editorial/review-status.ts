@@ -43,18 +43,21 @@ export type ClipReviewCounts = {
   Reject: number;
   unreviewed: number;
   exportable: number;
+  favorites: number;
 };
 
 export function summarizeClipReviewCounts(
-  chapters: { id: string; reviewStatus?: ClipReviewStatus }[],
+  chapters: { id: string; reviewStatus?: ClipReviewStatus; favorite?: boolean }[],
 ): ClipReviewCounts {
   const counts: ClipReviewCounts = {
     Keep: 0,
     Reject: 0,
     unreviewed: 0,
     exportable: 0,
+    favorites: 0,
   };
   for (const ch of chapters) {
+    if (ch.favorite) counts.favorites++;
     if (!ch.reviewStatus) {
       counts.unreviewed++;
       continue;
