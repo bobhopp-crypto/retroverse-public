@@ -33,10 +33,11 @@ import { formatChapterClock, secToTimecode } from "@/lib/ops/media-lab/chapter-t
 import { ClipTimeline } from "./ClipTimeline";
 import { ChapterFilmstrip } from "./ChapterFilmstrip";
 import { ChapterThumbTriplet } from "./ChapterThumbTriplet";
-import { ClipTranscriptStrip, type TranscriptStripMode } from "./ClipTranscriptStrip";
+import { selectionLengthSeconds, type ClipSelectionState } from "./ClipSelectionPanel";
+import { ClipTranscriptStrip, TranscriptModeControls, type TranscriptStripMode } from "./ClipTranscriptStrip";
 import { EditorialChapterTags } from "./EditorialChapterTags";
+import { curatorCategoryForKey } from "./curator-categories";
 import { FocusReviewDeck } from "./FocusReviewDeck";
-import { focusTypeForKey } from "./focus-workstation-types";
 import { MediaLabMobileReview } from "./MediaLabMobileReview";
 import { useEditorialChapterOcr } from "./useEditorialChapterOcr";
 import { useMediaLabMobileReview } from "./useMediaLabMobileReview";
@@ -55,7 +56,11 @@ type EditorialBundleResponse = {
     sameBrandNeighbor: number;
     mergeEligible: number;
   };
-  job?: { durationSeconds: number | null; chapterCount: number };
+  job?: {
+    durationSeconds: number | null;
+    chapterCount: number;
+    sourceFilename?: string;
+  };
   segments?: TranscriptSegment[];
   sourceReviewStatus?: SourceReviewStatus;
   clipAssetsDir?: string;
@@ -140,7 +145,10 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const [mobileCardIndex, setMobileCardIndex] = useState(0);
   const [focusMode, setFocusMode] = useState(true);
   const [transcriptMode, setTranscriptMode] = useState<TranscriptStripMode>("live");
+  const [draftSelection, setDraftSelection] = useState<ClipSelectionState>({});
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [sourceFilename, setSourceFilename] = useState("");
+  const [showDurationSec, setShowDurationSec] = useState(0);
   const mobileReview = useMediaLabMobileReview();
   const videoRef = useRef<HTMLVideoElement>(null);
   const workspaceRef = useRef<HTMLDivElement>(null);
@@ -169,6 +177,11 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       setSuggestions(data.suggestions ?? []);
       setVideoUrl(data.videoUrl ?? null);
       setReviewMetrics(data.reviewMetrics ?? null);
+      setSourceFilename(data.job?.sourceFilename ?? "");
+      setShowDurationSec(
+        data.job?.durationSeconds ??
+          (data.chapters?.length ? data.chapters[data.chapters.length - 1].endSec : 0),
+      );
       setSegments(data.segments ?? []);
       setSourceReviewStatus(data.sourceReviewStatus);
       setClipAssetsDirPath(data.clipAssetsDir ?? "");
@@ -358,8 +371,30 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             })),
             chapterMeta: Object.fromEntries(
               chapters
-                .filter((ch) => ch.reviewStatus)
-                .map((ch) => [ch.id, { reviewStatus: ch.reviewStatus }]),
+                .filter(
+                  (ch) =>
+                    ch.reviewStatus ||
+                    ch.favorite ||
+                    ch.category ||
+                    ch.inSeconds != null,
+                )
+                .map((ch) => [
+                  ch.id,
+                  {
+                    reviewStatus: ch.reviewStatus,
+                    ...(ch.favorite ? { favorite: true } : {}),
+                    ...(ch.category ? { category: ch.category } : {}),
+                    ...(ch.inSeconds != null &&
+                    ch.outSeconds != null &&
+                    ch.lengthSeconds != null
+                      ? {
+                          inSeconds: ch.inSeconds,
+                          outSeconds: ch.outSeconds,
+                          lengthSeconds: ch.lengthSeconds,
+                        }
+                      : {}),
+                  },
+                ]),
             ),
             sourceReviewStatus: sourceReviewStatus ?? null,
           }),
@@ -475,11 +510,68 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   }
 
   function updateReviewStatus(id: string, reviewStatus: ClipReviewStatus | undefined) {
+    patchChapterReview(id, { reviewStatus });
+  }
+
+  function patchChapterReview(
+    id: string,
+    patch: {
+      reviewStatus?: ClipReviewStatus;
+      favorite?: boolean;
+      category?: string;
+      inSeconds?: number;
+      outSeconds?: number;
+      lengthSeconds?: number;
+      clearSelection?: boolean;
+    },
+  ) {
     setChapters((rows) =>
-      rows.map((c) => (c.id === id ? { ...c, reviewStatus } : c)),
+      rows.map((c) => {
+        if (c.id !== id) return c;
+        const next = { ...c };
+        if (patch.reviewStatus !== undefined) {
+          next.reviewStatus = patch.reviewStatus;
+          if (patch.reviewStatus !== "Keep") next.favorite = undefined;
+        }
+        if (patch.favorite === true) {
+          next.favorite = true;
+          next.reviewStatus = "Keep";
+        } else if (patch.favorite === false) {
+          next.favorite = undefined;
+        }
+        if (patch.category !== undefined) {
+          next.category = patch.category || undefined;
+        }
+        if (patch.clearSelection) {
+          delete next.inSeconds;
+          delete next.outSeconds;
+          delete next.lengthSeconds;
+        } else {
+          if (patch.inSeconds !== undefined) next.inSeconds = patch.inSeconds;
+          if (patch.outSeconds !== undefined) next.outSeconds = patch.outSeconds;
+          if (patch.lengthSeconds !== undefined) next.lengthSeconds = patch.lengthSeconds;
+        }
+        return next;
+      }),
     );
     setDirty(true);
   }
+
+  function selectionPayloadFromDraft(
+    selection: ClipSelectionState,
+  ): Pick<EditorialChapterRow, "inSeconds" | "outSeconds" | "lengthSeconds"> {
+    const lengthSeconds = selectionLengthSeconds(selection);
+    if (lengthSeconds == null) return {};
+    return {
+      inSeconds: selection.inSeconds,
+      outSeconds: selection.outSeconds,
+      lengthSeconds,
+    };
+  }
+
+  const updateDraftSelection = useCallback((next: ClipSelectionState) => {
+    setDraftSelection(next);
+  }, []);
 
   function applySuggestedTitle(id: string) {
     const ch = chapters.find((c) => c.id === id);
@@ -681,6 +773,57 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     else v.pause();
   }, []);
 
+  const keepClipAndNext = useCallback(() => {
+    if (!previewChapter) return;
+    patchChapterReview(previewChapter.id, {
+      reviewStatus: "Keep",
+      ...selectionPayloadFromDraft(draftSelection),
+    });
+    nextClip();
+  }, [draftSelection, nextClip, previewChapter]);
+
+  const favoriteClipAndNext = useCallback(() => {
+    if (!previewChapter) return;
+    patchChapterReview(previewChapter.id, {
+      favorite: true,
+      ...selectionPayloadFromDraft(draftSelection),
+    });
+    nextClip();
+  }, [draftSelection, nextClip, previewChapter]);
+
+  const categorizeAndAdvance = useCallback(
+    (category: { contentType: ContentType; label: string }) => {
+      if (!previewChapter) return;
+      applyContentType(previewChapter.id, category.contentType);
+      patchChapterReview(previewChapter.id, {
+        reviewStatus: "Keep",
+        category: category.label,
+        ...selectionPayloadFromDraft(draftSelection),
+      });
+      nextClip();
+    },
+    [applyContentType, draftSelection, nextClip, previewChapter],
+  );
+
+  useEffect(() => {
+    if (!previewChapter) {
+      setDraftSelection({});
+      return;
+    }
+    const { inSeconds, outSeconds, startSec, endSec } = previewChapter;
+    if (
+      inSeconds != null &&
+      outSeconds != null &&
+      outSeconds > inSeconds &&
+      inSeconds >= startSec &&
+      outSeconds <= endSec
+    ) {
+      setDraftSelection({ inSeconds, outSeconds });
+    } else {
+      setDraftSelection({ inSeconds: startSec, outSeconds: endSec });
+    }
+  }, [previewChapter?.id]);
+
   useEffect(() => {
     if (!reviewMode) return;
 
@@ -711,20 +854,20 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
           applySuggestedTitle(previewChapter.id);
           return;
         }
+        if (key === "f" && previewChapter) {
+          e.preventDefault();
+          favoriteClipAndNext();
+          return;
+        }
         if (key === "k" && previewChapter) {
           e.preventDefault();
-          updateReviewStatus(previewChapter.id, "Keep");
+          keepClipAndNext();
           return;
         }
-        if (key === "x" && previewChapter) {
+        const category = curatorCategoryForKey(e.key);
+        if (category && previewChapter) {
           e.preventDefault();
-          updateReviewStatus(previewChapter.id, "Reject");
-          return;
-        }
-        const type = focusTypeForKey(e.key);
-        if (type && previewChapter) {
-          e.preventDefault();
-          applyContentType(previewChapter.id, type);
+          categorizeAndAdvance(category);
           return;
         }
         if (key === "escape") {
@@ -764,16 +907,17 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [
-    applyContentType,
     applySuggestedTitle,
+    categorizeAndAdvance,
     closeReview,
+    favoriteClipAndNext,
     focusMode,
+    keepClipAndNext,
     nextClip,
     previewChapter,
     prevClip,
     reviewMode,
     togglePlayPause,
-    updateReviewStatus,
   ]);
 
   function handleVideoTimeUpdate() {
@@ -1061,34 +1205,31 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       {!mobileReview && focusMode && previewChapter && videoUrl && !splitChapter ? (
         <div ref={workspaceRef}>
           <FocusReviewDeck
-            jobLabel={humanizeJobSlug(props.jobSlug)}
+            showTitle={humanizeJobSlug(props.jobSlug)}
             modeLabel={modeLabel}
+            sourceFilename={sourceFilename || humanizeJobSlug(props.jobSlug) + ".mp4"}
+            showDurationSec={showDurationSec || videoDurationSec}
             videoRef={videoRef}
             videoUrl={videoUrl}
             onTimeUpdate={handleVideoTimeUpdate}
-            segments={segments}
             clip={previewChapter}
+            suggestion={previewChapter.tagSuggestion ?? null}
             playheadSec={playheadSec}
-            transcriptMode={transcriptMode}
-            onTranscriptModeChange={setTranscriptMode}
+            selection={draftSelection}
+            onSelectionChange={updateDraftSelection}
+            onSeek={(sec) => seekToSec(sec, false)}
+            onTitleChange={(title) => updateTitle(previewChapter.id, title)}
             previewIndex={previewIndex}
             totalClips={chapters.length}
+            favorites={reviewCounts.favorites}
             kept={reviewCounts.Keep}
-            rejected={reviewCounts.Reject}
             remaining={reviewCounts.unreviewed}
-            reviewStatus={previewChapter.reviewStatus}
-            onKeep={() =>
-              updateReviewStatus(
-                previewChapter.id,
-                previewChapter.reviewStatus === "Keep" ? undefined : "Keep",
-              )
-            }
-            onReject={() =>
-              updateReviewStatus(
-                previewChapter.id,
-                previewChapter.reviewStatus === "Reject" ? undefined : "Reject",
-              )
-            }
+            isKept={previewChapter.reviewStatus === "Keep"}
+            isFavorite={previewChapter.favorite === true}
+            onKeepClip={() => keepClipAndNext()}
+            onFavoriteClip={() => favoriteClipAndNext()}
+            onAcceptSuggestion={() => applySuggestedTitle(previewChapter.id)}
+            onCategorize={(category) => categorizeAndAdvance(category)}
             onPrevious={() => prevClip()}
             onNext={() => nextClip()}
             canPrevious={previewIndex > 0}
@@ -1100,24 +1241,23 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             showAdvanced={showAdvanced}
             onToggleAdvanced={() => setShowAdvanced((v) => !v)}
             onToggleFocus={() => setFocusMode(false)}
-            classificationPanel={
-              <EditorialChapterTags
-                variant="editor"
-                focus
-                deck
-                title={previewChapter.title}
-                suggestion={previewChapter.tagSuggestion ?? null}
-                reviewStatus={previewChapter.reviewStatus}
-                onTitleChange={(title) => updateTitle(previewChapter.id, title)}
-                onApplySuggestedTitle={() => applySuggestedTitle(previewChapter.id)}
-                onApplyContentType={(type) => applyContentType(previewChapter.id, type)}
-                onReviewStatusChange={(status) =>
-                  updateReviewStatus(previewChapter.id, status)
-                }
-              />
-            }
             advancedPanel={
               <div className="ops-ml-deck-advanced">
+                <TranscriptModeControls
+                  mode={transcriptMode}
+                  onModeChange={setTranscriptMode}
+                />
+                {previewChapter ? (
+                  <ClipTranscriptStrip
+                    variant="deck"
+                    segments={segments}
+                    clipStartSec={previewChapter.startSec}
+                    clipEndSec={previewChapter.endSec}
+                    playheadSec={playheadSec}
+                    mode={transcriptMode}
+                    onModeChange={setTranscriptMode}
+                  />
+                ) : null}
                 <p className="ops-ml-deck-advanced__path">
                   Job: <code className="ops-mono">{props.jobSlug}</code>
                 </p>
