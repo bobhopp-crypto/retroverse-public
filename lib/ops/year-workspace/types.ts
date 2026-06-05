@@ -1,5 +1,11 @@
 import type { MatchStatus } from "@/lib/ops/reconciliation-model";
+import type { RvTagId } from "@/lib/ops/rvtags-review/vocabulary";
 
+import type { RetroverseTagsSource } from "@/lib/ops/retroverse-tags/resolve";
+
+import type { ReviewClassification } from "./review-types";
+import type { YearReviewEnrichmentMetrics } from "./enrich-vdj-meta";
+import type { ReviewOwnership } from "./ownership";
 import type { YearWorkspaceKeyword } from "./vocabulary";
 
 export type YearWorkspaceBucket =
@@ -32,6 +38,20 @@ export type YearWorkspaceRow = {
   vdjYear: number | null;
   sourcePath: string | null;
   bestMatch: string | null;
+  /** VDJ rotation / ranking signal (PlayCount in database.xml — not a factual usage count). */
+  playCount: number | null;
+  vdjUser2Raw: string | null;
+  /** Canonical Retroverse Tags for this row's RVTR (display field). */
+  historicalTags: RvTagId[];
+  /** True when tags are a VDJ User2 import hint not yet saved on the RVTR. */
+  historicalTagsFromVdj: boolean;
+  classification: ReviewClassification;
+  /** True when Class is suggested from rotation signal only (nothing persisted yet). */
+  classificationAutoPromoted: boolean;
+  vdjMatch: "matched" | "missing" | "review";
+  ownership: ReviewOwnership;
+  /** RVTR store is source of truth; VDJ is import-only until promoted. */
+  retroverseTagsSource: RetroverseTagsSource;
 };
 
 export type YearWorkspaceStats = {
@@ -55,12 +75,18 @@ export type YearWorkspaceCompletion = {
 
 export type YearWorkspaceData = {
   year: number;
+  /** Top-N pilot slice active for 1967 / 1978 / 1992. */
+  pilotMode?: boolean;
+  pilotTopN?: number | null;
   stats: YearWorkspaceStats;
   completion: YearWorkspaceCompletion;
   inBoth: YearWorkspaceRow[];
   chartOnly: YearWorkspaceRow[];
   vdjOnly: YearWorkspaceRow[];
   review: YearWorkspaceRow[];
+  /** Flat Hot 100 review table (inBoth + chartOnly), peak order. */
+  reviewRows: YearWorkspaceRow[];
+  reviewMetrics: YearReviewEnrichmentMetrics;
 };
 
 export type YearWorkspaceCategoryId =
