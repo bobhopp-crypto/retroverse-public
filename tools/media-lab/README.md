@@ -26,7 +26,14 @@ Ops → **media lab** (`/ops/media-lab`) with `RETROVERSE_OPS=1`.
 
 ## Chapters & segment labels
 
-1. **Generate Chapters** — content-aware `chapters.csv` (TV titles, commercials, etc.)
+**Chapter modes** (UI selector or CLI `--mode`):
+
+| Mode | Use for |
+|------|---------|
+| `content` | TV retrospectives, mixed topics (default) |
+| `commercial` | Vintage ad reels — ~30–90s spots, same-brand merge |
+
+1. **Generate Chapters** — `chapters.csv` for LosslessCut
 2. **Generate Segment Labels** — human-readable export names:
 
    - `segment-labels.json` — `[{ start, end, label }]`
@@ -34,8 +41,25 @@ Ops → **media lab** (`/ops/media-lab`) with `RETROVERSE_OPS=1`.
    - `chapters.csv` — synced with labels (`TV - Batman`, `Commercial - Rice Krispies`, …)
 
 ```bash
-npx tsx tools/media-lab/build-chapters-cli.ts --output-dir /path/to/job
+npx tsx tools/media-lab/build-chapters-cli.ts --output-dir /path/to/job --mode commercial
 npx tsx tools/media-lab/build-segment-labels-cli.ts --output-dir /path/to/job
+
+Test commercial vs content counts:
+
+```bash
+npx tsx tools/media-lab/test-commercial-chapters.ts --output-dir /path/to/job
+```
+
+## Editorial review (Phase 2)
+
+After chapters exist, open **Editorial review** on `/ops/media-lab`:
+
+- Chapter table (merge, split, rename, delete, preview)
+- **Suggest merges** — rule-based adjacent-pair analysis with confidence %
+- Review filters: under 20s, same-brand neighbors, needs review
+- **Export for LosslessCut** — writes `chapters.csv` + `segment-labels.txt`
+
+API: `GET/PUT /api/ops/media-lab/editorial`, `POST …/export`, `POST …/suggest-merges`
 ```
 
 ## Outputs per job

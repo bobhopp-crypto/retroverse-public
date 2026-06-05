@@ -2,9 +2,11 @@ import { readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
 import {
-  buildContentAwareChapters,
-  type TranscriptSegment,
-} from "./build-chapters-from-segments";
+  buildChaptersForMode,
+  parseChapterMode,
+  type MediaLabChapterMode,
+} from "./chapter-mode";
+import type { TranscriptSegment } from "./build-chapters-from-segments";
 import type { MediaLabJobMeta } from "./run-transcribe";
 
 export function secToTimecode(sec: number): string {
@@ -34,19 +36,26 @@ export async function writeChaptersCsv(
   await writeFile(join(outputDir, "chapters.csv"), `${lines.join("\n")}\n`, "utf8");
 }
 
-export async function regenerateChapters(outputDir: string): Promise<{
+export async function regenerateChapters(
+  outputDir: string,
+  mode?: MediaLabChapterMode,
+): Promise<{
   chapters: { start: number; end: number; title: string }[];
   job: MediaLabJobMeta;
 }> {
   const raw = await readFile(join(outputDir, "segments.json"), "utf8");
   const segments = JSON.parse(raw) as TranscriptSegment[];
-  const contentChapters = buildContentAwareChapters(segments);
-  const chapters = contentChapters.map(({ start, end, title }) => ({ start, end, title }));
-  await writeChaptersCsv(outputDir, chapters);
 
   const jobRaw = await readFile(join(outputDir, "job.json"), "utf8");
   const job = JSON.parse(jobRaw) as MediaLabJobMeta;
+  const chapterMode = mode ?? parseChapterMode(job.chapterMode);
+
+  const contentChapters = buildChaptersForMode(segments, chapterMode);
+  const chapters = contentChapters.map(({ start, end, title }) => ({ start, end, title }));
+  await writeChaptersCsv(outputDir, chapters);
+
   job.chapterCount = chapters.length;
+  job.chapterMode = chapterMode;
   await writeFile(join(outputDir, "job.json"), `${JSON.stringify(job, null, 2)}\n`, "utf8");
 
   return { chapters, job };

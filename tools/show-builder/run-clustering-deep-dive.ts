@@ -275,7 +275,7 @@ Anchor pairs are defined per year in \`lib/ops/show-builder/clustering/evaluate.
     B: methodTotals.B / methodCounts.B,
     C: methodTotals.C / methodCounts.C,
   };
-  const sortedMethods = (["A", "B", "C"] as const).sort((a, b) => avgScores[b] - avgScores[a]);
+  const sortedMethods = [...(["A", "B", "C"] as const)].sort((a, b) => avgScores[b] - avgScores[a]);
 
   md += `**Wire into Set Builder UI:** Method **${sortedMethods[0]}** as default, with year-aware cultural vectors.
 
