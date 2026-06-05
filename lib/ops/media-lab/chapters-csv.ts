@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
-import { secToTimecode } from "./chapters-only";
+import { secToTimecode } from "./chapter-time";
 
 export type ChapterRecord = {
   startSec: number;
@@ -61,6 +61,7 @@ export async function readChaptersCsv(outputDir: string): Promise<ChapterRecord[
 export async function writeChaptersFromRecords(
   outputDir: string,
   chapters: ChapterRecord[],
+  filename = "chapters.csv",
 ): Promise<void> {
   const lines = ["start,end,title"];
   for (const ch of chapters) {
@@ -69,7 +70,7 @@ export async function writeChaptersFromRecords(
       `${secToTimecode(ch.startSec)},${secToTimecode(ch.endSec)},${title}`,
     );
   }
-  await writeFile(join(outputDir, "chapters.csv"), `${lines.join("\n")}\n`, "utf8");
+  await writeFile(join(outputDir, filename), `${lines.join("\n")}\n`, "utf8");
 }
 
 export function withEditorialIds(chapters: ChapterRecord[]): EditorialChapter[] {

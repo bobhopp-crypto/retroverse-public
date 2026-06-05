@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import type { MediaLabChapterMode } from "@/lib/ops/media-lab/chapter-mode";
 import type { TranscriptSegment } from "@/lib/ops/media-lab/build-chapters-from-segments";
-import type { EditorialChapterRow } from "@/lib/ops/media-lab/editorial/load-editorial";
+import type { EditorialChapterRow } from "@/lib/ops/media-lab/editorial/editorial-types";
 import type { MergeSuggestion } from "@/lib/ops/media-lab/editorial/merge-suggestions";
 import type { ClipOcrInput } from "@/lib/ops/media-lab/editorial/transcript-suggestions";
 import {
@@ -33,7 +33,9 @@ import { formatChapterClock, secToTimecode } from "@/lib/ops/media-lab/chapter-t
 import { ClipTimeline } from "./ClipTimeline";
 import { ChapterFilmstrip } from "./ChapterFilmstrip";
 import { ChapterThumbTriplet } from "./ChapterThumbTriplet";
+import { ClipTranscriptStrip, type TranscriptStripMode } from "./ClipTranscriptStrip";
 import { EditorialChapterTags } from "./EditorialChapterTags";
+import { focusTypeForKey } from "./focus-workstation-types";
 import { MediaLabMobileReview } from "./MediaLabMobileReview";
 import { useEditorialChapterOcr } from "./useEditorialChapterOcr";
 import { useMediaLabMobileReview } from "./useMediaLabMobileReview";
@@ -128,9 +130,21 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     { contentType: string; folder: string; path: string }[]
   >([]);
   const [mobileCardIndex, setMobileCardIndex] = useState(0);
+  const [focusMode, setFocusMode] = useState(true);
+  const [transcriptMode, setTranscriptMode] = useState<TranscriptStripMode>("live");
   const mobileReview = useMediaLabMobileReview();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const rowRefs = useRef<Map<string, HTMLTableRowElement>>(new Map());
+  const workspaceRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+
+  const transcriptPreview = useMemo(() => {
+    if (segments.length === 0) return "";
+    return segments
+      .map((s) => s.text)
+      .join(" ")
+      .trim()
+      .slice(0, 1200);
+  }, [segments]);
 
   const load = useCallback(async () => {
     setBusy("load");
@@ -153,6 +167,11 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       setAssetRoutes(data.assetRoutes ?? []);
       setDirty(false);
       setSelected(new Set());
+      const first = data.chapters?.[0];
+      if (first) {
+        setPreviewId(first.id);
+        setSplitId(null);
+      }
     } catch (e) {
       props.onError?.(e instanceof Error ? e.message : "Load failed");
     } finally {
@@ -208,7 +227,6 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const reviewMode = previewId != null && splitId == null;
   const previewIndex =
     previewId != null ? chapters.findIndex((c) => c.id === previewId) : -1;
-  const tableChapters = reviewMode ? chapters : visibleChapters;
   const videoDurationSec =
     chapters.length > 0 ? chapters[chapters.length - 1].endSec : 0;
 
@@ -615,6 +633,10 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       setPreviewId(ch.id);
       setSplitId(null);
       seekToChapter(ch);
+      requestAnimationFrame(() => {
+        workspaceRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        cardRefs.current.get(ch.id)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      });
     },
     [seekToChapter],
   );
@@ -658,6 +680,51 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
 
       const key = e.key.toLowerCase();
+
+      if (focusMode) {
+        if (e.key === " ") {
+          e.preventDefault();
+          togglePlayPause();
+          return;
+        }
+        if (key === "p") {
+          e.preventDefault();
+          prevClip();
+          return;
+        }
+        if (key === "n") {
+          e.preventDefault();
+          nextClip();
+          return;
+        }
+        if (key === "a" && previewChapter?.tagSuggestion) {
+          e.preventDefault();
+          applySuggestedTitle(previewChapter.id);
+          return;
+        }
+        if (key === "k" && previewChapter) {
+          e.preventDefault();
+          updateReviewStatus(previewChapter.id, "Keep");
+          return;
+        }
+        if (key === "x" && previewChapter) {
+          e.preventDefault();
+          updateReviewStatus(previewChapter.id, "Reject");
+          return;
+        }
+        const type = focusTypeForKey(e.key);
+        if (type && previewChapter) {
+          e.preventDefault();
+          applyContentType(previewChapter.id, type);
+          return;
+        }
+        if (key === "escape") {
+          e.preventDefault();
+          closeReview();
+        }
+        return;
+      }
+
       if (key === "j") {
         e.preventDefault();
         prevClip();
@@ -667,6 +734,18 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       } else if (key === "l") {
         e.preventDefault();
         nextClip();
+      } else if (key === "a" && previewChapter?.tagSuggestion) {
+        e.preventDefault();
+        applySuggestedTitle(previewChapter.id);
+      } else if (key === "y" && previewChapter) {
+        e.preventDefault();
+        updateReviewStatus(previewChapter.id, "Keep");
+      } else if (key === "x" && previewChapter) {
+        e.preventDefault();
+        updateReviewStatus(previewChapter.id, "Reject");
+      } else if (key === "e" && previewChapter) {
+        e.preventDefault();
+        workspaceRef.current?.querySelector<HTMLInputElement>(".ops-ml-chapter-tags__title")?.focus();
       } else if (key === "escape") {
         e.preventDefault();
         closeReview();
@@ -675,20 +754,18 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [closeReview, nextClip, prevClip, reviewMode, togglePlayPause]);
-
-  useEffect(() => {
-    if (!previewId) return;
-    const row = rowRefs.current.get(previewId);
-    row?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  }, [previewId]);
-
-  useEffect(() => {
-    if (!reviewMode) return;
-    document
-      .querySelector(".ops-ml-review-workspace")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [reviewMode, previewId]);
+  }, [
+    applyContentType,
+    applySuggestedTitle,
+    closeReview,
+    focusMode,
+    nextClip,
+    previewChapter,
+    prevClip,
+    reviewMode,
+    togglePlayPause,
+    updateReviewStatus,
+  ]);
 
   function handleVideoTimeUpdate() {
     const v = videoRef.current;
@@ -735,7 +812,8 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     <section
       className={[
         "ops-ml-editorial",
-        reviewMode ? "ops-ml-editorial--review" : "",
+        "ops-ml-editorial--editor",
+        focusMode && !mobileReview ? "ops-ml-editorial--focus" : "",
         mobileReview ? "ops-ml-editorial--mobile" : "",
       ]
         .filter(Boolean)
@@ -745,12 +823,31 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
         <div>
           <h3 className="ops-ml-panel__title">Editorial review — {modeLabel}</h3>
           <p className="ops-dim ops-ml-editorial__hint">
-            Transcript suggests type + title. Click Accept, tag Keep/Reject, export — clips route
-            into <code className="ops-mono">VIDEO/ASSETS/</code> by type; source →{" "}
-            <code className="ops-mono">VIDEO/ARCHIVE/</code>.
+            {focusMode ? (
+              <>
+                What is this? Type · title · keep/reject · next.{" "}
+                <kbd>1</kbd>–<kbd>8</kbd> type · <kbd>K</kbd> keep · <kbd>N</kbd> next
+              </>
+            ) : (
+              <>
+                Full view: filters, clip queue, merge tools.{" "}
+                <kbd>Y</kbd> keep · <kbd>X</kbd> reject · <kbd>A</kbd> accept · <kbd>J</kbd>/<kbd>L</kbd>{" "}
+                prev/next
+              </>
+            )}
           </p>
         </div>
         <div className="ops-ml-editorial__head-actions">
+          {!mobileReview ? (
+            <button
+              type="button"
+              className={`ops-btn ops-ml-focus-toggle${focusMode ? " ops-ml-focus-toggle--on" : ""}`}
+              aria-pressed={focusMode}
+              onClick={() => setFocusMode((v) => !v)}
+            >
+              Focus {focusMode ? "On" : "Off"}
+            </button>
+          ) : null}
           <button
             type="button"
             className="ops-btn"
@@ -785,320 +882,470 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
         </div>
       </header>
 
-      <div className="ops-ml-source-review">
-        <span className="ops-ml-source-review__label">Source video</span>
-        <div className="ops-ml-source-review__actions">
-          {SOURCE_REVIEW_STATUSES.map((status) => (
+      {!mobileReview && !focusMode ? (
+        <div className="ops-ml-editorial__filters ops-ml-editorial__filters--triage">
+          {(
+            [
+              ["all", "All"],
+              ["unreviewed", "Todo"],
+              ["keep", "Keep"],
+              ["reject", "Reject"],
+              ["exportable", "Export"],
+              ["under15", "<15s"],
+              ["mergeEligible", "Merge"],
+            ] as const
+          ).map(([id, label]) => (
             <button
-              key={status}
+              key={id}
               type="button"
-              className={`ops-btn ops-ml-source-review__btn${
-                sourceReviewStatus === status ? " ops-ml-source-review__btn--on" : ""
-              }${status === "Keep Source" ? " ops-btn--ok" : " ops-btn--bad"}`}
-              onClick={() => updateSourceReviewStatus(status)}
+              className={`ops-btn ops-ml-filter${filter === id ? " ops-ml-filter--on" : ""}`}
+              onClick={() => setFilter(id)}
             >
-              {status}
+              {label}
             </button>
           ))}
-        </div>
-        {clipAssetsDirPath || sourceArchiveDirPath ? (
-          <p className="ops-dim ops-ml-source-review__paths">
-            ASSETS root → <code className="ops-mono">{clipAssetsDirPath}</code>
-            {" · "}
-            ARCHIVE → <code className="ops-mono">{sourceArchiveDirPath}</code>
-          </p>
-        ) : null}
-      </div>
-
-      {assetRoutes.length > 0 ? (
-        <details className="ops-ml-asset-routes">
-          <summary className="ops-ml-asset-routes__summary">Asset routing map</summary>
-          <ul className="ops-ml-asset-routes__list">
-            {assetRoutes.map((route) => (
-              <li key={route.contentType} className="ops-ml-asset-routes__item">
-                <span className="ops-ml-asset-routes__type">{route.contentType}</span>
-                <span className="ops-dim">→</span>
-                <code className="ops-mono ops-ml-asset-routes__folder">ASSETS/{route.folder}/</code>
-              </li>
-            ))}
-          </ul>
-        </details>
-      ) : null}
-
-      {reviewMetrics && !reviewMode ? (
-        <div className="ops-ml-review-metrics">
-          <span className="ops-ml-review-metrics__item">
-            <strong>{reviewMetrics.totalClips}</strong> clips
+          <span className="ops-dim ops-ml-editorial__filter-count">
+            {visibleChapters.length}/{chapters.length}
+            {dirty ? " · unsaved" : ""}
           </span>
-          {reviewMetrics.under15Sec > 0 ? (
-            <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--warn">
-              <strong>{reviewMetrics.under15Sec}</strong> under 15s
-            </span>
-          ) : null}
-          {reviewMetrics.sameBrandNeighbor > 0 ? (
-            <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--warn">
-              <strong>{reviewMetrics.sameBrandNeighbor}</strong> same-brand neighbors
-            </span>
-          ) : null}
-          {reviewMetrics.mergeEligible > 0 ? (
-            <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--warn">
-              <strong>{reviewMetrics.mergeEligible}</strong> merge-eligible
-            </span>
-          ) : null}
-          <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--keep">
-            <strong>{reviewCounts.Keep}</strong> keep
-          </span>
-          <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--reject">
-            <strong>{reviewCounts.Reject}</strong> reject
-          </span>
-          {reviewCounts.exportable > 0 ? (
-            <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--export">
-              <strong>{reviewCounts.exportable}</strong> exportable
-            </span>
-          ) : null}
-          {reviewCounts.unreviewed > 0 ? (
-            <span className="ops-ml-review-metrics__item">
-              <strong>{reviewCounts.unreviewed}</strong> unreviewed
-            </span>
-          ) : null}
         </div>
       ) : null}
 
-      {!reviewMode && !mobileReview ? (
-        <>
-          <div className="ops-ml-editorial__filters">
-            <span className="ops-ml-field__label">Review filters</span>
-            {(
-              [
-                ["all", "All clips"],
-                ["exportable", "Keep"],
-                ["keep", "Keep"],
-                ["reject", "Reject"],
-                ["unreviewed", "Unreviewed"],
-                ["under15", "Under 15s"],
-                ["mergeEligible", "Merge eligible"],
-              ] as const
-            ).map(([id, label]) => (
-              <button
-                key={id}
-                type="button"
-                className={`ops-btn ops-ml-filter${filter === id ? " ops-ml-filter--on" : ""}`}
-                onClick={() => setFilter(id)}
-              >
-                {label}
-              </button>
-            ))}
-            <span className="ops-dim">
-              Showing {visibleChapters.length} of {chapters.length}
-              {dirty ? " · unsaved edits" : ""}
-              {thumbsLoading ? " · generating thumbnails…" : ""}
-              {ocrLoading ? " · running OCR…" : ""}
-            </span>
-          </div>
-
-          {thumbsError ? (
-            <p className="ops-ml-editorial__thumb-error ops-dim">{thumbsError}</p>
-          ) : null}
-          {ocrError ? (
-            <p className="ops-ml-editorial__thumb-error ops-dim">{ocrError}</p>
+      {!mobileReview && !focusMode ? (
+        <div className="ops-ml-editorial__folds">
+          {transcriptPreview ? (
+            <details className="ops-ml-fold-panel">
+              <summary className="ops-ml-fold-panel__summary">Transcript</summary>
+              <p className="ops-ml-fold-panel__body ops-dim">{transcriptPreview}…</p>
+            </details>
           ) : null}
 
-          <div className="ops-ml-editorial__toolbar">
-            <button
-              type="button"
-              className="ops-btn"
-              disabled={busy != null}
-          onClick={() => void refreshSuggestions()}
-        >
-          {busy === "suggest" ? "Analyzing…" : "Refresh heuristics"}
-        </button>
-            <input
-              className="ops-ml-field__input ops-ml-editorial__merge-title"
-              placeholder="Merged title (optional)"
-              value={mergeTitle}
-              onChange={(e) => setMergeTitle(e.target.value)}
-            />
-            <button
-              type="button"
-              className="ops-btn ops-btn--warn"
-              disabled={selected.size < 2}
-              onClick={() => mergeSelectedLocal()}
-            >
-              Merge selected ({selected.size})
-            </button>
-          </div>
-
-          {suggestions.length > 0 ? (
-            <div className="ops-ml-suggestions">
-              <h4 className="ops-ml-suggestions__title">Merge suggestions</h4>
-              <ul className="ops-ml-suggestions__list">
-                {suggestions.slice(0, 12).map((s) => (
-                  <li
-                    key={`${s.leftChapterId}-${s.rightChapterId}`}
-                    className="ops-ml-suggestions__item"
+          <details className="ops-ml-fold-panel">
+            <summary className="ops-ml-fold-panel__summary">Source video</summary>
+            <div className="ops-ml-fold-panel__body">
+              <div className="ops-ml-source-review__actions">
+                {SOURCE_REVIEW_STATUSES.map((status) => (
+                  <button
+                    key={status}
+                    type="button"
+                    className={`ops-btn ops-ml-source-review__btn${
+                      sourceReviewStatus === status ? " ops-ml-source-review__btn--on" : ""
+                    }${status === "Keep Source" ? " ops-btn--ok" : " ops-btn--bad"}`}
+                    onClick={() => updateSourceReviewStatus(status)}
                   >
-                    <div className="ops-ml-suggestions__pair">
-                      <span>{s.leftTitle}</span>
-                      <span className="ops-dim">+</span>
-                      <span>{s.rightTitle}</span>
-                    </div>
-                    <p className="ops-ml-suggestions__suggest">
-                      → <strong>{s.suggestedTitle}</strong>
-                      <span className="ops-ml-suggestions__conf">{s.confidence}%</span>
-                    </p>
-                    <p className="ops-dim ops-ml-suggestions__reasons">
-                      {s.reasons.join(" · ")}
-                    </p>
-                    <button
-                      type="button"
-                      className="ops-btn ops-btn--sm"
-                      onClick={() => applySuggestion(s)}
-                    >
-                      Apply merge
-                    </button>
+                    {status}
+                  </button>
+                ))}
+              </div>
+              {clipAssetsDirPath || sourceArchiveDirPath ? (
+                <p className="ops-dim ops-ml-source-review__paths">
+                  ASSETS → <code className="ops-mono">{clipAssetsDirPath}</code>
+                  {" · "}
+                  ARCHIVE → <code className="ops-mono">{sourceArchiveDirPath}</code>
+                </p>
+              ) : null}
+            </div>
+          </details>
+
+          {assetRoutes.length > 0 ? (
+            <details className="ops-ml-fold-panel">
+              <summary className="ops-ml-fold-panel__summary">Asset routing</summary>
+              <ul className="ops-ml-asset-routes__list ops-ml-fold-panel__body">
+                {assetRoutes.map((route) => (
+                  <li key={route.contentType} className="ops-ml-asset-routes__item">
+                    <span className="ops-ml-asset-routes__type">{route.contentType}</span>
+                    <span className="ops-dim">→</span>
+                    <code className="ops-mono ops-ml-asset-routes__folder">
+                      ASSETS/{route.folder}/
+                    </code>
                   </li>
                 ))}
               </ul>
-            </div>
+            </details>
           ) : null}
-        </>
-      ) : null}
 
-      {reviewMode && previewChapter && videoUrl && !mobileReview ? (
-        <div className="ops-ml-review-workspace">
-          <header className="ops-ml-review-workspace__head">
-            <div className="ops-ml-review-workspace__meta">
-              <span className="ops-ml-review-workspace__counter">
-                Clip {previewIndex + 1} of {chapters.length}
-              </span>
-              <h4 className="ops-ml-review-workspace__title">{previewChapter.title}</h4>
-              <span className="ops-dim ops-ml-review-workspace__times">
-                {previewChapter.clock} · {formatDur(previewChapter.durationSec)}
-                {previewChapter.tagSuggestion
-                  ? ` · suggested ${previewChapter.tagSuggestion.confidence}%`
-                  : ""}
-              </span>
+          {reviewMetrics ? (
+            <details className="ops-ml-fold-panel">
+              <summary className="ops-ml-fold-panel__summary">
+                Metrics · {reviewCounts.Keep} keep · {reviewCounts.Reject} reject ·{" "}
+                {reviewCounts.unreviewed} todo
+              </summary>
+              <div className="ops-ml-review-metrics ops-ml-fold-panel__body">
+                <span className="ops-ml-review-metrics__item">
+                  <strong>{reviewMetrics.totalClips}</strong> clips
+                </span>
+                {reviewMetrics.under15Sec > 0 ? (
+                  <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--warn">
+                    <strong>{reviewMetrics.under15Sec}</strong> under 15s
+                  </span>
+                ) : null}
+                {reviewMetrics.mergeEligible > 0 ? (
+                  <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--warn">
+                    <strong>{reviewMetrics.mergeEligible}</strong> merge-eligible
+                  </span>
+                ) : null}
+                {reviewCounts.exportable > 0 ? (
+                  <span className="ops-ml-review-metrics__item ops-ml-review-metrics__item--export">
+                    <strong>{reviewCounts.exportable}</strong> exportable
+                  </span>
+                ) : null}
+              </div>
+            </details>
+          ) : null}
+
+          <details className="ops-ml-fold-panel">
+            <summary className="ops-ml-fold-panel__summary">
+              Merge suggestions{suggestions.length > 0 ? ` (${suggestions.length})` : ""}
+            </summary>
+            <div className="ops-ml-fold-panel__body">
+              <div className="ops-ml-editorial__toolbar">
+                <button
+                  type="button"
+                  className="ops-btn"
+                  disabled={busy != null}
+                  onClick={() => void refreshSuggestions()}
+                >
+                  {busy === "suggest" ? "Analyzing…" : "Refresh heuristics"}
+                </button>
+                <input
+                  className="ops-ml-field__input ops-ml-editorial__merge-title"
+                  placeholder="Merged title (optional)"
+                  value={mergeTitle}
+                  onChange={(e) => setMergeTitle(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="ops-btn ops-btn--warn"
+                  disabled={selected.size < 2}
+                  onClick={() => mergeSelectedLocal()}
+                >
+                  Merge selected ({selected.size})
+                </button>
+              </div>
+              {suggestions.length > 0 ? (
+                <ul className="ops-ml-suggestions__list">
+                  {suggestions.slice(0, 8).map((s) => (
+                    <li
+                      key={`${s.leftChapterId}-${s.rightChapterId}`}
+                      className="ops-ml-suggestions__item"
+                    >
+                      <span className="ops-ml-suggestions__pair">
+                        {s.leftTitle} + {s.rightTitle}
+                      </span>
+                      <button
+                        type="button"
+                        className="ops-btn ops-btn--sm"
+                        onClick={() => applySuggestion(s)}
+                      >
+                        → {s.suggestedTitle}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="ops-dim">No merge suggestions yet.</p>
+              )}
             </div>
-            <div className="ops-ml-review-workspace__nav">
-              <button
-                type="button"
-                className="ops-btn"
-                disabled={previewIndex <= 0}
-                onClick={() => prevClip()}
-              >
-                ← Previous
-              </button>
-              <button type="button" className="ops-btn ops-btn--info" onClick={() => togglePlayPause()}>
-                Play / Pause
-              </button>
-              <button
-                type="button"
-                className="ops-btn"
-                disabled={previewIndex >= chapters.length - 1}
-                onClick={() => nextClip()}
-              >
-                Next →
-              </button>
-              <button type="button" className="ops-btn" onClick={() => closeReview()}>
-                Close
-              </button>
-            </div>
-          </header>
-          <video
-            ref={videoRef}
-            className="ops-ml-preview-video ops-ml-review-workspace__video"
-            src={videoUrl}
-            controls
-            preload="metadata"
-            onTimeUpdate={handleVideoTimeUpdate}
-          />
-          <div className="ops-ml-review-workspace__mark">
-            <span className="ops-dim ops-ml-review-workspace__mark-pos">
-              Playhead {formatChapterClock(playheadSec)}
-            </span>
-            <button type="button" className="ops-btn ops-btn--sm" onClick={() => setStartHere()}>
-              Set Start Here
-            </button>
-            <button type="button" className="ops-btn ops-btn--sm" onClick={() => setEndHere()}>
-              Set End Here
-            </button>
-          </div>
-          <EditorialChapterTags
-            title={previewChapter.title}
-            suggestion={previewChapter.tagSuggestion ?? null}
-            reviewStatus={previewChapter.reviewStatus}
-            onTitleChange={(title) => updateTitle(previewChapter.id, title)}
-            onApplySuggestedTitle={() => applySuggestedTitle(previewChapter.id)}
-            onApplyContentType={(type) => applyContentType(previewChapter.id, type)}
-            onReviewStatusChange={(status) => updateReviewStatus(previewChapter.id, status)}
-          />
-          <ChapterFilmstrip
-            year={props.year}
-            jobSlug={props.jobSlug}
-            chapterId={previewChapter.id}
-            startSec={previewChapter.startSec}
-            endSec={previewChapter.endSec}
-            playheadSec={playheadSec}
-            onSeek={(sec) => seekToSec(sec)}
-          />
-          <ClipTimeline
-            videoDurationSec={videoDurationSec}
-            chapters={chapters.map(({ id, startSec, endSec, title }) => ({
-              id,
-              startSec,
-              endSec,
-              title,
-            }))}
-            activeChapterId={previewChapter.id}
-            playheadSec={playheadSec}
-            onAdjustStart={adjustChapterStart}
-            onAdjustEnd={adjustChapterEnd}
-          />
-          <p className="ops-dim ops-ml-review-workspace__keys">
-            <kbd>J</kbd> previous · <kbd>K</kbd> play/pause · <kbd>L</kbd> next ·{" "}
-            <kbd>Esc</kbd> close
-          </p>
+          </details>
         </div>
       ) : null}
 
-      {splitChapter && videoUrl && !mobileReview ? (
-        <div className="ops-ml-preview-panel">
-          <h4 className="ops-ml-preview-panel__title">Split: {splitChapter.title}</h4>
-          <video
-            ref={videoRef}
-            className="ops-ml-preview-video"
-            src={videoUrl}
-            controls
-            preload="metadata"
-            onClick={handleVideoClick}
-          />
-          <div className="ops-ml-split-controls">
-            <p className="ops-dim">
-              Click the video to set split time, or enter seconds ({splitChapter.startSec}–
-              {splitChapter.endSec}).
-            </p>
-            <input
-              className="ops-ml-field__input"
-              type="number"
-              step="0.1"
-              value={splitAtSec}
-              onChange={(e) => setSplitAtSec(e.target.value)}
-              placeholder="Split at (seconds)"
-            />
-            <button type="button" className="ops-btn ops-btn--ok" onClick={() => splitChapterLocal()}>
-              Split chapter
-            </button>
-            <button
-              type="button"
-              className="ops-btn"
-              onClick={() => {
-                setSplitId(null);
-                setSplitAtSec("");
-              }}
-            >
-              Cancel
-            </button>
+      {!focusMode && thumbsError ? (
+        <p className="ops-ml-editorial__thumb-error ops-dim">{thumbsError}</p>
+      ) : null}
+      {!focusMode && ocrError ? (
+        <p className="ops-ml-editorial__thumb-error ops-dim">{ocrError}</p>
+      ) : null}
+
+      {!mobileReview ? (
+        <div className="ops-ml-editor-layout">
+          <div
+            ref={workspaceRef}
+            className={`ops-ml-editor-workspace${focusMode ? " ops-ml-editor-workspace--focus" : ""}`}
+          >
+            {splitChapter && videoUrl ? (
+              <>
+                <header className="ops-ml-editor-workspace__head">
+                  <h4 className="ops-ml-editor-workspace__title">Split: {splitChapter.title}</h4>
+                </header>
+                <video
+                  ref={videoRef}
+                  className="ops-ml-editor-workspace__video"
+                  src={videoUrl}
+                  controls
+                  preload="metadata"
+                  onClick={handleVideoClick}
+                />
+                <div className="ops-ml-split-controls">
+                  <input
+                    className="ops-ml-field__input"
+                    type="number"
+                    step="0.1"
+                    value={splitAtSec}
+                    onChange={(e) => setSplitAtSec(e.target.value)}
+                    placeholder="Split at (seconds)"
+                  />
+                  <button
+                    type="button"
+                    className="ops-btn ops-btn--ok"
+                    onClick={() => splitChapterLocal()}
+                  >
+                    Split
+                  </button>
+                  <button
+                    type="button"
+                    className="ops-btn"
+                    onClick={() => {
+                      setSplitId(null);
+                      setSplitAtSec("");
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </>
+            ) : previewChapter && videoUrl ? (
+              <>
+                {!focusMode ? (
+                  <header className="ops-ml-editor-workspace__head">
+                    <div className="ops-ml-editor-workspace__meta">
+                      <span className="ops-ml-editor-workspace__counter">
+                        Clip {previewIndex + 1} of {chapters.length}
+                      </span>
+                      <span className="ops-dim ops-ml-editor-workspace__times">
+                        {previewChapter.clock} · {formatDur(previewChapter.durationSec)}
+                      </span>
+                    </div>
+                    <div className="ops-ml-editor-workspace__nav">
+                      <button
+                        type="button"
+                        className="ops-btn"
+                        disabled={previewIndex <= 0}
+                        onClick={() => prevClip()}
+                      >
+                        ← Prev
+                      </button>
+                      <button
+                        type="button"
+                        className="ops-btn ops-btn--info"
+                        onClick={() => togglePlayPause()}
+                      >
+                        Play
+                      </button>
+                      <button
+                        type="button"
+                        className="ops-btn"
+                        disabled={previewIndex >= chapters.length - 1}
+                        onClick={() => nextClip()}
+                      >
+                        Next →
+                      </button>
+                    </div>
+                  </header>
+                ) : null}
+                <video
+                  ref={videoRef}
+                  className="ops-ml-editor-workspace__video"
+                  src={videoUrl}
+                  controls
+                  preload="metadata"
+                  onTimeUpdate={handleVideoTimeUpdate}
+                />
+                {focusMode ? (
+                  <ClipTranscriptStrip
+                    segments={segments}
+                    clipStartSec={previewChapter.startSec}
+                    clipEndSec={previewChapter.endSec}
+                    playheadSec={playheadSec}
+                    mode={transcriptMode}
+                    onModeChange={setTranscriptMode}
+                  />
+                ) : null}
+                <EditorialChapterTags
+                  variant="editor"
+                  focus={focusMode}
+                  clipMeta={
+                    focusMode
+                      ? {
+                          index: previewIndex,
+                          total: chapters.length,
+                          clock: previewChapter.clock,
+                          duration: formatDur(previewChapter.durationSec),
+                        }
+                      : undefined
+                  }
+                  title={previewChapter.title}
+                  suggestion={previewChapter.tagSuggestion ?? null}
+                  reviewStatus={previewChapter.reviewStatus}
+                  onTitleChange={(title) => updateTitle(previewChapter.id, title)}
+                  onApplySuggestedTitle={() => applySuggestedTitle(previewChapter.id)}
+                  onApplyContentType={(type) => applyContentType(previewChapter.id, type)}
+                  onReviewStatusChange={(status) =>
+                    updateReviewStatus(previewChapter.id, status)
+                  }
+                />
+                {focusMode ? (
+                  <div className="ops-ml-editor-workspace__nav ops-ml-editor-workspace__nav--footer">
+                    <button
+                      type="button"
+                      className="ops-btn ops-ml-focus-nav"
+                      disabled={previewIndex <= 0}
+                      onClick={() => prevClip()}
+                    >
+                      ← Previous <span className="ops-ml-focus-card__key">P</span>
+                    </button>
+                    <button
+                      type="button"
+                      className="ops-btn ops-ml-focus-nav"
+                      disabled={previewIndex >= chapters.length - 1}
+                      onClick={() => nextClip()}
+                    >
+                      Next → <span className="ops-ml-focus-card__key">N</span>
+                    </button>
+                  </div>
+                ) : null}
+                {!focusMode ? (
+                <details className="ops-ml-fold-panel ops-ml-fold-panel--inline">
+                  <summary className="ops-ml-fold-panel__summary">Trim & timeline</summary>
+                  <div className="ops-ml-fold-panel__body">
+                    <div className="ops-ml-review-workspace__mark">
+                      <span className="ops-dim ops-ml-review-workspace__mark-pos">
+                        {formatChapterClock(playheadSec)}
+                      </span>
+                      <button
+                        type="button"
+                        className="ops-btn ops-btn--sm"
+                        onClick={() => setStartHere()}
+                      >
+                        Set start
+                      </button>
+                      <button
+                        type="button"
+                        className="ops-btn ops-btn--sm"
+                        onClick={() => setEndHere()}
+                      >
+                        Set end
+                      </button>
+                    </div>
+                    <ChapterFilmstrip
+                      year={props.year}
+                      jobSlug={props.jobSlug}
+                      chapterId={previewChapter.id}
+                      startSec={previewChapter.startSec}
+                      endSec={previewChapter.endSec}
+                      playheadSec={playheadSec}
+                      onSeek={(sec) => seekToSec(sec)}
+                    />
+                    <ClipTimeline
+                      videoDurationSec={videoDurationSec}
+                      chapters={chapters.map(({ id, startSec, endSec, title }) => ({
+                        id,
+                        startSec,
+                        endSec,
+                        title,
+                      }))}
+                      activeChapterId={previewChapter.id}
+                      playheadSec={playheadSec}
+                      onAdjustStart={adjustChapterStart}
+                      onAdjustEnd={adjustChapterEnd}
+                    />
+                  </div>
+                </details>
+                ) : null}
+              </>
+            ) : (
+              <p className="ops-dim ops-ml-editor-workspace__empty">Select a clip to preview.</p>
+            )}
           </div>
+
+          {!focusMode ? (
+          <div className="ops-ml-clip-queue" role="list" aria-label="Clip queue">
+            {visibleChapters.map((ch) => (
+              <article
+                key={ch.id}
+                role="listitem"
+                className={`ops-ml-clip-card${
+                  previewId === ch.id ? " ops-ml-clip-card--active" : ""
+                }${ch.reviewStatus === "Keep" ? " ops-ml-clip-card--keep" : ""}${
+                  ch.reviewStatus === "Reject" ? " ops-ml-clip-card--reject" : ""
+                }`}
+              >
+                <div className="ops-ml-clip-card__top">
+                  <label className="ops-ml-clip-card__select">
+                    <input
+                      type="checkbox"
+                      checked={selected.has(ch.id)}
+                      onChange={() => toggleSelect(ch.id)}
+                      aria-label={`Select ${ch.title} for merge`}
+                    />
+                  </label>
+                  <span className="ops-mono ops-ml-clip-card__time">
+                    {ch.clock} · {formatDur(ch.durationSec)}
+                  </span>
+                  <button
+                    type="button"
+                    ref={(el) => {
+                      if (el) cardRefs.current.set(ch.id, el);
+                      else cardRefs.current.delete(ch.id);
+                    }}
+                    className="ops-btn ops-btn--sm ops-ml-clip-card__preview"
+                    onClick={() => openPreview(ch)}
+                  >
+                    Preview
+                  </button>
+                </div>
+                <div className="ops-ml-clip-card__thumbs">
+                  <ChapterThumbTriplet
+                    thumbs={chapterThumbs[ch.id] ?? null}
+                    loading={thumbsLoading && !chapterThumbs[ch.id]}
+                    onSelect={(sec) => {
+                      openPreview(ch);
+                      seekToSec(sec, false);
+                    }}
+                  />
+                </div>
+                <EditorialChapterTags
+                  variant="card"
+                  title={ch.title}
+                  suggestion={ch.tagSuggestion ?? null}
+                  reviewStatus={ch.reviewStatus}
+                  onTitleChange={(title) => updateTitle(ch.id, title)}
+                  onApplySuggestedTitle={() => applySuggestedTitle(ch.id)}
+                  onApplyContentType={(type) => applyContentType(ch.id, type)}
+                  onReviewStatusChange={(status) => updateReviewStatus(ch.id, status)}
+                />
+                <div className="ops-ml-clip-card__actions">
+                  <button
+                    type="button"
+                    className="ops-btn ops-btn--sm"
+                    onClick={() => {
+                      setSplitId(ch.id);
+                      setPreviewId(null);
+                      setSplitAtSec(String(Math.round((ch.startSec + ch.endSec) / 2)));
+                      requestAnimationFrame(() => {
+                        const v = videoRef.current;
+                        if (v) {
+                          v.currentTime = ch.startSec;
+                          v.pause();
+                        }
+                        workspaceRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      });
+                    }}
+                  >
+                    Split
+                  </button>
+                  <button
+                    type="button"
+                    className="ops-btn ops-btn--sm ops-btn--bad"
+                    onClick={() => deleteChapterLocal(ch.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+          ) : null}
         </div>
       ) : null}
 
@@ -1137,130 +1384,6 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
         </>
       ) : null}
 
-      <div
-        className={`ops-ml-editorial__table-wrap${reviewMode ? " ops-ml-editorial__table-wrap--folded" : ""}`}
-      >
-        {reviewMode ? (
-          <h4 className="ops-ml-editorial__table-fold-label">Chapter list</h4>
-        ) : null}
-        <table className="ops-ml-table ops-ml-editorial-table">
-          <thead>
-            <tr>
-              <th />
-              <th>Thumbs</th>
-              <th>Start</th>
-              <th>End</th>
-              <th>Dur</th>
-              <th>Title</th>
-              <th>Flags</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            {tableChapters.map((ch) => (
-              <tr
-                key={ch.id}
-                ref={(el) => {
-                  if (el) rowRefs.current.set(ch.id, el);
-                  else rowRefs.current.delete(ch.id);
-                }}
-                className={[
-                  selected.has(ch.id) ? "ops-ml-editorial-table__row--on" : "",
-                  previewId === ch.id ? "ops-ml-editorial-table__row--preview" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ") || undefined}
-              >
-                <td>
-                  <input
-                    type="checkbox"
-                    checked={selected.has(ch.id)}
-                    onChange={() => toggleSelect(ch.id)}
-                    aria-label={`Select ${ch.title}`}
-                  />
-                </td>
-                <td className="ops-ml-editorial-table__thumbs">
-                  <ChapterThumbTriplet
-                    thumbs={chapterThumbs[ch.id] ?? null}
-                    loading={thumbsLoading && !chapterThumbs[ch.id]}
-                    onSelect={(sec) => {
-                      openPreview(ch);
-                      seekToSec(sec, false);
-                    }}
-                  />
-                </td>
-                <td className="ops-mono">{ch.clock}</td>
-                <td className="ops-mono">{ch.end.slice(3, 11)}</td>
-                <td className="ops-mono">{formatDur(ch.durationSec)}</td>
-                <td>
-                  <EditorialChapterTags
-                    compact
-                    title={ch.title}
-                    suggestion={ch.tagSuggestion ?? null}
-                    reviewStatus={ch.reviewStatus}
-                    onTitleChange={(title) => updateTitle(ch.id, title)}
-                    onApplySuggestedTitle={() => applySuggestedTitle(ch.id)}
-                    onApplyContentType={(type) => applyContentType(ch.id, type)}
-                    onReviewStatusChange={(status) => updateReviewStatus(ch.id, status)}
-                  />
-                </td>
-                <td className="ops-ml-editorial-table__flags">
-                  {ch.reviewStatus ? (
-                    <span className="ops-ml-flag ops-ml-flag--review" title="Review status">
-                      {ch.reviewStatus}
-                    </span>
-                  ) : null}
-                  {ch.reviewFlags?.under15Sec ? (
-                    <span className="ops-ml-flag ops-ml-flag--short" title="Under 15 seconds">
-                      &lt;15s
-                    </span>
-                  ) : null}
-                  {ch.reviewFlags?.sameBrandNeighbor ? (
-                    <span className="ops-ml-flag ops-ml-flag--brand" title="Same brand as neighbor">
-                      brand
-                    </span>
-                  ) : null}
-                  {ch.reviewFlags?.mergeEligible ? (
-                    <span className="ops-ml-flag ops-ml-flag--merge" title="Likely merge candidate">
-                      merge
-                    </span>
-                  ) : null}
-                </td>
-                <td className="ops-ml-editorial-table__actions">
-                  <button type="button" className="ops-btn ops-btn--sm" onClick={() => openPreview(ch)}>
-                    Preview
-                  </button>
-                  <button
-                    type="button"
-                    className="ops-btn ops-btn--sm"
-                    onClick={() => {
-                      setSplitId(ch.id);
-                      setPreviewId(null);
-                      setSplitAtSec(String(Math.round((ch.startSec + ch.endSec) / 2)));
-                      requestAnimationFrame(() => {
-                        const v = videoRef.current;
-                        if (v) {
-                          v.currentTime = ch.startSec;
-                          v.pause();
-                        }
-                      });
-                    }}
-                  >
-                    Split
-                  </button>
-                  <button
-                    type="button"
-                    className="ops-btn ops-btn--sm ops-btn--bad"
-                    onClick={() => deleteChapterLocal(ch.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </section>
   );
 }

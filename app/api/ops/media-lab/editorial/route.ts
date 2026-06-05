@@ -2,6 +2,12 @@ import { NextResponse } from "next/server";
 
 import { exportEditorialChapters } from "@/lib/ops/media-lab/editorial/export-editorial";
 import {
+  filterChaptersForExport,
+  mergeEditorialMetaPayload,
+  readEditorialMeta,
+  writeEditorialMeta,
+} from "@/lib/ops/media-lab/editorial/editorial-meta";
+import {
   loadEditorialBundle,
   parseEditorialChaptersPayload,
 } from "@/lib/ops/media-lab/editorial/load-editorial";
@@ -49,6 +55,8 @@ export async function PUT(req: Request) {
     year?: number;
     jobSlug?: string;
     chapters?: { id?: string; startSec?: number; endSec?: number; title?: string }[];
+    chapterMeta?: Record<string, { reviewStatus?: string }>;
+    sourceReviewStatus?: string;
     exportFiles?: boolean;
   };
 
@@ -74,8 +82,23 @@ export async function PUT(req: Request) {
 
     const chapters = parseEditorialChaptersPayload(body.chapters, videoEnd);
 
+    if (body.chapterMeta || body.sourceReviewStatus !== undefined) {
+      const existing = await readEditorialMeta(outputDir);
+      const merged = mergeEditorialMetaPayload(existing, {
+        chapters: body.chapterMeta,
+        sourceReviewStatus: body.sourceReviewStatus,
+      });
+      await writeEditorialMeta(outputDir, merged);
+    }
+
     if (body.exportFiles) {
-      await exportEditorialChapters(outputDir, chapters);
+      const editorialMeta = await readEditorialMeta(outputDir);
+      const chaptersWithStatus = chapters.map((ch) => ({
+        ...ch,
+        reviewStatus: editorialMeta.chapters[ch.id]?.reviewStatus,
+      }));
+      const exportChapters = filterChaptersForExport(chaptersWithStatus);
+      await exportEditorialChapters(outputDir, chapters, exportChapters);
     } else {
       const { writeChaptersFromRecords } = await import("@/lib/ops/media-lab/chapters-csv");
       await writeChaptersFromRecords(outputDir, chapters);

@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { MediaLabEditorialReview } from "@/components/ops/media-lab/MediaLabEditorialReview";
 import type { MediaLabChapterMode } from "@/lib/ops/media-lab/chapter-mode";
+import type { MediaLabJobSummary } from "@/lib/ops/media-lab/job-summary";
 import {
   MEDIA_LAB_YEAR_OPTIONS,
   OPS_FOCUS_YEAR,
@@ -43,6 +44,9 @@ function jobHasArtifact(
       (preview.segmentLabelsPreview?.length ?? 0) > 0
     );
   }
+  if (name === "chapters-export.csv") {
+    return job.files?.includes("chapters-export.csv") ?? false;
+  }
   return false;
 }
 
@@ -59,7 +63,29 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
   const [notice, setNotice] = useState<string | null>(null);
   const [preview, setPreview] = useState<Preview | null>(null);
   const [pathCopied, setPathCopied] = useState(false);
-  const [opening, setOpening] = useState<"folder" | "chapters" | "labels" | null>(null);
+  const [opening, setOpening] = useState<"folder" | "chapters" | "chaptersExport" | "labels" | null>(null);
+  const [savedJobs, setSavedJobs] = useState<MediaLabJobSummary[]>([]);
+  const [selectedJobSlug, setSelectedJobSlug] = useState("");
+  const [loadingJobs, setLoadingJobs] = useState(false);
+
+  const fetchSavedJobs = useCallback(async (y: number) => {
+    setLoadingJobs(true);
+    try {
+      const res = await fetch(`/api/ops/media-lab/jobs?year=${y}`);
+      const data = (await res.json()) as { ok?: boolean; jobs?: MediaLabJobSummary[] };
+      if (res.ok && data.ok) {
+        setSavedJobs(data.jobs ?? []);
+      }
+    } catch {
+      setSavedJobs([]);
+    } finally {
+      setLoadingJobs(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    void fetchSavedJobs(year);
+  }, [year, fetchSavedJobs]);
 
   async function copyOutputDir() {
     if (!preview?.outputDir) return;
@@ -72,7 +98,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
     }
   }
 
-  async function openLocal(target: "folder" | "chapters" | "labels") {
+  async function openLocal(target: "folder" | "chapters" | "chaptersExport" | "labels") {
     if (!preview?.outputDir) return;
     setOpening(target);
     setError(null);
@@ -90,6 +116,45 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
       setError(e instanceof Error ? e.message : "Could not open in Finder");
     } finally {
       setOpening(null);
+    }
+  }
+
+  async function loadSavedJob(jobSlug?: string) {
+    const slug = (jobSlug ?? selectedJobSlug).trim();
+    if (!slug) {
+      setError("Choose a saved job to load.");
+      return;
+    }
+    setBusy("transcript");
+    setError(null);
+    setNotice(null);
+    try {
+      const res = await fetch("/api/ops/media-lab/jobs/load", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ year, jobSlug: slug }),
+      });
+      const data = (await res.json()) as Preview & { ok?: boolean; error?: string };
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error ?? "Could not load job");
+      }
+      if (data.job.chapterMode) setChapterMode(data.job.chapterMode);
+      setPreview({
+        jobSlug: data.jobSlug,
+        outputDir: data.outputDir,
+        transcriptPreview: data.transcriptPreview,
+        chaptersPreview: data.chaptersPreview,
+        chapterTitlesPreview: data.chapterTitlesPreview,
+        segmentLabelsPreview: data.segmentLabelsPreview ?? [],
+        segmentLabelLinesPreview: data.segmentLabelLinesPreview ?? "",
+        job: data.job,
+      });
+      setSelectedJobSlug(slug);
+      setNotice("Loaded saved job from disk — no retranscribe.");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Load failed");
+    } finally {
+      setBusy(null);
     }
   }
 
@@ -131,7 +196,9 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
         segmentLabelLinesPreview: data.segmentLabelLinesPreview ?? "",
         job: data.job,
       });
-      setNotice("Saved transcript and captions. Generate chapters, then segment labels for LosslessCut.");
+      setSelectedJobSlug(data.jobSlug);
+      void fetchSavedJobs(year);
+      setNotice("Transcript saved once. Regenerate chapters, labels, and review heuristics anytime.");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed");
     } finally {
@@ -209,8 +276,8 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
       });
       setNotice(
         chapterMode === "commercial"
-          ? "Commercial-mode chapters ready (~30–90s spots). Generate Segment Labels next."
-          : "Chapters updated. Click Generate Segment Labels for export filenames.",
+          ? "Chapters regenerated from segments.json (commercial mode)."
+          : "Chapters regenerated from segments.json.",
       );
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed");
@@ -224,10 +291,43 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
       <section className="ops-ml-form">
         <h2 className="ops-ml-form__title">Turn a video into year assets</h2>
         <p className="ops-dim ops-ml-form__hint">
-          Pick a year and a video on your Mac. We write a transcript, subtitles, and a chapter
-          list you can open in LosslessCut. Everything saves under{" "}
-          <code className="ops-mono">RETROVERSE_DATA/YEARS/{year}/production/metadata/</code>
+          Transcribe once. Everything after that reads{" "}
+          <code className="ops-mono">segments.json</code> and is nearly instant — chapters,
+          labels, merge heuristics, tag suggestions, editorial review.
         </p>
+
+        <label className="ops-ml-field">
+          <span className="ops-ml-field__label">Saved jobs ({year})</span>
+          <div className="ops-ml-job-load">
+            <select
+              className="ops-ml-field__input"
+              value={selectedJobSlug}
+              onChange={(e) => setSelectedJobSlug(e.target.value)}
+              disabled={loadingJobs || savedJobs.length === 0}
+            >
+              <option value="">
+                {loadingJobs
+                  ? "Loading jobs…"
+                  : savedJobs.length
+                    ? "Select a previous job…"
+                    : "No saved jobs for this year"}
+              </option>
+              {savedJobs.map((j) => (
+                <option key={j.jobSlug} value={j.jobSlug}>
+                  {j.sourceFilename} · {j.segmentCount} seg · {j.chapterCount} ch
+                </option>
+              ))}
+            </select>
+            <button
+              type="button"
+              className="ops-btn"
+              disabled={busy != null || !selectedJobSlug}
+              onClick={() => void loadSavedJob()}
+            >
+              Load Job
+            </button>
+          </div>
+        </label>
 
         <label className="ops-ml-field">
           <span className="ops-ml-field__label">Year</span>
@@ -245,7 +345,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
         </label>
 
         <label className="ops-ml-field">
-          <span className="ops-ml-field__label">Chapter mode</span>
+          <span className="ops-ml-field__label">Chapter mode (regenerate)</span>
           <select
             className="ops-ml-field__input"
             value={chapterMode}
@@ -260,7 +360,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
         </label>
 
         <label className="ops-ml-field">
-          <span className="ops-ml-field__label">Video file</span>
+          <span className="ops-ml-field__label">Video file (transcribe once)</span>
           <input
             className="ops-ml-field__input"
             type="file"
@@ -279,7 +379,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
             disabled={busy != null || !file}
             onClick={() => void generateTranscript()}
           >
-            {busy === "transcript" ? "Working…" : "Generate Transcript"}
+            {busy === "transcript" ? "Working…" : "Transcribe (once)"}
           </button>
           <button
             type="button"
@@ -287,7 +387,7 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
             disabled={busy != null || !preview}
             onClick={() => void generateChapters()}
           >
-            {busy === "chapters" ? "Working…" : "Generate Chapters"}
+            {busy === "chapters" ? "Working…" : "Regenerate Chapters"}
           </button>
           <button
             type="button"
@@ -295,9 +395,14 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
             disabled={busy != null || !preview}
             onClick={() => void generateSegmentLabels()}
           >
-            {busy === "labels" ? "Working…" : "Generate Segment Labels"}
+            {busy === "labels" ? "Working…" : "Regenerate Labels"}
           </button>
         </div>
+
+        <p className="ops-dim ops-ml-form__hint">
+          Saves under{" "}
+          <code className="ops-mono">RETROVERSE_DATA/YEARS/{year}/production/metadata/</code>
+        </p>
 
         {error ? (
           <p className="ops-ml-error" role="alert">
@@ -342,6 +447,17 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
               onClick={() => void openLocal("chapters")}
             >
               {opening === "chapters" ? "Opening…" : "Open chapters.csv"}
+            </button>
+            <button
+              type="button"
+              className="ops-btn ops-btn--ok"
+              disabled={
+                opening != null ||
+                !jobHasArtifact(preview.job, "chapters-export.csv", preview)
+              }
+              onClick={() => void openLocal("chaptersExport")}
+            >
+              {opening === "chaptersExport" ? "Opening…" : "Open chapters-export.csv"}
             </button>
             <button
               type="button"

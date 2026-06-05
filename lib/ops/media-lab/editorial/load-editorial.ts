@@ -9,24 +9,45 @@ import {
   withEditorialIds,
   type EditorialChapter,
 } from "../chapters-csv";
-import { formatChapterClock, secToTimecode } from "../chapters-only";
+import { formatChapterClock, secToTimecode } from "../chapter-time";
 import type { MediaLabJobMeta } from "../job-meta";
+import {
+  assetsRootDir,
+  listAssetRouteSummary,
+  sourceArchiveDir,
+  type AssetRouteSummary,
+} from "./asset-routing";
+import { readEditorialMeta } from "./editorial-meta";
+import type { EditorialChapterRow } from "./editorial-types";
 import { suggestAdjacentMerges, type MergeSuggestion } from "./merge-suggestions";
+import {
+  computeChapterReviewFlags,
+  summarizeReviewMetrics,
+  type ChapterReviewFlags,
+  type ReviewMetricsSummary,
+} from "./review-metrics";
+import type { ClipReviewStatus, SourceReviewStatus } from "./review-status";
+import {
+  suggestAllChapterTags,
+  type ClipTagSuggestion,
+} from "./transcript-suggestions";
 
-export type EditorialChapterRow = EditorialChapter & {
-  start: string;
-  end: string;
-  durationSec: number;
-  clock: string;
-};
+export type { EditorialChapterRow } from "./editorial-types";
 
 export type EditorialBundle = {
   job: MediaLabJobMeta;
   chapterMode: MediaLabChapterMode;
   videoPath: string | null;
   videoUrl: string | null;
+  sourceReviewStatus?: SourceReviewStatus;
+  clipAssetsDir: string;
+  sourceArchiveDir: string;
+  assetRoutes: AssetRouteSummary[];
   chapters: EditorialChapterRow[];
   suggestions: MergeSuggestion[];
+  reviewMetrics: ReviewMetricsSummary;
+  tagSuggestions: Record<string, ClipTagSuggestion>;
+  segments: TranscriptSegment[];
 };
 
 function toRow(ch: EditorialChapter): EditorialChapterRow {
@@ -56,6 +77,10 @@ export async function loadEditorialBundle(
   const normalized = normalizeChapterTimeline(withEditorialIds(raw), videoEnd);
   const segments = await readSegments(outputDir);
   const suggestions = suggestAdjacentMerges(normalized, segments);
+  const tagMap = suggestAllChapterTags(normalized, segments);
+  const editorialMeta = await readEditorialMeta(outputDir);
+  const flagMap = computeChapterReviewFlags(normalized, segments, suggestions);
+  const reviewMetrics = summarizeReviewMetrics(flagMap);
 
   const videoPath = job.sourceVideo?.trim() || null;
   const videoUrl =
@@ -68,8 +93,20 @@ export async function loadEditorialBundle(
     chapterMode: parseChapterMode(job.chapterMode),
     videoPath,
     videoUrl,
-    chapters: normalized.map(toRow),
+    sourceReviewStatus: editorialMeta.sourceReviewStatus,
+    clipAssetsDir: assetsRootDir(),
+    sourceArchiveDir: sourceArchiveDir(),
+    assetRoutes: listAssetRouteSummary(),
+    chapters: normalized.map((ch) => ({
+      ...toRow(ch),
+      reviewFlags: flagMap.get(ch.id),
+      tagSuggestion: tagMap.get(ch.id),
+      reviewStatus: editorialMeta.chapters[ch.id]?.reviewStatus,
+    })),
     suggestions,
+    reviewMetrics,
+    tagSuggestions: Object.fromEntries(tagMap.entries()),
+    segments,
   };
 }
 

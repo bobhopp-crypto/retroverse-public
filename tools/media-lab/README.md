@@ -1,6 +1,19 @@
 # Media Lab (local transcription)
 
-Phase 1: video → transcript → chapters → files under `RETROVERSE_DATA/YEARS/{year}/production/metadata/{job-slug}/`.
+**Transcribe once.** Everything after reads `segments.json` and is nearly instant.
+
+## Pipeline
+
+| Step | Reads | Writes | Retranscribe? |
+|------|-------|--------|---------------|
+| Transcribe (once) | video | `segments.json`, `transcript.txt`, captions | yes (slow) |
+| Regenerate chapters | `segments.json` | `chapters.csv` | no |
+| Regenerate labels | `segments.json` + chapters | `segment-labels.*` | no |
+| Editorial review | segments + chapters | `editorial-meta.json` (review status) | no |
+| Tag / merge heuristics | segments + chapters | in-memory (instant) | no |
+| Filmstrip frames | video + chapters | `filmstrip/` cache | no |
+
+Reload any previous job from the **Saved jobs** dropdown — no video upload required.
 
 ## Install (once)
 
@@ -33,16 +46,17 @@ Ops → **media lab** (`/ops/media-lab`) with `RETROVERSE_OPS=1`.
 | `content` | TV retrospectives, mixed topics (default) |
 | `commercial` | Vintage ad reels — ~30–90s spots, same-brand merge |
 
-1. **Generate Chapters** — `chapters.csv` for LosslessCut
-2. **Generate Segment Labels** — human-readable export names:
+1. **Regenerate Chapters** — `chapters.csv` from `segments.json`
+2. **Regenerate Labels** — export filenames from segments + chapters
 
    - `segment-labels.json` — `[{ start, end, label }]`
    - `segment-labels.txt` — tab-separated + labels-only block for LosslessCut
-   - `chapters.csv` — synced with labels (`TV - Batman`, `Commercial - Rice Krispies`, …)
+   - `chapters.csv` — synced with labels
 
 ```bash
 npx tsx tools/media-lab/build-chapters-cli.ts --output-dir /path/to/job --mode commercial
 npx tsx tools/media-lab/build-segment-labels-cli.ts --output-dir /path/to/job
+```
 
 Test commercial vs content counts:
 
@@ -50,17 +64,14 @@ Test commercial vs content counts:
 npx tsx tools/media-lab/test-commercial-chapters.ts --output-dir /path/to/job
 ```
 
-## Editorial review (Phase 2)
-
 After chapters exist, open **Editorial review** on `/ops/media-lab`:
 
 - Chapter table (merge, split, rename, delete, preview)
-- **Suggest merges** — rule-based adjacent-pair analysis with confidence %
-- Review filters: under 20s, same-brand neighbors, needs review
+- **Refresh heuristics** — tag suggestions, merge pairs, review flags (from segments)
+- Review filters: under 15s/20s, same-brand neighbors, merge eligible
 - **Export for LosslessCut** — writes `chapters.csv` + `segment-labels.txt`
 
-API: `GET/PUT /api/ops/media-lab/editorial`, `POST …/export`, `POST …/suggest-merges`
-```
+API: `GET /api/ops/media-lab/jobs`, `POST …/jobs/load`, `POST …/chapters`, `GET/PUT …/editorial`, `POST …/editorial/refresh`
 
 ## Outputs per job
 
@@ -69,5 +80,7 @@ API: `GET/PUT /api/ops/media-lab/editorial`, `POST …/export`, `POST …/sugges
 | `transcript.txt` | Plain text |
 | `captions.srt` / `captions.vtt` | Subtitles |
 | `chapters.csv` | LosslessCut import (`start,end,title`) |
-| `segments.json` | Whisper segments (for re-chapter) |
+| `segments.json` | Whisper segments — **source of truth for all re-runs** |
+| `editorial-meta.json` | Review status (Keep / Maybe / Delete / Must Use) |
+| `filmstrip/` | Cached preview JPEGs per chapter |
 | `job.json` | Metadata |

@@ -4,7 +4,9 @@ import {
   brandsMatchTitle,
   extractBrandFromText,
   extractBrandFromTitle,
+  isContinuationFragment,
   suggestMergedTitle,
+  transcriptSimilarity,
 } from "./brand-utils";
 
 export type MergeSuggestion = {
@@ -82,13 +84,21 @@ export function suggestAdjacentMerges(
       reasons.push("Similar titles");
     }
 
-    const textJac = jaccard(tokenSet(leftText), tokenSet(rightText));
+    const textJac = transcriptSimilarity(leftText, rightText);
     if (textJac >= 0.2) {
       score += Math.round(textJac * 20);
       reasons.push("Similar transcript");
     }
 
-    if (leftDur < 20 || rightDur < 20) {
+    if (isContinuationFragment(leftText, rightText)) {
+      score += 35;
+      reasons.push("Continuation fragment");
+    }
+
+    if (leftDur < 15 || rightDur < 15) {
+      score += 22;
+      reasons.push("Under 15s fragment");
+    } else if (leftDur < 20 || rightDur < 20) {
       score += 18;
       reasons.push("Short fragment");
     }

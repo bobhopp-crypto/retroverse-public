@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
-import { secToTimecode } from "../chapters-only";
+import { secToTimecode } from "../chapter-time";
 import type { EditorialChapter } from "../chapters-csv";
 import { writeChaptersFromRecords } from "../chapters-csv";
 import type { MediaLabJobMeta } from "../job-meta";
@@ -23,11 +23,17 @@ export function editorialToLabelRows(chapters: EditorialChapter[]): SegmentLabel
 
 export async function exportEditorialChapters(
   outputDir: string,
-  chapters: EditorialChapter[],
+  allChapters: EditorialChapter[],
+  exportChapters: EditorialChapter[],
 ): Promise<MediaLabJobMeta> {
-  await writeChaptersFromRecords(outputDir, chapters);
+  if (exportChapters.length === 0) {
+    throw new Error("No Keep clips to export. Mark clips Keep before exporting.");
+  }
 
-  const rows = editorialToLabelRows(chapters);
+  await writeChaptersFromRecords(outputDir, allChapters);
+  await writeChaptersFromRecords(outputDir, exportChapters, "chapters-export.csv");
+
+  const rows = editorialToLabelRows(exportChapters);
   await writeSegmentLabelsJson(outputDir, rows);
   await writeSegmentLabelsTxt(outputDir, rows);
 
@@ -35,10 +41,11 @@ export async function exportEditorialChapters(
     await readFile(join(outputDir, "job.json"), "utf8"),
   ) as MediaLabJobMeta;
 
-  job.chapterCount = chapters.length;
-  job.segmentLabelCount = chapters.length;
+  job.chapterCount = allChapters.length;
+  job.segmentLabelCount = exportChapters.length;
   const files = new Set(job.files ?? []);
   files.add("chapters.csv");
+  files.add("chapters-export.csv");
   files.add("segment-labels.json");
   files.add("segment-labels.txt");
   job.files = [...files];

@@ -7,10 +7,11 @@ import { retroverseDataRoot } from "@/lib/events/event-data-root";
 
 const execFileAsync = promisify(execFile);
 
-export type MediaLabOpenTarget = "folder" | "chapters" | "labels";
+export type MediaLabOpenTarget = "folder" | "chapters" | "chaptersExport" | "labels";
 
 const TARGET_FILES: Record<Exclude<MediaLabOpenTarget, "folder">, string> = {
   chapters: "chapters.csv",
+  chaptersExport: "chapters-export.csv",
   labels: "segment-labels.txt",
 };
 

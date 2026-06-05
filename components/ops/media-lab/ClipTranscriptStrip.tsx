@@ -1,0 +1,121 @@
+"use client";
+
+import { useEffect, useMemo, useRef } from "react";
+
+import type { TranscriptSegment } from "@/lib/ops/media-lab/build-chapters-from-segments";
+
+export type TranscriptStripMode = "off" | "live" | "full";
+
+const LIVE_CONTEXT_LINES = 3;
+
+type ClipTranscriptStripProps = {
+  segments: TranscriptSegment[];
+  clipStartSec: number;
+  clipEndSec: number;
+  playheadSec: number;
+  mode: TranscriptStripMode;
+  onModeChange: (mode: TranscriptStripMode) => void;
+};
+
+function segmentOverlapsClip(seg: TranscriptSegment, start: number, end: number): boolean {
+  return seg.end > start && seg.start < end;
+}
+
+function findActiveIndex(lines: TranscriptSegment[], playheadSec: number): number {
+  if (lines.length === 0) return -1;
+  let idx = lines.findIndex((s) => playheadSec >= s.start && playheadSec < s.end);
+  if (idx >= 0) return idx;
+  if (playheadSec < lines[0].start) return 0;
+  if (playheadSec >= lines[lines.length - 1].end) return lines.length - 1;
+  for (let i = 0; i < lines.length - 1; i++) {
+    if (playheadSec >= lines[i].end && playheadSec < lines[i + 1].start) {
+      return i + 1;
+    }
+  }
+  return lines.length - 1;
+}
+
+export function ClipTranscriptStrip(props: ClipTranscriptStripProps) {
+  const activeRef = useRef<HTMLParagraphElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const clipLines = useMemo(
+    () =>
+      props.segments.filter((s) =>
+        segmentOverlapsClip(s, props.clipStartSec, props.clipEndSec),
+      ),
+    [props.clipEndSec, props.clipStartSec, props.segments],
+  );
+
+  const activeIndex = useMemo(
+    () => findActiveIndex(clipLines, props.playheadSec),
+    [clipLines, props.playheadSec],
+  );
+
+  const liveWindow = useMemo(() => {
+    if (props.mode !== "live" || activeIndex < 0) return [];
+    const from = Math.max(0, activeIndex - LIVE_CONTEXT_LINES);
+    const to = Math.min(clipLines.length, activeIndex + LIVE_CONTEXT_LINES + 1);
+    return clipLines.slice(from, to).map((line, offset) => ({
+      line,
+      index: from + offset,
+    }));
+  }, [activeIndex, clipLines, props.mode]);
+
+  useEffect(() => {
+    if (props.mode !== "live" || !activeRef.current) return;
+    activeRef.current.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [activeIndex, props.mode, props.playheadSec]);
+
+  return (
+    <div className="ops-ml-transcript-strip">
+      <div className="ops-ml-transcript-strip__modes" role="group" aria-label="Transcript mode">
+        {(["off", "live", "full"] as const).map((m) => (
+          <button
+            key={m}
+            type="button"
+            className={`ops-ml-transcript-strip__mode${
+              props.mode === m ? " ops-ml-transcript-strip__mode--on" : ""
+            }`}
+            aria-pressed={props.mode === m}
+            onClick={() => props.onModeChange(m)}
+          >
+            {m === "off" ? "Off" : m === "live" ? "Live" : "Full"}
+          </button>
+        ))}
+      </div>
+
+      {props.mode === "off" ? null : clipLines.length === 0 ? (
+        <p className="ops-dim ops-ml-transcript-strip__empty">No transcript for this clip.</p>
+      ) : props.mode === "full" ? (
+        <div ref={scrollRef} className="ops-ml-transcript-strip__body ops-ml-transcript-strip__body--full">
+          {clipLines.map((line, idx) => (
+            <p
+              key={`${line.start}-${idx}`}
+              ref={idx === activeIndex ? activeRef : undefined}
+              className={`ops-ml-transcript-strip__line${
+                idx === activeIndex ? " ops-ml-transcript-strip__line--active" : ""
+              }`}
+            >
+              {line.text.trim()}
+            </p>
+          ))}
+        </div>
+      ) : (
+        <div ref={scrollRef} className="ops-ml-transcript-strip__body ops-ml-transcript-strip__body--live">
+          {liveWindow.map(({ line, index }) => (
+            <p
+              key={`${line.start}-${index}`}
+              ref={index === activeIndex ? activeRef : undefined}
+              className={`ops-ml-transcript-strip__line${
+                index === activeIndex ? " ops-ml-transcript-strip__line--active" : ""
+              }`}
+            >
+              {index === activeIndex ? `>> ${line.text.trim()} <<` : line.text.trim()}
+            </p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}

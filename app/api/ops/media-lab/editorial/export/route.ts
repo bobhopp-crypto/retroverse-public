@@ -1,5 +1,15 @@
+import { existsSync } from "node:fs";
+import { readFile } from "fs/promises";
+import { join } from "path";
 import { NextResponse } from "next/server";
 
+import {
+  filterChaptersForExport,
+  mergeEditorialMetaPayload,
+  readEditorialMeta,
+  writeEditorialMeta,
+} from "@/lib/ops/media-lab/editorial/editorial-meta";
+import { exportAcquisitionMedia } from "@/lib/ops/media-lab/editorial/export-acquisition";
 import { exportEditorialChapters } from "@/lib/ops/media-lab/editorial/export-editorial";
 import {
   loadEditorialBundle,
@@ -10,6 +20,8 @@ import { loadJobPreview } from "@/lib/ops/media-lab/read-job";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+export const maxDuration = 600;
 
 export async function POST(req: Request) {
   if (!isOpsEnabled()) {
@@ -20,6 +32,8 @@ export async function POST(req: Request) {
     year?: number;
     jobSlug?: string;
     chapters?: { id?: string; startSec?: number; endSec?: number; title?: string }[];
+    chapterMeta?: Record<string, { reviewStatus?: string }>;
+    sourceReviewStatus?: string;
   };
 
   try {
@@ -42,7 +56,9 @@ export async function POST(req: Request) {
       bundle.chapters.at(-1)?.endSec ??
       0;
 
-    const chapters = body.chapters?.length
+    const chapterById = new Map(bundle.chapters.map((ch) => [ch.id, ch]));
+
+    const allChapters = body.chapters?.length
       ? parseEditorialChaptersPayload(body.chapters, videoEnd)
       : bundle.chapters.map(({ id, startSec, endSec, title }) => ({
           id,
@@ -51,19 +67,71 @@ export async function POST(req: Request) {
           title,
         }));
 
-    await exportEditorialChapters(outputDir, chapters);
+    if (body.chapterMeta || body.sourceReviewStatus !== undefined) {
+      const existing = await readEditorialMeta(outputDir);
+      const merged = mergeEditorialMetaPayload(existing, {
+        chapters: body.chapterMeta,
+        sourceReviewStatus: body.sourceReviewStatus,
+      });
+      await writeEditorialMeta(outputDir, merged);
+    }
+
+    const editorialMeta = await readEditorialMeta(outputDir);
+    const chaptersWithStatus = allChapters.map((ch) => {
+      const row = chapterById.get(ch.id);
+      return {
+        ...ch,
+        reviewStatus: editorialMeta.chapters[ch.id]?.reviewStatus,
+        tagSuggestion: row?.tagSuggestion ?? null,
+      };
+    });
+    const exportChapters = filterChaptersForExport(chaptersWithStatus);
+
+    const sourceVideo = bundle.job.sourceVideo?.trim();
+    if (!sourceVideo || !existsSync(sourceVideo)) {
+      return NextResponse.json({ error: "Source video not found" }, { status: 404 });
+    }
+
+    const job = await exportEditorialChapters(outputDir, allChapters, exportChapters);
+    const acquisition = await exportAcquisitionMedia(
+      outputDir,
+      sourceVideo,
+      {
+        year: bundle.job.year,
+        jobSlug: bundle.job.jobSlug,
+        sourceFilename: bundle.job.sourceFilename,
+        sourceShow:
+          bundle.job.sourceFilename.replace(/\.[^.]+$/, "") || bundle.job.jobSlug,
+      },
+      exportChapters,
+      editorialMeta.sourceReviewStatus,
+    );
+
     const preview = await loadJobPreview(outputDir);
+    const folders = [...new Set(acquisition.clips.map((c) => c.assetFolder))].join(", ");
+    const sourceNote = acquisition.sourcePath ? " Source → ARCHIVE/." : "";
 
     return NextResponse.json({
       ok: true,
       outputDir,
       jobSlug,
-      chapterCount: chapters.length,
-      message: "Exported chapters.csv and segment-labels.txt",
+      chapterCount: allChapters.length,
+      exportCount: exportChapters.length,
+      clipAssetsDir: acquisition.assetsRootDir,
+      sourceArchiveDir: acquisition.sourceArchiveDir,
+      sourcePath: acquisition.sourcePath,
+      clipPaths: acquisition.clips.map((c) => c.path),
+      routedFolders: folders,
+      failedClips: acquisition.failed,
+      message: `Exported ${acquisition.clips.length} Keep clips → ASSETS/{${folders}}.${sourceNote}`,
       ...preview,
+      job,
     });
   } catch (e) {
     const message = e instanceof Error ? e.message : "Export failed";
-    return NextResponse.json({ error: message }, { status: 400 });
+    const hint = message.includes("ffmpeg")
+      ? "Install ffmpeg: brew install ffmpeg"
+      : undefined;
+    return NextResponse.json({ error: message, hint }, { status: 400 });
   }
 }
