@@ -130,33 +130,21 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
       ) : null}
 
       <div className="ops-ml-review__body">
-        <section className="ops-ml-review__center">
-          <div className="ops-ml-deck__video-wrap ops-ml-review__video-wrap">
-            <video
-              ref={props.videoRef}
-              className="ops-ml-deck__video ops-ml-review__video"
-              src={props.videoUrl}
-              controls
-              preload="metadata"
-              onTimeUpdate={props.onTimeUpdate}
-            />
-          </div>
-          <ClipSelectionPanel
-            clipStartSec={props.clip.startSec}
-            clipEndSec={props.clip.endSec}
-            playheadSec={props.playheadSec}
-            selection={props.selection}
-            thumbs={activeThumbs}
-            thumbsLoading={props.thumbsLoading}
-            onSelectionChange={props.onSelectionChange}
-            onSeek={props.onSeek}
-            onTrimDragStart={props.onTrimDragStart}
-            onTrimPreview={props.onTrimPreview}
-            onTrimDragEnd={props.onTrimDragEnd}
-          />
-        </section>
+        <div className="ops-ml-review__columns">
+          <section className="ops-ml-review__center">
+            <div className="ops-ml-deck__video-wrap ops-ml-review__video-wrap">
+              <video
+                ref={props.videoRef}
+                className="ops-ml-deck__video ops-ml-review__video"
+                src={props.videoUrl}
+                controls
+                preload="metadata"
+                onTimeUpdate={props.onTimeUpdate}
+              />
+            </div>
+          </section>
 
-        <aside className="ops-ml-review__side">
+          <aside className="ops-ml-review__side">
           <div className="ops-ml-review__title-block">
             <label className="ops-ml-review__field-label" htmlFor="ops-ml-review-title">
               Suggested Name
@@ -195,6 +183,14 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
             />
           </div>
 
+          <ReviewQueuePanel
+            items={queueItems}
+            thumbs={props.chapterThumbs}
+            thumbsLoading={props.thumbsLoading}
+            onSelect={props.onSelectClip}
+            onRemove={props.onRemoveFromQueue}
+          />
+
           <div className="ops-ml-review__actions">
             <button
               type="button"
@@ -222,15 +218,24 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
               Next Clip →
             </button>
           </div>
+          </aside>
+        </div>
 
-          <ReviewQueuePanel
-            items={queueItems}
-            thumbs={props.chapterThumbs}
+        <div className="ops-ml-review__trim">
+          <ClipSelectionPanel
+            clipStartSec={props.clip.startSec}
+            clipEndSec={props.clip.endSec}
+            playheadSec={props.playheadSec}
+            selection={props.selection}
+            thumbs={activeThumbs}
             thumbsLoading={props.thumbsLoading}
-            onSelect={props.onSelectClip}
-            onRemove={props.onRemoveFromQueue}
+            onSelectionChange={props.onSelectionChange}
+            onSeek={props.onSeek}
+            onTrimDragStart={props.onTrimDragStart}
+            onTrimPreview={props.onTrimPreview}
+            onTrimDragEnd={props.onTrimDragEnd}
           />
-        </aside>
+        </div>
       </div>
 
       <ClipQueueFilmstrip

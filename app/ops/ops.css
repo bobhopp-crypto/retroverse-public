@@ -3983,10 +3983,11 @@
 
 /* Review screen — mockup-aligned broadcast workstation */
 .ops-ml-deck--review {
-  max-height: none;
-  height: calc(100vh - 4rem);
-  gap: 0.35rem;
-  padding: 0.35rem;
+  max-height: 780px;
+  height: min(72vh, 780px);
+  min-height: 560px;
+  gap: 0.3rem;
+  padding: 0.3rem;
   background: #121214;
   border: 3px solid #3a3a40;
   border-radius: 10px;
@@ -3997,8 +3998,8 @@
   display: grid;
   grid-template-columns: auto 1fr auto auto auto;
   align-items: center;
-  gap: 0.65rem 1rem;
-  padding: 0.55rem 0.75rem;
+  gap: 0.5rem 0.75rem;
+  padding: 0.4rem 0.6rem;
   background: linear-gradient(180deg, #2a2a30 0%, #1f1f24 100%);
   border: 2px solid var(--focus-border);
   border-radius: 6px;
@@ -4103,9 +4104,18 @@
 }
 
 .ops-ml-review__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ops-ml-review__columns {
   display: grid;
-  grid-template-columns: 1fr minmax(20rem, 30%);
-  gap: 0.55rem;
+  grid-template-columns: 1fr minmax(13.5rem, 24%);
+  gap: 0.35rem;
   flex: 1;
   min-height: 0;
   overflow: hidden;
@@ -4125,37 +4135,53 @@
 .ops-ml-review__video-wrap {
   flex: 1;
   min-height: 0;
-  padding: 0.45rem 0.55rem 0;
+  padding: 0.35rem 0.45rem;
 }
 
 .ops-ml-review__video {
   width: 100%;
   height: 100%;
   max-height: none;
-  min-height: 280px;
+  min-height: 0;
   object-fit: contain;
   background: #000;
+}
+
+.ops-ml-review__trim {
+  flex-shrink: 0;
+  background: #222226;
+  border: 2px solid var(--focus-border);
+  border-radius: 6px;
+  padding: 0.3rem 0.4rem 0.35rem;
 }
 
 .ops-ml-review__side {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.3rem;
   min-height: 0;
-  overflow-y: auto;
-  padding: 0.55rem;
+  overflow: hidden;
+  padding: 0.4rem;
   background: #1e1e22;
   border: 2px solid var(--focus-border);
   border-radius: 6px;
 }
 
 .ops-ml-review__field-label {
-  margin: 0 0 0.35rem;
-  font-size: 0.78rem;
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--focus-text-dim);
+}
+
+.ops-ml-review__title-block {
+  flex-shrink: 0;
+}
+
+.ops-ml-review__type-block {
+  flex-shrink: 0;
 }
 
 .ops-ml-review__title-input {
@@ -4163,47 +4189,61 @@
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   color: #7ddf8a;
   background: #141416;
   border: 2px solid #3d5a40;
-  padding: 0.65rem 0.55rem;
-  line-height: 1.35;
+  padding: 0.45rem 0.45rem;
+  line-height: 1.3;
 }
 
 .ops-ml-review__title-actions {
   display: flex;
-  gap: 0.4rem;
-  margin-top: 0.45rem;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
 }
 
 .ops-ml-review__accept-btn,
 .ops-ml-review__regen-btn {
   flex: 1;
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.04em;
+  padding: 0.35rem 0.4rem;
 }
 
 .ops-ml-deck--review .ops-ml-curator-classify__hint {
   display: none;
 }
 
+.ops-ml-deck--review .ops-ml-curator-classify {
+  padding: 0;
+  overflow: visible;
+  flex: 0 0 auto;
+}
+
 .ops-ml-deck--review .ops-ml-curator-classify__grid {
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.35rem;
+  gap: 0.22rem;
 }
 
 .ops-ml-deck--review .ops-ml-curator-btn {
-  min-height: 2.55rem;
-  font-size: 0.76rem;
+  min-height: 2rem;
+  padding: 0.28rem 0.3rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   border-width: 2px;
+  border-radius: 4px;
   border-color: #c45c00;
   background: linear-gradient(180deg, #2a1f14 0%, #1a1a1c 100%);
+}
+
+.ops-ml-deck--review .ops-ml-deck__key {
+  font-size: 0.58rem;
+  opacity: 0.75;
 }
 
 .ops-ml-deck--review .ops-ml-curator-btn:hover {
@@ -4220,12 +4260,14 @@
 .ops-ml-review__actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.4rem;
+  gap: 0.28rem;
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 .ops-ml-review__action {
-  padding: 0.7rem 0.55rem;
-  font-size: 0.92rem;
+  padding: 0.42rem 0.4rem;
+  font-size: 0.76rem;
   font-weight: 800;
   border: 2px solid var(--focus-border);
   border-radius: 4px;
@@ -4262,40 +4304,42 @@
 
 .ops-ml-review-queue {
   flex: 1;
-  min-height: 8rem;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  border-top: 2px solid var(--focus-border);
-  padding-top: 0.55rem;
+  border-top: 1px solid var(--focus-border);
+  padding-top: 0.3rem;
+  margin-top: 0.1rem;
 }
 
 .ops-ml-review-queue__head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.25rem;
 }
 
 .ops-ml-review-queue__label {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   color: var(--focus-text);
 }
 
 .ops-ml-review-queue__count {
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: #f4a261;
 }
 
 .ops-ml-review-queue__list {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.2rem;
 }
 
 .ops-ml-review-queue__empty {
@@ -4307,9 +4351,9 @@
 .ops-ml-review-queue__item {
   display: flex;
   align-items: stretch;
-  gap: 0.25rem;
-  border: 2px solid var(--focus-border);
-  border-radius: 4px;
+  gap: 0.15rem;
+  border: 1px solid var(--focus-border);
+  border-radius: 3px;
   background: #141416;
 }
 
@@ -4322,8 +4366,8 @@
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem;
+  gap: 0.3rem;
+  padding: 0.22rem 0.25rem;
   border: none;
   background: transparent;
   color: inherit;
@@ -4332,15 +4376,15 @@
 }
 
 .ops-ml-review-queue__num {
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: #f4a261;
-  min-width: 1.2rem;
+  min-width: 0.95rem;
 }
 
 .ops-ml-review-queue__thumb {
-  width: 64px;
-  height: 42px;
+  width: 48px;
+  height: 30px;
   flex-shrink: 0;
   overflow: hidden;
   border: 1px solid var(--focus-border);
@@ -4365,9 +4409,9 @@
 
 .ops-ml-review-queue__title {
   display: block;
-  font-size: 0.92rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.2;
   color: var(--focus-text);
   white-space: normal;
   word-break: break-word;
@@ -4375,30 +4419,30 @@
 
 .ops-ml-review-queue__category {
   display: block;
-  margin-top: 0.15rem;
-  font-size: 0.78rem;
+  margin-top: 0.05rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: #ff9f43;
 }
 
 .ops-ml-review-queue__duration {
   display: block;
-  margin-top: 0.1rem;
-  font-size: 0.82rem;
+  margin-top: 0.02rem;
+  font-size: 0.7rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   color: var(--focus-text-dim);
 }
 
 .ops-ml-review-queue__remove {
-  width: 2rem;
+  width: 1.5rem;
   flex-shrink: 0;
   border: none;
   border-left: 1px solid var(--focus-border);
   background: #1a1a1c;
   color: var(--focus-text-dim);
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -4411,20 +4455,20 @@
 
 .ops-ml-queue-strip__track--filmstrip {
   display: flex;
-  gap: 0.45rem;
-  padding: 0.5rem 0.55rem;
+  gap: 0.35rem;
+  padding: 0.35rem 0.4rem;
   overflow-x: auto;
   overflow-y: hidden;
 }
 
 .ops-ml-queue-strip--filmstrip .ops-ml-queue-strip__item {
   flex: 0 0 auto;
-  width: 7.5rem;
+  width: 6.5rem;
 }
 
 .ops-ml-queue-strip__frame--filmstrip {
   width: 100%;
-  height: 4.5rem;
+  height: 3.25rem;
 }
 
 .ops-ml-queue-strip__filmstrip-meta {
@@ -4458,27 +4502,29 @@
 }
 
 .ops-ml-deck--review .ops-ml-selection--timeline {
-  margin: 0 0.55rem 0.65rem;
+  margin: 0;
   flex-shrink: 0;
 }
 
 .ops-ml-deck--review .ops-ml-selection__track {
-  height: 13rem;
-  min-height: 160px;
-  max-height: 240px;
+  height: 9.5rem;
+  min-height: 120px;
+  max-height: 152px;
+}
+
+.ops-ml-deck--review .ops-ml-selection__readouts {
+  margin-top: 0.35rem;
+  padding: 0.25rem 0.15rem 0;
+  gap: 0.3rem;
 }
 
 .ops-ml-deck--review .ops-ml-selection__readout-value {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-.ops-ml-deck--review .ops-ml-review__title-block {
-  flex-shrink: 0;
-}
-
 @media (max-width: 1100px) {
-  .ops-ml-review__body {
+  .ops-ml-review__columns {
     grid-template-columns: 1fr;
     overflow-y: auto;
   }
