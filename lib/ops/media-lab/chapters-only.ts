@@ -1,5 +1,3 @@
-import "server-only";
-
 import { readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
