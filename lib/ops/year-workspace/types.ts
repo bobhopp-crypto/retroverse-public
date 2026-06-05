@@ -38,16 +38,16 @@ export type YearWorkspaceRow = {
   vdjYear: number | null;
   sourcePath: string | null;
   bestMatch: string | null;
-  /** Review-universe enrichment (optional on legacy workspace loaders). */
-  playCount?: number | null;
-  vdjUser2Raw?: string | null;
-  historicalTags?: RvTagId[];
-  historicalTagsFromVdj?: boolean;
-  classification?: ReviewClassification;
-  classificationAutoPromoted?: boolean;
-  vdjMatch?: "matched" | "missing" | "review";
-  ownership?: ReviewOwnership;
-  retroverseTagsSource?: RetroverseTagsSource;
+  /** Review-universe enrichment (always set by workspace loaders). */
+  playCount: number | null;
+  vdjUser2Raw: string | null;
+  historicalTags: RvTagId[];
+  historicalTagsFromVdj: boolean;
+  classification: ReviewClassification;
+  classificationAutoPromoted: boolean;
+  vdjMatch: "matched" | "missing" | "review";
+  ownership: ReviewOwnership;
+  retroverseTagsSource: RetroverseTagsSource;
 };
 
 export type YearWorkspaceStats = {
@@ -81,8 +81,8 @@ export type YearWorkspaceData = {
   vdjOnly: YearWorkspaceRow[];
   review: YearWorkspaceRow[];
   /** Flat Hot 100 review table (inBoth + chartOnly), peak order. */
-  reviewRows?: YearWorkspaceRow[];
-  reviewMetrics?: YearReviewEnrichmentMetrics;
+  reviewRows: YearWorkspaceRow[];
+  reviewMetrics: YearReviewEnrichmentMetrics;
 };
 
 export type YearWorkspaceCategoryId =
