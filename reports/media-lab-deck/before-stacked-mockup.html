@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Before — Stacked Focus Mode</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #1a1a1c;
+      color: #f0ebe3;
+      padding: 12px;
+      width: 1728px;
+      height: 900px;
+    }
+    .zone {
+      background: #262629;
+      border: 1px solid #45454b;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      padding: 10px 14px;
+    }
+    .head { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+    .video { height: 280px; background: #000; border: 1px solid #45454b; border-radius: 6px; display:flex;align-items:center;justify-content:center;color:#888; }
+    .transcript { height: 90px; background: #1a1a1c; border: 1px solid #45454b; border-radius: 6px; padding: 8px; font-size: 13px; color: #b5aea4; }
+    .title { font-size: 18px; font-weight: 800; margin: 6px 0; }
+    .row { display:flex; gap:6px; flex-wrap:wrap; margin: 6px 0; }
+    .btn { padding: 6px 10px; border: 1px solid #45454b; border-radius: 6px; background: #1a1a1c; font-size: 11px; }
+    .big { padding: 12px 20px; font-size: 14px; font-weight: 800; }
+    .label { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+    .scroll-hint { text-align:center; color:#b86a6a; font-size:12px; margin-top:8px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="zone"><div class="head">📁 Job / File</div><div style="font-size:14px">1992 Billboard Music Awards · shortcuts · export buttons</div></div>
+  <div class="zone"><div class="head">🎬 Video Review</div><div class="video">VIDEO</div></div>
+  <div class="zone"><div class="head">📝 Transcript</div><div class="transcript">Live transcript lines…</div></div>
+  <div class="zone"><div class="head">🏷 Classification</div><div class="label">Suggested title</div><div class="title">Commercial - Montgomery Ward</div><div class="row"><span class="btn">Commercial</span><span class="btn">Performance</span><span class="btn">Promo</span><span class="btn">Award</span></div></div>
+  <div class="zone"><div class="head">✅ Decision</div><div class="row"><span class="btn big">Keep</span><span class="btn big">Reject</span></div><div class="row"><span class="btn big">Previous</span><span class="btn big">Next</span></div></div>
+  <div class="scroll-hint">↓ SCROLL REQUIRED — controls move off-screen during review ↓</div>
+</body>
+</html>

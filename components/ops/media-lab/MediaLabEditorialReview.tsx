@@ -35,6 +35,7 @@ import { ChapterFilmstrip } from "./ChapterFilmstrip";
 import { ChapterThumbTriplet } from "./ChapterThumbTriplet";
 import { ClipTranscriptStrip, type TranscriptStripMode } from "./ClipTranscriptStrip";
 import { EditorialChapterTags } from "./EditorialChapterTags";
+import { FocusReviewDeck } from "./FocusReviewDeck";
 import { focusTypeForKey } from "./focus-workstation-types";
 import { MediaLabMobileReview } from "./MediaLabMobileReview";
 import { useEditorialChapterOcr } from "./useEditorialChapterOcr";
@@ -79,6 +80,13 @@ function formatDur(sec: number): string {
   const m = Math.floor(sec / 60);
   const s = Math.round(sec % 60);
   return `${m}:${String(s).padStart(2, "0")}`;
+}
+
+function humanizeJobSlug(slug: string): string {
+  return slug
+    .replace(/-\d{4}-\d{2}-\d{2}T[\d-]+$/, "")
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 const MIN_CLIP_SEC = 1;
@@ -132,6 +140,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const [mobileCardIndex, setMobileCardIndex] = useState(0);
   const [focusMode, setFocusMode] = useState(true);
   const [transcriptMode, setTranscriptMode] = useState<TranscriptStripMode>("live");
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const mobileReview = useMediaLabMobileReview();
   const videoRef = useRef<HTMLVideoElement>(null);
   const workspaceRef = useRef<HTMLDivElement>(null);
@@ -819,68 +828,60 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
         .filter(Boolean)
         .join(" ")}
     >
-      <header className="ops-ml-editorial__head">
-        <div>
-          <h3 className="ops-ml-panel__title">Editorial review — {modeLabel}</h3>
-          <p className="ops-dim ops-ml-editorial__hint">
-            {focusMode ? (
-              <>
-                What is this? Type · title · keep/reject · next.{" "}
-                <kbd>1</kbd>–<kbd>8</kbd> type · <kbd>K</kbd> keep · <kbd>N</kbd> next
-              </>
-            ) : (
-              <>
-                Full view: filters, clip queue, merge tools.{" "}
-                <kbd>Y</kbd> keep · <kbd>X</kbd> reject · <kbd>A</kbd> accept · <kbd>J</kbd>/<kbd>L</kbd>{" "}
-                prev/next
-              </>
-            )}
-          </p>
-        </div>
-        <div className="ops-ml-editorial__head-actions">
-          {!mobileReview ? (
+      {!focusMode || mobileReview ? (
+        <header className="ops-ml-editorial__head">
+          <div>
+            <h3 className="ops-ml-panel__title">Editorial review — {modeLabel}</h3>
+            <p className="ops-dim ops-ml-editorial__hint">
+              Full view: filters, clip queue, merge tools. <kbd>Y</kbd> keep · <kbd>X</kbd> reject ·{" "}
+              <kbd>A</kbd> accept · <kbd>J</kbd>/<kbd>L</kbd> prev/next
+            </p>
+          </div>
+          <div className="ops-ml-editorial__head-actions">
+            {!mobileReview ? (
+              <button
+                type="button"
+                className={`ops-btn ops-ml-focus-toggle${focusMode ? " ops-ml-focus-toggle--on" : ""}`}
+                aria-pressed={focusMode}
+                onClick={() => setFocusMode((v) => !v)}
+              >
+                Focus {focusMode ? "On" : "Off"}
+              </button>
+            ) : null}
             <button
               type="button"
-              className={`ops-btn ops-ml-focus-toggle${focusMode ? " ops-ml-focus-toggle--on" : ""}`}
-              aria-pressed={focusMode}
-              onClick={() => setFocusMode((v) => !v)}
+              className="ops-btn"
+              disabled={busy != null}
+              onClick={() => void load()}
             >
-              Focus {focusMode ? "On" : "Off"}
+              Reload
             </button>
-          ) : null}
-          <button
-            type="button"
-            className="ops-btn"
-            disabled={busy != null}
-            onClick={() => void load()}
-          >
-            Reload
-          </button>
-          <button
-            type="button"
-            className="ops-btn ops-btn--info"
-            disabled={busy != null || !dirty}
-            onClick={() => void persist(false)}
-          >
-            {busy === "save" ? "Saving…" : "Save draft"}
-          </button>
-          <button
-            type="button"
-            className="ops-btn ops-btn--ok"
-            disabled={busy != null || reviewCounts.exportable === 0}
-            title={
-              reviewCounts.exportable === 0
-                ? "Mark at least one clip Keep first"
-                : "Export Keep clips to typed asset folders"
-            }
-            onClick={() => void persist(true)}
-          >
-            {busy === "export"
-              ? "Exporting…"
-              : `Export Keep clips (${reviewCounts.exportable})`}
-          </button>
-        </div>
-      </header>
+            <button
+              type="button"
+              className="ops-btn ops-btn--info"
+              disabled={busy != null || !dirty}
+              onClick={() => void persist(false)}
+            >
+              {busy === "save" ? "Saving…" : "Save draft"}
+            </button>
+            <button
+              type="button"
+              className="ops-btn ops-btn--ok"
+              disabled={busy != null || reviewCounts.exportable === 0}
+              title={
+                reviewCounts.exportable === 0
+                  ? "Mark at least one clip Keep first"
+                  : "Export Keep clips to typed asset folders"
+              }
+              onClick={() => void persist(true)}
+            >
+              {busy === "export"
+                ? "Exporting…"
+                : `Export Keep clips (${reviewCounts.exportable})`}
+            </button>
+          </div>
+        </header>
+      ) : null}
 
       {!mobileReview && !focusMode ? (
         <div className="ops-ml-editorial__filters ops-ml-editorial__filters--triage">
@@ -1057,12 +1058,147 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
         <p className="ops-ml-editorial__thumb-error ops-dim">{ocrError}</p>
       ) : null}
 
-      {!mobileReview ? (
+      {!mobileReview && focusMode && previewChapter && videoUrl && !splitChapter ? (
+        <div ref={workspaceRef}>
+          <FocusReviewDeck
+            jobLabel={humanizeJobSlug(props.jobSlug)}
+            modeLabel={modeLabel}
+            videoRef={videoRef}
+            videoUrl={videoUrl}
+            onTimeUpdate={handleVideoTimeUpdate}
+            segments={segments}
+            clip={previewChapter}
+            playheadSec={playheadSec}
+            transcriptMode={transcriptMode}
+            onTranscriptModeChange={setTranscriptMode}
+            previewIndex={previewIndex}
+            totalClips={chapters.length}
+            kept={reviewCounts.Keep}
+            rejected={reviewCounts.Reject}
+            remaining={reviewCounts.unreviewed}
+            reviewStatus={previewChapter.reviewStatus}
+            onKeep={() =>
+              updateReviewStatus(
+                previewChapter.id,
+                previewChapter.reviewStatus === "Keep" ? undefined : "Keep",
+              )
+            }
+            onReject={() =>
+              updateReviewStatus(
+                previewChapter.id,
+                previewChapter.reviewStatus === "Reject" ? undefined : "Reject",
+              )
+            }
+            onPrevious={() => prevClip()}
+            onNext={() => nextClip()}
+            canPrevious={previewIndex > 0}
+            canNext={previewIndex < chapters.length - 1}
+            chapters={chapters}
+            chapterThumbs={chapterThumbs}
+            thumbsLoading={thumbsLoading}
+            onSelectClip={(ch) => openPreview(ch)}
+            showAdvanced={showAdvanced}
+            onToggleAdvanced={() => setShowAdvanced((v) => !v)}
+            onToggleFocus={() => setFocusMode(false)}
+            classificationPanel={
+              <EditorialChapterTags
+                variant="editor"
+                focus
+                deck
+                title={previewChapter.title}
+                suggestion={previewChapter.tagSuggestion ?? null}
+                reviewStatus={previewChapter.reviewStatus}
+                onTitleChange={(title) => updateTitle(previewChapter.id, title)}
+                onApplySuggestedTitle={() => applySuggestedTitle(previewChapter.id)}
+                onApplyContentType={(type) => applyContentType(previewChapter.id, type)}
+                onReviewStatusChange={(status) =>
+                  updateReviewStatus(previewChapter.id, status)
+                }
+              />
+            }
+            advancedPanel={
+              <div className="ops-ml-deck-advanced">
+                <p className="ops-ml-deck-advanced__path">
+                  Job: <code className="ops-mono">{props.jobSlug}</code>
+                </p>
+                {clipAssetsDirPath || sourceArchiveDirPath ? (
+                  <p className="ops-dim ops-ml-deck-advanced__paths">
+                    ASSETS → <code className="ops-mono">{clipAssetsDirPath}</code>
+                    {" · "}
+                    ARCHIVE → <code className="ops-mono">{sourceArchiveDirPath}</code>
+                  </p>
+                ) : null}
+                <div className="ops-ml-deck-advanced__actions">
+                  <button
+                    type="button"
+                    className="ops-btn"
+                    disabled={busy != null}
+                    onClick={() => void load()}
+                  >
+                    Reload
+                  </button>
+                  <button
+                    type="button"
+                    className="ops-btn"
+                    disabled={busy != null || !dirty}
+                    onClick={() => void persist(false)}
+                  >
+                    {busy === "save" ? "Saving…" : "Save draft"}
+                  </button>
+                  <button
+                    type="button"
+                    className="ops-btn ops-btn--ok"
+                    disabled={busy != null || reviewCounts.exportable === 0}
+                    onClick={() => void persist(true)}
+                  >
+                    {busy === "export"
+                      ? "Exporting…"
+                      : `Export Keep (${reviewCounts.exportable})`}
+                  </button>
+                </div>
+                <label className="ops-ml-deck-advanced__label">
+                  Chapter title
+                  <input
+                    className="ops-ml-field__input"
+                    value={previewChapter.title}
+                    onChange={(e) => updateTitle(previewChapter.id, e.target.value)}
+                  />
+                </label>
+                {previewChapter.tagSuggestion ? (
+                  <div className="ops-ml-chapter-tags__details">
+                    <span>Confidence {previewChapter.tagSuggestion.confidence}%</span>
+                    <span>Type {previewChapter.tagSuggestion.type}</span>
+                    {previewChapter.tagSuggestion.ocrSubject ? (
+                      <span>OCR {previewChapter.tagSuggestion.ocrSubject}</span>
+                    ) : null}
+                  </div>
+                ) : null}
+                <p className="ops-dim">
+                  {previewChapter.clock} · {formatDur(previewChapter.durationSec)}
+                </p>
+                {thumbsError ? <p className="ops-dim">{thumbsError}</p> : null}
+                {ocrError ? <p className="ops-dim">{ocrError}</p> : null}
+                {reviewMetrics ? (
+                  <p className="ops-dim">
+                    Metrics: {reviewMetrics.totalClips} clips · {reviewMetrics.mergeEligible} merge-eligible
+                  </p>
+                ) : null}
+                {suggestions.length > 0 ? (
+                  <ul className="ops-ml-deck-advanced__merges">
+                    {suggestions.slice(0, 5).map((s) => (
+                      <li key={`${s.leftChapterId}-${s.rightChapterId}`}>
+                        Merge {s.leftTitle} + {s.rightTitle}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            }
+          />
+        </div>
+      ) : !mobileReview ? (
         <div className="ops-ml-editor-layout">
-          <div
-            ref={workspaceRef}
-            className={`ops-ml-editor-workspace${focusMode ? " ops-ml-editor-workspace--focus" : ""}`}
-          >
+          <div ref={workspaceRef} className="ops-ml-editor-workspace">
             {splitChapter && videoUrl ? (
               <>
                 <header className="ops-ml-editor-workspace__head">
@@ -1106,43 +1242,41 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
               </>
             ) : previewChapter && videoUrl ? (
               <>
-                {!focusMode ? (
-                  <header className="ops-ml-editor-workspace__head">
-                    <div className="ops-ml-editor-workspace__meta">
-                      <span className="ops-ml-editor-workspace__counter">
-                        Clip {previewIndex + 1} of {chapters.length}
-                      </span>
-                      <span className="ops-dim ops-ml-editor-workspace__times">
-                        {previewChapter.clock} · {formatDur(previewChapter.durationSec)}
-                      </span>
-                    </div>
-                    <div className="ops-ml-editor-workspace__nav">
-                      <button
-                        type="button"
-                        className="ops-btn"
-                        disabled={previewIndex <= 0}
-                        onClick={() => prevClip()}
-                      >
-                        ← Prev
-                      </button>
-                      <button
-                        type="button"
-                        className="ops-btn ops-btn--info"
-                        onClick={() => togglePlayPause()}
-                      >
-                        Play
-                      </button>
-                      <button
-                        type="button"
-                        className="ops-btn"
-                        disabled={previewIndex >= chapters.length - 1}
-                        onClick={() => nextClip()}
-                      >
-                        Next →
-                      </button>
-                    </div>
-                  </header>
-                ) : null}
+                <header className="ops-ml-editor-workspace__head">
+                  <div className="ops-ml-editor-workspace__meta">
+                    <span className="ops-ml-editor-workspace__counter">
+                      Clip {previewIndex + 1} of {chapters.length}
+                    </span>
+                    <span className="ops-dim ops-ml-editor-workspace__times">
+                      {previewChapter.clock} · {formatDur(previewChapter.durationSec)}
+                    </span>
+                  </div>
+                  <div className="ops-ml-editor-workspace__nav">
+                    <button
+                      type="button"
+                      className="ops-btn"
+                      disabled={previewIndex <= 0}
+                      onClick={() => prevClip()}
+                    >
+                      ← Prev
+                    </button>
+                    <button
+                      type="button"
+                      className="ops-btn ops-btn--info"
+                      onClick={() => togglePlayPause()}
+                    >
+                      Play
+                    </button>
+                    <button
+                      type="button"
+                      className="ops-btn"
+                      disabled={previewIndex >= chapters.length - 1}
+                      onClick={() => nextClip()}
+                    >
+                      Next →
+                    </button>
+                  </div>
+                </header>
                 <video
                   ref={videoRef}
                   className="ops-ml-editor-workspace__video"
@@ -1151,29 +1285,8 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
                   preload="metadata"
                   onTimeUpdate={handleVideoTimeUpdate}
                 />
-                {focusMode ? (
-                  <ClipTranscriptStrip
-                    segments={segments}
-                    clipStartSec={previewChapter.startSec}
-                    clipEndSec={previewChapter.endSec}
-                    playheadSec={playheadSec}
-                    mode={transcriptMode}
-                    onModeChange={setTranscriptMode}
-                  />
-                ) : null}
                 <EditorialChapterTags
                   variant="editor"
-                  focus={focusMode}
-                  clipMeta={
-                    focusMode
-                      ? {
-                          index: previewIndex,
-                          total: chapters.length,
-                          clock: previewChapter.clock,
-                          duration: formatDur(previewChapter.durationSec),
-                        }
-                      : undefined
-                  }
                   title={previewChapter.title}
                   suggestion={previewChapter.tagSuggestion ?? null}
                   reviewStatus={previewChapter.reviewStatus}
@@ -1184,26 +1297,6 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
                     updateReviewStatus(previewChapter.id, status)
                   }
                 />
-                {focusMode ? (
-                  <div className="ops-ml-editor-workspace__nav ops-ml-editor-workspace__nav--footer">
-                    <button
-                      type="button"
-                      className="ops-btn ops-ml-focus-nav"
-                      disabled={previewIndex <= 0}
-                      onClick={() => prevClip()}
-                    >
-                      ← Previous <span className="ops-ml-focus-card__key">P</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="ops-btn ops-ml-focus-nav"
-                      disabled={previewIndex >= chapters.length - 1}
-                      onClick={() => nextClip()}
-                    >
-                      Next → <span className="ops-ml-focus-card__key">N</span>
-                    </button>
-                  </div>
-                ) : null}
                 {!focusMode ? (
                 <details className="ops-ml-fold-panel ops-ml-fold-panel--inline">
                   <summary className="ops-ml-fold-panel__summary">Trim & timeline</summary>
