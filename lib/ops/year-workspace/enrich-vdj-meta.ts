@@ -215,7 +215,7 @@ export function computeReviewApiMetrics(
     if (row.vdjMatch === "missing") missingRows += 1;
     if (row.playCount != null) playCountRows += 1;
     const record = reviewForVideoRow(reviewState, row);
-    if (rowNeedsReview(record, row.playCount)) needsReviewRows += 1;
+    if (rowNeedsReview(record, row.playCount ?? null)) needsReviewRows += 1;
   }
 
   return { matchedRows, missingRows, playCountRows, needsReviewRows };
