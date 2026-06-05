@@ -1,0 +1,176 @@
+/* Compact track exhibit — Sunday Nights / live embed (no full-page chrome) */
+
+.track-embed {
+  --paper-warm: #f7f2e8;
+  --paper-tan: #ece4d4;
+  --teal-deep: #1f5e63;
+  --orange-dusty: #c44a1a;
+  --charcoal: #2a2a2a;
+  --ink: var(--charcoal);
+  --frame: 2px solid var(--charcoal);
+
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.track-embed__header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid var(--charcoal);
+}
+
+.track-embed__cover-wrap {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  border: var(--frame);
+  background: var(--paper-tan);
+  overflow: hidden;
+}
+
+.track-embed__cover,
+.track-embed__cover-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.track-embed__identity {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.1rem;
+}
+
+.track-embed__label {
+  margin: 0;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange-dusty);
+}
+
+.track-embed__title {
+  margin: 0.15rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.track-embed__artist-line {
+  margin: 0.2rem 0 0;
+  font-size: 0.88rem;
+}
+
+.track-embed__artist {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--orange-dusty);
+  text-underline-offset: 2px;
+}
+
+.track-embed__dot,
+.track-embed__year {
+  color: #555;
+}
+
+.track-embed__stats {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+.track-embed__sparse {
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* Shared section components — compact overrides */
+
+.track-embed .track-albums,
+.track-embed .track-journey,
+.track-embed .track-related {
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0.6rem;
+  background: #faf6ef;
+  border: var(--frame);
+  box-shadow: none;
+}
+
+.track-embed .track-section-head {
+  margin: 0 0 0.4rem;
+}
+
+.track-embed .track-section-head h2 {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+}
+
+.track-embed .track-section-link {
+  font-size: 0.75rem;
+}
+
+.track-embed .track-related__row {
+  padding: 0.35rem 0;
+  font-size: 0.88rem;
+}
+
+.track-embed .track-related__title {
+  font-size: 0.9rem;
+}
+
+.track-embed .track-trajectory-portal-hint {
+  font-size: 0.65rem;
+  padding: 0.35rem 0.45rem;
+  margin-bottom: 0.4rem;
+}
+
+.track-embed .track-trajectory-scale {
+  font-size: 0.62rem;
+  margin-bottom: 0.45rem;
+}
+
+.track-embed .track-trajectory-rail {
+  gap: 0.35rem;
+}
+
+.track-embed .track-trajectory-week {
+  min-height: 3.25rem;
+  padding: 0.45rem 0.55rem 0.5rem;
+}
+
+.track-embed .track-trajectory-date {
+  font-size: 0.72rem;
+}
+
+.track-embed .track-trajectory-date small {
+  font-size: 0.62rem;
+}
+
+.track-embed .track-trajectory-rank {
+  font-size: 0.95rem;
+}
+
+.track-embed .track-trajectory-track {
+  height: 0.45rem;
+}
+
+@media (min-width: 721px) {
+  .track-embed__cover-wrap {
+    flex: 0 0 88px;
+    width: 88px;
+    height: 88px;
+  }
+
+  .track-embed__title {
+    font-size: 1.25rem;
+  }
+}

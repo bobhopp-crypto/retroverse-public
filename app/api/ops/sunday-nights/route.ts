@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 
 import { loadSundayEventSongs } from "@/lib/sunday-nights/load-playlist";
 import { saveRvtrAlias } from "@/lib/sunday-nights/rvtr-aliases";
+import {
+  loadSundayEventMode,
+  setSundayEventMode,
+} from "@/lib/sunday-nights/event-mode";
 import { loadSundayNightsState, setCurrentTrackId } from "@/lib/sunday-nights/state";
 import { loadTrackPage } from "@/lib/track/load-track-page";
 import type { SundayYearFilter } from "@/lib/sunday-nights/playlist-types";
@@ -25,12 +29,13 @@ export async function GET(req: Request) {
     const playlist = new URL(req.url).searchParams.get("playlist");
     const yearParam = year ?? (playlist && /^\d{4}$/.test(playlist) ? playlist : null);
     const state = await loadSundayNightsState();
-    const [track, event] = await Promise.all([
+    const [track, event, eventMode] = await Promise.all([
       state.currentTrackId ? loadTrackPage(state.currentTrackId) : Promise.resolve(null),
       loadSundayEventSongs(yearParam),
+      loadSundayEventMode(),
     ]);
 
-    return NextResponse.json({ state, track, ...event });
+    return NextResponse.json({ state, track, eventMode, ...event });
   } catch (err) {
     console.error("[ops/sunday-nights GET]", err);
     return NextResponse.json(
@@ -51,6 +56,7 @@ export async function PATCH(req: Request) {
   const payload = body as {
     op?: string;
     currentTrackId?: string | null;
+    enabled?: boolean;
     artist?: string;
     title?: string;
     rvtr?: string;
@@ -59,6 +65,19 @@ export async function PATCH(req: Request) {
     bankYear?: SundayYearFilter;
     year?: number;
   };
+
+  if (payload.op === "setEventMode") {
+    try {
+      const eventMode = await setSundayEventMode(payload.enabled === true);
+      return NextResponse.json({ eventMode });
+    } catch (err) {
+      console.error("[ops/sunday-nights PATCH setEventMode]", err);
+      return NextResponse.json(
+        { error: err instanceof Error ? err.message : "Event mode update failed" },
+        { status: 500 },
+      );
+    }
+  }
 
   if (payload.op === "setTrack") {
     try {

@@ -12,12 +12,13 @@ import {
   type SundayYearFilter,
 } from "@/lib/sunday-nights/playlist-types";
 import type { TrackPageData } from "@/lib/track/load-track-page";
-import type { SundayNightsState } from "@/lib/sunday-nights/types";
+import type { SundayNightsState, SundayEventMode } from "@/lib/sunday-nights/types";
 import { trackPageHref } from "@/lib/search/entity-routes";
 
 type OpsPayload = SundayEventPayload & {
   state: SundayNightsState;
   track: TrackPageData | null;
+  eventMode?: SundayEventMode;
   error?: string;
 };
 
@@ -70,6 +71,8 @@ function rvtrLabel(rvtr: string | null): string {
 export function SundayNightsAdmin() {
   const [state, setState] = useState<SundayNightsState | null>(null);
   const [track, setTrack] = useState<TrackPageData | null>(null);
+  const [eventMode, setEventMode] = useState<SundayEventMode | null>(null);
+  const [eventModeBusy, setEventModeBusy] = useState(false);
   const [eventMeta, setEventMeta] = useState<Pick<SundayEventPayload, "playlists" | "myListsPath">>({
     playlists: [],
     myListsPath: "",
@@ -96,6 +99,7 @@ export function SundayNightsAdmin() {
   const applyPayload = useCallback((data: OpsPayload) => {
     setState(data.state);
     setTrack(data.track);
+    if (data.eventMode) setEventMode(data.eventMode);
     setEventMeta({ playlists: data.playlists ?? [], myListsPath: data.myListsPath ?? "" });
     setYearFilter(data.yearFilter ?? 1967);
     setSongs(data.songs ?? []);
@@ -178,6 +182,30 @@ export function SundayNightsAdmin() {
   }, [search, yearFilter]);
 
   const showSearchResults = search.trim().length >= SEARCH_MIN;
+
+  async function toggleEventMode() {
+    const nextEnabled = !(eventMode?.enabled ?? false);
+    setEventModeBusy(true);
+    setMessage(null);
+    try {
+      const res = await fetch("/api/ops/sunday-nights", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ op: "setEventMode", enabled: nextEnabled }),
+      });
+      const data = (await res.json()) as { eventMode?: SundayEventMode; error?: string };
+      if (!res.ok) {
+        setMessage(data.error ?? "Event mode update failed.");
+        return;
+      }
+      setEventMode(data.eventMode ?? { enabled: nextEnabled, updatedAt: new Date().toISOString() });
+      setMessage(nextEnabled ? "Event mode live." : "Event mode off.");
+    } catch {
+      setMessage("Event mode update failed.");
+    } finally {
+      setEventModeBusy(false);
+    }
+  }
 
   async function selectYear(year: SundayYearFilter) {
     setYearFilter(year);
@@ -355,15 +383,44 @@ export function SundayNightsAdmin() {
   }
 
   const liveRvtr = state?.currentTrackId ?? null;
-  const onAir = Boolean(liveRvtr && track);
   const liveArtist = track?.artistName ?? (liveRvtr ? "—" : null);
   const liveTitle = track?.title ?? (liveRvtr ? "Loading…" : null);
   const liveYear = track?.releaseYear ?? null;
 
   const deckSongs = useMemo(() => songs, [songs]);
 
+  const onAir = Boolean(liveRvtr && track);
+  const eventModeOn = eventMode?.enabled === true;
+  const unmatchedCount = useMemo(
+    () => deckSongs.filter((s) => !s.rvtr).length,
+    [deckSongs],
+  );
+
   return (
     <div className="sn-admin">
+      <div className={`sn-admin__event-mode${eventModeOn ? " sn-admin__event-mode--live" : ""}`}>
+        <div className="sn-admin__event-mode-copy">
+          <p className="sn-admin__event-mode-label">
+            {eventModeOn ? "EVENT MODE LIVE" : "EVENT MODE OFF"}
+          </p>
+          <p className="sn-admin__event-mode-detail">
+            {eventModeOn
+              ? "Homepage redirects to Sunday Nights"
+              : "Homepage is normal Retroverse"}
+          </p>
+        </div>
+        <button
+          type="button"
+          className={`sn-admin__btn sn-admin__event-mode-toggle${
+            eventModeOn ? " sn-admin__event-mode-toggle--live" : ""
+          }`}
+          disabled={eventModeBusy}
+          onClick={() => toggleEventMode()}
+        >
+          {eventModeBusy ? "…" : eventModeOn ? "Turn off" : "Go live"}
+        </button>
+      </div>
+
       <div className={`sn-admin__on-air${onAir ? " sn-admin__on-air--active" : ""}`}>
         <div className="sn-admin__on-air-signal" aria-hidden>
           <span className="sn-admin__on-air-lamp" />
@@ -405,6 +462,13 @@ export function SundayNightsAdmin() {
           </button>
         </div>
       </div>
+
+      {unmatchedCount > 0 ? (
+        <p className="sn-admin__unmatched-banner" role="status">
+          {unmatchedCount} track{unmatchedCount === 1 ? "" : "s"} need matching — look for{" "}
+          <strong>NO RVTR</strong>
+        </p>
+      ) : null}
 
       <div className="sn-admin__toolbar">
         <input
@@ -502,8 +566,8 @@ export function SundayNightsAdmin() {
                 <li key={song.key}>
                   <div
                     className={`sn-admin__card sn-admin__card--${visual}${
-                      isBusy ? " sn-admin__card--busy" : ""
-                    }`}
+                      !hasRvtr ? " sn-admin__card--unmatched" : ""
+                    }${isBusy ? " sn-admin__card--busy" : ""}`}
                   >
                     <button
                       type="button"
@@ -515,7 +579,7 @@ export function SundayNightsAdmin() {
                       <span className="sn-admin__card-title">{song.title}</span>
                       <span
                         className={`sn-admin__rvtr${
-                          hasRvtr ? "" : " sn-admin__rvtr--missing"
+                          hasRvtr ? " sn-admin__rvtr--ok" : " sn-admin__rvtr--missing"
                         }`}
                       >
                         {rvtrLabel(song.rvtr)}

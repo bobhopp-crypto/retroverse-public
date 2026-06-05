@@ -4,6 +4,11 @@ export type SundayNightsState = {
   updatedAt: string;
 };
 
+export type SundayEventMode = {
+  enabled: boolean;
+  updatedAt: string;
+};
+
 export type PassRegistration = {
   passNumber: string;
   firstName: string;
