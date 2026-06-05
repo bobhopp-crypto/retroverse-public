@@ -36,6 +36,25 @@ import {
   normalizeYearWorkspaceKeywords,
   YEAR_WORKSPACE_KEYWORDS,
 } from "@/lib/ops/year-workspace/vocabulary";
+import {
+  addAssetToProducerBlock,
+  addProducerBlock,
+  deleteProducerBlock,
+  duplicateProducerBlock,
+  loadProducerTimeline,
+  moveProducerBlock,
+  removeAssetFromProducerBlock,
+  renameProducerBlock,
+  setProducerBlockCollapsed,
+  setProducerBlockEra,
+  setProducerEraTargets,
+  setProducerRuntimeApproval,
+  setProducerRuntimeOverride,
+  setProducerTargetRuntimeMinutes,
+  updateProducerBlockNotes,
+} from "@/lib/ops/year-workspace/producer/timeline-state";
+import { parseProducerEraId } from "@/lib/ops/year-workspace/producer/era";
+import type { ProducerBlockTemplateId } from "@/lib/ops/year-workspace/producer/types";
 import { inspectPing } from "@/lib/inspect/pg";
 
 export const dynamic = "force-dynamic";
@@ -78,6 +97,62 @@ function recommendationPoolMeta(
   return pools;
 }
 
+const PRODUCER_OPS = new Set([
+  "producerAddToBlock",
+  "producerRemoveFromBlock",
+  "producerSetTargetRuntime",
+  "producerSetRuntimeOverride",
+  "producerSetRuntimeApproval",
+  "producerAddBlock",
+  "producerDuplicateBlock",
+  "producerRenameBlock",
+  "producerUpdateBlockNotes",
+  "producerDeleteBlock",
+  "producerMoveBlock",
+  "producerSetBlockCollapsed",
+  "producerSetBlockEra",
+  "producerSetEraTargets",
+]);
+
+function parseBlockId(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const id = value.trim();
+  return id.length > 0 ? id : null;
+}
+
+function parseTemplateId(value: unknown): ProducerBlockTemplateId | null {
+  const ids: ProducerBlockTemplateId[] = [
+    "segment_1967",
+    "segment_1978",
+    "segment_1992",
+    "music_segment",
+    "commercial_break",
+    "tv_memory",
+    "news_segment",
+    "feature_segment",
+    "custom",
+  ];
+  if (typeof value !== "string") return null;
+  return ids.includes(value as ProducerBlockTemplateId)
+    ? (value as ProducerBlockTemplateId)
+    : null;
+}
+
+async function producerOpError(
+  year: number,
+  fn: () => Promise<unknown>,
+): Promise<Response> {
+  try {
+    await fn();
+    return NextResponse.json(await fullPayload(year));
+  } catch (err) {
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : "Producer update failed" },
+      { status: 400 },
+    );
+  }
+}
+
 async function fullPayload(year: number) {
   const workspace = await loadYearWorkspace(year);
   const bundle = await loadYearWorkspaceProductionBundleForYear(
@@ -85,12 +160,14 @@ async function fullPayload(year: number) {
     workspace.completion,
   );
   const keywordState = await loadYearWorkspaceState(year);
+  const producerTimeline = await loadProducerTimeline(year);
   return {
     ok: true as const,
     year,
     workspace,
     production: bundle.production,
     summary: bundle.summary,
+    producerTimeline,
     recommendationPools: recommendationPoolMeta(year, bundle.production),
     vocabulary: YEAR_WORKSPACE_KEYWORDS,
     keywordState: {
@@ -153,6 +230,241 @@ export async function PATCH(req: Request) {
       : OPS_FOCUS_YEAR;
 
   const op = payload.op?.trim();
+
+  if (op && PRODUCER_OPS.has(op)) {
+    const p = payload as Record<string, unknown>;
+    const blockId = parseBlockId(p.blockId);
+
+    if (op === "producerSetEraTargets") {
+      const eraTargets = p.eraTargets;
+      if (!eraTargets || typeof eraTargets !== "object") {
+        return NextResponse.json({ error: "eraTargets required" }, { status: 400 });
+      }
+      const et = eraTargets as Record<string, unknown>;
+      return producerOpError(year, () =>
+        setProducerEraTargets(year, {
+          1967: typeof et["1967"] === "number" ? et["1967"] : undefined,
+          1978: typeof et["1978"] === "number" ? et["1978"] : undefined,
+          1992: typeof et["1992"] === "number" ? et["1992"] : undefined,
+        }),
+      );
+    }
+
+    if (op === "producerSetBlockEra") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const eraId = parseProducerEraId(p.eraId);
+      return producerOpError(year, () => setProducerBlockEra(year, blockId, eraId));
+    }
+
+    if (op === "producerSetTargetRuntime") {
+      const targetRuntimeMinutes = p.targetRuntimeMinutes;
+      if (
+        typeof targetRuntimeMinutes !== "number" ||
+        !Number.isFinite(targetRuntimeMinutes)
+      ) {
+        return NextResponse.json(
+          { error: "targetRuntimeMinutes required" },
+          { status: 400 },
+        );
+      }
+      return producerOpError(year, () =>
+        setProducerTargetRuntimeMinutes(year, targetRuntimeMinutes),
+      );
+    }
+
+    if (op === "producerAddBlock") {
+      const templateId = parseTemplateId(p.templateId);
+      const afterBlockId = parseBlockId(p.afterBlockId);
+      return producerOpError(year, () =>
+        addProducerBlock(year, {
+          afterBlockId: afterBlockId ?? undefined,
+          templateId: templateId ?? undefined,
+          title: typeof p.title === "string" ? p.title : undefined,
+          notes:
+            p.notes === null || typeof p.notes === "string"
+              ? (p.notes as string | null)
+              : undefined,
+        }),
+      );
+    }
+
+    if (op === "producerSetRuntimeOverride") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const timelineAssetId =
+        typeof p.timelineAssetId === "string" ? p.timelineAssetId.trim() : "";
+      if (!timelineAssetId) {
+        return NextResponse.json(
+          { error: "timelineAssetId required" },
+          { status: 400 },
+        );
+      }
+      const overrideRaw = p.runtimeOverrideSeconds;
+      const runtimeOverrideSeconds =
+        overrideRaw === null || overrideRaw === undefined
+          ? null
+          : typeof overrideRaw === "number" && Number.isFinite(overrideRaw)
+            ? overrideRaw
+            : NaN;
+      if (Number.isNaN(runtimeOverrideSeconds as number) && overrideRaw != null) {
+        return NextResponse.json(
+          { error: "Invalid runtimeOverrideSeconds" },
+          { status: 400 },
+        );
+      }
+      return producerOpError(year, () =>
+        setProducerRuntimeOverride(
+          year,
+          blockId,
+          timelineAssetId,
+          runtimeOverrideSeconds as number | null,
+        ),
+      );
+    }
+
+    if (op === "producerSetRuntimeApproval") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const timelineAssetId =
+        typeof p.timelineAssetId === "string" ? p.timelineAssetId.trim() : "";
+      if (!timelineAssetId) {
+        return NextResponse.json(
+          { error: "timelineAssetId required" },
+          { status: 400 },
+        );
+      }
+      if (typeof p.approvedRuntime !== "boolean") {
+        return NextResponse.json(
+          { error: "approvedRuntime boolean required" },
+          { status: 400 },
+        );
+      }
+      return producerOpError(year, () =>
+        setProducerRuntimeApproval(
+          year,
+          blockId,
+          timelineAssetId,
+          p.approvedRuntime as boolean,
+        ),
+      );
+    }
+
+    if (op === "producerDuplicateBlock") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      return producerOpError(year, () => duplicateProducerBlock(year, blockId));
+    }
+
+    if (op === "producerRenameBlock") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const title = typeof p.title === "string" ? p.title : "";
+      return producerOpError(year, () => renameProducerBlock(year, blockId, title));
+    }
+
+    if (op === "producerUpdateBlockNotes") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const notes =
+        p.notes === null || typeof p.notes === "string"
+          ? (p.notes as string | null)
+          : null;
+      return producerOpError(year, () =>
+        updateProducerBlockNotes(year, blockId, notes),
+      );
+    }
+
+    if (op === "producerDeleteBlock") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      return producerOpError(year, () => deleteProducerBlock(year, blockId));
+    }
+
+    if (op === "producerMoveBlock") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      const direction = p.direction === "up" || p.direction === "down" ? p.direction : null;
+      if (!direction) {
+        return NextResponse.json({ error: "direction up|down required" }, { status: 400 });
+      }
+      return producerOpError(year, () => moveProducerBlock(year, blockId, direction));
+    }
+
+    if (op === "producerSetBlockCollapsed") {
+      if (!blockId) {
+        return NextResponse.json({ error: "blockId required" }, { status: 400 });
+      }
+      if (typeof p.collapsed !== "boolean") {
+        return NextResponse.json({ error: "collapsed boolean required" }, { status: 400 });
+      }
+      return producerOpError(year, () =>
+        setProducerBlockCollapsed(year, blockId, p.collapsed as boolean),
+      );
+    }
+
+    if (!blockId) {
+      return NextResponse.json({ error: "blockId required" }, { status: 400 });
+    }
+
+    if (op === "producerAddToBlock") {
+      const asset = p.asset;
+      if (!asset || typeof asset !== "object") {
+        return NextResponse.json({ error: "asset required" }, { status: 400 });
+      }
+      const a = asset as Record<string, unknown>;
+      const producerCategory = a.producerCategory;
+      const productionCategory = a.productionCategory;
+      const productionItemId = a.productionItemId;
+      const title = a.title;
+      if (
+        typeof producerCategory !== "string" ||
+        typeof productionCategory !== "string" ||
+        typeof productionItemId !== "string" ||
+        typeof title !== "string"
+      ) {
+        return NextResponse.json({ error: "Invalid asset" }, { status: 400 });
+      }
+      const runtimeSeconds =
+        typeof a.runtimeSeconds === "number" ? a.runtimeSeconds : 0;
+      return producerOpError(year, () =>
+        addAssetToProducerBlock(year, blockId, {
+          producerCategory: producerCategory as Parameters<
+            typeof addAssetToProducerBlock
+          >[2]["producerCategory"],
+          productionCategory: productionCategory as Parameters<
+            typeof addAssetToProducerBlock
+          >[2]["productionCategory"],
+          productionItemId,
+          title,
+          subtitle: typeof a.subtitle === "string" ? a.subtitle : null,
+          runtimeSeconds,
+          approvedRuntime:
+            typeof a.approvedRuntime === "boolean" ? a.approvedRuntime : undefined,
+        }),
+      );
+    }
+
+    const timelineAssetId =
+      typeof p.timelineAssetId === "string" ? p.timelineAssetId.trim() : "";
+    if (!timelineAssetId) {
+      return NextResponse.json(
+        { error: "timelineAssetId required" },
+        { status: 400 },
+      );
+    }
+    return producerOpError(year, () =>
+      removeAssetFromProducerBlock(year, blockId, timelineAssetId),
+    );
+  }
 
   if (op) {
     const category = parseCategory(payload.category);

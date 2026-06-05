@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>After — DJ Deck Layout</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #1a1a1c;
+      color: #f0ebe3;
+      padding: 10px;
+      width: 1728px;
+      height: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .bar {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #262629; border: 1px solid #45454b; border-radius: 8px; padding: 8px 12px;
+      font-size: 14px; font-weight: 700;
+    }
+    .main {
+      display: grid;
+      grid-template-columns: 580px 1fr 300px;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
+    }
+    .panel {
+      background: #262629;
+      border: 1px solid #45454b;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .panel.classify { background: #2a2a2f; }
+    .panel.decision { background: #252528; }
+    .panel-head {
+      padding: 8px 12px;
+      border-bottom: 1px solid #45454b;
+      background: #2f2f33;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .panel-body { padding: 12px; flex: 1; }
+    .video {
+      height: 300px;
+      background: #000;
+      border: 1px solid #45454b;
+      border-radius: 6px;
+      margin: 8px 12px;
+      display:flex;align-items:center;justify-content:center;color:#888;font-size:18px;
+    }
+    .transcript {
+      margin: 0 12px 10px;
+      padding: 10px;
+      background: #1a1a1c;
+      border: 1px solid #45454b;
+      border-radius: 6px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #b5aea4;
+      min-height: 110px;
+    }
+    .active { color: #f0ebe3; font-weight: 700; }
+    .title { font-size: 22px; font-weight: 800; margin: 8px 0 12px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .type {
+      min-height: 52px;
+      border: 2px solid #45454b;
+      border-radius: 8px;
+      background: #1a1a1c;
+      display:flex;align-items:center;justify-content:center;
+      font-size: 15px; font-weight: 700;
+    }
+    .type.on { border-color: #5a9e72; background: rgba(90,158,114,.2); }
+    .clip { font-size: 26px; font-weight: 800; margin-bottom: 10px; }
+    .stats { display:grid; grid-template-columns: repeat(3,1fr); gap:6px; margin-bottom:12px; }
+    .stat { background:#1a1a1c; border:1px solid #45454b; border-radius:6px; padding:8px; text-align:center; }
+    .stat span { display:block; font-size:10px; color:#b5aea4; text-transform:uppercase; }
+    .stat b { font-size:18px; }
+    .action {
+      width:100%; padding:14px; margin-bottom:8px;
+      border:2px solid #45454b; border-radius:8px;
+      background:#1a1a1c; font-size:17px; font-weight:800; text-align:center;
+    }
+    .keep { border-color:#5a9e72; }
+    .reject { border-color:#b86a6a; }
+    .filmstrip {
+      background: #262629;
+      border: 1px solid #45454b;
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+    }
+    .thumb {
+      width: 88px; height: 50px;
+      background: #111;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      flex-shrink: 0;
+      display:flex;align-items:center;justify-content:center;
+      font-size:11px;color:#666;
+    }
+    .thumb.on { border-color: #5a9e72; background: rgba(90,158,114,.15); }
+    .note { text-align:center; font-size:12px; color:#5a9e72; font-weight:700; margin-top:4px; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <span>[Focus On] [Show Advanced]</span>
+    <span>1992 Billboard Music Awards · Commercial review</span>
+  </div>
+  <div class="main">
+    <div class="panel">
+      <div class="panel-head">🎬 Video Review</div>
+      <div class="video">VIDEO — fixed 580px column</div>
+      <div class="panel-head" style="border-top:1px solid #45454b">📝 Transcript · Live</div>
+      <div class="transcript">
+        <div>Today at Montgomery Ward…</div>
+        <div>14K gold earrings only $11.88</div>
+        <div class="active">>> Sale ends December 24 <<</div>
+        <div>Christmas savings throughout the store</div>
+      </div>
+    </div>
+    <div class="panel classify">
+      <div class="panel-head">🏷 Classification</div>
+      <div class="panel-body">
+        <div style="font-size:11px;color:#b5aea4;text-transform:uppercase">Suggested title</div>
+        <div class="title">Commercial - Montgomery Ward Sale</div>
+        <div class="grid">
+          <div class="type on">Commercial</div>
+          <div class="type">Performance</div>
+          <div class="type">Promo</div>
+          <div class="type">Award</div>
+          <div class="type">Speech</div>
+          <div class="type">Interview</div>
+          <div class="type">News</div>
+          <div class="type">Station ID</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel decision">
+      <div class="panel-head">✅ Decision</div>
+      <div class="panel-body">
+        <div class="clip">Clip 12 of 195</div>
+        <div class="stats">
+          <div class="stat"><span>Kept</span><b>8</b></div>
+          <div class="stat"><span>Rejected</span><b>4</b></div>
+          <div class="stat"><span>Remaining</span><b>183</b></div>
+        </div>
+        <div class="action keep">KEEP</div>
+        <div class="action reject">REJECT</div>
+        <div class="action">← PREVIOUS</div>
+        <div class="action keep">NEXT →</div>
+      </div>
+    </div>
+  </div>
+  <div class="filmstrip">
+    <div class="thumb">9</div><div class="thumb">10</div><div class="thumb">11</div>
+    <div class="thumb on">12</div><div class="thumb">13</div><div class="thumb">14</div>
+    <div class="thumb">15</div><div class="thumb">16</div><div class="thumb">17</div>
+    <div class="thumb">18</div><div class="thumb">19</div><div class="thumb">20</div>
+  </div>
+  <div class="note">NO SCROLL — full review workflow fits on one 16" screen</div>
+</body>
+</html>

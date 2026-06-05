@@ -1,0 +1,299 @@
+/* Retroverse Sunday Nights — compact now-playing + editorial body */
+
+.sn-page {
+  --sn-paper: #f7f2e8;
+  --sn-ink: #2a2a2a;
+  --sn-accent: #c44a1a;
+  --sn-rule: #2a2a2a;
+  --sn-read-max: 700px;
+  --sn-page-max: 920px;
+
+  min-height: 100vh;
+  background: var(--sn-paper);
+  color: var(--sn-ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sn-top {
+  max-width: var(--sn-page-max);
+  margin: 0 auto;
+  padding: 1rem 1rem 0;
+}
+
+.sn-site-link {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sn-ink);
+}
+
+.sn-site-link:hover {
+  color: var(--sn-accent);
+}
+
+/* —— Live track embed / waiting —— */
+
+.sn-live {
+  padding-bottom: 1rem;
+}
+
+.sn-live__waiting {
+  padding: 0.65rem 0;
+  border-bottom: 2px solid var(--sn-rule);
+}
+
+.sn-live__waiting-label {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sn-accent);
+}
+
+.sn-live__waiting-text {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #4a4a4a;
+}
+
+/* —— Article (Casey monologue) —— */
+
+.sn-article {
+  max-width: var(--sn-read-max);
+  margin: 0 auto;
+  padding: 1.75rem 1rem 2.25rem;
+  border-top: 1px solid rgba(42, 42, 42, 0.2);
+}
+
+.sn-article__p {
+  margin: 0 0 1.15rem;
+}
+
+.sn-article__p:last-child {
+  margin-bottom: 0;
+}
+
+/* —— Featured years —— */
+
+.sn-years {
+  max-width: var(--sn-page-max);
+  margin: 0 auto;
+  padding: 2rem 1rem 2.5rem;
+  border-top: 2px solid var(--sn-rule);
+}
+
+.sn-years__heading {
+  margin: 0 0 1.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--sn-accent);
+}
+
+.sn-years__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.sn-years__col {
+  text-align: center;
+  padding-top: 0.75rem;
+  border-top: 3px solid var(--sn-rule);
+}
+
+.sn-years__year {
+  margin: 0 0 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.sn-years__artists {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+/* —— Collector pass —— */
+
+.sn-pass {
+  max-width: var(--sn-page-max);
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  border-top: 2px solid var(--sn-rule);
+}
+
+.sn-pass__heading {
+  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sn-pass__layout {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.sn-pass__image-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.sn-pass__image {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  display: block;
+}
+
+.sn-pass__intro {
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
+}
+
+.sn-pass__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.sn-pass__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sn-pass__field input {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 0.6rem;
+  border: 2px solid var(--sn-rule);
+  background: #faf6ef;
+  color: var(--sn-ink);
+  border-radius: 0;
+}
+
+.sn-pass__field input:focus {
+  outline: 2px solid var(--sn-accent);
+  outline-offset: 1px;
+}
+
+.sn-pass__submit {
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  padding: 0.6rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--sn-accent);
+  color: #faf6ef;
+  border: 2px solid var(--sn-rule);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.sn-pass__submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.sn-pass__status {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* —— About —— */
+
+.sn-about {
+  max-width: var(--sn-read-max);
+  margin: 0 auto;
+  padding: 1.75rem 1rem 3rem;
+  border-top: 1px solid var(--sn-rule);
+}
+
+.sn-about__heading {
+  margin: 0 0 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sn-accent);
+}
+
+.sn-about__text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* —— Responsive —— */
+
+@media (min-width: 721px) {
+  .sn-top {
+    padding: 1.25rem 1.5rem 0;
+  }
+
+  .sn-article {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  html:has(.sn-page),
+  body:has(.sn-page) {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html:has(.sn-page)::-webkit-scrollbar,
+  body:has(.sn-page)::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sn-years__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .sn-pass__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sn-live .track-embed {
+    animation: sn-fade-in 0.3s ease;
+  }
+}
+
+@keyframes sn-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

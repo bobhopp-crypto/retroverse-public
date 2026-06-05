@@ -17,7 +17,7 @@ function songsCountsFromCompletion(
   completion: YearWorkspaceCompletion,
 ): CategorySectionCounts {
   return {
-    wanted: completion.chartOnly,
+    wanted: completion.chartOnlyPending,
     queued: 0,
     acquired: completion.inBoth,
     approved: completion.tagged,

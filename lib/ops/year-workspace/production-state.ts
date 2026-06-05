@@ -6,6 +6,7 @@ import { yearWorkspaceDir } from "./paths";
 
 import type {
   CategoryProductionFile,
+  CategorySectionCounts,
   ProductionItem,
   ProductionWorkflowAction,
   YearWorkspaceProductionState,

@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import re
 import subprocess
 import sys
@@ -118,12 +119,13 @@ def write_vtt(path: Path, segments: list[dict]) -> None:
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
-def build_chapters_via_node(output_dir: Path) -> int:
-    """Content-aware chapters from segments.json (shared TS logic)."""
+def build_chapters_via_node(output_dir: Path, chapter_mode: str = "content") -> int:
+    """Chapters from segments.json (shared TS logic)."""
     repo_root = Path(__file__).resolve().parents[2]
     cli = repo_root / "tools" / "media-lab" / "build-chapters-cli.ts"
-    cmd = ["npx", "--yes", "tsx", str(cli), "--output-dir", str(output_dir)]
-    log("Building content-aware chapters…")
+    mode = chapter_mode if chapter_mode in ("content", "commercial") else "content"
+    cmd = ["npx", "--yes", "tsx", str(cli), "--output-dir", str(output_dir), "--mode", mode]
+    log(f"Building chapters (mode={mode})…")
     proc = subprocess.run(cmd, cwd=str(repo_root), capture_output=True, text=True)
     if proc.returncode != 0:
         log(proc.stderr or proc.stdout or "chapter build failed")
@@ -177,7 +179,8 @@ def main() -> int:
     write_srt(out / "captions.srt", segments)
     write_vtt(out / "captions.vtt", segments)
 
-    if build_chapters_via_node(out) != 0:
+    chapter_mode = os.environ.get("MEDIA_LAB_CHAPTER_MODE", "content").strip()
+    if build_chapters_via_node(out, chapter_mode) != 0:
         return 1
 
     chapters_path = out / "chapters.csv"

@@ -2,10 +2,11 @@ import { readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
 import {
-  buildContentAwareChapters,
-  type ContentChapter,
-  type TranscriptSegment,
-} from "./build-chapters-from-segments";
+  buildChaptersForMode,
+  parseChapterMode,
+  type MediaLabChapterMode,
+} from "./chapter-mode";
+import type { ContentChapter, TranscriptSegment } from "./build-chapters-from-segments";
 import { secToTimecode, writeChaptersCsv } from "./chapters-only";
 import type { MediaLabJobMeta } from "./run-transcribe";
 
@@ -155,12 +156,14 @@ export function formatSegmentLabel(
 
 export function buildSegmentLabelsFromSegments(
   segments: TranscriptSegment[],
+  mode: MediaLabChapterMode = "content",
 ): SegmentLabelRow[] {
-  const chapters = buildContentAwareChapters(segments);
+  const chapters = buildChaptersForMode(segments, mode);
 
   return chapters.map((ch) => {
     const text = rangeText(segments, ch.start, ch.end);
-    const label = formatSegmentLabel(ch, text);
+    const label =
+      mode === "commercial" ? ch.title : formatSegmentLabel(ch, text);
     return {
       start: secToTimecode(ch.start),
       end: secToTimecode(ch.end),
@@ -207,7 +210,11 @@ export async function regenerateSegmentLabels(outputDir: string): Promise<{
   const raw = await readFile(join(outputDir, "segments.json"), "utf8");
   const segments = JSON.parse(raw) as TranscriptSegment[];
 
-  const labels = buildSegmentLabelsFromSegments(segments);
+  const chapterMode = parseChapterMode(
+    (JSON.parse(await readFile(join(outputDir, "job.json"), "utf8")) as MediaLabJobMeta)
+      .chapterMode,
+  );
+  const labels = buildSegmentLabelsFromSegments(segments, chapterMode);
 
   const chapters = labels.map((r) => ({
     start: r.startSec,

@@ -1,6 +1,8 @@
 import { spawn } from "child_process";
 import { join } from "path";
 
+import type { MediaLabJobMeta } from "./job-meta";
+
 export type TranscribeJobResult = {
   ok: boolean;
   outputDir: string;
@@ -9,20 +11,7 @@ export type TranscribeJobResult = {
   job?: MediaLabJobMeta;
 };
 
-export type MediaLabJobMeta = {
-  year: number;
-  jobSlug: string;
-  sourceVideo: string;
-  sourceFilename: string;
-  outputDir: string;
-  createdAt: string;
-  model: string;
-  durationSeconds: number | null;
-  segmentCount: number;
-  chapterCount: number;
-  segmentLabelCount?: number;
-  files: string[];
-};
+export type { MediaLabJobMeta } from "./job-meta";
 
 function repoRoot(): string {
   return process.cwd();

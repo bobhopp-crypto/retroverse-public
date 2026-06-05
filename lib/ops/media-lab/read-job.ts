@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import { join } from "path";
 
-import { formatChapterClock } from "./chapters-only";
+import { formatChapterClock } from "./chapter-time";
 import type { MediaLabJobMeta } from "./run-transcribe";
 
 export type MediaLabChapterPreview = {

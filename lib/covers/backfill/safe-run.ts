@@ -6,6 +6,7 @@ import {
 } from "@/lib/covers/backfill/paths";
 import { countCoveredRvalAlbums, loadMissingCoverQueue } from "@/lib/covers/backfill/queue";
 import {
+  getMainQueueDiagnostics,
   recordSafeBatchResults,
   selectMainOnlyBatch,
   selectNextBatch,
@@ -156,6 +157,10 @@ export async function runCoverBackfillSafeSession(
 ): Promise<SafeRunSessionResult> {
   const pgQueue = await loadMissingCoverQueue();
   const state = await loadBackfillState(pgQueue.length);
+  const startup = getMainQueueDiagnostics(pgQueue, state);
+  process.stderr.write(
+    `safe-backfill startup queue=${startup.queueSize} never_attempted=${startup.neverAttempted} previously_failed=${startup.previouslyFailed} cursor=${startup.cursor}\n`,
+  );
   const mainCursorBefore = state.mainCursor;
   const limit = options.limit ?? null;
   const writeReport = options.writeReport ?? true;

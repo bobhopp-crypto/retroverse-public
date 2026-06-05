@@ -15,6 +15,13 @@ export type BatchSelection = {
   skippedDueToRetryRules: number;
 };
 
+export type MainQueueDiagnostics = {
+  queueSize: number;
+  neverAttempted: number;
+  previouslyFailed: number;
+  cursor: number;
+};
+
 export function syncUniqueCounts(state: BackfillState): void {
   state.uniqueFailureCount = Object.values(state.albumAttempts).filter(
     (a) => a.last_outcome === "failure",
@@ -37,13 +44,72 @@ function isRetryEligible(record: AlbumAttemptRecord | undefined, nowMs: number):
   return nowMs - last >= cooldown;
 }
 
+function recoverCursorIfNeeded(state: BackfillState, queueSize: number): void {
+  if (state.mainCursor >= queueSize && queueSize > 0) {
+    console.warn("Cursor beyond queue. Resetting automatically.");
+    state.mainCursor = 0;
+  }
+}
+
+function wasPreviouslyFailed(state: BackfillState, rval: string): boolean {
+  return state.albumAttempts[rval]?.last_outcome === "failure";
+}
+
+function isNeverAttempted(state: BackfillState, rval: string): boolean {
+  return !state.albumAttempts[rval];
+}
+
+function prioritizedMainQueue(pgQueue: BackfillQueueRow[], state: BackfillState): BackfillQueueRow[] {
+  const neverAttempted: BackfillQueueRow[] = [];
+  const previouslyFailed: BackfillQueueRow[] = [];
+  const other: BackfillQueueRow[] = [];
+
+  for (const row of pgQueue) {
+    if (isNeverAttempted(state, row.rval)) {
+      neverAttempted.push(row);
+    } else if (wasPreviouslyFailed(state, row.rval)) {
+      previouslyFailed.push(row);
+    } else {
+      other.push(row);
+    }
+  }
+
+  return [...neverAttempted, ...previouslyFailed, ...other];
+}
+
+export function getMainQueueDiagnostics(
+  pgQueue: BackfillQueueRow[],
+  state: BackfillState,
+): MainQueueDiagnostics {
+  let neverAttempted = 0;
+  let previouslyFailed = 0;
+
+  for (const row of pgQueue) {
+    if (isNeverAttempted(state, row.rval)) {
+      neverAttempted += 1;
+    } else if (wasPreviouslyFailed(state, row.rval)) {
+      previouslyFailed += 1;
+    }
+  }
+
+  return {
+    queueSize: pgQueue.length,
+    neverAttempted,
+    previouslyFailed,
+    cursor: state.mainCursor,
+  };
+}
+
 /** Pick next batch: advance main cursor; failures go to retry queue tail. */
 export function selectNextBatch(
   pgQueue: BackfillQueueRow[],
   state: BackfillState,
   batchSize: number,
 ): BatchSelection {
-  const byRval = new Map(pgQueue.map((r) => [r.rval, r]));
+  recoverCursorIfNeeded(state, pgQueue.length);
+
+  const mainQueue = prioritizedMainQueue(pgQueue, state);
+  const byRval = new Map(mainQueue.map((r) => [r.rval, r]));
   const selected: BackfillQueueRow[] = [];
   const selectedRvals = new Set<string>();
   let fromMain = 0;
@@ -51,8 +117,8 @@ export function selectNextBatch(
   let skippedDueToRetryRules = 0;
   const nowMs = Date.now();
 
-  while (selected.length < batchSize && state.mainCursor < pgQueue.length) {
-    const row = pgQueue[state.mainCursor];
+  while (selected.length < batchSize && state.mainCursor < mainQueue.length) {
+    const row = mainQueue[state.mainCursor];
     state.mainCursor += 1;
     if (!row) continue;
     selected.push(row);
@@ -96,9 +162,11 @@ export function selectMainOnlyBatch(
   state: BackfillState,
   batchSize: number,
 ): BackfillQueueRow[] {
+  recoverCursorIfNeeded(state, pgQueue.length);
+  const mainQueue = prioritizedMainQueue(pgQueue, state);
   const selected: BackfillQueueRow[] = [];
-  while (selected.length < batchSize && state.mainCursor < pgQueue.length) {
-    const row = pgQueue[state.mainCursor];
+  while (selected.length < batchSize && state.mainCursor < mainQueue.length) {
+    const row = mainQueue[state.mainCursor];
     state.mainCursor += 1;
     if (row) selected.push(row);
   }

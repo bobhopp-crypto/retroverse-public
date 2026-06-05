@@ -1,0 +1,746 @@
+{
+  "generatedAt": "2026-06-03T23:07:33.365Z",
+  "years": [
+    1967,
+    1978,
+    1992
+  ],
+  "passCount": 15,
+  "totalRuns": 45,
+  "bestPerYear": {
+    "1967": {
+      "method": "C",
+      "passId": "seeds-8",
+      "composite": 0.8889979149754873,
+      "clusters": 8,
+      "scores": {
+        "cohesion": 0.9876242822876047,
+        "separation": 0.4467123870869254,
+        "silhouette": 0.9621620045492749,
+        "balance": 0.855,
+        "anchorHits": 5,
+        "anchorTotal": 5,
+        "composite": 0.8889979149754873
+      },
+      "clusterSummary": [
+        {
+          "label": "Cluster A",
+          "count": 12,
+          "seed": "Niki Hoeky",
+          "sample": [
+            "Bobbie Gentry - Niki Hoeky",
+            "Brenton Wood - The Oogum Boogum Song",
+            "Grass Roots - Let's Live For Today",
+            "Johnny Rivers - Baby, I Need Your Lovin'"
+          ]
+        },
+        {
+          "label": "Cluster B",
+          "count": 6,
+          "seed": "You Got To Me (American Bandstand)",
+          "sample": [
+            "Neil Diamond - You Got To Me (American Bandstand)",
+            "Frank And Nancy Sinatra - Something Stupid",
+            "Frankie Valli - Can't Take My Eyes Off You",
+            "Lulu - Loves Loves To Love Love"
+          ]
+        },
+        {
+          "label": "Cluster C",
+          "count": 6,
+          "seed": "The Wind Cries Mary",
+          "sample": [
+            "Jefferson Airplane - White Rabbit",
+            "Jimi Hendrix - The Wind Cries Mary",
+            "Kenny Rogers & The First Edition - Just Dropped In",
+            "The First Edition - Just Dropped In (To See What Condition My Condition Was In)"
+          ]
+        },
+        {
+          "label": "Cluster D",
+          "count": 5,
+          "seed": "Creque Alley",
+          "sample": [
+            "The Association - Never My Love",
+            "Monkees - I'm A Believer",
+            "The Turtles - Happy Together",
+            "The Mamas and The Papas - Creque Alley"
+          ]
+        },
+        {
+          "label": "Cluster E",
+          "count": 5,
+          "seed": "The Letter",
+          "sample": [
+            "Van Morrison - Brown Eyed Girl",
+            "Box Tops - The Letter",
+            "The Troggs - Love Is All Around",
+            "Question Mark & The Mysterians - 96 Tears"
+          ]
+        },
+        {
+          "label": "Cluster F",
+          "count": 4,
+          "seed": "Hello, Goodbye",
+          "sample": [
+            "Bee Gees - To Love Somebody",
+            "The Rolling Stones - Ruby Tuesday",
+            "The Beatles - Hello, Goodbye",
+            "The Animals - San Franciscan Nights"
+          ]
+        },
+        {
+          "label": "Cluster G",
+          "count": 1,
+          "seed": "I've Been Loving You Too Long",
+          "sample": [
+            "Otis Redding - I've Been Loving You Too Long"
+          ]
+        },
+        {
+          "label": "Cluster H",
+          "count": 1,
+          "seed": "For What It's Worth (Extended)",
+          "sample": [
+            "Buffallo Springfield - For What It's Worth (Extended)"
+          ]
+        }
+      ]
+    },
+    "1978": {
+      "method": "A",
+      "passId": "k7-merge3",
+      "composite": 0.7521107967556384,
+      "clusters": 6,
+      "scores": {
+        "cohesion": 0.8254933232074296,
+        "separation": 0.3637671103080104,
+        "silhouette": 0.5564434447951547,
+        "balance": 0.9564625850340136,
+        "anchorHits": 5,
+        "anchorTotal": 6,
+        "composite": 0.7521107967556384
+      },
+      "clusterSummary": [
+        {
+          "label": "Cluster A",
+          "count": 16,
+          "sample": [
+            "Randy Houser - Runnin' Outta Moonlight",
+            "Warren Zevon - Werewolves Of London",
+            "Cheap Trick - Surrender",
+            "Dire Straits - Sultans Of Swing"
+          ]
+        },
+        {
+          "label": "Cluster B",
+          "count": 11,
+          "sample": [
+            "Walter Egan - Magnet and Steel",
+            "Andrew Gold - Thank You For Being A Friend",
+            "Billy Joel - Only The Good Die Young",
+            "Barry Manilow - Copacabana"
+          ]
+        },
+        {
+          "label": "Cluster C",
+          "count": 6,
+          "sample": [
+            "Willie Nelson - Mammas Don't Let Your Babies Grow Up To Be Cowboys",
+            "Exile - Kiss You All Over",
+            "Kenny Rogers - The Gambler",
+            "Little River Band - Lady 1978"
+          ]
+        },
+        {
+          "label": "Cluster D",
+          "count": 6,
+          "sample": [
+            "Boney M. - Rivers of Babylon",
+            "Bee Gees - Tragedy",
+            "Chic - Le Freak",
+            "Earth, Wind & Fire - September"
+          ]
+        },
+        {
+          "label": "Cluster E",
+          "count": 6,
+          "sample": [
+            "Blondie - Heart Of Glass",
+            "DEVO - (I Can't Get No) Satisfaction",
+            "Nick Gilder - Hot Child In The City",
+            "Ramones - I Wanna Be Sedated"
+          ]
+        },
+        {
+          "label": "Cluster F",
+          "count": 4,
+          "sample": [
+            "ABBA - Take A Chance On Me",
+            "10cc - Dreadlock Holiday",
+            "Frankie Valli - Grease",
+            "Linda Ronstadt - Just One Look"
+          ]
+        }
+      ]
+    },
+    "1992": {
+      "method": "A",
+      "passId": "k6-merge3",
+      "composite": 0.8821164736657408,
+      "clusters": 6,
+      "scores": {
+        "cohesion": 0.9327411757936008,
+        "separation": 0.44847024788067147,
+        "silhouette": 0.832977013249197,
+        "balance": 0.9666666666666667,
+        "anchorHits": 6,
+        "anchorTotal": 6,
+        "composite": 0.8821164736657408
+      },
+      "clusterSummary": [
+        {
+          "label": "Cluster A",
+          "count": 13,
+          "sample": [
+            "Wreckx N Effect - Rump Shaker",
+            "US3 - Cantaloop",
+            "Sir Mix A Lot - Baby Got Back",
+            "Arrested Development - Tennessee"
+          ]
+        },
+        {
+          "label": "Cluster B",
+          "count": 10,
+          "sample": [
+            "Ugly Kid Joe - Everything About You",
+            "Red Hot Chili Peppers - Give It Away",
+            "REM - Man On The Moon",
+            "Alice In Chains - Down In A Hole (MTV 1996)"
+          ]
+        },
+        {
+          "label": "Cluster C",
+          "count": 9,
+          "sample": [
+            "Prince & The New Power Generation - 7",
+            "Captain Hollywood Project - More & More",
+            "2 Unlimited - Twilight Zone",
+            "Bizarre Inc. - I'm Gonna Get You"
+          ]
+        },
+        {
+          "label": "Cluster D",
+          "count": 7,
+          "sample": [
+            "Van Halen - Right Now",
+            "Bon Jovi - Bed Of Roses",
+            "Eric Clapton - Tears In Heaven",
+            "Guns N  Roses - November Rain"
+          ]
+        },
+        {
+          "label": "Cluster E",
+          "count": 5,
+          "sample": [
+            "Annie Lennox - Walking on Broken Glass",
+            "Cher with Beavis & Butt-head - I Got You Babe",
+            "En Vogue - Free Your Mind",
+            "Michael Jackson - Remember The Time"
+          ]
+        },
+        {
+          "label": "Cluster F",
+          "count": 4,
+          "sample": [
+            "Alan Jackson - Chattahoochee",
+            "Billy Ray Cyrus - Achy Breaky Heart",
+            "John Anderson - Seminole Wind",
+            "Confederate Railroad - Trashy Women"
+          ]
+        }
+      ]
+    }
+  },
+  "bestPerYearMethod": {
+    "1967-A": {
+      "passId": "k6-merge3",
+      "composite": 0.8798247831085161,
+      "scores": {
+        "cohesion": 0.9144859988097135,
+        "separation": 0.43855330351158656,
+        "silhouette": 0.8664458781983544,
+        "balance": 0.9633333333333334,
+        "anchorHits": 5,
+        "anchorTotal": 5,
+        "composite": 0.8798247831085161
+      }
+    },
+    "1967-B": {
+      "passId": "outlier-0.38",
+      "composite": 0.7981255406810784,
+      "scores": {
+        "cohesion": 0.7963628092386204,
+        "separation": 0.33109725263758083,
+        "silhouette": 0.39188390937717216,
+        "balance": 1,
+        "anchorHits": 5,
+        "anchorTotal": 5,
+        "composite": 0.7981255406810784
+      }
+    },
+    "1967-C": {
+      "passId": "seeds-8",
+      "composite": 0.8889979149754873,
+      "scores": {
+        "cohesion": 0.9876242822876047,
+        "separation": 0.4467123870869254,
+        "silhouette": 0.9621620045492749,
+        "balance": 0.855,
+        "anchorHits": 5,
+        "anchorTotal": 5,
+        "composite": 0.8889979149754873
+      }
+    },
+    "1978-A": {
+      "passId": "k7-merge3",
+      "composite": 0.7521107967556384,
+      "scores": {
+        "cohesion": 0.8254933232074296,
+        "separation": 0.3637671103080104,
+        "silhouette": 0.5564434447951547,
+        "balance": 0.9564625850340136,
+        "anchorHits": 5,
+        "anchorTotal": 6,
+        "composite": 0.7521107967556384
+      }
+    },
+    "1978-B": {
+      "passId": "outlier-0.42-min4",
+      "composite": 0.6559236109415691,
+      "scores": {
+        "cohesion": 0.799916475276613,
+        "separation": 0.2918316589672347,
+        "silhouette": 0.3843767588469881,
+        "balance": 0.9804081632653061,
+        "anchorHits": 4,
+        "anchorTotal": 6,
+        "composite": 0.6559236109415691
+      }
+    },
+    "1978-C": {
+      "passId": "seeds-8",
+      "composite": 0.617638067157204,
+      "scores": {
+        "cohesion": 0.7708281975887928,
+        "separation": 0.3872877132726323,
+        "silhouette": 0.5154423663494513,
+        "balance": 0.5811224489795918,
+        "anchorHits": 4,
+        "anchorTotal": 6,
+        "composite": 0.617638067157204
+      }
+    },
+    "1992-A": {
+      "passId": "k6-merge3",
+      "composite": 0.8821164736657408,
+      "scores": {
+        "cohesion": 0.9327411757936008,
+        "separation": 0.44847024788067147,
+        "silhouette": 0.832977013249197,
+        "balance": 0.9666666666666667,
+        "anchorHits": 6,
+        "anchorTotal": 6,
+        "composite": 0.8821164736657408
+      }
+    },
+    "1992-B": {
+      "passId": "outlier-0.42-min4",
+      "composite": 0.6768562066966577,
+      "scores": {
+        "cohesion": 0.8198523424491244,
+        "separation": 0.34930566060878443,
+        "silhouette": 0.44823222448848504,
+        "balance": 0.9933333333333333,
+        "anchorHits": 4,
+        "anchorTotal": 6,
+        "composite": 0.6768562066966577
+      }
+    },
+    "1992-C": {
+      "passId": "seeds-6",
+      "composite": 0.8718912289078043,
+      "scores": {
+        "cohesion": 0.9028000406285885,
+        "separation": 0.4487078620865131,
+        "silhouette": 0.7965004146910953,
+        "balance": 0.9625,
+        "anchorHits": 6,
+        "anchorTotal": 6,
+        "composite": 0.8718912289078043
+      }
+    }
+  },
+  "allRunsRanked": [
+    {
+      "year": 1967,
+      "method": "C",
+      "passId": "seeds-8",
+      "composite": 0.8889979149754873,
+      "anchors": "5/5",
+      "clusters": 8
+    },
+    {
+      "year": 1967,
+      "method": "C",
+      "passId": "seeds-7",
+      "composite": 0.8835898655636748,
+      "anchors": "5/5",
+      "clusters": 7
+    },
+    {
+      "year": 1992,
+      "method": "A",
+      "passId": "k6-merge3",
+      "composite": 0.8821164736657408,
+      "anchors": "6/6",
+      "clusters": 6
+    },
+    {
+      "year": 1992,
+      "method": "A",
+      "passId": "k6-merge4",
+      "composite": 0.8821164736657408,
+      "anchors": "6/6",
+      "clusters": 6
+    },
+    {
+      "year": 1967,
+      "method": "A",
+      "passId": "k6-merge3",
+      "composite": 0.8798247831085161,
+      "anchors": "5/5",
+      "clusters": 6
+    },
+    {
+      "year": 1967,
+      "method": "A",
+      "passId": "k7-merge3",
+      "composite": 0.8798247831085161,
+      "anchors": "5/5",
+      "clusters": 6
+    },
+    {
+      "year": 1967,
+      "method": "A",
+      "passId": "k7-merge2",
+      "composite": 0.8798247831085161,
+      "anchors": "5/5",
+      "clusters": 6
+    },
+    {
+      "year": 1967,
+      "method": "A",
+      "passId": "k6-merge4",
+      "composite": 0.8798247831085161,
+      "anchors": "5/5",
+      "clusters": 6
+    },
+    {
+      "year": 1967,
+      "method": "C",
+      "passId": "seeds-6",
+      "composite": 0.8798247831085161,
+      "anchors": "5/5",
+      "clusters": 6
+    },
+    {
+      "year": 1967,
+      "method": "C",
+      "passId": "seeds-6-alt",
+      "composite": 0.8798247831085161,
+      "anchors": "5/5",
+      "clusters": 6
+    },
+    {
+      "year": 1992,
+      "method": "A",
+      "passId": "k7-merge3",
+      "composite": 0.8792270230004395,
+      "anchors": "6/6",
+      "clusters": 7
+    },
+    {
+      "year": 1992,
+      "method": "A",
+      "passId": "k7-merge2",
+      "composite": 0.8792270230004395,
+      "anchors": "6/6",
+      "clusters": 7
+    },
+    {
+      "year": 1992,
+      "method": "C",
+      "passId": "seeds-6",
+      "composite": 0.8718912289078043,
+      "anchors": "6/6",
+      "clusters": 6
+    },
+    {
+      "year": 1992,
+      "method": "C",
+      "passId": "seeds-6-alt",
+      "composite": 0.8718912289078043,
+      "anchors": "6/6",
+      "clusters": 6
+    },
+    {
+      "year": 1992,
+      "method": "A",
+      "passId": "k5-merge3",
+      "composite": 0.8335224617525083,
+      "anchors": "6/6",
+      "clusters": 5
+    },
+    {
+      "year": 1992,
+      "method": "C",
+      "passId": "seeds-7",
+      "composite": 0.8194427498496852,
+      "anchors": "5/6",
+      "clusters": 7
+    },
+    {
+      "year": 1992,
+      "method": "C",
+      "passId": "seeds-8",
+      "composite": 0.8177411700891614,
+      "anchors": "5/6",
+      "clusters": 8
+    },
+    {
+      "year": 1967,
+      "method": "B",
+      "passId": "outlier-0.38",
+      "composite": 0.7981255406810784,
+      "anchors": "5/5",
+      "clusters": 5
+    },
+    {
+      "year": 1967,
+      "method": "B",
+      "passId": "outlier-0.42",
+      "composite": 0.7981255406810784,
+      "anchors": "5/5",
+      "clusters": 5
+    },
+    {
+      "year": 1967,
+      "method": "B",
+      "passId": "outlier-0.46",
+      "composite": 0.7981255406810784,
+      "anchors": "5/5",
+      "clusters": 5
+    },
+    {
+      "year": 1967,
+      "method": "B",
+      "passId": "outlier-0.50",
+      "composite": 0.7981255406810784,
+      "anchors": "5/5",
+      "clusters": 5
+    },
+    {
+      "year": 1967,
+      "method": "A",
+      "passId": "k5-merge3",
+      "composite": 0.789518825566003,
+      "anchors": "5/5",
+      "clusters": 5
+    },
+    {
+      "year": 1967,
+      "method": "C",
+      "passId": "seeds-5",
+      "composite": 0.789518825566003,
+      "anchors": "5/5",
+      "clusters": 5
+    },
+    {
+      "year": 1992,
+      "method": "C",
+      "passId": "seeds-5",
+      "composite": 0.7816619647719527,
+      "anchors": "6/6",
+      "clusters": 5
+    },
+    {
+      "year": 1978,
+      "method": "A",
+      "passId": "k7-merge3",
+      "composite": 0.7521107967556384,
+      "anchors": "5/6",
+      "clusters": 6
+    },
+    {
+      "year": 1978,
+      "method": "A",
+      "passId": "k6-merge3",
+      "composite": 0.7382884641576257,
+      "anchors": "5/6",
+      "clusters": 5
+    },
+    {
+      "year": 1978,
+      "method": "A",
+      "passId": "k6-merge4",
+      "composite": 0.7382884641576257,
+      "anchors": "5/6",
+      "clusters": 5
+    },
+    {
+      "year": 1978,
+      "method": "A",
+      "passId": "k5-merge3",
+      "composite": 0.7308639212204328,
+      "anchors": "5/6",
+      "clusters": 5
+    },
+    {
+      "year": 1967,
+      "method": "B",
+      "passId": "outlier-0.42-min4",
+      "composite": 0.7087735378500231,
+      "anchors": "4/5",
+      "clusters": 5
+    },
+    {
+      "year": 1978,
+      "method": "A",
+      "passId": "k7-merge2",
+      "composite": 0.6962748243513088,
+      "anchors": "4/6",
+      "clusters": 7
+    },
+    {
+      "year": 1992,
+      "method": "B",
+      "passId": "outlier-0.42-min4",
+      "composite": 0.6768562066966577,
+      "anchors": "4/6",
+      "clusters": 5
+    },
+    {
+      "year": 1992,
+      "method": "B",
+      "passId": "outlier-0.38",
+      "composite": 0.6707119961036743,
+      "anchors": "4/6",
+      "clusters": 6
+    },
+    {
+      "year": 1992,
+      "method": "B",
+      "passId": "outlier-0.42",
+      "composite": 0.6707119961036743,
+      "anchors": "4/6",
+      "clusters": 6
+    },
+    {
+      "year": 1992,
+      "method": "B",
+      "passId": "outlier-0.46",
+      "composite": 0.6707119961036743,
+      "anchors": "4/6",
+      "clusters": 6
+    },
+    {
+      "year": 1992,
+      "method": "B",
+      "passId": "outlier-0.50",
+      "composite": 0.6707119961036743,
+      "anchors": "4/6",
+      "clusters": 6
+    },
+    {
+      "year": 1978,
+      "method": "B",
+      "passId": "outlier-0.42-min4",
+      "composite": 0.6559236109415691,
+      "anchors": "4/6",
+      "clusters": 5
+    },
+    {
+      "year": 1978,
+      "method": "C",
+      "passId": "seeds-8",
+      "composite": 0.617638067157204,
+      "anchors": "4/6",
+      "clusters": 8
+    },
+    {
+      "year": 1978,
+      "method": "C",
+      "passId": "seeds-7",
+      "composite": 0.617222655976853,
+      "anchors": "4/6",
+      "clusters": 7
+    },
+    {
+      "year": 1978,
+      "method": "C",
+      "passId": "seeds-6",
+      "composite": 0.5987424785255284,
+      "anchors": "4/6",
+      "clusters": 6
+    },
+    {
+      "year": 1978,
+      "method": "C",
+      "passId": "seeds-6-alt",
+      "composite": 0.5987424785255284,
+      "anchors": "4/6",
+      "clusters": 6
+    },
+    {
+      "year": 1978,
+      "method": "C",
+      "passId": "seeds-5",
+      "composite": 0.5904385989860275,
+      "anchors": "4/6",
+      "clusters": 5
+    },
+    {
+      "year": 1978,
+      "method": "B",
+      "passId": "outlier-0.38",
+      "composite": 0.5736444054349008,
+      "anchors": "3/6",
+      "clusters": 6
+    },
+    {
+      "year": 1978,
+      "method": "B",
+      "passId": "outlier-0.42",
+      "composite": 0.5736444054349008,
+      "anchors": "3/6",
+      "clusters": 6
+    },
+    {
+      "year": 1978,
+      "method": "B",
+      "passId": "outlier-0.46",
+      "composite": 0.5736444054349008,
+      "anchors": "3/6",
+      "clusters": 6
+    },
+    {
+      "year": 1978,
+      "method": "B",
+      "passId": "outlier-0.50",
+      "composite": 0.5736444054349008,
+      "anchors": "3/6",
+      "clusters": 6
+    }
+  ]
+}

@@ -7,6 +7,9 @@
  *   RETROVERSE_PG_SSL=0 npm run cover:backfill:safe -- --retry-failures
  */
 import { runCoverBackfillSafeSession } from "@/lib/covers/backfill/safe-run";
+import { getMainQueueDiagnostics } from "@/lib/covers/backfill/queue-progress";
+import { loadMissingCoverQueue } from "@/lib/covers/backfill/queue";
+import { loadBackfillState } from "@/lib/covers/backfill/state";
 import { backfillRunReportPath } from "@/lib/covers/backfill/paths";
 
 function parseArgs(argv: string[]) {
@@ -33,6 +36,14 @@ async function main() {
   console.log(
     `safe backfill start limit=${limit ?? "none"} retryFailures=${retryFailures} once=${once}`,
   );
+
+  const queue = await loadMissingCoverQueue();
+  const state = await loadBackfillState(queue.length);
+  const diag = getMainQueueDiagnostics(queue, state);
+  console.log(`queue_size=${diag.queueSize}`);
+  console.log(`never_attempted=${diag.neverAttempted}`);
+  console.log(`previously_failed=${diag.previouslyFailed}`);
+  console.log(`cursor_position=${diag.cursor}`);
 
   const result = await runCoverBackfillSafeSession({
     limit: once ? (limit ?? 100) : limit,

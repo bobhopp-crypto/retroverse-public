@@ -4,7 +4,12 @@ import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
-import { TrackChartRunRail } from "./track-chart-run-rail";
+import {
+  TrackAlbumsSection,
+  TrackChartSection,
+  TrackRelatedSection,
+  trackPageIsSparse,
+} from "./track-page-sections";
 import "./track-page.css";
 
 type TrackPageViewProps = {
@@ -13,9 +18,7 @@ type TrackPageViewProps = {
 
 export function TrackPageView({ data }: TrackPageViewProps) {
   const yearLabel = formatSongYear(data.releaseYear);
-  const hasTrajectory = data.trajectoryWeeks.length > 0;
-  const exhibitSparse =
-    data.albums.length === 0 && !hasTrajectory && data.relatedTracks.length === 0;
+  const exhibitSparse = trackPageIsSparse(data);
 
   return (
     <div className={`track-exhibit${exhibitSparse ? " track-exhibit--sparse" : ""}`}>
@@ -66,64 +69,9 @@ export function TrackPageView({ data }: TrackPageViewProps) {
         </div>
       </section>
 
-      {data.albums.length > 0 ? (
-        <section className="track-albums" aria-labelledby="track-on-albums">
-          <div className="track-section-head">
-            <h2 id="track-on-albums">Appears on</h2>
-          </div>
-          <ul className="track-related__list">
-            {data.albums.map((album) => (
-              <li key={album.href}>
-                <Link href={album.href} prefetch className="track-related__row">
-                  <span className="track-related__title">{album.title}</span>
-                  <span className="track-related__meta">
-                    {formatSongYear(album.releaseYear)}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {hasTrajectory ? (
-        <section className="track-journey" aria-labelledby="track-chart-journey">
-          <div className="track-section-head track-section-head--journey">
-            <h2 id="track-chart-journey">Chart history</h2>
-            {data.rvYearHref ? (
-              <Link href={data.rvYearHref} prefetch className="track-section-link">
-                {yearLabel}
-              </Link>
-            ) : null}
-          </div>
-          <TrackChartRunRail
-            weeks={data.trajectoryWeeks}
-            peak={data.peakHot100}
-            chartLabel={data.chartRunLabel}
-            portalFocusTrackId={data.rvtr}
-          />
-        </section>
-      ) : null}
-
-      {data.relatedTracks.length > 0 ? (
-        <section className="track-related" aria-labelledby="track-related-songs">
-          <div className="track-section-head track-section-head--dark">
-            <h2 id="track-related-songs">Related recordings</h2>
-          </div>
-          <ul className="track-related__list">
-            {data.relatedTracks.map((song) => (
-              <li key={song.rvtr}>
-                <Link href={song.href} prefetch className="track-related__row">
-                  <span className="track-related__title">{song.title}</span>
-                  <span className="track-related__meta">
-                    {formatSongYear(song.releaseYear)}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
+      <TrackAlbumsSection data={data} />
+      <TrackChartSection data={data} />
+      <TrackRelatedSection data={data} />
 
       <nav className="exhibit-footer-nav" aria-label="Site">
         <Link href="/" prefetch>

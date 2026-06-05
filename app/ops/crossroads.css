@@ -1,0 +1,221 @@
+/* Crossroads — year bridge discovery */
+.ops-crossroads {
+  --xr-ink: #141210;
+  --xr-paper: #f4eeda;
+  --xr-teal: #1a6b6b;
+  --xr-accent: #b45309;
+  --xr-dim: #3a362e;
+  margin-top: 0.75rem;
+}
+
+.ops-crossroads__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.65rem 1rem;
+  padding: 0.75rem;
+  border: 3px solid var(--xr-ink);
+  background: var(--xr-paper);
+  margin-bottom: 1rem;
+}
+
+.ops-crossroads__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 6rem;
+}
+
+.ops-crossroads__field span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--xr-dim);
+}
+
+.ops-crossroads__field input {
+  margin: 0;
+  padding: 0.35rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  border: 2px solid var(--xr-ink);
+  background: #fff;
+  color: var(--xr-ink);
+  width: 6.5rem;
+}
+
+.ops-crossroads__submit {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 3px solid var(--xr-ink);
+  background: var(--xr-teal);
+  color: #fff;
+  cursor: pointer;
+}
+
+.ops-crossroads__submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.ops-crossroads__summary {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--xr-ink);
+}
+
+.ops-crossroads__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ops-crossroads__card {
+  border: 3px solid var(--xr-ink);
+  background: #fff;
+}
+
+.ops-crossroads__card--triple {
+  border-color: var(--xr-accent);
+  box-shadow: 4px 4px 0 rgba(180, 83, 9, 0.2);
+}
+
+.ops-crossroads__card-head {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-template-areas:
+    "artist badge chevron"
+    "counts counts counts";
+  gap: 0.25rem 0.5rem;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 0;
+  background: var(--xr-paper);
+  text-align: left;
+  cursor: pointer;
+  color: var(--xr-ink);
+}
+
+.ops-crossroads__card--triple .ops-crossroads__card-head {
+  background: #fff8ef;
+}
+
+.ops-crossroads__artist {
+  grid-area: artist;
+  font-size: 1.1rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.ops-crossroads__badge {
+  grid-area: badge;
+  justify-self: end;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 2px solid var(--xr-accent);
+  background: #fff;
+  color: var(--xr-accent);
+}
+
+.ops-crossroads__badge--pair {
+  border-color: var(--xr-teal);
+  color: var(--xr-teal);
+}
+
+.ops-crossroads__counts {
+  grid-area: counts;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--xr-ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.ops-crossroads__chevron {
+  grid-area: chevron;
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: var(--xr-teal);
+}
+
+.ops-crossroads__songs {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border-top: 3px solid var(--xr-ink);
+  background: #fff;
+}
+
+.ops-crossroads__year-block {
+  margin: 0;
+  padding: 0.75rem 0.85rem 0.85rem;
+  border-bottom: 2px solid var(--xr-ink);
+}
+
+.ops-crossroads__year-block:last-child {
+  border-bottom: 0;
+}
+
+.ops-crossroads__year-block--0 {
+  background: #faf6eb;
+  border-left: 5px solid var(--xr-teal);
+}
+
+.ops-crossroads__year-block--1 {
+  background: #fff;
+  border-left: 5px solid var(--xr-accent);
+}
+
+.ops-crossroads__year-block--2 {
+  background: #f3efe3;
+  border-left: 5px solid var(--xr-ink);
+}
+
+.ops-crossroads__year-label {
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.35rem;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--xr-ink);
+  border-bottom: 2px dashed rgba(20, 18, 16, 0.2);
+}
+
+.ops-crossroads__year-block ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--xr-ink);
+}
+
+.ops-crossroads__year-block li {
+  position: relative;
+  margin: 0.2rem 0;
+  padding-left: 1rem;
+  word-break: break-word;
+}
+
+.ops-crossroads__year-block li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  color: var(--xr-teal);
+}

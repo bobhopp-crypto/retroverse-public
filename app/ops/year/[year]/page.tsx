@@ -80,9 +80,10 @@ export default async function OpsYearWorkspacePage({ params }: Props) {
           </p>
         ) : (
           <p className="ops-banner">
-            <strong>Year Workspace</strong> — central production desk for {year}. Songs tab keeps
-            Billboard reconciliation; other tabs track Wanted / Acquired / Approved assets with
-            recommendations, workflow actions, and drop-zone metadata (stored under{" "}
+            <strong>Year Workspace</strong> — central production desk for {year}. Use{" "}
+            <strong>Producer View</strong> for the experimental 1967 rundown board (timeline +
+            Need/Found/Ready). Classic workspace: Songs tab keeps Billboard reconciliation; other
+            tabs track Wanted / Acquired / Approved (stored under{" "}
             <code className="ops-mono">RETROVERSE_DATA/ops/year-workspace/{year}/</code>).
           </p>
         )}
