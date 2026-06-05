@@ -8,7 +8,7 @@ function formatQueueDuration(ch: EditorialChapterRow): string {
   const sec = ch.lengthSeconds ?? Math.round(ch.durationSec);
   const m = Math.floor(sec / 60);
   const s = sec % 60;
-  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  return `${m}:${String(s).padStart(2, "0")}`;
 }
 
 type ReviewQueuePanelProps = {
@@ -52,8 +52,11 @@ export function ReviewQueuePanel(props: ReviewQueuePanelProps) {
                   </span>
                   <span className="ops-ml-review-queue__meta">
                     <span className="ops-ml-review-queue__title">{chapter.title}</span>
-                    <span className="ops-ml-review-queue__sub">
-                      {chapter.category ?? "Uncategorized"} · {formatQueueDuration(chapter)}
+                    <span className="ops-ml-review-queue__category">
+                      {chapter.category ?? "Uncategorized"}
+                    </span>
+                    <span className="ops-ml-review-queue__duration">
+                      {formatQueueDuration(chapter)}
                     </span>
                   </span>
                 </button>

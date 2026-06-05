@@ -151,6 +151,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const [showDurationSec, setShowDurationSec] = useState(0);
   const mobileReview = useMediaLabMobileReview();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const trimWasPlayingRef = useRef(false);
   const workspaceRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
 
@@ -729,6 +730,33 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     });
   }, []);
 
+  const handleTrimDragStart = useCallback(() => {
+    const v = videoRef.current;
+    trimWasPlayingRef.current = !!(v && !v.paused);
+    v?.pause();
+  }, []);
+
+  const handleTrimPreview = useCallback((sec: number) => {
+    requestAnimationFrame(() => {
+      const v = videoRef.current;
+      if (!v) return;
+      v.currentTime = sec;
+      setPlayheadSec(sec);
+    });
+  }, []);
+
+  const handleTrimDragEnd = useCallback((sec: number) => {
+    requestAnimationFrame(() => {
+      const v = videoRef.current;
+      if (!v) return;
+      v.currentTime = sec;
+      setPlayheadSec(sec);
+      if (trimWasPlayingRef.current) {
+        void v.play().catch(() => undefined);
+      }
+    });
+  }, []);
+
   const openPreview = useCallback(
     (ch: EditorialChapterRow) => {
       setPreviewId(ch.id);
@@ -823,7 +851,6 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const categorizeAndAdvance = useCallback(
     (category: { contentType: ContentType; label: string }) => {
       if (!previewChapter) return;
-      applyContentType(previewChapter.id, category.contentType);
       patchChapterReview(previewChapter.id, {
         reviewStatus: "Keep",
         category: category.label,
@@ -831,7 +858,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       });
       nextClip();
     },
-    [applyContentType, draftSelection, nextClip, previewChapter],
+    [draftSelection, nextClip, previewChapter],
   );
 
   useEffect(() => {
@@ -1237,6 +1264,9 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             selection={draftSelection}
             onSelectionChange={updateDraftSelection}
             onSeek={(sec) => seekToSec(sec, false)}
+            onTrimDragStart={handleTrimDragStart}
+            onTrimPreview={handleTrimPreview}
+            onTrimDragEnd={handleTrimDragEnd}
             onTitleChange={(title) => updateTitle(previewChapter.id, title)}
             onRegenerateTitle={() => regenerateTitle()}
             previewIndex={previewIndex}

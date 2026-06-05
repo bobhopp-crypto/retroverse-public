@@ -21,6 +21,9 @@ type FocusReviewDeckProps = {
   selection: ClipSelectionState;
   onSelectionChange: (next: ClipSelectionState) => void;
   onSeek: (sec: number) => void;
+  onTrimDragStart?: () => void;
+  onTrimPreview?: (sec: number) => void;
+  onTrimDragEnd?: (sec: number) => void;
   onTitleChange: (title: string) => void;
   onRegenerateTitle: () => void;
   previewIndex: number;
@@ -98,7 +101,7 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
             ▶
           </button>
         </div>
-        <div className="ops-ml-review__queue-badge">
+        <div className="ops-ml-review__queue-badge" aria-label={`Queue ${props.kept} clips`}>
           <span className="ops-ml-review__queue-badge-label">QUEUE</span>
           <strong className="ops-ml-review__queue-badge-count">{props.kept}</strong>
         </div>
@@ -147,6 +150,9 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
             thumbsLoading={props.thumbsLoading}
             onSelectionChange={props.onSelectionChange}
             onSeek={props.onSeek}
+            onTrimDragStart={props.onTrimDragStart}
+            onTrimPreview={props.onTrimPreview}
+            onTrimDragEnd={props.onTrimDragEnd}
           />
         </section>
 
@@ -155,14 +161,14 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
             <label className="ops-ml-review__field-label" htmlFor="ops-ml-review-title">
               Suggested Name
             </label>
-            <div className="ops-ml-review__title-row">
-              <input
-                id="ops-ml-review-title"
-                ref={titleRef}
-                className="ops-ml-field__input ops-ml-review__title-input"
-                value={props.clip.title}
-                onChange={(e) => props.onTitleChange(e.target.value)}
-              />
+            <input
+              id="ops-ml-review-title"
+              ref={titleRef}
+              className="ops-ml-field__input ops-ml-review__title-input"
+              value={props.clip.title}
+              onChange={(e) => props.onTitleChange(e.target.value)}
+            />
+            <div className="ops-ml-review__title-actions">
               <button
                 type="button"
                 className="ops-btn ops-ml-review__accept-btn"
@@ -170,14 +176,14 @@ export function FocusReviewDeck(props: FocusReviewDeckProps) {
               >
                 Accept
               </button>
+              <button
+                type="button"
+                className="ops-btn ops-ml-review__regen-btn"
+                onClick={() => props.onRegenerateTitle()}
+              >
+                Regenerate Name
+              </button>
             </div>
-            <button
-              type="button"
-              className="ops-btn ops-ml-review__regen-btn"
-              onClick={() => props.onRegenerateTitle()}
-            >
-              Regenerate Name
-            </button>
           </div>
 
           <div className="ops-ml-review__type-block">
