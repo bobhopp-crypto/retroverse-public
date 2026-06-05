@@ -168,7 +168,7 @@ export async function enrichYearWorkspaceRows(
     else if (row.classification === "Slow") metrics.classificationSlow += 1;
 
     const record = reviewForVideoRow(reviewState, row);
-    if (rowNeedsReview(record, row.playCount)) metrics.needsReview += 1;
+    if (rowNeedsReview(record, row.playCount ?? null)) metrics.needsReview += 1;
     if (row.retroverseTagsSource === "canonical") metrics.retroverseTagsCanonical += 1;
     else if (row.retroverseTagsSource === "legacy_review") {
       metrics.retroverseTagsLegacyReview += 1;
