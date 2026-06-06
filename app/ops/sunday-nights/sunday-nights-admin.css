@@ -767,3 +767,153 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* —— Asset items —— */
+
+.sn-admin__asset-type {
+  display: inline-block;
+  margin-top: 0.2rem;
+  padding: 0.08rem 0.35rem;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2f3d41;
+  background: #d8ece8;
+  border: 1px solid #7aa89e;
+}
+
+.sn-admin__card--asset {
+  border-style: dashed;
+}
+
+/* —— System panel —— */
+
+.sn-admin__system {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border: 2px solid #5a6a6e;
+  background: #e8e2d6;
+}
+
+.sn-admin__system-heading {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #2f3d41;
+}
+
+.sn-admin__system-lead {
+  margin: 0.25rem 0 0.55rem;
+  font-size: 0.76rem;
+  color: #3d4a4e;
+}
+
+.sn-admin__system-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sn-admin__system-btn--deploy {
+  border-color: #6a3030;
+  color: #4a1515;
+}
+
+.sn-admin__system-report {
+  margin-top: 0.55rem;
+  padding: 0.45rem 0.55rem;
+  background: #faf6ef;
+  border: 1px solid #9a9080;
+}
+
+.sn-admin__system-report-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sn-admin__system-lines,
+.sn-admin__system-notes,
+.sn-admin__system-fail-list,
+.sn-admin__system-checks {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.78rem;
+}
+
+.sn-admin__system-notes {
+  margin-top: 0.35rem;
+  font-style: italic;
+  color: #555;
+}
+
+.sn-admin__system-pass {
+  color: #1a5c38;
+  font-weight: 800;
+}
+
+.sn-admin__system-fail {
+  color: #8a1a1a;
+  font-weight: 800;
+}
+
+.sn-admin__system-check--ok {
+  color: #1a5c38;
+}
+
+.sn-admin__system-error {
+  margin: 0.45rem 0 0;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #6a1a1a;
+  background: #ffe0e0;
+  border: 1px solid #c44;
+}
+
+.sn-admin__system-modal {
+  margin-top: 0.55rem;
+  padding: 0.55rem 0.65rem;
+  background: #fff8ef;
+  border: 2px solid var(--ops-orange, #d44f1a);
+}
+
+.sn-admin__system-modal-title {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sn-admin__system-modal-lead,
+.sn-admin__system-modal-warn {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+}
+
+.sn-admin__system-modal-warn {
+  font-weight: 700;
+  color: #8a2f0a;
+}
+
+.sn-admin__system-pin {
+  display: block;
+  width: 100%;
+  max-width: 12rem;
+  margin-top: 0.45rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 1rem;
+  border: 2px solid var(--ops-ink, #12343a);
+}
+
+.sn-admin__system-modal-actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+}

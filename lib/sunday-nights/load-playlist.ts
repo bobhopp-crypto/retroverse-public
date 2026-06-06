@@ -3,6 +3,10 @@ import { scanVdjFolderLists } from "@/lib/ops/show-builder/scan-my-lists";
 import { vdjMyListsDir } from "@/lib/ops/show-builder/vdj-paths";
 
 import {
+  loadSundayAssetsAsSongs,
+  mergeSongsAndAssets,
+} from "./load-assets";
+import {
   loadSundayEventSongsFromSnapshots,
   SUNDAY_SNAPSHOT_PLAYLISTS,
 } from "./load-snapshots";
@@ -68,11 +72,12 @@ export async function loadSundayEventSongs(
 
   if (useSundayNightsSnapshots()) {
     const songs = await loadSundayEventSongsFromSnapshots(yearFilter);
+    const assets = await loadSundayAssetsAsSongs(yearFilter);
     return {
       yearFilter,
       playlists: SUNDAY_SNAPSHOT_PLAYLISTS,
       myListsPath: "snapshot",
-      songs,
+      songs: mergeSongsAndAssets(songs, assets),
     };
   }
 
@@ -91,12 +96,13 @@ export async function loadSundayEventSongs(
 
   const additions = await loadWorkingListAdditions();
   const songs = mergeWorkingListSongs(chunks.flat(), additions, yearFilter);
+  const assets = await loadSundayAssetsAsSongs(yearFilter);
 
   return {
     yearFilter,
     playlists,
     myListsPath: vdjMyListsDir(),
-    songs,
+    songs: mergeSongsAndAssets(songs, assets),
   };
 }
 

@@ -14,6 +14,7 @@ import {
 import type { TrackPageData } from "@/lib/track/load-track-page";
 import type { SundayNightsState, SundayEventMode, SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
 import { trackPageHref } from "@/lib/search/entity-routes";
+import { SundayNightsSystemPanel } from "@/components/ops/sunday-nights/SundayNightsSystemPanel";
 
 type OpsPayload = SundayEventPayload & {
   state: SundayNightsState;
@@ -378,6 +379,22 @@ export function SundayNightsAdmin() {
   }
 
   async function addSearchHit(hit: SundaySearchHit) {
+    if (hit.source === "asset" && hit.songKey) {
+      setSearch("");
+      setSearchHits([]);
+      void goLive({
+        key: hit.songKey,
+        year: hit.year ?? (typeof yearFilter === "number" ? yearFilter : 1967),
+        artist: hit.artist,
+        title: hit.title,
+        rvtr: hit.rvtr,
+        path: hit.path ?? `asset://${hit.songKey}`,
+        kind: "asset",
+        assetType: hit.detail?.replace(/^Asset · /, "") ?? "other",
+      });
+      return;
+    }
+
     setMessage(null);
     try {
       const res = await fetch("/api/ops/sunday-nights", {
@@ -615,7 +632,9 @@ export function SundayNightsAdmin() {
                   <div
                     className={`sn-admin__card sn-admin__card--${visual}${
                       !hasRvtr ? " sn-admin__card--unmatched" : ""
-                    }${isBusy ? " sn-admin__card--busy" : ""}`}
+                    }${song.kind === "asset" ? " sn-admin__card--asset" : ""}${
+                      isBusy ? " sn-admin__card--busy" : ""
+                    }`}
                   >
                     <button
                       type="button"
@@ -625,6 +644,9 @@ export function SundayNightsAdmin() {
                     >
                       <span className="sn-admin__card-artist">{song.artist}</span>
                       <span className="sn-admin__card-title">{song.title}</span>
+                      {song.kind === "asset" && song.assetType ? (
+                        <span className="sn-admin__asset-type">{song.assetType}</span>
+                      ) : null}
                       <span
                         className={`sn-admin__rvtr${
                           hasRvtr ? " sn-admin__rvtr--ok" : " sn-admin__rvtr--missing"
@@ -731,6 +753,8 @@ export function SundayNightsAdmin() {
           </div>
         </div>
       ) : null}
+
+      <SundayNightsSystemPanel />
 
       <details className="sn-admin__fold">
         <summary>Advanced</summary>

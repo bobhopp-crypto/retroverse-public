@@ -1,5 +1,6 @@
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 
+import { loadSundayAssetsAsSongs } from "./load-assets";
 import { loadSundayEventSongs } from "./load-playlist";
 import { normalizeMatchText } from "./normalize-match-key";
 import {
@@ -7,22 +8,10 @@ import {
   loadRvtrAliasStore,
   lookupAliasRvtrFromStore,
 } from "./rvtr-aliases";
-import type { SundayYearFilter } from "./playlist-types";
+import type { SundaySearchHit, SundaySearchSource, SundayYearFilter } from "./playlist-types";
 import { useSundayNightsSnapshots } from "./storage-mode";
 
-export type SundaySearchSource = "mylist" | "retroverse" | "vdj-xml" | "alias";
-
-export type SundaySearchHit = {
-  id: string;
-  source: SundaySearchSource;
-  artist: string;
-  title: string;
-  rvtr: string | null;
-  year: number | null;
-  path: string | null;
-  songKey: string | null;
-  detail: string | null;
-};
+export type { SundaySearchHit, SundaySearchSource } from "./playlist-types";
 
 const RE_RVTR = /^RVTR\d{6}$/i;
 const MIN_QUERY_LEN = 2;
@@ -231,11 +220,12 @@ export async function searchSundayNightsUnified(input: {
   const aliasStore = productionMode
     ? { version: 1 as const, aliases: {}, updatedAt: new Date().toISOString() }
     : await loadRvtrAliasStore();
-  const [retroverse, vdjXml, aliasHits, allMylistEvent] = await Promise.all([
+  const [retroverse, vdjXml, aliasHits, allMylistEvent, assetItems] = await Promise.all([
     searchRetroverse(query),
     productionMode ? Promise.resolve([]) : searchVdjXml(query),
     productionMode ? Promise.resolve([]) : searchAliases(query),
     loadSundayEventSongs("all"),
+    loadSundayAssetsAsSongs("all"),
   ]);
 
   const mylistHits: SundaySearchHit[] = [];
@@ -262,6 +252,29 @@ export async function searchSundayNightsUnified(input: {
     if (mylistHits.length >= MAX_PER_SOURCE) break;
   }
 
+  const assetHits: SundaySearchHit[] = [];
+  for (const item of assetItems) {
+    const tagText = (item.tags ?? []).join(" ");
+    if (
+      !queryMatches(query, item.artist, item.title, tagText, item.assetType ?? "") &&
+      !queryMatches(query, item.artist, item.title)
+    ) {
+      continue;
+    }
+    assetHits.push({
+      id: `asset-${item.key}`,
+      source: "asset",
+      artist: item.artist,
+      title: item.title,
+      rvtr: item.rvtr,
+      year: item.year,
+      path: item.path,
+      songKey: item.key,
+      detail: item.assetType ? `Asset · ${item.assetType}` : "Asset",
+    });
+    if (assetHits.length >= MAX_PER_SOURCE) break;
+  }
+
   const seen = new Set<string>();
   const merged: SundaySearchHit[] = [];
 
@@ -277,6 +290,7 @@ export async function searchSundayNightsUnified(input: {
   }
 
   for (const hit of aliasHits) push(hit);
+  for (const hit of assetHits) push(hit);
   for (const hit of mylistHits) push(hit);
   for (const hit of retroverse) push(hit);
   for (const hit of vdjXml) {
