@@ -4,6 +4,8 @@ export const SUNDAY_EVENT_YEARS = [1967, 1978, 1992] as const;
 
 export type SundayYearFilter = (typeof SUNDAY_EVENT_YEARS)[number] | "all";
 
+export type SundayItemKind = "song" | "asset";
+
 export type SundayPlaylistSong = {
   key: string;
   year: number;
@@ -11,6 +13,11 @@ export type SundayPlaylistSong = {
   title: string;
   rvtr: string | null;
   path: string;
+  /** song = playlist snapshot; asset = asset library item */
+  kind?: SundayItemKind;
+  /** Asset type when kind is asset (bumper, commercial, …) */
+  assetType?: string;
+  tags?: string[];
 };
 
 export type SundayPlaylistListMeta = {
@@ -26,7 +33,7 @@ export type SundayEventPayload = {
   songs: SundayPlaylistSong[];
 };
 
-export type SundaySearchSource = "mylist" | "retroverse" | "vdj-xml" | "alias";
+export type SundaySearchSource = "mylist" | "retroverse" | "vdj-xml" | "alias" | "asset";
 
 export type SundaySearchHit = {
   id: string;
