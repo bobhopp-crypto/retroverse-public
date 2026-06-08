@@ -118,6 +118,15 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         status: "ACTIVE",
       },
       {
+        id: "media-collections",
+        name: "Media Collections",
+        href: "/ops/media-collections",
+        description: "Acquisition control center for TV and concert archive collections.",
+        purpose:
+          "Scan playlists, track downloads, and route episodes into Media Lab without Finder.",
+        status: "IN PROGRESS",
+      },
+      {
         id: "cover-review",
         name: "Cover Review",
         href: "/ops/review/covers",
@@ -241,6 +250,22 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         description: "Iframe utility for Discogs lookup during cover review.",
         purpose: "Support surface opened from cover workflows, not a standalone tool.",
         status: "ARCHIVE",
+      },
+      {
+        id: "continuity",
+        name: "Continuity Audit",
+        href: "/ops/continuity",
+        description: "Disaster recovery inventory — backup status and recovery readiness.",
+        purpose: "Read-only visibility into what is backed up and how to restore Retroverse.",
+        status: "ACTIVE",
+      },
+      {
+        id: "integrity",
+        name: "Graph Integrity",
+        href: "/ops/integrity",
+        description: "Canonical graph health — duplicates, orphans, and relationship gaps.",
+        purpose: "Read-only diagnostic snapshot of Postgres graph integrity.",
+        status: "ACTIVE",
       },
     ],
   },
