@@ -52,4 +52,12 @@ export type SundayMatchCandidate = {
   title: string;
   artistName: string;
   peakHot100: number | null;
+  chartWeeks: number | null;
+  chartYear: number | null;
+  firstChartDate?: string | null;
+  chartSource: string | null;
+  isCharted: boolean;
+  coverUrl: string | null;
+  reason?: string | null;
+  tier?: string | null;
 };

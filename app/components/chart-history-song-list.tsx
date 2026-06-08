@@ -35,7 +35,7 @@ export function ChartHistorySongList({
   songsHref,
   moreLabel = "All songs →",
   showSortControls = false,
-  defaultSortMode = "performance",
+  defaultSortMode = "date",
 }: Props) {
   const isEmbed = mode === "embed";
   const [sortMode, setSortMode] = useState<ArtistSongSortMode>(defaultSortMode);

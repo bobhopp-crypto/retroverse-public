@@ -51,6 +51,7 @@ export type OwnedMedia = {
   hasVdjMedia: boolean;
   hasVideo: boolean;
   hasR2: boolean;
+  sourcePath: string | null;
 };
 
 /** Reconciliation link between chart item and owned media. */

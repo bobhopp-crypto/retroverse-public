@@ -32,7 +32,11 @@ export default function OpsSundayNightsPage() {
           </div>
           <div className="ops-topbar__meta">
             <Link className="ops-link" href="/ops">
-              Ops console
+              ← Ops
+            </Link>
+            {" · "}
+            <Link className="ops-link" href="/ops/passes">
+              Pass generator
             </Link>
           </div>
         </header>

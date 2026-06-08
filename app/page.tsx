@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 
+import { loadFeaturedYearCovers } from "@/lib/home/load-featured-year-covers";
 import { isSundayEventModeEnabled } from "@/lib/sunday-nights/event-mode";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
@@ -15,11 +16,14 @@ export default async function HomePage() {
     redirect("/sunday-nights");
   }
 
-  const opsEnabled = isOpsEnabled();
+  const [opsEnabled, yearCovers] = await Promise.all([
+    Promise.resolve(isOpsEnabled()),
+    loadFeaturedYearCovers(),
+  ]);
 
   return (
     <main className="home-directory">
-      <HomeDirectory opsEnabled={opsEnabled} />
+      <HomeDirectory opsEnabled={opsEnabled} yearCovers={yearCovers} />
     </main>
   );
 }

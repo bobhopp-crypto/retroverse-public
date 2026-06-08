@@ -1,4 +1,4 @@
-import { coverPathToUrl } from "@/lib/artist/cover-url";
+import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
@@ -44,12 +44,11 @@ export type AlbumPageData = {
 };
 
 function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
-  for (const c of candidates) {
-    if (!c?.trim()) continue;
-    const url = coverPathToUrl(c) ?? coverPathToUrl(null, c);
-    if (url) return url;
-  }
-  return null;
+  return resolveAlbumCoverUrlFromRow({
+    artwork_path: candidates[1],
+    cover_path: candidates[0],
+    r2_cover_key: candidates[2],
+  });
 }
 
 function yearFromDate(value: string | null | undefined): number | null {
@@ -180,7 +179,7 @@ export async function loadAlbumPage(rvalParam: string): Promise<AlbumPageData | 
       WHERE al.artist_id = $1
         AND al.id <> $2
       GROUP BY al.id, al.title, al.release_year, aek.external_key, al.canonical_cover_path
-      ORDER BY b200_peak ASC NULLS LAST, al.release_year ASC NULLS LAST, al.title ASC
+      ORDER BY al.release_year ASC NULLS LAST, al.title ASC
       LIMIT 6
       `,
       [header.artist_id, pgAlbumId],

@@ -1,7 +1,18 @@
 import { NextResponse } from "next/server";
 
+import { loadReviewUniverse } from "@/lib/ops/load-review-universe";
 import { loadYearWorkspace } from "@/lib/ops/load-year-workspace";
+import {
+  normalizeRvtr,
+  saveRetroverseTagsForRvtr,
+} from "@/lib/ops/retroverse-tags/store";
 import { OPS_FOCUS_YEAR } from "@/lib/ops/load-ops-data";
+import { computeReviewApiMetrics } from "@/lib/ops/year-workspace/enrich-vdj-meta";
+import { loadActiveYearConnections } from "@/lib/ops/year-workspace/active-year-connections";
+import {
+  REVIEW_PILOT_ACTIVE_YEARS,
+  reviewUniverseEnabledForYear,
+} from "@/lib/ops/year-workspace/review-pilot";
 import { loadYearWorkspaceProductionBundleForYear } from "@/lib/ops/year-workspace/load-production-bundle";
 import {
   enqueueFromSelectedSource,
@@ -22,6 +33,16 @@ import {
   saveYearWorkspaceChartAction,
   saveYearWorkspaceKeywords,
 } from "@/lib/ops/year-workspace/state";
+import {
+  saveBulkClassification,
+  saveYearReviewRecord,
+  type ReviewRecordPatch,
+} from "@/lib/ops/year-workspace/review-state";
+import {
+  isReviewClassification,
+  normalizeHistoricalTags,
+} from "@/lib/ops/year-workspace/review-types";
+import { filterReviewUniverseTags } from "@/lib/ops/rvtags-review/vocabulary";
 import type {
   YearWorkspaceCategoryId,
   YearWorkspaceWorkflowAction,
@@ -161,9 +182,15 @@ async function fullPayload(year: number) {
   );
   const keywordState = await loadYearWorkspaceState(year);
   const producerTimeline = await loadProducerTimeline(year);
+  const { matchedRows, missingRows, playCountRows, needsReviewRows } =
+    computeReviewApiMetrics(workspace.reviewRows, keywordState);
   return {
     ok: true as const,
     year,
+    reviewMode: "chart_workspace" as const,
+    pilotMode: false,
+    pilotTopN: null,
+    pilotActiveYears: null,
     workspace,
     production: bundle.production,
     summary: bundle.summary,
@@ -174,8 +201,30 @@ async function fullPayload(year: number) {
       updatedAt: keywordState.updatedAt,
       assignedCount: Object.keys(keywordState.keywords).length,
       chartActionCount: Object.keys(keywordState.chartActions).length,
+      reviewCount: Object.keys(keywordState.reviews).length,
     },
+    matchedRows,
+    missingRows,
+    playCountRows,
+    needsReviewRows,
   };
+}
+
+async function reviewUniversePayload(year: number) {
+  const payload = await loadReviewUniverse(year);
+  return {
+    ...payload,
+    pilotMode: true,
+    pilotTopN: null,
+    pilotActiveYears: [...REVIEW_PILOT_ACTIVE_YEARS],
+  };
+}
+
+async function workspaceGetPayload(year: number) {
+  if (reviewUniverseEnabledForYear(year)) {
+    return reviewUniversePayload(year);
+  }
+  return fullPayload(year);
 }
 
 export async function GET(req: Request) {
@@ -190,7 +239,49 @@ export async function GET(req: Request) {
   const url = new URL(req.url);
   const year = parseYear(url.searchParams.get("year"));
 
-  return NextResponse.json(await fullPayload(year));
+  if (url.searchParams.get("activeYears") === "1") {
+    const workspaceKey = url.searchParams.get("workspaceKey")?.trim() ?? "";
+    if (!workspaceKey) {
+      return NextResponse.json({ error: "workspaceKey required" }, { status: 400 });
+    }
+    try {
+      const review = await loadReviewUniverse(year);
+      const row = review.workspace.reviewRows.find(
+        (r) => r.workspaceKey === workspaceKey,
+      );
+      if (!row) {
+        return NextResponse.json({ error: "Row not in video universe" }, { status: 404 });
+      }
+      const connections = await loadActiveYearConnections({
+        focusYear: year,
+        artist: row.artist,
+        title: row.title,
+        activeYears: review.activeYears,
+      });
+      return NextResponse.json({ ok: true, connections });
+    } catch (err) {
+      console.error("[year-workspace activeYears]", err);
+      return NextResponse.json(
+        {
+          error: err instanceof Error ? err.message : "Active year connections failed",
+        },
+        { status: 500 },
+      );
+    }
+  }
+
+  try {
+    return NextResponse.json(await workspaceGetPayload(year));
+  } catch (err) {
+    console.error("[year-workspace GET]", err);
+    return NextResponse.json(
+      {
+        error:
+          err instanceof Error ? err.message : "Year workspace load failed",
+      },
+      { status: 500 },
+    );
+  }
 }
 
 export async function PATCH(req: Request) {
@@ -222,6 +313,10 @@ export async function PATCH(req: Request) {
     workspaceKey?: string;
     keywords?: string[];
     chartAction?: YearWorkspaceWorkflowAction | null;
+    classification?: string | null;
+    classificationLocked?: boolean | null;
+    historicalTags?: string[] | null;
+    workspaceKeys?: string[];
   };
 
   const year =
@@ -415,6 +510,20 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ error: "blockId required" }, { status: 400 });
     }
 
+    if (op === "producerRemoveFromBlock") {
+      const timelineAssetId =
+        typeof p.timelineAssetId === "string" ? p.timelineAssetId.trim() : "";
+      if (!timelineAssetId) {
+        return NextResponse.json(
+          { error: "timelineAssetId required" },
+          { status: 400 },
+        );
+      }
+      return producerOpError(year, () =>
+        removeAssetFromProducerBlock(year, blockId, timelineAssetId),
+      );
+    }
+
     if (op === "producerAddToBlock") {
       const asset = p.asset;
       if (!asset || typeof asset !== "object") {
@@ -453,16 +562,95 @@ export async function PATCH(req: Request) {
       );
     }
 
-    const timelineAssetId =
-      typeof p.timelineAssetId === "string" ? p.timelineAssetId.trim() : "";
-    if (!timelineAssetId) {
+    return NextResponse.json({ error: `Unknown producer op: ${op}` }, { status: 400 });
+  }
+
+  if (op === "setReview") {
+    const workspaceKey = payload.workspaceKey?.trim();
+    if (!workspaceKey) {
+      return NextResponse.json({ error: "workspaceKey required" }, { status: 400 });
+    }
+
+    const patch: ReviewRecordPatch = {};
+    let hasField = false;
+
+    if ("classification" in payload) {
+      hasField = true;
+      if (payload.classification == null) {
+        patch.classification = null;
+      } else if (
+        typeof payload.classification === "string" &&
+        isReviewClassification(payload.classification)
+      ) {
+        patch.classification = payload.classification;
+      } else {
+        return NextResponse.json({ error: "Invalid classification" }, { status: 400 });
+      }
+    }
+
+    if ("classificationLocked" in payload) {
+      hasField = true;
+      patch.classificationLocked = payload.classificationLocked === true ? true : null;
+    }
+
+    if ("historicalTags" in payload) {
+      hasField = true;
+      if (payload.historicalTags == null) {
+        patch.historicalTags = null;
+      } else if (Array.isArray(payload.historicalTags)) {
+        const tags = filterReviewUniverseTags(normalizeHistoricalTags(payload.historicalTags));
+        const reviewRows = reviewUniverseEnabledForYear(year)
+          ? (await loadReviewUniverse(year)).workspace.reviewRows
+          : (await loadYearWorkspace(year)).reviewRows;
+        const row = reviewRows.find((r) => r.workspaceKey === workspaceKey);
+        const rvtr = normalizeRvtr(row?.rvtr ?? null);
+        if (rvtr) {
+          await saveRetroverseTagsForRvtr(rvtr, tags);
+          patch.historicalTags = null;
+        } else {
+          patch.historicalTags = tags;
+        }
+      } else {
+        return NextResponse.json({ error: "historicalTags must be an array" }, { status: 400 });
+      }
+    }
+
+    if (!hasField) {
       return NextResponse.json(
-        { error: "timelineAssetId required" },
+        { error: "classification, classificationLocked, or historicalTags required" },
         { status: 400 },
       );
     }
-    return producerOpError(year, () =>
-      removeAssetFromProducerBlock(year, blockId, timelineAssetId),
+
+    await saveYearReviewRecord(year, workspaceKey, patch);
+    return NextResponse.json(
+      reviewUniverseEnabledForYear(year)
+        ? await reviewUniversePayload(year)
+        : await fullPayload(year),
+    );
+  }
+
+  if (op === "bulkSetClassification") {
+    const workspaceKeys = Array.isArray(payload.workspaceKeys)
+      ? payload.workspaceKeys
+          .filter((k): k is string => typeof k === "string")
+          .map((k) => k.trim())
+          .filter(Boolean)
+      : [];
+    if (workspaceKeys.length === 0) {
+      return NextResponse.json({ error: "workspaceKeys required" }, { status: 400 });
+    }
+    if (
+      typeof payload.classification !== "string" ||
+      !isReviewClassification(payload.classification)
+    ) {
+      return NextResponse.json({ error: "Invalid classification" }, { status: 400 });
+    }
+    await saveBulkClassification(year, workspaceKeys, payload.classification);
+    return NextResponse.json(
+      reviewUniverseEnabledForYear(year)
+        ? await reviewUniversePayload(year)
+        : await fullPayload(year),
     );
   }
 

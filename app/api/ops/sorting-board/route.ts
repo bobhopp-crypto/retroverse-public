@@ -5,6 +5,7 @@ import { loadSortingBoard } from "@/lib/ops/sorting-board/load-board";
 import {
   assignSortingSong,
   renameSortingBucket,
+  setBucketOrder,
 } from "@/lib/ops/sorting-board/state";
 import { reviewUniverseEnabledForYear } from "@/lib/ops/year-workspace/review-pilot";
 
@@ -66,6 +67,8 @@ export async function PATCH(req: Request) {
     bucketId?: string;
     name?: string;
     workspaceKey?: string;
+    insertBefore?: string | null;
+    order?: string[];
   };
 
   const year = parseYear(payload.year);
@@ -100,7 +103,23 @@ export async function PATCH(req: Request) {
         payload.bucketId === null || payload.bucketId === undefined
           ? null
           : payload.bucketId.trim() || null;
-      await assignSortingSong(year, workspaceKey, bucketId);
+      const insertBefore =
+        payload.insertBefore === null || payload.insertBefore === undefined
+          ? null
+          : payload.insertBefore.trim() || null;
+      await assignSortingSong(year, workspaceKey, bucketId, insertBefore);
+      return NextResponse.json(await loadSortingBoard(year));
+    }
+
+    if (op === "setBucketOrder") {
+      const bucketId = payload.bucketId?.trim();
+      if (!bucketId) {
+        return NextResponse.json({ error: "bucketId required" }, { status: 400 });
+      }
+      if (!Array.isArray(payload.order)) {
+        return NextResponse.json({ error: "order required" }, { status: 400 });
+      }
+      await setBucketOrder(year, bucketId, payload.order);
       return NextResponse.json(await loadSortingBoard(year));
     }
 

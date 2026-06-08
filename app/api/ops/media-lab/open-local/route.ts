@@ -13,7 +13,12 @@ function opsEnabled(): boolean {
 }
 
 function parseTarget(value: unknown): MediaLabOpenTarget | null {
-  if (value === "folder" || value === "chapters" || value === "labels") {
+  if (
+    value === "folder" ||
+    value === "chapters" ||
+    value === "chaptersExport" ||
+    value === "labels"
+  ) {
     return value;
   }
   return null;

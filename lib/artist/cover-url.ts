@@ -1,3 +1,5 @@
+import { getPublicCoverDeliveryBase } from "@/lib/artwork/cover-origin";
+
 const COVERS_SEGMENT = "retroverse/covers/";
 
 function sanitizeCoverBase(raw: string): string | null {
@@ -37,17 +39,18 @@ export function coverPathToUrl(
   path: string | null | undefined,
   r2Key?: string | null,
 ): string | null {
-  const base = getRetroverseCoverBaseUrl();
+  const base = getPublicCoverDeliveryBase();
   const tryPath = (raw: string | null | undefined): string | null => {
     if (!raw?.trim()) return null;
     let p = raw.trim();
     p = p.replace(/^["']{2}\//, "/");
     if (p.startsWith("http://") || p.startsWith("https://")) return p;
-    if (p.startsWith("/retroverse/covers/")) return p;
+    if (p.startsWith("/retroverse/covers/")) {
+      return `${base.replace(/\/+$/, "")}${p}`;
+    }
     const rel = normalizeRelativeCoverPath(p);
     if (!rel) return null;
-    if (base) return `${base}/${rel}`;
-    return `/${rel}`;
+    return `${base.replace(/\/+$/, "")}/${rel}`;
   };
   return tryPath(path) ?? tryPath(r2Key);
 }

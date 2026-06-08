@@ -1,3 +1,4 @@
+import { normalizeEraTargets } from "./era";
 import { formatProducerDuration, sumBlockRuntimeSeconds } from "./runtime";
 import type { ProducerEraId, ProducerTimelineState } from "./types";
 
@@ -44,7 +45,7 @@ export type EraBalanceRow = {
 
 export function buildEraBalanceRows(state: ProducerTimelineState): EraBalanceRow[] {
   const totals = computeEraRuntimeSeconds(state);
-  const targets = state.eraTargets;
+  const targets = state.eraTargets ?? normalizeEraTargets(undefined);
 
   const rows: EraBalanceRow[] = (["1967", "1978", "1992"] as const).map((eraId) => {
     const currentSeconds = totals[eraId];

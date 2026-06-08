@@ -3,8 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { OpsYearWorkspace } from "@/components/ops/OpsYearWorkspace";
-import { OPS_FOCUS_YEAR } from "@/lib/ops/load-ops-data";
 import { inspectPing } from "@/lib/inspect/pg";
+import {
+  isReviewPilotYear,
+  REVIEW_PILOT_ACTIVE_YEARS,
+} from "@/lib/ops/year-workspace/review-pilot";
 
 import "../../ops.css";
 
@@ -15,7 +18,7 @@ type Props = { params: Promise<{ year: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { year } = await params;
   return {
-    title: `Year Workspace ${year} — Retroverse Ops`,
+    title: `Review Universe ${year} — Retroverse Ops`,
     robots: { index: false, follow: false },
   };
 }
@@ -23,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function OpsBlocked(props: { message: string }) {
   return (
     <div className="ops-auth">
-      <h1>Year Workspace</h1>
+      <h1>Review Universe</h1>
       <p className="ops-dim">{props.message}</p>
     </div>
   );
@@ -48,6 +51,7 @@ export default async function OpsYearWorkspacePage({ params }: Props) {
   }
 
   const ping = await inspectPing();
+  const pilotYear = isReviewPilotYear(year);
 
   return (
     <main className="ops-page">
@@ -56,20 +60,22 @@ export default async function OpsYearWorkspacePage({ params }: Props) {
         <header className="ops-topbar">
           <div>
             <p className="ops-topbar__kicker">Internal · event prep</p>
-            <h1 className="ops-topbar__title">Year {year}</h1>
+            <h1 className="ops-topbar__title">Review Universe · {year}</h1>
           </div>
           <div className="ops-topbar__meta">
             <Link className="ops-link" href="/ops">
               ← Ops console
             </Link>
-            <Link className="ops-link" href={`/ops/rvtags-review/${year}`}>
-              RV tags review
-            </Link>
-            {year !== OPS_FOCUS_YEAR ? (
-              <Link className="ops-link" href={`/ops/year/${OPS_FOCUS_YEAR}`}>
-                Pilot {OPS_FOCUS_YEAR}
+            {pilotYear ? (
+              <Link className="ops-link" href={`/ops/year/${year}/sorting`}>
+                Sorting board
               </Link>
             ) : null}
+            {REVIEW_PILOT_ACTIVE_YEARS.filter((y) => y !== year).map((y) => (
+              <Link key={y} className="ops-link" href={`/ops/year/${y}`}>
+                {y} pilot
+              </Link>
+            ))}
           </div>
         </header>
 
@@ -80,11 +86,17 @@ export default async function OpsYearWorkspacePage({ params }: Props) {
           </p>
         ) : (
           <p className="ops-banner">
-            <strong>Year Workspace</strong> — central production desk for {year}. Use{" "}
-            <strong>Producer View</strong> for the experimental 1967 rundown board (timeline +
-            Need/Found/Ready). Classic workspace: Songs tab keeps Billboard reconciliation; other
-            tabs track Wanted / Acquired / Approved (stored under{" "}
-            <code className="ops-mono">RETROVERSE_DATA/ops/year-workspace/{year}/</code>).
+            {pilotYear ? (
+              <>
+                Classify each video: <strong>Fill</strong>, <strong>Cocktail</strong>,{" "}
+                <strong>Dance</strong>, or <strong>Slow</strong>. Retroverse Tags are
+                historical only — you own the classification.
+              </>
+            ) : (
+              <>
+                <strong>Review Universe</strong> — full-year mode for {year}.
+              </>
+            )}
           </p>
         )}
 

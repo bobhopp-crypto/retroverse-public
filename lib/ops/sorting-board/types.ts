@@ -9,6 +9,8 @@ export type SortingBoardFile = {
   buckets: SortingBucket[];
   /** workspaceKey → bucket id; absent = unsorted */
   assignments: Record<string, string>;
+  /** Manual order of workspaceKeys per bucket (Kanban column order). */
+  bucketOrder: Record<string, string[]>;
   updatedAt: string;
 };
 
@@ -28,4 +30,5 @@ export type SortingBoardPayload = {
   buckets: Array<SortingBucket & { count: number }>;
   songs: SortingSong[];
   assignments: Record<string, string>;
+  bucketOrder: Record<string, string[]>;
 };

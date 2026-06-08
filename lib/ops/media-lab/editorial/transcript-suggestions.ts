@@ -471,6 +471,8 @@ function isGenericSubject(subject: string): boolean {
   );
 }
 
+export { isGenericSubject };
+
 /** Merge transcript classification with on-screen OCR text. */
 export function applyOcrToSuggestion(
   type: ContentType,
@@ -548,6 +550,7 @@ export function suggestClipTag(
   chapter: Pick<EditorialChapter, "startSec" | "endSec" | "title">,
   segments: TranscriptSegment[],
   ocr?: ClipOcrInput | null,
+  forcedType?: ContentType,
 ): ClipTagSuggestion {
   const ctx = clipTranscriptContext(segments, chapter.startSec, chapter.endSec);
   const scored = TYPE_RULES.map((rule) => {
@@ -557,11 +560,13 @@ export function suggestClipTag(
 
   const top = scored[0];
   const second = scored[1] ?? { score: 0 };
-  let type: ContentType = top?.score > 0 ? top.type : "Promo";
+  let type: ContentType = forcedType ?? (top?.score > 0 ? top.type : "Promo");
 
-  const parsed = parseTypedTitle(chapter.title);
-  if (parsed.type && top.score < 10) {
-    type = parsed.type;
+  if (!forcedType) {
+    const parsed = parseTypedTitle(chapter.title);
+    if (parsed.type && top.score < 10) {
+      type = parsed.type;
+    }
   }
 
   let subject = extractSubject(type, ctx, ocr);
@@ -588,6 +593,19 @@ export function suggestClipTag(
     reasons,
     ocrSubject: ocr?.primarySubject ?? null,
   };
+}
+
+/** Score all content types for alternate name regeneration. */
+export function scoreContentTypes(
+  segments: TranscriptSegment[],
+  startSec: number,
+  endSec: number,
+): { type: ContentType; score: number }[] {
+  const ctx = clipTranscriptContext(segments, startSec, endSec);
+  return TYPE_RULES.map((rule) => {
+    const { score } = scoreType(rule, ctx);
+    return { type: rule.type, score };
+  }).sort((a, b) => b.score - a.score);
 }
 
 export function suggestAllChapterTags(

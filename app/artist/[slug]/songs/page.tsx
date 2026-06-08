@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await loadArtistChartedSongs(slug);
   return {
     title: `${data.displayName} — Charted Songs — Retroverse`,
-    description: `${data.displayName} — Hot 100 charted songs ranked by peak in Retroverse.`,
+    description: `${data.displayName} — Hot 100 charted songs in chronological order in Retroverse.`,
   };
 }
 
@@ -27,7 +27,7 @@ export default async function ArtistSongsPage({ params }: Props) {
       songs={data.songs}
       mode="page"
       showSortControls
-      defaultSortMode="performance"
+      defaultSortMode="date"
     />
   );
 }

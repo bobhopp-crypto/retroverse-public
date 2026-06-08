@@ -12,6 +12,11 @@ function isLegacyBlocksRecord(
   return blocks != null && typeof blocks === "object" && !Array.isArray(blocks);
 }
 
+/** Stable v2 block id for a legacy v1 section key (same id on every migration). */
+export function legacyBlockId(legacyKey: string): string {
+  return `legacy-${legacyKey}`;
+}
+
 export function migrateV1ToV2(
   raw: Record<string, unknown>,
   year: number,
@@ -39,7 +44,7 @@ export function migrateV1ToV2(
             .filter((a) => a && typeof a.id === "string")
         : [];
       migrated.push({
-        id: crypto.randomUUID(),
+        id: legacyBlockId(legacy.id),
         title: legacy.title,
         notes: legacy.notes,
         eraId: "mixed",
@@ -54,7 +59,7 @@ export function migrateV1ToV2(
       const list = blocksRaw[key];
       if (!Array.isArray(list)) continue;
       migrated.push({
-        id: crypto.randomUUID(),
+        id: legacyBlockId(key),
         title: key.replace(/_/g, " "),
         notes: null,
         eraId: "mixed",

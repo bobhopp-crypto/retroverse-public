@@ -81,7 +81,9 @@ function normalizeAsset(raw: unknown): ProducerTimelineAsset | null {
 function normalizeBlock(raw: unknown): ProducerShowBlock | null {
   if (!raw || typeof raw !== "object") return null;
   const o = raw as Record<string, unknown>;
-  if (typeof o.id !== "string" || typeof o.title !== "string") return null;
+  if (typeof o.id !== "string") return null;
+  const title =
+    typeof o.title === "string" ? o.title.trim() || "Block" : "Block";
   const assetsRaw = o.assets;
   const assets: ProducerTimelineAsset[] = [];
   if (Array.isArray(assetsRaw)) {
@@ -92,7 +94,7 @@ function normalizeBlock(raw: unknown): ProducerShowBlock | null {
   }
   return {
     id: o.id,
-    title: o.title.trim() || "Block",
+    title,
     notes: typeof o.notes === "string" ? o.notes : null,
     eraId: parseProducerEraId(o.eraId),
     collapsed: o.collapsed === true,
@@ -146,7 +148,16 @@ export async function loadProducerTimeline(
 ): Promise<ProducerTimelineState> {
   try {
     const raw = await readFile(timelinePath(year), "utf8");
-    return normalizeState(JSON.parse(raw) as unknown, year);
+    const parsed = JSON.parse(raw) as unknown;
+    const persistV2 =
+      parsed != null &&
+      typeof parsed === "object" &&
+      isV1TimelineRaw(parsed as Record<string, unknown>);
+    const state = normalizeState(parsed, year);
+    if (persistV2) {
+      await saveProducerTimeline(state);
+    }
+    return state;
   } catch {
     return emptyProducerTimeline(year);
   }

@@ -68,5 +68,17 @@ export function normalizeSortingBoardPayload(
         )
       : {};
 
-  return { ok: true, year, buckets, songs, assignments };
+  const bucketOrder =
+    row.bucketOrder && typeof row.bucketOrder === "object" && !Array.isArray(row.bucketOrder)
+      ? Object.fromEntries(
+          Object.entries(row.bucketOrder).map(([id, list]) => [
+            id,
+            Array.isArray(list)
+              ? list.filter((k): k is string => typeof k === "string" && k.trim().length > 0)
+              : [],
+          ]),
+        )
+      : {};
+
+  return { ok: true, year, buckets, songs, assignments, bucketOrder };
 }
