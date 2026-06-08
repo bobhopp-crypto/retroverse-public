@@ -51,7 +51,7 @@ export async function loadPgPrefixSearchPayload(
       FROM canonical_track_display
       WHERE lower(canonical_title) LIKE $1
          OR lower(canonical_artist_name) LIKE $1
-      ORDER BY chart_weeks DESC NULLS LAST, canonical_title ASC
+      ORDER BY first_chart_date ASC NULLS LAST, canonical_title ASC
       LIMIT 14
       `,
       [pattern],
@@ -74,7 +74,7 @@ export async function loadPgPrefixSearchPayload(
       LEFT JOIN album_external_keys aek ON aek.album_id = al.id
       WHERE lower(al.title) LIKE $1
          OR lower(ar.canonical_name) LIKE $1
-      ORDER BY al.release_year DESC NULLS LAST, al.title ASC
+      ORDER BY al.release_year ASC NULLS LAST, al.title ASC
       LIMIT 10
       `,
       [pattern],

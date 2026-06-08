@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { OpsBoard } from "@/components/ops/OpsBoard";
+import { OpsDirectory } from "@/components/ops/OpsDirectory";
 import { loadOpsConsoleData } from "@/lib/ops/load-ops-data";
+import { trackPageHref } from "@/lib/search/entity-routes";
+import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 
 import "./ops.css";
 
@@ -41,7 +44,17 @@ export default async function OpsPage() {
   }
 
   const now = new Date().toISOString().replace("T", " ").slice(0, 19);
-  const ops = await loadOpsConsoleData();
+  const [ops, liveState] = await Promise.all([
+    loadOpsConsoleData(),
+    loadSundayNightsState(),
+  ]);
+  const liveRvtr = liveState.currentTrackId;
+  const liveTrackHref = liveRvtr ? trackPageHref(liveRvtr) : "/sunday-nights";
+  const liveTrackLabel = liveState.live
+    ? `${liveState.live.artist} — ${liveState.live.title}`
+    : liveRvtr
+      ? `Live track · ${liveRvtr}`
+      : "Current Live Track";
 
   return (
     <main className="ops-page">
@@ -57,53 +70,16 @@ export default async function OpsPage() {
               Snapshot <strong>{now}</strong>
             </div>
             <div>
-              Year {ops.year} · match · acquisition · refresh · activity ·{" "}
-              <Link className="ops-link" href="/ops/media-sync">
-                media-sync
-              </Link>
+              Focus year <strong>{ops.year}</strong>
               {" · "}
-              <Link className="ops-link" href={`/ops/year/${ops.year}`}>
-                year workspace
-              </Link>
-              {" · "}
-              <Link className="ops-link" href="/ops/crossroads">
-                crossroads
-              </Link>
-              {" · "}
-              <Link className="ops-link" href="/ops/show-builder">
-                set builder
-              </Link>
-              {" · "}
-              <Link className="ops-link" href={`/ops/rvtags-review/${ops.year}`}>
-                RV tags review
-              </Link>
-              {" · "}
-              <Link className="ops-link" href="/ops/acquisition">
-                acquisition
-              </Link>
-              {" · "}
-              <Link className="ops-link" href="/ops/media-lab">
-                media lab
-              </Link>
-              {" · "}
-              <Link className="ops-link" href="/ops/healing">
-                healing
-              </Link>
-              {" · "}
-              <Link className="ops-link" href="/ops/review/covers">
-                cover review
-              </Link>
-              {" · "}
-              <Link className="ops-link" href="/ops/covers/backfill">
-                cover backfill
-              </Link>
-              {" · "}
-              <Link className="ops-link" href="/ops/covers/corrections">
-                cover fix (ops)
+              <Link className="ops-link" href="/ops/sunday-nights">
+                Sunday Nights
               </Link>
             </div>
           </div>
         </header>
+
+        <OpsDirectory liveTrackHref={liveTrackHref} liveTrackLabel={liveTrackLabel} />
 
         <p className="ops-banner">
           <strong>Chart-to-library reconciliation</strong> — Billboard cultural universe with
@@ -129,14 +105,16 @@ export default async function OpsPage() {
           )}
         </p>
 
-        <OpsBoard
-          year={ops.year}
-          yearMatch={ops.yearMatch}
-          acquisition={ops.acquisition}
-          weeklyRefresh={ops.weeklyRefresh}
-          recentActivity={ops.recentActivity}
-          yearStats={ops.status.yearStats}
-        />
+        <div id="year-match">
+          <OpsBoard
+            year={ops.year}
+            yearMatch={ops.yearMatch}
+            acquisition={ops.acquisition}
+            weeklyRefresh={ops.weeklyRefresh}
+            recentActivity={ops.recentActivity}
+            yearStats={ops.status.yearStats}
+          />
+        </div>
       </div>
     </main>
   );

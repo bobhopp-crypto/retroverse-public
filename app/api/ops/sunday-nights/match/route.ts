@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
-import { loadMatchCandidates } from "@/lib/sunday-nights/match-candidates";
+import {
+  loadMatchCandidates,
+  searchMatchManual,
+} from "@/lib/sunday-nights/match-candidates";
 
 export const dynamic = "force-dynamic";
 
@@ -9,13 +12,17 @@ export async function GET(req: Request) {
     const url = new URL(req.url);
     const artist = url.searchParams.get("artist")?.trim() ?? "";
     const title = url.searchParams.get("title")?.trim() ?? "";
+    const manualQuery = url.searchParams.get("q")?.trim() ?? "";
 
-    if (!artist || !title) {
-      return NextResponse.json({ candidates: [] });
-    }
+    const [autoCandidates, manualCandidates] = await Promise.all([
+      artist && title ? loadMatchCandidates(artist, title) : Promise.resolve([]),
+      manualQuery.length >= 2 ? searchMatchManual(manualQuery) : Promise.resolve([]),
+    ]);
 
-    const candidates = await loadMatchCandidates(artist, title);
-    return NextResponse.json({ candidates });
+    return NextResponse.json({
+      candidates: autoCandidates,
+      manualCandidates,
+    });
   } catch (err) {
     console.error("[ops/sunday-nights/match GET]", err);
     return NextResponse.json(

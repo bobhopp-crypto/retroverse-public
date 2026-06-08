@@ -1,7 +1,7 @@
 import { cache } from "react";
 
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
-import { coverPathToUrl } from "@/lib/artist/cover-url";
+import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { resolveArtistFromSlug } from "@/lib/artist/resolve-artist";
 import {
   artistFileCode,
@@ -31,12 +31,11 @@ const RE_RVAL_HREF = /\/albums\/(RVAL\d{6})/i;
 function pickCoverUrl(
   ...candidates: (string | null | undefined)[]
 ): string | null {
-  for (const c of candidates) {
-    if (!c?.trim()) continue;
-    const url = coverPathToUrl(c) ?? coverPathToUrl(null, c);
-    if (url) return url;
-  }
-  return null;
+  return resolveAlbumCoverUrlFromRow({
+    cover_path: candidates[0],
+    artwork_path: candidates[1],
+    r2_cover_key: candidates[2],
+  });
 }
 
 function fallbackArtistPageData(slugParam: string): ArtistPageData {

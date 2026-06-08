@@ -192,6 +192,7 @@ export async function loadYearMatchConsole(
       hasVdjMedia: row.has_vdj_media === true,
       hasVideo: row.has_video === true,
       hasR2: false,
+      sourcePath: row.best_match_source_path?.trim() || null,
     };
   });
 

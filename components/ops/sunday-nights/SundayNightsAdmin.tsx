@@ -41,6 +41,26 @@ const YEAR_OPTIONS: { id: SundayYearFilter; label: string }[] = [
 
 const SEARCH_MIN = 2;
 const SEARCH_DEBOUNCE_MS = 220;
+const MATCH_SEARCH_DEBOUNCE_MS = 280;
+
+function externalLookupUrls(artist: string, title: string) {
+  const q = encodeURIComponent(`${artist} ${title}`.trim());
+  return {
+    wikipedia: `https://en.wikipedia.org/w/index.php?search=${q}`,
+    discogs: `https://www.discogs.com/search/?q=${q}&type=all`,
+    youtube: `https://www.youtube.com/results?search_query=${q}`,
+  };
+}
+
+function matchSearchSeed(title: string): string {
+  return title
+    .replace(/\s*\([^)]*\)\s*/g, " ")
+    .replace(/\s*\[[^\]]*\]\s*/g, " ")
+    .replace(/^the\s+/i, "")
+    .replace(/[^\w\s']/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 function formatUpdatedAt(iso: string | undefined): string {
   if (!iso) return "—";
@@ -53,6 +73,37 @@ function formatUpdatedAt(iso: string | undefined): string {
   } catch {
     return iso;
   }
+}
+
+function MatchCandidateCover({ url }: { url: string | null }) {
+  const [broken, setBroken] = useState(false);
+  if (!url || broken) {
+    return <span className="sn-admin__match-option-cover sn-admin__match-option-cover--empty" aria-hidden />;
+  }
+  return (
+    <img
+      className="sn-admin__match-option-cover"
+      src={url}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      onError={() => setBroken(true)}
+    />
+  );
+}
+
+function renderMatchCandidateMeta(candidate: SundayMatchCandidate): string[] {
+  const parts: string[] = [];
+  if (candidate.chartWeeks != null && candidate.chartWeeks > 0) {
+    parts.push(`${candidate.chartWeeks} week${candidate.chartWeeks === 1 ? "" : "s"}`);
+  }
+  if (candidate.chartYear != null) {
+    parts.push(String(candidate.chartYear));
+  }
+  if (candidate.chartSource) {
+    parts.push(candidate.chartSource);
+  }
+  return parts;
 }
 
 type RvtrFilter = "all" | "rvtr" | "no-rvtr";
@@ -105,11 +156,15 @@ export function SundayNightsAdmin() {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [matchTarget, setMatchTarget] = useState<MatchTarget | null>(null);
   const [matchCandidates, setMatchCandidates] = useState<SundayMatchCandidate[]>([]);
+  const [matchManualQuery, setMatchManualQuery] = useState("");
+  const [matchManualCandidates, setMatchManualCandidates] = useState<SundayMatchCandidate[]>([]);
   const [matchLoading, setMatchLoading] = useState(false);
+  const [matchManualLoading, setMatchManualLoading] = useState(false);
   const [rememberMapping, setRememberMapping] = useState(true);
   const [savingMatch, setSavingMatch] = useState(false);
   const countsPrefetched = useRef(false);
   const searchTimer = useRef<number | null>(null);
+  const matchSearchTimer = useRef<number | null>(null);
 
   const applyPayload = useCallback((data: OpsPayload) => {
     setState(data.state);
@@ -321,17 +376,58 @@ export function SundayNightsAdmin() {
     });
     setRememberMapping(true);
     setMatchCandidates([]);
+    setMatchManualCandidates([]);
+    setMatchManualQuery(matchSearchSeed(song.title));
     setMatchLoading(true);
+    setMatchManualLoading(false);
     try {
       const params = new URLSearchParams({ artist: song.artist, title: song.title });
       const res = await fetch(`/api/ops/sunday-nights/match?${params}`, { cache: "no-store" });
       if (!res.ok) return;
-      const data = (await res.json()) as { candidates?: SundayMatchCandidate[] };
+      const data = (await res.json()) as {
+        candidates?: SundayMatchCandidate[];
+        manualCandidates?: SundayMatchCandidate[];
+      };
       setMatchCandidates(data.candidates ?? []);
     } finally {
       setMatchLoading(false);
     }
   }
+
+  useEffect(() => {
+    if (!matchTarget) return;
+    const query = matchManualQuery.trim();
+    if (query.length < SEARCH_MIN) {
+      setMatchManualCandidates([]);
+      setMatchManualLoading(false);
+      return;
+    }
+
+    if (matchSearchTimer.current != null) {
+      window.clearTimeout(matchSearchTimer.current);
+    }
+
+    setMatchManualLoading(true);
+    matchSearchTimer.current = window.setTimeout(() => {
+      void (async () => {
+        try {
+          const params = new URLSearchParams({ q: query });
+          const res = await fetch(`/api/ops/sunday-nights/match?${params}`, { cache: "no-store" });
+          if (!res.ok) return;
+          const data = (await res.json()) as { manualCandidates?: SundayMatchCandidate[] };
+          setMatchManualCandidates(data.manualCandidates ?? []);
+        } finally {
+          setMatchManualLoading(false);
+        }
+      })();
+    }, MATCH_SEARCH_DEBOUNCE_MS);
+
+    return () => {
+      if (matchSearchTimer.current != null) {
+        window.clearTimeout(matchSearchTimer.current);
+      }
+    };
+  }, [matchManualQuery, matchTarget]);
 
   async function saveMatch(candidate: SundayMatchCandidate) {
     if (!matchTarget) return;
@@ -429,6 +525,82 @@ export function SundayNightsAdmin() {
   const liveArtist = track?.artistName ?? liveSelection?.artist ?? null;
   const liveTitle = track?.title ?? liveSelection?.title ?? null;
   const liveYear = track?.releaseYear ?? liveSelection?.year ?? null;
+
+  const matchExternalLinks = useMemo(() => {
+    if (!matchTarget) return null;
+    return externalLookupUrls(matchTarget.artist, matchTarget.title);
+  }, [matchTarget]);
+
+  const showMatchExternalLinks = useMemo(() => {
+    if (matchLoading || matchManualLoading) return false;
+    const hasAuto = matchCandidates.length > 0;
+    const hasManual =
+      matchManualQuery.trim().length >= SEARCH_MIN && matchManualCandidates.length > 0;
+    return !hasAuto && !hasManual;
+  }, [
+    matchCandidates.length,
+    matchManualCandidates.length,
+    matchManualLoading,
+    matchManualQuery,
+    matchLoading,
+  ]);
+
+  function renderMatchCandidate(candidate: SundayMatchCandidate, keyPrefix: string) {
+    const metaParts = renderMatchCandidateMeta(candidate);
+    return (
+      <li key={`${keyPrefix}-${candidate.rvtr}`}>
+        <button
+          type="button"
+          className="sn-admin__match-option"
+          disabled={savingMatch}
+          onClick={() => saveMatch(candidate)}
+        >
+          <span className="sn-admin__match-option-layout">
+            <MatchCandidateCover url={candidate.coverUrl} />
+            <span className="sn-admin__match-option-body">
+              <span className="sn-admin__match-option-top">
+                <span
+                  className={`sn-admin__match-option-peak-badge${
+                    candidate.isCharted ? "" : " sn-admin__match-option-peak-badge--empty"
+                  }`}
+                  aria-label={
+                    candidate.peakHot100 != null
+                      ? `Peak Hot 100 number ${candidate.peakHot100}`
+                      : "No peak chart position"
+                  }
+                >
+                  <span className="sn-admin__match-option-peak-label">Peak</span>
+                  <span className="sn-admin__match-option-peak-num">
+                    {candidate.peakHot100 != null ? `#${candidate.peakHot100}` : "—"}
+                  </span>
+                </span>
+                <span className="sn-admin__match-option-identity">
+                  <span className="sn-admin__match-option-artist">{candidate.artistName}</span>
+                  <span className="sn-admin__match-option-title">{candidate.title}</span>
+                </span>
+                <span
+                  className={`sn-admin__match-option-status${
+                    candidate.isCharted
+                      ? " sn-admin__match-option-status--charted"
+                      : " sn-admin__match-option-status--none"
+                  }`}
+                >
+                  {candidate.isCharted ? "Charted" : "No chart history"}
+                </span>
+              </span>
+              {metaParts.length > 0 ? (
+                <span className="sn-admin__match-option-meta">{metaParts.join(" · ")}</span>
+              ) : null}
+              <span className="sn-admin__match-option-rvtr">{candidate.rvtr}</span>
+              {candidate.reason ? (
+                <span className="sn-admin__match-option-reason">{candidate.reason}</span>
+              ) : null}
+            </span>
+          </span>
+        </button>
+      </li>
+    );
+  }
 
   const deckSongs = useMemo(() => {
     if (rvtrFilter === "rvtr") return songs.filter((s) => Boolean(s.rvtr));
@@ -709,30 +881,89 @@ export function SundayNightsAdmin() {
             <p className="sn-admin__match-source-artist">{matchTarget.artist}</p>
             <p className="sn-admin__match-source-title">{matchTarget.title}</p>
 
+            <div className="sn-admin__match-search-block">
+              <label className="sn-admin__match-search-label" htmlFor="sn-match-search">
+                Search Retroverse
+              </label>
+              <input
+                id="sn-match-search"
+                type="search"
+                className="sn-admin__match-search"
+                value={matchManualQuery}
+                onChange={(e) => setMatchManualQuery(e.target.value)}
+                placeholder="Artist, title, or RVTR…"
+                autoComplete="off"
+                spellCheck={false}
+              />
+            </div>
+
             {matchLoading ? (
               <p className="sn-admin__empty sn-admin__empty--inline">Loading candidates…</p>
             ) : matchCandidates.length === 0 ? (
-              <p className="sn-admin__empty sn-admin__empty--inline">No candidates found.</p>
+              <p className="sn-admin__empty sn-admin__empty--inline">
+                No automatic candidates — try manual search below.
+              </p>
             ) : (
-              <ul className="sn-admin__match-list">
-                {matchCandidates.map((candidate) => (
-                  <li key={candidate.rvtr}>
-                    <button
-                      type="button"
-                      className="sn-admin__match-option"
-                      disabled={savingMatch}
-                      onClick={() => saveMatch(candidate)}
-                    >
-                      <span className="sn-admin__match-option-title">{candidate.title}</span>
-                      <span className="sn-admin__match-option-rvtr">{candidate.rvtr}</span>
-                      {candidate.peakHot100 != null ? (
-                        <span className="sn-admin__match-option-peak">Peak #{candidate.peakHot100}</span>
-                      ) : null}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+              <>
+                <p className="sn-admin__match-section-label">Suggested matches</p>
+                <ul className="sn-admin__match-list">
+                  {matchCandidates.map((candidate) => renderMatchCandidate(candidate, "auto"))}
+                </ul>
+              </>
             )}
+
+            {matchManualQuery.trim().length >= SEARCH_MIN ? (
+              <>
+                <p className="sn-admin__match-section-label">
+                  {matchManualLoading
+                    ? "Searching…"
+                    : `${matchManualCandidates.length} manual result${
+                        matchManualCandidates.length === 1 ? "" : "s"
+                      }`}
+                </p>
+                {matchManualCandidates.length === 0 && !matchManualLoading ? (
+                  <p className="sn-admin__empty sn-admin__empty--inline">No manual matches.</p>
+                ) : (
+                  <ul className="sn-admin__match-list">
+                    {matchManualCandidates.map((candidate) =>
+                      renderMatchCandidate(candidate, "manual"),
+                    )}
+                  </ul>
+                )}
+              </>
+            ) : null}
+
+            {showMatchExternalLinks && matchExternalLinks ? (
+              <div className="sn-admin__match-external">
+                <p className="sn-admin__match-section-label">No Retroverse match — reference lookup</p>
+                <div className="sn-admin__match-external-links">
+                  <a
+                    className="sn-admin__match-external-link"
+                    href={matchExternalLinks.wikipedia}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wikipedia
+                  </a>
+                  <a
+                    className="sn-admin__match-external-link"
+                    href={matchExternalLinks.discogs}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Discogs
+                  </a>
+                  <a
+                    className="sn-admin__match-external-link"
+                    href={matchExternalLinks.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    YouTube
+                  </a>
+                </div>
+              </div>
+            ) : null}
 
             <label className="sn-admin__match-remember">
               <input

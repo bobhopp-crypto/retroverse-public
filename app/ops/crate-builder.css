@@ -1,0 +1,265 @@
+/* Crate Builder — Experiment B: Deal The Cards */
+
+.ops-crate {
+  margin-top: 0.75rem;
+}
+
+.ops-crate__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 0.55rem;
+}
+
+.ops-crate__years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ops-crate__year {
+  border: 3px solid var(--ink, #141210);
+  background: var(--paper, #f4eeda);
+  padding: 0.35rem 0.85rem;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.ops-crate__year--active {
+  background: var(--teal, #1a6b6b);
+  color: #fff;
+}
+
+.ops-crate__stats {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--dim, #3a362e);
+}
+
+.ops-crate__deal-note {
+  margin: 0 0 0.75rem;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--dim, #3a362e);
+  border: 2px solid var(--ink, #141210);
+  background: rgba(244, 238, 218, 0.65);
+}
+
+/* 10 piles — always visible */
+.ops-crate__piles-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.ops-crate__pile {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 3px solid var(--ink, #141210);
+  border-top-width: 6px;
+  background: rgba(244, 238, 218, 0.85);
+  min-height: 0;
+}
+
+.ops-crate__pile--over {
+  box-shadow: inset 0 0 0 3px rgba(180, 83, 9, 0.45);
+}
+
+.ops-crate__pile-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  padding: 0.3rem 0.4rem 0.15rem;
+  flex-shrink: 0;
+}
+
+.ops-crate__pile-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0.05rem 0.12rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.ops-crate__pile-name:focus {
+  outline: none;
+  border-color: var(--teal, #1a6b6b);
+  background: #fff;
+}
+
+.ops-crate__pile-count {
+  font-size: 0.72rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.ops-crate__pile-colors {
+  display: flex;
+  gap: 0.15rem;
+  padding: 0 0.4rem 0.28rem;
+  flex-shrink: 0;
+}
+
+.ops-crate__color-swatch {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  border: 2px solid;
+  cursor: pointer;
+  opacity: 0.55;
+}
+
+.ops-crate__color-swatch--on {
+  opacity: 1;
+  outline: 2px solid var(--ink, #141210);
+  outline-offset: 1px;
+}
+
+.ops-crate__pile-body {
+  flex: 1 1 auto;
+  height: 12.5rem;
+  max-height: 12.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  padding: 0.3rem 0.35rem 0.4rem;
+  border-top: 2px solid var(--ink, #141210);
+}
+
+/* Full-color dealt cards */
+.ops-crate__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.32rem 0.38rem;
+  border: 2px solid;
+  min-height: 0;
+  cursor: grab;
+  box-shadow: 1px 2px 0 rgba(20, 18, 16, 0.2);
+}
+
+.ops-crate__card--drop-before {
+  box-shadow: inset 0 3px 0 #141210;
+}
+
+.ops-crate__card-artist {
+  font-size: 0.62rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  opacity: 0.92;
+}
+
+.ops-crate__card-title {
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+/* Deal report */
+.ops-crate__report {
+  border: 3px solid var(--ink, #141210);
+  background: var(--paper, #f4eeda);
+  padding: 0.65rem 0.75rem 0.85rem;
+}
+
+.ops-crate__report-title {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ops-crate__report-block {
+  margin-bottom: 0.65rem;
+}
+
+.ops-crate__report-block h3 {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ops-crate__report-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.2rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ops-crate__report-clusters {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.ops-crate__report-clusters li {
+  display: grid;
+  grid-template-columns: 6rem 4.5rem 1fr;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  align-items: baseline;
+}
+
+.ops-crate__report-cluster-id {
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+}
+
+.ops-crate__report-cluster-total {
+  font-weight: 900;
+}
+
+.ops-crate__report-cluster-piles {
+  color: var(--dim, #3a362e);
+}
+
+@media (min-width: 1200px) {
+  .ops-crate__piles-grid {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .ops-crate__pile-body {
+    height: 14rem;
+    max-height: 14rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .ops-crate__piles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ops-crate__report-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ops-crate__report-clusters li {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}

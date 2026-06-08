@@ -30,6 +30,10 @@ export default function ShowBuilderPage() {
             <h1 className="ops-topbar__title">Set Builder</h1>
           </div>
           <div className="ops-topbar__meta">
+            <Link className="ops-link" href="/ops/crate-builder">
+              Crate Builder
+            </Link>
+            {" · "}
             <Link className="ops-link" href="/ops">
               Ops console
             </Link>

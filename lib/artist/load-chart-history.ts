@@ -1,17 +1,16 @@
 import { unstable_cache } from "next/cache";
 
-import { coverPathToUrl } from "@/lib/artist/cover-url";
+import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import type { ArtistChartHistory, ChartHistoryEntry } from "@/lib/artist/chart-history-types";
 import { inspectQuery } from "@/lib/inspect/pg";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 
 function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
-  for (const c of candidates) {
-    if (!c?.trim()) continue;
-    const url = coverPathToUrl(c) ?? coverPathToUrl(null, c);
-    if (url) return url;
-  }
-  return null;
+  return resolveAlbumCoverUrlFromRow({
+    cover_path: candidates[0],
+    artwork_path: candidates[1],
+    r2_cover_key: candidates[2],
+  });
 }
 
 type ChartHistoryRow = {

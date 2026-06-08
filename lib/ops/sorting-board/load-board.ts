@@ -61,5 +61,6 @@ export async function loadSortingBoard(year: number): Promise<SortingBoardPayloa
     })),
     songs,
     assignments,
+    bucketOrder: board.bucketOrder,
   };
 }

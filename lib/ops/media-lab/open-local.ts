@@ -1,4 +1,4 @@
-import { access } from "fs/promises";
+import { access, stat } from "fs/promises";
 import { execFile } from "child_process";
 import { join, resolve, sep } from "path";
 import { promisify } from "util";
@@ -63,7 +63,13 @@ export async function openInFinder(targetPath: string): Promise<{ ok: true } | {
   }
 
   try {
-    await execFileAsync("open", [resolved]);
+    const info = await stat(resolved);
+    // Files: reveal + select in Finder (`open -R`). Directories: open in Finder.
+    if (info.isDirectory()) {
+      await execFileAsync("open", [resolved]);
+    } else {
+      await execFileAsync("open", ["-R", resolved]);
+    }
     return { ok: true };
   } catch (e) {
     const message = e instanceof Error ? e.message : "Failed to open in Finder";

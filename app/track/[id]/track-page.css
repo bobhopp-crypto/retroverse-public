@@ -442,6 +442,83 @@ a.track-trajectory-week--portal:active {
   margin-bottom: 2rem;
 }
 
+.track-albums__list {
+  margin: 0;
+  padding: 0.5rem 1rem 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.track-album-module {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  height: 100%;
+  padding: 0.65rem;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.42);
+  border: var(--frame);
+  border-radius: 3px;
+  box-shadow: 3px 4px 0 rgba(45, 62, 70, 0.14);
+  touch-action: manipulation;
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    border-color 0.14s ease;
+}
+
+@media (hover: hover) {
+  .track-album-module:hover {
+    transform: translateY(-1px);
+    box-shadow: 4px 5px 0 rgba(45, 62, 70, 0.18);
+    border-color: rgba(31, 94, 99, 0.42);
+  }
+}
+
+.track-album-module__cover-wrap {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border: 2px solid rgba(45, 62, 70, 0.22);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--paper-tan);
+  box-shadow: 2px 3px 0 rgba(45, 62, 70, 0.12);
+}
+
+.track-album-module__cover,
+.track-album-module__cover-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.track-album-module__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+  padding: 0 0.05rem;
+}
+
+.track-album-module__title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--teal-deep);
+}
+
+.track-album-module__year {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(45, 62, 70, 0.72);
+}
+
 .track-related__list {
   margin: 0;
   padding: 0.5rem 1rem 0;
@@ -498,8 +575,18 @@ a.track-trajectory-week--portal:active {
 
   .track-journey,
   .track-shelf,
-  .track-related {
+  .track-related,
+  .track-albums {
     max-width: 52rem;
     margin-inline: auto;
+  }
+
+  .track-albums__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .track-album-module__title {
+    font-size: 1rem;
   }
 }

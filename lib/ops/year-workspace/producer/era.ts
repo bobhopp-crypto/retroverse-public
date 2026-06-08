@@ -1,4 +1,8 @@
-import type { ProducerEraId, ProducerEraTargets } from "./types";
+import type {
+  ProducerEraId,
+  ProducerEraTargets,
+  ProducerTimelineState,
+} from "./types";
 
 export const PRODUCER_ERA_IDS: ProducerEraId[] = ["1967", "1978", "1992", "mixed"];
 
@@ -26,6 +30,20 @@ export function parseProducerEraId(value: unknown): ProducerEraId {
 export function eraDisplayLabel(eraId: ProducerEraId): string {
   if (eraId === "mixed") return "Mixed";
   return eraId;
+}
+
+/** Client-safe guard when API returns a partial timeline (e.g. older server). */
+export function normalizeProducerTimelineState(
+  state: ProducerTimelineState,
+): ProducerTimelineState {
+  return {
+    ...state,
+    eraTargets: normalizeEraTargets(state.eraTargets),
+    blocks: state.blocks.map((b) => ({
+      ...b,
+      eraId: parseProducerEraId(b.eraId),
+    })),
+  };
 }
 
 export function normalizeEraTargets(raw: unknown): ProducerEraTargets {

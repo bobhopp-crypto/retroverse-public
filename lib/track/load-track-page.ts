@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { coverPathToUrl } from "@/lib/artist/cover-url";
+import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
 import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
@@ -46,12 +46,11 @@ export type TrackPageData = {
 };
 
 function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
-  for (const c of candidates) {
-    if (!c?.trim()) continue;
-    const url = coverPathToUrl(c) ?? coverPathToUrl(null, c);
-    if (url) return url;
-  }
-  return null;
+  return resolveAlbumCoverUrlFromRow({
+    cover_path: candidates[0],
+    artwork_path: candidates[1],
+    r2_cover_key: candidates[2],
+  });
 }
 
 function yearFromDate(value: string | null | undefined): number | null {
@@ -179,7 +178,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
       WHERE lower(regexp_replace(trim(canonical_artist_name), '^the\\s+', '', 'i'))
         = lower(regexp_replace(trim($1), '^the\\s+', '', 'i'))
         AND upper(trim(track_id)) <> upper(trim($2))
-      ORDER BY has_hot100 DESC, peak_hot100_position ASC NULLS LAST, canonical_title ASC
+      ORDER BY first_chart_date ASC NULLS LAST, canonical_title ASC
       LIMIT 4
       `,
       [artistName, rvtr],

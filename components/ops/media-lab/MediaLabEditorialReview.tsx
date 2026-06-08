@@ -8,6 +8,11 @@ import type { EditorialChapterRow } from "@/lib/ops/media-lab/editorial/editoria
 import type { MergeSuggestion } from "@/lib/ops/media-lab/editorial/merge-suggestions";
 import type { ClipOcrInput } from "@/lib/ops/media-lab/editorial/transcript-suggestions";
 import {
+  displayNameFromTitle,
+  normalizeNameKey,
+  regenerateClipName,
+} from "@/lib/ops/media-lab/editorial/name-regeneration";
+import {
   formatTypedTitle,
   parseTypedTitle,
   suggestClipTag,
@@ -38,6 +43,7 @@ import { ClipTranscriptStrip, TranscriptModeControls, type TranscriptStripMode }
 import { EditorialChapterTags } from "./EditorialChapterTags";
 import { curatorCategoryForKey } from "./curator-categories";
 import { FocusReviewDeck } from "./FocusReviewDeck";
+import { HarvestExportConflictModal } from "./HarvestExportConflictModal";
 import { MediaLabMobileReview } from "./MediaLabMobileReview";
 import { useEditorialChapterOcr } from "./useEditorialChapterOcr";
 import { useMediaLabMobileReview } from "./useMediaLabMobileReview";
@@ -81,6 +87,14 @@ type MediaLabEditorialReviewProps = {
     chaptersPreview?: { start: string; end: string; title: string; clock?: string }[];
     job?: { chapterCount: number; segmentLabelCount?: number };
   }) => void;
+};
+
+type HarvestDuplicateAction = "skip" | "replace" | "replace_all";
+
+type HarvestExportConflict = {
+  exportedPath: string;
+  title: string;
+  type: string;
 };
 
 function formatDur(sec: number): string {
@@ -130,6 +144,12 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   const [mergeTitle, setMergeTitle] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
   const [dirty, setDirty] = useState(false);
+  const [titleAcceptedById, setTitleAcceptedById] = useState<Record<string, boolean>>({});
+  const [nameHistoryById, setNameHistoryById] = useState<Record<string, string[]>>({});
+  const [nameRegenCountById, setNameRegenCountById] = useState<Record<string, number>>({});
+  const [harvestConflicts, setHarvestConflicts] = useState<HarvestExportConflict[] | null>(null);
+  const [harvestRefreshKey, setHarvestRefreshKey] = useState(0);
+  const [queueCloseSignal, setQueueCloseSignal] = useState(0);
   const [reviewMetrics, setReviewMetrics] = useState<
     EditorialBundleResponse["reviewMetrics"] | null
   >(null);
@@ -171,7 +191,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       .slice(0, 1200);
   }, [segments]);
 
-  const load = useCallback(async () => {
+  const load = useCallback(async (resumePreviewId?: string | null) => {
     setBusy("load");
     try {
       const res = await fetch(
@@ -197,12 +217,19 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       setAssetRoutes(data.assetRoutes ?? []);
       setDirty(false);
       setSelected(new Set());
+      setTitleAcceptedById({});
       chapterUndoRef.current = [];
+      const keepPreviewId = resumePreviewId ?? null;
       const first = data.chapters?.[0];
       if (first) {
-        setPreviewId(first.id);
+        const nextPreviewId =
+          keepPreviewId && data.chapters?.some((c) => c.id === keepPreviewId)
+            ? keepPreviewId
+            : first.id;
+        setPreviewId(nextPreviewId);
         setSplitId(null);
       }
+      videoRef.current?.pause();
     } catch (e) {
       props.onError?.(e instanceof Error ? e.message : "Load failed");
     } finally {
@@ -254,6 +281,13 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   }, [mobileReview]);
 
   const previewChapter = chapters.find((c) => c.id === previewId) ?? null;
+  const previewNameHistory = useMemo(() => {
+    if (!previewChapter) return [];
+    const currentKey = normalizeNameKey(displayNameFromTitle(previewChapter.title));
+    return (nameHistoryById[previewChapter.id] ?? []).filter(
+      (name) => normalizeNameKey(name) !== currentKey,
+    );
+  }, [nameHistoryById, previewChapter]);
   const splitChapter = chapters.find((c) => c.id === splitId) ?? null;
   const reviewMode = previewId != null && splitId == null;
   const previewIndex =
@@ -438,7 +472,8 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
           job: data.job,
         });
       }
-      await load();
+      videoRef.current?.pause();
+      await load(previewId);
     } catch (e) {
       props.onError?.(e instanceof Error ? e.message : "Save failed");
     } finally {
@@ -507,6 +542,12 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   }
 
   function updateTitle(id: string, title: string) {
+    setTitleAcceptedById((prev) => {
+      if (!prev[id]) return prev;
+      const next = { ...prev };
+      delete next[id];
+      return next;
+    });
     setChapters((rows) =>
       rows.map((c) => (c.id === id ? { ...c, title } : c)),
     );
@@ -583,12 +624,11 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   }, []);
 
   function applySuggestedTitle(id: string) {
-    const ch = chapters.find((c) => c.id === id);
-    if (!ch?.tagSuggestion) return;
-    updateTitle(id, ch.tagSuggestion.title);
+    setTitleAcceptedById((prev) => ({ ...prev, [id]: true }));
   }
 
   function applyContentType(id: string, type: ContentType) {
+    if (titleAcceptedById[id]) return;
     const ch = chapters.find((c) => c.id === id);
     if (!ch) return;
     const parsed = parseTypedTitle(ch.title);
@@ -876,7 +916,11 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${s.toFixed(3).padStart(6, "0")}`;
   }
 
-  const seekToChapter = useCallback((ch: EditorialChapterRow, autoplay = true) => {
+  const pauseVideo = useCallback(() => {
+    videoRef.current?.pause();
+  }, []);
+
+  const seekToChapter = useCallback((ch: EditorialChapterRow, autoplay = false) => {
     requestAnimationFrame(() => {
       const v = videoRef.current;
       if (!v) return;
@@ -886,7 +930,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     });
   }, []);
 
-  const seekToSec = useCallback((sec: number, autoplay = true) => {
+  const seekToSec = useCallback((sec: number, autoplay = false) => {
     requestAnimationFrame(() => {
       const v = videoRef.current;
       if (!v) return;
@@ -924,10 +968,11 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
   }, []);
 
   const openPreview = useCallback(
-    (ch: EditorialChapterRow) => {
+    (ch: EditorialChapterRow, opts?: { autoplay?: boolean }) => {
+      pauseVideo();
       setPreviewId(ch.id);
       setSplitId(null);
-      seekToChapter(ch);
+      seekToChapter(ch, opts?.autoplay ?? false);
       if (!props.workstationMode) {
         requestAnimationFrame(() => {
           workspaceRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -935,7 +980,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
         });
       }
     },
-    [props.workstationMode, seekToChapter],
+    [pauseVideo, props.workstationMode, seekToChapter],
   );
 
   const closeReview = useCallback(() => {
@@ -971,15 +1016,80 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
 
   const regenerateTitle = useCallback(() => {
     if (!previewChapter || segments.length === 0) return;
+    const id = previewChapter.id;
     const inSec = draftSelection.inSeconds ?? previewChapter.startSec;
     const outSec = draftSelection.outSeconds ?? previewChapter.endSec;
-    const tag = suggestClipTag(
-      { startSec: inSec, endSec: outSec, title: previewChapter.title },
+    const currentName = displayNameFromTitle(previewChapter.title);
+    const history = nameHistoryById[id] ?? [];
+    const usedNames = new Set<string>([
+      ...history.map(normalizeNameKey),
+      normalizeNameKey(currentName),
+    ]);
+
+    const result = regenerateClipName({
+      startSec: inSec,
+      endSec: outSec,
+      title: previewChapter.title,
       segments,
+      ocr: chapterOcr[id] ?? null,
+      usedNames,
+      regenPass: nameRegenCountById[id] ?? 0,
+    });
+
+    if (!result) {
+      props.onError?.("No name suggestions available for this clip.");
+      return;
+    }
+
+    if (currentName.trim()) {
+      setNameHistoryById((prev) => {
+        const prior = prev[id] ?? [];
+        const nextHistory = [
+          currentName,
+          ...prior.filter((n) => normalizeNameKey(n) !== normalizeNameKey(currentName)),
+        ];
+        return { ...prev, [id]: nextHistory };
+      });
+    }
+
+    setNameRegenCountById((prev) => ({ ...prev, [id]: (prev[id] ?? 0) + 1 }));
+    updateTitle(id, result.name);
+    setChapters((rows) =>
+      rows.map((c) => (c.id === id ? { ...c, tagSuggestion: result.suggestion } : c)),
     );
-    const parsed = parseTypedTitle(tag.title);
-    updateTitle(previewChapter.id, parsed.subject || tag.title);
-  }, [draftSelection, previewChapter, segments]);
+    if (result.exhausted) {
+      props.onNotice?.("All unique name candidates used — reusing a prior suggestion.");
+    }
+  }, [
+    chapterOcr,
+    draftSelection,
+    nameHistoryById,
+    nameRegenCountById,
+    previewChapter,
+    props,
+    segments,
+  ]);
+
+  const restorePreviousName = useCallback(
+    (name: string) => {
+      if (!previewChapter) return;
+      const id = previewChapter.id;
+      const currentName = displayNameFromTitle(previewChapter.title);
+      if (currentName.trim() && normalizeNameKey(currentName) !== normalizeNameKey(name)) {
+        setNameHistoryById((prev) => {
+          const prior = prev[id] ?? [];
+          const withoutTarget = prior.filter((n) => normalizeNameKey(n) !== normalizeNameKey(name));
+          const nextHistory = [
+            currentName,
+            ...withoutTarget.filter((n) => normalizeNameKey(n) !== normalizeNameKey(currentName)),
+          ];
+          return { ...prev, [id]: nextHistory };
+        });
+      }
+      updateTitle(id, name);
+    },
+    [previewChapter],
+  );
 
   const removeFromQueue = useCallback((id: string) => {
     setChapters((rows) =>
@@ -1036,44 +1146,91 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
     [draftSelection, nextClip, previewChapter],
   );
 
-  const exportQueue = useCallback(async () => {
-    const kept = chapters.filter((ch) => ch.reviewStatus === "Keep");
-    if (kept.length === 0) {
-      props.onError?.("No clips in queue to export.");
-      return;
-    }
-    setBusy("export-queue");
-    try {
-      const res = await fetch("/api/ops/media-lab/editorial/export-queue", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          source: humanizeJobSlug(props.jobSlug),
+  const runHarvestExport = useCallback(
+    async (duplicateAction?: HarvestDuplicateAction) => {
+      const kept = chapters.filter((ch) => ch.reviewStatus === "Keep");
+      if (kept.length === 0) {
+        props.onError?.("No clips in queue to export.");
+        return;
+      }
+      setBusy("export-queue");
+      try {
+        const payload = {
+          year: props.year,
+          jobSlug: props.jobSlug,
+          sourceProgram: humanizeJobSlug(props.jobSlug),
           items: kept.map((ch) => ({
+            chapterId: ch.id,
             title: ch.title,
             category: ch.category,
             inSeconds: ch.inSeconds ?? ch.startSec,
             outSeconds: ch.outSeconds ?? ch.endSec,
+            artist: ch.tagSuggestion?.subject?.trim() || undefined,
+            displayTitle: ch.title.trim(),
           })),
-        }),
-      });
-      const data = (await res.json()) as {
-        ok?: boolean;
-        error?: string;
-        count?: number;
-      };
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error ?? "Export failed");
+        };
+
+        let action = duplicateAction;
+        if (!action) {
+          const checkRes = await fetch("/api/ops/media-lab/editorial/export-queue", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ ...payload, checkOnly: true }),
+          });
+          const checkData = (await checkRes.json()) as {
+            ok?: boolean;
+            error?: string;
+            conflictCount?: number;
+            conflicts?: HarvestExportConflict[];
+          };
+          if (!checkRes.ok || !checkData.ok) {
+            throw new Error(checkData.error ?? "Export check failed");
+          }
+          if ((checkData.conflictCount ?? 0) > 0) {
+            setHarvestConflicts(checkData.conflicts ?? []);
+            return;
+          }
+          action = "skip";
+        }
+
+        const res = await fetch("/api/ops/media-lab/editorial/export-queue", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ ...payload, duplicateAction: action }),
+        });
+        const data = (await res.json()) as {
+          ok?: boolean;
+          error?: string;
+          exportedCount?: number;
+          skippedCount?: number;
+          failedCount?: number;
+          libraryRoot?: string;
+          message?: string;
+        };
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error ?? "Export failed");
+        }
+        setHarvestConflicts(null);
+        setHarvestRefreshKey((n) => n + 1);
+        setQueueCloseSignal((n) => n + 1);
+        videoRef.current?.pause();
+        const skippedNote =
+          (data.skippedCount ?? 0) > 0 ? `\nSkipped ${data.skippedCount} existing.` : "";
+        const failedNote =
+          (data.failedCount ?? 0) > 0 ? `\nFailed ${data.failedCount}.` : "";
+        props.onNotice?.(
+          `${data.message ?? `Harvested ${data.exportedCount ?? 0} clips`}\n\n${data.libraryRoot ?? "~/MEDIA_LAB_LIBRARY/"}${skippedNote}${failedNote}`,
+        );
+      } catch (e) {
+        props.onError?.(e instanceof Error ? e.message : "Export failed");
+      } finally {
+        setBusy(null);
       }
-      props.onNotice?.(
-        `Exported ${data.count ?? kept.length} clips\n\nDesktop/MediaLabExports/\n\nqueue-export.json\nqueue-export.csv`,
-      );
-    } catch (e) {
-      props.onError?.(e instanceof Error ? e.message : "Export failed");
-    } finally {
-      setBusy(null);
-    }
-  }, [chapters, props.jobSlug, props.onError, props.onNotice]);
+    },
+    [chapters, props.jobSlug, props.onError, props.onNotice, props.year],
+  );
+
+  const exportQueue = useCallback(() => void runHarvestExport(), [runHarvestExport]);
 
   useEffect(() => {
     if (!previewChapter) {
@@ -1119,7 +1276,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
           nextClip();
           return;
         }
-        if (key === "a" && previewChapter?.tagSuggestion) {
+        if (key === "a" && previewChapter) {
           e.preventDefault();
           applySuggestedTitle(previewChapter.id);
           return;
@@ -1156,7 +1313,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
       } else if (key === "l") {
         e.preventDefault();
         nextClip();
-      } else if (key === "a" && previewChapter?.tagSuggestion) {
+      } else if (key === "a" && previewChapter) {
         e.preventDefault();
         applySuggestedTitle(previewChapter.id);
       } else if (key === "y" && previewChapter) {
@@ -1487,6 +1644,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             onTimeUpdate={handleVideoTimeUpdate}
             clip={previewChapter}
             playheadSec={playheadSec}
+            showDurationSec={showDurationSec}
             selection={draftSelection}
             onSelectionChange={updateDraftSelection}
             onSeek={(sec) => seekToSec(sec, false)}
@@ -1495,12 +1653,17 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             onTrimDragEnd={handleTrimDragEnd}
             onTitleChange={(title) => updateTitle(previewChapter.id, title)}
             onRegenerateTitle={() => regenerateTitle()}
+            nameHistory={previewNameHistory}
+            onRestorePreviousName={(name) => restorePreviousName(name)}
+            nameRegenCount={nameRegenCountById[previewChapter.id] ?? 0}
             previewIndex={previewIndex}
             totalClips={chapters.length}
             kept={reviewCounts.Keep}
             isFavorite={previewChapter.favorite === true}
             onFavoriteClip={() => favoriteClipAndNext()}
             onAcceptSuggestion={() => applySuggestedTitle(previewChapter.id)}
+            titleAccepted={titleAcceptedById[previewChapter.id] === true}
+            titleAcceptedIds={titleAcceptedById}
             onCategorize={(category) => categorizeAndAdvance(category)}
             onPrevious={() => prevClip()}
             onNext={() => nextClip()}
@@ -1509,7 +1672,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             chapters={chapters}
             chapterThumbs={chapterThumbs}
             thumbsLoading={thumbsLoading}
-            onSelectClip={(ch) => openPreview(ch)}
+            onSelectClip={(ch) => openPreview(ch, { autoplay: false })}
             onRemoveFromQueue={(id) => removeFromQueue(id)}
             showAdvanced={showAdvanced}
             onToggleAdvanced={() => setShowAdvanced((v) => !v)}
@@ -1521,6 +1684,9 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
             timelineFlashIds={timelineFlashIds}
             onExportQueue={() => void exportQueue()}
             exportQueueBusy={busy === "export-queue"}
+            harvestRefreshKey={harvestRefreshKey}
+            queueCloseSignal={queueCloseSignal}
+            segments={segments}
             advancedPanel={
               <div className="ops-ml-deck-advanced">
                 <TranscriptModeControls
@@ -1615,6 +1781,16 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
               </div>
             }
           />
+          {harvestConflicts && harvestConflicts.length > 0 ? (
+            <HarvestExportConflictModal
+              conflicts={harvestConflicts}
+              busy={busy === "export-queue"}
+              onSkip={() => void runHarvestExport("skip")}
+              onReplace={() => void runHarvestExport("replace")}
+              onReplaceAll={() => void runHarvestExport("replace_all")}
+              onCancel={() => setHarvestConflicts(null)}
+            />
+          ) : null}
         </div>
       ) : !mobileReview ? (
         <div className="ops-ml-editor-layout">
@@ -1747,7 +1923,7 @@ export function MediaLabEditorialReview(props: MediaLabEditorialReviewProps) {
                       startSec={previewChapter.startSec}
                       endSec={previewChapter.endSec}
                       playheadSec={playheadSec}
-                      onSeek={(sec) => seekToSec(sec)}
+                      onSeek={(sec) => seekToSec(sec, false)}
                     />
                     <ClipTimeline
                       videoDurationSec={videoDurationSec}

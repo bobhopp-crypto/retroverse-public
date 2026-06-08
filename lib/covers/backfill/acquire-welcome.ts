@@ -7,6 +7,19 @@ import type { BackfillQueueRow } from "@/lib/covers/backfill/types";
 
 const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i;
 
+function ts(): string {
+  return new Date().toISOString();
+}
+
+function logAcquireStage(
+  rval: string,
+  stage: "START" | "SEARCH" | "DOWNLOAD" | "WRITE" | "PROMOTE" | "COMPLETE",
+  detail = "",
+): void {
+  const suffix = detail ? ` ${detail}` : "";
+  process.stderr.write(`[cover-backfill][${ts()}][${rval}] ${stage}${suffix}\n`);
+}
+
 export type DirectAcquireResult =
   | "FOUND"
   | "DOWNLOADED"
@@ -52,20 +65,19 @@ export async function acquireCoverViaWelcome(row: BackfillQueueRow): Promise<{
   deployAbs?: string | null;
   searchTerm?: string | null;
 }> {
-  const { execFile } = await import("node:child_process");
-  const { promisify } = await import("node:util");
-  const execFileAsync = promisify(execFile);
+  const { spawn } = await import("node:child_process");
   const { welcomeRoot } = await import("@/lib/covers/backfill/paths");
 
   const welcome = welcomeRoot();
   const welcomeEnv = await loadWelcomeDotEnv(welcome);
   let stdout = "";
+  const acquireTimeoutMs = Number(process.env.COVER_BACKFILL_ACQUIRE_TIMEOUT_MS ?? "180000");
+
+  logAcquireStage(row.rval, "SEARCH", `launching run_itunes_artwork_fill.ts timeout_ms=${acquireTimeoutMs}`);
 
   try {
-    const result = await execFileAsync(
-      "npx",
-      ["tsx", "scripts/run_itunes_artwork_fill.ts"],
-      {
+    stdout = await new Promise<string>((resolve, reject) => {
+      const proc = spawn("npx", ["tsx", "scripts/run_itunes_artwork_fill.ts"], {
         cwd: welcome,
         env: {
           ...welcomeEnv,
@@ -76,15 +88,75 @@ export async function acquireCoverViaWelcome(row: BackfillQueueRow): Promise<{
           ITUNES_FILL_RELEASE_YEAR: row.releaseYear != null ? String(row.releaseYear) : "",
           ITUNES_FILL_SCOPE: process.env.ITUNES_FILL_SCOPE ?? "all",
           ITUNES_FILL_REQUEST_DELAY_MS: process.env.ITUNES_FILL_REQUEST_DELAY_MS ?? "60",
+          ITUNES_FILL_SEARCH_TIMEOUT_MS: process.env.ITUNES_FILL_SEARCH_TIMEOUT_MS ?? "15000",
+          ITUNES_FILL_DOWNLOAD_TIMEOUT_MS: process.env.ITUNES_FILL_DOWNLOAD_TIMEOUT_MS ?? "20000",
+          ITUNES_FILL_OVERALL_TIMEOUT_MS:
+            process.env.ITUNES_FILL_OVERALL_TIMEOUT_MS ?? String(acquireTimeoutMs),
         },
-        timeout: Number(process.env.COVER_BACKFILL_ACQUIRE_TIMEOUT_MS ?? "180000"),
-        maxBuffer: 10 * 1024 * 1024,
-      },
-    );
-    stdout = result.stdout ?? "";
+        stdio: ["ignore", "pipe", "pipe"],
+        detached: true,
+      });
+
+      let out = "";
+      let err = "";
+      let settled = false;
+      const tryFinalizeFromOutput = () => {
+        if (settled) return;
+        if (!/itunes_fill_direct_result=(FOUND|DOWNLOADED|NOT_FOUND)/.test(out + "\n" + err)) return;
+        settled = true;
+        clearTimeout(timer);
+        try {
+          process.kill(-proc.pid!, "SIGKILL");
+        } catch {
+          // best-effort
+        }
+        resolve([out, err].filter(Boolean).join("\n"));
+      };
+      const timer = setTimeout(() => {
+        if (settled) return;
+        settled = true;
+        try {
+          process.kill(-proc.pid!, "SIGKILL");
+        } catch {
+          // best-effort group kill
+        }
+        reject(new Error(`acquire_timeout:${acquireTimeoutMs}ms`));
+      }, acquireTimeoutMs);
+
+      proc.stdout.on("data", (c: Buffer) => {
+        const s = c.toString();
+        out += s;
+        if (s.includes("[itunes-fill]")) {
+          process.stderr.write(s);
+        }
+        tryFinalizeFromOutput();
+      });
+      proc.stderr.on("data", (c: Buffer) => {
+        const s = c.toString();
+        err += s;
+        if (s.includes("[itunes-fill]")) {
+          process.stderr.write(s);
+        }
+        tryFinalizeFromOutput();
+      });
+      proc.on("error", (e) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        reject(e);
+      });
+      proc.on("close", (code) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        const merged = [out, err].filter(Boolean).join("\n");
+        if (code === 0) resolve(merged);
+        else reject(new Error(merged || `itunes_fill_exit_${code ?? "null"}`));
+      });
+    });
   } catch (e) {
-    const err = e as { message?: string; stdout?: string; stderr?: string };
-    stdout = [err.stdout, err.stderr].filter(Boolean).join("\n");
+    const err = e as { message?: string };
+    stdout = [stdout, err.message].filter(Boolean).join("\n");
     const msg = e instanceof Error ? e.message : String(e);
     if (msg.includes("Supabase") || msg.includes("ENOENT")) {
       return { ok: false, reason: msg.slice(0, 240) };

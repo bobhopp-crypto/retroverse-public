@@ -52,6 +52,16 @@ Respect:
 
 Never discard canonical IDs once resolved.
 
+# Retroverse Tags (canonical metadata)
+
+Retroverse Tags belong to the **RVTR track identity**, not VirtualDJ.
+
+- Source of truth: `ops/retroverse-tags-by-rvtr.json` (keyed by RVTR)
+- VirtualDJ User2 is an **import hint / downstream consumer** only
+- Future VDJ write-back copies tags **from Retroverse → VDJ**, never the reverse
+- Tags stay on the RVTR regardless of media file, filename, or VDJ state
+- Performance Class (Fill/Cocktail/Dance/Slow) may sync to VDJ separately; it is not the same field as Retroverse Tags
+
 # Ranking Rules
 
 Prefer:

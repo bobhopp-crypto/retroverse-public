@@ -4,7 +4,7 @@
  */
 import { buildEraBalanceRows, computeEraRuntimeSeconds } from "../../lib/ops/year-workspace/producer/era-balance";
 import { buildPlanningZones, planningRulerTicks } from "../../lib/ops/year-workspace/producer/planning-grid";
-import { migrateV1ToV2 } from "../../lib/ops/year-workspace/producer/migrate";
+import { legacyBlockId, migrateV1ToV2 } from "../../lib/ops/year-workspace/producer/migrate";
 import { normalizeEraTargets } from "../../lib/ops/year-workspace/producer/era";
 import {
   computeShowRuntimeSeconds,
@@ -45,6 +45,14 @@ if (migrated.blocks.length !== 7) throw new Error(`expected 7 blocks, got ${migr
 
 const music = migrated.blocks.find((b) => b.legacyKey === "music_block");
 if (!music || music.assets.length !== 1) throw new Error("music_block assets missing");
+if (music.id !== legacyBlockId("music_block")) {
+  throw new Error(`expected stable block id ${legacyBlockId("music_block")}, got ${music.id}`);
+}
+const again = migrateV1ToV2(v1, 1967);
+const music2 = again.blocks.find((b) => b.legacyKey === "music_block");
+if (music2?.id !== music.id) {
+  throw new Error("migration must produce stable block ids across runs");
+}
 const asset = music.assets[0];
 if (effectiveRuntimeSeconds(asset) !== 180) {
   throw new Error(`override runtime expected 180, got ${effectiveRuntimeSeconds(asset)}`);

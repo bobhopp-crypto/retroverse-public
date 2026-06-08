@@ -94,7 +94,7 @@ export function ReviewQueuePanel(props: ReviewQueuePanelProps) {
           disabled={props.items.length === 0 || props.exportBusy}
           onClick={() => props.onExportQueue?.()}
         >
-          {props.exportBusy ? "Exporting…" : "EXPORT QUEUE"}
+          {props.exportBusy ? "Exporting…" : "EXPORT TO HARVEST"}
         </button>
       ) : null}
     </section>

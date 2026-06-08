@@ -61,7 +61,7 @@ export default async function SortingBoardPage({ params }: Props) {
         ) : (
           <>
             <p className="ops-banner">
-              Drag songs into piles. Rename buckets to capture candidate Retroverse tags.
+              Drag songs between piles and Unsorted. Name each pile inline — saves automatically.
             </p>
             <SortingBoard year={year} />
           </>

@@ -30,12 +30,12 @@ export default function OpsPassesPage() {
             <h1 className="ops-topbar__title">Pass Generator</h1>
           </div>
           <div className="ops-topbar__meta">
-            <Link className="ops-link" href="/ops/sunday-nights">
-              Sunday Nights
+            <Link className="ops-link" href="/ops">
+              ← Ops
             </Link>
             {" · "}
-            <Link className="ops-link" href="/ops">
-              Ops console
+            <Link className="ops-link" href="/ops/sunday-nights">
+              Sunday Nights
             </Link>
           </div>
         </header>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
@@ -17,13 +18,33 @@ export function TrackAlbumsSection({ data }: SectionProps) {
       <div className="track-section-head">
         <h2 id="track-on-albums">Appears on</h2>
       </div>
-      <ul className="track-related__list">
+      <ul className="track-albums__list">
         {data.albums.map((album) => (
           <li key={album.href}>
-            <Link href={album.href} prefetch className="track-related__row">
-              <span className="track-related__title">{album.title}</span>
-              <span className="track-related__meta">
-                {formatSongYear(album.releaseYear)}
+            <Link href={album.href} prefetch className="track-album-module">
+              <span className="track-album-module__cover-wrap">
+                <ArtistCover
+                  src={album.coverUrl}
+                  alt=""
+                  className="track-album-module__cover"
+                  fallbackClassName="track-album-module__cover-fallback"
+                  fallbackVariant="plate"
+                  placeholderContext={{
+                    artist: data.artistName,
+                    album: album.title,
+                    releaseYear: album.releaseYear,
+                    rval: album.rval ?? undefined,
+                  }}
+                  plateDensity="compact"
+                />
+              </span>
+              <span className="track-album-module__text">
+                <span className="track-album-module__title">{album.title}</span>
+                {album.releaseYear != null ? (
+                  <span className="track-album-module__year">
+                    {formatSongYear(album.releaseYear)}
+                  </span>
+                ) : null}
               </span>
             </Link>
           </li>

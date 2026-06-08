@@ -49,7 +49,7 @@ export function MediaLabMobileReview(props: MediaLabMobileReviewProps) {
   const [dragX, setDragX] = useState(0);
   const [swipeHint, setSwipeHint] = useState<"keep" | "reject" | null>(null);
 
-  const seekToChapter = useCallback((ch: EditorialChapterRow, autoplay = true) => {
+  const seekToChapter = useCallback((ch: EditorialChapterRow, autoplay = false) => {
     requestAnimationFrame(() => {
       const v = videoRef.current;
       if (!v) return;

@@ -4,6 +4,7 @@ import { join } from "path";
 
 export type VdjTrackMeta = {
   user2: string;
+  /** Manually adjusted rotation signal from VDJ Infos PlayCount — not a factual play total. */
   playCount: number | null;
 };
 
@@ -18,7 +19,7 @@ function normPath(p: string): string {
 
 const VDJ_DB = join(homedir(), "Library/Application Support/VirtualDJ/database.xml");
 
-/** Index User2 + PlayCount for requested paths from VirtualDJ database.xml. */
+/** Index User2 + rotation signal (PlayCount) for requested paths from VirtualDJ database.xml. */
 export async function loadVdjMetaForPaths(
   filePaths: string[],
 ): Promise<Map<string, VdjTrackMeta>> {
