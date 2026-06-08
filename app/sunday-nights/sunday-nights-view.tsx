@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   SUNDAY_NIGHTS_ABOUT,
@@ -14,6 +14,10 @@ import type { TrackPageData } from "@/lib/track/load-track-page";
 import { OpsEntryLink } from "@/components/OpsEntryLink";
 
 import { SundayNightsLive } from "./sunday-nights-live";
+
+const VIP_PASS_SRC = "/sunday-nights/main-pub-vip-pass.png";
+const VIP_PASS_ALT =
+  "The Main Pub presents Sunday Nights VIP Pass for June 7, 2026, featuring artists from 1967, 1978, and 1992.";
 
 type Props = {
   initialTrack: TrackPageData | null;
@@ -34,6 +38,16 @@ export function SundayNightsView({
   const [email, setEmail] = useState("");
   const [registerStatus, setRegisterStatus] = useState<string | null>(null);
   const [registerBusy, setRegisterBusy] = useState(false);
+  const [passLightboxOpen, setPassLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    if (!passLightboxOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setPassLightboxOpen(false);
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [passLightboxOpen]);
 
   async function handleRegister(e: React.FormEvent) {
     e.preventDefault();
@@ -111,72 +125,22 @@ export function SundayNightsView({
           Collector Pass Registration
         </h2>
         <div className="sn-pass__layout">
-          <div className="sn-pass__image-wrap" aria-hidden>
-            <svg
-              className="sn-pass__image"
-              viewBox="0 0 320 480"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Numbered collector pass"
+          <div className="sn-pass__image-wrap">
+            <button
+              type="button"
+              className="sn-pass__image-btn"
+              onClick={() => setPassLightboxOpen(true)}
+              aria-label="View full-size VIP pass artwork"
             >
-              <rect width="320" height="480" fill="#f7edd8" stroke="#2a2a2a" strokeWidth="3" />
-              <rect x="24" y="24" width="272" height="432" fill="none" stroke="#2a2a2a" strokeWidth="1" />
-              <text
-                x="160"
-                y="72"
-                textAnchor="middle"
-                fill="#2a2a2a"
-                fontFamily="Georgia, serif"
-                fontSize="14"
-                letterSpacing="4"
-              >
-                RETROVERSE
-              </text>
-              <text
-                x="160"
-                y="100"
-                textAnchor="middle"
-                fill="#c44a1a"
-                fontFamily="Georgia, serif"
-                fontSize="18"
-                fontWeight="bold"
-                letterSpacing="2"
-              >
-                SUNDAY NIGHTS
-              </text>
-              <text
-                x="160"
-                y="200"
-                textAnchor="middle"
-                fill="#2a2a2a"
-                fontFamily="Georgia, serif"
-                fontSize="12"
-                letterSpacing="1"
-              >
-                COLLECTOR PASS
-              </text>
-              <text
-                x="160"
-                y="280"
-                textAnchor="middle"
-                fill="#2a2a2a"
-                fontFamily="Georgia, serif"
-                fontSize="48"
-                fontWeight="bold"
-              >
-                №
-              </text>
-              <text
-                x="160"
-                y="340"
-                textAnchor="middle"
-                fill="#2a2a2a"
-                fontFamily="Georgia, serif"
-                fontSize="11"
-              >
-                The Main Pub · June 7, 2026
-              </text>
-            </svg>
+              <img
+                src={VIP_PASS_SRC}
+                alt={VIP_PASS_ALT}
+                className="sn-pass__image"
+                width={320}
+                height={480}
+                loading="lazy"
+              />
+            </button>
           </div>
           <div className="sn-pass__form-wrap">
             <p className="sn-pass__intro">
@@ -231,6 +195,31 @@ export function SundayNightsView({
           </div>
         </div>
       </section>
+
+      {passLightboxOpen ? (
+        <div
+          className="sn-pass__lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="VIP pass artwork"
+          onClick={() => setPassLightboxOpen(false)}
+        >
+          <button
+            type="button"
+            className="sn-pass__lightbox-close"
+            onClick={() => setPassLightboxOpen(false)}
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <img
+            src={VIP_PASS_SRC}
+            alt={VIP_PASS_ALT}
+            className="sn-pass__lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      ) : null}
 
       <footer className="sn-about">
         <h2 className="sn-about__heading">About Retroverse</h2>
