@@ -5,7 +5,10 @@ import { promisify } from "util";
 
 import {
   buildExportMetadata,
+  buildExportMetadataFromRecord,
+  exportGroupingForRecord,
   ffmpegMetadataArgs,
+  type MsExportMetadata,
 } from "./export-metadata";
 import {
   ensureEpisodePerformances,
@@ -13,6 +16,7 @@ import {
   listAcceptedPerformances,
   updatePerformanceRecord,
 } from "./performances";
+import { classifyPerformance } from "./classify-segment";
 import { msVdjExportDir } from "./paths";
 import type { MsPerformanceCandidate, MsPerformanceRecord } from "./types";
 
@@ -30,8 +34,10 @@ const FFPROBE_CANDIDATES = [
   "/usr/local/bin/ffprobe",
 ];
 
-function sanitizeFilenamePart(text: string): string {
-  return text
+const MIN_VALID_BYTES = 50_000;
+
+function sanitizeFilenamePart(text: string | undefined): string {
+  return (text ?? "")
     .replace(/[<>:"/\\|?*]/g, "")
     .replace(/\s+/g, " ")
     .trim();
@@ -74,7 +80,7 @@ export async function probeExportMetadata(filePath: string): Promise<ExportProbe
         "-v",
         "quiet",
         "-show_entries",
-        "format_tags=title,artist,album,grouping,date,year,comment",
+        "format_tags=title,artist,album,grouping,date,year",
         "-of",
         "json",
         filePath,
@@ -88,6 +94,37 @@ export async function probeExportMetadata(filePath: string): Promise<ExportProbe
   }
 }
 
+export function metadataMatchesExport(
+  probed: ExportProbeResult,
+  expected: MsExportMetadata,
+): boolean {
+  const album = probed.album?.trim();
+  const grouping = probed.grouping?.trim();
+  const artist = probed.artist?.trim();
+  const title = probed.title?.trim();
+  const year = probed.year?.trim() || probed.date?.trim() || "";
+  if (album !== expected.album) return false;
+  if (grouping !== expected.grouping) return false;
+  if (artist !== expected.artist) return false;
+  if (title !== expected.title) return false;
+  if (expected.year && year !== expected.year) return false;
+  return true;
+}
+
+export async function isValidExistingExport(
+  filePath: string,
+  expected: MsExportMetadata,
+): Promise<boolean> {
+  try {
+    const info = await stat(filePath);
+    if (info.size < MIN_VALID_BYTES) return false;
+    const probed = await probeExportMetadata(filePath);
+    return metadataMatchesExport(probed, expected);
+  } catch {
+    return false;
+  }
+}
+
 export type ExportResult =
   | {
       ok: true;
@@ -95,10 +132,11 @@ export type ExportResult =
       bytes: number;
       duration_sec: number;
       filename: string;
-      metadata: ReturnType<typeof buildExportMetadata>;
+      metadata: MsExportMetadata;
       probed_tags: ExportProbeResult;
+      skipped?: boolean;
     }
-  | { ok: false; error: string };
+  | { ok: false; error: string; skipped?: boolean };
 
 async function resolveUniqueOutPath(
   dir: string,
@@ -118,10 +156,25 @@ async function resolveUniqueOutPath(
   return { path: join(dir, filename), filename };
 }
 
+export function isMassExportable(record: MsPerformanceRecord): boolean {
+  if (record.status !== "accepted" && record.status !== "exported") return false;
+  return classifyPerformance(record) !== "UNKNOWN";
+}
+
+export async function listMassExportTargets(): Promise<MsPerformanceRecord[]> {
+  const rows = await listAcceptedPerformances();
+  return rows.filter(isMassExportable);
+}
+
 export async function exportAcceptedPerformance(
   episodeId: string,
   performanceId: string,
-  opts?: { destinationDir?: string; dryRun?: boolean },
+  opts?: {
+    destinationDir?: string;
+    dryRun?: boolean;
+    force?: boolean;
+    record?: MsPerformanceRecord;
+  },
 ): Promise<ExportResult> {
   const episodeManifest = await ensureEpisodePerformances(episodeId);
   if (!episodeManifest) return { ok: false, error: "candidate_manifest_missing" };
@@ -133,10 +186,16 @@ export async function exportAcceptedPerformance(
     return { ok: false, error: "performance_not_accepted" };
   }
 
-  const record = episodeManifest.performances.find((p) => p.performance_id === performanceId);
-  if (record?.status !== "accepted" && record?.status !== "exported") {
+  const record =
+    opts?.record ??
+    episodeManifest.performances.find((p) => p.performance_id === performanceId);
+  if (!record) return { ok: false, error: "performance_record_missing" };
+  if (record.status !== "accepted" && record.status !== "exported") {
     return { ok: false, error: "performance_not_accepted" };
   }
+
+  const metadata = buildExportMetadataFromRecord(record, manifest.air_year);
+  if (!metadata) return { ok: false, error: "performance_not_exportable" };
 
   const ffmpeg = await findBinary(FFMPEG_CANDIDATES);
   if (!ffmpeg) return { ok: false, error: "ffmpeg_not_found" };
@@ -144,16 +203,30 @@ export async function exportAcceptedPerformance(
   const destDir = opts?.destinationDir ?? msVdjExportDir();
   await mkdir(destDir, { recursive: true });
 
-  const { path: outPath, filename } = await resolveUniqueOutPath(destDir, perf, performanceId);
-  const metadata = buildExportMetadata({
-    perf,
-    episodeId,
-    airYear: manifest.air_year,
-    sourceUrl: episodeManifest.source_url,
-  });
+  const existingPath = record.export_path?.trim();
+  const { path: outPath, filename } = existingPath
+    ? { path: existingPath, filename: existingPath.split("/").pop() ?? exportFilename(perf) }
+    : await resolveUniqueOutPath(destDir, perf, performanceId);
 
   const start = Math.max(0, perf.start_sec);
   const duration = Math.max(1, perf.end_sec - perf.start_sec);
+
+  if (!opts?.force) {
+    const valid = await isValidExistingExport(outPath, metadata);
+    if (valid) {
+      const info = await stat(outPath);
+      return {
+        ok: true,
+        path: outPath,
+        bytes: info.size,
+        duration_sec: duration,
+        filename,
+        metadata,
+        probed_tags: await probeExportMetadata(outPath),
+        skipped: true,
+      };
+    }
+  }
 
   if (opts?.dryRun) {
     return {
@@ -216,7 +289,7 @@ export async function exportAcceptedPerformance(
 export async function pickPilotExportTargets(
   limit: number,
 ): Promise<Array<{ episodeId: string; record: MsPerformanceRecord }>> {
-  const accepted = await listAcceptedPerformances();
+  const accepted = await listMassExportTargets();
   const byEpisode = new Map<string, MsPerformanceRecord[]>();
   for (const row of accepted) {
     if (row.status === "exported") continue;
@@ -240,3 +313,5 @@ export async function pickPilotExportTargets(
   }
   return picked.slice(0, limit);
 }
+
+export { exportGroupingForRecord };

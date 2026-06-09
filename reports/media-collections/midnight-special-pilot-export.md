@@ -1,14 +1,14 @@
 # Midnight Special Pilot Export
 
-**Generated:** 2026-06-09T01:54:21.763Z
+**Generated:** 2026-06-09T02:17:34.912Z
 
 ## Pilot run
 
 | Metric | Value |
 |--------|------:|
-| Clips requested | 25 |
+| Clips requested | 25 (re-export) |
 | Clips exported | 25 |
-| Export duration | 63.7s |
+| Export duration | 63.1s |
 | Pilot disk usage | 259.2 MB |
 | Destination | `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special` |
 
@@ -51,9 +51,10 @@ Filenames are **`Artist - Song.mp4`** — no `(Midnight Special YYYY)` suffix.
 | artist | performer | Tags **Author** |
 | title | song | Tags **Title** |
 | album | Midnight Special | Tags **Album** |
-| grouping | Midnight Special | Tags **Grouping** (VDJ already uses this on existing MS tracks) |
+| grouping | classification bucket | Tags **Grouping** (Performance, Comedy, Interview, Intro, Movie Clip, Commercial) |
 | year / date | air year | Tags **Year** |
-| comment | collection, episode_id, air_year, source_url | Tags **Comment** |
+
+Comment and provenance IDs are not written. Episode/source data stays in Retroverse manifests only.
 
 ### Al Green - Sweet Little Sixteen.mp4
 
@@ -63,17 +64,15 @@ Filenames are **`Artist - Song.mp4`** — no `(Midnight Special YYYY)` suffix.
     "artist": "Al Green",
     "title": "Sweet Little Sixteen",
     "album": "Midnight Special",
-    "grouping": "Midnight Special",
-    "year": "1974",
-    "comment": "collection=Midnight Special; episode_id=--wR-ZACg8Q; air_year=1974; source_url=https://www.youtube.com/watch?v=--wR-ZACg8Q"
+    "grouping": "Performance",
+    "year": "1974"
   },
   "probed": {
     "title": "Sweet Little Sixteen",
     "artist": "Al Green",
     "album": "Midnight Special",
     "date": "1974",
-    "comment": "collection=Midnight Special; episode_id=--wR-ZACg8Q; air_year=1974; source_url=https://www.youtube.com/watch?v=--wR-ZACg8Q",
-    "grouping": "Midnight Special"
+    "grouping": "Performance"
   }
 }
 ```
@@ -86,17 +85,15 @@ Filenames are **`Artist - Song.mp4`** — no `(Midnight Special YYYY)` suffix.
     "artist": "Fats Domino",
     "title": "I'm In Love Again",
     "album": "Midnight Special",
-    "grouping": "Midnight Special",
-    "year": "1974",
-    "comment": "collection=Midnight Special; episode_id=-A5IPX5voEA; air_year=1974; source_url=https://www.youtube.com/watch?v=-A5IPX5voEA"
+    "grouping": "Performance",
+    "year": "1974"
   },
   "probed": {
     "title": "I'm In Love Again",
     "artist": "Fats Domino",
     "album": "Midnight Special",
     "date": "1974",
-    "comment": "collection=Midnight Special; episode_id=-A5IPX5voEA; air_year=1974; source_url=https://www.youtube.com/watch?v=-A5IPX5voEA",
-    "grouping": "Midnight Special"
+    "grouping": "Performance"
   }
 }
 ```
@@ -109,25 +106,47 @@ Filenames are **`Artist - Song.mp4`** — no `(Midnight Special YYYY)` suffix.
     "artist": "Olivia Newton-John",
     "title": "If You Love Me (Let Me Know)",
     "album": "Midnight Special",
-    "grouping": "Midnight Special",
-    "year": "",
-    "comment": "collection=Midnight Special; episode_id=-DCUWOSWx_M; source_url=https://www.youtube.com/watch?v=-DCUWOSWx_M"
+    "grouping": "Performance",
+    "year": ""
   },
   "probed": {
     "title": "If You Love Me (Let Me Know)",
     "artist": "Olivia Newton-John",
     "album": "Midnight Special",
-    "comment": "collection=Midnight Special; episode_id=-DCUWOSWx_M; source_url=https://www.youtube.com/watch?v=-DCUWOSWx_M",
-    "grouping": "Midnight Special"
+    "grouping": "Performance"
   }
 }
 ```
 
 ## VirtualDJ scan behavior
 
-VDJ database.xml has no entries for pilot paths yet — run VDJ scan on `DJ MEDIA/VIDEO/TV Performances/Midnight Special` after export.
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Al Green - Sweet Little Sixteen.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Fats Domino - I'm In Love Again.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Olivia Newton-John - If You Love Me (Let Me Know).mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Smokey Robinson - Want to Know My Mind.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Staple SingersHelen Reddy - Opening.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/The Righteous Brothers - Hello Rock 'n' Roll.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Steppenwolf - Born To Be Wild.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Electric Light Orchestra - In The Hall Of The Mountain King.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Johnny Nash - Stir It Up.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Randy Newman - Mama Told Me Not To Come.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/The Spinners - One of a Kind Love Affair.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/George Carlin - Comedy Segment.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Anne Murray - You Won't See Me.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Flip Wilson - Opening.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Wolfman Jack - Opening.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Roger Miller & Helen Reddy - In The Summertime.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Gabe KaplanHelen Reddy - Opening.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Wolfman Jack - Opening [ch000].mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Bob Newhart - Opening.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Joan Baez - The Night They Drove Old Dixie Down.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Marshall Tucker Band - This Ol' Cowboy.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Dr. Hook & the Medicine Show - The Cover of 'Rolling Stone & Sylvia's Mother.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Black Oak Arkansas & Ruby Starr - Jim Dandy.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Helen Reddy - Angie Baby.mp4` — indexed (User2="—", PlayCount=—)
+- `/Users/bobhopp/DJ MEDIA/VIDEO/TV Performances/Midnight Special/Gilbert O'Sullivan - Ooh Baby.mp4` — indexed (User2="—", PlayCount=—)
 
-**Recommendation:** After pilot, scan `DJ MEDIA/VIDEO/TV Performances/Midnight Special` in VirtualDJ. Clips should appear with clean Title/Remix (no collection suffix). Filter by **Grouping = Midnight Special** or **Album = Midnight Special**.
+**Recommendation:** After export, scan `DJ MEDIA/VIDEO/TV Performances/Midnight Special` in VirtualDJ. Filter by **Album = Midnight Special** or **Grouping = Performance**. If tags look stale, quit VDJ and rescan (cached database.xml values persist until rescan).
 
 ## Mass export readiness
 
@@ -137,25 +156,16 @@ VDJ database.xml has no entries for pilot paths yet — run VDJ scan on `DJ MEDI
 | Ready to export | 2016 |
 | Est. total disk | 35.44 GB |
 | Avg clip duration (pilot) | 196s |
-| Est. mass export duration | ~86 min (109.8h source footage) |
+| Est. mass export duration | ~85 min (109.8h source footage) |
 | Est. file count | 2016 MP4s in flat folder |
 
 ### Readiness assessment
 
 1. **Pipeline ready?** **Yes** — pilot export, metadata write, and playback check passed.
-2. **Metadata concerns?** Collection context lives in Grouping/Album/Comment — Title and Remix stay clean. Episode ID and source URL are in Comment only.
+2. **Metadata concerns?** Artist, Title, Album, Grouping (classification), Year only. No Comment or provenance IDs in file tags.
 3. **Filename concerns?** Duplicate artist/song pairs get `[chNNN]` disambiguator suffix. No year/collection in filename.
-4. **VirtualDJ concerns?** Grouping field is established in your library. User2 (RV Tags) unchanged — tag separately via rvtags review if needed.
+4. **VirtualDJ concerns?** Filter by Album or folder path. User2 (RV Tags) unchanged — tag separately via rvtags review if needed.
 5. **Recommendation:** **Proceed with limitations** — complete remaining music review (426 items) before mass export; pilot validates clip + metadata path.
-
-## Review workstation (fixed layout)
-
-Screenshots after Phase 1 workstation freeze:
-
-- `reports/media-collections/ms-review-workstation-desktop.png`
-- `reports/media-collections/ms-review-workstation-mobile.png`
-
-Player, metadata, transport, and Accept/Reject controls stay fixed; only the candidate list scrolls.
 
 ## Source preservation
 

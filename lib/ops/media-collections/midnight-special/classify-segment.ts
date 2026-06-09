@@ -36,7 +36,7 @@ const COMMERCIAL_RE = /\b(commercial break|commercial|sponsor|promo|advertisemen
 export function classifyPerformance(record: MsPerformanceRecord): SegmentBucket {
   const chapter = record.source_chapter.trim();
   const chapterLower = chapter.toLowerCase();
-  const combined = `${chapterLower} ${record.artist.toLowerCase()} ${record.song.toLowerCase()}`;
+  const combined = `${chapterLower} ${(record.artist ?? "").toLowerCase()} ${(record.song ?? "").toLowerCase()}`;
 
   if (COMMERCIAL_RE.test(combined)) return "COMMERCIAL";
   if (MOVIE_CLIP_RE.test(combined) || /^clip\b/i.test(chapter)) return "MOVIE_CLIP";

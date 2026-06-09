@@ -3,7 +3,7 @@
  * Usage: npx tsx tools/media-collections/ms-pilot-export.ts
  */
 import { execFile } from "child_process";
-import { mkdir, writeFile } from "fs/promises";
+import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 import { promisify } from "util";
 
@@ -73,14 +73,57 @@ async function vdjScanNote(paths: string[]): Promise<string> {
   return lines.join("\n");
 }
 
+type PilotTarget = {
+  episodeId: string;
+  performanceId: string;
+  artist: string;
+  song: string;
+};
+
+async function loadReexportTargets(): Promise<PilotTarget[]> {
+  const jsonPath = join(
+    process.cwd(),
+    "reports/media-collections/midnight-special-pilot-export.json",
+  );
+  const raw = JSON.parse(await readFile(jsonPath, "utf8")) as {
+    results: Array<{
+      episode_id: string;
+      performance_id: string;
+      artist: string;
+      song: string;
+    }>;
+  };
+  return raw.results.map((r) => ({
+    episodeId: r.episode_id,
+    performanceId: r.performance_id,
+    artist: r.artist,
+    song: r.song,
+  }));
+}
+
 async function main() {
+  const reexport = process.argv.includes("--reexport");
+  const force = process.argv.includes("--force");
   const started = Date.now();
   const destDir = msVdjExportDir();
   await mkdir(destDir, { recursive: true });
 
-  const targets = await pickPilotExportTargets(PILOT_COUNT);
+  let targets: PilotTarget[];
+  if (reexport) {
+    targets = await loadReexportTargets();
+    console.log(`Re-exporting ${targets.length} pilot clips with clean metadata…`);
+  } else {
+    const picked = await pickPilotExportTargets(PILOT_COUNT);
+    targets = picked.map(({ episodeId, record }) => ({
+      episodeId,
+      performanceId: record.performance_id,
+      artist: record.artist,
+      song: record.song,
+    }));
+  }
+
   if (targets.length === 0) {
-    console.error("No accepted performances available for pilot export.");
+    console.error("No performances available for pilot export.");
     process.exit(1);
   }
 
@@ -100,16 +143,17 @@ async function main() {
     error?: string;
   }> = [];
 
-  for (const { episodeId, record } of targets) {
-    const result = await exportAcceptedPerformance(episodeId, record.performance_id, {
+  for (const target of targets) {
+    const result = await exportAcceptedPerformance(target.episodeId, target.performanceId, {
       destinationDir: destDir,
+      force: force || reexport,
     });
     if (!result.ok) {
       results.push({
-        performance_id: record.performance_id,
-        episode_id: episodeId,
-        artist: record.artist,
-        song: record.song,
+        performance_id: target.performanceId,
+        episode_id: target.episodeId,
+        artist: target.artist,
+        song: target.song,
         filename: "",
         path: "",
         bytes: 0,
@@ -125,10 +169,10 @@ async function main() {
 
     const playback = await verifyPlayback(result.path);
     results.push({
-      performance_id: record.performance_id,
-      episode_id: episodeId,
-      artist: record.artist,
-      song: record.song,
+      performance_id: target.performanceId,
+      episode_id: target.episodeId,
+      artist: target.artist,
+      song: target.song,
       filename: result.filename,
       path: result.path,
       bytes: result.bytes,
@@ -139,7 +183,6 @@ async function main() {
         album: result.metadata.album,
         grouping: result.metadata.grouping,
         year: result.metadata.year,
-        comment: result.metadata.comment,
       },
       probed_tags: result.probed_tags,
       playback: playback.detail,
@@ -198,7 +241,7 @@ async function main() {
 
 | Metric | Value |
 |--------|------:|
-| Clips requested | ${PILOT_COUNT} |
+| Clips requested | ${targets.length}${reexport ? " (re-export)" : ""} |
 | Clips exported | ${okCount} |
 | Export duration | ${(elapsedMs / 1000).toFixed(1)}s |
 | Pilot disk usage | ${formatBytes(totalBytes)} |
@@ -219,9 +262,10 @@ Filenames are **\`Artist - Song.mp4\`** — no \`(Midnight Special YYYY)\` suffi
 | artist | performer | Tags **Author** |
 | title | song | Tags **Title** |
 | album | ${MS_COLLECTION_LABEL} | Tags **Album** |
-| grouping | ${MS_COLLECTION_LABEL} | Tags **Grouping** (VDJ already uses this on existing MS tracks) |
+| grouping | classification bucket | Tags **Grouping** (Performance, Comedy, Interview, Intro, Movie Clip, Commercial) |
 | year / date | air year | Tags **Year** |
-| comment | collection, episode_id, air_year, source_url | Tags **Comment** |
+
+Comment and provenance IDs are not written. Episode/source data stays in Retroverse manifests only.
 
 ${metaSample}
 
@@ -229,7 +273,7 @@ ${metaSample}
 
 ${vdjNote}
 
-**Recommendation:** After pilot, scan \`DJ MEDIA/VIDEO/TV Performances/Midnight Special\` in VirtualDJ. Clips should appear with clean Title/Remix (no collection suffix). Filter by **Grouping = Midnight Special** or **Album = Midnight Special**.
+**Recommendation:** After export, scan \`DJ MEDIA/VIDEO/TV Performances/Midnight Special\` in VirtualDJ. Filter by **Album = Midnight Special** or **Grouping = Performance**. If tags look stale, quit VDJ and rescan (cached database.xml values persist until rescan).
 
 ## Mass export readiness
 
@@ -245,9 +289,9 @@ ${vdjNote}
 ### Readiness assessment
 
 1. **Pipeline ready?** ${okCount >= PILOT_COUNT - 2 ? "**Yes** — pilot export, metadata write, and playback check passed." : "**Hold** — pilot had export failures."}
-2. **Metadata concerns?** Collection context lives in Grouping/Album/Comment — Title and Remix stay clean. Episode ID and source URL are in Comment only.
+2. **Metadata concerns?** Artist, Title, Album, Grouping (classification), Year only. No Comment or provenance IDs in file tags.
 3. **Filename concerns?** Duplicate artist/song pairs get \`[chNNN]\` disambiguator suffix. No year/collection in filename.
-4. **VirtualDJ concerns?** Grouping field is established in your library. User2 (RV Tags) unchanged — tag separately via rvtags review if needed.
+4. **VirtualDJ concerns?** Filter by Album or folder path. User2 (RV Tags) unchanged — tag separately via rvtags review if needed.
 5. **Recommendation:** **${okCount >= 20 ? "Proceed with limitations" : "Hold"}** — complete remaining music review (${index?.stats.review ?? "?"} items) before mass export; pilot validates clip + metadata path.
 
 ## Source preservation
