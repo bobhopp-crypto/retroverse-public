@@ -48,6 +48,47 @@
   text-align: right;
 }
 
+.ms-dashboard {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.ms-review__layout {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 960px) {
+  .ms-review__layout {
+    grid-template-columns: minmax(280px, 420px) 1fr;
+    align-items: start;
+  }
+}
+
+.ms-review__player {
+  width: 100%;
+  max-height: 240px;
+  background: #111;
+  border: 2px solid rgba(45, 62, 70, 0.5);
+}
+
+.ms-review__table-wrap {
+  overflow-x: auto;
+}
+
+.ms-review__row--active td {
+  background: rgba(36, 88, 92, 0.12);
+}
+
+.ms-review__actions {
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
 .mc-actions {
   display: flex;
   flex-wrap: wrap;
@@ -109,6 +150,11 @@
   border-color: rgba(220, 80, 80, 0.35);
 }
 
+.mc-notice--warn {
+  background: rgba(240, 180, 60, 0.12);
+  border-color: rgba(240, 180, 60, 0.35);
+}
+
 .mc-episode-title {
   max-width: 420px;
   white-space: nowrap;
@@ -125,4 +171,12 @@
   padding-top: 10px;
   border-top: 1px solid var(--line);
   font-size: 12px;
+}
+
+.mc-health-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 4px;
 }

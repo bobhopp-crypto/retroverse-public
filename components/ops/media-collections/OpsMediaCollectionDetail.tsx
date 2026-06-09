@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import { OpsInlineLink, OpsPill, OpsTable } from "@/components/ops/OpsTable";
 import { formatBytes } from "@/lib/ops/format-bytes";
@@ -8,6 +8,7 @@ import { formatDuration } from "@/lib/ops/media-collections/format-duration";
 import type { MediaCollectionDetailData } from "@/lib/ops/media-collections/load";
 import type { EpisodeManifest } from "@/lib/ops/media-collections/types";
 
+import OpsMidnightSpecialDashboard from "./OpsMidnightSpecialDashboard";
 import { useCollectionDownload } from "./use-collection-download";
 
 function episodeStatusTone(
@@ -15,14 +16,20 @@ function episodeStatusTone(
 ): "ok" | "warn" | "bad" | "info" {
   if (ep.harvested) return "ok";
   if (ep.processed) return "ok";
-  if (ep.downloaded) return "warn";
+  if (ep.status === "downloaded" && ep.downloaded) return "ok";
+  if (ep.status === "partial") return "warn";
+  if (ep.status === "corrupt") return "bad";
   if (ep.status === "failed") return "bad";
+  if (ep.downloaded) return "warn";
   return "info";
 }
 
 function episodeStatusLabel(ep: EpisodeManifest): string {
   if (ep.harvested) return "HARVESTED";
   if (ep.processed) return "PROCESSED";
+  if (ep.status === "downloaded" && ep.downloaded) return "DOWNLOADED";
+  if (ep.status === "partial") return "PARTIAL";
+  if (ep.status === "corrupt") return "CORRUPT";
   if (ep.downloaded) return "DOWNLOADED";
   return ep.status.toUpperCase();
 }
@@ -49,20 +56,13 @@ export default function OpsMediaCollectionDetail(props: {
   const [notice, setNotice] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [scanBusy, setScanBusy] = useState(false);
-
-  const refresh = useCallback(async () => {
-    const res = await fetch(`/api/ops/media-collections/${data.slug}`);
-    if (!res.ok) throw new Error("Refresh failed");
-    const json = (await res.json()) as MediaCollectionDetailData & { ok: boolean };
-    setData(json);
-    setProgress(json.download_progress);
-    setDownloading(json.download_progress.running);
-  }, [data.slug]);
+  const refreshRef = useRef<() => Promise<boolean>>(async () => true);
 
   const {
     downloading,
     progress,
     busy: downloadBusy,
+    pollWarning,
     startDownload,
     setDownloading,
     setProgress,
@@ -70,8 +70,24 @@ export default function OpsMediaCollectionDetail(props: {
     slug: data.slug,
     initialRunning: props.initial.download_progress.running,
     initialProgress: props.initial.download_progress,
-    onRefresh: refresh,
+    onRefresh: () => refreshRef.current(),
   });
+
+  const refresh = useCallback(async (): Promise<boolean> => {
+    try {
+      const res = await fetch(`/api/ops/media-collections/${data.slug}`);
+      if (!res.ok) return false;
+      const json = (await res.json()) as MediaCollectionDetailData & { ok: boolean };
+      setData(json);
+      setProgress(json.download_progress);
+      setDownloading(json.download_progress.running);
+      return true;
+    } catch {
+      return false;
+    }
+  }, [data.slug, setDownloading, setProgress]);
+
+  refreshRef.current = refresh;
 
   const busy = scanBusy || downloadBusy;
 
@@ -147,8 +163,8 @@ export default function OpsMediaCollectionDetail(props: {
     window.open(json.link.media_lab_href, "_blank", "noopener,noreferrer");
   };
 
-  const { collection, manifest, episodes, storage } = data;
-  const remaining = Math.max(0, collection.episode_count - collection.downloaded_count);
+  const { collection, manifest, episodes, storage, download_health } = data;
+  const remaining = download_health?.remaining ?? Math.max(0, collection.episode_count - collection.downloaded_count);
   const estFull = estimateFullCollectionBytes(
     collection.downloaded_count,
     storage.downloads_bytes,
@@ -157,6 +173,10 @@ export default function OpsMediaCollectionDetail(props: {
 
   return (
     <section>
+      {collection.id === "midnight_special" ? (
+        <OpsMidnightSpecialDashboard initialIndex={data.performance_index ?? null} />
+      ) : null}
+
       <div className="mc-meta-panel">
         <dl>
           <dt>Collection</dt>
@@ -195,8 +215,21 @@ export default function OpsMediaCollectionDetail(props: {
             Episodes: <strong>{collection.episode_count}</strong>
           </span>
           <span>
-            Downloaded: <strong>{collection.downloaded_count}</strong>
+            Downloaded: <strong>{download_health?.downloaded ?? collection.downloaded_count}</strong>
           </span>
+          {download_health ? (
+            <>
+              <span>
+                Partial: <strong>{download_health.partial}</strong>
+              </span>
+              <span>
+                Corrupt: <strong>{download_health.corrupt}</strong>
+              </span>
+              <span>
+                Failed: <strong>{download_health.failed}</strong>
+              </span>
+            </>
+          ) : null}
           <span>
             Remaining: <strong>{remaining}</strong>
           </span>
@@ -212,6 +245,15 @@ export default function OpsMediaCollectionDetail(props: {
         </div>
 
         <div className="mc-download-progress">
+          {download_health ? (
+            <div className="mc-health-badges">
+              <OpsPill tone="ok">Downloaded {download_health.downloaded}</OpsPill>
+              <OpsPill tone="warn">Partial {download_health.partial}</OpsPill>
+              <OpsPill tone="bad">Corrupt {download_health.corrupt}</OpsPill>
+              <OpsPill tone="bad">Failed {download_health.failed}</OpsPill>
+              <OpsPill tone="info">Remaining {download_health.remaining}</OpsPill>
+            </div>
+          ) : null}
           <span>
             Queued: <strong>{progress?.queued ?? 0}</strong>
           </span>
@@ -235,6 +277,14 @@ export default function OpsMediaCollectionDetail(props: {
         </div>
 
         <div className="mc-actions" style={{ marginTop: 12 }}>
+          {collection.id === "midnight_special" ? (
+            <a
+              className="ops-btn ops-btn--info"
+              href="/ops/media-collections/midnight-special/review?mode=queue"
+            >
+              Performance Review
+            </a>
+          ) : null}
           <button
             type="button"
             className="ops-btn ops-btn--info"
@@ -269,6 +319,7 @@ export default function OpsMediaCollectionDetail(props: {
       </div>
 
       {notice ? <p className="mc-notice">{notice}</p> : null}
+      {pollWarning ? <p className="mc-notice mc-notice--warn">{pollWarning}</p> : null}
       {error ? <p className="mc-notice mc-notice--error">{error}</p> : null}
 
       <OpsTable

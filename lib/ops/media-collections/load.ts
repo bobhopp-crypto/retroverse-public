@@ -1,4 +1,5 @@
 import { buildDownloadProgress, loadDownloadRunState } from "./download-state";
+import { auditCollectionDownloadHealth } from "./classify-download";
 import { collectionSlugFromId, mediaCollectionsRoot } from "./paths";
 import { loadCollectionStorageStats } from "./storage-stats";
 import {
@@ -7,8 +8,12 @@ import {
   loadCollectionsIndex,
   listEpisodes,
 } from "./state";
+import type { MsPerformanceCollectionIndex } from "./midnight-special/types";
+import { loadPerformanceIndex } from "./midnight-special/performances";
+import { MS_COLLECTION_ID } from "./midnight-special/paths";
 import type {
   CollectionCardData,
+  CollectionDownloadHealth,
   CollectionManifest,
   EpisodeManifest,
   MediaCollection,
@@ -26,7 +31,9 @@ export type MediaCollectionDetailData = {
   episodes: EpisodeManifest[];
   storage: Awaited<ReturnType<typeof loadCollectionStorageStats>>;
   download_progress: DownloadRunState;
+  download_health: CollectionDownloadHealth;
   slug: string;
+  performance_index?: MsPerformanceCollectionIndex | null;
 };
 
 export async function loadMediaCollectionsConsole(): Promise<MediaCollectionsConsoleData> {
@@ -70,6 +77,9 @@ export async function loadMediaCollectionDetail(
     loadDownloadRunState(collectionId),
   ]);
   const download_progress = await buildDownloadProgress(collectionId, run);
+  const download_health = await auditCollectionDownloadHealth(collectionId, episodes);
+  const performance_index =
+    collectionId === MS_COLLECTION_ID ? await loadPerformanceIndex() : null;
 
   return {
     collection,
@@ -77,6 +87,8 @@ export async function loadMediaCollectionDetail(
     episodes,
     storage,
     download_progress,
+    download_health,
     slug: collectionSlugFromId(collectionId),
+    performance_index,
   };
 }

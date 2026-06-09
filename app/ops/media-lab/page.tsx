@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { OpsStructuredCollectionBanner } from "@/components/ops/media-collections/OpsStructuredCollectionBanner";
 import { OpsMediaLab } from "@/components/ops/OpsMediaLab";
 import { OPS_FOCUS_YEAR } from "@/lib/ops/ops-focus-year";
 
@@ -22,7 +23,10 @@ function OpsBlocked(props: { message: string }) {
   );
 }
 
-export default function OpsMediaLabPage() {
+export default async function OpsMediaLabPage(props: {
+  searchParams: Promise<{ collection?: string; episode?: string; mode?: string }>;
+}) {
+  const { collection, episode, mode } = await props.searchParams;
   if (process.env.RETROVERSE_OPS !== "1") {
     return (
       <main className="ops-page">
@@ -52,6 +56,12 @@ export default function OpsMediaLabPage() {
             </Link>
           </div>
         </header>
+
+        <OpsStructuredCollectionBanner
+          collection={collection}
+          episode={episode}
+          mode={mode}
+        />
 
         <p className="ops-banner">
           <strong>Video → transcript → chapters → save to year.</strong> Local only (ffmpeg +
