@@ -1,0 +1,38 @@
+.public-track-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #fff8ee;
+  background: var(--teal-deep, #1f5e63);
+  border: 2px solid var(--charcoal, #2a2a2a);
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.2);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.public-track-play--sm {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.75rem;
+}
+
+.public-track-play:hover:not(:disabled) {
+  background: #267378;
+}
+
+.public-track-play:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.public-track-play:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 rgba(45, 62, 70, 0.2);
+}

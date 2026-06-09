@@ -5,9 +5,11 @@ import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { AlbumPageData } from "@/lib/album/load-album-page";
 
 import { AlbumHeroCover } from "./album-hero-cover";
+import { AlbumTracklist } from "./album-tracklist";
 
 import "../../track/[id]/track-page.css";
 import "./album-page.css";
+import "./album-tracklist.css";
 
 type AlbumPageViewProps = {
   data: AlbumPageData;
@@ -68,23 +70,7 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
           <div className="track-section-head track-section-head--dark">
             <h2 id="album-tracks">Tracks</h2>
           </div>
-          <ol className="album-tracklist__list">
-            {data.tracks.map((track) => (
-              <li key={`${track.position}-${track.title}`} className="album-tracklist__item">
-                {track.href ? (
-                  <Link href={track.href} prefetch className="album-tracklist__row album-tracklist__row--link">
-                    <span className="album-tracklist__position">{track.position}</span>
-                    <span className="album-tracklist__title">{track.title}</span>
-                  </Link>
-                ) : (
-                  <div className="album-tracklist__row">
-                    <span className="album-tracklist__position">{track.position}</span>
-                    <span className="album-tracklist__title">{track.title}</span>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ol>
+          <AlbumTracklist tracks={data.tracks} artistName={data.artistName} />
         </section>
       ) : null}
 

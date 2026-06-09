@@ -145,12 +145,20 @@
   color: var(--teal-deep);
 }
 
+.track-hero__title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .track-hero__title {
   margin: 0;
   font-size: clamp(2.25rem, 9vw, 3.35rem);
   font-weight: 900;
   line-height: 1.02;
   letter-spacing: -0.025em;
+  flex: 1;
+  min-width: 0;
 }
 
 .track-hero__artist-line {

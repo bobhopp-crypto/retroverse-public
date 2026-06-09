@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 
+import { playTrackByRvtr } from "@/lib/playback/play-track-client";
 import {
+  rvtrFromToken,
   songArtistHref,
   songChartsHref,
   songInspectHref,
@@ -56,9 +58,20 @@ export function SongActions({
   const artistHref = songArtistHref(target);
   const yearHref = songRvYearHref(target);
   const chartsHref = songChartsHref(target);
+  const rvtr = rvtrFromToken(target.rvtr);
 
   const stopBubble = (event: React.MouseEvent) => {
     event.stopPropagation();
+  };
+
+  const handlePlay = (event: React.MouseEvent) => {
+    stopBubble(event);
+    if (!rvtr) return;
+    void playTrackByRvtr({
+      rvtr,
+      title: target.title,
+      artist: target.artist,
+    });
   };
 
   return (
@@ -71,9 +84,9 @@ export function SongActions({
       <button
         type="button"
         className="song-actions__btn"
-        aria-label={`Play ${target.title} (coming soon)`}
-        disabled
-        onClick={stopBubble}
+        aria-label={rvtr ? `Play ${target.title}` : `Play ${target.title} (no RVTR)`}
+        disabled={!rvtr}
+        onClick={handlePlay}
       >
         ▶
       </button>

@@ -10,6 +10,9 @@ import {
   TrackRelatedSection,
   trackPageIsSparse,
 } from "./track-page-sections";
+import { PublicTrackPlayButton } from "@/app/components/public-track-play-button";
+
+import "@/app/components/public-track-play-button.css";
 import "./track-page.css";
 
 type TrackPageViewProps = {
@@ -49,7 +52,14 @@ export function TrackPageView({ data }: TrackPageViewProps) {
         </div>
         <div className="track-hero__identity">
           <p className="track-hero__eyebrow">From the archive</p>
-          <h1 className="track-hero__title">{data.title}</h1>
+          <div className="track-hero__title-row">
+            <h1 className="track-hero__title">{data.title}</h1>
+            <PublicTrackPlayButton
+              rvtr={data.rvtr}
+              title={data.title}
+              artist={data.artistName}
+            />
+          </div>
           <p className="track-hero__artist-line">
             <Link href={data.artistHref} prefetch className="track-hero__artist">
               {data.artistName}
