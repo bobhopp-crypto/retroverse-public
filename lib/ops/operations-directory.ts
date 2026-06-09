@@ -127,6 +127,14 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         status: "IN PROGRESS",
       },
       {
+        id: "top-of-the-pops",
+        name: "Top of the Pops",
+        href: "/ops/media-collections/top-of-the-pops",
+        description: "TOTP Archive metadata acquisition — episodes, performances, graph matching.",
+        purpose: "Harvest totparchive.co.uk encyclopedia and match artists/songs to Retroverse.",
+        status: "IN PROGRESS",
+      },
+      {
         id: "cover-review",
         name: "Cover Review",
         href: "/ops/review/covers",
@@ -203,6 +211,14 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         description: "Editorial clip review, harvest export, and timeline tools.",
         purpose: "Deep-cut video review workflow for long-form media prep.",
         status: "IN PROGRESS",
+      },
+      {
+        id: "creative-lab",
+        name: "Creative Lab",
+        href: "/ops/creative-lab",
+        description: "Reusable style system for passes, posters, cards, and print outputs.",
+        purpose: "Define weighted visual styles and project concepts before generation.",
+        status: "EXPERIMENTAL",
       },
       {
         id: "crossroads",
