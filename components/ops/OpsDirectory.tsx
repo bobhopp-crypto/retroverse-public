@@ -20,7 +20,7 @@ function QuickLinkList(props: { links: OpsQuickLink[]; title: string }) {
       <p className="ops-dir__quick-title">{props.title}</p>
       <ul className="ops-dir__quick-list">
         {props.links.map((link) => (
-          <li key={link.href}>
+          <li key={`${link.label}-${link.href}`}>
             <Link
               className="ops-link ops-dir__quick-link"
               href={link.href}

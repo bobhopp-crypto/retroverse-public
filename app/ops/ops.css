@@ -11836,6 +11836,24 @@
   max-height: 120px;
 }
 
+.ml-perf-editor__skim {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ml-text-secondary, rgba(255, 255, 255, 0.8));
+  cursor: pointer;
+  user-select: none;
+}
+
+.ml-perf-editor__skim input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--ml-active-border, rgba(70, 194, 255, 0.95));
+}
+
 .ml-perf-editor__siblings {
   display: flex;
   gap: 8px;

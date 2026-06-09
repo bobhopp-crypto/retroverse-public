@@ -143,6 +143,9 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
       if (!kind) return;
       const raw = clientXToSec(e.clientX, true);
       const sec = kind === "in" ? clampIn(raw) : clampOut(raw);
+      if (kind === "in") updateSelection({ inSeconds: sec });
+      else updateSelection({ outSeconds: sec });
+      previewAtSec(sec);
       props.onTrimDragEnd?.(sec);
       dragRef.current = null;
       setDrag(null);

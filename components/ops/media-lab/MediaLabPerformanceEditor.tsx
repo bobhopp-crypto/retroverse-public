@@ -47,7 +47,9 @@ export function MediaLabPerformanceEditor({
   const [harvestOpen, setHarvestOpen] = useState(false);
   const [queueOpen, setQueueOpen] = useState(false);
   const [trimWindow, setTrimWindow] = useState<{ start: number; end: number } | null>(null);
+  const [audioSkimming, setAudioSkimming] = useState(false);
   const stopAtRef = useRef<number | null>(null);
+  const skimTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const loadEditor = useCallback(async () => {
     setLoading(true);
@@ -112,6 +114,62 @@ export function MediaLabPerformanceEditor({
     },
     [episodeDuration],
   );
+
+  const clearSkimTimer = useCallback(() => {
+    if (skimTimerRef.current) {
+      clearTimeout(skimTimerRef.current);
+      skimTimerRef.current = null;
+    }
+  }, []);
+
+  const handleTrimDragStart = useCallback(() => {
+    const video = videoRef.current;
+    clearSkimTimer();
+    video?.pause();
+    setIsPlaying(false);
+  }, [clearSkimTimer]);
+
+  const handleTrimPreview = useCallback(
+    (sec: number) => {
+      const video = videoRef.current;
+      if (!video) return;
+      const clamped = Math.max(0, Math.min(episodeDuration, sec));
+      requestAnimationFrame(() => {
+        video.currentTime = clamped;
+        setPlayheadSec(clamped);
+        if (!audioSkimming) return;
+
+        clearSkimTimer();
+        void video.play().then(() => {
+          setIsPlaying(true);
+          skimTimerRef.current = setTimeout(() => {
+            video.pause();
+            setIsPlaying(false);
+            skimTimerRef.current = null;
+          }, 120);
+        }).catch(() => undefined);
+      });
+    },
+    [audioSkimming, clearSkimTimer, episodeDuration],
+  );
+
+  const handleTrimDragEnd = useCallback(
+    (sec: number) => {
+      const video = videoRef.current;
+      if (!video) return;
+      const clamped = Math.max(0, Math.min(episodeDuration, sec));
+      clearSkimTimer();
+      requestAnimationFrame(() => {
+        video.pause();
+        video.currentTime = clamped;
+        setPlayheadSec(clamped);
+        setIsPlaying(false);
+      });
+    },
+    [clearSkimTimer, episodeDuration],
+  );
+
+  useEffect(() => () => clearSkimTimer(), [clearSkimTimer]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -422,6 +480,9 @@ export function MediaLabPerformanceEditor({
                 thumbsLoading={thumbsLoading}
                 onSelectionChange={setSelection}
                 onSeek={seek}
+                onTrimDragStart={handleTrimDragStart}
+                onTrimPreview={handleTrimPreview}
+                onTrimDragEnd={handleTrimDragEnd}
               />
             </div>
 
@@ -465,6 +526,14 @@ export function MediaLabPerformanceEditor({
               <button type="button" className="ops-btn" disabled={!!busy} onClick={previewClip}>
                 Preview Clip
               </button>
+              <label className="ml-perf-editor__skim">
+                <input
+                  type="checkbox"
+                  checked={audioSkimming}
+                  onChange={(e) => setAudioSkimming(e.target.checked)}
+                />
+                Audio Skimming
+              </label>
             </div>
           </section>
 
