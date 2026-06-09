@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { formatInOutTimecode } from "@/lib/ops/media-collections/midnight-special/effective-bounds";
-import type { PerformanceEditorContext } from "@/lib/ops/media-lab/performance-editor/context";
+import type { PerformanceEditorContext } from "@/lib/ops/media-lab/performance-editor/types";
 import type { PerformanceStatus } from "@/lib/ops/media-collections/midnight-special/types";
 
 import type { ChapterThumbSet } from "./ChapterThumbTriplet";

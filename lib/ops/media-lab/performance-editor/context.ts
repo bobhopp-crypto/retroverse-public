@@ -1,54 +1,13 @@
-import { existsSync } from "node:fs";
-
-import { analyzeMidnightSpecialEpisode } from "@/lib/ops/media-collections/midnight-special/analyze-episode";
 import { ensureCandidateManifest } from "@/lib/ops/media-collections/midnight-special/candidates";
-import {
-  classifyPerformance,
-  type SegmentBucket,
-} from "@/lib/ops/media-collections/midnight-special/classify-segment";
+import { classifyPerformance } from "@/lib/ops/media-collections/midnight-special/classify-segment";
 import { performanceEffectiveBounds } from "@/lib/ops/media-collections/midnight-special/effective-bounds";
 import { loadClipReviewContext } from "@/lib/ops/media-collections/midnight-special/clip-review";
 import { loadEpisodePerformanceManifest } from "@/lib/ops/media-collections/midnight-special/performances";
-import type { MsPerformanceRecord, PerformanceStatus } from "@/lib/ops/media-collections/midnight-special/types";
+import { loadEpisodeMetaSnapshot } from "@/lib/ops/media-lab/performance-browser/episode-meta";
 
-export type PerformanceEditorSibling = {
-  performance_id: string;
-  artist: string;
-  title: string;
-  start_sec: number;
-  end_sec: number;
-  status: PerformanceStatus;
-  bucket: SegmentBucket;
-};
+import type { PerformanceEditorContext, PerformanceEditorSibling } from "./types";
 
-export type PerformanceEditorContext = {
-  collection_id: string;
-  episode_id: string;
-  performance_id: string;
-  episode_title: string;
-  air_date?: string;
-  artist: string;
-  title: string;
-  source_chapter: string;
-  bucket: SegmentBucket;
-  confidence: MsPerformanceRecord["confidence"];
-  detected_start: number;
-  detected_end: number;
-  effective_start: number;
-  effective_end: number;
-  detected_start_timecode: string;
-  detected_end_timecode: string;
-  effective_start_timecode: string;
-  effective_end_timecode: string;
-  status: PerformanceStatus;
-  video_url: string;
-  video_path: string;
-  episode_duration_sec: number;
-  modified_at?: string;
-  review_notes?: string;
-  siblings: PerformanceEditorSibling[];
-  sibling_index: number;
-};
+export type { PerformanceEditorContext, PerformanceEditorSibling } from "./types";
 
 export async function loadPerformanceEditorContext(
   episodeId: string,
@@ -64,13 +23,9 @@ export async function loadPerformanceEditorContext(
   if (!record) return null;
 
   const candidate = await ensureCandidateManifest(episodeId);
-  const videoPath = candidate?.video_path ?? manifest.video_path ?? "";
-
-  const analysis = await analyzeMidnightSpecialEpisode(episodeId);
-  const duration =
-    analysis?.video_duration_sec && analysis.video_duration_sec > 0
-      ? analysis.video_duration_sec
-      : 7200;
+  const meta = await loadEpisodeMetaSnapshot(episodeId);
+  const videoPath = meta.download_path ?? candidate?.video_path ?? manifest.video_path ?? "";
+  const duration = meta.duration_sec && meta.duration_sec > 0 ? meta.duration_sec : 7200;
 
   const siblings: PerformanceEditorSibling[] = manifest.performances.map((p) => {
     const bounds = performanceEffectiveBounds(p);

@@ -11885,6 +11885,9 @@
 
 .ml-perf-editor__queue-drawer {
   width: min(360px, 92vw);
+  color: rgba(255, 255, 255, 0.96);
+  background: var(--panel-2);
+  border-left: 3px solid var(--ml-active-border, rgba(70, 194, 255, 0.95));
 }
 
 .ml-perf-editor__queue-header {
@@ -11892,7 +11895,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.28);
+}
+
+.ml-perf-editor__queue-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.96);
 }
 
 .ml-perf-editor__queue-list {
@@ -11905,15 +11915,63 @@
   display: block;
   width: 100%;
   text-align: left;
-  padding: 8px;
+  padding: 10px;
   border: 2px solid transparent;
   background: transparent;
-  font-size: 0.92rem;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.96);
+  min-height: 15px;
 }
 
 .ml-perf-editor__queue-item:hover {
-  border-color: var(--ink);
-  background: var(--cream);
+  border-color: var(--ml-active-border, rgba(70, 194, 255, 0.95));
+  background: var(--ml-hover-bg, rgba(255, 255, 255, 0.1));
+}
+
+/* Queue drawer readability — Media Lab workspace */
+.ops-page--media-lab-workspace .ops-ml-review-queue-drawer {
+  color: rgba(255, 255, 255, 0.96);
+  background: var(--panel-2);
+}
+
+.ops-page--media-lab-workspace .ops-ml-review-queue__label,
+.ops-page--media-lab-workspace .ops-ml-review-queue__title,
+.ops-page--media-lab-workspace .ml-perf-editor__queue-header h3 {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 0.9375rem;
+}
+
+.ops-page--media-lab-workspace .ops-ml-review-queue__count,
+.ops-page--media-lab-workspace .ops-ml-review-queue__category {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9375rem;
+}
+
+.ops-page--media-lab-workspace .ops-ml-review-queue__duration,
+.ops-page--media-lab-workspace .ops-ml-review-queue__empty,
+.ops-page--media-lab-workspace .ops-ml-review-queue__thumb,
+.ops-page--media-lab-workspace .ops-ml-review-queue__num {
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 0.9375rem;
+}
+
+.ops-page--media-lab-workspace .ops-ml-review-queue__item {
+  background: var(--panel);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.ops-page--media-lab-workspace .ops-ml-review-queue__main {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.ops-page--media-lab-workspace .ops-ml-review-queue__close,
+.ops-page--media-lab-workspace .ops-ml-review-queue__remove {
+  color: rgba(255, 255, 255, 0.78);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: var(--panel);
+  font-size: 1rem;
+  min-width: 28px;
+  min-height: 28px;
 }
 
 .ml-perf-editor__notice {

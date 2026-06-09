@@ -1,11 +1,7 @@
-import { existsSync } from "node:fs";
-
-import { analyzeMidnightSpecialEpisode } from "@/lib/ops/media-collections/midnight-special/analyze-episode";
 import { loadEpisodePerformanceManifest } from "@/lib/ops/media-collections/midnight-special/performances";
-import { MS_COLLECTION_ID } from "@/lib/ops/media-collections/midnight-special/paths";
 import { secToTimecode } from "@/lib/ops/media-collections/midnight-special/timecode";
 import { parseEpisodeTitle } from "@/lib/ops/media-collections/parse-episode-title";
-import { loadEpisode } from "@/lib/ops/media-collections/state";
+import { loadEpisodeMetaSnapshot } from "./episode-meta";
 
 import type { EpisodeBrowserRow, EpisodePerformanceSummary } from "./episode-types";
 import { searchEpisodeRows } from "./episode-utils";
@@ -45,17 +41,13 @@ async function enrichEpisodeRow(
 ): Promise<Pick<EpisodeBrowserRow, "episode_number" | "duration_sec" | "download_status" | "video_path">> {
   const head = perfs[0]!;
   const parsed = parseEpisodeTitle(head.episode_title);
-  const episode = await loadEpisode(MS_COLLECTION_ID, episodeId);
-  const analysis = await analyzeMidnightSpecialEpisode(episodeId);
-
-  const videoPath = episode?.download_path ?? analysis?.video_path ?? undefined;
-  const downloaded = Boolean(videoPath && existsSync(videoPath));
+  const meta = await loadEpisodeMetaSnapshot(episodeId);
 
   return {
-    episode_number: episode?.episode_number ?? parsed.episode_number,
-    duration_sec: analysis?.video_duration_sec ?? null,
-    download_status: downloaded ? "downloaded" : "missing",
-    video_path: downloaded ? videoPath : undefined,
+    episode_number: meta.episode_number ?? parsed.episode_number,
+    duration_sec: meta.duration_sec,
+    download_status: meta.download_status,
+    video_path: meta.download_path,
   };
 }
 
