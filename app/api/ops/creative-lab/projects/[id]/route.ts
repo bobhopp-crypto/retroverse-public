@@ -32,7 +32,7 @@ export async function PUT(req: Request, ctx: Ctx) {
   const { id } = await ctx.params;
   const body = (await req.json()) as Record<string, unknown>;
 
-  if (body.op === "generateConcept") {
+  if (body.op === "generateConcept" || body.op === "generateConceptVariations") {
     const module =
       body.module === "poster-lab" ||
       body.module === "bumper-lab" ||

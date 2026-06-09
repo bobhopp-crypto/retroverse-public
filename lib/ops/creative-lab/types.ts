@@ -28,10 +28,18 @@ export type StyleSelection = {
   density: WeightedStyle[];
 };
 
+export type ConceptVariationKey = "A" | "B" | "C" | "D";
+
 export type GeneratedPrompt = {
   id: string;
   module: CreativeLabModuleId;
   conceptSummary: string;
+  /** Human-readable provider-neutral prompt text. */
+  renderedPrompt: string;
+  /** A/B/C/D variation label when part of a variation set. */
+  variationKey?: ConceptVariationKey;
+  /** Groups Concept A–D generated together. */
+  variationSetId?: string;
   structuredConcept: {
     event: string;
     venue: string;
@@ -40,6 +48,7 @@ export type GeneratedPrompt = {
     theme: string;
     dominantStyles: Record<StyleCategory, { id: string; label: string; weight: number }[]>;
     module: CreativeLabModuleId;
+    variationKey?: ConceptVariationKey;
   };
   createdAt: string;
 };

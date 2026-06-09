@@ -1,3 +1,4 @@
+import { resolveStyleId } from "./style-selection";
 import type { StyleCategory, StyleDefinition, StyleSelection, WeightedStyle } from "./types";
 
 export const CREDENTIAL_STYLES: StyleDefinition[] = [
@@ -12,21 +13,20 @@ export const CREDENTIAL_STYLES: StyleDefinition[] = [
 ];
 
 export const ILLUSTRATION_STYLES: StyleDefinition[] = [
-  { id: "cartoon", label: "Cartoon", category: "illustration", description: "Bold outlines, expressive characters, Saturday-morning energy." },
-  { id: "mid-century", label: "Mid-Century", category: "illustration", description: "Atomic-age geometry, limited palettes, modernist optimism." },
-  { id: "saturday-morning", label: "Saturday Morning", category: "illustration", description: "Bright cel animation, playful mascots, kid-show graphics." },
-  { id: "psychedelic", label: "Psychedelic", category: "illustration", description: "Swirling forms, saturated gradients, 1960s poster energy." },
+  { id: "saturday-morning-cartoon", label: "Saturday Morning Cartoon", category: "illustration", description: "Bright cel animation, bold outlines, playful mascots, kid-show graphics." },
   { id: "comic-book", label: "Comic Book", category: "illustration", description: "Ink lines, halftone dots, action-panel dynamism." },
+  { id: "mid-century", label: "Mid-Century", category: "illustration", description: "Atomic-age geometry, limited palettes, modernist optimism." },
   { id: "pop-art", label: "Pop Art", category: "illustration", description: "Ben-Day dots, high contrast, Warhol-era repetition." },
-  { id: "photographic", label: "Photographic", category: "illustration", description: "Hero photography with minimal graphic overlay." },
+  { id: "psychedelic", label: "Psychedelic", category: "illustration", description: "Swirling forms, saturated gradients, 1960s poster energy." },
   { id: "rock-poster", label: "Rock Poster", category: "illustration", description: "Fillmore-era hand-lettering and psychedelic rock composition." },
+  { id: "photographic", label: "Photographic", category: "illustration", description: "Hero photography with minimal graphic overlay." },
 ];
 
 export const COLOR_STYLES: StyleDefinition[] = [
   { id: "cream-vintage", label: "Cream Vintage", category: "color", description: "Warm paper stock, cream grounds, muted ink accents." },
   { id: "bright-pop", label: "Bright Pop", category: "color", description: "High-saturation primaries, punchy contrast, candy colors." },
   { id: "muted-retro", label: "Muted Retro", category: "color", description: "Faded inks, sun-bleached tones, aged print feel." },
-  { id: "earth-tone", label: "Earth Tone", category: "color", description: "Ochre, rust, olive, and brown natural palettes." },
+  { id: "earth-tone", label: "Earth Tones", category: "color", description: "Ochre, rust, olive, and brown natural palettes." },
   { id: "monochrome", label: "Monochrome", category: "color", description: "Single-ink or grayscale with one accent color." },
   { id: "neon", label: "Neon", category: "color", description: "Electric highlights on dark grounds, nightlife glow." },
 ];
@@ -67,17 +67,20 @@ export function normalizeWeightedStyles(
 ): WeightedStyle[] {
   if (!Array.isArray(items)) return [];
   const validIds = new Set(STYLE_CATALOG[category].map((s) => s.id));
-  const out: WeightedStyle[] = [];
+  const merged = new Map<string, number>();
   for (const item of items) {
     if (!item || typeof item !== "object") continue;
     const row = item as { id?: unknown; weight?: unknown };
-    const id = typeof row.id === "string" ? row.id.trim() : "";
+    const rawId = typeof row.id === "string" ? row.id.trim() : "";
+    const id = resolveStyleId(rawId);
     if (!id || !validIds.has(id)) continue;
     const weight = typeof row.weight === "number" ? Math.max(0, Math.min(100, row.weight)) : 0;
     if (weight <= 0) continue;
-    out.push({ id, weight });
+    merged.set(id, (merged.get(id) ?? 0) + weight);
   }
-  return out;
+  return [...merged.entries()]
+    .map(([id, weight]) => ({ id, weight: Math.min(100, weight) }))
+    .sort((a, b) => b.weight - a.weight);
 }
 
 export function normalizeStyleSelection(raw: unknown): StyleSelection {

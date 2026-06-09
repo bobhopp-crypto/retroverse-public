@@ -1,5 +1,6 @@
+import { renderPromptText } from "./prompt-renderer";
 import { topWeightedStyles } from "./style-catalog";
-import type { CreativeLabModuleId, CreativeLabProjectFile, GeneratedPrompt, StyleCategory } from "./types";
+import type { ConceptVariationKey, CreativeLabModuleId, CreativeLabProjectFile, GeneratedPrompt, StyleCategory } from "./types";
 
 function newPromptId(): string {
   return `prompt-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
@@ -11,6 +12,7 @@ const STYLE_CATEGORIES: StyleCategory[] = ["credential", "illustration", "color"
 export function buildPromptConcept(
   project: CreativeLabProjectFile,
   module: CreativeLabModuleId,
+  variationKey?: ConceptVariationKey,
 ): GeneratedPrompt {
   const dominantStyles = Object.fromEntries(
     STYLE_CATEGORIES.map((cat) => [cat, topWeightedStyles(project.styleSelection, cat)]),
@@ -35,10 +37,23 @@ export function buildPromptConcept(
     .filter(Boolean)
     .join(" — ");
 
+  const renderedPrompt = renderPromptText({
+    event: project.event,
+    venue: project.venue,
+    date: project.date,
+    featuredYears: project.featuredYears,
+    theme: project.theme,
+    styleSelection: project.styleSelection,
+    module,
+    variationKey,
+  });
+
   return {
     id: newPromptId(),
     module,
     conceptSummary,
+    renderedPrompt,
+    variationKey,
     structuredConcept: {
       event: project.event,
       venue: project.venue,
@@ -47,6 +62,7 @@ export function buildPromptConcept(
       theme: project.theme,
       dominantStyles,
       module,
+      variationKey,
     },
     createdAt: new Date().toISOString(),
   };

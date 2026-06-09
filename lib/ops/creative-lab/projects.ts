@@ -2,7 +2,8 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, readdir, rm, writeFile } from "fs/promises";
 import { join } from "path";
 
-import { buildPromptConcept } from "./prompt-builder";
+import { buildConceptVariations } from "./concept-variations";
+import { renderPromptText } from "./prompt-renderer";
 import {
   creativeLabProjectIndexPath,
   creativeLabProjectPath,
@@ -26,6 +27,64 @@ function newAssetId(): string {
   return `asset-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
 }
 
+function normalizeGeneratedPrompts(
+  raw: unknown,
+  project: Pick<CreativeLabProjectFile, "event" | "venue" | "date" | "featuredYears" | "theme" | "styleSelection" | "activeModule">,
+): GeneratedPrompt[] {
+  if (!Array.isArray(raw)) return [];
+  const out: GeneratedPrompt[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") continue;
+    const row = item as Partial<GeneratedPrompt>;
+    if (typeof row.id !== "string" || typeof row.conceptSummary !== "string") continue;
+    const module =
+      row.module === "poster-lab" ||
+      row.module === "bumper-lab" ||
+      row.module === "card-lab" ||
+      row.module === "magazine-lab" ||
+      row.module === "pass-lab"
+        ? row.module
+        : project.activeModule;
+    const variationKey =
+      row.variationKey === "A" || row.variationKey === "B" || row.variationKey === "C" || row.variationKey === "D"
+        ? row.variationKey
+        : undefined;
+    const renderedPrompt =
+      typeof row.renderedPrompt === "string" && row.renderedPrompt.trim()
+        ? row.renderedPrompt
+        : renderPromptText({
+            event: project.event,
+            venue: project.venue,
+            date: project.date,
+            featuredYears: project.featuredYears,
+            theme: project.theme,
+            styleSelection: project.styleSelection,
+            module,
+            variationKey,
+          });
+    out.push({
+      id: row.id,
+      module,
+      conceptSummary: row.conceptSummary,
+      renderedPrompt,
+      variationKey,
+      variationSetId: typeof row.variationSetId === "string" ? row.variationSetId : undefined,
+      structuredConcept: row.structuredConcept ?? {
+        event: project.event,
+        venue: project.venue,
+        date: project.date,
+        featuredYears: project.featuredYears,
+        theme: project.theme,
+        dominantStyles: { credential: [], illustration: [], color: [], density: [] },
+        module,
+        variationKey,
+      },
+      createdAt: typeof row.createdAt === "string" ? row.createdAt : new Date().toISOString(),
+    });
+  }
+  return out;
+}
+
 function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectFile | null {
   if (!raw || typeof raw !== "object") return null;
   const obj = raw as Partial<CreativeLabProjectFile>;
@@ -45,7 +104,7 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
       ? obj.activeModule
       : "pass-lab";
 
-  return {
+  const base: CreativeLabProjectFile = {
     version: 1,
     id,
     name: typeof obj.name === "string" && obj.name.trim() ? obj.name.trim() : "Untitled Project",
@@ -55,7 +114,7 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
     featuredYears,
     theme: typeof obj.theme === "string" ? obj.theme : "",
     styleSelection: normalizeStyleSelection(obj.styleSelection),
-    generatedPrompts: Array.isArray(obj.generatedPrompts) ? (obj.generatedPrompts as GeneratedPrompt[]) : [],
+    generatedPrompts: [],
     generatedAssets: Array.isArray(obj.generatedAssets) ? (obj.generatedAssets as GeneratedAsset[]) : [],
     selectedAssetIds: Array.isArray(obj.selectedAssetIds)
       ? obj.selectedAssetIds.filter((x): x is string => typeof x === "string")
@@ -63,6 +122,14 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
     activeModule,
     createdAt: typeof obj.createdAt === "string" ? obj.createdAt : now,
     updatedAt: typeof obj.updatedAt === "string" ? obj.updatedAt : now,
+  };
+  return finalizeProject(base, obj.generatedPrompts);
+}
+
+function finalizeProject(project: CreativeLabProjectFile, rawPrompts: unknown): CreativeLabProjectFile {
+  return {
+    ...project,
+    generatedPrompts: normalizeGeneratedPrompts(rawPrompts, project),
   };
 }
 
@@ -228,28 +295,36 @@ export async function deleteProject(projectId: string): Promise<boolean> {
   return true;
 }
 
-/** Generate structured prompt concept + placeholder asset (no image gen). */
-export async function generateConceptForModule(
+/** Generate Concept A–D prompt variations + placeholder assets (no image gen). */
+export async function generateConceptVariationsForModule(
   projectId: string,
   module: CreativeLabModuleId = "pass-lab",
 ): Promise<CreativeLabProjectFile | null> {
   const project = await loadProject(projectId);
   if (!project) return null;
 
-  const prompt = buildPromptConcept(project, module);
-  const asset: GeneratedAsset = {
+  const prompts = buildConceptVariations(project, module);
+  const assets: GeneratedAsset[] = prompts.map((prompt) => ({
     id: newAssetId(),
     module,
     promptId: prompt.id,
     status: "placeholder",
     selected: false,
-    createdAt: new Date().toISOString(),
-  };
+    createdAt: prompt.createdAt,
+  }));
 
   return saveProject({
     ...project,
-    generatedPrompts: [prompt, ...project.generatedPrompts].slice(0, 24),
-    generatedAssets: [asset, ...project.generatedAssets].slice(0, 24),
+    generatedPrompts: [...prompts, ...project.generatedPrompts].slice(0, 48),
+    generatedAssets: [...assets, ...project.generatedAssets].slice(0, 48),
     activeModule: module,
   });
+}
+
+/** @deprecated Use generateConceptVariationsForModule */
+export async function generateConceptForModule(
+  projectId: string,
+  module: CreativeLabModuleId = "pass-lab",
+): Promise<CreativeLabProjectFile | null> {
+  return generateConceptVariationsForModule(projectId, module);
 }

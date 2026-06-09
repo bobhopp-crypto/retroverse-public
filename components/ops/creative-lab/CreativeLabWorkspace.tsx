@@ -16,7 +16,10 @@ import {
   type CreativeLabPanel,
 } from "@/lib/ops/creative-lab/workspace/urls";
 
+import { ConceptVariationsPanel } from "./ConceptVariationsPanel";
+import { PromptPreviewPanel } from "./PromptPreviewPanel";
 import { selectionHasWeights, StyleWeightEditor, weightedStylesSummary } from "./StyleWeightEditor";
+import { StyleBoard, type StyleBoardMode } from "./StyleBoard";
 
 type ModuleInfo = {
   id: CreativeLabModuleId;
@@ -65,6 +68,7 @@ export function CreativeLabWorkspace() {
   const [newYears, setNewYears] = useState("1967, 1978, 1992");
   const [newTheme, setNewTheme] = useState("");
   const [presetName, setPresetName] = useState("");
+  const [styleMode, setStyleMode] = useState<StyleBoardMode>("simple");
 
   const navigate = useCallback(
     (patch: { panel?: CreativeLabPanel; project?: string | null }) => {
@@ -231,15 +235,13 @@ export function CreativeLabWorkspace() {
       const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
       if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "concept_failed");
       setProject(data.project);
-      setNotice("Generated structured concept (no image yet).");
+      setNotice("Generated Concept A–D prompt variations (no images yet).");
     } catch (e) {
       setError(e instanceof Error ? e.message : "concept_failed");
     } finally {
       setBusy(false);
     }
   }
-
-  const latestPrompt = project?.generatedPrompts[0];
 
   const modulePlaceholders = useMemo(
     () => modules.filter((m) => !m.available),
@@ -432,45 +434,77 @@ export function CreativeLabWorkspace() {
         {panel === "styles" ? (
           <div className="cl-panel">
             <header className="cl-panel__head">
-              <h2>Style weights</h2>
+              <h2>Style boards</h2>
               <p className="ops-dim">
-                {project ? `${project.name} — ${weightedStylesSummary(project.styleSelection)}` : "Select a project to assign weights."}
+                {project ? `${project.name} — ${weightedStylesSummary(project.styleSelection)}` : "Select a project to pick styles."}
               </p>
             </header>
             {!project || !draftSelection ? (
               <p className="ops-dim">Open a project from the Projects panel first.</p>
             ) : (
               <>
-                <div className="cl-style-grid">
-                  <StyleWeightEditor
+                <div className="cl-style-mode">
+                  <span className="cl-style-mode__label">Selection mode</span>
+                  <button
+                    type="button"
+                    className={`ops-btn${styleMode === "simple" ? " ops-btn--ok" : ""}`}
+                    onClick={() => setStyleMode("simple")}
+                  >
+                    Simple — click cards
+                  </button>
+                  <button
+                    type="button"
+                    className={`ops-btn${styleMode === "advanced" ? " ops-btn--ok" : ""}`}
+                    onClick={() => setStyleMode("advanced")}
+                  >
+                    Advanced — manual weights
+                  </button>
+                </div>
+                <div className="cl-style-boards">
+                  <StyleBoard
                     category="credential"
                     title="Credential style"
                     styles={STYLE_CATALOG.credential}
                     selection={draftSelection}
+                    mode={styleMode}
                     onChange={(next) => setProject({ ...project, styleSelection: next })}
                   />
-                  <StyleWeightEditor
+                  <StyleBoard
                     category="illustration"
                     title="Illustration style"
                     styles={STYLE_CATALOG.illustration}
                     selection={draftSelection}
+                    mode={styleMode}
                     onChange={(next) => setProject({ ...project, styleSelection: next })}
                   />
-                  <StyleWeightEditor
+                  <StyleBoard
                     category="color"
                     title="Color style"
                     styles={STYLE_CATALOG.color}
                     selection={draftSelection}
+                    mode={styleMode}
                     onChange={(next) => setProject({ ...project, styleSelection: next })}
                   />
-                  <StyleWeightEditor
-                    category="density"
-                    title="Density"
-                    styles={STYLE_CATALOG.density}
-                    selection={draftSelection}
-                    onChange={(next) => setProject({ ...project, styleSelection: next })}
-                  />
+                  {styleMode === "advanced" ? (
+                    <StyleWeightEditor
+                      category="density"
+                      title="Print density"
+                      styles={STYLE_CATALOG.density}
+                      selection={draftSelection}
+                      onChange={(next) => setProject({ ...project, styleSelection: next })}
+                    />
+                  ) : (
+                    <StyleBoard
+                      category="density"
+                      title="Print density"
+                      styles={STYLE_CATALOG.density}
+                      selection={draftSelection}
+                      mode="simple"
+                      onChange={(next) => setProject({ ...project, styleSelection: next })}
+                    />
+                  )}
                 </div>
+                <PromptPreviewPanel project={project} />
                 <div className="cl-actions">
                   <button
                     type="button"
@@ -478,7 +512,7 @@ export function CreativeLabWorkspace() {
                     disabled={busy || !selectionHasWeights(draftSelection)}
                     onClick={() => void saveProjectPatch({ styleSelection: draftSelection })}
                   >
-                    Save style weights
+                    Save styles
                   </button>
                   <input
                     className="ops-input cl-preset-name"
@@ -520,35 +554,33 @@ export function CreativeLabWorkspace() {
           <div className="cl-panel">
             <header className="cl-panel__head">
               <h2>Pass Lab</h2>
-              <p className="ops-dim">Structured concepts only — image generation not enabled yet.</p>
+              <p className="ops-dim">Prompt variations only — image generation not enabled yet.</p>
             </header>
             {!project ? (
               <p className="ops-dim">Select a project to build pass concepts.</p>
             ) : (
-              <section className="cl-card cl-card--wide">
-                <h3>{project.name}</h3>
-                <p>{project.event} · {project.venue} · {project.date}</p>
-                <p className="cl-preset-summary">{weightedStylesSummary(project.styleSelection)}</p>
-                <div className="cl-actions">
-                  <button
-                    type="button"
-                    className="ops-btn ops-btn--ok"
-                    disabled={busy || !selectionHasWeights(project.styleSelection)}
-                    onClick={() => void generateConcept()}
-                  >
-                    Build concept
-                  </button>
-                </div>
-                {latestPrompt ? (
-                  <div className="cl-concept">
-                    <h4>Latest concept</h4>
-                    <p>{latestPrompt.conceptSummary}</p>
-                    <pre className="cl-concept__json">{JSON.stringify(latestPrompt.structuredConcept, null, 2)}</pre>
+              <>
+                <section className="cl-card cl-card--wide">
+                  <h3>{project.name}</h3>
+                  <p>{project.event} · {project.venue} · {project.date}</p>
+                  <p className="cl-preset-summary">{weightedStylesSummary(project.styleSelection)}</p>
+                  <div className="cl-actions">
+                    <button
+                      type="button"
+                      className="ops-btn ops-btn--ok"
+                      disabled={busy || !selectionHasWeights(project.styleSelection)}
+                      onClick={() => void generateConcept()}
+                    >
+                      Generate Concept A–D
+                    </button>
                   </div>
-                ) : (
-                  <p className="ops-dim">No concepts generated yet.</p>
-                )}
-              </section>
+                </section>
+                <PromptPreviewPanel project={project} />
+                <section className="cl-card cl-card--wide">
+                  <h3>Concept variations</h3>
+                  <ConceptVariationsPanel prompts={project.generatedPrompts} />
+                </section>
+              </>
             )}
             {modulePlaceholders.length > 0 ? (
               <p className="ops-dim cl-soon">

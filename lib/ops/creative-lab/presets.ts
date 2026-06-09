@@ -23,7 +23,7 @@ const DEFAULT_PRESETS: Array<{
       ],
       illustration: [
         { id: "mid-century", weight: 60 },
-        { id: "cartoon", weight: 25 },
+        { id: "saturday-morning-cartoon", weight: 25 },
         { id: "rock-poster", weight: 15 },
       ],
       color: [
@@ -70,7 +70,7 @@ const DEFAULT_PRESETS: Array<{
       illustration: [
         { id: "psychedelic", weight: 50 },
         { id: "rock-poster", weight: 35 },
-        { id: "cartoon", weight: 15 },
+        { id: "saturday-morning-cartoon", weight: 15 },
       ],
       color: [
         { id: "earth-tone", weight: 55 },
@@ -93,8 +93,7 @@ const DEFAULT_PRESETS: Array<{
         { id: "trading-card", weight: 20 },
       ],
       illustration: [
-        { id: "saturday-morning", weight: 50 },
-        { id: "cartoon", weight: 30 },
+        { id: "saturday-morning-cartoon", weight: 80 },
         { id: "mid-century", weight: 20 },
       ],
       color: [

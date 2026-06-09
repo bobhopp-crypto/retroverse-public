@@ -1,6 +1,9 @@
 "use client";
 
-import type { StyleCategory, StyleDefinition, StyleSelection, WeightedStyle } from "@/lib/ops/creative-lab/types";
+import type { StyleCategory, StyleDefinition, StyleSelection } from "@/lib/ops/creative-lab/types";
+import { getWeight, setManualWeight } from "@/lib/ops/creative-lab/style-selection";
+
+export { selectionHasWeights, weightedStylesSummary } from "@/lib/ops/creative-lab/style-selection";
 
 type Props = {
   category: StyleCategory;
@@ -10,23 +13,7 @@ type Props = {
   onChange: (next: StyleSelection) => void;
 };
 
-function getWeight(selection: StyleSelection, category: StyleCategory, id: string): number {
-  return selection[category].find((w) => w.id === id)?.weight ?? 0;
-}
-
-function setWeight(
-  selection: StyleSelection,
-  category: StyleCategory,
-  id: string,
-  weight: number,
-): StyleSelection {
-  const others = selection[category].filter((w) => w.id !== id);
-  const clamped = Math.max(0, Math.min(100, weight));
-  const next =
-    clamped > 0 ? [...others, { id, weight: clamped }] : others;
-  return { ...selection, [category]: next.sort((a, b) => b.weight - a.weight) };
-}
-
+/** Advanced-only slider editor (used for density in manual mode). */
 export function StyleWeightEditor(props: Props) {
   const { category, title, styles, selection, onChange } = props;
 
@@ -51,7 +38,7 @@ export function StyleWeightEditor(props: Props) {
                   value={weight}
                   aria-label={`${style.label} weight`}
                   onChange={(e) =>
-                    onChange(setWeight(selection, category, style.id, Number(e.target.value)))
+                    onChange(setManualWeight(selection, category, style.id, Number(e.target.value)))
                   }
                 />
                 <span className="cl-style-row__pct">{weight}%</span>
@@ -62,22 +49,4 @@ export function StyleWeightEditor(props: Props) {
       </ul>
     </section>
   );
-}
-
-export function selectionHasWeights(selection: StyleSelection): boolean {
-  return (
-    selection.credential.length > 0 ||
-    selection.illustration.length > 0 ||
-    selection.color.length > 0 ||
-    selection.density.length > 0
-  );
-}
-
-export function weightedStylesSummary(selection: StyleSelection): string {
-  const parts: string[] = [];
-  for (const cat of ["credential", "illustration", "color", "density"] as const) {
-    const top = selection[cat][0];
-    if (top) parts.push(`${top.weight}% ${top.id}`);
-  }
-  return parts.join(" · ") || "No styles weighted";
 }
