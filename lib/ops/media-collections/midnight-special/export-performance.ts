@@ -10,6 +10,7 @@ import {
   ffmpegMetadataArgs,
   type MsExportMetadata,
 } from "./export-metadata";
+import { performanceEffectiveBounds } from "./effective-bounds";
 import {
   ensureEpisodePerformances,
   episodeManifestToCandidateShape,
@@ -208,8 +209,9 @@ export async function exportAcceptedPerformance(
     ? { path: existingPath, filename: existingPath.split("/").pop() ?? exportFilename(perf) }
     : await resolveUniqueOutPath(destDir, perf, performanceId);
 
-  const start = Math.max(0, perf.start_sec);
-  const duration = Math.max(1, perf.end_sec - perf.start_sec);
+  const bounds = performanceEffectiveBounds(record);
+  const start = Math.max(0, bounds.start);
+  const duration = Math.max(1, bounds.end - bounds.start);
 
   if (!opts?.force) {
     const valid = await isValidExistingExport(outPath, metadata);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { OpsStructuredCollectionBanner } from "@/components/ops/media-collections/OpsStructuredCollectionBanner";
+import { MediaLabMidnightSpecialClipReview } from "@/components/ops/media-lab/MediaLabMidnightSpecialClipReview";
 import { OpsMediaLab } from "@/components/ops/OpsMediaLab";
 import { OPS_FOCUS_YEAR } from "@/lib/ops/ops-focus-year";
 
@@ -24,9 +25,20 @@ function OpsBlocked(props: { message: string }) {
 }
 
 export default async function OpsMediaLabPage(props: {
-  searchParams: Promise<{ collection?: string; episode?: string; mode?: string }>;
+  searchParams: Promise<{
+    collection?: string;
+    episode?: string;
+    mode?: string;
+    performance?: string;
+    return?: string;
+  }>;
 }) {
-  const { collection, episode, mode } = await props.searchParams;
+  const { collection, episode, mode, performance, return: returnHref } = await props.searchParams;
+  const clipReviewMode =
+    mode === "clip_review" &&
+    collection === "midnight-special" &&
+    Boolean(episode?.trim()) &&
+    Boolean(performance?.trim());
   if (process.env.RETROVERSE_OPS !== "1") {
     return (
       <main className="ops-page">
@@ -63,12 +75,27 @@ export default async function OpsMediaLabPage(props: {
           mode={mode}
         />
 
-        <p className="ops-banner">
-          <strong>Video → transcript → chapters → save to year.</strong> Local only (ffmpeg +
-          faster-whisper). No upload to the cloud.
-        </p>
+        {clipReviewMode ? (
+          <p className="ops-banner">
+            <strong>Clip Review mode</strong> — precision in/out editing for Midnight Special
+            performances. Saves adjusted boundaries to the performance manifest.
+          </p>
+        ) : (
+          <p className="ops-banner">
+            <strong>Video → transcript → chapters → save to year.</strong> Local only (ffmpeg +
+            faster-whisper). No upload to the cloud.
+          </p>
+        )}
 
-        <OpsMediaLab defaultYear={OPS_FOCUS_YEAR} />
+        {clipReviewMode ? (
+          <MediaLabMidnightSpecialClipReview
+            episodeId={episode!.trim()}
+            performanceId={performance!.trim()}
+            returnHref={returnHref?.trim()}
+          />
+        ) : (
+          <OpsMediaLab defaultYear={OPS_FOCUS_YEAR} />
+        )}
       </div>
     </main>
   );

@@ -32,6 +32,7 @@ import type {
 } from "./types";
 
 export type { PerformanceStatus };
+import { performanceEffectiveBounds } from "./effective-bounds";
 import { parseYearFromAirDate, secToTimecode } from "./timecode";
 
 const PARSER_VERSION = "ms-perf-v1";
@@ -115,20 +116,7 @@ function recordFromParsed(
 
   if (!existing) return base;
 
-  if (LOCKED_STATUSES.includes(existing.status)) {
-    return {
-      ...existing,
-      episode_title: episode.title,
-      air_date: episode.air_date ?? existing.air_date,
-      source_url: episode.source_url,
-      source_chapter: raw.chapter_title,
-      confidence: raw.confidence,
-      confidence_score: raw.confidence_score,
-      failed_parse,
-    };
-  }
-
-  if (existing.manually_edited) {
+  if (LOCKED_STATUSES.includes(existing.status) || existing.manually_edited || existing.adjusted_start != null || existing.adjusted_end != null) {
     return {
       ...existing,
       episode_title: episode.title,
@@ -609,6 +597,20 @@ export async function getEnrichedReviewQueue(
   };
 }
 
+export async function savePerformanceClipAdjustments(
+  episodeId: string,
+  performanceId: string,
+  adjusted_start: number,
+  adjusted_end: number,
+): Promise<MsPerformanceRecord | null> {
+  return updatePerformanceRecord(episodeId, performanceId, {
+    adjusted_start,
+    adjusted_end,
+    modified_at: new Date().toISOString(),
+    manually_edited: true,
+  });
+}
+
 export async function updatePerformanceRecord(
   episodeId: string,
   performanceId: string,
@@ -618,6 +620,9 @@ export async function updatePerformanceRecord(
     song?: string;
     start_seconds?: number;
     end_seconds?: number;
+    adjusted_start?: number;
+    adjusted_end?: number;
+    modified_at?: string;
     export_path?: string;
     manually_edited?: boolean;
   },
@@ -638,6 +643,9 @@ export async function updatePerformanceRecord(
     updated.end_seconds = patch.end_seconds;
     updated.end_timecode = secToTimecode(patch.end_seconds);
   }
+  if (patch.adjusted_start != null) updated.adjusted_start = patch.adjusted_start;
+  if (patch.adjusted_end != null) updated.adjusted_end = patch.adjusted_end;
+  if (patch.modified_at != null) updated.modified_at = patch.modified_at;
   if (patch.manually_edited) updated.manually_edited = true;
 
   manifest.performances[idx] = updated;
@@ -675,14 +683,16 @@ export function episodeManifestToCandidateShape(
     video_path: manifest.video_path,
     generated_at: manifest.generated_at,
     parser_version: manifest.parser_version,
-    performances: manifest.performances.map((p) => ({
+    performances: manifest.performances.map((p) => {
+      const bounds = performanceEffectiveBounds(p);
+      return {
       id: p.performance_id,
       artist: p.artist,
       song: p.song,
-      start_sec: p.start_seconds,
-      end_sec: p.end_seconds,
-      start_timecode: p.start_timecode,
-      end_timecode: p.end_timecode,
+      start_sec: bounds.start,
+      end_sec: bounds.end,
+      start_timecode: bounds.start_timecode,
+      end_timecode: bounds.end_timecode,
       confidence: p.confidence,
       confidence_score: p.confidence_score,
       source: "chapter" as const,
@@ -697,7 +707,8 @@ export function episodeManifestToCandidateShape(
               ? "adjusted"
               : "pending",
       export_path: p.export_path,
-    })),
+    };
+    }),
     stats: {
       chapter_count: manifest.performances.length,
       performance_count: manifest.performances.length,

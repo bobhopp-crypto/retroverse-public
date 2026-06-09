@@ -11213,3 +11213,193 @@
   scroll-margin-top: 1rem;
 }
 
+/* Continuity audit dashboard */
+.ops-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ops-cont__hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 2px solid var(--grid);
+  background: var(--panel);
+}
+
+.ops-cont__question {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  max-width: 36rem;
+}
+
+.ops-cont__overall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.65rem 1.2rem;
+  border: 3px solid currentColor;
+  min-width: 8rem;
+}
+
+.ops-cont__overall-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ops-cont__overall-value {
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+.ops-cont__scores {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: 0.55rem;
+}
+
+.ops-cont__score-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.55rem 0.65rem;
+  border: 2px solid var(--grid);
+  background: var(--panel);
+  font-weight: 800;
+}
+
+.ops-cont__score-area {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--dim);
+}
+
+.ops-cont__score--green {
+  color: #1a7a4a;
+  border-color: rgba(26, 122, 74, 0.45);
+}
+
+.ops-cont__score--yellow {
+  color: #9a6b00;
+  border-color: rgba(154, 107, 0, 0.45);
+}
+
+.ops-cont__score--red {
+  color: #b83232;
+  border-color: rgba(184, 50, 50, 0.45);
+}
+
+.ops-cont__section-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ops-cont__fact-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.ops-cont__table-wrap {
+  overflow-x: auto;
+}
+
+.ops-cont__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.ops-cont__table th,
+.ops-cont__table td {
+  border: 1px solid var(--grid);
+  padding: 0.45rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ops-cont__table th {
+  background: var(--panel);
+  font-weight: 800;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.ops-cont__mono {
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  word-break: break-all;
+}
+
+.ops-cont__pill {
+  display: inline-block;
+  padding: 0.12rem 0.4rem;
+  font-size: 0.62rem;
+  font-weight: 900;
+  border: 2px solid currentColor;
+}
+
+.ops-cont__note {
+  margin: 0;
+  font-size: 0.68rem;
+  color: var(--dim);
+  font-weight: 600;
+}
+
+/* Midnight Special clip review (Media Lab mode) */
+.ops-ml-ms-clip-review {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ops-ml-ms-clip-review__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ops-ml-ms-clip-review__title {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.ops-ml-ms-clip-review__bounds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.9rem;
+}
+
+.ops-ml-ms-clip-review__video-wrap {
+  width: 100%;
+  max-width: 960px;
+  background: #111;
+  border: 3px solid var(--ink);
+}
+
+.ops-ml-ms-clip-review__video {
+  display: block;
+  width: 100%;
+  max-height: 54vh;
+}
+
+.ops-ml-ms-clip-review__tools {
+  flex-wrap: wrap;
+}
+

@@ -25,7 +25,33 @@ export type MsPerformanceRecord = {
   status: PerformanceStatus;
   export_path?: string;
   manually_edited?: boolean;
+  /** Media Lab precision trim — preferred over detected start_seconds on export. */
+  adjusted_start?: number;
+  adjusted_end?: number;
+  modified_at?: string;
   failed_parse?: boolean;
+};
+
+export type MsClipReviewContext = {
+  collection_id: string;
+  episode_id: string;
+  performance_id: string;
+  episode_title: string;
+  air_date?: string;
+  artist: string;
+  title: string;
+  detected_start: number;
+  detected_end: number;
+  effective_start: number;
+  effective_end: number;
+  detected_start_timecode: string;
+  detected_end_timecode: string;
+  effective_start_timecode: string;
+  effective_end_timecode: string;
+  status: PerformanceStatus;
+  video_url: string;
+  return_href: string;
+  modified_at?: string;
 };
 
 export type MsEpisodePerformanceManifest = {

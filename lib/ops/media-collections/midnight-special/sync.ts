@@ -248,7 +248,7 @@ export async function runMidnightSpecialSync(
         else {
           private_restored.push({
             episode_id: videoId,
-            title: ep?.title ?? `[Private video] ${videoId}`,
+            title: `[Private video] ${videoId}`,
             source_url: `https://www.youtube.com/watch?v=${videoId}`,
           });
         }

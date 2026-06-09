@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { buildClipReviewHrefFromRecord } from "@/lib/ops/media-collections/midnight-special/clip-mode";
 import type {
   MsPerformanceRecord,
   PerformanceConfidence,
@@ -42,8 +43,16 @@ function confidenceLabel(c: PerformanceConfidence): string {
   return c.toUpperCase();
 }
 
+function clipBounds(perf: MsPerformanceRecord): { start: number; end: number } {
+  return {
+    start: perf.adjusted_start ?? perf.start_seconds,
+    end: perf.adjusted_end ?? perf.end_seconds,
+  };
+}
+
 function clipDurationSec(perf: MsPerformanceRecord): number {
-  return Math.max(1, perf.end_seconds - perf.start_seconds);
+  const b = clipBounds(perf);
+  return Math.max(1, b.end - b.start);
 }
 
 type QueuePayload = {
@@ -171,7 +180,8 @@ export default function OpsMidnightSpecialReviewQueue() {
   const updateClipProgress = useCallback((perf: MsPerformanceRecord) => {
     const v = videoRef.current;
     if (!v) return;
-    const rel = Math.max(0, v.currentTime - perf.start_seconds);
+    const b = clipBounds(perf);
+    const rel = Math.max(0, v.currentTime - b.start);
     const dur = clipDurationSec(perf);
     setClipNowSec(rel);
     setClipProgress(Math.min(100, (rel / dur) * 100));
@@ -185,7 +195,8 @@ export default function OpsMidnightSpecialReviewQueue() {
       clearClipStopListener();
 
       const startPlayback = () => {
-        v.currentTime = perf.start_seconds;
+        const b = clipBounds(perf);
+        v.currentTime = b.start;
         setClipNowSec(0);
         setClipProgress(0);
         updateClipProgress(perf);
@@ -196,7 +207,7 @@ export default function OpsMidnightSpecialReviewQueue() {
 
         const stopAt = () => {
           updateClipProgress(perf);
-          if (v.currentTime >= perf.end_seconds - 0.2) {
+          if (v.currentTime >= b.end - 0.2) {
             v.pause();
             setIsPlaying(false);
             v.removeEventListener("timeupdate", stopAt);
@@ -226,7 +237,8 @@ export default function OpsMidnightSpecialReviewQueue() {
       clearClipStopListener();
       v.pause();
       setIsPlaying(false);
-      v.currentTime = perf.start_seconds;
+      const b = clipBounds(perf);
+      v.currentTime = b.start;
       setClipNowSec(0);
       setClipProgress(0);
       if (autoplay) previewClip(perf, true);
@@ -238,10 +250,8 @@ export default function OpsMidnightSpecialReviewQueue() {
     (delta: number) => {
       const v = videoRef.current;
       if (!v || !selected) return;
-      const next = Math.max(
-        selected.start_seconds,
-        Math.min(selected.end_seconds, v.currentTime + delta),
-      );
+      const b = clipBounds(selected);
+      const next = Math.max(b.start, Math.min(b.end, v.currentTime + delta));
       v.currentTime = next;
       updateClipProgress(selected);
     },
@@ -252,7 +262,8 @@ export default function OpsMidnightSpecialReviewQueue() {
     const v = videoRef.current;
     if (!v || !selected) return;
     if (v.paused) {
-      if (v.currentTime < selected.start_seconds || v.currentTime >= selected.end_seconds) {
+      const b = clipBounds(selected);
+      if (v.currentTime < b.start || v.currentTime >= b.end) {
         previewClip(selected, true);
       } else {
         void v.play().catch(() => undefined);
@@ -583,6 +594,14 @@ export default function OpsMidnightSpecialReviewQueue() {
             >
               Adjust ±2s
             </button>
+            <a
+              className="ops-btn ops-btn--info"
+              href={buildClipReviewHrefFromRecord(selected)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open in Media Lab
+            </a>
             <button
               type="button"
               className="ops-btn"

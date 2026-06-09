@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import OpsMidnightSpecialReviewQueue from "./OpsMidnightSpecialReviewQueue";
 
+import { buildClipReviewMediaLabHref } from "@/lib/ops/media-collections/midnight-special/clip-mode";
 import type {
   MsCandidateManifest,
   MsEpisodeAnalysis,
@@ -328,6 +329,22 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
           >
             Adjust (±2s)
           </button>
+          <a
+            className="ops-btn ops-btn--info"
+            href={buildClipReviewMediaLabHref({
+              episodeId: activeEpisodeId,
+              performanceId: selected.id,
+              artist: selected.artist,
+              title: selected.song,
+              startTime: selected.start_sec,
+              endTime: selected.end_sec,
+              returnHref: `/ops/media-collections/midnight-special/review?episode=${encodeURIComponent(activeEpisodeId)}`,
+            })}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in Media Lab
+          </a>
           <button
             type="button"
             className="ops-btn"
