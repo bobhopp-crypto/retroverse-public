@@ -15,7 +15,7 @@ import { MediaLabEpisodeDetail } from "./MediaLabEpisodeDetail";
 import { MediaLabExportedDetail } from "./MediaLabExportedDetail";
 import { MediaLabLibraryBrowse } from "./MediaLabLibraryBrowse";
 import { MediaLabLibrarySidebar } from "./MediaLabLibrarySidebar";
-import { MediaLabMidnightSpecialClipReview } from "./MediaLabMidnightSpecialClipReview";
+import { MediaLabPerformanceEditor } from "./MediaLabPerformanceEditor";
 
 function pushRecent(performanceId: string) {
   try {
@@ -131,10 +131,10 @@ export function MediaLabWorkspace({ defaultYear = OPS_FOCUS_YEAR }: Props) {
 
       <div className="ml-workspace__main">
         {showEditor ? (
-          <MediaLabMidnightSpecialClipReview
+          <MediaLabPerformanceEditor
             episodeId={episodeId!}
             performanceId={performanceId!}
-            embedded
+            onSelectSibling={selectPerformance}
           />
         ) : null}
 

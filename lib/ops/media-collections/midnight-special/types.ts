@@ -30,6 +30,7 @@ export type MsPerformanceRecord = {
   adjusted_end?: number;
   modified_at?: string;
   failed_parse?: boolean;
+  review_notes?: string;
 };
 
 export type MsClipReviewContext = {

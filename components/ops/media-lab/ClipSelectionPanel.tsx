@@ -28,7 +28,7 @@ function formatReviewClock(sec?: number): string {
   return `00:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 
-type DragKind = "in" | "out";
+type DragKind = "in" | "out" | "body";
 
 type ClipSelectionPanelProps = {
   clipStartSec: number;
@@ -50,6 +50,7 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
   const [drag, setDrag] = useState<DragKind | null>(null);
   const [playheadHover, setPlayheadHover] = useState(false);
   const dragRef = useRef<DragKind | null>(null);
+  const bodyDragRef = useRef<{ startIn: number; startOut: number; anchorSec: number } | null>(null);
   const selectionRef = useRef(props.selection);
   selectionRef.current = props.selection;
 
@@ -116,6 +117,29 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
     [props.onSeek, props.onTrimPreview],
   );
 
+  const moveBody = useCallback(
+    (raw: number) => {
+      const anchor = bodyDragRef.current;
+      if (!anchor) return;
+      const delta = raw - anchor.anchorSec;
+      const span = anchor.startOut - anchor.startIn;
+      let nextIn = anchor.startIn + delta;
+      let nextOut = anchor.startOut + delta;
+      if (nextIn < clipStart) {
+        nextOut += clipStart - nextIn;
+        nextIn = clipStart;
+      }
+      if (nextOut > clipEnd) {
+        nextIn -= nextOut - clipEnd;
+        nextOut = clipEnd;
+      }
+      if (nextOut - nextIn < MIN_SELECTION_SEC) return;
+      updateSelection({ inSeconds: nextIn, outSeconds: nextOut });
+      previewAtSec(nextIn + span / 2);
+    },
+    [clipEnd, clipStart, previewAtSec, updateSelection],
+  );
+
   useEffect(() => {
     dragRef.current = drag;
   }, [drag]);
@@ -131,10 +155,12 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
         const sec = clampIn(raw);
         updateSelection({ inSeconds: sec });
         previewAtSec(sec);
-      } else {
+      } else if (kind === "out") {
         const sec = clampOut(raw);
         updateSelection({ outSeconds: sec });
         previewAtSec(sec);
+      } else {
+        moveBody(raw);
       }
     }
 
@@ -142,8 +168,13 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
       const kind = dragRef.current;
       if (!kind) return;
       const raw = clientXToSec(e.clientX, true);
-      const sec = kind === "in" ? clampIn(raw) : clampOut(raw);
-      props.onTrimDragEnd?.(sec);
+      if (kind === "body") {
+        props.onTrimDragEnd?.(selectionRef.current.inSeconds ?? inSec);
+      } else {
+        const sec = kind === "in" ? clampIn(raw) : clampOut(raw);
+        props.onTrimDragEnd?.(sec);
+      }
+      bodyDragRef.current = null;
       dragRef.current = null;
       setDrag(null);
     }
@@ -154,7 +185,17 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerup", onUp);
     };
-  }, [clampIn, clampOut, clientXToSec, drag, previewAtSec, props.onTrimDragEnd, updateSelection]);
+  }, [clampIn, clampOut, clientXToSec, drag, inSec, moveBody, previewAtSec, props.onTrimDragEnd, updateSelection]);
+
+  function beginBodyDrag(e: React.PointerEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+    props.onTrimDragStart?.();
+    bodyDragRef.current = { startIn: inSec, startOut: outSec, anchorSec: clientXToSec(e.clientX, true) };
+    dragRef.current = "body";
+    setDrag("body");
+  }
 
   function beginDrag(kind: DragKind, e: React.PointerEvent) {
     e.preventDefault();
@@ -170,6 +211,7 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
   function handleTrackPointerDown(e: React.PointerEvent) {
     if ((e.target as HTMLElement).closest(".ops-ml-clip-timeline__handle")) return;
     if ((e.target as HTMLElement).closest(".ops-ml-selection__playhead")) return;
+    if ((e.target as HTMLElement).closest(".ops-ml-selection__range-body")) return;
 
     const sec = clientXToSec(e.clientX);
 
@@ -263,7 +305,11 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
           >
             <span className="ops-ml-selection__handle-tag">IN</span>
           </button>
-          <div className="ops-ml-selection__range-body" aria-hidden />
+          <div
+            className={`ops-ml-selection__range-body${drag === "body" ? " ops-ml-selection__range-body--drag" : ""}`}
+            aria-label="Drag clip — moves IN and OUT together"
+            onPointerDown={beginBodyDrag}
+          />
           <button
             type="button"
             className={[

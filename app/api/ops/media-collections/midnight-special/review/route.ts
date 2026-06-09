@@ -14,6 +14,7 @@ type ReviewBody = {
   song?: string;
   start_sec?: number;
   end_sec?: number;
+  review_notes?: string;
 };
 
 function actionToStatus(action: ReviewBody["action"]): PerformanceStatus {
@@ -47,6 +48,7 @@ export async function POST(req: Request) {
     song: body.song,
     start_seconds: body.start_sec,
     end_seconds: body.end_sec,
+    review_notes: body.review_notes,
     manually_edited:
       body.action === "adjust" || body.start_sec != null || body.end_sec != null,
   });

@@ -3859,7 +3859,13 @@
 
 .ops-ml-selection__range-body {
   flex: 1;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+}
+
+.ops-ml-selection__range-body--drag {
+  cursor: grabbing;
 }
 
 .ops-ml-selection__handle {
@@ -11605,5 +11611,191 @@
   .ml-workspace__sidebar {
     max-height: 40vh;
   }
+}
+
+/* ── Performance editor (restored workstation inside unified workspace) ── */
+
+.ml-workspace__main .ml-perf-editor {
+  border: none;
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ml-perf-editor__body {
+  flex: 1;
+  min-height: 0;
+}
+
+.ml-perf-editor__columns {
+  min-height: 0;
+}
+
+.ml-perf-editor__center {
+  min-width: 0;
+}
+
+.ml-perf-editor__side {
+  font-size: 0.95rem;
+  min-width: 300px;
+  max-width: 380px;
+}
+
+.ml-perf-editor__input,
+.ml-perf-editor__notes {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.ml-perf-editor__meta-dl {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px 12px;
+  margin: 12px 0;
+}
+
+.ml-perf-editor__meta-dl dt {
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ml-perf-editor__meta-dl dd {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.ml-perf-editor__chapter {
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.ml-perf-editor__bucket {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 2px solid var(--ink);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.ml-perf-editor__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ml-perf-editor__action {
+  width: 100%;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+}
+
+.ml-perf-editor__filmstrip .ops-ml-filmstrip__strip {
+  max-height: 120px;
+}
+
+.ml-perf-editor__siblings {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 12px;
+  border-top: 3px solid var(--ink);
+  background: var(--paper);
+}
+
+.ml-perf-editor__sibling {
+  flex: 0 0 auto;
+  min-width: 140px;
+  max-width: 200px;
+  text-align: left;
+  border: 2px solid var(--ink);
+  background: var(--cream);
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.ml-perf-editor__sibling--active {
+  background: var(--teal);
+  color: var(--cream);
+}
+
+.ml-perf-editor__sibling-title {
+  display: block;
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+.ml-perf-editor__sibling-meta {
+  display: block;
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.ml-perf-editor__queue-drawer {
+  width: min(360px, 92vw);
+}
+
+.ml-perf-editor__queue-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.ml-perf-editor__queue-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+}
+
+.ml-perf-editor__queue-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px;
+  border: 2px solid transparent;
+  background: transparent;
+  font-size: 0.92rem;
+}
+
+.ml-perf-editor__queue-item:hover {
+  border-color: var(--ink);
+  background: var(--cream);
+}
+
+.ml-perf-editor__notice {
+  margin: 8px 12px 12px;
+}
+
+/* Workspace sidebar readability (MacBook / iPad) */
+.ml-workspace__sidebar-title {
+  font-size: 1.1rem;
+}
+
+.ml-workspace__section-btn,
+.ml-workspace__collection-btn {
+  font-size: 0.95rem;
+  padding: 8px 10px;
+}
+
+.ml-workspace__search {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.ml-workspace__mini-filters select {
+  font-size: 0.92rem;
+  padding: 8px;
+}
+
+.ml-workspace__list-primary {
+  font-size: 0.95rem;
+}
+
+.ml-workspace__list-meta {
+  font-size: 0.8rem;
 }
 

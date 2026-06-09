@@ -625,6 +625,7 @@ export async function updatePerformanceRecord(
     modified_at?: string;
     export_path?: string;
     manually_edited?: boolean;
+    review_notes?: string;
   },
 ): Promise<MsPerformanceRecord | null> {
   const manifest = await loadEpisodePerformanceManifest(episodeId);
