@@ -1,151 +1,120 @@
 import { existsSync } from "node:fs";
-import { mkdir, readdir, readFile, writeFile } from "fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "fs/promises";
 
+import {
+  normalizeConceptStrategyId,
+  normalizeConceptStrategyMap,
+} from "./concept-strategies";
+import {
+  BUILTIN_PRESET_LIBRARY,
+  OBSOLETE_BUILTIN_PRESET_IDS,
+  singleStyleSelection,
+} from "./preset-library";
 import { creativeLabStylePresetPath, creativeLabStylesDir } from "./paths";
 import { normalizeStyleSelection } from "./style-catalog";
-import type { CreativeLabPresetFile, StyleSelection } from "./types";
+import type { ConceptStrategyId, CreativeLabPresetFile, StyleSelection } from "./types";
 
-const DEFAULT_PRESETS: Array<{
-  id: string;
-  name: string;
-  description: string;
-  styleSelection: StyleSelection;
-}> = [
-  {
-    id: "retroverse-classic",
-    name: "Retroverse Classic",
-    description: "Cream vintage credentials with mid-century illustration and medium density.",
-    styleSelection: {
-      credential: [
-        { id: "festival-pass", weight: 50 },
-        { id: "concert-credential", weight: 30 },
-        { id: "tv-studio-credential", weight: 20 },
-      ],
-      illustration: [
-        { id: "mid-century", weight: 60 },
-        { id: "saturday-morning-cartoon", weight: 25 },
-        { id: "rock-poster", weight: 15 },
-      ],
-      color: [
-        { id: "cream-vintage", weight: 70 },
-        { id: "muted-retro", weight: 30 },
-      ],
-      density: [{ id: "medium", weight: 100 }],
-    },
-  },
-  {
-    id: "live-aid",
-    name: "Live Aid",
-    description: "Bold concert credentials with photographic heroes and bright pop color.",
-    styleSelection: {
-      credential: [
-        { id: "concert-credential", weight: 50 },
-        { id: "backstage-laminate", weight: 30 },
-        { id: "press-pass", weight: 20 },
-      ],
-      illustration: [
-        { id: "photographic", weight: 55 },
-        { id: "rock-poster", weight: 30 },
-        { id: "pop-art", weight: 15 },
-      ],
-      color: [
-        { id: "bright-pop", weight: 60 },
-        { id: "monochrome", weight: 40 },
-      ],
-      density: [
-        { id: "medium", weight: 60 },
-        { id: "detailed", weight: 40 },
-      ],
-    },
-  },
-  {
-    id: "woodstock",
-    name: "Woodstock",
-    description: "Festival pass with psychedelic illustration and earth-tone palette.",
-    styleSelection: {
-      credential: [
-        { id: "festival-pass", weight: 70 },
-        { id: "ticket-stub", weight: 30 },
-      ],
-      illustration: [
-        { id: "psychedelic", weight: 50 },
-        { id: "rock-poster", weight: 35 },
-        { id: "saturday-morning-cartoon", weight: 15 },
-      ],
-      color: [
-        { id: "earth-tone", weight: 55 },
-        { id: "muted-retro", weight: 45 },
-      ],
-      density: [
-        { id: "detailed", weight: 55 },
-        { id: "medium", weight: 45 },
-      ],
-    },
-  },
-  {
-    id: "sunday-nights",
-    name: "Sunday Nights",
-    description: "TV studio credential with Saturday-morning illustration for pub nights.",
-    styleSelection: {
-      credential: [
-        { id: "tv-studio-credential", weight: 45 },
-        { id: "concert-credential", weight: 35 },
-        { id: "trading-card", weight: 20 },
-      ],
-      illustration: [
-        { id: "saturday-morning-cartoon", weight: 80 },
-        { id: "mid-century", weight: 20 },
-      ],
-      color: [
-        { id: "cream-vintage", weight: 50 },
-        { id: "bright-pop", weight: 30 },
-        { id: "neon", weight: 20 },
-      ],
-      density: [
-        { id: "simple", weight: 40 },
-        { id: "medium", weight: 60 },
-      ],
-    },
-  },
-];
+function seedToFile(seed: (typeof BUILTIN_PRESET_LIBRARY)[number], now: string): CreativeLabPresetFile {
+  return {
+    version: 2,
+    id: seed.id,
+    name: seed.name,
+    description: seed.description,
+    builtin: true,
+    credentialStyle: seed.credentialStyle,
+    illustrationStyle: seed.illustrationStyle,
+    colorStyle: seed.colorStyle,
+    densityStyle: seed.densityStyle,
+    defaultConceptStrategy: seed.defaultConceptStrategy,
+    conceptStrategies: seed.conceptStrategies,
+    styleSelection: singleStyleSelection(
+      seed.credentialStyle,
+      seed.illustrationStyle,
+      seed.colorStyle,
+      seed.densityStyle,
+    ),
+    createdAt: now,
+    updatedAt: now,
+  };
+}
 
 function normalizePreset(raw: unknown, fallbackId: string): CreativeLabPresetFile | null {
   if (!raw || typeof raw !== "object") return null;
   const obj = raw as Partial<CreativeLabPresetFile>;
   const id = typeof obj.id === "string" && obj.id.trim() ? obj.id.trim() : fallbackId;
   const now = new Date().toISOString();
+
+  const credentialStyle =
+    typeof obj.credentialStyle === "string" && obj.credentialStyle.trim()
+      ? obj.credentialStyle.trim()
+      : obj.styleSelection?.credential?.[0]?.id ?? "";
+  const illustrationStyle =
+    typeof obj.illustrationStyle === "string" && obj.illustrationStyle.trim()
+      ? obj.illustrationStyle.trim()
+      : obj.styleSelection?.illustration?.[0]?.id ?? "";
+  const colorStyle =
+    typeof obj.colorStyle === "string" && obj.colorStyle.trim()
+      ? obj.colorStyle.trim()
+      : obj.styleSelection?.color?.[0]?.id ?? "";
+  const densityStyle =
+    typeof obj.densityStyle === "string" && obj.densityStyle.trim()
+      ? obj.densityStyle.trim()
+      : obj.styleSelection?.density?.[0]?.id ?? "medium";
+
+  const styleSelection = normalizeStyleSelection(
+    obj.styleSelection ??
+      (credentialStyle && illustrationStyle && colorStyle
+        ? singleStyleSelection(credentialStyle, illustrationStyle, colorStyle, densityStyle)
+        : undefined),
+  );
+
+  const defaultConceptStrategy = normalizeConceptStrategyId(obj.defaultConceptStrategy);
+  const conceptStrategies = normalizeConceptStrategyMap(obj.conceptStrategies);
+
   return {
-    version: 1,
+    version: 2,
     id,
     name: typeof obj.name === "string" && obj.name.trim() ? obj.name.trim() : id,
     description: typeof obj.description === "string" ? obj.description : "",
-    styleSelection: normalizeStyleSelection(obj.styleSelection),
+    builtin: obj.builtin === true,
+    credentialStyle: credentialStyle || styleSelection.credential[0]?.id || "",
+    illustrationStyle: illustrationStyle || styleSelection.illustration[0]?.id || "",
+    colorStyle: colorStyle || styleSelection.color[0]?.id || "",
+    densityStyle: densityStyle || styleSelection.density[0]?.id || "medium",
+    defaultConceptStrategy,
+    conceptStrategies,
+    styleSelection,
     createdAt: typeof obj.createdAt === "string" ? obj.createdAt : now,
     updatedAt: typeof obj.updatedAt === "string" ? obj.updatedAt : now,
   };
 }
 
-export async function ensureDefaultPresets(): Promise<void> {
+export async function syncBuiltinPresets(): Promise<void> {
   await mkdir(creativeLabStylesDir(), { recursive: true });
   const now = new Date().toISOString();
-  for (const preset of DEFAULT_PRESETS) {
-    const path = creativeLabStylePresetPath(preset.id);
-    if (existsSync(path)) continue;
-    const file: CreativeLabPresetFile = {
-      version: 1,
-      id: preset.id,
-      name: preset.name,
-      description: preset.description,
-      styleSelection: preset.styleSelection,
-      createdAt: now,
-      updatedAt: now,
-    };
+
+  for (const obsoleteId of OBSOLETE_BUILTIN_PRESET_IDS) {
+    const path = creativeLabStylePresetPath(obsoleteId);
+    if (existsSync(path)) await rm(path, { force: true });
+  }
+
+  for (const seed of BUILTIN_PRESET_LIBRARY) {
+    const path = creativeLabStylePresetPath(seed.id);
+    const existing = existsSync(path) ? await loadPreset(seed.id) : null;
+    const file = seedToFile(seed, existing?.createdAt ?? now);
+    file.createdAt = existing?.createdAt ?? now;
+    file.updatedAt = now;
     await writeFile(path, `${JSON.stringify(file, null, 2)}\n`, "utf8");
   }
 }
 
+/** @deprecated use syncBuiltinPresets */
+export async function ensureDefaultPresets(): Promise<void> {
+  await syncBuiltinPresets();
+}
+
 export async function listPresets(): Promise<CreativeLabPresetFile[]> {
-  await ensureDefaultPresets();
+  await syncBuiltinPresets();
   const dir = creativeLabStylesDir();
   const names = await readdir(dir);
   const presets: CreativeLabPresetFile[] = [];
@@ -155,7 +124,10 @@ export async function listPresets(): Promise<CreativeLabPresetFile[]> {
     const preset = await loadPreset(id);
     if (preset) presets.push(preset);
   }
-  return presets.sort((a, b) => a.name.localeCompare(b.name));
+  return presets.sort((a, b) => {
+    if (a.builtin !== b.builtin) return a.builtin ? -1 : 1;
+    return a.name.localeCompare(b.name);
+  });
 }
 
 export async function loadPreset(presetId: string): Promise<CreativeLabPresetFile | null> {
@@ -172,19 +144,62 @@ export async function savePreset(input: {
   name: string;
   description?: string;
   styleSelection: StyleSelection;
+  credentialStyle?: string;
+  illustrationStyle?: string;
+  colorStyle?: string;
+  densityStyle?: string;
+  defaultConceptStrategy?: ConceptStrategyId;
+  conceptStrategies?: CreativeLabPresetFile["conceptStrategies"];
+  builtin?: boolean;
 }): Promise<CreativeLabPresetFile> {
   await mkdir(creativeLabStylesDir(), { recursive: true });
   const existing = await loadPreset(input.id);
   const now = new Date().toISOString();
+  const styleSelection = normalizeStyleSelection(input.styleSelection);
+
   const file: CreativeLabPresetFile = {
-    version: 1,
+    version: 2,
     id: input.id.trim(),
     name: input.name.trim() || input.id.trim(),
     description: input.description?.trim() ?? "",
-    styleSelection: normalizeStyleSelection(input.styleSelection),
+    builtin: input.builtin ?? false,
+    credentialStyle: input.credentialStyle ?? styleSelection.credential[0]?.id ?? "",
+    illustrationStyle: input.illustrationStyle ?? styleSelection.illustration[0]?.id ?? "",
+    colorStyle: input.colorStyle ?? styleSelection.color[0]?.id ?? "",
+    densityStyle: input.densityStyle ?? styleSelection.density[0]?.id ?? "medium",
+    defaultConceptStrategy: normalizeConceptStrategyId(
+      input.defaultConceptStrategy ?? existing?.defaultConceptStrategy,
+    ),
+    conceptStrategies: normalizeConceptStrategyMap(
+      input.conceptStrategies ?? existing?.conceptStrategies,
+    ),
+    styleSelection,
     createdAt: existing?.createdAt ?? now,
     updatedAt: now,
   };
   await writeFile(creativeLabStylePresetPath(file.id), `${JSON.stringify(file, null, 2)}\n`, "utf8");
   return file;
 }
+
+export async function duplicatePreset(
+  sourceId: string,
+  newId: string,
+  newName: string,
+): Promise<CreativeLabPresetFile | null> {
+  const source = await loadPreset(sourceId);
+  if (!source) return null;
+  return savePreset({
+    id: newId,
+    name: newName,
+    description: source.description ? `${source.description} (copy)` : `Copy of ${source.name}`,
+    styleSelection: source.styleSelection,
+    credentialStyle: source.credentialStyle,
+    illustrationStyle: source.illustrationStyle,
+    colorStyle: source.colorStyle,
+    densityStyle: source.densityStyle,
+    defaultConceptStrategy: source.defaultConceptStrategy,
+    conceptStrategies: source.conceptStrategies,
+    builtin: false,
+  });
+}
+

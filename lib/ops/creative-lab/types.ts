@@ -30,6 +30,14 @@ export type StyleSelection = {
 
 export type ConceptVariationKey = "A" | "B" | "C" | "D";
 
+export type ConceptStrategyId =
+  | "credential-focus"
+  | "collector-focus"
+  | "broadcast-focus"
+  | "festival-focus";
+
+export type ConceptStrategyMap = Record<ConceptVariationKey, ConceptStrategyId>;
+
 export type GeneratedPrompt = {
   id: string;
   module: CreativeLabModuleId;
@@ -40,6 +48,8 @@ export type GeneratedPrompt = {
   variationKey?: ConceptVariationKey;
   /** Groups Concept A–D generated together. */
   variationSetId?: string;
+  /** Concept strategy template used for this variation. */
+  strategyId?: ConceptStrategyId;
   structuredConcept: {
     event: string;
     venue: string;
@@ -49,6 +59,7 @@ export type GeneratedPrompt = {
     dominantStyles: Record<StyleCategory, { id: string; label: string; weight: number }[]>;
     module: CreativeLabModuleId;
     variationKey?: ConceptVariationKey;
+    strategyId?: ConceptStrategyId;
   };
   createdAt: string;
 };
@@ -73,6 +84,10 @@ export type CreativeLabProjectFile = {
   featuredYears: number[];
   theme: string;
   styleSelection: StyleSelection;
+  /** Last applied built-in or custom preset id. */
+  activePresetId?: string;
+  /** Concept A–D strategy map — from preset or custom. */
+  conceptStrategies?: ConceptStrategyMap;
   generatedPrompts: GeneratedPrompt[];
   generatedAssets: GeneratedAsset[];
   selectedAssetIds: string[];
@@ -82,10 +97,17 @@ export type CreativeLabProjectFile = {
 };
 
 export type CreativeLabPresetFile = {
-  version: 1;
+  version: 2;
   id: string;
   name: string;
   description: string;
+  builtin?: boolean;
+  credentialStyle: string;
+  illustrationStyle: string;
+  colorStyle: string;
+  densityStyle: string;
+  defaultConceptStrategy: ConceptStrategyId;
+  conceptStrategies: ConceptStrategyMap;
   styleSelection: StyleSelection;
   createdAt: string;
   updatedAt: string;

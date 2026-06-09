@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 
+import { strategyById } from "@/lib/ops/creative-lab/concept-strategies";
 import type { GeneratedPrompt } from "@/lib/ops/creative-lab/types";
 
 type Props = {
@@ -44,6 +45,7 @@ export function ConceptVariationsPanel(props: Props) {
               onClick={() => setActiveKey(key)}
             >
               Concept {p.variationKey ?? "?"}
+              {p.strategyId ? ` · ${strategyById(p.strategyId).label}` : ""}
             </button>
           );
         })}

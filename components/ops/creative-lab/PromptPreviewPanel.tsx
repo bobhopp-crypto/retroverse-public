@@ -14,7 +14,7 @@ export function PromptPreviewPanel(props: Props) {
   const { project, activePreset } = props;
   const text = useMemo(
     () => renderLivePreview(project, activePreset ?? null),
-    [project, activePreset],
+    [project, activePreset, project.styleSelection, project.conceptStrategies, project.activePresetId],
   );
 
   return (

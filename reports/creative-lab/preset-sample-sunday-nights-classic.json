@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "id": "sunday-nights-classic",
+  "name": "Sunday Nights Classic",
+  "description": "Pub-night festival pass with Saturday-morning cartoon warmth and cream vintage stock.",
+  "builtin": true,
+  "credentialStyle": "festival-pass",
+  "illustrationStyle": "saturday-morning-cartoon",
+  "colorStyle": "cream-vintage",
+  "densityStyle": "detailed",
+  "defaultConceptStrategy": "broadcast-focus",
+  "conceptStrategies": {
+    "A": "broadcast-focus",
+    "B": "credential-focus",
+    "C": "festival-focus",
+    "D": "collector-focus"
+  },
+  "styleSelection": {
+    "credential": [
+      {
+        "id": "festival-pass",
+        "weight": 100
+      }
+    ],
+    "illustration": [
+      {
+        "id": "saturday-morning-cartoon",
+        "weight": 100
+      }
+    ],
+    "color": [
+      {
+        "id": "cream-vintage",
+        "weight": 100
+      }
+    ],
+    "density": [
+      {
+        "id": "detailed",
+        "weight": 100
+      }
+    ]
+  },
+  "createdAt": "2026-06-09T23:30:29.006Z",
+  "updatedAt": "2026-06-09T23:32:31.716Z"
+}

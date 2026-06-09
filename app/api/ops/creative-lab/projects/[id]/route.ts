@@ -6,6 +6,7 @@ import {
   loadProject,
   updateProject,
 } from "@/lib/ops/creative-lab/projects";
+import { normalizeConceptStrategyMap } from "@/lib/ops/creative-lab/concept-strategies";
 import { normalizeStyleSelection } from "@/lib/ops/creative-lab/style-catalog";
 import type { CreativeLabModuleId } from "@/lib/ops/creative-lab/types";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
@@ -56,6 +57,10 @@ export async function PUT(req: Request, ctx: Ctx) {
       ? body.featuredYears.filter((y): y is number => typeof y === "number")
       : undefined,
     styleSelection: body.styleSelection ? normalizeStyleSelection(body.styleSelection) : undefined,
+    activePresetId: typeof body.activePresetId === "string" ? body.activePresetId : undefined,
+    conceptStrategies: body.conceptStrategies
+      ? normalizeConceptStrategyMap(body.conceptStrategies)
+      : undefined,
     activeModule:
       body.activeModule === "poster-lab" ||
       body.activeModule === "bumper-lab" ||

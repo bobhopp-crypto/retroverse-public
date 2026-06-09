@@ -17,6 +17,7 @@ import {
 } from "@/lib/ops/creative-lab/workspace/urls";
 
 import { ConceptVariationsPanel } from "./ConceptVariationsPanel";
+import { PresetGallery } from "./PresetGallery";
 import { PromptPreviewPanel } from "./PromptPreviewPanel";
 import { selectionHasWeights, StyleWeightEditor, weightedStylesSummary } from "./StyleWeightEditor";
 import { StyleBoard, type StyleBoardMode } from "./StyleBoard";
@@ -191,8 +192,65 @@ export function CreativeLabWorkspace() {
       setNotice(`Apply preset from a project — open or create one first.`);
       return;
     }
-    await saveProjectPatch({ styleSelection: preset.styleSelection });
+    await saveProjectPatch({
+      styleSelection: preset.styleSelection,
+      activePresetId: preset.id,
+      conceptStrategies: preset.conceptStrategies,
+    });
     setNotice(`Applied preset ${preset.name}`);
+  }
+
+  async function duplicatePreset(preset: CreativeLabPresetFile) {
+    const name = `${preset.name} Copy`;
+    const id = `${slugify(preset.id)}-copy-${Date.now().toString(36).slice(-4)}`;
+    setBusy(true);
+    try {
+      const res = await fetch("/api/ops/creative-lab/presets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ op: "duplicate", sourceId: preset.id, newId: id, newName: name }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !data.ok) throw new Error(data.error ?? "duplicate_failed");
+      setNotice(`Duplicated as ${name}`);
+      await loadIndex();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "duplicate_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function savePresetAsCustom(base: CreativeLabPresetFile) {
+    const name = `${base.name} Custom`;
+    const id = slugify(name) || `custom-${Date.now()}`;
+    setBusy(true);
+    try {
+      const res = await fetch("/api/ops/creative-lab/presets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id,
+          name,
+          description: `Custom variant based on ${base.name}`,
+          styleSelection: base.styleSelection,
+          credentialStyle: base.credentialStyle,
+          illustrationStyle: base.illustrationStyle,
+          colorStyle: base.colorStyle,
+          densityStyle: base.densityStyle,
+          defaultConceptStrategy: base.defaultConceptStrategy,
+          conceptStrategies: base.conceptStrategies,
+        }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !data.ok) throw new Error(data.error ?? "custom_preset_failed");
+      setNotice(`Saved custom preset ${name}`);
+      await loadIndex();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "custom_preset_failed");
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function saveAsPreset() {
@@ -209,6 +267,12 @@ export function CreativeLabWorkspace() {
           name,
           description: `Saved from ${project.name}`,
           styleSelection: draftSelection,
+          credentialStyle: draftSelection.credential[0]?.id,
+          illustrationStyle: draftSelection.illustration[0]?.id,
+          colorStyle: draftSelection.color[0]?.id,
+          densityStyle: draftSelection.density[0]?.id,
+          defaultConceptStrategy: project.conceptStrategies?.A ?? "credential-focus",
+          conceptStrategies: project.conceptStrategies,
         }),
       });
       const data = (await res.json()) as { ok?: boolean; preset?: CreativeLabPresetFile; error?: string };
@@ -242,6 +306,11 @@ export function CreativeLabWorkspace() {
       setBusy(false);
     }
   }
+
+  const activePreset = useMemo(
+    () => (project?.activePresetId ? presets.find((p) => p.id === project.activePresetId) : null),
+    [project?.activePresetId, presets],
+  );
 
   const modulePlaceholders = useMemo(
     () => modules.filter((m) => !m.available),
@@ -504,7 +573,7 @@ export function CreativeLabWorkspace() {
                     />
                   )}
                 </div>
-                <PromptPreviewPanel project={project} />
+                <PromptPreviewPanel project={project} activePreset={activePreset} />
                 <div className="cl-actions">
                   <button
                     type="button"
@@ -532,21 +601,20 @@ export function CreativeLabWorkspace() {
         {panel === "presets" ? (
           <div className="cl-panel">
             <header className="cl-panel__head">
-              <h2>Presets</h2>
-              <p className="ops-dim">Stored in RETROVERSE_DATA/creative_lab/styles/</p>
+              <h2>Preset gallery</h2>
+              <p className="ops-dim">
+                {presets.length} presets — one-click styles + concept strategies. Stored in RETROVERSE_DATA/creative_lab/styles/
+              </p>
             </header>
-            <ul className="cl-preset-list">
-              {presets.map((preset) => (
-                <li key={preset.id} className="cl-card">
-                  <h3>{preset.name}</h3>
-                  <p className="ops-dim">{preset.description}</p>
-                  <p className="cl-preset-summary">{weightedStylesSummary(preset.styleSelection)}</p>
-                  <button type="button" className="ops-btn" disabled={!project || busy} onClick={() => void applyPreset(preset)}>
-                    Apply to {project?.name ?? "project"}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <PresetGallery
+              presets={presets}
+              projectName={project?.name}
+              hasProject={Boolean(project)}
+              busy={busy}
+              onApply={(preset) => void applyPreset(preset)}
+              onDuplicate={(preset) => void duplicatePreset(preset)}
+              onSaveCustom={(preset) => void savePresetAsCustom(preset)}
+            />
           </div>
         ) : null}
 
@@ -575,7 +643,7 @@ export function CreativeLabWorkspace() {
                     </button>
                   </div>
                 </section>
-                <PromptPreviewPanel project={project} />
+                <PromptPreviewPanel project={project} activePreset={activePreset} />
                 <section className="cl-card cl-card--wide">
                   <h3>Concept variations</h3>
                   <ConceptVariationsPanel prompts={project.generatedPrompts} />

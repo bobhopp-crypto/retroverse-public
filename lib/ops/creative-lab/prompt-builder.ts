@@ -1,6 +1,14 @@
+import { strategyById, strategyForVariation } from "./concept-strategies";
 import { renderPromptText } from "./prompt-renderer";
 import { topWeightedStyles } from "./style-catalog";
-import type { ConceptVariationKey, CreativeLabModuleId, CreativeLabProjectFile, GeneratedPrompt, StyleCategory } from "./types";
+import type {
+  ConceptVariationKey,
+  CreativeLabModuleId,
+  CreativeLabPresetFile,
+  CreativeLabProjectFile,
+  GeneratedPrompt,
+  StyleCategory,
+} from "./types";
 
 function newPromptId(): string {
   return `prompt-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
@@ -13,7 +21,11 @@ export function buildPromptConcept(
   project: CreativeLabProjectFile,
   module: CreativeLabModuleId,
   variationKey?: ConceptVariationKey,
+  preset?: Pick<CreativeLabPresetFile, "id" | "name" | "defaultConceptStrategy"> | null,
 ): GeneratedPrompt {
+  const strategyId = strategyForVariation(project.conceptStrategies, variationKey);
+  const strategyLabel = strategyById(strategyId).label;
+
   const dominantStyles = Object.fromEntries(
     STYLE_CATEGORIES.map((cat) => [cat, topWeightedStyles(project.styleSelection, cat)]),
   ) as GeneratedPrompt["structuredConcept"]["dominantStyles"];
@@ -25,6 +37,8 @@ export function buildPromptConcept(
 
   const years = project.featuredYears.length ? project.featuredYears.join(" · ") : "—";
   const conceptSummary = [
+    variationKey ? `Concept ${variationKey}` : null,
+    strategyLabel,
     project.event,
     project.venue,
     project.date,
@@ -46,6 +60,8 @@ export function buildPromptConcept(
     styleSelection: project.styleSelection,
     module,
     variationKey,
+    conceptStrategies: project.conceptStrategies,
+    preset: preset ?? null,
   });
 
   return {
@@ -54,6 +70,7 @@ export function buildPromptConcept(
     conceptSummary,
     renderedPrompt,
     variationKey,
+    strategyId,
     structuredConcept: {
       event: project.event,
       venue: project.venue,
@@ -63,6 +80,7 @@ export function buildPromptConcept(
       dominantStyles,
       module,
       variationKey,
+      strategyId,
     },
     createdAt: new Date().toISOString(),
   };

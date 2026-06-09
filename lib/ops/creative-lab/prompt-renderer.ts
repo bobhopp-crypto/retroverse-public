@@ -1,3 +1,9 @@
+import {
+  renderStrategySections,
+  strategyById,
+  strategyForVariation,
+  type ConceptStrategyMap,
+} from "./concept-strategies";
 import { styleById, topWeightedStyles } from "./style-catalog";
 import type { CreativeLabModuleId, CreativeLabPresetFile, CreativeLabProjectFile, StyleCategory } from "./types";
 
@@ -9,11 +15,10 @@ export type PromptRenderInput = {
   theme: string;
   styleSelection: CreativeLabProjectFile["styleSelection"];
   module: CreativeLabModuleId;
-  preset?: Pick<CreativeLabPresetFile, "id" | "name"> | null;
+  preset?: Pick<CreativeLabPresetFile, "id" | "name" | "defaultConceptStrategy"> | null;
   variationKey?: "A" | "B" | "C" | "D";
+  conceptStrategies?: ConceptStrategyMap;
 };
-
-const STYLE_CATEGORIES: StyleCategory[] = ["credential", "illustration", "color", "density"];
 
 const MODULE_LABELS: Record<CreativeLabModuleId, string> = {
   "pass-lab": "event credential / laminate",
@@ -43,28 +48,25 @@ function yearsLine(years: number[]): string {
   return years.join(", ");
 }
 
-function variationLead(key: PromptRenderInput["variationKey"]): string {
-  switch (key) {
-    case "A":
-      return "Emphasis: event hero — lead with venue, date, and featured-year narrative as the emotional anchor.";
-    case "B":
-      return "Emphasis: credential format — lead with pass/laminate structure, access zones, and print-ready hierarchy.";
-    case "C":
-      return "Emphasis: illustration direction — lead with art style, line quality, and period-authentic graphic language.";
-    case "D":
-      return "Emphasis: collectibility — lead with tactile print finish, foil/stub details, and shelf-worthy memorabilia feel.";
-    default:
-      return "Emphasis: balanced — event, format, illustration, and collectibility weighted evenly.";
-  }
-}
-
 /** Provider-neutral, human-readable prompt text. */
 export function renderPromptText(input: PromptRenderInput): string {
   const years = yearsLine(input.featuredYears);
   const theme = input.theme.trim() || "No theme specified.";
   const presetLine = input.preset
-    ? `Style preset: ${input.preset.name} (${input.preset.id}).`
+    ? `Style preset: ${input.preset.name} (${input.preset.id}). Default strategy: ${strategyById(input.preset.defaultConceptStrategy).label}.`
     : "Style preset: custom project selection.";
+
+  const strategyId = strategyForVariation(input.conceptStrategies, input.variationKey);
+  const strategyBlocks = renderStrategySections(strategyId, {
+    event: input.event,
+    venue: input.venue,
+    date: input.date,
+    featuredYears: input.featuredYears,
+    theme: input.theme,
+    module: input.module,
+    styleSelection: input.styleSelection,
+    variationKey: input.variationKey,
+  });
 
   const sections = [
     "=== Event Context ===",
@@ -75,7 +77,9 @@ export function renderPromptText(input: PromptRenderInput): string {
     `Theme: ${theme}`,
     `Module: ${MODULE_LABELS[input.module]}`,
     presetLine,
-    variationLead(input.variationKey),
+    input.variationKey ? `Concept variation: ${input.variationKey}` : "",
+    "",
+    ...strategyBlocks,
     "",
     "=== Visual Style (Credential) ===",
     formatWeightedList("credential", input.styleSelection),
@@ -88,14 +92,9 @@ export function renderPromptText(input: PromptRenderInput): string {
     "",
     "=== Print Requirements ===",
     formatWeightedList("density", input.styleSelection),
-    "Output should be print-ready at collectible scale with crisp type, visible hierarchy, and period-appropriate registration.",
-    "",
-    "=== Collectibility Requirements ===",
-    "Design must feel like a found artifact from the featured era — tactile paper stock, intentional wear optional, strong silhouette at thumbnail size, and metadata legible at arm's length.",
-    "Avoid generic stock-template layouts. Favor bold Retroverse editorial framing with thick outlines and warm retro palettes where color styles allow.",
   ];
 
-  return sections.join("\n");
+  return sections.filter((line, idx, arr) => !(line === "" && arr[idx - 1] === "")).join("\n");
 }
 
 export function renderLivePreview(
@@ -110,6 +109,7 @@ export function renderLivePreview(
     theme: project.theme,
     styleSelection: project.styleSelection,
     module: project.activeModule,
-    preset: preset ? { id: preset.id, name: preset.name } : null,
+    preset: preset ? { id: preset.id, name: preset.name, defaultConceptStrategy: preset.defaultConceptStrategy } : null,
+    conceptStrategies: project.conceptStrategies,
   });
 }

@@ -3,6 +3,8 @@ import { mkdir, readFile, readdir, rm, writeFile } from "fs/promises";
 import { join } from "path";
 
 import { buildConceptVariations } from "./concept-variations";
+import { normalizeConceptStrategyMap, strategyForVariation } from "./concept-strategies";
+import { loadPreset } from "./presets";
 import { renderPromptText } from "./prompt-renderer";
 import {
   creativeLabProjectIndexPath,
@@ -29,7 +31,17 @@ function newAssetId(): string {
 
 function normalizeGeneratedPrompts(
   raw: unknown,
-  project: Pick<CreativeLabProjectFile, "event" | "venue" | "date" | "featuredYears" | "theme" | "styleSelection" | "activeModule">,
+  project: Pick<
+    CreativeLabProjectFile,
+    | "event"
+    | "venue"
+    | "date"
+    | "featuredYears"
+    | "theme"
+    | "styleSelection"
+    | "activeModule"
+    | "conceptStrategies"
+  >,
 ): GeneratedPrompt[] {
   if (!Array.isArray(raw)) return [];
   const out: GeneratedPrompt[] = [];
@@ -61,7 +73,12 @@ function normalizeGeneratedPrompts(
             styleSelection: project.styleSelection,
             module,
             variationKey,
+            conceptStrategies: project.conceptStrategies,
           });
+    const strategyId =
+      row.strategyId ??
+      row.structuredConcept?.strategyId ??
+      strategyForVariation(project.conceptStrategies, variationKey);
     out.push({
       id: row.id,
       module,
@@ -69,6 +86,7 @@ function normalizeGeneratedPrompts(
       renderedPrompt,
       variationKey,
       variationSetId: typeof row.variationSetId === "string" ? row.variationSetId : undefined,
+      strategyId,
       structuredConcept: row.structuredConcept ?? {
         event: project.event,
         venue: project.venue,
@@ -78,6 +96,7 @@ function normalizeGeneratedPrompts(
         dominantStyles: { credential: [], illustration: [], color: [], density: [] },
         module,
         variationKey,
+        strategyId,
       },
       createdAt: typeof row.createdAt === "string" ? row.createdAt : new Date().toISOString(),
     });
@@ -114,6 +133,10 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
     featuredYears,
     theme: typeof obj.theme === "string" ? obj.theme : "",
     styleSelection: normalizeStyleSelection(obj.styleSelection),
+    activePresetId: typeof obj.activePresetId === "string" ? obj.activePresetId : undefined,
+    conceptStrategies: obj.conceptStrategies
+      ? normalizeConceptStrategyMap(obj.conceptStrategies)
+      : undefined,
     generatedPrompts: [],
     generatedAssets: Array.isArray(obj.generatedAssets) ? (obj.generatedAssets as GeneratedAsset[]) : [],
     selectedAssetIds: Array.isArray(obj.selectedAssetIds)
@@ -268,6 +291,8 @@ export async function updateProject(
       | "theme"
       | "styleSelection"
       | "activeModule"
+      | "activePresetId"
+      | "conceptStrategies"
       | "selectedAssetIds"
     >
   >,
@@ -280,6 +305,13 @@ export async function updateProject(
     styleSelection: patch.styleSelection
       ? normalizeStyleSelection(patch.styleSelection)
       : existing.styleSelection,
+    activePresetId:
+      patch.activePresetId !== undefined
+        ? patch.activePresetId || undefined
+        : existing.activePresetId,
+    conceptStrategies: patch.conceptStrategies
+      ? normalizeConceptStrategyMap(patch.conceptStrategies)
+      : existing.conceptStrategies,
     updatedAt: new Date().toISOString(),
   };
   return saveProject(updated);
@@ -303,7 +335,8 @@ export async function generateConceptVariationsForModule(
   const project = await loadProject(projectId);
   if (!project) return null;
 
-  const prompts = buildConceptVariations(project, module);
+  const preset = project.activePresetId ? await loadPreset(project.activePresetId) : null;
+  const prompts = buildConceptVariations(project, module, preset);
   const assets: GeneratedAsset[] = prompts.map((prompt) => ({
     id: newAssetId(),
     module,
