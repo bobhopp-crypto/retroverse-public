@@ -1,3 +1,4 @@
+import { homedir } from "os";
 import { join } from "path";
 
 import { collectionDir, collectionSubdir } from "../paths";
@@ -26,6 +27,11 @@ export function msEpisodePerformancePath(episodeId: string): string {
 
 export function msExportsDir(): string {
   return join(collectionDir(MS_COLLECTION_ID), "exports");
+}
+
+/** VirtualDJ library destination — flat collection folder, no year/artist subfolders. */
+export function msVdjExportDir(): string {
+  return join(homedir(), "DJ MEDIA", "VIDEO", "TV Performances", "Midnight Special");
 }
 
 export function msCandidateManifestPath(episodeId: string): string {

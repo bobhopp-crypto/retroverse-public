@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
-import { listReviewQueue } from "@/lib/ops/media-collections/midnight-special/performances";
+import { getEnrichedReviewQueue } from "@/lib/ops/media-collections/midnight-special/performances";
 import type { PerformanceStatus } from "@/lib/ops/media-collections/midnight-special/types";
 
 export const dynamic = "force-dynamic";
@@ -18,11 +18,11 @@ export async function GET(req: Request) {
     ? statusParam
     : "review") as PerformanceStatus;
 
-  const performances = await listReviewQueue(status);
+  const queue = await getEnrichedReviewQueue(status);
   return NextResponse.json({
     ok: true,
     status,
-    count: performances.length,
-    performances,
+    count: queue.performances.length,
+    ...queue,
   });
 }

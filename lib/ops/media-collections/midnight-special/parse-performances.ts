@@ -13,14 +13,9 @@ import { parseEpisodeTitle } from "../parse-episode-title";
 const PARSER_VERSION = "ms-perf-v1";
 const SKIP_CHAPTER = /^(intro|outro|end|credits?|commercial|intermission|host|opening|closing)\b/i;
 
-export function parseArtistSong(title: string): { artist: string; song: string } | null {
-  const t = title.trim();
-  const dash = t.match(/^(.+?)\s+[-–—]\s+(.+)$/);
-  if (dash) {
-    return { artist: dash[1]!.trim(), song: dash[2]!.trim() };
-  }
-  return null;
-}
+import { parseArtistSong } from "./parse-artist-song";
+
+export { parseArtistSong };
 
 function descriptionChapterMap(description: string): Map<number, string> {
   const map = new Map<number, string>();

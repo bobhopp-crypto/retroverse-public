@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import OpsMidnightSpecialReviewQueue from "./OpsMidnightSpecialReviewQueue";
+
 import type {
   MsCandidateManifest,
   MsEpisodeAnalysis,
   MsPerformanceCandidate,
-  MsPerformanceRecord,
 } from "@/lib/ops/media-collections/midnight-special/types";
 import type { StructuredCollectionMode } from "@/lib/ops/media-collections/midnight-special/structured-mode";
 
@@ -21,7 +22,6 @@ type Payload = {
 
 type QueuePayload = {
   ok: boolean;
-  performances?: MsPerformanceRecord[];
   count?: number;
   error?: string;
 };
@@ -38,20 +38,8 @@ function confidenceTone(c: MsPerformanceCandidate["confidence"]): string {
   return "bad";
 }
 
-function perfStart(p: MsPerformanceRecord | MsPerformanceCandidate): number {
-  return "start_seconds" in p ? p.start_seconds : p.start_sec;
-}
-
-function perfEnd(p: MsPerformanceRecord | MsPerformanceCandidate): number {
-  return "end_seconds" in p ? p.end_seconds : p.end_sec;
-}
-
-function perfId(p: MsPerformanceRecord | MsPerformanceCandidate): string {
-  return "performance_id" in p ? p.performance_id : p.id;
-}
-
-function perfStatusLabel(p: MsPerformanceRecord | MsPerformanceCandidate): string {
-  return "status" in p ? p.status : p.review_status;
+function perfStatusLabel(p: MsPerformanceCandidate): string {
+  return p.review_status;
 }
 
 export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode }: Props) {
@@ -61,36 +49,21 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
   const [error, setError] = useState<string | null>(null);
   const [analysis, setAnalysis] = useState<MsEpisodeAnalysis | null>(null);
   const [manifest, setManifest] = useState<MsCandidateManifest | null>(null);
-  const [queue, setQueue] = useState<MsPerformanceRecord[]>([]);
+  const [queueCount, setQueueCount] = useState<number | null>(null);
   const [structured, setStructured] = useState<StructuredCollectionMode | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const reviewOnly = mode === "queue";
+  const episodePerformances = useMemo(() => manifest?.performances ?? [], [manifest]);
 
-  const episodePerformances = useMemo(() => {
-    if (!manifest) return [];
-    if (!reviewOnly) return manifest.performances;
-    return manifest.performances.filter(
-      (p) => p.review_status === "pending" || p.review_status === "adjusted",
-    );
-  }, [manifest, reviewOnly]);
-
-  const selectedEpisodePerf = useMemo(
+  const selected = useMemo(
     () => episodePerformances.find((p) => p.id === selectedId) ?? null,
     [episodePerformances, selectedId],
   );
 
-  const selectedQueuePerf = useMemo(
-    () => queue.find((p) => p.performance_id === selectedId) ?? null,
-    [queue, selectedId],
-  );
-
-  const selected = mode === "queue" ? selectedQueuePerf : selectedEpisodePerf;
-  const activeEpisodeId =
-    mode === "queue" && selectedQueuePerf ? selectedQueuePerf.episode_id : episodeId;
+  const activeEpisodeId = episodeId;
 
   const loadEpisode = useCallback(async (id: string, regenerate = false) => {
     setLoading(true);
@@ -118,45 +91,32 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
     }
   }, []);
 
-  const loadQueue = useCallback(async () => {
-    setLoading(true);
-    setError(null);
+  const refreshQueueCount = useCallback(async () => {
     try {
       const res = await fetch(
         "/api/ops/media-collections/midnight-special/performances/queue?status=review",
         { cache: "no-store" },
       );
       const data = (await res.json()) as QueuePayload;
-      if (!res.ok || !data.ok) {
-        setError(data.error ?? "queue_failed");
-        return;
-      }
-      setQueue(data.performances ?? []);
-      setSelectedId(data.performances?.[0]?.performance_id ?? null);
-      setManifest(null);
-      setAnalysis(null);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "queue_failed");
-    } finally {
-      setLoading(false);
+      if (data.ok) setQueueCount(data.count ?? 0);
+    } catch {
+      // badge optional
     }
   }, []);
 
   useEffect(() => {
-    void loadQueue();
-  }, [loadQueue]);
+    void refreshQueueCount();
+  }, [refreshQueueCount]);
 
   useEffect(() => {
-    if (mode === "queue") void loadQueue();
-    else void loadEpisode(episodeId);
-  }, [mode, episodeId, loadEpisode, loadQueue]);
+    if (mode === "episode") void loadEpisode(episodeId);
+  }, [mode, episodeId, loadEpisode]);
 
   useEffect(() => {
     const v = videoRef.current;
     if (!v || !selected) return;
-    const start = perfStart(selected);
     const onReady = () => {
-      v.currentTime = start;
+      v.currentTime = selected.start_sec;
     };
     v.addEventListener("loadedmetadata", onReady);
     return () => v.removeEventListener("loadedmetadata", onReady);
@@ -175,8 +135,8 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
     setBusy(true);
     setNotice(null);
     try {
-      const startSec = patch?.start_sec ?? perfStart(selected);
-      const endSec = patch?.end_sec ?? perfEnd(selected);
+      const startSec = patch?.start_sec ?? selected.start_sec;
+      const endSec = patch?.end_sec ?? selected.end_sec;
 
       const res = await fetch("/api/ops/media-collections/midnight-special/review", {
         method: "POST",
@@ -196,10 +156,7 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
         setError("review_failed");
         return;
       }
-      if (mode === "queue") {
-        await loadQueue();
-        setSelectedId(data.performance.id);
-      } else if (manifest) {
+      if (manifest) {
         setManifest({
           ...manifest,
           performances: manifest.performances.map((p) =>
@@ -216,8 +173,8 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
   function previewSelected() {
     const v = videoRef.current;
     if (!v || !selected) return;
-    const start = perfStart(selected);
-    const end = perfEnd(selected);
+    const start = selected.start_sec;
+    const end = selected.end_sec;
     v.currentTime = start;
     void v.play().catch(() => undefined);
     const stopAt = () => {
@@ -229,20 +186,6 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
     v.addEventListener("timeupdate", stopAt);
   }
 
-  if (loading) {
-    return <p className="ops-dim">Loading performances…</p>;
-  }
-
-  if (error && !manifest && mode === "episode" && queue.length === 0) {
-    return <p className="mc-notice mc-notice--error">{error}</p>;
-  }
-
-  const queueRows = queue;
-  const tableRows =
-    mode === "queue"
-      ? queueRows
-      : episodePerformances;
-
   return (
     <section className="ms-review">
       <div className="mc-actions" style={{ marginBottom: 12 }}>
@@ -251,7 +194,7 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
           className={`ops-btn ${mode === "queue" ? "ops-btn--warn" : ""}`}
           onClick={() => setMode("queue")}
         >
-          Review Queue ({queue.length || "…"})
+          Review Queue ({queueCount ?? "…"})
         </button>
         <button
           type="button"
@@ -265,7 +208,14 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
         </Link>
       </div>
 
-      {mode === "episode" ? (
+      {mode === "queue" ? (
+        <OpsMidnightSpecialReviewQueue />
+      ) : loading ? (
+        <p className="ops-dim">Loading performances…</p>
+      ) : error && !manifest ? (
+        <p className="mc-notice mc-notice--error">{error}</p>
+      ) : (
+        <>
         <div className="mc-meta-panel">
           <dl>
             <dt>Episode</dt>
@@ -303,12 +253,6 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
             ) : null}
           </div>
         </div>
-      ) : (
-        <p className="ops-banner">
-          <strong>Needs Review</strong> — {queueRows.length} performances across episodes (non-exact
-          or unresolved).
-        </p>
-      )}
 
       {notice ? <p className="mc-notice">{notice}</p> : null}
       {error ? <p className="mc-notice mc-notice--error">{error}</p> : null}
@@ -332,8 +276,6 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
                 <tr>
                   <th>Artist</th>
                   <th>Song</th>
-                  {mode === "queue" ? <th>Episode</th> : null}
-                  {mode === "queue" ? <th>Air date</th> : null}
                   <th>Start</th>
                   <th>End</th>
                   <th>Conf.</th>
@@ -341,28 +283,7 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
                 </tr>
               </thead>
               <tbody>
-                {mode === "queue"
-                  ? queueRows.map((p) => (
-                      <tr
-                        key={p.performance_id}
-                        className={p.performance_id === selectedId ? "ms-review__row--active" : ""}
-                        onClick={() => setSelectedId(p.performance_id)}
-                      >
-                        <td>{p.artist}</td>
-                        <td>{p.song || "—"}</td>
-                        <td className="ops-dim">{p.episode_id}</td>
-                        <td>{p.air_date ?? "—"}</td>
-                        <td>{p.start_timecode}</td>
-                        <td>{p.end_timecode}</td>
-                        <td>
-                          <span className={`ops-pill ops-pill--${confidenceTone(p.confidence)}`}>
-                            {p.confidence}
-                          </span>
-                        </td>
-                        <td>{p.status}</td>
-                      </tr>
-                    ))
-                  : (tableRows as MsPerformanceCandidate[]).map((p) => (
+                {episodePerformances.map((p) => (
                       <tr
                         key={p.id}
                         className={p.id === selectedId ? "ms-review__row--active" : ""}
@@ -382,11 +303,6 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
                     ))}
               </tbody>
             </table>
-            {mode === "queue" && queueRows.length === 0 ? (
-              <p className="ops-dim" style={{ marginTop: 12 }}>
-                Review queue empty — all exact matches accepted or nothing generated yet.
-              </p>
-            ) : null}
           </div>
         </div>
       ) : null}
@@ -423,7 +339,6 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
         </div>
       ) : null}
 
-      {mode === "episode" ? (
         <p className="ops-dim" style={{ marginTop: 12 }}>
           Episode selector:{" "}
           <input
@@ -433,7 +348,8 @@ export default function OpsMidnightSpecialReview({ initialEpisodeId, initialMode
             style={{ maxWidth: 180 }}
           />
         </p>
-      ) : null}
+        </>
+      )}
     </section>
   );
 }

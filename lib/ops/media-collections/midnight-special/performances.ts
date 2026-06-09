@@ -3,6 +3,14 @@ import { join } from "path";
 
 import { parseEpisodeTitle } from "../parse-episode-title";
 import { listEpisodes } from "../state";
+import {
+  classifyPerformance,
+  classifyQueue,
+  compositionCounts,
+  summaryFromComposition,
+  type ClassifiedPerformance,
+  type QueueComposition,
+} from "./classify-segment";
 import { parseArtistSong, generateCandidateManifest } from "./parse-performances";
 import {
   msCandidateManifestPath,
@@ -22,6 +30,8 @@ import type {
   PerformanceConfidence,
   PerformanceStatus,
 } from "./types";
+
+export type { PerformanceStatus };
 import { parseYearFromAirDate, secToTimecode } from "./timecode";
 
 const PARSER_VERSION = "ms-perf-v1";
@@ -470,6 +480,133 @@ export async function listReviewQueue(
     return a.start_seconds - b.start_seconds;
   });
   return rows;
+}
+
+export async function listAcceptedPerformances(): Promise<MsPerformanceRecord[]> {
+  await mkdir(msPerformanceEpisodesDir(), { recursive: true });
+  let files: string[] = [];
+  try {
+    files = (await readdir(msPerformanceEpisodesDir())).filter((f) => f.endsWith(".json"));
+  } catch {
+    return [];
+  }
+
+  const rows: MsPerformanceRecord[] = [];
+  for (const file of files) {
+    const episodeId = file.replace(/\.json$/, "");
+    const manifest = await loadEpisodePerformanceManifest(episodeId);
+    if (!manifest) continue;
+    for (const p of manifest.performances) {
+      if (p.status === "accepted" || p.status === "exported") rows.push(p);
+    }
+  }
+
+  rows.sort((a, b) => {
+    const ya = parseYearFromAirDate(a.air_date) ?? 0;
+    const yb = parseYearFromAirDate(b.air_date) ?? 0;
+    if (ya !== yb) return ya - yb;
+    if (a.episode_id !== b.episode_id) return a.episode_id.localeCompare(b.episode_id);
+    return a.start_seconds - b.start_seconds;
+  });
+  return rows;
+}
+
+export type BulkReviewAction =
+  | "accept_exact_music"
+  | "reject_comedy"
+  | "reject_movie_clips"
+  | "reject_intros";
+
+export type BulkReviewResult = {
+  action: BulkReviewAction;
+  updated: number;
+  skipped: number;
+};
+
+export async function bulkReviewQueueAction(
+  action: BulkReviewAction,
+): Promise<BulkReviewResult> {
+  await mkdir(msPerformanceEpisodesDir(), { recursive: true });
+  const files = (await readdir(msPerformanceEpisodesDir())).filter((f) => f.endsWith(".json"));
+
+  const result: BulkReviewResult = { action, updated: 0, skipped: 0 };
+
+  for (const file of files) {
+    const episodeId = file.replace(/\.json$/, "");
+    const manifest = await loadEpisodePerformanceManifest(episodeId);
+    if (!manifest) continue;
+
+    let changed = false;
+    for (const p of manifest.performances) {
+      if (p.status !== "review") continue;
+
+      const bucket = classifyPerformance(p);
+      let nextStatus: PerformanceStatus | null = null;
+
+      if (action === "accept_exact_music") {
+        if (bucket === "MUSIC" && p.confidence === "exact") nextStatus = "accepted";
+        else result.skipped += 1;
+      } else if (action === "reject_comedy") {
+        if (bucket === "COMEDY") nextStatus = "rejected";
+        else result.skipped += 1;
+      } else if (action === "reject_movie_clips") {
+        if (bucket === "MOVIE_CLIP") nextStatus = "rejected";
+        else result.skipped += 1;
+      } else if (action === "reject_intros") {
+        if (bucket === "INTRO_SEGMENT" || bucket === "INTERVIEW") nextStatus = "rejected";
+        else result.skipped += 1;
+      }
+
+      if (nextStatus) {
+        p.status = nextStatus;
+        result.updated += 1;
+        changed = true;
+      }
+    }
+
+    if (changed) {
+      manifest.generated_at = new Date().toISOString();
+      await saveEpisodePerformanceManifest(manifest);
+    }
+  }
+
+  await rebuildPerformanceIndex();
+  return result;
+}
+
+export type EnrichedReviewQueue = {
+  performances: ClassifiedPerformance[];
+  composition: QueueComposition;
+  summary: ReturnType<typeof summaryFromComposition>;
+  stats: {
+    queue_total: number;
+    remaining_music_reviews: number;
+    accepted_performances: number;
+    rejected_segments: number;
+    estimated_export_count: number;
+  };
+};
+
+export async function getEnrichedReviewQueue(
+  status: PerformanceStatus = "review",
+): Promise<EnrichedReviewQueue> {
+  const rows = await listReviewQueue(status);
+  const classified = classifyQueue(rows);
+  const composition = compositionCounts(classified);
+  const index = await loadPerformanceIndex();
+
+  return {
+    performances: classified,
+    composition,
+    summary: summaryFromComposition(composition),
+    stats: {
+      queue_total: classified.length,
+      remaining_music_reviews: composition.MUSIC,
+      accepted_performances: index?.stats.accepted ?? 0,
+      rejected_segments: index?.stats.rejected ?? 0,
+      estimated_export_count: index?.stats.ready_to_export ?? 0,
+    },
+  };
 }
 
 export async function updatePerformanceRecord(

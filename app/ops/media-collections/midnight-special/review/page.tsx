@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import OpsMidnightSpecialReview from "@/components/ops/media-collections/OpsMidnightSpecialReview";
 
-import "../../ops.css";
+import "../../../ops.css";
 import "../../media-collections.css";
 
 export const dynamic = "force-dynamic";
@@ -43,11 +43,13 @@ export default async function MidnightSpecialReviewPage(props: {
   const reviewMode = mode?.trim() === "queue" ? "queue" : "episode";
   const now = new Date().toISOString().replace("T", " ").slice(0, 19);
 
+  const workstation = reviewMode === "queue";
+
   return (
-    <main className="ops-page">
+    <main className={`ops-page${workstation ? " ops-page--ms-workstation" : ""}`}>
       <div className="ops-page__grain" aria-hidden />
       <div className="ops-page__inner">
-        <header className="ops-topbar">
+        <header className="ops-topbar ops-topbar--compact">
           <div>
             <p className="ops-topbar__kicker">Internal · Structured Collection</p>
             <h1 className="ops-topbar__title">Midnight Special — Performance Review</h1>
@@ -68,10 +70,12 @@ export default async function MidnightSpecialReviewPage(props: {
           </div>
         </header>
 
-        <p className="ops-banner">
-          <strong>Performance Review</strong> — chapter markers → candidates → accept exact → review
-          queue. Export gated until verification passes.
-        </p>
+        {workstation ? null : (
+          <p className="ops-banner">
+            <strong>Performance Review</strong> — chapter markers → candidates → accept exact → review
+            queue. Export gated until verification passes.
+          </p>
+        )}
 
         <OpsMidnightSpecialReview initialEpisodeId={episodeId} initialMode={reviewMode} />
       </div>
