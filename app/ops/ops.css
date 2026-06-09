@@ -11403,3 +11403,50 @@
   flex-wrap: wrap;
 }
 
+/* Media Lab — Performance Browser */
+.ml-perf-browser {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ml-perf-browser__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ml-perf-browser__search-input {
+  width: 100%;
+  max-width: 520px;
+}
+
+.ml-perf-browser__filters {
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.ml-perf-browser__filter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ml-perf-browser__filter .ops-input {
+  min-width: 140px;
+}
+
+.ml-perf-browser__artist {
+  font-weight: 700;
+}
+
+.ml-perf-browser__stats {
+  margin-bottom: 4px;
+}
+

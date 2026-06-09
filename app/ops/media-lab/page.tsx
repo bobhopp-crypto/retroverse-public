@@ -60,6 +60,9 @@ export default async function OpsMediaLabPage(props: {
             <h1 className="ops-topbar__title">Media Lab</h1>
           </div>
           <div className="ops-topbar__meta">
+            <Link className="ops-link" href="/ops/media-lab/performances">
+              Performance Browser
+            </Link>
             <Link className="ops-link" href="/ops">
               ← Ops
             </Link>

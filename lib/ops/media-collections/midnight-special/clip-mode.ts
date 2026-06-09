@@ -19,6 +19,8 @@ export function buildClipReviewMediaLabHref(params: {
   title?: string;
   startTime?: number;
   endTime?: number;
+  adjustedStart?: number;
+  adjustedEnd?: number;
   returnHref?: string;
 }): string {
   const slug = collectionSlugFromId(MS_COLLECTION_ID);
@@ -32,9 +34,11 @@ export function buildClipReviewMediaLabHref(params: {
   if (params.title) search.set("title", params.title);
   if (params.startTime != null) search.set("start", String(params.startTime));
   if (params.endTime != null) search.set("end", String(params.endTime));
+  if (params.adjustedStart != null) search.set("adjusted_start", String(params.adjustedStart));
+  if (params.adjustedEnd != null) search.set("adjusted_end", String(params.adjustedEnd));
   search.set(
     "return",
-    params.returnHref ?? "/ops/media-collections/midnight-special/review?mode=queue",
+    params.returnHref ?? "/ops/media-lab/performances",
   );
   return `/ops/media-lab?${search.toString()}`;
 }
@@ -59,8 +63,10 @@ export function buildClipReviewHrefFromRecord(
     performanceId: record.performance_id,
     artist: record.artist,
     title: record.song,
-    startTime: start,
-    endTime: end,
+    startTime: record.start_seconds,
+    endTime: record.end_seconds,
+    adjustedStart: record.adjusted_start,
+    adjustedEnd: record.adjusted_end,
     returnHref,
   });
 }
