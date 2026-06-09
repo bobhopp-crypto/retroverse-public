@@ -11,6 +11,8 @@ type Props = {
   episodeId: string;
   performanceId: string;
   returnHref?: string;
+  /** When true, renders inside Media Lab workspace (no standalone header). */
+  embedded?: boolean;
 };
 
 const FRAME_STEP = 1 / 30;
@@ -20,6 +22,7 @@ export function MediaLabMidnightSpecialClipReview({
   episodeId,
   performanceId,
   returnHref,
+  embedded = false,
 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [loading, setLoading] = useState(true);
@@ -195,22 +198,38 @@ export function MediaLabMidnightSpecialClipReview({
   const backHref = context.return_href;
 
   return (
-    <section className="ops-ml ops-ml--workstation ops-ml-ms-clip-review">
-      <div className="ops-ml-ms-clip-review__header">
-        <div>
-          <p className="ops-topbar__kicker">Clip Review · Midnight Special</p>
-          <h2 className="ops-ml-ms-clip-review__title">
-            {context.artist}
-            {context.title ? ` — ${context.title}` : ""}
-          </h2>
-          <p className="ops-dim">
-            {context.episode_title} · {context.air_date ?? "—"} · <code>{context.episode_id}</code>
-          </p>
+    <section className={`ops-ml ops-ml--workstation ops-ml-ms-clip-review ${embedded ? "ops-ml-ms-clip-review--embedded" : ""}`}>
+      {embedded ? (
+        <div className="ops-ml-ms-clip-review__header">
+          <div>
+            <p className="ops-topbar__kicker">Performance Editor · {context.episode_title}</p>
+            <h2 className="ops-ml-ms-clip-review__title">
+              {context.artist}
+              {context.title ? ` — ${context.title}` : ""}
+            </h2>
+            <p className="ops-dim">
+              {context.air_date ?? "—"} · <code>{context.episode_id}</code> ·{" "}
+              <code>{context.performance_id}</code>
+            </p>
+          </div>
         </div>
-        <Link className="ops-btn ops-btn--link" href={backHref}>
-          ← Back to Review Queue
-        </Link>
-      </div>
+      ) : (
+        <div className="ops-ml-ms-clip-review__header">
+          <div>
+            <p className="ops-topbar__kicker">Clip Review · Midnight Special</p>
+            <h2 className="ops-ml-ms-clip-review__title">
+              {context.artist}
+              {context.title ? ` — ${context.title}` : ""}
+            </h2>
+            <p className="ops-dim">
+              {context.episode_title} · {context.air_date ?? "—"} · <code>{context.episode_id}</code>
+            </p>
+          </div>
+          <Link className="ops-btn ops-btn--link" href={backHref}>
+            ← Back to Review Queue
+          </Link>
+        </div>
+      )}
 
       <div className="ops-ml-ms-clip-review__bounds">
         <span>

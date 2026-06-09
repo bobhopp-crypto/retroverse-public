@@ -1,3 +1,5 @@
+import { buildMediaLabPerformanceHref } from "@/lib/ops/media-lab/workspace/urls";
+
 import { collectionSlugFromId } from "../paths";
 import { MS_COLLECTION_ID } from "./paths";
 
@@ -12,6 +14,7 @@ export type ClipReviewModeParams = {
   return_href?: string;
 };
 
+/** @deprecated Use buildMediaLabPerformanceHref — opens unified workspace editor */
 export function buildClipReviewMediaLabHref(params: {
   episodeId: string;
   performanceId: string;
@@ -22,25 +25,21 @@ export function buildClipReviewMediaLabHref(params: {
   adjustedStart?: number;
   adjustedEnd?: number;
   returnHref?: string;
+  library?: "performances" | "recent";
 }): string {
-  const slug = collectionSlugFromId(MS_COLLECTION_ID);
-  const search = new URLSearchParams({
-    collection: slug,
-    episode: params.episodeId,
-    mode: "clip_review",
-    performance: params.performanceId,
+  void params.artist;
+  void params.title;
+  void params.startTime;
+  void params.endTime;
+  void params.adjustedStart;
+  void params.adjustedEnd;
+  void params.returnHref;
+  return buildMediaLabPerformanceHref({
+    episodeId: params.episodeId,
+    performanceId: params.performanceId,
+    collection: MS_COLLECTION_ID,
+    library: params.library ?? "performances",
   });
-  if (params.artist) search.set("artist", params.artist);
-  if (params.title) search.set("title", params.title);
-  if (params.startTime != null) search.set("start", String(params.startTime));
-  if (params.endTime != null) search.set("end", String(params.endTime));
-  if (params.adjustedStart != null) search.set("adjusted_start", String(params.adjustedStart));
-  if (params.adjustedEnd != null) search.set("adjusted_end", String(params.adjustedEnd));
-  search.set(
-    "return",
-    params.returnHref ?? "/ops/media-lab/performances",
-  );
-  return `/ops/media-lab?${search.toString()}`;
 }
 
 export function buildClipReviewHrefFromRecord(

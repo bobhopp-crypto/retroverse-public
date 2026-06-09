@@ -1,4 +1,4 @@
-import { buildClipReviewMediaLabHref } from "@/lib/ops/media-collections/midnight-special/clip-mode";
+import { buildMediaLabPerformanceHref } from "@/lib/ops/media-lab/workspace/urls";
 import { performanceEffectiveBounds } from "@/lib/ops/media-collections/midnight-special/effective-bounds";
 import {
   bucketToExportGrouping,
@@ -12,8 +12,6 @@ import { parseYearFromAirDate } from "@/lib/ops/media-collections/midnight-speci
 import { collectionSlugFromId } from "@/lib/ops/media-collections/paths";
 
 import type { PerformanceBrowserRow } from "./types";
-
-const BROWSER_RETURN = "/ops/media-lab/performances";
 
 export async function listMidnightSpecialPerformanceRows(): Promise<PerformanceBrowserRow[]> {
   const { readdir, mkdir } = await import("fs/promises");
@@ -79,16 +77,11 @@ function recordToBrowserRow(
     effective_end: bounds.end,
     adjusted_start: record.adjusted_start,
     adjusted_end: record.adjusted_end,
-    clip_review_href: buildClipReviewMediaLabHref({
+    clip_review_href: buildMediaLabPerformanceHref({
       episodeId: record.episode_id,
       performanceId: record.performance_id,
-      artist: record.artist,
-      title: record.song,
-      startTime: record.start_seconds,
-      endTime: record.end_seconds,
-      adjustedStart: record.adjusted_start,
-      adjustedEnd: record.adjusted_end,
-      returnHref: BROWSER_RETURN,
+      collection: MS_COLLECTION_ID,
+      library: "performances",
     }),
   };
 }

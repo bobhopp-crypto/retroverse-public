@@ -11450,3 +11450,160 @@
   margin-bottom: 4px;
 }
 
+/* Media Lab unified workspace */
+.ops-page--media-lab-workspace .ops-page__inner {
+  max-width: 100%;
+}
+
+.ml-workspace {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: 16px;
+  min-height: 70vh;
+  align-items: start;
+}
+
+.ml-workspace__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 3px solid var(--ink);
+  background: var(--panel);
+  padding: 12px;
+  max-height: calc(100vh - 200px);
+  overflow: hidden;
+}
+
+.ml-workspace__sidebar-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.ml-workspace__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ml-workspace__section-btn,
+.ml-workspace__collection-btn {
+  text-align: left;
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 6px 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.ml-workspace__section-btn--active,
+.ml-workspace__collection-btn--active {
+  border-color: var(--ink);
+  background: var(--cream);
+}
+
+.ml-workspace__collections-label {
+  margin: 8px 0 4px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.ml-workspace__browse {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+.ml-workspace__browse-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ml-workspace__search {
+  width: 100%;
+}
+
+.ml-workspace__mini-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ml-workspace__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ml-workspace__list-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.ml-workspace__list-item--active {
+  border-color: var(--ink);
+  background: var(--cream);
+}
+
+.ml-workspace__list-primary {
+  font-weight: 800;
+}
+
+.ml-workspace__list-meta {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--dim);
+  margin-top: 2px;
+}
+
+.ml-workspace__main {
+  min-width: 0;
+  border: 3px solid var(--ink);
+  background: var(--cream);
+  padding: 12px;
+}
+
+.ml-workspace__main-title {
+  margin: 0 0 8px;
+}
+
+.ml-workspace__meta-dl {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 6px 12px;
+  margin: 0 0 16px;
+}
+
+.ml-workspace__meta-dl dt {
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.ml-workspace__perf-pick-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ops-ml-ms-clip-review--embedded {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .ml-workspace {
+    grid-template-columns: 1fr;
+  }
+  .ml-workspace__sidebar {
+    max-height: 40vh;
+  }
+}
+

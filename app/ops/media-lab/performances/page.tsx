@@ -1,64 +1,16 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import { redirect } from "next/navigation";
 
-import { MediaLabPerformanceBrowser } from "@/components/ops/media-lab/MediaLabPerformanceBrowser";
-
-import "../../ops.css";
-
-export const dynamic = "force-dynamic";
-
-export const metadata: Metadata = {
-  title: "Performance Browser — Media Lab",
-  robots: { index: false, follow: false },
-};
-
-function OpsBlocked(props: { message: string }) {
-  return (
-    <div className="ops-auth">
-      <h1>Performance Browser</h1>
-      <p className="ops-dim">{props.message}</p>
-    </div>
-  );
-}
-
-export default function MediaLabPerformanceBrowserPage() {
-  if (process.env.RETROVERSE_OPS !== "1") {
-    return (
-      <main className="ops-page">
-        <div className="ops-page__grain" aria-hidden />
-        <div className="ops-page__inner">
-          <OpsBlocked message="Ops disabled (set RETROVERSE_OPS=1)." />
-        </div>
-      </main>
-    );
-  }
-
-  return (
-    <main className="ops-page">
-      <div className="ops-page__grain" aria-hidden />
-      <div className="ops-page__inner">
-        <header className="ops-topbar">
-          <div>
-            <p className="ops-topbar__kicker">Internal · media lab</p>
-            <h1 className="ops-topbar__title">Performance Browser</h1>
-          </div>
-          <div className="ops-topbar__meta">
-            <Link className="ops-link" href="/ops/media-lab">
-              ← Media Lab
-            </Link>
-            <Link className="ops-link" href="/ops">
-              Ops
-            </Link>
-          </div>
-        </header>
-
-        <p className="ops-banner">
-          <strong>Canonical performance manifest search.</strong> Find clips across collections and
-          open clip review without going through a review queue.
-        </p>
-
-        <MediaLabPerformanceBrowser />
-      </div>
-    </main>
-  );
+/** Legacy route — redirects to unified Media Lab workspace browser. */
+export default async function MediaLabPerformancesRedirectPage(props: {
+  searchParams: Promise<Record<string, string | undefined>>;
+}) {
+  const params = await props.searchParams;
+  const search = new URLSearchParams();
+  search.set("library", "performances");
+  if (params.collection) search.set("collection", params.collection);
+  if (params.q) search.set("q", params.q);
+  if (params.year) search.set("year", params.year);
+  if (params.status) search.set("status", params.status);
+  if (params.classification) search.set("classification", params.classification);
+  redirect(`/ops/media-lab?${search.toString()}`);
 }

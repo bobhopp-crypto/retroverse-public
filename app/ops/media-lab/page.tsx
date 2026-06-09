@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
+import { redirect } from "next/navigation";
 
 import { OpsStructuredCollectionBanner } from "@/components/ops/media-collections/OpsStructuredCollectionBanner";
-import { MediaLabMidnightSpecialClipReview } from "@/components/ops/media-lab/MediaLabMidnightSpecialClipReview";
-import { OpsMediaLab } from "@/components/ops/OpsMediaLab";
+import { MediaLabWorkspace } from "@/components/ops/media-lab/MediaLabWorkspace";
 import { OPS_FOCUS_YEAR } from "@/lib/ops/ops-focus-year";
 
 import "../ops.css";
@@ -31,14 +32,23 @@ export default async function OpsMediaLabPage(props: {
     mode?: string;
     performance?: string;
     return?: string;
+    library?: string;
   }>;
 }) {
-  const { collection, episode, mode, performance, return: returnHref } = await props.searchParams;
-  const clipReviewMode =
-    mode === "clip_review" &&
-    collection === "midnight-special" &&
-    Boolean(episode?.trim()) &&
-    Boolean(performance?.trim());
+  const params = await props.searchParams;
+
+  // Legacy clip_review → unified workspace
+  if (params.mode === "clip_review" && params.episode && params.performance) {
+    const search = new URLSearchParams();
+    search.set("library", "performances");
+    search.set("collection", (params.collection ?? "midnight-special").replace(/-/g, "_"));
+    search.set("episode", params.episode);
+    search.set("performance", params.performance);
+    redirect(`/ops/media-lab?${search.toString()}`);
+  }
+
+  const { collection, episode, mode } = params;
+
   if (process.env.RETROVERSE_OPS !== "1") {
     return (
       <main className="ops-page">
@@ -51,7 +61,7 @@ export default async function OpsMediaLabPage(props: {
   }
 
   return (
-    <main className="ops-page">
+    <main className="ops-page ops-page--media-lab-workspace">
       <div className="ops-page__grain" aria-hidden />
       <div className="ops-page__inner">
         <header className="ops-topbar">
@@ -60,9 +70,6 @@ export default async function OpsMediaLabPage(props: {
             <h1 className="ops-topbar__title">Media Lab</h1>
           </div>
           <div className="ops-topbar__meta">
-            <Link className="ops-link" href="/ops/media-lab/performances">
-              Performance Browser
-            </Link>
             <Link className="ops-link" href="/ops">
               ← Ops
             </Link>
@@ -78,27 +85,14 @@ export default async function OpsMediaLabPage(props: {
           mode={mode}
         />
 
-        {clipReviewMode ? (
-          <p className="ops-banner">
-            <strong>Clip Review mode</strong> — precision in/out editing for Midnight Special
-            performances. Saves adjusted boundaries to the performance manifest.
-          </p>
-        ) : (
-          <p className="ops-banner">
-            <strong>Video → transcript → chapters → save to year.</strong> Local only (ffmpeg +
-            faster-whisper). No upload to the cloud.
-          </p>
-        )}
+        <p className="ops-banner">
+          <strong>Asset workspace</strong> — browse performances, edit clips, import and analyze video.
+          Library sidebar + editor in one interface.
+        </p>
 
-        {clipReviewMode ? (
-          <MediaLabMidnightSpecialClipReview
-            episodeId={episode!.trim()}
-            performanceId={performance!.trim()}
-            returnHref={returnHref?.trim()}
-          />
-        ) : (
-          <OpsMediaLab defaultYear={OPS_FOCUS_YEAR} />
-        )}
+        <Suspense fallback={<p className="ops-dim">Loading workspace…</p>}>
+          <MediaLabWorkspace defaultYear={OPS_FOCUS_YEAR} />
+        </Suspense>
       </div>
     </main>
   );

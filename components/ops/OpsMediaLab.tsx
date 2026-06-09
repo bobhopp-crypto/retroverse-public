@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 import { MediaLabEditorialReview } from "@/components/ops/media-lab/MediaLabEditorialReview";
@@ -300,10 +299,8 @@ export function OpsMediaLab({ defaultYear = OPS_FOCUS_YEAR }: OpsMediaLabProps) 
         <p className="ops-dim ops-ml-form__hint">
           Transcribe once. Everything after that reads{" "}
           <code className="ops-mono">segments.json</code> and is nearly instant — chapters,
-          labels, merge heuristics, tag suggestions, editorial review.{" "}
-          <Link className="ops-link" href="/ops/media-lab/performances">
-            Performance Browser →
-          </Link>
+          labels, merge heuristics, tag suggestions, editorial review. Use the{" "}
+          <strong>Library</strong> sidebar to browse performances.
         </p>
 
         <label className="ops-ml-field">
