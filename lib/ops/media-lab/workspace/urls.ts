@@ -8,6 +8,8 @@ export type MediaLabLibrarySection =
   | "harvest"
   | "recent";
 
+export type EpisodeBrowseView = "list" | "tree";
+
 export type MediaLabWorkspaceParams = {
   library?: MediaLabLibrarySection;
   collection?: string;
@@ -17,6 +19,7 @@ export type MediaLabWorkspaceParams = {
   year?: string;
   status?: string;
   classification?: string;
+  view?: EpisodeBrowseView;
 };
 
 export function buildMediaLabWorkspaceHref(params: MediaLabWorkspaceParams): string {
@@ -31,6 +34,7 @@ export function buildMediaLabWorkspaceHref(params: MediaLabWorkspaceParams): str
   if (params.classification && params.classification !== "all") {
     search.set("classification", params.classification);
   }
+  if (params.view && params.view !== "list") search.set("view", params.view);
   const qs = search.toString();
   return qs ? `/ops/media-lab?${qs}` : "/ops/media-lab";
 }

@@ -11921,3 +11921,168 @@
   color: var(--ml-text, rgba(255, 255, 255, 0.96));
 }
 
+/* Episode browser tree + detail */
+.ml-workspace__view-toggle {
+  display: flex;
+  gap: 6px;
+}
+
+.ml-workspace__view-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border: 2px solid var(--ml-surface-border, rgba(255, 255, 255, 0.28));
+  background: transparent;
+  color: var(--ml-text-secondary, rgba(255, 255, 255, 0.8));
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ml-workspace__view-btn--active {
+  color: var(--ml-text, rgba(255, 255, 255, 0.96));
+  border-color: var(--ml-active-border, rgba(70, 194, 255, 0.95));
+  background: var(--ml-active-bg, rgba(46, 184, 184, 0.24));
+}
+
+.ml-episode-tree__collection {
+  margin: 0 0 8px;
+  font-weight: 900;
+  font-size: 0.95rem;
+  color: var(--ml-text, rgba(255, 255, 255, 0.96));
+}
+
+.ml-episode-tree__year-group {
+  margin-bottom: 6px;
+}
+
+.ml-episode-tree__year {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  padding: 7px 8px;
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--ml-text-secondary, rgba(255, 255, 255, 0.8));
+  font-weight: 800;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.ml-episode-tree__year:hover {
+  background: var(--ml-hover-bg, rgba(255, 255, 255, 0.1));
+  color: var(--ml-text, rgba(255, 255, 255, 0.96));
+}
+
+.ml-episode-tree__year-count {
+  margin-left: auto;
+  font-size: 0.78rem;
+  color: var(--ml-text-muted, rgba(255, 255, 255, 0.68));
+}
+
+.ml-episode-tree__episodes {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 14px;
+}
+
+.ml-episode-tree__episode {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 7px 9px;
+  margin: 2px 0;
+  border: 2px solid transparent;
+  background: transparent;
+  color: var(--ml-text-secondary, rgba(255, 255, 255, 0.8));
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.ml-episode-tree__episode:hover {
+  background: var(--ml-hover-bg, rgba(255, 255, 255, 0.1));
+  color: var(--ml-text, rgba(255, 255, 255, 0.96));
+}
+
+.ml-episode-tree__episode--active {
+  color: var(--ml-text, rgba(255, 255, 255, 0.96));
+  border-color: var(--ml-active-border, rgba(70, 194, 255, 0.95));
+  background: var(--ml-active-bg, rgba(46, 184, 184, 0.24));
+}
+
+.ml-episode-detail__header {
+  margin-bottom: 12px;
+}
+
+.ml-episode-detail__kicker {
+  margin: 4px 0 0;
+  color: var(--ml-text-secondary, rgba(255, 255, 255, 0.8));
+  font-size: 0.95rem;
+}
+
+.ml-episode-detail__meta {
+  margin-bottom: 14px;
+}
+
+.ml-episode-detail__status--downloaded {
+  color: var(--ok, #2fd27a);
+  font-weight: 800;
+}
+
+.ml-episode-detail__status--missing {
+  color: var(--warn, #ffb020);
+  font-weight: 800;
+}
+
+.ml-episode-detail__actions {
+  margin-bottom: 18px;
+}
+
+.ml-episode-detail__perf-title {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  color: var(--ml-text, rgba(255, 255, 255, 0.96));
+}
+
+.ml-episode-detail__perf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ml-episode-detail__perf {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: var(--panel);
+  padding: 10px 12px;
+}
+
+.ml-episode-detail__perf--active {
+  border-color: var(--ml-active-border, rgba(70, 194, 255, 0.95));
+  background: var(--ml-active-bg, rgba(46, 184, 184, 0.18));
+}
+
+.ml-episode-detail__perf-artist {
+  font-weight: 800;
+  color: var(--ml-text, rgba(255, 255, 255, 0.96));
+}
+
+.ml-episode-detail__perf-title-text {
+  color: var(--ml-text-secondary, rgba(255, 255, 255, 0.8));
+}
+
+.ml-episode-detail__perf-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-top: 6px;
+  font-size: 0.84rem;
+  color: var(--ml-text-secondary, rgba(255, 255, 255, 0.8));
+}
+
+.ml-episode-detail__perf-open {
+  margin-top: 8px;
+}
+

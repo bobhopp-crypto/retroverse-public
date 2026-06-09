@@ -7,6 +7,7 @@ import { OpsMediaLab } from "@/components/ops/OpsMediaLab";
 import { OPS_FOCUS_YEAR } from "@/lib/ops/ops-focus-year";
 import {
   buildMediaLabWorkspaceHref,
+  type EpisodeBrowseView,
   type MediaLabLibrarySection,
 } from "@/lib/ops/media-lab/workspace/urls";
 
@@ -41,6 +42,8 @@ export function MediaLabWorkspace({ defaultYear = OPS_FOCUS_YEAR }: Props) {
   const episodeId = searchParams.get("episode") ?? undefined;
   const performanceId = searchParams.get("performance") ?? undefined;
 
+  const episodeView = (searchParams.get("view") as EpisodeBrowseView) || "list";
+
   const filters = useMemo(
     () => ({
       q: searchParams.get("q") ?? "",
@@ -63,6 +66,7 @@ export function MediaLabWorkspace({ defaultYear = OPS_FOCUS_YEAR }: Props) {
         "year",
         "status",
         "classification",
+        "view",
       ] as const;
       for (const k of keys) {
         const v =
@@ -72,27 +76,41 @@ export function MediaLabWorkspace({ defaultYear = OPS_FOCUS_YEAR }: Props) {
               ? library
               : k === "collection"
                 ? collection
-                : searchParams.get(k) ?? undefined;
-        if (v && v !== "all") next[k] = v;
+                : k === "view"
+                  ? episodeView
+                  : searchParams.get(k) ?? undefined;
+        if (v && v !== "all" && !(k === "view" && v === "list")) next[k] = v;
       }
       router.push(buildMediaLabWorkspaceHref(next));
     },
-    [collection, library, router, searchParams],
+    [collection, episodeView, library, router, searchParams],
   );
 
   const selectPerformance = useCallback(
     (epId: string, perfId: string) => {
       pushRecent(perfId);
-      navigate({ library, collection, episode: epId, performance: perfId });
+      navigate({
+        library,
+        collection,
+        episode: epId,
+        performance: perfId,
+        view: library === "episodes" ? episodeView : undefined,
+      });
     },
-    [collection, library, navigate],
+    [collection, episodeView, library, navigate],
   );
 
   const selectEpisode = useCallback(
     (epId: string) => {
-      navigate({ library: "episodes", collection, episode: epId, performance: undefined });
+      navigate({
+        library: "episodes",
+        collection,
+        episode: epId,
+        performance: undefined,
+        view: episodeView,
+      });
     },
-    [collection, navigate],
+    [collection, episodeView, navigate],
   );
 
   const showEditor = Boolean(episodeId && performanceId && library !== "exported");
@@ -120,6 +138,7 @@ export function MediaLabWorkspace({ defaultYear = OPS_FOCUS_YEAR }: Props) {
         <MediaLabLibraryBrowse
           library={library}
           collection={collection}
+          episodeView={episodeView}
           selectedEpisodeId={episodeId}
           selectedPerformanceId={performanceId}
           filters={filters}

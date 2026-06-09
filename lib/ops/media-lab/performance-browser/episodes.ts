@@ -1,26 +1,63 @@
+import { existsSync } from "node:fs";
+
+import { analyzeMidnightSpecialEpisode } from "@/lib/ops/media-collections/midnight-special/analyze-episode";
+import { loadEpisodePerformanceManifest } from "@/lib/ops/media-collections/midnight-special/performances";
+import { MS_COLLECTION_ID } from "@/lib/ops/media-collections/midnight-special/paths";
+import { secToTimecode } from "@/lib/ops/media-collections/midnight-special/timecode";
+import { parseEpisodeTitle } from "@/lib/ops/media-collections/parse-episode-title";
+import { loadEpisode } from "@/lib/ops/media-collections/state";
+
+import type { EpisodeBrowserRow, EpisodePerformanceSummary } from "./episode-types";
+import { searchEpisodeRows } from "./episode-utils";
 import { listMidnightSpecialPerformanceRows } from "./ms-provider";
 import type { PerformanceBrowserRow } from "./types";
 
-export type EpisodeBrowserRow = {
-  collection_id: string;
-  collection_slug: string;
-  collection_title: string;
-  episode_id: string;
-  episode_title: string;
-  year: number | null;
-  air_date?: string;
-  performance_count: number;
-  accepted_count: number;
-  review_count: number;
-  exported_count: number;
-  performances: {
-    performance_id: string;
-    artist: string;
-    title: string;
-    status: PerformanceBrowserRow["status"];
-    classification: PerformanceBrowserRow["classification"];
-  }[];
-};
+export type { EpisodeBrowserRow, EpisodePerformanceSummary } from "./episode-types";
+export { searchEpisodeRows, groupEpisodesByYear, episodeListLabel } from "./episode-utils";
+
+function performanceSummaries(
+  perfs: PerformanceBrowserRow[],
+  exportPaths: Map<string, string | undefined>,
+): EpisodePerformanceSummary[] {
+  return perfs.map((p) => ({
+    performance_id: p.performance_id,
+    artist: p.artist,
+    title: p.title,
+    status: p.status,
+    classification: p.classification,
+    start_sec: p.effective_start,
+    end_sec: p.effective_end,
+    start_timecode: secToTimecode(p.effective_start),
+    end_timecode: secToTimecode(p.effective_end),
+    export_status:
+      p.status === "exported"
+        ? "exported"
+        : p.status === "accepted"
+          ? "ready"
+          : "not_ready",
+    export_path: exportPaths.get(p.performance_id),
+  }));
+}
+
+async function enrichEpisodeRow(
+  episodeId: string,
+  perfs: PerformanceBrowserRow[],
+): Promise<Pick<EpisodeBrowserRow, "episode_number" | "duration_sec" | "download_status" | "video_path">> {
+  const head = perfs[0]!;
+  const parsed = parseEpisodeTitle(head.episode_title);
+  const episode = await loadEpisode(MS_COLLECTION_ID, episodeId);
+  const analysis = await analyzeMidnightSpecialEpisode(episodeId);
+
+  const videoPath = episode?.download_path ?? analysis?.video_path ?? undefined;
+  const downloaded = Boolean(videoPath && existsSync(videoPath));
+
+  return {
+    episode_number: episode?.episode_number ?? parsed.episode_number,
+    duration_sec: analysis?.video_duration_sec ?? null,
+    download_status: downloaded ? "downloaded" : "missing",
+    video_path: downloaded ? videoPath : undefined,
+  };
+}
 
 export async function listEpisodeBrowserRows(
   collectionId = "midnight_special",
@@ -41,25 +78,28 @@ export async function listEpisodeBrowserRows(
   const episodes: EpisodeBrowserRow[] = [];
   for (const [episodeId, perfs] of byEpisode) {
     const head = perfs[0]!;
+    const extra = await enrichEpisodeRow(episodeId, perfs);
+    const manifest = await loadEpisodePerformanceManifest(episodeId);
+    const exportPaths = new Map(
+      (manifest?.performances ?? []).map((p) => [p.performance_id, p.export_path]),
+    );
     episodes.push({
       collection_id: head.collection_id,
       collection_slug: head.collection_slug,
       collection_title: head.collection_title,
       episode_id: episodeId,
       episode_title: head.episode_title,
+      episode_number: extra.episode_number,
       year: head.year,
-      air_date: head.air_date,
+      air_date: head.air_date ?? parseEpisodeTitle(head.episode_title).air_date,
+      duration_sec: extra.duration_sec,
+      download_status: extra.download_status,
+      video_path: extra.video_path,
       performance_count: perfs.length,
       accepted_count: perfs.filter((p) => p.status === "accepted" || p.status === "exported").length,
       review_count: perfs.filter((p) => p.status === "review").length,
       exported_count: perfs.filter((p) => p.status === "exported").length,
-      performances: perfs.map((p) => ({
-        performance_id: p.performance_id,
-        artist: p.artist,
-        title: p.title,
-        status: p.status,
-        classification: p.classification,
-      })),
+      performances: performanceSummaries(perfs, exportPaths),
     });
   }
 
@@ -67,8 +107,19 @@ export async function listEpisodeBrowserRows(
     const ya = a.year ?? 0;
     const yb = b.year ?? 0;
     if (ya !== yb) return yb - ya;
+    const na = Number(a.episode_number ?? 0);
+    const nb = Number(b.episode_number ?? 0);
+    if (na !== nb) return nb - na;
     return a.episode_title.localeCompare(b.episode_title);
   });
 
   return episodes;
+}
+
+export async function loadEpisodeBrowserDetail(
+  episodeId: string,
+  collectionId = "midnight_special",
+): Promise<EpisodeBrowserRow | null> {
+  const episodes = await listEpisodeBrowserRows(collectionId);
+  return episodes.find((e) => e.episode_id === episodeId) ?? null;
 }
