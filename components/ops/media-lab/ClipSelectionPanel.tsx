@@ -28,14 +28,7 @@ function formatReviewClock(sec?: number): string {
   return `00:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 
-type DragKind = "in" | "out" | "body";
-
-type DragAnchor = {
-  kind: DragKind;
-  fixedIn: number;
-  fixedOut: number;
-  anchorSec: number;
-};
+type DragKind = "in" | "out";
 
 type ClipSelectionPanelProps = {
   clipStartSec: number;
@@ -56,7 +49,7 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [drag, setDrag] = useState<DragKind | null>(null);
   const [playheadHover, setPlayheadHover] = useState(false);
-  const dragRef = useRef<DragAnchor | null>(null);
+  const dragRef = useRef<DragKind | null>(null);
   const selectionRef = useRef(props.selection);
   selectionRef.current = props.selection;
 
@@ -98,6 +91,16 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
     [clipDur, clipStart],
   );
 
+  const clampIn = useCallback(
+    (sec: number) => Math.max(clipStart, Math.min(outSec - MIN_SELECTION_SEC, sec)),
+    [clipStart, outSec],
+  );
+
+  const clampOut = useCallback(
+    (sec: number) => Math.max(inSec + MIN_SELECTION_SEC, Math.min(clipEnd, sec)),
+    [clipEnd, inSec],
+  );
+
   const updateSelection = useCallback(
     (patch: Partial<ClipSelectionState>) => {
       props.onSelectionChange({ ...selectionRef.current, ...patch });
@@ -113,70 +116,34 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
     [props.onSeek, props.onTrimPreview],
   );
 
-  const applyDrag = useCallback(
-    (raw: number) => {
-      const anchor = dragRef.current;
-      if (!anchor) return;
-
-      if (anchor.kind === "in") {
-        const nextIn = Math.max(
-          clipStart,
-          Math.min(anchor.fixedOut - MIN_SELECTION_SEC, raw),
-        );
-        updateSelection({ inSeconds: nextIn, outSeconds: anchor.fixedOut });
-        previewAtSec(nextIn);
-        return;
-      }
-
-      if (anchor.kind === "out") {
-        const nextOut = Math.max(
-          anchor.fixedIn + MIN_SELECTION_SEC,
-          Math.min(clipEnd, raw),
-        );
-        updateSelection({ inSeconds: anchor.fixedIn, outSeconds: nextOut });
-        previewAtSec(nextOut);
-        return;
-      }
-
-      const span = anchor.fixedOut - anchor.fixedIn;
-      const delta = raw - anchor.anchorSec;
-      let nextIn = anchor.fixedIn + delta;
-      let nextOut = nextIn + span;
-      if (nextIn < clipStart) {
-        nextIn = clipStart;
-        nextOut = nextIn + span;
-      }
-      if (nextOut > clipEnd) {
-        nextOut = clipEnd;
-        nextIn = nextOut - span;
-      }
-      if (nextIn < clipStart) nextIn = clipStart;
-      if (nextOut - nextIn < MIN_SELECTION_SEC) return;
-      updateSelection({ inSeconds: nextIn, outSeconds: nextOut });
-      previewAtSec(nextIn + span / 2);
-    },
-    [clipEnd, clipStart, previewAtSec, updateSelection],
-  );
+  useEffect(() => {
+    dragRef.current = drag;
+  }, [drag]);
 
   useEffect(() => {
     if (!drag) return;
 
     function onMove(e: PointerEvent) {
-      if (!dragRef.current) return;
-      applyDrag(clientXToSec(e.clientX, true));
+      const kind = dragRef.current;
+      if (!kind) return;
+      const raw = clientXToSec(e.clientX, true);
+      if (kind === "in") {
+        const sec = clampIn(raw);
+        updateSelection({ inSeconds: sec });
+        previewAtSec(sec);
+      } else {
+        const sec = clampOut(raw);
+        updateSelection({ outSeconds: sec });
+        previewAtSec(sec);
+      }
     }
 
     function onUp(e: PointerEvent) {
-      const anchor = dragRef.current;
-      if (!anchor) return;
-      applyDrag(clientXToSec(e.clientX, true));
-      const endSec =
-        anchor.kind === "in"
-          ? selectionRef.current.inSeconds ?? anchor.fixedIn
-          : anchor.kind === "out"
-            ? selectionRef.current.outSeconds ?? anchor.fixedOut
-            : selectionRef.current.inSeconds ?? anchor.fixedIn;
-      props.onTrimDragEnd?.(endSec);
+      const kind = dragRef.current;
+      if (!kind) return;
+      const raw = clientXToSec(e.clientX, true);
+      const sec = kind === "in" ? clampIn(raw) : clampOut(raw);
+      props.onTrimDragEnd?.(sec);
       dragRef.current = null;
       setDrag(null);
     }
@@ -187,46 +154,22 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerup", onUp);
     };
-  }, [applyDrag, clientXToSec, drag, props.onTrimDragEnd]);
+  }, [clampIn, clampOut, clientXToSec, drag, previewAtSec, props.onTrimDragEnd, updateSelection]);
 
-  function startDrag(anchor: DragAnchor, e: React.PointerEvent) {
+  function beginDrag(kind: DragKind, e: React.PointerEvent) {
     e.preventDefault();
     e.stopPropagation();
     (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
     props.onTrimDragStart?.();
-    dragRef.current = anchor;
-    setDrag(anchor.kind);
-    previewAtSec(anchor.kind === "out" ? anchor.fixedOut : anchor.fixedIn);
-  }
-
-  function beginBodyDrag(e: React.PointerEvent) {
-    startDrag(
-      {
-        kind: "body",
-        fixedIn: inSec,
-        fixedOut: outSec,
-        anchorSec: clientXToSec(e.clientX, true),
-      },
-      e,
-    );
-  }
-
-  function beginDrag(kind: "in" | "out", e: React.PointerEvent) {
-    startDrag(
-      {
-        kind,
-        fixedIn: inSec,
-        fixedOut: outSec,
-        anchorSec: kind === "in" ? inSec : outSec,
-      },
-      e,
-    );
+    dragRef.current = kind;
+    setDrag(kind);
+    const sec = kind === "in" ? inSec : outSec;
+    previewAtSec(sec);
   }
 
   function handleTrackPointerDown(e: React.PointerEvent) {
     if ((e.target as HTMLElement).closest(".ops-ml-clip-timeline__handle")) return;
     if ((e.target as HTMLElement).closest(".ops-ml-selection__playhead")) return;
-    if ((e.target as HTMLElement).closest(".ops-ml-selection__range-body")) return;
 
     const sec = clientXToSec(e.clientX);
 
@@ -236,17 +179,17 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
     }
 
     if (sec <= inSec) {
-      const nextIn = Math.max(clipStart, Math.min(outSec - MIN_SELECTION_SEC, sec));
       props.onTrimDragStart?.();
-      updateSelection({ inSeconds: nextIn, outSeconds: outSec });
-      previewAtSec(nextIn);
+      const next = clampIn(sec);
+      updateSelection({ inSeconds: next });
+      previewAtSec(next);
       return;
     }
 
-    const nextOut = Math.max(inSec + MIN_SELECTION_SEC, Math.min(clipEnd, sec));
     props.onTrimDragStart?.();
-    updateSelection({ inSeconds: inSec, outSeconds: nextOut });
-    previewAtSec(nextOut);
+    const next = clampOut(sec);
+    updateSelection({ outSeconds: next });
+    previewAtSec(next);
   }
 
   const thumbFrames = props.thumbs
@@ -320,11 +263,7 @@ export function ClipSelectionPanel(props: ClipSelectionPanelProps) {
           >
             <span className="ops-ml-selection__handle-tag">IN</span>
           </button>
-          <div
-            className={`ops-ml-selection__range-body${drag === "body" ? " ops-ml-selection__range-body--drag" : ""}`}
-            aria-label="Drag clip — moves IN and OUT together"
-            onPointerDown={beginBodyDrag}
-          />
+          <div className="ops-ml-selection__range-body" aria-hidden />
           <button
             type="button"
             className={[

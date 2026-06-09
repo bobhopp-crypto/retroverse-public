@@ -46,6 +46,7 @@ export function MediaLabPerformanceEditor({
   const [thumbsLoading, setThumbsLoading] = useState(false);
   const [harvestOpen, setHarvestOpen] = useState(false);
   const [queueOpen, setQueueOpen] = useState(false);
+  const [trimWindow, setTrimWindow] = useState<{ start: number; end: number } | null>(null);
   const stopAtRef = useRef<number | null>(null);
 
   const loadEditor = useCallback(async () => {
@@ -76,6 +77,10 @@ export function MediaLabPerformanceEditor({
       });
       setPlayheadSec(ctx.effective_start);
       setEpisodeDuration(ctx.episode_duration_sec);
+      setTrimWindow({
+        start: Math.max(0, ctx.effective_start - PAD_SEC),
+        end: Math.min(ctx.episode_duration_sec, ctx.effective_end + PAD_SEC),
+      });
     } catch (e) {
       setError(e instanceof Error ? e.message : "load_failed");
     } finally {
@@ -89,8 +94,11 @@ export function MediaLabPerformanceEditor({
 
   const inSec = selection.inSeconds ?? context?.effective_start ?? 0;
   const outSec = selection.outSeconds ?? context?.effective_end ?? inSec + 1;
-  const panelStart = Math.max(0, inSec - PAD_SEC);
-  const panelEnd = Math.min(episodeDuration, outSec + PAD_SEC);
+  const panelStart =
+    trimWindow?.start ?? Math.max(0, (context?.effective_start ?? 0) - PAD_SEC);
+  const panelEnd =
+    trimWindow?.end ??
+    Math.min(episodeDuration, (context?.effective_end ?? inSec + 1) + PAD_SEC);
   const filmstripStart = Math.max(0, inSec - PAD_SEC);
   const filmstripEnd = Math.min(episodeDuration, outSec + PAD_SEC);
 
@@ -390,7 +398,6 @@ export function MediaLabPerformanceEditor({
                 ref={videoRef}
                 className="ops-ml-deck__video ops-ml-review__video"
                 src={context.video_url}
-                controls
                 playsInline
                 preload="metadata"
               />
@@ -432,8 +439,13 @@ export function MediaLabPerformanceEditor({
                 onClick={() => {
                   const video = videoRef.current;
                   if (!video) return;
-                  if (video.paused) void video.play();
-                  else video.pause();
+                  if (video.paused) {
+                    void video.play().catch(() => {
+                      setError("playback_failed");
+                    });
+                  } else {
+                    video.pause();
+                  }
                 }}
               >
                 {isPlaying ? "Pause" : "Play"}

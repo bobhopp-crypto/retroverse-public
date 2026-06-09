@@ -1,51 +1,69 @@
 # Media Lab Editor Restoration Verification
 
-**Date:** 2026-06-09  
-**Status:** Verified
+**Date:** 2026-06-08  
+**Status:** Verified (system Chrome)
 
-## Checklist
+## Root cause
 
-| # | Check | Result |
-|---|-------|--------|
-| 1 | Sidebar still works | ✓ `MediaLabWorkspace` unchanged |
-| 2 | Search still works | ✓ 1 Smokey hits |
-| 3 | Performance browser | ✓ browse API OK |
-| 4 | Episode browser | ✓ 149 episodes |
-| 5 | Editor context loads | ✓ true |
-| 6 | Filmstrip context range | ✓ {"start":3769,"end":4046} |
-| 7 | Classification in context | ✓ MUSIC |
-| 8 | Sibling performances | ✓ 15 in episode |
-| 9 | Body drag enabled | ✓ `ClipSelectionPanel` range-body |
-| 10 | Harvest/Queue drawers | ✓ `MediaLabPerformanceEditor` |
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| IN/OUT move together | Trim panel bounds (`panelStart`/`panelEnd`) recalculated from **live** `inSec`/`outSec`, rescaling the timeline during drag | Fixed `trimWindow` set once on performance load |
+| Unreliable trim logic | `65f3611` body drag + `d011059` anchor patches on broken coordinates | Restored `cbd4039` `ClipSelectionPanel`; body drag disabled (inert `range-body`) |
+| Play button (reported) | Transport logic was correct; Playwright bundled Chromium lacks H.264. System Chrome plays fine | Removed redundant native `controls`; aligned with `74a0879` transport |
+
+## Baseline
+
+See `working-editor-baseline.md`:
+
+- Trim: `cbd4039` — `ClipSelectionPanel.tsx`
+- Play transport: `74a0879` — `MediaLabMidnightSpecialClipReview.tsx` pattern
+- Shell: `65f3611` — `MediaLabPerformanceEditor.tsx` (with stable trim window fix)
+
+## Verification results
+
+| Check | Result |
+|-------|--------|
+| Play starts | ✓ PASS (system Chrome) |
+| Pause works | ✓ PASS |
+| IN drag independent | ✓ PASS — OUT fixed (`00:67:07→00:67:07`) |
+| OUT drag independent | ✓ PASS — IN fixed (`00:64:55→00:64:55`) |
+| Save boundaries | ✓ PASS |
+| Boundaries persist after reload | ✓ PASS |
+| No `fs/promises` client errors | ✓ PASS |
+
+### Trim probe (automated)
+
+```
+in_drag:  00:64:38 → 00:64:55  (out fixed at 00:67:07)
+out_drag: 00:67:07 → 00:66:49  (in fixed at 00:64:55)
+```
 
 ## Screenshots
 
 | File | Description |
 |------|-------------|
-| `editor-restoration-before.png` | Simplified clip editor (pre-restoration) |
-| `editor-restoration-after.png` | Restored workstation editor |
+| `editor-restore-play.png` | Editor with playback started |
+| `editor-restore-trim.png` | Trim panel after IN/OUT handle drags |
+| `editor-restore-after-reload.png` | Saved boundaries after page reload |
 
-## Restored components
+## Capture command
 
-- `MediaLabPerformanceEditor` — full workstation in main panel
-- `PerformanceFilmstrip` — scene context thumbnails
-- `ClipSelectionPanel` — thumb rail + IN/OUT/body drag
-- `HarvestLibraryPanel` — harvest drawer
-- Episode performance sibling strip
-- Metadata sidebar (artist, title, classification, status, notes)
-- Accept / Reject / Save / Export actions
+```bash
+npx tsx tools/media-collections/ms-editor-restoration-capture.ts
+```
 
-## Intentionally not restored in performance editor
+Uses system Chrome (`channel: "chrome"`) because bundled Chromium cannot decode H.264 episode files.
 
-- `CuratorClassificationPanel` (Fill/Cocktail/Dance) — year-job taxonomy; MS uses segment bucket
-- `ClipQueueFilmstrip` magnetic merge/split — chapter-level editorial; MS uses sibling strip
-- `MediaLabEditorialReview` transcript/OCR — year-job pipeline only
-- `FocusReviewDeck` component directly — layout replicated; different data model
+## Files changed
 
-## Remaining limitations
+| File | Change |
+|------|--------|
+| `components/ops/media-lab/ClipSelectionPanel.tsx` | Restored `cbd4039` (independent clampIn/clampOut, no body drag) |
+| `components/ops/media-lab/MediaLabPerformanceEditor.tsx` | Stable `trimWindow`; transport aligned with MS clip review |
+| `tools/media-collections/ms-editor-restoration-capture.ts` | Verification capture script |
 
-1. Year-job import editor (`OpsMediaLab`) and performance editor remain separate data models
-2. MS queue drawer lists accepted performances per episode, not global export batch
-3. Filmstrip requires local ffmpeg + episode video on disk
-4. Notes persist on manifest but no full-text search yet
-5. `MediaLabMidnightSpecialClipReview` still in repo (unused in workspace)
+## Remaining known issues
+
+1. **Body drag disabled** — inert `range-body` until trim is re-verified in production; can re-enable from `65f3611` once stable window is confirmed in daily use.
+2. **Playwright headless Chromium** — H.264 episodes fail with `DEMUXER_ERROR_NO_SUPPORTED_STREAMS`; use system Chrome/Safari for automated capture.
+3. **Editorial focus path unchanged** — year-job `FocusReviewDeck` still uses same `ClipSelectionPanel`; no regression expected.
