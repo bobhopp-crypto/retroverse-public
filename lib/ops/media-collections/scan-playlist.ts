@@ -30,7 +30,9 @@ type YtDlpPlaylistJson = {
   entries?: YtDlpFlatEntry[];
 };
 
-async function fetchPlaylistEntries(
+export type YtDlpPlaylistFlatEntry = YtDlpFlatEntry;
+
+export async function fetchYoutubePlaylistEntries(
   playlistUrl: string,
 ): Promise<{ entries: YtDlpFlatEntry[]; method: "yt-dlp" | "stub"; error?: string }> {
   const ytdlp = await findYtDlp();
@@ -128,7 +130,9 @@ export async function scanCollectionPlaylist(
     };
   }
 
-  const { entries, method, error } = await fetchPlaylistEntries(collection.source_url.trim());
+  const { entries, method, error } = await fetchYoutubePlaylistEntries(
+    collection.source_url.trim(),
+  );
 
   if (error) {
     return {

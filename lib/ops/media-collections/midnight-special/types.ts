@@ -50,6 +50,25 @@ export type MsPerformanceCollectionIndex = {
   stats: MsPerformanceCollectionStats;
 };
 
+export type MsCoverageMetrics = {
+  downloaded: number;
+  published: number;
+  historical: number;
+  published_coverage_pct: number;
+  historical_coverage_pct: number;
+  caught_up_with_official: boolean;
+  status_label: string;
+  private_pending: number;
+};
+
+export type MsSyncStatusSummary = {
+  coverage: MsCoverageMetrics;
+  last_sync_at: string | null;
+  new_episodes_since_last_sync: number;
+  official_playlist_count: number;
+  historical_episode_count: number;
+};
+
 export type MsPerformanceCollectionStats = {
   episodes_downloaded: number;
   episodes_with_performances: number;

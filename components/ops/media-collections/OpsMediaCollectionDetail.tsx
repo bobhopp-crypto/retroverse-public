@@ -174,7 +174,10 @@ export default function OpsMediaCollectionDetail(props: {
   return (
     <section>
       {collection.id === "midnight_special" ? (
-        <OpsMidnightSpecialDashboard initialIndex={data.performance_index ?? null} />
+        <OpsMidnightSpecialDashboard
+          initialIndex={data.performance_index ?? null}
+          initialSync={data.ms_sync ?? null}
+        />
       ) : null}
 
       <div className="mc-meta-panel">
@@ -182,7 +185,17 @@ export default function OpsMediaCollectionDetail(props: {
           <dt>Collection</dt>
           <dd>
             <strong>{collection.title}</strong>{" "}
-            <OpsPill tone="warn">{collection.status.toUpperCase()}</OpsPill>
+            <OpsPill
+              tone={
+                collection.id === "midnight_special" && data.ms_sync?.coverage.caught_up_with_official
+                  ? "ok"
+                  : "warn"
+              }
+            >
+              {collection.id === "midnight_special" && data.ms_sync?.coverage.caught_up_with_official
+                ? "CAUGHT UP"
+                : collection.status.toUpperCase()}
+            </OpsPill>
           </dd>
           <dt>Description</dt>
           <dd>{collection.description || "—"}</dd>

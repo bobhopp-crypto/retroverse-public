@@ -8,8 +8,14 @@ import {
   loadCollectionsIndex,
   listEpisodes,
 } from "./state";
-import type { MsPerformanceCollectionIndex } from "./midnight-special/types";
+import { loadMidnightSpecialCoverage } from "./midnight-special/coverage";
+import type {
+  MsPerformanceCollectionIndex,
+  MsSyncStatusSummary,
+} from "./midnight-special/types";
 import { loadPerformanceIndex } from "./midnight-special/performances";
+import { MS_HISTORICAL_EPISODE_COUNT } from "./midnight-special/constants";
+import { loadMsSyncState } from "./midnight-special/sync-state";
 import { MS_COLLECTION_ID } from "./midnight-special/paths";
 import type {
   CollectionCardData,
@@ -34,6 +40,7 @@ export type MediaCollectionDetailData = {
   download_health: CollectionDownloadHealth;
   slug: string;
   performance_index?: MsPerformanceCollectionIndex | null;
+  ms_sync?: MsSyncStatusSummary | null;
 };
 
 export async function loadMediaCollectionsConsole(): Promise<MediaCollectionsConsoleData> {
@@ -78,8 +85,11 @@ export async function loadMediaCollectionDetail(
   ]);
   const download_progress = await buildDownloadProgress(collectionId, run);
   const download_health = await auditCollectionDownloadHealth(collectionId, episodes);
-  const performance_index =
-    collectionId === MS_COLLECTION_ID ? await loadPerformanceIndex() : null;
+  const isMidnightSpecial = collectionId === MS_COLLECTION_ID;
+  const [performance_index, ms_sync] = await Promise.all([
+    isMidnightSpecial ? loadPerformanceIndex() : Promise.resolve(null),
+    isMidnightSpecial ? loadMidnightSpecialSyncSummary(collection) : Promise.resolve(null),
+  ]);
 
   return {
     collection,
@@ -90,5 +100,25 @@ export async function loadMediaCollectionDetail(
     download_health,
     slug: collectionSlugFromId(collectionId),
     performance_index,
+    ms_sync,
+  };
+}
+
+async function loadMidnightSpecialSyncSummary(
+  collection: MediaCollection,
+): Promise<MsSyncStatusSummary> {
+  const syncState = await loadMsSyncState();
+  const published =
+    syncState.last_official_playlist_count > 0
+      ? syncState.last_official_playlist_count
+      : collection.episode_count;
+  const coverage = await loadMidnightSpecialCoverage(published);
+
+  return {
+    coverage,
+    last_sync_at: syncState.last_sync_at,
+    new_episodes_since_last_sync: syncState.new_episodes_since_last_sync,
+    official_playlist_count: published,
+    historical_episode_count: MS_HISTORICAL_EPISODE_COUNT,
   };
 }

@@ -3,28 +3,90 @@
 import { useCallback, useState } from "react";
 
 import { formatBytes } from "@/lib/ops/format-bytes";
-import type { MsPerformanceCollectionIndex } from "@/lib/ops/media-collections/midnight-special/types";
+import type {
+  MsPerformanceCollectionIndex,
+  MsSyncStatusSummary,
+} from "@/lib/ops/media-collections/midnight-special/types";
+import type { MsSyncReport } from "@/lib/ops/media-collections/midnight-special/sync";
 
 type Props = {
   initialIndex: MsPerformanceCollectionIndex | null;
+  initialSync: MsSyncStatusSummary | null;
 };
 
-export default function OpsMidnightSpecialDashboard({ initialIndex }: Props) {
+function formatSyncTime(iso: string | null): string {
+  if (!iso) return "Never";
+  return iso.replace("T", " ").slice(0, 19);
+}
+
+export default function OpsMidnightSpecialDashboard({ initialIndex, initialSync }: Props) {
   const [index, setIndex] = useState(initialIndex);
+  const [sync, setSync] = useState(initialSync);
   const [busy, setBusy] = useState(false);
+  const [syncBusy, setSyncBusy] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [exportConfirm, setExportConfirm] = useState(false);
 
   const stats = index?.stats;
+  const coverage = sync?.coverage;
 
   const refresh = useCallback(async () => {
-    const res = await fetch("/api/ops/media-collections/midnight-special/performances", {
-      cache: "no-store",
-    });
-    const data = (await res.json()) as { ok: boolean; index?: MsPerformanceCollectionIndex };
-    if (data.ok && data.index) setIndex(data.index);
+    const [perfRes, collRes] = await Promise.all([
+      fetch("/api/ops/media-collections/midnight-special/performances", { cache: "no-store" }),
+      fetch("/api/ops/media-collections/midnight-special", { cache: "no-store" }),
+    ]);
+    const perfData = (await perfRes.json()) as {
+      ok: boolean;
+      index?: MsPerformanceCollectionIndex;
+    };
+    const collData = (await collRes.json()) as {
+      ok: boolean;
+      ms_sync?: MsSyncStatusSummary;
+    };
+    if (perfData.ok && perfData.index) setIndex(perfData.index);
+    if (collData.ok && collData.ms_sync) setSync(collData.ms_sync);
   }, []);
+
+  async function runSync(mode: "report" | "sync-and-acquire" | "retry-private") {
+    setSyncBusy(true);
+    setNotice(null);
+    setError(null);
+    try {
+      const res = await fetch("/api/ops/media-collections/midnight-special/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode }),
+      });
+      const data = (await res.json()) as { ok: boolean; report?: MsSyncReport; error?: string };
+      if (!res.ok || !data.ok || !data.report) {
+        setError(data.report?.error ?? data.error ?? "sync_failed");
+        return;
+      }
+      const r = data.report;
+      setSync({
+        coverage: r.coverage,
+        last_sync_at: r.synced_at,
+        new_episodes_since_last_sync: r.new_episodes_since_last_sync,
+        official_playlist_count: r.official_playlist_count,
+        historical_episode_count: r.historical_episode_count,
+      });
+      const parts = [
+        r.coverage.status_label,
+        r.new_episodes.length ? `${r.new_episodes.length} new` : null,
+        r.private_restored.length ? `${r.private_restored.length} private restored` : null,
+        r.acquisition
+          ? `${r.acquisition.downloaded} downloaded · ${r.acquisition.performances_generated} performances`
+          : null,
+      ].filter(Boolean);
+      setNotice(`Sync complete — ${parts.join(" · ")}`);
+      await refresh();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "sync_failed");
+    } finally {
+      setSyncBusy(false);
+    }
+  }
 
   async function runAction(action: "generate" | "accept_exact") {
     setBusy(true);
@@ -78,15 +140,88 @@ export default function OpsMidnightSpecialDashboard({ initialIndex }: Props) {
     setExportConfirm(false);
   }
 
+  const actionBusy = busy || syncBusy;
+
   return (
     <section className="ms-dashboard">
       <h2 className="mc-card__title" style={{ marginTop: 0 }}>
-        Performance Collection
+        Official Sync
       </h2>
+
+      {coverage?.caught_up_with_official ? (
+        <p className="mc-notice" style={{ marginBottom: 12 }}>
+          <strong>{coverage.status_label}</strong>
+        </p>
+      ) : null}
 
       <div className="mc-storage-row" style={{ marginBottom: 12 }}>
         <span>
-          Episodes: <strong>{stats?.episodes_downloaded ?? 161}</strong>
+          Official playlist: <strong>{sync?.official_playlist_count ?? coverage?.published ?? "—"}</strong>
+        </span>
+        <span>
+          Historical run: <strong>{sync?.historical_episode_count ?? coverage?.historical ?? 350}</strong>
+        </span>
+        <span>
+          Published coverage:{" "}
+          <strong>
+            {coverage
+              ? `${coverage.downloaded} / ${coverage.published} (${coverage.published_coverage_pct}%)`
+              : "—"}
+          </strong>
+        </span>
+        <span>
+          Historical coverage:{" "}
+          <strong>
+            {coverage
+              ? `${coverage.downloaded} / ${coverage.historical} (${coverage.historical_coverage_pct}%)`
+              : "—"}
+          </strong>
+        </span>
+        <span>
+          Last sync: <strong>{formatSyncTime(sync?.last_sync_at ?? null)}</strong>
+        </span>
+        <span>
+          New since last sync: <strong>{sync?.new_episodes_since_last_sync ?? 0}</strong>
+        </span>
+        {coverage?.private_pending ? (
+          <span>
+            Private pending: <strong>{coverage.private_pending}</strong>
+          </span>
+        ) : null}
+      </div>
+
+      <div className="mc-actions" style={{ marginBottom: 20 }}>
+        <button
+          type="button"
+          className="ops-btn ops-btn--info"
+          disabled={actionBusy}
+          onClick={() => void runSync("report")}
+        >
+          {syncBusy ? "Syncing…" : "Sync Playlist"}
+        </button>
+        <button
+          type="button"
+          className="ops-btn ops-btn--warn"
+          disabled={actionBusy}
+          onClick={() => void runSync("sync-and-acquire")}
+        >
+          Sync + Acquire
+        </button>
+        <button
+          type="button"
+          className="ops-btn"
+          disabled={actionBusy}
+          onClick={() => void runSync("retry-private")}
+        >
+          Retry Private Videos
+        </button>
+      </div>
+
+      <h2 className="mc-card__title">Performance Collection</h2>
+
+      <div className="mc-storage-row" style={{ marginBottom: 12 }}>
+        <span>
+          Episodes: <strong>{stats?.episodes_downloaded ?? coverage?.downloaded ?? 161}</strong>
         </span>
         <span>
           Detected: <strong>{stats?.performances_total ?? 0}</strong>
@@ -118,7 +253,7 @@ export default function OpsMidnightSpecialDashboard({ initialIndex }: Props) {
         <button
           type="button"
           className="ops-btn ops-btn--info"
-          disabled={busy}
+          disabled={actionBusy}
           onClick={() => void runAction("generate")}
         >
           {busy ? "Working…" : "Generate Candidates"}
@@ -126,7 +261,7 @@ export default function OpsMidnightSpecialDashboard({ initialIndex }: Props) {
         <button
           type="button"
           className="ops-btn ops-btn--warn"
-          disabled={busy || !stats?.performances_total}
+          disabled={actionBusy || !stats?.performances_total}
           onClick={() => void runAction("accept_exact")}
         >
           Accept All Exact Matches
@@ -140,13 +275,13 @@ export default function OpsMidnightSpecialDashboard({ initialIndex }: Props) {
         <button
           type="button"
           className="ops-btn"
-          disabled={busy || !(stats?.ready_to_export ?? 0)}
+          disabled={actionBusy || !(stats?.ready_to_export ?? 0)}
           onClick={handleExportClick}
           title="Gated until verification passes"
         >
           Export Accepted Clips (gated)
         </button>
-        <button type="button" className="ops-btn" disabled={busy} onClick={() => void refresh()}>
+        <button type="button" className="ops-btn" disabled={actionBusy} onClick={() => void refresh()}>
           Refresh stats
         </button>
       </div>
