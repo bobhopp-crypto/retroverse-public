@@ -1707,6 +1707,172 @@
   white-space: pre-wrap;
 }
 
+/* Art direction concept boards */
+
+.cl-art-deck__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.cl-art-deck__grid--refine {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cl-art-card {
+  display: flex;
+  flex-direction: column;
+  border: 4px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-2);
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.cl-art-card--a,
+.cl-art-card--psychedelic-festival {
+  border-color: #e85d2a;
+}
+
+.cl-art-card--b,
+.cl-art-card--saturday-morning-cartoon {
+  border-color: #4ecdc4;
+}
+
+.cl-art-card--c,
+.cl-art-card--vintage-television {
+  border-color: #c9a227;
+}
+
+.cl-art-card--d,
+.cl-art-card--collector-memorabilia {
+  border-color: #b8860b;
+}
+
+.cl-art-card--selected {
+  box-shadow: 0 0 0 4px rgba(45, 156, 176, 0.45);
+  border-color: var(--accent);
+}
+
+.cl-art-card__frame {
+  padding: 0;
+  background: #1a1a1a;
+  line-height: 0;
+}
+
+.cl-art-board__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cl-art-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px 16px;
+}
+
+.cl-art-card__body--compact {
+  padding: 10px 12px 12px;
+}
+
+.cl-art-card__body--compact h3 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.cl-art-card__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.cl-art-card__subtitle {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--dim);
+}
+
+.cl-art-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cl-art-card__chip {
+  padding: 4px 8px;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--panel);
+}
+
+.cl-art-card__collect {
+  margin: 0;
+  font-size: 0.86rem;
+}
+
+.cl-art-card__why {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.cl-art-card__refine-meta {
+  margin: 0;
+  font-size: 0.76rem;
+  text-transform: capitalize;
+}
+
+.cl-art-card__select {
+  margin-top: 4px;
+  padding: 10px 16px;
+  border: 3px solid var(--accent);
+  border-radius: 8px;
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.cl-art-card__select--on {
+  background: rgba(45, 156, 176, 0.25);
+}
+
+.cl-art-card--refine .cl-art-card__frame {
+  max-height: 220px;
+  overflow: hidden;
+}
+
+.cl-art-winner {
+  margin-top: 18px;
+  padding: 16px 20px;
+  border: 4px solid var(--accent);
+  border-radius: 10px;
+  background: rgba(45, 156, 176, 0.1);
+  text-align: center;
+}
+
+.cl-art-winner h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.cl-art-winner p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 900px) {
   .cl-workspace {
     grid-template-columns: 1fr;
@@ -1720,7 +1886,9 @@
   .cl-desk__preset-grid,
   .cl-desk__artifact-grid,
   .cl-concept-deck__grid,
-  .cl-concept-deck__grid--refine {
+  .cl-concept-deck__grid--refine,
+  .cl-art-deck__grid,
+  .cl-art-deck__grid--refine {
     grid-template-columns: 1fr;
   }
 

@@ -10,6 +10,7 @@ import type {
 } from "@/lib/ops/creative-lab/types";
 import type { CreativeLabPanel } from "@/lib/ops/creative-lab/workspace/urls";
 
+import { AssetGenerationPlaceholder } from "./AssetGenerationPlaceholder";
 import { AssetLibrary } from "./AssetLibrary";
 import { InfluenceLibraryPanel } from "./InfluenceLibraryPanel";
 import { ConceptVariationsPanel } from "./ConceptVariationsPanel";
@@ -242,6 +243,12 @@ export function AdvancedWorkshop(props: Props) {
             <button type="button" className="ops-btn ops-btn--ok" disabled={p.busy} onClick={p.onGenerateConcept}>Generate Concept A–D</button>
             <PromptPreviewPanel project={p.project} activePreset={p.activePreset} />
             <ConceptVariationsPanel prompts={p.project.generatedPrompts} />
+            <AssetGenerationPlaceholder
+              hasConcepts={Boolean(p.project.generatedPrompts.length)}
+              hasWinner={Boolean(p.project.selectedConceptPromptId)}
+              hasVariation={Boolean(p.project.selectedVariationIndex)}
+              workflowRound={p.project.workflowRound ?? 1}
+            />
           </div>
         ) : null}
 

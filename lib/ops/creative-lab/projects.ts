@@ -24,7 +24,8 @@ import {
 import { persistProjectBundle, ensureProjectLayout } from "./project-storage";
 import { baseProjectSlug, uniqueProjectSlug } from "./project-slug";
 import { DEFAULT_ARTIFACT_TYPE, normalizeArtifactTypeId } from "./artifact-types";
-import { treatmentsForStrategy } from "./refinement-treatments";
+import { artDirectionByKey } from "./art-directions";
+import { refinementsForArtDirection } from "./art-direction-refinements";
 import { renderPromptText } from "./prompt-renderer";
 import { emptyStyleSelection, normalizeStyleSelection } from "./style-catalog";
 import type {
@@ -121,22 +122,36 @@ function normalizeRefinementVariations(raw: unknown): RefinementVariation[] {
   const out: RefinementVariation[] = [];
   for (const item of raw) {
     if (!item || typeof item !== "object") continue;
-    const row = item as Partial<RefinementVariation>;
+    const row = item as Partial<RefinementVariation> & { layoutId?: string };
     if (typeof row.id !== "string" || typeof row.index !== "number") continue;
     if (row.index < 1 || row.index > 8) continue;
+    const artDirectionId =
+      row.artDirectionId === "psychedelic-festival" ||
+      row.artDirectionId === "saturday-morning-cartoon" ||
+      row.artDirectionId === "vintage-television" ||
+      row.artDirectionId === "collector-memorabilia"
+        ? row.artDirectionId
+        : "psychedelic-festival";
     out.push({
       id: row.id,
       index: row.index,
-      layoutId: typeof row.layoutId === "string" ? row.layoutId : "horizontal-credential",
+      treatmentId:
+        typeof row.treatmentId === "string"
+          ? row.treatmentId
+          : typeof row.layoutId === "string"
+            ? row.layoutId
+            : `refine-${row.index}`,
       treatmentLabel: typeof row.treatmentLabel === "string" ? row.treatmentLabel : `Variant ${row.index}`,
       parentPromptId: typeof row.parentPromptId === "string" ? row.parentPromptId : "",
+      artDirectionId,
+      layoutId: typeof row.layoutId === "string" ? row.layoutId : undefined,
       strategyId:
         row.strategyId === "broadcast-focus" ||
         row.strategyId === "credential-focus" ||
         row.strategyId === "festival-focus" ||
         row.strategyId === "collector-focus"
           ? row.strategyId
-          : "credential-focus",
+          : undefined,
       createdAt: typeof row.createdAt === "string" ? row.createdAt : new Date().toISOString(),
     });
   }
@@ -191,6 +206,13 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
       obj.selectedConceptKey === "C" ||
       obj.selectedConceptKey === "D"
         ? obj.selectedConceptKey
+        : null,
+    selectedArtDirectionId:
+      obj.selectedArtDirectionId === "psychedelic-festival" ||
+      obj.selectedArtDirectionId === "saturday-morning-cartoon" ||
+      obj.selectedArtDirectionId === "vintage-television" ||
+      obj.selectedArtDirectionId === "collector-memorabilia"
+        ? obj.selectedArtDirectionId
         : null,
     workflowRound:
       obj.workflowRound === 2 || obj.workflowRound === 3 ? obj.workflowRound : 1,
@@ -384,6 +406,7 @@ export async function updateProject(
       | "artifactType"
       | "selectedConceptPromptId"
       | "selectedConceptKey"
+      | "selectedArtDirectionId"
       | "workflowRound"
       | "refinementGenerated"
       | "refinementVariations"
@@ -512,9 +535,11 @@ export async function setSelectedConcept(
   if (!project) return null;
   const winner = project.generatedPrompts.find((p) => p.id === promptId);
   if (!winner) return null;
+  const direction = artDirectionByKey(winner.variationKey);
   return updateProject(projectId, {
     selectedConceptPromptId: promptId,
     selectedConceptKey: winner.variationKey ?? null,
+    selectedArtDirectionId: direction.id,
     workflowRound: 1,
     refinementGenerated: false,
     refinementVariations: [],
@@ -528,17 +553,19 @@ export async function generateRefinementVariations(
   const project = await loadProject(projectId);
   if (!project?.selectedConceptPromptId) return null;
   const parent = project.generatedPrompts.find((p) => p.id === project.selectedConceptPromptId);
-  if (!parent?.strategyId) return null;
+  if (!parent) return null;
 
-  const treatments = treatmentsForStrategy(parent.strategyId);
+  const direction = artDirectionByKey(parent.variationKey);
+  const treatments = refinementsForArtDirection(direction.id);
   const now = new Date().toISOString();
   const variations: RefinementVariation[] = treatments.map((treatment, i) => ({
     id: `refine-${Date.now().toString(36)}-${i + 1}`,
     index: i + 1,
-    layoutId: treatment.layoutId,
+    treatmentId: treatment.id,
     treatmentLabel: treatment.label,
     parentPromptId: parent.id,
-    strategyId: parent.strategyId!,
+    artDirectionId: direction.id,
+    strategyId: parent.strategyId,
     createdAt: now,
   }));
 

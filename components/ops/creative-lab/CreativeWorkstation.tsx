@@ -7,7 +7,6 @@ import { WORKSTATION_FEATURED_PRESET_IDS, WORKSTATION_OUTPUTS } from "@/lib/ops/
 import { STYLE_CATALOG } from "@/lib/ops/creative-lab/style-catalog";
 import type { CreativeLabPresetFile, CreativeLabProjectFile, StyleSelection } from "@/lib/ops/creative-lab/types";
 
-import { AssetGenerationPlaceholder } from "./AssetGenerationPlaceholder";
 import { ConceptDeck } from "./ConceptDeck";
 import { PresetWorkstationCard } from "./PresetWorkstationCard";
 import { StyleWeightEditor, weightedStylesSummary } from "./StyleWeightEditor";
@@ -227,20 +226,12 @@ export function CreativeWorkstation(props: Props) {
         <ConceptDeck
           prompts={project.generatedPrompts}
           project={project}
-          preset={selectedPreset}
           busy={busy}
           onSelectWinner={onSelectWinner}
           onGenerateRefinement={onGenerateRefinement}
           onSelectVariation={onSelectVariation}
         />
       ) : null}
-
-      <AssetGenerationPlaceholder
-        hasConcepts={hasConcepts}
-        hasWinner={Boolean(project?.selectedConceptPromptId)}
-        hasVariation={Boolean(project?.selectedVariationIndex)}
-        workflowRound={project?.workflowRound ?? 1}
-      />
 
       <footer className="cl-desk__footer">
         <button type="button" className="cl-desk__advanced-link" onClick={onOpenAdvanced}>

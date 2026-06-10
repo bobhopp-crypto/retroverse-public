@@ -1,4 +1,5 @@
 import type { ArtifactTypeId } from "./artifact-types";
+import type { ArtDirectionId } from "./art-directions";
 
 /** Reusable style system — structured data, not prompt text. */
 
@@ -43,10 +44,14 @@ export type ConceptStrategyMap = Record<ConceptVariationKey, ConceptStrategyId>;
 export type RefinementVariation = {
   id: string;
   index: number;
-  layoutId: string;
+  treatmentId: string;
   treatmentLabel: string;
   parentPromptId: string;
-  strategyId: ConceptStrategyId;
+  artDirectionId: ArtDirectionId;
+  /** @deprecated Legacy layout treatments */
+  layoutId?: string;
+  /** @deprecated Kept for prompt renderer compatibility */
+  strategyId?: ConceptStrategyId;
   createdAt: string;
 };
 
@@ -148,6 +153,8 @@ export type CreativeLabProjectFile = {
   selectedConceptPromptId?: string | null;
   /** Winning concept key A–D */
   selectedConceptKey?: ConceptVariationKey | null;
+  /** Winning art direction — psychedelic, cartoon, television, collector */
+  selectedArtDirectionId?: ArtDirectionId | null;
   /** Workflow round: 1 concept pick, 2 variation pick, 3 asset gen */
   workflowRound?: 1 | 2 | 3;
   /** Round 2 refinement variations generated from winner */

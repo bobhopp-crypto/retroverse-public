@@ -1,19 +1,18 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
-import { strategyById } from "@/lib/ops/creative-lab/concept-strategies";
-import { buildPassMockupSpec, buildRefinementMockupSpec } from "@/lib/ops/creative-lab/pass-mockup";
-import type { PassMockLayoutId } from "@/lib/ops/creative-lab/pass-mockup";
-import type { CreativeLabPresetFile, CreativeLabProjectFile, GeneratedPrompt } from "@/lib/ops/creative-lab/types";
+import { artDirectionByKey } from "@/lib/ops/creative-lab/art-directions";
+import { refinementsForArtDirection } from "@/lib/ops/creative-lab/art-direction-refinements";
+import { buildRefinementArtBoardSpec } from "@/lib/ops/creative-lab/art-board-spec";
+import type { CreativeLabProjectFile, GeneratedPrompt } from "@/lib/ops/creative-lab/types";
 
-import { PassMockup } from "./PassMockup";
-import { WorkflowRoundIndicator } from "./WorkflowRoundIndicator";
+import { ArtDirectionBoard } from "./ArtDirectionBoard";
+import { ArtDirectionCard } from "./ArtDirectionCard";
 
 type Props = {
   prompts: GeneratedPrompt[];
   project: CreativeLabProjectFile;
-  preset?: CreativeLabPresetFile | null;
   busy?: boolean;
   onSelectWinner: (promptId: string) => void;
   onGenerateRefinement: () => void;
@@ -21,84 +20,55 @@ type Props = {
 };
 
 export function ConceptDeck(props: Props) {
-  const { prompts, project, preset, busy, onSelectWinner, onGenerateRefinement, onSelectVariation } = props;
+  const { prompts, project, busy, onSelectWinner, onGenerateRefinement, onSelectVariation } = props;
   const latestSetId = prompts.find((p) => p.variationSetId)?.variationSetId;
   const round1Concepts = useMemo(() => {
     if (!latestSetId) return prompts.slice(0, 4);
     return prompts.filter((p) => p.variationSetId === latestSetId);
   }, [prompts, latestSetId]);
 
-  const [openPromptId, setOpenPromptId] = useState<string | null>(null);
   const selectedId = project.selectedConceptPromptId ?? null;
   const winningPrompt = round1Concepts.find((p) => p.id === selectedId) ?? null;
-  const winnerStrategy = winningPrompt?.strategyId ? strategyById(winningPrompt.strategyId) : null;
-  const workflowRound = project.workflowRound ?? 1;
+  const winningDirection = winningPrompt ? artDirectionByKey(winningPrompt.variationKey) : null;
   const refinementGenerated = project.refinementGenerated === true;
   const refinements = project.refinementVariations ?? [];
   const selectedVariation = project.selectedVariationIndex ?? null;
+  const artTreatments = winningDirection ? refinementsForArtDirection(winningDirection.id) : [];
 
   if (!round1Concepts.length) return null;
 
-  const displayRound: 1 | 2 | 3 =
-    workflowRound === 3 ? 3 : refinementGenerated ? 2 : 1;
-
   return (
-    <section className="cl-concept-deck" aria-label="Pass workflow">
-      <WorkflowRoundIndicator round={displayRound} />
-
+    <section className="cl-concept-deck cl-art-deck" aria-label="Art direction workflow">
       {!refinementGenerated ? (
         <>
           <header className="cl-concept-deck__head">
-            <h2>Round 1 — Pick a Direction</h2>
-            <p className="ops-dim">Four strategies — choose the pass family you want to refine.</p>
+            <h2>Choose a visual world</h2>
+            <p className="ops-dim">Four illustrated directions — pick the emotional tone you want to refine.</p>
           </header>
-          <div className="cl-concept-deck__grid">
+          <div className="cl-concept-deck__grid cl-art-deck__grid">
             {round1Concepts.map((p) => {
-              const key = p.variationKey ?? "?";
-              const spec = buildPassMockupSpec(p, project, preset, 0);
+              const key = p.variationKey ?? "A";
               const isWinner = selectedId === p.id;
-              const isOpen = openPromptId === p.id;
               return (
-                <article
+                <ArtDirectionCard
                   key={p.id}
-                  className={`cl-concept-deck__card cl-concept-deck__card--${key.toLowerCase()}${isWinner ? " cl-concept-deck__card--winner" : ""}`}
-                >
-                  <div className="cl-pass-mock__frame">
-                    <PassMockup spec={spec} />
-                  </div>
-                  <div className="cl-concept-deck__body">
-                    <h3>{spec.strategyLabel}</h3>
-                    <p className="cl-concept-deck__tagline">{spec.tagline}</p>
-                    <div className="cl-concept-deck__actions">
-                      <button
-                        type="button"
-                        className={`cl-concept-deck__use-btn${isWinner ? " cl-concept-deck__use-btn--on" : ""}`}
-                        disabled={busy}
-                        onClick={() => onSelectWinner(p.id)}
-                      >
-                        {isWinner ? "✓ SELECTED LOOK" : "USE THIS LOOK"}
-                      </button>
-                      <button
-                        type="button"
-                        className="cl-concept-deck__view-btn"
-                        onClick={() => setOpenPromptId(isOpen ? null : p.id)}
-                      >
-                        {isOpen ? "Hide prompt" : "View prompt"}
-                      </button>
-                    </div>
-                    {isOpen ? <pre className="cl-concept-deck__prompt">{p.renderedPrompt}</pre> : null}
-                  </div>
-                </article>
+                  variationKey={key}
+                  project={project}
+                  selected={isWinner}
+                  onSelect={() => onSelectWinner(p.id)}
+                  selectLabel="USE THIS DIRECTION"
+                  selectedLabel="✓ DIRECTION SELECTED"
+                />
               );
             })}
           </div>
 
-          {winningPrompt && winnerStrategy ? (
+          {winningPrompt && winningDirection ? (
             <section className="cl-refine-cta">
-              <h3 className="cl-refine-cta__title">REFINE THIS LOOK</h3>
+              <h3 className="cl-refine-cta__title">REFINE THIS DIRECTION</h3>
               <p className="cl-refine-cta__desc">
-                <strong>{winnerStrategy.label}</strong> selected — generate 8 layout treatments with the same
-                preset, artifact, and event context.
+                <strong>{winningDirection.title}</strong> selected — generate 8 illustrated refinements inside the
+                same art family.
               </p>
               <button
                 type="button"
@@ -106,7 +76,7 @@ export function ConceptDeck(props: Props) {
                 disabled={busy}
                 onClick={onGenerateRefinement}
               >
-                GENERATE 8 VARIATIONS
+                GENERATE 8 REFINEMENTS
               </button>
             </section>
           ) : null}
@@ -114,23 +84,19 @@ export function ConceptDeck(props: Props) {
       ) : (
         <>
           <header className="cl-concept-deck__head">
-            <h2>Round 2 — Refine the Winner</h2>
+            <h2>Refine this direction</h2>
             <p className="cl-concept-deck__inherit ops-dim">
-              Inherits <strong>{winnerStrategy?.label}</strong>
-              {preset ? <> · {preset.name}</> : null}
-              {project.artifactType ? <> · {project.event}</> : null}
+              Staying inside <strong>{winningDirection?.title}</strong>
+              {project.event ? <> · {project.event}</> : null}
             </p>
           </header>
-          <div className="cl-concept-deck__grid cl-concept-deck__grid--refine">
+          <div className="cl-concept-deck__grid cl-concept-deck__grid--refine cl-art-deck__grid--refine">
             {refinements.map((variation) => {
-              const treatment = {
-                layoutId: variation.layoutId as PassMockLayoutId,
-                label: variation.treatmentLabel,
-              };
-              const spec = buildRefinementMockupSpec(
-                winningPrompt!,
+              const treatment =
+                artTreatments.find((t) => t.id === variation.treatmentId) ?? artTreatments[variation.index - 1];
+              const spec = buildRefinementArtBoardSpec(
                 project,
-                preset,
+                winningDirection!.id,
                 treatment,
                 variation.index,
               );
@@ -138,31 +104,39 @@ export function ConceptDeck(props: Props) {
               return (
                 <article
                   key={variation.id}
-                  className={`cl-concept-deck__card cl-concept-deck__card--refine${isWinner ? " cl-concept-deck__card--winner" : ""}`}
+                  className={`cl-art-card cl-art-card--refine${isWinner ? " cl-art-card--selected" : ""}`}
                 >
-                  <div className="cl-pass-mock__frame">
-                    <PassMockup spec={spec} />
+                  <div className="cl-art-card__frame">
+                    <ArtDirectionBoard spec={spec} compact />
                   </div>
-                  <div className="cl-concept-deck__body">
-                    <h3>
-                      Variant {variation.index}
-                      <span className="cl-concept-deck__strategy-name">{variation.treatmentLabel}</span>
-                    </h3>
-                    <div className="cl-concept-deck__actions">
-                      <button
-                        type="button"
-                        className={`cl-concept-deck__use-btn${isWinner ? " cl-concept-deck__use-btn--on" : ""}`}
-                        disabled={busy}
-                        onClick={() => onSelectVariation(variation.index)}
-                      >
-                        {isWinner ? "✓ SELECTED VARIATION" : "USE THIS VARIATION"}
-                      </button>
-                    </div>
+                  <div className="cl-art-card__body cl-art-card__body--compact">
+                    <h3>{variation.treatmentLabel}</h3>
+                    <p className="cl-art-card__refine-meta ops-dim">
+                      {treatment.borderTreatment.replace(/-/g, " ")} · {treatment.typography.replace(/-/g, " ")}
+                    </p>
+                    <button
+                      type="button"
+                      className={`cl-art-card__select${isWinner ? " cl-art-card__select--on" : ""}`}
+                      disabled={busy}
+                      onClick={() => onSelectVariation(variation.index)}
+                    >
+                      {isWinner ? "✓ VERSION SELECTED" : "USE THIS VERSION"}
+                    </button>
                   </div>
                 </article>
               );
             })}
           </div>
+
+          {selectedVariation ? (
+            <section className="cl-art-winner">
+              <h3>Direction locked</h3>
+              <p>
+                <strong>{winningDirection?.title}</strong> · Version {selectedVariation} — ready for production in
+                Advanced Workshop.
+              </p>
+            </section>
+          ) : null}
         </>
       )}
     </section>
