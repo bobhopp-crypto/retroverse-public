@@ -11,6 +11,7 @@ import {
   updateProject,
 } from "@/lib/ops/creative-lab/projects";
 import { normalizeConceptStrategyMap } from "@/lib/ops/creative-lab/concept-strategies";
+import { normalizeArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
 import { normalizeStyleSelection } from "@/lib/ops/creative-lab/style-catalog";
 import type { CreativeLabModuleId, FinalAssetSlot } from "@/lib/ops/creative-lab/types";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
@@ -97,6 +98,7 @@ export async function PUT(req: Request, ctx: Ctx) {
     conceptStrategies: body.conceptStrategies
       ? normalizeConceptStrategyMap(body.conceptStrategies)
       : undefined,
+    artifactType: body.artifactType !== undefined ? normalizeArtifactTypeId(body.artifactType) : undefined,
     activeModule:
       body.activeModule === "poster-lab" ||
       body.activeModule === "bumper-lab" ||

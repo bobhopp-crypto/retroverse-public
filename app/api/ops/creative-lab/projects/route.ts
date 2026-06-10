@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { normalizeArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
 import { createProject, listProjects } from "@/lib/ops/creative-lab/projects";
 import { normalizeStyleSelection } from "@/lib/ops/creative-lab/style-catalog";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
@@ -38,6 +39,7 @@ export async function POST(req: Request) {
     featuredYears,
     theme: typeof body.theme === "string" ? body.theme : undefined,
     styleSelection: body.styleSelection ? normalizeStyleSelection(body.styleSelection) : undefined,
+    artifactType: body.artifactType !== undefined ? normalizeArtifactTypeId(body.artifactType) : undefined,
   });
 
   return NextResponse.json({ ok: true, project });

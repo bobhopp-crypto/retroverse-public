@@ -1,4 +1,6 @@
+import { artifactTypeById } from "./artifact-types";
 import { strategyById, strategyForVariation } from "./concept-strategies";
+import { influencesForConcept } from "./influences";
 import { renderPromptText } from "./prompt-renderer";
 import { topWeightedStyles } from "./style-catalog";
 import type {
@@ -35,10 +37,13 @@ export function buildPromptConcept(
   const color = dominantStyles.color[0];
   const density = dominantStyles.density[0];
 
+  const artifact = artifactTypeById(project.artifactType);
+  const influenceTags = influencesForConcept(project.activePresetId, strategyId).map((i) => i.label);
   const years = project.featuredYears.length ? project.featuredYears.join(" · ") : "—";
   const conceptSummary = [
     variationKey ? `Concept ${variationKey}` : null,
     strategyLabel,
+    artifact.shortLabel,
     project.event,
     project.venue,
     project.date,
@@ -62,6 +67,7 @@ export function buildPromptConcept(
     variationKey,
     conceptStrategies: project.conceptStrategies,
     preset: preset ?? null,
+    artifactType: project.artifactType,
   });
 
   return {
@@ -77,6 +83,8 @@ export function buildPromptConcept(
       date: project.date,
       featuredYears: project.featuredYears,
       theme: project.theme,
+      artifactType: project.artifactType,
+      influenceTags,
       dominantStyles,
       module,
       variationKey,

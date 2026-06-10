@@ -23,6 +23,7 @@ import {
 } from "./paths";
 import { persistProjectBundle, ensureProjectLayout } from "./project-storage";
 import { baseProjectSlug, uniqueProjectSlug } from "./project-slug";
+import { DEFAULT_ARTIFACT_TYPE, normalizeArtifactTypeId } from "./artifact-types";
 import { renderPromptText } from "./prompt-renderer";
 import { emptyStyleSelection, normalizeStyleSelection } from "./style-catalog";
 import type {
@@ -48,6 +49,7 @@ function normalizeGeneratedPrompts(
     | "styleSelection"
     | "activeModule"
     | "conceptStrategies"
+    | "artifactType"
   >,
 ): GeneratedPrompt[] {
   if (!Array.isArray(raw)) return [];
@@ -81,6 +83,7 @@ function normalizeGeneratedPrompts(
             module,
             variationKey,
             conceptStrategies: project.conceptStrategies,
+            artifactType: project.artifactType,
           });
     const strategyId =
       row.strategyId ??
@@ -150,6 +153,7 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
     conceptStrategies: obj.conceptStrategies
       ? normalizeConceptStrategyMap(obj.conceptStrategies)
       : undefined,
+    artifactType: normalizeArtifactTypeId(obj.artifactType),
     generatedPrompts: [],
     assets: normalizeAssets(obj.assets ?? obj.generatedAssets, id),
     finalAssetSlots: normalizeFinalSlots(obj.finalAssetSlots),
@@ -277,6 +281,7 @@ export async function createProject(input: {
   featuredYears?: number[];
   theme?: string;
   styleSelection?: StyleSelection;
+  artifactType?: CreativeLabProjectFile["artifactType"];
 }): Promise<CreativeLabProjectFile> {
   const folderSlug = await uniqueProjectSlug(input.event ?? "", input.date ?? "");
   const now = new Date().toISOString();
@@ -291,6 +296,7 @@ export async function createProject(input: {
     featuredYears: input.featuredYears ?? [],
     theme: input.theme?.trim() ?? "",
     styleSelection: input.styleSelection ? normalizeStyleSelection(input.styleSelection) : emptyStyleSelection(),
+    artifactType: normalizeArtifactTypeId(input.artifactType ?? DEFAULT_ARTIFACT_TYPE),
     generatedPrompts: [],
     assets: [],
     finalAssetSlots: normalizeFinalSlots(null),
@@ -326,6 +332,7 @@ export async function updateProject(
       | "activeModule"
       | "activePresetId"
       | "conceptStrategies"
+      | "artifactType"
       | "assets"
       | "finalAssetSlots"
       | "generatedPrompts"
@@ -345,6 +352,10 @@ export async function updateProject(
     conceptStrategies: patch.conceptStrategies
       ? normalizeConceptStrategyMap(patch.conceptStrategies)
       : existing.conceptStrategies,
+    artifactType:
+      patch.artifactType !== undefined
+        ? normalizeArtifactTypeId(patch.artifactType)
+        : existing.artifactType ?? DEFAULT_ARTIFACT_TYPE,
     assets: patch.assets ?? existing.assets,
     finalAssetSlots: patch.finalAssetSlots ?? existing.finalAssetSlots,
     generatedPrompts: patch.generatedPrompts ?? existing.generatedPrompts,

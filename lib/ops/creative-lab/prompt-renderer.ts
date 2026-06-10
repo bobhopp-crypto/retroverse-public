@@ -5,7 +5,8 @@ import {
   type ConceptStrategyMap,
 } from "./concept-strategies";
 import { styleById, topWeightedStyles } from "./style-catalog";
-import type { CreativeLabModuleId, CreativeLabPresetFile, CreativeLabProjectFile, StyleCategory } from "./types";
+import { artifactTypeById } from "./artifact-types";
+import type { ArtifactTypeId, CreativeLabModuleId, CreativeLabPresetFile, CreativeLabProjectFile, StyleCategory } from "./types";
 
 export type PromptRenderInput = {
   event: string;
@@ -18,6 +19,7 @@ export type PromptRenderInput = {
   preset?: Pick<CreativeLabPresetFile, "id" | "name" | "defaultConceptStrategy"> | null;
   variationKey?: "A" | "B" | "C" | "D";
   conceptStrategies?: ConceptStrategyMap;
+  artifactType?: ArtifactTypeId;
 };
 
 const MODULE_LABELS: Record<CreativeLabModuleId, string> = {
@@ -76,6 +78,7 @@ export function renderPromptText(input: PromptRenderInput): string {
     `Featured years: ${years}`,
     `Theme: ${theme}`,
     `Module: ${MODULE_LABELS[input.module]}`,
+    `Artifact type: ${artifactTypeById(input.artifactType).label}`,
     presetLine,
     input.variationKey ? `Concept variation: ${input.variationKey}` : "",
     "",
@@ -111,5 +114,6 @@ export function renderLivePreview(
     module: project.activeModule,
     preset: preset ? { id: preset.id, name: preset.name, defaultConceptStrategy: preset.defaultConceptStrategy } : null,
     conceptStrategies: project.conceptStrategies,
+    artifactType: project.artifactType,
   });
 }

@@ -2,14 +2,17 @@
 
 import { useMemo, useState } from "react";
 
+import { ARTIFACT_TYPES, artifactTypeById, type ArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
 import { WORKSTATION_FEATURED_PRESET_IDS, WORKSTATION_OUTPUTS } from "@/lib/ops/creative-lab/workstation-presets";
 import { STYLE_CATALOG } from "@/lib/ops/creative-lab/style-catalog";
-import { styleById } from "@/lib/ops/creative-lab/style-catalog";
 import type { CreativeLabPresetFile, CreativeLabProjectFile, StyleSelection } from "@/lib/ops/creative-lab/types";
 
+import { AssetGenerationPlaceholder } from "./AssetGenerationPlaceholder";
 import { ConceptDeck } from "./ConceptDeck";
+import { PresetWorkstationCard } from "./PresetWorkstationCard";
 import { StyleWeightEditor, weightedStylesSummary } from "./StyleWeightEditor";
 import { StyleBoard, type StyleBoardMode } from "./StyleBoard";
+import { YearTokenInput } from "./YearTokenInput";
 
 type Props = {
   presets: CreativeLabPresetFile[];
@@ -19,29 +22,25 @@ type Props = {
   event: string;
   venue: string;
   date: string;
-  years: string;
+  years: number[];
   outputId: string;
   selectedPresetId: string | null;
+  artifactTypeId: ArtifactTypeId;
   showAdvancedOutputs: boolean;
   showStyleAdvanced: boolean;
   onEventChange: (v: string) => void;
   onVenueChange: (v: string) => void;
   onDateChange: (v: string) => void;
-  onYearsChange: (v: string) => void;
+  onYearsChange: (years: number[]) => void;
   onOutputChange: (id: string) => void;
   onPresetSelect: (id: string) => void;
+  onArtifactTypeChange: (id: ArtifactTypeId) => void;
   onToggleAdvancedOutputs: () => void;
   onToggleStyleAdvanced: () => void;
   onGenerate: () => void;
   onStyleChange: (selection: CreativeLabProjectFile["styleSelection"]) => void;
   onOpenAdvanced: () => void;
 };
-
-function presetThumbHue(id: string): number {
-  let hash = 0;
-  for (let i = 0; i < id.length; i += 1) hash = (hash * 31 + id.charCodeAt(i)) % 360;
-  return hash;
-}
 
 export function CreativeWorkstation(props: Props) {
   const {
@@ -55,6 +54,7 @@ export function CreativeWorkstation(props: Props) {
     years,
     outputId,
     selectedPresetId,
+    artifactTypeId,
     showAdvancedOutputs,
     showStyleAdvanced,
     onEventChange,
@@ -63,6 +63,7 @@ export function CreativeWorkstation(props: Props) {
     onYearsChange,
     onOutputChange,
     onPresetSelect,
+    onArtifactTypeChange,
     onToggleAdvancedOutputs,
     onToggleStyleAdvanced,
     onGenerate,
@@ -81,10 +82,14 @@ export function CreativeWorkstation(props: Props) {
   );
 
   const selectedPreset = featuredPresets.find((p) => p.id === selectedPresetId) ?? null;
+  const selectedArtifact = artifactTypeById(artifactTypeId);
   const output = WORKSTATION_OUTPUTS.find((o) => o.id === outputId) ?? WORKSTATION_OUTPUTS[0];
-  const canGenerate = Boolean(event.trim() && venue.trim() && date.trim() && selectedPresetId && output.available);
+  const canGenerate = Boolean(
+    event.trim() && venue.trim() && date.trim() && years.length > 0 && selectedPresetId && artifactTypeId && output.available,
+  );
 
   const visibleOutputs = WORKSTATION_OUTPUTS.filter((o) => !o.advanced || showAdvancedOutputs);
+  const hasConcepts = Boolean(project?.generatedPrompts.length);
 
   return (
     <div className="cl-desk">
@@ -119,68 +124,34 @@ export function CreativeWorkstation(props: Props) {
         <div className="cl-desk__event-panel">
           <label className="cl-desk__field">
             <span>Event</span>
-            <input
-              className="cl-desk__input"
-              value={event}
-              placeholder="Sunday Nights"
-              onChange={(e) => onEventChange(e.target.value)}
-            />
+            <input className="cl-desk__input" value={event} onChange={(e) => onEventChange(e.target.value)} />
           </label>
           <label className="cl-desk__field">
             <span>Venue</span>
-            <input
-              className="cl-desk__input"
-              value={venue}
-              placeholder="The Main Pub"
-              onChange={(e) => onVenueChange(e.target.value)}
-            />
+            <input className="cl-desk__input" value={venue} onChange={(e) => onVenueChange(e.target.value)} />
           </label>
           <label className="cl-desk__field">
             <span>Date</span>
-            <input
-              className="cl-desk__input"
-              value={date}
-              placeholder="June 15, 2026"
-              onChange={(e) => onDateChange(e.target.value)}
-            />
+            <input className="cl-desk__input" value={date} onChange={(e) => onDateChange(e.target.value)} />
           </label>
-          <label className="cl-desk__field">
+          <div className="cl-desk__field cl-desk__field--years">
             <span>Years</span>
-            <input
-              className="cl-desk__input"
-              value={years}
-              placeholder="1967, 1978, 1992"
-              onChange={(e) => onYearsChange(e.target.value)}
-            />
-          </label>
+            <YearTokenInput years={years} onChange={onYearsChange} />
+          </div>
         </div>
       </section>
 
       <section className="cl-desk__step">
         <p className="cl-desk__step-label">Step 3 — Visual style</p>
         <div className="cl-desk__preset-grid">
-          {featuredPresets.map((preset) => {
-            const hue = presetThumbHue(preset.id);
-            const on = selectedPresetId === preset.id;
-            return (
-              <button
-                key={preset.id}
-                type="button"
-                className={`cl-desk__preset-card${on ? " cl-desk__preset-card--on" : ""}`}
-                onClick={() => onPresetSelect(preset.id)}
-              >
-                <div
-                  className="cl-desk__preset-thumb"
-                  style={{
-                    background: `linear-gradient(135deg, hsl(${hue} 58% 65%), hsl(${(hue + 50) % 360} 45% 42%))`,
-                  }}
-                  aria-hidden
-                />
-                <span className="cl-desk__preset-name">{preset.name}</span>
-                <span className="cl-desk__preset-desc">{preset.description}</span>
-              </button>
-            );
-          })}
+          {featuredPresets.map((preset) => (
+            <PresetWorkstationCard
+              key={preset.id}
+              preset={preset}
+              selected={selectedPresetId === preset.id}
+              onSelect={() => onPresetSelect(preset.id)}
+            />
+          ))}
         </div>
         <button type="button" className="cl-desk__link-btn" onClick={onToggleStyleAdvanced}>
           {showStyleAdvanced ? "Hide style editing" : "Advanced — edit style weights"}
@@ -189,64 +160,68 @@ export function CreativeWorkstation(props: Props) {
           <div className="cl-desk__style-advanced">
             <p className="ops-dim">{weightedStylesSummary(styleSelection)}</p>
             <div className="cl-style-boards">
-              <StyleBoard
-                category="credential"
-                title="Credential"
-                styles={STYLE_CATALOG.credential}
-                selection={styleSelection}
-                mode={styleMode}
-                onChange={onStyleChange}
-              />
-              <StyleBoard
-                category="illustration"
-                title="Illustration"
-                styles={STYLE_CATALOG.illustration}
-                selection={styleSelection}
-                mode={styleMode}
-                onChange={onStyleChange}
-              />
-              <StyleBoard
-                category="color"
-                title="Color"
-                styles={STYLE_CATALOG.color}
-                selection={styleSelection}
-                mode={styleMode}
-                onChange={onStyleChange}
-              />
-              <StyleWeightEditor
-                category="density"
-                title="Density"
-                styles={STYLE_CATALOG.density}
-                selection={styleSelection}
-                onChange={onStyleChange}
-              />
+              <StyleBoard category="credential" title="Credential" styles={STYLE_CATALOG.credential} selection={styleSelection} mode={styleMode} onChange={onStyleChange} />
+              <StyleBoard category="illustration" title="Illustration" styles={STYLE_CATALOG.illustration} selection={styleSelection} mode={styleMode} onChange={onStyleChange} />
+              <StyleBoard category="color" title="Color" styles={STYLE_CATALOG.color} selection={styleSelection} mode={styleMode} onChange={onStyleChange} />
+              <StyleWeightEditor category="density" title="Density" styles={STYLE_CATALOG.density} selection={styleSelection} onChange={onStyleChange} />
             </div>
           </div>
         ) : null}
-        {selectedPreset ? (
-          <p className="cl-desk__preset-meta">
-            {styleById(selectedPreset.credentialStyle)?.label} ·{" "}
-            {styleById(selectedPreset.illustrationStyle)?.label} ·{" "}
-            {styleById(selectedPreset.colorStyle)?.label}
-          </p>
-        ) : null}
+      </section>
+
+      <section className="cl-desk__step">
+        <p className="cl-desk__step-label">Step 4 — Artifact type</p>
+        <div className="cl-desk__artifact-grid" role="group" aria-label="Artifact type">
+          {ARTIFACT_TYPES.map((artifact) => {
+            const on = artifactTypeId === artifact.id;
+            return (
+              <button
+                key={artifact.id}
+                type="button"
+                className={`cl-desk__artifact-btn${on ? " cl-desk__artifact-btn--on" : ""}`}
+                onClick={() => onArtifactTypeChange(artifact.id)}
+              >
+                {on ? <span className="cl-desk__artifact-selected">✓ SELECTED</span> : null}
+                <span className="cl-desk__artifact-label">{artifact.label}</span>
+                <span className="cl-desk__artifact-desc">{artifact.description}</span>
+              </button>
+            );
+          })}
+        </div>
       </section>
 
       <section className="cl-desk__step cl-desk__step--action">
+        {selectedPreset || selectedArtifact ? (
+          <div className={`cl-desk__ready${canGenerate ? " cl-desk__ready--armed" : ""}`}>
+            <p className="cl-desk__ready-kicker">{canGenerate ? "✓ READY TO GENERATE" : "Selection"}</p>
+            {selectedPreset ? (
+              <p className="cl-desk__ready-line">
+                <strong>Selected Preset:</strong> {selectedPreset.name}
+              </p>
+            ) : null}
+            <p className="cl-desk__ready-line">
+              <strong>Selected Artifact:</strong> {selectedArtifact.shortLabel}
+            </p>
+          </div>
+        ) : null}
         <button
           type="button"
-          className="cl-desk__generate-btn"
+          className={`cl-desk__generate-btn${canGenerate ? " cl-desk__generate-btn--armed" : ""}`}
           disabled={busy || !canGenerate}
           onClick={onGenerate}
         >
           GENERATE CONCEPTS
         </button>
         {!canGenerate ? (
-          <p className="cl-desk__hint ops-dim">Fill event, venue, date, and pick a visual style.</p>
+          <p className="cl-desk__hint ops-dim">Fill event, venue, date, years, preset, and artifact type.</p>
         ) : null}
       </section>
 
-      {project?.generatedPrompts.length ? <ConceptDeck prompts={project.generatedPrompts} /> : null}
+      {hasConcepts && project ? (
+        <ConceptDeck prompts={project.generatedPrompts} project={project} preset={selectedPreset} />
+      ) : null}
+
+      <AssetGenerationPlaceholder hasConcepts={hasConcepts} />
 
       <footer className="cl-desk__footer">
         <button type="button" className="cl-desk__advanced-link" onClick={onOpenAdvanced}>

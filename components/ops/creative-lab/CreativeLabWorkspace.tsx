@@ -16,6 +16,8 @@ import {
   isAdvancedPanel,
   type CreativeLabPanel,
 } from "@/lib/ops/creative-lab/workspace/urls";
+import { DEFAULT_ARTIFACT_TYPE, type ArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
+import { WORKSTATION_EVENT_DEFAULTS } from "@/lib/ops/creative-lab/workstation-defaults";
 import { WORKSTATION_OUTPUTS } from "@/lib/ops/creative-lab/workstation-presets";
 
 import { AdvancedWorkshop } from "./AdvancedWorkshop";
@@ -44,6 +46,9 @@ function parseYears(raw: string): number[] {
     .filter((y) => Number.isFinite(y));
 }
 
+const { event: DEFAULT_EVENT, venue: DEFAULT_VENUE, date: DEFAULT_DATE, featuredYears: DEFAULT_YEARS } =
+  WORKSTATION_EVENT_DEFAULTS;
+
 function projectDisplayName(event: string, outputId: string): string {
   const eventName = event.trim() || "Creative Session";
   const output = WORKSTATION_OUTPUTS.find((o) => o.id === outputId);
@@ -70,12 +75,13 @@ export function CreativeLabWorkspace() {
   const [project, setProject] = useState<CreativeLabProjectFile | null>(null);
   const [busy, setBusy] = useState(false);
 
-  const [deskEvent, setDeskEvent] = useState("Sunday Nights");
-  const [deskVenue, setDeskVenue] = useState("");
-  const [deskDate, setDeskDate] = useState("");
-  const [deskYears, setDeskYears] = useState("1967, 1978, 1992");
+  const [deskEvent, setDeskEvent] = useState(DEFAULT_EVENT);
+  const [deskVenue, setDeskVenue] = useState(DEFAULT_VENUE);
+  const [deskDate, setDeskDate] = useState(DEFAULT_DATE);
+  const [deskYears, setDeskYears] = useState<number[]>([...DEFAULT_YEARS]);
   const [outputId, setOutputId] = useState("pass");
   const [selectedPresetId, setSelectedPresetId] = useState<string | null>("sunday-nights-classic");
+  const [artifactTypeId, setArtifactTypeId] = useState<ArtifactTypeId>(DEFAULT_ARTIFACT_TYPE);
   const [deskSelection, setDeskSelection] = useState<StyleSelection | null>(null);
   const [showAdvancedOutputs, setShowAdvancedOutputs] = useState(false);
   const [showStyleAdvanced, setShowStyleAdvanced] = useState(false);
@@ -163,9 +169,10 @@ export function CreativeLabWorkspace() {
     setDeskEvent(project.event);
     setDeskVenue(project.venue);
     setDeskDate(project.date);
-    setDeskYears(project.featuredYears.join(", "));
+    setDeskYears(project.featuredYears.length ? [...project.featuredYears] : [...DEFAULT_YEARS]);
     setDeskSelection(project.styleSelection);
     if (project.activePresetId) setSelectedPresetId(project.activePresetId);
+    if (project.artifactType) setArtifactTypeId(project.artifactType);
   }, [project?.id]);
 
   const draftSelection = project?.styleSelection ?? deskSelection;
@@ -203,8 +210,9 @@ export function CreativeLabWorkspace() {
         event: deskEvent,
         venue: deskVenue,
         date: deskDate,
-        featuredYears: parseYears(deskYears),
+        featuredYears: deskYears,
         theme: "",
+        artifactType: artifactTypeId,
       }),
     });
     const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
@@ -458,10 +466,11 @@ export function CreativeLabWorkspace() {
           event: deskEvent,
           venue: deskVenue,
           date: deskDate,
-          featuredYears: parseYears(deskYears),
+          featuredYears: deskYears,
           styleSelection: deskSelection ?? preset.styleSelection,
           activePresetId: preset.id,
           conceptStrategies: preset.conceptStrategies,
+          artifactType: artifactTypeId,
         }),
       });
       const patchData = (await patchRes.json()) as {
@@ -532,6 +541,7 @@ export function CreativeLabWorkspace() {
           years={deskYears}
           outputId={outputId}
           selectedPresetId={selectedPresetId}
+          artifactTypeId={artifactTypeId}
           showAdvancedOutputs={showAdvancedOutputs}
           showStyleAdvanced={showStyleAdvanced}
           onEventChange={setDeskEvent}
@@ -540,6 +550,7 @@ export function CreativeLabWorkspace() {
           onYearsChange={setDeskYears}
           onOutputChange={setOutputId}
           onPresetSelect={onPresetSelect}
+          onArtifactTypeChange={setArtifactTypeId}
           onToggleAdvancedOutputs={() => setShowAdvancedOutputs((v) => !v)}
           onToggleStyleAdvanced={() => setShowStyleAdvanced((v) => !v)}
           onGenerate={() => void workstationGenerate()}

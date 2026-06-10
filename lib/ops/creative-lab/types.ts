@@ -1,3 +1,5 @@
+import type { ArtifactTypeId } from "./artifact-types";
+
 /** Reusable style system — structured data, not prompt text. */
 
 export type StyleCategory = "credential" | "illustration" | "color" | "density";
@@ -56,6 +58,8 @@ export type GeneratedPrompt = {
     date: string;
     featuredYears: number[];
     theme: string;
+    artifactType?: ArtifactTypeId;
+    influenceTags?: string[];
     dominantStyles: Record<StyleCategory, { id: string; label: string; weight: number }[]>;
     module: CreativeLabModuleId;
     variationKey?: ConceptVariationKey;
@@ -128,6 +132,8 @@ export type CreativeLabProjectFile = {
   activePresetId?: string;
   /** Concept A–D strategy map — from preset or custom. */
   conceptStrategies?: ConceptStrategyMap;
+  /** Deliverable artifact type — VIP pass, festival pass, etc. */
+  artifactType?: ArtifactTypeId;
   generatedPrompts: GeneratedPrompt[];
   assets: CreativeLabAsset[];
   /** One winner per deliverable slot */

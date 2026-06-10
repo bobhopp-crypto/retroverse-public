@@ -11,6 +11,7 @@ import type {
 import type { CreativeLabPanel } from "@/lib/ops/creative-lab/workspace/urls";
 
 import { AssetLibrary } from "./AssetLibrary";
+import { InfluenceLibraryPanel } from "./InfluenceLibraryPanel";
 import { ConceptVariationsPanel } from "./ConceptVariationsPanel";
 import { PresetGallery } from "./PresetGallery";
 import { ProjectToolbar } from "./ProjectToolbar";
@@ -250,6 +251,8 @@ export function AdvancedWorkshop(props: Props) {
             <AssetLibrary project={p.project} busy={p.busy} onApprove={p.onApproveAsset} onReject={p.onRejectAsset} onSetFinal={p.onSetFinalAsset} />
           </div>
         ) : null}
+
+        <InfluenceLibraryPanel />
       </div>
     </div>
   );

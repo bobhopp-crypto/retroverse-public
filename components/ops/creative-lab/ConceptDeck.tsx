@@ -2,15 +2,20 @@
 
 import { useMemo, useState } from "react";
 
+import { buildConceptMockBoard } from "@/lib/ops/creative-lab/concept-mock";
 import { strategyById } from "@/lib/ops/creative-lab/concept-strategies";
-import type { GeneratedPrompt } from "@/lib/ops/creative-lab/types";
+import type { CreativeLabPresetFile, CreativeLabProjectFile, GeneratedPrompt } from "@/lib/ops/creative-lab/types";
+
+import { ConceptMockPanel } from "./ConceptMockPanel";
 
 type Props = {
   prompts: GeneratedPrompt[];
+  project: CreativeLabProjectFile;
+  preset?: CreativeLabPresetFile | null;
 };
 
 export function ConceptDeck(props: Props) {
-  const { prompts } = props;
+  const { prompts, project, preset } = props;
   const latestSetId = prompts.find((p) => p.variationSetId)?.variationSetId;
   const variations = useMemo(() => {
     if (!latestSetId) return prompts.slice(0, 4);
@@ -25,28 +30,22 @@ export function ConceptDeck(props: Props) {
     <section className="cl-concept-deck" aria-label="Concept deck">
       <header className="cl-concept-deck__head">
         <h2>Concept Deck</h2>
-        <p className="ops-dim">Four directions — same event, different creative emphasis.</p>
+        <p className="ops-dim">Four visual directions — same event, different creative emphasis.</p>
       </header>
       <div className="cl-concept-deck__grid">
         {variations.map((p) => {
           const key = p.variationKey ?? "?";
           const strategy = p.strategyId ? strategyById(p.strategyId) : null;
-          const hue = (key.charCodeAt(0) ?? 65) * 9;
+          const board = buildConceptMockBoard(p, project, preset);
           const isOpen = openPromptId === p.id;
           return (
             <article key={p.id} className={`cl-concept-deck__card cl-concept-deck__card--${key.toLowerCase()}`}>
-              <div
-                className="cl-concept-deck__thumb"
-                style={{
-                  background: `linear-gradient(145deg, hsl(${hue} 55% 58%), hsl(${(hue + 40) % 360} 48% 38%))`,
-                }}
-                aria-hidden
-              >
-                <span className="cl-concept-deck__key">CONCEPT {key}</span>
-              </div>
+              <ConceptMockPanel board={board} variationKey={key} />
               <div className="cl-concept-deck__body">
-                <h3>{strategy?.label ?? `Concept ${key}`}</h3>
-                <p className="cl-concept-deck__desc">{strategy?.description ?? p.conceptSummary}</p>
+                <h3>
+                  Concept {key}
+                  <span className="cl-concept-deck__strategy-name">{strategy?.label ?? board.strategyLabel}</span>
+                </h3>
                 <button
                   type="button"
                   className="cl-concept-deck__view-btn"
