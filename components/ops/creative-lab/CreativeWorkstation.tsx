@@ -38,6 +38,8 @@ type Props = {
   onToggleAdvancedOutputs: () => void;
   onToggleStyleAdvanced: () => void;
   onGenerate: () => void;
+  onSelectWinner: (promptId: string) => void;
+  onMakeMoreVariations: () => void;
   onStyleChange: (selection: CreativeLabProjectFile["styleSelection"]) => void;
   onOpenAdvanced: () => void;
 };
@@ -67,6 +69,8 @@ export function CreativeWorkstation(props: Props) {
     onToggleAdvancedOutputs,
     onToggleStyleAdvanced,
     onGenerate,
+    onSelectWinner,
+    onMakeMoreVariations,
     onStyleChange,
     onOpenAdvanced,
   } = props;
@@ -218,10 +222,20 @@ export function CreativeWorkstation(props: Props) {
       </section>
 
       {hasConcepts && project ? (
-        <ConceptDeck prompts={project.generatedPrompts} project={project} preset={selectedPreset} />
+        <ConceptDeck
+          prompts={project.generatedPrompts}
+          project={project}
+          preset={selectedPreset}
+          busy={busy}
+          onSelectWinner={onSelectWinner}
+          onMakeMore={onMakeMoreVariations}
+        />
       ) : null}
 
-      <AssetGenerationPlaceholder hasConcepts={hasConcepts} />
+      <AssetGenerationPlaceholder
+        hasConcepts={hasConcepts}
+        hasWinner={Boolean(project?.selectedConceptPromptId)}
+      />
 
       <footer className="cl-desk__footer">
         <button type="button" className="cl-desk__advanced-link" onClick={onOpenAdvanced}>

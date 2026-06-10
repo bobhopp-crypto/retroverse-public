@@ -554,6 +554,8 @@ export function CreativeLabWorkspace() {
           onToggleAdvancedOutputs={() => setShowAdvancedOutputs((v) => !v)}
           onToggleStyleAdvanced={() => setShowStyleAdvanced((v) => !v)}
           onGenerate={() => void workstationGenerate()}
+          onSelectWinner={(promptId) => void projectOp({ op: "setSelectedConcept", promptId })}
+          onMakeMoreVariations={() => void projectOp({ op: "advanceMockVariations" })}
           onStyleChange={(next) => {
             setDeskSelection(next);
             if (project) setProject({ ...project, styleSelection: next });

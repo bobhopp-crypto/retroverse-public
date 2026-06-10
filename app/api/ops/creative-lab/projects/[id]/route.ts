@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import {
+  advanceMockVariations,
   approveAsset,
   deleteProject,
   generateConceptForModule,
@@ -8,6 +9,7 @@ import {
   markAssetFinal,
   rejectAsset,
   saveProject,
+  setSelectedConcept,
   updateProject,
 } from "@/lib/ops/creative-lab/projects";
 import { normalizeConceptStrategyMap } from "@/lib/ops/creative-lab/concept-strategies";
@@ -66,6 +68,18 @@ export async function PUT(req: Request, ctx: Ctx) {
         ? (body.slot as FinalAssetSlot)
         : undefined;
     const project = await markAssetFinal(id, body.assetId, slot);
+    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    return NextResponse.json({ ok: true, project });
+  }
+
+  if (body.op === "setSelectedConcept" && typeof body.promptId === "string") {
+    const project = await setSelectedConcept(id, body.promptId);
+    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    return NextResponse.json({ ok: true, project });
+  }
+
+  if (body.op === "advanceMockVariations") {
+    const project = await advanceMockVariations(id);
     if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
     return NextResponse.json({ ok: true, project });
   }

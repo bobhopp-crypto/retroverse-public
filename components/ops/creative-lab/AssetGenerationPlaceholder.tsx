@@ -2,10 +2,11 @@
 
 type Props = {
   hasConcepts: boolean;
+  hasWinner?: boolean;
 };
 
 export function AssetGenerationPlaceholder(props: Props) {
-  const { hasConcepts } = props;
+  const { hasConcepts, hasWinner } = props;
   if (!hasConcepts) return null;
 
   return (
@@ -23,11 +24,12 @@ export function AssetGenerationPlaceholder(props: Props) {
         <span className="cl-asset-gen__arrow">↓</span>
         <span className="cl-asset-gen__step">Final</span>
       </div>
-      <button type="button" className="cl-asset-gen__btn" disabled>
+      <button type="button" className={`cl-asset-gen__btn${hasWinner ? " cl-asset-gen__btn--ready" : ""}`} disabled>
         GENERATE ASSETS
       </button>
       <p className="cl-asset-gen__status">
-        <strong>Status:</strong> Image Provider Not Connected
+        <strong>Status:</strong>{" "}
+        {hasWinner ? "Look selected — ready when image provider connects" : "Image Provider Not Connected"}
       </p>
     </section>
   );

@@ -154,6 +154,9 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
       ? normalizeConceptStrategyMap(obj.conceptStrategies)
       : undefined,
     artifactType: normalizeArtifactTypeId(obj.artifactType),
+    selectedConceptPromptId:
+      typeof obj.selectedConceptPromptId === "string" ? obj.selectedConceptPromptId : null,
+    mockVariationRound: typeof obj.mockVariationRound === "number" ? obj.mockVariationRound : 0,
     generatedPrompts: [],
     assets: normalizeAssets(obj.assets ?? obj.generatedAssets, id),
     finalAssetSlots: normalizeFinalSlots(obj.finalAssetSlots),
@@ -333,6 +336,8 @@ export async function updateProject(
       | "activePresetId"
       | "conceptStrategies"
       | "artifactType"
+      | "selectedConceptPromptId"
+      | "mockVariationRound"
       | "assets"
       | "finalAssetSlots"
       | "generatedPrompts"
@@ -356,6 +361,12 @@ export async function updateProject(
       patch.artifactType !== undefined
         ? normalizeArtifactTypeId(patch.artifactType)
         : existing.artifactType ?? DEFAULT_ARTIFACT_TYPE,
+    selectedConceptPromptId:
+      patch.selectedConceptPromptId !== undefined
+        ? patch.selectedConceptPromptId
+        : existing.selectedConceptPromptId ?? null,
+    mockVariationRound:
+      patch.mockVariationRound !== undefined ? patch.mockVariationRound : (existing.mockVariationRound ?? 0),
     assets: patch.assets ?? existing.assets,
     finalAssetSlots: patch.finalAssetSlots ?? existing.finalAssetSlots,
     generatedPrompts: patch.generatedPrompts ?? existing.generatedPrompts,
@@ -417,7 +428,27 @@ export async function generateConceptVariationsForModule(
     generatedPrompts: [...prompts, ...project.generatedPrompts].slice(0, 48),
     assets: [...assets, ...project.assets].slice(0, 96),
     activeModule: module,
+    mockVariationRound: 0,
+    selectedConceptPromptId: null,
   });
+}
+
+export async function setSelectedConcept(
+  projectId: string,
+  promptId: string,
+): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  const exists = project.generatedPrompts.some((p) => p.id === promptId);
+  if (!exists) return null;
+  return updateProject(projectId, { selectedConceptPromptId: promptId });
+}
+
+export async function advanceMockVariations(projectId: string): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  const next = (project.mockVariationRound ?? 0) + 1;
+  return updateProject(projectId, { mockVariationRound: next });
 }
 
 export async function setAssetStatus(

@@ -134,6 +134,10 @@ export type CreativeLabProjectFile = {
   conceptStrategies?: ConceptStrategyMap;
   /** Deliverable artifact type — VIP pass, festival pass, etc. */
   artifactType?: ArtifactTypeId;
+  /** Winning concept prompt id — selected via USE THIS LOOK */
+  selectedConceptPromptId?: string | null;
+  /** Layout variation round for pass mockups (MAKE 4 MORE) */
+  mockVariationRound?: number;
   generatedPrompts: GeneratedPrompt[];
   assets: CreativeLabAsset[];
   /** One winner per deliverable slot */
