@@ -21,8 +21,22 @@ function assetUrl(project: CreativeLabProjectFile, assetId: string): string {
 }
 
 function assetForPrompt(project: CreativeLabProjectFile, prompt: GeneratedPrompt) {
-  if (prompt.assetId) return project.assets.find((a) => a.id === prompt.assetId);
+  if (prompt.assetId) {
+    const linked = project.assets.find((a) => a.id === prompt.assetId);
+    if (linked?.filePath?.endsWith(".png")) return linked;
+  }
   return project.assets.find((a) => a.promptId === prompt.id && a.filePath?.endsWith(".png"));
+}
+
+function missingImageLabel(
+  project: CreativeLabProjectFile,
+  prompt: GeneratedPrompt,
+  busy?: boolean,
+): string {
+  if (busy) return "Generating…";
+  const linked = project.assets.find((a) => a.id === prompt.assetId || a.promptId === prompt.id);
+  if (linked?.filePath?.includes("placeholder")) return "No image — placeholder asset only";
+  return "No image — generation did not produce a PNG";
 }
 
 export function ConceptDeck(props: Props) {
@@ -77,7 +91,7 @@ export function ConceptDeck(props: Props) {
                         }
                       />
                     ) : (
-                      <div className="cl-pass-card__loading">Generating…</div>
+                      <div className="cl-pass-card__loading">{missingImageLabel(project, p, busy)}</div>
                     )}
                     <span className="cl-pass-card__key">Concept {key}</span>
                   </div>
@@ -143,7 +157,7 @@ export function ConceptDeck(props: Props) {
                         className="cl-pass-card__img"
                       />
                     ) : (
-                      <div className="cl-pass-card__loading">Generating…</div>
+                      <div className="cl-pass-card__loading">{missingImageLabel(project, p, busy)}</div>
                     )}
                     <span className="cl-pass-card__key">V{variation.index}</span>
                   </div>
