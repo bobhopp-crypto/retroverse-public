@@ -1,14 +1,18 @@
 import { NextResponse } from "next/server";
 
 import {
+  approveAsset,
   deleteProject,
   generateConceptForModule,
   loadProject,
+  markAssetFinal,
+  rejectAsset,
+  saveProject,
   updateProject,
 } from "@/lib/ops/creative-lab/projects";
 import { normalizeConceptStrategyMap } from "@/lib/ops/creative-lab/concept-strategies";
 import { normalizeStyleSelection } from "@/lib/ops/creative-lab/style-catalog";
-import type { CreativeLabModuleId } from "@/lib/ops/creative-lab/types";
+import type { CreativeLabModuleId, FinalAssetSlot } from "@/lib/ops/creative-lab/types";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 export const dynamic = "force-dynamic";
@@ -32,6 +36,38 @@ export async function PUT(req: Request, ctx: Ctx) {
   }
   const { id } = await ctx.params;
   const body = (await req.json()) as Record<string, unknown>;
+
+  if (body.op === "saveProject") {
+    const existing = await loadProject(id);
+    if (!existing) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    const project = await saveProject(existing);
+    return NextResponse.json({ ok: true, project });
+  }
+
+  if (body.op === "approveAsset" && typeof body.assetId === "string") {
+    const project = await approveAsset(id, body.assetId);
+    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    return NextResponse.json({ ok: true, project });
+  }
+
+  if (body.op === "rejectAsset" && typeof body.assetId === "string") {
+    const project = await rejectAsset(id, body.assetId);
+    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    return NextResponse.json({ ok: true, project });
+  }
+
+  if (body.op === "setFinalAsset" && typeof body.assetId === "string") {
+    const slot =
+      body.slot === "final-front" ||
+      body.slot === "final-back" ||
+      body.slot === "final-poster" ||
+      body.slot === "final-bumper"
+        ? (body.slot as FinalAssetSlot)
+        : undefined;
+    const project = await markAssetFinal(id, body.assetId, slot);
+    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    return NextResponse.json({ ok: true, project });
+  }
 
   if (body.op === "generateConcept" || body.op === "generateConceptVariations") {
     const module =
@@ -69,9 +105,6 @@ export async function PUT(req: Request, ctx: Ctx) {
       body.activeModule === "pass-lab"
         ? body.activeModule
         : undefined,
-    selectedAssetIds: Array.isArray(body.selectedAssetIds)
-      ? body.selectedAssetIds.filter((x): x is string => typeof x === "string")
-      : undefined,
   });
 
   if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });

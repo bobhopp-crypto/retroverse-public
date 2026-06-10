@@ -1,4 +1,4 @@
-export type CreativeLabPanel = "projects" | "styles" | "presets" | "pass-lab";
+export type CreativeLabPanel = "projects" | "styles" | "presets" | "pass-lab" | "assets";
 
 export type CreativeLabSearchParams = {
   panel?: CreativeLabPanel;

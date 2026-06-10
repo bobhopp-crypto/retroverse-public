@@ -1,33 +1,40 @@
 import { existsSync } from "node:fs";
-import { mkdir, readFile, readdir, rm, writeFile } from "fs/promises";
+import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "fs/promises";
 import { join } from "path";
 
+import {
+  createPlaceholderAssets,
+  mirrorAssetToSelected,
+  normalizeAssets,
+  normalizeFinalSlots,
+  setAssetAsFinal,
+  updateAssetStatus,
+  writePlaceholderAssetFile,
+} from "./assets";
 import { buildConceptVariations } from "./concept-variations";
 import { normalizeConceptStrategyMap, strategyForVariation } from "./concept-strategies";
+import { exportFinalDeliverables, exportProjectPackage } from "./export-package";
 import { loadPreset } from "./presets";
-import { renderPromptText } from "./prompt-renderer";
 import {
   creativeLabProjectIndexPath,
   creativeLabProjectPath,
+  creativeLabProjectDir,
   creativeLabProjectsDir,
 } from "./paths";
+import { persistProjectBundle, ensureProjectLayout } from "./project-storage";
+import { baseProjectSlug, uniqueProjectSlug } from "./project-slug";
+import { renderPromptText } from "./prompt-renderer";
 import { emptyStyleSelection, normalizeStyleSelection } from "./style-catalog";
 import type {
   CreativeLabIndexFile,
   CreativeLabModuleId,
   CreativeLabProjectFile,
-  GeneratedAsset,
+  CreativeLabAsset,
+  CreativeLabAssetStatus,
+  FinalAssetSlot,
   GeneratedPrompt,
   StyleSelection,
 } from "./types";
-
-function newProjectId(): string {
-  return `cl-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
-}
-
-function newAssetId(): string {
-  return `asset-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
-}
 
 function normalizeGeneratedPrompts(
   raw: unknown,
@@ -104,11 +111,16 @@ function normalizeGeneratedPrompts(
   return out;
 }
 
+function projectFolderId(project: Pick<CreativeLabProjectFile, "id" | "folderSlug">): string {
+  return project.folderSlug || project.id;
+}
+
 function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectFile | null {
   if (!raw || typeof raw !== "object") return null;
-  const obj = raw as Partial<CreativeLabProjectFile>;
+  const obj = raw as Partial<CreativeLabProjectFile> & { generatedAssets?: unknown; selectedAssetIds?: unknown };
   const now = new Date().toISOString();
   const id = typeof obj.id === "string" && obj.id.trim() ? obj.id.trim() : fallbackId;
+  const folderSlug = typeof obj.folderSlug === "string" && obj.folderSlug.trim() ? obj.folderSlug.trim() : id;
 
   const featuredYears = Array.isArray(obj.featuredYears)
     ? obj.featuredYears.filter((y): y is number => typeof y === "number" && y > 1900 && y < 2100)
@@ -124,8 +136,9 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
       : "pass-lab";
 
   const base: CreativeLabProjectFile = {
-    version: 1,
+    version: 2,
     id,
+    folderSlug,
     name: typeof obj.name === "string" && obj.name.trim() ? obj.name.trim() : "Untitled Project",
     event: typeof obj.event === "string" ? obj.event : "",
     venue: typeof obj.venue === "string" ? obj.venue : "",
@@ -138,10 +151,8 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
       ? normalizeConceptStrategyMap(obj.conceptStrategies)
       : undefined,
     generatedPrompts: [],
-    generatedAssets: Array.isArray(obj.generatedAssets) ? (obj.generatedAssets as GeneratedAsset[]) : [],
-    selectedAssetIds: Array.isArray(obj.selectedAssetIds)
-      ? obj.selectedAssetIds.filter((x): x is string => typeof x === "string")
-      : [],
+    assets: normalizeAssets(obj.assets ?? obj.generatedAssets, id),
+    finalAssetSlots: normalizeFinalSlots(obj.finalAssetSlots),
     activeModule,
     createdAt: typeof obj.createdAt === "string" ? obj.createdAt : now,
     updatedAt: typeof obj.updatedAt === "string" ? obj.updatedAt : now,
@@ -165,11 +176,18 @@ async function loadIndex(): Promise<CreativeLabIndexFile> {
       ? obj.projects
           .map((p) => {
             if (!p || typeof p !== "object") return null;
-            const row = p as { id?: unknown; name?: unknown; event?: unknown; updatedAt?: unknown };
+            const row = p as {
+              id?: unknown;
+              folderSlug?: unknown;
+              name?: unknown;
+              event?: unknown;
+              updatedAt?: unknown;
+            };
             const id = typeof row.id === "string" ? row.id.trim() : "";
             if (!id) return null;
             return {
               id,
+              folderSlug: typeof row.folderSlug === "string" ? row.folderSlug : id,
               name: typeof row.name === "string" ? row.name : id,
               event: typeof row.event === "string" ? row.event : "",
               updatedAt: typeof row.updatedAt === "string" ? row.updatedAt : "",
@@ -192,6 +210,7 @@ async function syncIndexEntry(project: CreativeLabProjectFile): Promise<void> {
   const index = await loadIndex();
   const entry = {
     id: project.id,
+    folderSlug: project.folderSlug,
     name: project.name,
     event: project.event,
     updatedAt: project.updatedAt,
@@ -201,6 +220,16 @@ async function syncIndexEntry(project: CreativeLabProjectFile): Promise<void> {
   else index.projects.unshift(entry);
   index.projects.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
   await saveIndex(index);
+}
+
+async function findProjectPath(projectId: string): Promise<string | null> {
+  const index = await loadIndex();
+  const entry = index.projects.find((p) => p.id === projectId);
+  const folder = entry?.folderSlug ?? projectId;
+  const path = creativeLabProjectPath(folder);
+  if (existsSync(path)) return path;
+  if (existsSync(creativeLabProjectPath(projectId))) return creativeLabProjectPath(projectId);
+  return null;
 }
 
 export async function listProjects(): Promise<CreativeLabIndexFile["projects"]> {
@@ -216,6 +245,7 @@ export async function listProjects(): Promise<CreativeLabIndexFile["projects"]> 
     if (project) {
       discovered.push({
         id: project.id,
+        folderSlug: project.folderSlug,
         name: project.name,
         event: project.event,
         updatedAt: project.updatedAt,
@@ -229,8 +259,10 @@ export async function listProjects(): Promise<CreativeLabIndexFile["projects"]> 
 }
 
 export async function loadProject(projectId: string): Promise<CreativeLabProjectFile | null> {
+  const path = await findProjectPath(projectId);
+  if (!path) return null;
   try {
-    const raw = JSON.parse(await readFile(creativeLabProjectPath(projectId), "utf8")) as unknown;
+    const raw = JSON.parse(await readFile(path, "utf8")) as unknown;
     return normalizeProject(raw, projectId);
   } catch {
     return null;
@@ -246,11 +278,12 @@ export async function createProject(input: {
   theme?: string;
   styleSelection?: StyleSelection;
 }): Promise<CreativeLabProjectFile> {
-  const id = newProjectId();
+  const folderSlug = await uniqueProjectSlug(input.event ?? "", input.date ?? "");
   const now = new Date().toISOString();
   const project: CreativeLabProjectFile = {
-    version: 1,
-    id,
+    version: 2,
+    id: folderSlug,
+    folderSlug,
     name: input.name.trim() || "Untitled Project",
     event: input.event?.trim() ?? "",
     venue: input.venue?.trim() ?? "",
@@ -259,8 +292,8 @@ export async function createProject(input: {
     theme: input.theme?.trim() ?? "",
     styleSelection: input.styleSelection ? normalizeStyleSelection(input.styleSelection) : emptyStyleSelection(),
     generatedPrompts: [],
-    generatedAssets: [],
-    selectedAssetIds: [],
+    assets: [],
+    finalAssetSlots: normalizeFinalSlots(null),
     activeModule: "pass-lab",
     createdAt: now,
     updatedAt: now,
@@ -270,10 +303,10 @@ export async function createProject(input: {
 }
 
 export async function saveProject(project: CreativeLabProjectFile): Promise<CreativeLabProjectFile> {
-  const dir = join(creativeLabProjectsDir(), project.id);
-  await mkdir(dir, { recursive: true });
-  const updated = { ...project, updatedAt: new Date().toISOString() };
-  await writeFile(creativeLabProjectPath(project.id), `${JSON.stringify(updated, null, 2)}\n`, "utf8");
+  const folderId = projectFolderId(project);
+  await ensureProjectLayout(folderId);
+  const updated = { ...project, folderSlug: folderId, updatedAt: new Date().toISOString() };
+  await persistProjectBundle(updated);
   await syncIndexEntry(updated);
   return updated;
 }
@@ -293,7 +326,9 @@ export async function updateProject(
       | "activeModule"
       | "activePresetId"
       | "conceptStrategies"
-      | "selectedAssetIds"
+      | "assets"
+      | "finalAssetSlots"
+      | "generatedPrompts"
     >
   >,
 ): Promise<CreativeLabProjectFile | null> {
@@ -306,25 +341,41 @@ export async function updateProject(
       ? normalizeStyleSelection(patch.styleSelection)
       : existing.styleSelection,
     activePresetId:
-      patch.activePresetId !== undefined
-        ? patch.activePresetId || undefined
-        : existing.activePresetId,
+      patch.activePresetId !== undefined ? patch.activePresetId || undefined : existing.activePresetId,
     conceptStrategies: patch.conceptStrategies
       ? normalizeConceptStrategyMap(patch.conceptStrategies)
       : existing.conceptStrategies,
+    assets: patch.assets ?? existing.assets,
+    finalAssetSlots: patch.finalAssetSlots ?? existing.finalAssetSlots,
+    generatedPrompts: patch.generatedPrompts ?? existing.generatedPrompts,
     updatedAt: new Date().toISOString(),
   };
   return saveProject(updated);
 }
 
 export async function deleteProject(projectId: string): Promise<boolean> {
-  const dir = join(creativeLabProjectsDir(), projectId);
+  const project = await loadProject(projectId);
+  if (!project) return false;
+  const dir = creativeLabProjectDir(projectFolderId(project));
   if (!existsSync(dir)) return false;
   await rm(dir, { recursive: true, force: true });
   const index = await loadIndex();
   index.projects = index.projects.filter((p) => p.id !== projectId);
   await saveIndex(index);
   return true;
+}
+
+async function attachPlaceholderFiles(
+  project: CreativeLabProjectFile,
+  assets: CreativeLabAsset[],
+): Promise<CreativeLabAsset[]> {
+  const folderId = projectFolderId(project);
+  const out: CreativeLabAsset[] = [];
+  for (const asset of assets) {
+    const rel = await writePlaceholderAssetFile(folderId, asset, asset.notes ?? asset.id);
+    out.push({ ...asset, filePath: rel });
+  }
+  return out;
 }
 
 /** Generate Concept A–D prompt variations + placeholder assets (no image gen). */
@@ -337,22 +388,96 @@ export async function generateConceptVariationsForModule(
 
   const preset = project.activePresetId ? await loadPreset(project.activePresetId) : null;
   const prompts = buildConceptVariations(project, module, preset);
-  const assets: GeneratedAsset[] = prompts.map((prompt) => ({
-    id: newAssetId(),
+  let assets = createPlaceholderAssets({
+    projectId: project.id,
     module,
-    promptId: prompt.id,
-    status: "placeholder",
-    selected: false,
-    createdAt: prompt.createdAt,
-  }));
+    prompts: prompts.map((p) => ({
+      id: p.id,
+      variationKey: p.variationKey,
+      strategyId: p.strategyId,
+      conceptSummary: p.conceptSummary,
+      createdAt: p.createdAt,
+    })),
+  });
+  assets = await attachPlaceholderFiles(project, assets);
 
   return saveProject({
     ...project,
     generatedPrompts: [...prompts, ...project.generatedPrompts].slice(0, 48),
-    generatedAssets: [...assets, ...project.generatedAssets].slice(0, 48),
+    assets: [...assets, ...project.assets].slice(0, 96),
     activeModule: module,
   });
 }
+
+export async function setAssetStatus(
+  projectId: string,
+  assetId: string,
+  status: CreativeLabAssetStatus,
+): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  let updated = updateAssetStatus(project, assetId, status);
+  const asset = updated.assets.find((a) => a.id === assetId);
+  if (asset && (status === "approved" || status === "final")) {
+    const rel = await mirrorAssetToSelected(projectFolderId(updated), asset);
+    updated = {
+      ...updated,
+      assets: updated.assets.map((a) => (a.id === assetId ? { ...a, filePath: a.filePath ?? rel } : a)),
+    };
+  }
+  return saveProject(updated);
+}
+
+export async function approveAsset(projectId: string, assetId: string): Promise<CreativeLabProjectFile | null> {
+  return setAssetStatus(projectId, assetId, "approved");
+}
+
+export async function rejectAsset(projectId: string, assetId: string): Promise<CreativeLabProjectFile | null> {
+  return setAssetStatus(projectId, assetId, "rejected");
+}
+
+export async function markAssetFinal(
+  projectId: string,
+  assetId: string,
+  slot?: FinalAssetSlot,
+): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  let updated = setAssetAsFinal(project, assetId, slot);
+  const asset = updated.assets.find((a) => a.id === assetId);
+  if (asset) {
+    const rel = await mirrorAssetToSelected(projectFolderId(updated), { ...asset, status: "final" });
+    updated = {
+      ...updated,
+      assets: updated.assets.map((a) => (a.id === assetId ? { ...a, filePath: a.filePath ?? rel } : a)),
+    };
+  }
+  return saveProject(updated);
+}
+
+export async function runExportProjectPackage(projectId: string): Promise<{
+  project: CreativeLabProjectFile;
+  zipPath: string;
+  zipRel: string;
+} | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  const result = await exportProjectPackage(project);
+  return { project, ...result };
+}
+
+export async function runExportFinals(projectId: string): Promise<{
+  project: CreativeLabProjectFile;
+  files: string[];
+  exportDir: string;
+} | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  const result = await exportFinalDeliverables(project);
+  return { project, ...result };
+}
+
+export { baseProjectSlug };
 
 /** @deprecated Use generateConceptVariationsForModule */
 export async function generateConceptForModule(

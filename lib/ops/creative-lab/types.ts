@@ -64,19 +64,59 @@ export type GeneratedPrompt = {
   createdAt: string;
 };
 
-export type GeneratedAsset = {
-  id: string;
-  module: CreativeLabModuleId;
-  promptId: string;
-  status: "placeholder" | "pending" | "generated";
-  path?: string;
-  selected: boolean;
-  createdAt: string;
+export type CreativeLabAssetType =
+  | "pass-front"
+  | "pass-back"
+  | "poster"
+  | "bumper"
+  | "credential"
+  | "card"
+  | "magazine";
+
+export type CreativeLabAssetStatus = "generated" | "approved" | "rejected" | "final";
+
+export type FinalAssetSlot = "final-front" | "final-back" | "final-poster" | "final-bumper";
+
+export const FINAL_ASSET_SLOTS: FinalAssetSlot[] = [
+  "final-front",
+  "final-back",
+  "final-poster",
+  "final-bumper",
+];
+
+export const FINAL_SLOT_LABELS: Record<FinalAssetSlot, string> = {
+  "final-front": "Final Front",
+  "final-back": "Final Back",
+  "final-poster": "Final Poster",
+  "final-bumper": "Final Bumper",
 };
 
-export type CreativeLabProjectFile = {
-  version: 1;
+/** Project asset — placeholder or future generated image. */
+export type CreativeLabAsset = {
+  /** asset_id */
   id: string;
+  /** project_id */
+  projectId: string;
+  type: CreativeLabAssetType;
+  concept?: ConceptVariationKey;
+  status: CreativeLabAssetStatus;
+  createdAt: string;
+  /** Relative path under project folder */
+  filePath?: string;
+  notes?: string;
+  promptId?: string;
+  module?: CreativeLabModuleId;
+  strategyId?: ConceptStrategyId;
+};
+
+/** @deprecated Use CreativeLabAsset */
+export type GeneratedAsset = CreativeLabAsset;
+
+export type CreativeLabProjectFile = {
+  version: 2;
+  id: string;
+  /** Filesystem folder name under projects/ */
+  folderSlug: string;
   name: string;
   event: string;
   venue: string;
@@ -89,8 +129,9 @@ export type CreativeLabProjectFile = {
   /** Concept A–D strategy map — from preset or custom. */
   conceptStrategies?: ConceptStrategyMap;
   generatedPrompts: GeneratedPrompt[];
-  generatedAssets: GeneratedAsset[];
-  selectedAssetIds: string[];
+  assets: CreativeLabAsset[];
+  /** One winner per deliverable slot */
+  finalAssetSlots: Record<FinalAssetSlot, string | null>;
   activeModule: CreativeLabModuleId;
   createdAt: string;
   updatedAt: string;
@@ -117,6 +158,7 @@ export type CreativeLabIndexFile = {
   version: 1;
   projects: Array<{
     id: string;
+    folderSlug: string;
     name: string;
     event: string;
     updatedAt: string;

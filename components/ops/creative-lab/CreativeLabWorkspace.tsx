@@ -8,6 +8,7 @@ import type {
   CreativeLabModuleId,
   CreativeLabPresetFile,
   CreativeLabProjectFile,
+  FinalAssetSlot,
   StyleDefinition,
   StyleSelection,
 } from "@/lib/ops/creative-lab/types";
@@ -16,8 +17,10 @@ import {
   type CreativeLabPanel,
 } from "@/lib/ops/creative-lab/workspace/urls";
 
+import { AssetLibrary } from "./AssetLibrary";
 import { ConceptVariationsPanel } from "./ConceptVariationsPanel";
 import { PresetGallery } from "./PresetGallery";
+import { ProjectToolbar } from "./ProjectToolbar";
 import { PromptPreviewPanel } from "./PromptPreviewPanel";
 import { selectionHasWeights, StyleWeightEditor, weightedStylesSummary } from "./StyleWeightEditor";
 import { StyleBoard, type StyleBoardMode } from "./StyleBoard";
@@ -34,6 +37,7 @@ const PANELS: Array<{ id: CreativeLabPanel; label: string }> = [
   { id: "styles", label: "Styles" },
   { id: "presets", label: "Presets" },
   { id: "pass-lab", label: "Pass Lab" },
+  { id: "assets", label: "Assets" },
 ];
 
 function slugify(name: string): string {
@@ -287,6 +291,74 @@ export function CreativeLabWorkspace() {
     }
   }
 
+  async function projectOp(body: Record<string, unknown>) {
+    if (!project) return;
+    setBusy(true);
+    setNotice(null);
+    try {
+      const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
+      if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "project_op_failed");
+      setProject(data.project);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "project_op_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function revealFolder(target: "project" | "exports") {
+    if (!project) return;
+    setBusy(true);
+    try {
+      const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}/reveal`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ target }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !data.ok) throw new Error(data.error ?? "reveal_failed");
+      setNotice(target === "exports" ? "Opened exports folder in Finder." : "Revealed project folder in Finder.");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "reveal_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function exportProject(op: "package" | "finals") {
+    if (!project) return;
+    setBusy(true);
+    try {
+      const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}/export`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ op: op === "finals" ? "exportFinals" : "exportPackage" }),
+      });
+      const data = (await res.json()) as {
+        ok?: boolean;
+        zipPath?: string;
+        zipRel?: string;
+        files?: string[];
+        error?: string;
+      };
+      if (!res.ok || !data.ok) throw new Error(data.error ?? "export_failed");
+      setNotice(
+        op === "finals"
+          ? `Exported ${data.files?.length ?? 0} final deliverables.`
+          : `Exported project package (${data.zipRel ?? "exports"}).`,
+      );
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "export_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   async function generateConcept() {
     if (!project) return;
     setBusy(true);
@@ -299,7 +371,7 @@ export function CreativeLabWorkspace() {
       const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
       if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "concept_failed");
       setProject(data.project);
-      setNotice("Generated Concept A–D prompt variations (no images yet).");
+      setNotice("Generated Concept A–D with placeholder assets in project/generated/.");
     } catch (e) {
       setError(e instanceof Error ? e.message : "concept_failed");
     } finally {
@@ -353,6 +425,15 @@ export function CreativeLabWorkspace() {
       </aside>
 
       <div className="cl-workspace__main">
+        <ProjectToolbar
+          project={project}
+          busy={busy}
+          onSave={() => void projectOp({ op: "saveProject" })}
+          onRevealProject={() => void revealFolder("project")}
+          onRevealExports={() => void revealFolder("exports")}
+          onExportPackage={() => void exportProject("package")}
+          onExportFinals={() => void exportProject("finals")}
+        />
         {error ? <p className="mc-notice mc-notice--error">{error}</p> : null}
         {notice ? <p className="mc-notice">{notice}</p> : null}
 
@@ -655,6 +736,26 @@ export function CreativeLabWorkspace() {
                 Coming soon: {modulePlaceholders.map((m) => m.label).join(", ")}
               </p>
             ) : null}
+          </div>
+        ) : null}
+
+        {panel === "assets" ? (
+          <div className="cl-panel">
+            <header className="cl-panel__head">
+              <h2>Asset library</h2>
+              <p className="ops-dim">Approve, reject, and set final deliverables — placeholder assets until image generation.</p>
+            </header>
+            {!project ? (
+              <p className="ops-dim">Select a project to browse assets.</p>
+            ) : (
+              <AssetLibrary
+                project={project}
+                busy={busy}
+                onApprove={(assetId) => void projectOp({ op: "approveAsset", assetId })}
+                onReject={(assetId) => void projectOp({ op: "rejectAsset", assetId })}
+                onSetFinal={(assetId, slot) => void projectOp({ op: "setFinalAsset", assetId, slot })}
+              />
+            )}
           </div>
         ) : null}
 

@@ -601,6 +601,134 @@
   max-height: 420px;
 }
 
+.cl-project-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--panel);
+  border: 3px solid var(--border);
+  border-radius: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.cl-project-toolbar__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 200px;
+}
+
+.cl-project-toolbar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cl-asset-library__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.cl-asset-library__filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.cl-asset-library__finals ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 10px;
+  background: var(--panel-2);
+  border: 2px solid var(--border);
+  border-radius: 6px;
+}
+
+.cl-asset-library__finals li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 0.86rem;
+}
+
+.cl-asset-library__group {
+  margin-bottom: 14px;
+}
+
+.cl-asset-status {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cl-asset-status--final { color: var(--accent); }
+.cl-asset-status--approved { color: #3d8b62; }
+.cl-asset-status--generated { color: var(--dim); }
+.cl-asset-status--rejected { color: #b24a3a; }
+
+.cl-asset-library__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.cl-asset-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 10px;
+  padding: 10px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+}
+
+.cl-asset-card__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cl-asset-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.cl-asset-card__notes {
+  margin: 0;
+  font-size: 0.76rem;
+  color: var(--dim);
+}
+
+.cl-asset-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
 @media (max-width: 900px) {
   .cl-workspace {
     grid-template-columns: 1fr;
