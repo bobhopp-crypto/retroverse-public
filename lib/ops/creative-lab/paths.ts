@@ -58,6 +58,11 @@ export function creativeLabProjectIndexPath(): string {
   return join(creativeLabRoot(), "index.json");
 }
 
+/** `RETROVERSE_DATA/creative_lab/illustration_library` */
+export function creativeLabIllustrationLibraryDir(): string {
+  return join(creativeLabRoot(), "illustration_library");
+}
+
 export const PROJECT_SUBDIRS = [
   "prompts",
   "concepts",
