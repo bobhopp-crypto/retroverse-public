@@ -3,17 +3,20 @@
 type Props = {
   hasConcepts: boolean;
   hasWinner?: boolean;
+  hasVariation?: boolean;
+  workflowRound?: 1 | 2 | 3;
 };
 
 export function AssetGenerationPlaceholder(props: Props) {
-  const { hasConcepts, hasWinner } = props;
+  const { hasConcepts, hasWinner, hasVariation, workflowRound = 1 } = props;
   if (!hasConcepts) return null;
+  if (workflowRound < 3) return null;
 
   return (
     <section className="cl-asset-gen" aria-label="Asset generation pipeline">
       <header className="cl-asset-gen__head">
-        <h2>Next: Assets</h2>
-        <p className="ops-dim">Concepts → Assets → Approve → Final</p>
+        <h2>Round 3 — Asset Generation</h2>
+        <p className="ops-dim">Look locked — ready for image provider.</p>
       </header>
       <div className="cl-asset-gen__pipeline">
         <span className="cl-asset-gen__step cl-asset-gen__step--done">Concepts</span>
@@ -29,7 +32,11 @@ export function AssetGenerationPlaceholder(props: Props) {
       </button>
       <p className="cl-asset-gen__status">
         <strong>Status:</strong>{" "}
-        {hasWinner ? "Look selected — ready when image provider connects" : "Image Provider Not Connected"}
+        {hasVariation
+          ? "Variation selected — ready when image provider connects"
+          : hasWinner
+            ? "Concept selected — pick a variation first"
+            : "Image Provider Not Connected"}
       </p>
     </section>
   );

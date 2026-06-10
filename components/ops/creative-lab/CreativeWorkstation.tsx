@@ -39,7 +39,8 @@ type Props = {
   onToggleStyleAdvanced: () => void;
   onGenerate: () => void;
   onSelectWinner: (promptId: string) => void;
-  onMakeMoreVariations: () => void;
+  onGenerateRefinement: () => void;
+  onSelectVariation: (index: number) => void;
   onStyleChange: (selection: CreativeLabProjectFile["styleSelection"]) => void;
   onOpenAdvanced: () => void;
 };
@@ -70,7 +71,8 @@ export function CreativeWorkstation(props: Props) {
     onToggleStyleAdvanced,
     onGenerate,
     onSelectWinner,
-    onMakeMoreVariations,
+    onGenerateRefinement,
+    onSelectVariation,
     onStyleChange,
     onOpenAdvanced,
   } = props;
@@ -228,13 +230,16 @@ export function CreativeWorkstation(props: Props) {
           preset={selectedPreset}
           busy={busy}
           onSelectWinner={onSelectWinner}
-          onMakeMore={onMakeMoreVariations}
+          onGenerateRefinement={onGenerateRefinement}
+          onSelectVariation={onSelectVariation}
         />
       ) : null}
 
       <AssetGenerationPlaceholder
         hasConcepts={hasConcepts}
         hasWinner={Boolean(project?.selectedConceptPromptId)}
+        hasVariation={Boolean(project?.selectedVariationIndex)}
+        workflowRound={project?.workflowRound ?? 1}
       />
 
       <footer className="cl-desk__footer">

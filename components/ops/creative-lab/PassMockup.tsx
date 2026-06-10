@@ -218,14 +218,22 @@ export function PassMockup(props: Props) {
 
   switch (spec.layoutId) {
     case "broadcast-badge":
+      if (spec.strategyId === "credential-focus") return <CredentialPass spec={spec} />;
       return <BroadcastPass spec={spec} vertical={false} />;
     case "laminate-zones":
       return <CredentialPass spec={spec} vertical={false} />;
     case "ticket-stub":
+      if (spec.strategyId === "credential-focus" || spec.strategyId === "broadcast-focus") {
+        return <CredentialPass spec={spec} />;
+      }
       return <FestivalPass spec={spec} largeYear={false} />;
     case "large-year":
+      if (spec.strategyId === "credential-focus" || spec.strategyId === "broadcast-focus") {
+        return <CredentialPass spec={spec} />;
+      }
       return <FestivalPass spec={spec} largeYear />;
     case "numbered-edition":
+      if (spec.strategyId === "credential-focus") return <CredentialPass spec={spec} />;
       return <CollectorPass spec={spec} foil />;
     case "foil-band":
       return <FoilBandPass spec={spec} />;

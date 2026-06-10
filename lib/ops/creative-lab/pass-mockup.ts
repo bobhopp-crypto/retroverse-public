@@ -1,6 +1,7 @@
 import { artifactTypeById } from "./artifact-types";
 import { strategyById } from "./concept-strategies";
 import { presetCardVisual } from "./preset-visuals";
+import type { RefinementTreatment } from "./refinement-treatments";
 import type { ConceptStrategyId, CreativeLabPresetFile, CreativeLabProjectFile, GeneratedPrompt } from "./types";
 
 export type PassMockLayoutId =
@@ -26,6 +27,8 @@ export type PassMockupSpec = {
   palette: string[];
   variationKey: string;
   layoutId: PassMockLayoutId;
+  treatmentLabel?: string;
+  refinementIndex?: number;
 };
 
 const STRATEGY_TAGLINES: Record<ConceptStrategyId, string> = {
@@ -79,5 +82,25 @@ export function buildPassMockupSpec(
     palette: visual?.palette ?? ["#f5e6c8", "#d4a574", "#2d9cb0", "#1a4a52"],
     variationKey: key,
     layoutId: layoutForStrategy(strategyId, variationRound),
+  };
+}
+
+/** Round 2 — refinement mockup inheriting winner strategy + event context. */
+export function buildRefinementMockupSpec(
+  winningPrompt: GeneratedPrompt,
+  project: CreativeLabProjectFile,
+  preset: CreativeLabPresetFile | null | undefined,
+  treatment: RefinementTreatment,
+  refinementIndex: number,
+): PassMockupSpec {
+  const base = buildPassMockupSpec(winningPrompt, project, preset, 0);
+  return {
+    ...base,
+    variationKey: String(refinementIndex),
+    layoutId: treatment.layoutId,
+    treatmentLabel: treatment.label,
+    refinementIndex,
+    passNumber: `#${String(100 + refinementIndex).padStart(4, "0")}`,
+    tagline: treatment.label,
   };
 }

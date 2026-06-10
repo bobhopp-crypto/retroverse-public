@@ -5,11 +5,13 @@ import {
   approveAsset,
   deleteProject,
   generateConceptForModule,
+  generateRefinementVariations,
   loadProject,
   markAssetFinal,
   rejectAsset,
   saveProject,
   setSelectedConcept,
+  setSelectedVariation,
   updateProject,
 } from "@/lib/ops/creative-lab/projects";
 import { normalizeConceptStrategyMap } from "@/lib/ops/creative-lab/concept-strategies";
@@ -78,8 +80,14 @@ export async function PUT(req: Request, ctx: Ctx) {
     return NextResponse.json({ ok: true, project });
   }
 
-  if (body.op === "advanceMockVariations") {
-    const project = await advanceMockVariations(id);
+  if (body.op === "advanceMockVariations" || body.op === "generateRefinementVariations") {
+    const project = await generateRefinementVariations(id);
+    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    return NextResponse.json({ ok: true, project });
+  }
+
+  if (body.op === "setSelectedVariation" && typeof body.variationIndex === "number") {
+    const project = await setSelectedVariation(id, body.variationIndex);
     if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
     return NextResponse.json({ ok: true, project });
   }

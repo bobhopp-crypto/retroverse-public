@@ -40,6 +40,16 @@ export type ConceptStrategyId =
 
 export type ConceptStrategyMap = Record<ConceptVariationKey, ConceptStrategyId>;
 
+export type RefinementVariation = {
+  id: string;
+  index: number;
+  layoutId: string;
+  treatmentLabel: string;
+  parentPromptId: string;
+  strategyId: ConceptStrategyId;
+  createdAt: string;
+};
+
 export type GeneratedPrompt = {
   id: string;
   module: CreativeLabModuleId;
@@ -136,7 +146,16 @@ export type CreativeLabProjectFile = {
   artifactType?: ArtifactTypeId;
   /** Winning concept prompt id — selected via USE THIS LOOK */
   selectedConceptPromptId?: string | null;
-  /** Layout variation round for pass mockups (MAKE 4 MORE) */
+  /** Winning concept key A–D */
+  selectedConceptKey?: ConceptVariationKey | null;
+  /** Workflow round: 1 concept pick, 2 variation pick, 3 asset gen */
+  workflowRound?: 1 | 2 | 3;
+  /** Round 2 refinement variations generated from winner */
+  refinementGenerated?: boolean;
+  refinementVariations?: RefinementVariation[];
+  /** Winning refinement index 1–8 */
+  selectedVariationIndex?: number | null;
+  /** @deprecated Use refinementVariations — kept for legacy projects */
   mockVariationRound?: number;
   generatedPrompts: GeneratedPrompt[];
   assets: CreativeLabAsset[];

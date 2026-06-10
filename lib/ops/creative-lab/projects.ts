@@ -24,6 +24,7 @@ import {
 import { persistProjectBundle, ensureProjectLayout } from "./project-storage";
 import { baseProjectSlug, uniqueProjectSlug } from "./project-slug";
 import { DEFAULT_ARTIFACT_TYPE, normalizeArtifactTypeId } from "./artifact-types";
+import { treatmentsForStrategy } from "./refinement-treatments";
 import { renderPromptText } from "./prompt-renderer";
 import { emptyStyleSelection, normalizeStyleSelection } from "./style-catalog";
 import type {
@@ -34,6 +35,7 @@ import type {
   CreativeLabAssetStatus,
   FinalAssetSlot,
   GeneratedPrompt,
+  RefinementVariation,
   StyleSelection,
 } from "./types";
 
@@ -114,6 +116,33 @@ function normalizeGeneratedPrompts(
   return out;
 }
 
+function normalizeRefinementVariations(raw: unknown): RefinementVariation[] {
+  if (!Array.isArray(raw)) return [];
+  const out: RefinementVariation[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") continue;
+    const row = item as Partial<RefinementVariation>;
+    if (typeof row.id !== "string" || typeof row.index !== "number") continue;
+    if (row.index < 1 || row.index > 8) continue;
+    out.push({
+      id: row.id,
+      index: row.index,
+      layoutId: typeof row.layoutId === "string" ? row.layoutId : "horizontal-credential",
+      treatmentLabel: typeof row.treatmentLabel === "string" ? row.treatmentLabel : `Variant ${row.index}`,
+      parentPromptId: typeof row.parentPromptId === "string" ? row.parentPromptId : "",
+      strategyId:
+        row.strategyId === "broadcast-focus" ||
+        row.strategyId === "credential-focus" ||
+        row.strategyId === "festival-focus" ||
+        row.strategyId === "collector-focus"
+          ? row.strategyId
+          : "credential-focus",
+      createdAt: typeof row.createdAt === "string" ? row.createdAt : new Date().toISOString(),
+    });
+  }
+  return out.sort((a, b) => a.index - b.index);
+}
+
 function projectFolderId(project: Pick<CreativeLabProjectFile, "id" | "folderSlug">): string {
   return project.folderSlug || project.id;
 }
@@ -156,6 +185,23 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
     artifactType: normalizeArtifactTypeId(obj.artifactType),
     selectedConceptPromptId:
       typeof obj.selectedConceptPromptId === "string" ? obj.selectedConceptPromptId : null,
+    selectedConceptKey:
+      obj.selectedConceptKey === "A" ||
+      obj.selectedConceptKey === "B" ||
+      obj.selectedConceptKey === "C" ||
+      obj.selectedConceptKey === "D"
+        ? obj.selectedConceptKey
+        : null,
+    workflowRound:
+      obj.workflowRound === 2 || obj.workflowRound === 3 ? obj.workflowRound : 1,
+    refinementGenerated: obj.refinementGenerated === true,
+    refinementVariations: normalizeRefinementVariations(obj.refinementVariations),
+    selectedVariationIndex:
+      typeof obj.selectedVariationIndex === "number" &&
+      obj.selectedVariationIndex >= 1 &&
+      obj.selectedVariationIndex <= 8
+        ? obj.selectedVariationIndex
+        : null,
     mockVariationRound: typeof obj.mockVariationRound === "number" ? obj.mockVariationRound : 0,
     generatedPrompts: [],
     assets: normalizeAssets(obj.assets ?? obj.generatedAssets, id),
@@ -337,6 +383,11 @@ export async function updateProject(
       | "conceptStrategies"
       | "artifactType"
       | "selectedConceptPromptId"
+      | "selectedConceptKey"
+      | "workflowRound"
+      | "refinementGenerated"
+      | "refinementVariations"
+      | "selectedVariationIndex"
       | "mockVariationRound"
       | "assets"
       | "finalAssetSlots"
@@ -365,6 +416,21 @@ export async function updateProject(
       patch.selectedConceptPromptId !== undefined
         ? patch.selectedConceptPromptId
         : existing.selectedConceptPromptId ?? null,
+    selectedConceptKey:
+      patch.selectedConceptKey !== undefined ? patch.selectedConceptKey : (existing.selectedConceptKey ?? null),
+    workflowRound: patch.workflowRound !== undefined ? patch.workflowRound : (existing.workflowRound ?? 1),
+    refinementGenerated:
+      patch.refinementGenerated !== undefined
+        ? patch.refinementGenerated
+        : (existing.refinementGenerated ?? false),
+    refinementVariations:
+      patch.refinementVariations !== undefined
+        ? patch.refinementVariations
+        : (existing.refinementVariations ?? []),
+    selectedVariationIndex:
+      patch.selectedVariationIndex !== undefined
+        ? patch.selectedVariationIndex
+        : (existing.selectedVariationIndex ?? null),
     mockVariationRound:
       patch.mockVariationRound !== undefined ? patch.mockVariationRound : (existing.mockVariationRound ?? 0),
     assets: patch.assets ?? existing.assets,
@@ -428,6 +494,11 @@ export async function generateConceptVariationsForModule(
     generatedPrompts: [...prompts, ...project.generatedPrompts].slice(0, 48),
     assets: [...assets, ...project.assets].slice(0, 96),
     activeModule: module,
+    workflowRound: 1,
+    refinementGenerated: false,
+    refinementVariations: [],
+    selectedVariationIndex: null,
+    selectedConceptKey: null,
     mockVariationRound: 0,
     selectedConceptPromptId: null,
   });
@@ -439,16 +510,63 @@ export async function setSelectedConcept(
 ): Promise<CreativeLabProjectFile | null> {
   const project = await loadProject(projectId);
   if (!project) return null;
-  const exists = project.generatedPrompts.some((p) => p.id === promptId);
-  if (!exists) return null;
-  return updateProject(projectId, { selectedConceptPromptId: promptId });
+  const winner = project.generatedPrompts.find((p) => p.id === promptId);
+  if (!winner) return null;
+  return updateProject(projectId, {
+    selectedConceptPromptId: promptId,
+    selectedConceptKey: winner.variationKey ?? null,
+    workflowRound: 1,
+    refinementGenerated: false,
+    refinementVariations: [],
+    selectedVariationIndex: null,
+  });
 }
 
-export async function advanceMockVariations(projectId: string): Promise<CreativeLabProjectFile | null> {
+export async function generateRefinementVariations(
+  projectId: string,
+): Promise<CreativeLabProjectFile | null> {
   const project = await loadProject(projectId);
-  if (!project) return null;
-  const next = (project.mockVariationRound ?? 0) + 1;
-  return updateProject(projectId, { mockVariationRound: next });
+  if (!project?.selectedConceptPromptId) return null;
+  const parent = project.generatedPrompts.find((p) => p.id === project.selectedConceptPromptId);
+  if (!parent?.strategyId) return null;
+
+  const treatments = treatmentsForStrategy(parent.strategyId);
+  const now = new Date().toISOString();
+  const variations: RefinementVariation[] = treatments.map((treatment, i) => ({
+    id: `refine-${Date.now().toString(36)}-${i + 1}`,
+    index: i + 1,
+    layoutId: treatment.layoutId,
+    treatmentLabel: treatment.label,
+    parentPromptId: parent.id,
+    strategyId: parent.strategyId!,
+    createdAt: now,
+  }));
+
+  return updateProject(projectId, {
+    workflowRound: 2,
+    refinementGenerated: true,
+    refinementVariations: variations,
+    selectedVariationIndex: null,
+  });
+}
+
+export async function setSelectedVariation(
+  projectId: string,
+  variationIndex: number,
+): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project?.refinementGenerated) return null;
+  const exists = project.refinementVariations?.some((v) => v.index === variationIndex);
+  if (!exists) return null;
+  return updateProject(projectId, {
+    selectedVariationIndex: variationIndex,
+    workflowRound: 3,
+  });
+}
+
+/** @deprecated Use generateRefinementVariations */
+export async function advanceMockVariations(projectId: string): Promise<CreativeLabProjectFile | null> {
+  return generateRefinementVariations(projectId);
 }
 
 export async function setAssetStatus(
