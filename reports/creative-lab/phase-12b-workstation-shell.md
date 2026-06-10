@@ -131,4 +131,19 @@ Existing workflow ops unchanged: `generatePasses` → `setSelectedConcept` → `
 
 ---
 
+## Deploy
+
+**Attempted:** `npx vercel --prod --yes` (commit `dd4baa1`)
+
+**Result:** Build failed on Vercel — unrelated pre-existing error:
+
+```
+Module not found: Can't resolve 'fs'
+Import trace: OpsMidnightSpecialReview.tsx → midnight-special/clip-mode.ts → paths.ts
+```
+
+Creative Lab shell changes compile locally (`tsc --noEmit` pass). Redeploy after media-collections client/fs boundary is fixed.
+
+---
+
 *Phase 12b complete — workstation shell only.*
