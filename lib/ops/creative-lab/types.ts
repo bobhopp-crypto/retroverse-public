@@ -48,6 +48,8 @@ export type RefinementVariation = {
   treatmentLabel: string;
   parentPromptId: string;
   artDirectionId: ArtDirectionId;
+  /** Generated PNG asset for this refinement */
+  assetId?: string;
   /** @deprecated Legacy layout treatments */
   layoutId?: string;
   /** @deprecated Kept for prompt renderer compatibility */
@@ -65,6 +67,8 @@ export type GeneratedPrompt = {
   variationKey?: ConceptVariationKey;
   /** Groups Concept A–D generated together. */
   variationSetId?: string;
+  /** Linked generated PNG asset */
+  assetId?: string;
   /** Concept strategy template used for this variation. */
   strategyId?: ConceptStrategyId;
   structuredConcept: {

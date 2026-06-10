@@ -13,11 +13,13 @@ import {
   writeArtworkAssetFile,
   writePlaceholderAssetFile,
 } from "./assets";
-import { buildArtworkContext, generateArtwork, resolveArtworkProvider } from "./artwork";
+import { generateArtwork, resolveArtworkProvider } from "./artwork";
+import { compositionForKey } from "./concept-compositions";
 import { buildConceptVariations } from "./concept-variations";
 import { normalizeConceptStrategyMap, strategyForVariation } from "./concept-strategies";
 import { exportFinalDeliverables, exportProjectPackage } from "./export-package";
 import { loadPreset } from "./presets";
+import { renderPassConceptPrompt } from "./pass-concept-prompt";
 import {
   creativeLabProjectIndexPath,
   creativeLabProjectPath,
@@ -27,10 +29,10 @@ import {
 import { persistProjectBundle, ensureProjectLayout } from "./project-storage";
 import { baseProjectSlug, uniqueProjectSlug } from "./project-slug";
 import { DEFAULT_ARTIFACT_TYPE, normalizeArtifactTypeId } from "./artifact-types";
-import { artDirectionByKey } from "./art-directions";
 import { refinementsForArtDirection } from "./art-direction-refinements";
 import { renderPromptText } from "./prompt-renderer";
 import { emptyStyleSelection, normalizeStyleSelection } from "./style-catalog";
+import { CONCEPT_KEYS, visualWorldById, type VisualWorldId } from "./visual-worlds";
 import type {
   CreativeLabIndexFile,
   CreativeLabModuleId,
@@ -102,6 +104,7 @@ function normalizeGeneratedPrompts(
       renderedPrompt,
       variationKey,
       variationSetId: typeof row.variationSetId === "string" ? row.variationSetId : undefined,
+      assetId: typeof row.assetId === "string" ? row.assetId : undefined,
       strategyId,
       structuredConcept: row.structuredConcept ?? {
         event: project.event,
@@ -132,7 +135,9 @@ function normalizeRefinementVariations(raw: unknown): RefinementVariation[] {
       row.artDirectionId === "psychedelic-festival" ||
       row.artDirectionId === "saturday-morning-cartoon" ||
       row.artDirectionId === "vintage-television" ||
-      row.artDirectionId === "collector-memorabilia"
+      row.artDirectionId === "collector-memorabilia" ||
+      row.artDirectionId === "rock-poster" ||
+      row.artDirectionId === "retro-disney-adventure"
         ? row.artDirectionId
         : "psychedelic-festival";
     out.push({
@@ -146,6 +151,7 @@ function normalizeRefinementVariations(raw: unknown): RefinementVariation[] {
             : `refine-${row.index}`,
       treatmentLabel: typeof row.treatmentLabel === "string" ? row.treatmentLabel : `Variant ${row.index}`,
       parentPromptId: typeof row.parentPromptId === "string" ? row.parentPromptId : "",
+      assetId: typeof row.assetId === "string" ? row.assetId : undefined,
       artDirectionId,
       layoutId: typeof row.layoutId === "string" ? row.layoutId : undefined,
       strategyId:
@@ -214,7 +220,9 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
       obj.selectedArtDirectionId === "psychedelic-festival" ||
       obj.selectedArtDirectionId === "saturday-morning-cartoon" ||
       obj.selectedArtDirectionId === "vintage-television" ||
-      obj.selectedArtDirectionId === "collector-memorabilia"
+      obj.selectedArtDirectionId === "collector-memorabilia" ||
+      obj.selectedArtDirectionId === "rock-poster" ||
+      obj.selectedArtDirectionId === "retro-disney-adventure"
         ? obj.selectedArtDirectionId
         : null,
     workflowRound:
@@ -479,6 +487,26 @@ export async function deleteProject(projectId: string): Promise<boolean> {
   return true;
 }
 
+function artworkContextFromPrompt(
+  project: CreativeLabProjectFile,
+  prompt: string,
+  worldId: VisualWorldId,
+  treatmentLabel?: string,
+): import("./artwork/types").ArtworkPromptContext {
+  const world = visualWorldById(worldId);
+  return {
+    prompt,
+    artifactTypeId: project.artifactType ?? "vip-pass",
+    event: project.event,
+    venue: project.venue,
+    date: project.date,
+    featuredYears: project.featuredYears,
+    module: project.activeModule,
+    artDirectionTitle: world.title,
+    treatmentLabel,
+  };
+}
+
 async function attachPlaceholderFiles(
   project: CreativeLabProjectFile,
   assets: CreativeLabAsset[],
@@ -492,7 +520,101 @@ async function attachPlaceholderFiles(
   return out;
 }
 
-/** Generate Concept A–D prompt variations + placeholder assets (no image gen). */
+/** Generate 4 real pass concept images via OpenAI — same visual world, different compositions. */
+export async function generatePassConceptsForProject(
+  projectId: string,
+  visualWorldId: VisualWorldId,
+): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+
+  const folderId = projectFolderId(project);
+  const now = new Date().toISOString();
+  const variationSetId = `set-${Date.now().toString(36)}`;
+  const world = visualWorldById(visualWorldId);
+  const prompts: GeneratedPrompt[] = [];
+  const newAssets: CreativeLabAsset[] = [];
+  const type = moduleDefaultAssetType("pass-lab");
+
+  for (const key of CONCEPT_KEYS) {
+    const comp = compositionForKey(key);
+    const promptText = renderPassConceptPrompt({
+      worldId: visualWorldId,
+      event: project.event,
+      venue: project.venue,
+      date: project.date,
+      featuredYears: project.featuredYears,
+      conceptKey: key,
+    });
+
+    const promptId = `prompt-${Date.now().toString(36)}-${key.toLowerCase()}-${Math.random().toString(36).slice(2, 5)}`;
+    const result = await generateArtwork(
+      artworkContextFromPrompt(project, promptText, visualWorldId, comp.label),
+      { count: 1, quality: "medium", size: "1024x1536" },
+    );
+    const image = result.images[0];
+    if (!image) continue;
+
+    const assetId = `asset-${Date.now().toString(36)}-${key.toLowerCase()}-${Math.random().toString(36).slice(2, 6)}`;
+    const rel = await writeArtworkAssetFile(folderId, assetId, image.buffer);
+
+    newAssets.push({
+      id: assetId,
+      projectId: project.id,
+      type,
+      concept: key,
+      status: "generated",
+      createdAt: now,
+      filePath: rel,
+      promptId,
+      module: "pass-lab",
+      notes: `Concept ${key} · ${world.title} · ${resolveArtworkProvider()}`,
+    });
+
+    prompts.push({
+      id: promptId,
+      module: "pass-lab",
+      conceptSummary: `${comp.label} — ${world.title}`,
+      renderedPrompt: promptText,
+      variationKey: key,
+      variationSetId,
+      assetId,
+      structuredConcept: {
+        event: project.event,
+        venue: project.venue,
+        date: project.date,
+        featuredYears: project.featuredYears,
+        theme: project.theme,
+        dominantStyles: { credential: [], illustration: [], color: [], density: [] },
+        module: "pass-lab",
+        variationKey: key,
+      },
+      createdAt: now,
+    });
+  }
+
+  if (!prompts.length) {
+    throw new Error("No pass concepts were generated");
+  }
+
+  return saveProject({
+    ...project,
+    generatedPrompts: [...prompts, ...project.generatedPrompts].slice(0, 48),
+    assets: [...newAssets, ...project.assets].slice(0, 96),
+    activeModule: "pass-lab",
+    selectedArtDirectionId: visualWorldId,
+    artifactType: project.artifactType ?? "vip-pass",
+    workflowRound: 1,
+    refinementGenerated: false,
+    refinementVariations: [],
+    selectedVariationIndex: null,
+    selectedConceptKey: null,
+    selectedConceptPromptId: null,
+    updatedAt: now,
+  });
+}
+
+/** @deprecated SVG placeholder concepts — use generatePassConceptsForProject */
 export async function generateConceptVariationsForModule(
   projectId: string,
   module: CreativeLabModuleId = "pass-lab",
@@ -538,11 +660,9 @@ export async function setSelectedConcept(
   if (!project) return null;
   const winner = project.generatedPrompts.find((p) => p.id === promptId);
   if (!winner) return null;
-  const direction = artDirectionByKey(winner.variationKey);
   return updateProject(projectId, {
     selectedConceptPromptId: promptId,
     selectedConceptKey: winner.variationKey ?? null,
-    selectedArtDirectionId: direction.id,
     workflowRound: 1,
     refinementGenerated: false,
     refinementVariations: [],
@@ -550,34 +670,93 @@ export async function setSelectedConcept(
   });
 }
 
-export async function generateRefinementVariations(
+/** Generate 8 real refinement images — same world and composition, varied treatments. */
+export async function generateRefinementImages(
   projectId: string,
 ): Promise<CreativeLabProjectFile | null> {
   const project = await loadProject(projectId);
-  if (!project?.selectedConceptPromptId) return null;
+  if (!project?.selectedConceptPromptId || !project.selectedArtDirectionId) return null;
   const parent = project.generatedPrompts.find((p) => p.id === project.selectedConceptPromptId);
-  if (!parent) return null;
+  if (!parent?.variationKey) return null;
 
-  const direction = artDirectionByKey(parent.variationKey);
-  const treatments = refinementsForArtDirection(direction.id);
+  const worldId = project.selectedArtDirectionId as VisualWorldId;
+  const treatments = refinementsForArtDirection(worldId);
+  const folderId = projectFolderId(project);
   const now = new Date().toISOString();
-  const variations: RefinementVariation[] = treatments.map((treatment, i) => ({
-    id: `refine-${Date.now().toString(36)}-${i + 1}`,
-    index: i + 1,
-    treatmentId: treatment.id,
-    treatmentLabel: treatment.label,
-    parentPromptId: parent.id,
-    artDirectionId: direction.id,
-    strategyId: parent.strategyId,
-    createdAt: now,
-  }));
+  const variations: RefinementVariation[] = [];
+  const newAssets: CreativeLabAsset[] = [];
+  const type = moduleDefaultAssetType(project.activeModule);
 
-  return updateProject(projectId, {
+  for (let i = 0; i < treatments.length; i++) {
+    const treatment = treatments[i];
+    const promptText = renderPassConceptPrompt({
+      worldId,
+      event: project.event,
+      venue: project.venue,
+      date: project.date,
+      featuredYears: project.featuredYears,
+      conceptKey: parent.variationKey,
+      refinement: treatment,
+      refinementIndex: i + 1,
+      parentConceptSummary: parent.conceptSummary,
+    });
+
+    const result = await generateArtwork(
+      artworkContextFromPrompt(project, promptText, worldId, treatment.label),
+      { count: 1, quality: "medium", size: "1024x1536" },
+    );
+    const image = result.images[0];
+    if (!image) continue;
+
+    const assetId = `asset-refine-${Date.now().toString(36)}-${i + 1}-${Math.random().toString(36).slice(2, 5)}`;
+    const rel = await writeArtworkAssetFile(folderId, assetId, image.buffer);
+    const varId = `refine-${Date.now().toString(36)}-${i + 1}`;
+
+    variations.push({
+      id: varId,
+      index: i + 1,
+      treatmentId: treatment.id,
+      treatmentLabel: treatment.label,
+      parentPromptId: parent.id,
+      artDirectionId: worldId,
+      assetId,
+      createdAt: now,
+    });
+
+    newAssets.push({
+      id: assetId,
+      projectId: project.id,
+      type,
+      concept: parent.variationKey,
+      status: "generated",
+      createdAt: now,
+      filePath: rel,
+      promptId: parent.id,
+      module: project.activeModule,
+      notes: `Refinement ${i + 1}/8 · ${treatment.label} · ${resolveArtworkProvider()}`,
+    });
+  }
+
+  if (!variations.length) {
+    throw new Error("No refinement images were generated");
+  }
+
+  return saveProject({
+    ...project,
     workflowRound: 2,
     refinementGenerated: true,
     refinementVariations: variations,
     selectedVariationIndex: null,
+    assets: [...newAssets, ...project.assets].slice(0, 96),
+    updatedAt: now,
   });
+}
+
+/** Alias — generates 8 real refinement images. */
+export async function generateRefinementVariations(
+  projectId: string,
+): Promise<CreativeLabProjectFile | null> {
+  return generateRefinementImages(projectId);
 }
 
 export async function setSelectedVariation(
@@ -594,51 +773,9 @@ export async function setSelectedVariation(
   });
 }
 
-/** Generate 4 artwork PNGs for the selected art-direction variation. */
+/** @deprecated Artwork is generated with refinements in Phase 9 workflow */
 export async function generateArtworkForProject(projectId: string): Promise<CreativeLabProjectFile | null> {
-  const project = await loadProject(projectId);
-  if (!project) return null;
-  if (!project.selectedConceptPromptId) return null;
-  if (!project.selectedVariationIndex) return null;
-
-  const winningPrompt = project.generatedPrompts.find((p) => p.id === project.selectedConceptPromptId);
-  if (!winningPrompt) return null;
-
-  const refinement = project.refinementVariations?.find((v) => v.index === project.selectedVariationIndex);
-  if (!refinement) return null;
-
-  const preset = project.activePresetId ? await loadPreset(project.activePresetId) : null;
-  const context = buildArtworkContext(project, winningPrompt, preset, refinement);
-  const result = await generateArtwork(context, { count: 4, quality: "medium", size: "1024x1536" });
-
-  const folderId = projectFolderId(project);
-  const now = new Date().toISOString();
-  const type = moduleDefaultAssetType(project.activeModule);
-  const newAssets: CreativeLabAsset[] = [];
-
-  for (const image of result.images) {
-    const id = `asset-${Date.now().toString(36)}-${image.index}-${Math.random().toString(36).slice(2, 6)}`;
-    const rel = await writeArtworkAssetFile(folderId, id, image.buffer);
-    newAssets.push({
-      id,
-      projectId: project.id,
-      type,
-      concept: winningPrompt.variationKey,
-      status: "generated",
-      createdAt: now,
-      filePath: rel,
-      promptId: winningPrompt.id,
-      module: project.activeModule,
-      strategyId: winningPrompt.strategyId,
-      notes: `Artwork ${image.index}/4 · ${refinement.treatmentLabel} · ${resolveArtworkProvider()}`,
-    });
-  }
-
-  return saveProject({
-    ...project,
-    assets: [...newAssets, ...project.assets].slice(0, 96),
-    updatedAt: now,
-  });
+  return loadProject(projectId);
 }
 
 /** @deprecated Use generateRefinementVariations */

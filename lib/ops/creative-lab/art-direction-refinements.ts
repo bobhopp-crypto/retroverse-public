@@ -55,13 +55,37 @@ const COLLECTOR_REFINEMENTS: ArtRefinementTreatment[] = [
   { id: "col-display", label: "Display case plaque", borderTreatment: "plaque-frame", typography: "engraved", illustrationDensity: "medium", numberingTreatment: "plaque-no", decorativeMotif: "brass-plate", layoutEmphasis: "commemorative" },
 ];
 
+const ROCK_POSTER_REFINEMENTS: ArtRefinementTreatment[] = [
+  { id: "rock-screen", label: "Screen print classic", borderTreatment: "screen-edge", typography: "stacked-poster", illustrationDensity: "heavy", numberingTreatment: "corner-stamp", decorativeMotif: "ink-splatter", layoutEmphasis: "silhouette-hero" },
+  { id: "rock-gig", label: "Club handbill tear", borderTreatment: "torn-paper", typography: "distressed-caps", illustrationDensity: "medium", numberingTreatment: "serial-line", decorativeMotif: "guitar-silhouette", layoutEmphasis: "wide-banner" },
+  { id: "rock-neon", label: "Neon marquee glow", borderTreatment: "neon-frame", typography: "marquee-bold", illustrationDensity: "medium", numberingTreatment: "ticket-no", decorativeMotif: "spotlight", layoutEmphasis: "title-dominant" },
+  { id: "rock-vintage", label: "Vintage silkscreen", borderTreatment: "registration-marks", typography: "block-serif", illustrationDensity: "heavy", numberingTreatment: "edition-stamp", decorativeMotif: "halftone", layoutEmphasis: "center-crest" },
+  { id: "rock-punk", label: "Punk zine energy", borderTreatment: "xerox-edge", typography: "cut-and-paste", illustrationDensity: "heavy", numberingTreatment: "hand-stamped", decorativeMotif: "safety-pin", layoutEmphasis: "collage" },
+  { id: "rock-minimal", label: "Minimal ink block", borderTreatment: "rough-rect", typography: "single-weight", illustrationDensity: "light", numberingTreatment: "subtle-no", decorativeMotif: "single-icon", layoutEmphasis: "negative-space" },
+  { id: "rock-festival", label: "Festival lineup poster", borderTreatment: "multi-band-frame", typography: "lineup-stack", illustrationDensity: "medium", numberingTreatment: "day-badge", decorativeMotif: "star-burst", layoutEmphasis: "vertical-marquee" },
+  { id: "rock-maximal", label: "Maximal gig collage", borderTreatment: "layered-posters", typography: "mixed-weights", illustrationDensity: "heavy", numberingTreatment: "foil-badge", decorativeMotif: "multi-icon", layoutEmphasis: "layered-depth" },
+];
+
+const RETRO_DISNEY_REFINEMENTS: ArtRefinementTreatment[] = [
+  { id: "disney-storybook", label: "Storybook scroll", borderTreatment: "scroll-border", typography: "storybook-serif", illustrationDensity: "heavy", numberingTreatment: "ticket-serial", decorativeMotif: "star-sparkle", layoutEmphasis: "character-hero" },
+  { id: "disney-ticket", label: "Enchanted ticket", borderTreatment: "ticket-shape", typography: "park-display", illustrationDensity: "medium", numberingTreatment: "admit-one", decorativeMotif: "castle-silhouette", layoutEmphasis: "banner-header" },
+  { id: "disney-map", label: "Park map charm", borderTreatment: "map-frame", typography: "wayfinding", illustrationDensity: "medium", numberingTreatment: "zone-badge", decorativeMotif: "compass-rose", layoutEmphasis: "landscape" },
+  { id: "disney-midcentury", label: "Mid-century adventure", borderTreatment: "atomic-curve", typography: "retro-sans", illustrationDensity: "medium", numberingTreatment: "gold-foil-no", decorativeMotif: "teacup-sparkle", layoutEmphasis: "symmetric-frame" },
+  { id: "disney-fantasy", label: "Fantasyland glow", borderTreatment: "enchanted-glow", typography: "whimsical-script", illustrationDensity: "heavy", numberingTreatment: "magic-number", decorativeMotif: "fairy-dust", layoutEmphasis: "center-crest" },
+  { id: "disney-vintage", label: "Vintage souvenir", borderTreatment: "souvenir-frame", typography: "commemorative", illustrationDensity: "light", numberingTreatment: "edition-of", decorativeMotif: "ribbon-seal", layoutEmphasis: "badge-dominant" },
+  { id: "disney-adventure", label: "Adventureland trail", borderTreatment: "jungle-vine", typography: "expedition-caps", illustrationDensity: "medium", numberingTreatment: "expedition-no", decorativeMotif: "compass", layoutEmphasis: "horizontal-strip" },
+  { id: "disney-treasure", label: "Treasure map edition", borderTreatment: "aged-parchment", typography: "pirate-serif", illustrationDensity: "heavy", numberingTreatment: "x-marks", decorativeMotif: "treasure-chest", layoutEmphasis: "map-layout" },
+];
+
 export const ART_REFINEMENT_TREATMENTS: Record<ArtDirectionId, ArtRefinementTreatment[]> = {
   "psychedelic-festival": PSYCHEDELIC_REFINEMENTS,
   "saturday-morning-cartoon": CARTOON_REFINEMENTS,
   "vintage-television": TELEVISION_REFINEMENTS,
   "collector-memorabilia": COLLECTOR_REFINEMENTS,
+  "rock-poster": ROCK_POSTER_REFINEMENTS,
+  "retro-disney-adventure": RETRO_DISNEY_REFINEMENTS,
 };
 
-export function refinementsForArtDirection(id: ArtDirectionId): ArtRefinementTreatment[] {
-  return ART_REFINEMENT_TREATMENTS[id] ?? PSYCHEDELIC_REFINEMENTS;
+export function refinementsForArtDirection(id: ArtDirectionId | string): ArtRefinementTreatment[] {
+  return ART_REFINEMENT_TREATMENTS[id as ArtDirectionId] ?? PSYCHEDELIC_REFINEMENTS;
 }

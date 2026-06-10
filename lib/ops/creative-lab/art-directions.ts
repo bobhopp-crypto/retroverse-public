@@ -1,10 +1,8 @@
+import type { VisualWorldId } from "./visual-worlds";
+import { VISUAL_WORLDS } from "./visual-worlds";
 import type { ConceptVariationKey } from "./types";
 
-export type ArtDirectionId =
-  | "psychedelic-festival"
-  | "saturday-morning-cartoon"
-  | "vintage-television"
-  | "collector-memorabilia";
+export type ArtDirectionId = VisualWorldId;
 
 export type CollectibilityLevel = "High" | "Very High" | "Medium";
 
@@ -60,7 +58,39 @@ export const ART_DIRECTIONS: ArtDirection[] = [
     whyThisWorks: "Archival souvenir framing — the pass becomes a numbered collectible artifact.",
     palette: ["#d4a574", "#8b6914", "#f5e6c8", "#2d2d2d", "#b8860b"],
   },
+  {
+    id: "rock-poster",
+    key: "A",
+    title: "Rock Poster",
+    subtitle: "Gig posters · screen print · club handbills",
+    styleChips: ["Screen Print", "Gig Poster", "Silkscreen", "Bold Ink"],
+    collectibility: "Very High",
+    whyThisWorks: "Screen-print authority — looks like a legendary club poster shrunk to pass size.",
+    palette: ["#1a1a1a", "#e85d2a", "#f4c430", "#c41e3a", "#f0ead6"],
+  },
+  {
+    id: "retro-disney-adventure",
+    key: "B",
+    title: "Retro Disney Adventure",
+    subtitle: "Storybook parks · mid-century enchantment",
+    styleChips: ["Storybook", "Adventure Park", "Whimsical", "Enchanted"],
+    collectibility: "High",
+    whyThisWorks: "Mid-century adventure park charm — whimsical borders and storybook illustration.",
+    palette: ["#4a90a4", "#f4c430", "#e8d5b7", "#2d5a4a", "#fff8f0"],
+  },
 ];
+
+/** All six art-directed worlds from structured presets. */
+export const ALL_ART_DIRECTIONS: ArtDirection[] = VISUAL_WORLDS.map((w) => ({
+  id: w.id,
+  key: "A" as ConceptVariationKey,
+  title: w.title,
+  subtitle: w.visualReferences.slice(0, 2).join(" · "),
+  styleChips: w.visualReferences.slice(0, 4),
+  collectibility: "High" as CollectibilityLevel,
+  whyThisWorks: w.description,
+  palette: w.palette,
+}));
 
 export const ART_DIRECTION_BY_KEY: Record<ConceptVariationKey, ArtDirectionId> = {
   A: "psychedelic-festival",

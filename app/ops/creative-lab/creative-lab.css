@@ -1916,6 +1916,210 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.cl-art-generate-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+/* Phase 9 — visual world picker + pass image deck */
+.cl-world-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.cl-world-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: 3px solid var(--border);
+  border-radius: 12px;
+  background: var(--paper);
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cl-world-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--border);
+}
+
+.cl-world-card--on {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.cl-world-card__badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.cl-world-card {
+  position: relative;
+}
+
+.cl-world-card__hero {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.cl-world-hero {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.cl-world-card__body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cl-world-card__body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.cl-world-card__desc {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--dim);
+  line-height: 1.4;
+}
+
+.cl-world-card__meta {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+  font-size: 0.75rem;
+}
+
+.cl-world-card__meta dt {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+}
+
+.cl-world-card__meta dd {
+  margin: 0 0 4px;
+}
+
+.cl-world-card__refs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cl-world-card__ref {
+  font-size: 0.68rem;
+  padding: 3px 7px;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--paper) 80%, var(--accent) 20%);
+}
+
+.cl-pass-deck__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cl-pass-deck__grid--refine {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.cl-pass-card {
+  border: 3px solid var(--border);
+  border-radius: 12px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.cl-pass-card--selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.cl-pass-card__frame {
+  position: relative;
+  aspect-ratio: 1024 / 1536;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.cl-pass-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cl-pass-card__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #ccc;
+  font-size: 0.85rem;
+}
+
+.cl-pass-card__key {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.cl-pass-card__body {
+  padding: 12px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cl-pass-card__body h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.cl-pass-card__select {
+  margin-top: 4px;
+  padding: 10px 14px;
+  border: 3px solid var(--border);
+  border-radius: 8px;
+  background: var(--paper);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cl-pass-card__select--on {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
 @media (max-width: 900px) {
   .cl-workspace {
     grid-template-columns: 1fr;
@@ -1928,6 +2132,9 @@
   .cl-desk__output-grid,
   .cl-desk__preset-grid,
   .cl-desk__artifact-grid,
+  .cl-world-grid,
+  .cl-pass-deck__grid,
+  .cl-pass-deck__grid--refine,
   .cl-concept-deck__grid,
   .cl-concept-deck__grid--refine,
   .cl-art-deck__grid,

@@ -6,6 +6,8 @@ import {
   deleteProject,
   generateArtworkForProject,
   generateConceptForModule,
+  generatePassConceptsForProject,
+  generateRefinementImages,
   generateRefinementVariations,
   loadProject,
   markAssetFinal,
@@ -81,10 +83,26 @@ export async function PUT(req: Request, ctx: Ctx) {
     return NextResponse.json({ ok: true, project });
   }
 
-  if (body.op === "advanceMockVariations" || body.op === "generateRefinementVariations") {
-    const project = await generateRefinementVariations(id);
-    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
-    return NextResponse.json({ ok: true, project });
+  if (body.op === "generatePasses" && typeof body.visualWorldId === "string") {
+    try {
+      const project = await generatePassConceptsForProject(id, body.visualWorldId as import("@/lib/ops/creative-lab/visual-worlds").VisualWorldId);
+      if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+      return NextResponse.json({ ok: true, project });
+    } catch (e) {
+      const message = e instanceof Error ? e.message : "pass_generation_failed";
+      return NextResponse.json({ error: message }, { status: 502 });
+    }
+  }
+
+  if (body.op === "generateRefinementImages" || body.op === "generateRefinementVariations" || body.op === "advanceMockVariations") {
+    try {
+      const project = await generateRefinementImages(id);
+      if (!project) return NextResponse.json({ error: "prerequisites_missing" }, { status: 400 });
+      return NextResponse.json({ ok: true, project });
+    } catch (e) {
+      const message = e instanceof Error ? e.message : "refinement_generation_failed";
+      return NextResponse.json({ error: message }, { status: 502 });
+    }
   }
 
   if (body.op === "setSelectedVariation" && typeof body.variationIndex === "number") {
@@ -135,6 +153,15 @@ export async function PUT(req: Request, ctx: Ctx) {
       ? normalizeConceptStrategyMap(body.conceptStrategies)
       : undefined,
     artifactType: body.artifactType !== undefined ? normalizeArtifactTypeId(body.artifactType) : undefined,
+    selectedArtDirectionId:
+      body.selectedArtDirectionId === "psychedelic-festival" ||
+      body.selectedArtDirectionId === "saturday-morning-cartoon" ||
+      body.selectedArtDirectionId === "vintage-television" ||
+      body.selectedArtDirectionId === "collector-memorabilia" ||
+      body.selectedArtDirectionId === "rock-poster" ||
+      body.selectedArtDirectionId === "retro-disney-adventure"
+        ? body.selectedArtDirectionId
+        : undefined,
     activeModule:
       body.activeModule === "poster-lab" ||
       body.activeModule === "bumper-lab" ||

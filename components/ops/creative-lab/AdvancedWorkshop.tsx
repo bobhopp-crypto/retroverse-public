@@ -1,5 +1,6 @@
 "use client";
 
+import { ARTIFACT_TYPES, type ArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
 import { STYLE_CATALOG } from "@/lib/ops/creative-lab/style-catalog";
 import type {
   CreativeLabModuleId,
@@ -80,6 +81,8 @@ type Props = {
   onDuplicatePreset: (preset: CreativeLabPresetFile) => void;
   onSaveCustomPreset: (preset: CreativeLabPresetFile) => void;
   onGenerateConcept: () => void;
+  artifactTypeId: ArtifactTypeId;
+  onArtifactTypeChange: (id: ArtifactTypeId) => void;
   onApproveAsset: (id: string) => void;
   onRejectAsset: (id: string) => void;
   onSetFinalAsset: (id: string, slot: FinalAssetSlot) => void;
@@ -238,9 +241,42 @@ export function AdvancedWorkshop(props: Props) {
 
         {p.panel === "pass-lab" && p.project ? (
           <div className="cl-panel">
-            <header className="cl-panel__head"><h2>Pass Lab</h2></header>
+            <header className="cl-panel__head">
+              <h2>Pass Lab — power tools</h2>
+              <p className="ops-dim">Artifact type, prompts, workflow state, and legacy concept generation.</p>
+            </header>
+            <section className="cl-card cl-card--wide">
+              <h3>Artifact type</h3>
+              <div className="cl-desk__artifact-grid">
+                {ARTIFACT_TYPES.map((artifact) => (
+                  <button
+                    key={artifact.id}
+                    type="button"
+                    className={`cl-desk__artifact-btn${p.artifactTypeId === artifact.id ? " cl-desk__artifact-btn--on" : ""}`}
+                    onClick={() => p.onArtifactTypeChange(artifact.id)}
+                  >
+                    <span className="cl-desk__artifact-label">{artifact.label}</span>
+                  </button>
+                ))}
+              </div>
+            </section>
+            <section className="cl-card cl-card--wide">
+              <h3>Workflow state</h3>
+              <dl className="cl-meta-dl">
+                <dt>Round</dt>
+                <dd>{p.project.workflowRound ?? 1}</dd>
+                <dt>Visual world</dt>
+                <dd>{p.project.selectedArtDirectionId ?? "—"}</dd>
+                <dt>Selected concept</dt>
+                <dd>{p.project.selectedConceptKey ?? "—"}</dd>
+                <dt>Selected variation</dt>
+                <dd>{p.project.selectedVariationIndex ?? "—"}</dd>
+                <dt>Assets</dt>
+                <dd>{p.project.assets.length} total · {p.project.assets.filter((a) => a.filePath?.endsWith(".png")).length} PNG</dd>
+              </dl>
+            </section>
             <p>{p.project.event} · {weightedStylesSummary(p.project.styleSelection)}</p>
-            <button type="button" className="ops-btn ops-btn--ok" disabled={p.busy} onClick={p.onGenerateConcept}>Generate Concept A–D</button>
+            <button type="button" className="ops-btn ops-btn--ok" disabled={p.busy} onClick={p.onGenerateConcept}>Generate legacy SVG concepts</button>
             <PromptPreviewPanel project={p.project} activePreset={p.activePreset} />
             <ConceptVariationsPanel prompts={p.project.generatedPrompts} />
             <AssetGenerationPlaceholder

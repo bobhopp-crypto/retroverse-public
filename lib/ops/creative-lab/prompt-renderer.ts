@@ -5,8 +5,8 @@ import {
   type ConceptStrategyMap,
 } from "./concept-strategies";
 import { styleById, topWeightedStyles } from "./style-catalog";
-import { artifactTypeById } from "./artifact-types";
-import type { ArtifactTypeId, CreativeLabModuleId, CreativeLabPresetFile, CreativeLabProjectFile, StyleCategory } from "./types";
+import { artifactTypeById, type ArtifactTypeId } from "./artifact-types";
+import type { CreativeLabModuleId, CreativeLabPresetFile, CreativeLabProjectFile, StyleCategory } from "./types";
 
 export type PromptRenderInput = {
   event: string;

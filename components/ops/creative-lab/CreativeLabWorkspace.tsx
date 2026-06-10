@@ -18,7 +18,7 @@ import {
 } from "@/lib/ops/creative-lab/workspace/urls";
 import { DEFAULT_ARTIFACT_TYPE, type ArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
 import { WORKSTATION_EVENT_DEFAULTS } from "@/lib/ops/creative-lab/workstation-defaults";
-import { WORKSTATION_OUTPUTS } from "@/lib/ops/creative-lab/workstation-presets";
+import type { VisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 
 import { AdvancedWorkshop } from "./AdvancedWorkshop";
 import { CreativeWorkstation } from "./CreativeWorkstation";
@@ -49,10 +49,9 @@ function parseYears(raw: string): number[] {
 const { event: DEFAULT_EVENT, venue: DEFAULT_VENUE, date: DEFAULT_DATE, featuredYears: DEFAULT_YEARS } =
   WORKSTATION_EVENT_DEFAULTS;
 
-function projectDisplayName(event: string, outputId: string): string {
+function projectDisplayName(event: string): string {
   const eventName = event.trim() || "Creative Session";
-  const output = WORKSTATION_OUTPUTS.find((o) => o.id === outputId);
-  return output ? `${eventName} ${output.label}` : eventName;
+  return `${eventName} VIP Pass`;
 }
 
 export function CreativeLabWorkspace() {
@@ -79,12 +78,10 @@ export function CreativeLabWorkspace() {
   const [deskVenue, setDeskVenue] = useState(DEFAULT_VENUE);
   const [deskDate, setDeskDate] = useState(DEFAULT_DATE);
   const [deskYears, setDeskYears] = useState<number[]>([...DEFAULT_YEARS]);
-  const [outputId, setOutputId] = useState("pass");
+  const [selectedVisualWorldId, setSelectedVisualWorldId] = useState<VisualWorldId>("psychedelic-festival");
   const [selectedPresetId, setSelectedPresetId] = useState<string | null>("sunday-nights-classic");
   const [artifactTypeId, setArtifactTypeId] = useState<ArtifactTypeId>(DEFAULT_ARTIFACT_TYPE);
   const [deskSelection, setDeskSelection] = useState<StyleSelection | null>(null);
-  const [showAdvancedOutputs, setShowAdvancedOutputs] = useState(false);
-  const [showStyleAdvanced, setShowStyleAdvanced] = useState(false);
 
   const [newName, setNewName] = useState("");
   const [newEvent, setNewEvent] = useState("");
@@ -173,6 +170,7 @@ export function CreativeLabWorkspace() {
     setDeskSelection(project.styleSelection);
     if (project.activePresetId) setSelectedPresetId(project.activePresetId);
     if (project.artifactType) setArtifactTypeId(project.artifactType);
+    if (project.selectedArtDirectionId) setSelectedVisualWorldId(project.selectedArtDirectionId);
   }, [project?.id]);
 
   const draftSelection = project?.styleSelection ?? deskSelection;
@@ -201,7 +199,7 @@ export function CreativeLabWorkspace() {
   }
 
   async function createProjectFromDesk(): Promise<CreativeLabProjectFile> {
-    const name = projectDisplayName(deskEvent, outputId);
+    const name = projectDisplayName(deskEvent);
     const res = await fetch("/api/ops/creative-lab/projects", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -358,6 +356,7 @@ export function CreativeLabWorkspace() {
     if (!project) return;
     setBusy(true);
     setNotice(null);
+    setError(null);
     try {
       const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}`, {
         method: "PUT",
@@ -367,6 +366,13 @@ export function CreativeLabWorkspace() {
       const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
       if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "project_op_failed");
       setProject(data.project);
+      if (body.op === "generateRefinementImages") {
+        setNotice("Eight pass variations generated — pick your final pass.");
+      } else if (body.op === "setSelectedConcept") {
+        setNotice("Concept selected — ready to refine.");
+      } else if (body.op === "setSelectedVariation") {
+        setNotice("Pass selected — approve in Advanced Workshop.");
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "project_op_failed");
     } finally {
@@ -465,10 +471,8 @@ export function CreativeLabWorkspace() {
     }
   }
 
-  async function workstationGenerate() {
-    const preset = presets.find((p) => p.id === selectedPresetId);
-    const output = WORKSTATION_OUTPUTS.find((o) => o.id === outputId) ?? WORKSTATION_OUTPUTS[0];
-    if (!preset || !output.available) return;
+  async function workstationGeneratePasses() {
+    if (!selectedVisualWorldId) return;
 
     setBusy(true);
     setError(null);
@@ -485,15 +489,13 @@ export function CreativeLabWorkspace() {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: projectDisplayName(deskEvent, outputId),
+          name: projectDisplayName(deskEvent),
           event: deskEvent,
           venue: deskVenue,
           date: deskDate,
           featuredYears: deskYears,
-          styleSelection: deskSelection ?? preset.styleSelection,
-          activePresetId: preset.id,
-          conceptStrategies: preset.conceptStrategies,
-          artifactType: artifactTypeId,
+          selectedArtDirectionId: selectedVisualWorldId,
+          artifactType: "vip-pass",
         }),
       });
       const patchData = (await patchRes.json()) as {
@@ -508,12 +510,12 @@ export function CreativeLabWorkspace() {
       const genRes = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(active.id)}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ op: "generateConcept", module: output.module }),
+        body: JSON.stringify({ op: "generatePasses", visualWorldId: selectedVisualWorldId }),
       });
       const genData = (await genRes.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
-      if (!genRes.ok || !genData.ok || !genData.project) throw new Error(genData.error ?? "concept_failed");
+      if (!genRes.ok || !genData.ok || !genData.project) throw new Error(genData.error ?? "pass_generation_failed");
       setProject(genData.project);
-      setNotice("Concept deck ready — four directions generated.");
+      setNotice("Four pass concepts generated — pick your direction.");
       await loadIndex();
     } catch (e) {
       setError(e instanceof Error ? e.message : "generate_failed");
@@ -554,39 +556,24 @@ export function CreativeLabWorkspace() {
       <>
         {statusBar}
         <CreativeWorkstation
-          presets={presets}
           project={project}
-          styleSelection={deskSelection}
           busy={busy}
           event={deskEvent}
           venue={deskVenue}
           date={deskDate}
           years={deskYears}
-          outputId={outputId}
-          selectedPresetId={selectedPresetId}
-          artifactTypeId={artifactTypeId}
-          showAdvancedOutputs={showAdvancedOutputs}
-          showStyleAdvanced={showStyleAdvanced}
+          selectedVisualWorldId={selectedVisualWorldId}
           onEventChange={setDeskEvent}
           onVenueChange={setDeskVenue}
           onDateChange={setDeskDate}
           onYearsChange={setDeskYears}
-          onOutputChange={setOutputId}
-          onPresetSelect={onPresetSelect}
-          onArtifactTypeChange={setArtifactTypeId}
-          onToggleAdvancedOutputs={() => setShowAdvancedOutputs((v) => !v)}
-          onToggleStyleAdvanced={() => setShowStyleAdvanced((v) => !v)}
-          onGenerate={() => void workstationGenerate()}
+          onVisualWorldSelect={setSelectedVisualWorldId}
+          onGeneratePasses={() => void workstationGeneratePasses()}
           onSelectWinner={(promptId) => void projectOp({ op: "setSelectedConcept", promptId })}
-          onGenerateRefinement={() => void projectOp({ op: "generateRefinementVariations" })}
+          onGenerateRefinement={() => void projectOp({ op: "generateRefinementImages" })}
           onSelectVariation={(variationIndex) =>
             void projectOp({ op: "setSelectedVariation", variationIndex })
           }
-          onGenerateArtwork={() => void generateArtwork()}
-          onStyleChange={(next) => {
-            setDeskSelection(next);
-            if (project) setProject({ ...project, styleSelection: next });
-          }}
           onOpenAdvanced={() => navigate({ panel: "projects", project: projectId })}
         />
       </>
@@ -652,6 +639,11 @@ export function CreativeLabWorkspace() {
         onDuplicatePreset={(preset) => void duplicatePreset(preset)}
         onSaveCustomPreset={(preset) => void savePresetAsCustom(preset)}
         onGenerateConcept={() => void generateConcept("pass-lab")}
+        artifactTypeId={artifactTypeId}
+        onArtifactTypeChange={(id) => {
+          setArtifactTypeId(id);
+          if (project) void saveProjectPatch({ artifactType: id });
+        }}
         onApproveAsset={(id) => void projectOp({ op: "approveAsset", assetId: id })}
         onRejectAsset={(id) => void projectOp({ op: "rejectAsset", assetId: id })}
         onSetFinalAsset={(id, slot) => void projectOp({ op: "setFinalAsset", assetId: id, slot })}

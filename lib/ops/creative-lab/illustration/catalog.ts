@@ -17,6 +17,8 @@ export const ILLUSTRATION_BY_CATEGORY: Record<ArtDirectionId, IllustrationAsset[
   "saturday-morning-cartoon": CARTOON_ASSETS,
   "vintage-television": TELEVISION_ASSETS,
   "collector-memorabilia": COLLECTOR_ASSETS,
+  "rock-poster": PSYCHEDELIC_ASSETS,
+  "retro-disney-adventure": CARTOON_ASSETS,
 };
 
 export function assetsForCategory(id: ArtDirectionId): IllustrationAsset[] {
@@ -33,6 +35,8 @@ export function catalogStats(): Record<ArtDirectionId, number> & { total: number
     "saturday-morning-cartoon": CARTOON_ASSETS.length,
     "vintage-television": TELEVISION_ASSETS.length,
     "collector-memorabilia": COLLECTOR_ASSETS.length,
+    "rock-poster": PSYCHEDELIC_ASSETS.length,
+    "retro-disney-adventure": CARTOON_ASSETS.length,
     total: ILLUSTRATION_CATALOG.length,
   };
   return counts;

@@ -2,13 +2,9 @@
 
 import { useMemo } from "react";
 
-import { artDirectionByKey } from "@/lib/ops/creative-lab/art-directions";
-import { refinementsForArtDirection } from "@/lib/ops/creative-lab/art-direction-refinements";
-import { buildRefinementArtBoardSpec } from "@/lib/ops/creative-lab/art-board-spec";
+import { compositionForKey } from "@/lib/ops/creative-lab/concept-compositions";
 import type { CreativeLabProjectFile, GeneratedPrompt } from "@/lib/ops/creative-lab/types";
-
-import { ArtDirectionBoard } from "./ArtDirectionBoard";
-import { ArtDirectionCard } from "./ArtDirectionCard";
+import { visualWorldById } from "@/lib/ops/creative-lab/visual-worlds";
 
 type Props = {
   prompts: GeneratedPrompt[];
@@ -17,11 +13,20 @@ type Props = {
   onSelectWinner: (promptId: string) => void;
   onGenerateRefinement: () => void;
   onSelectVariation: (index: number) => void;
-  onGenerateArtwork: () => void;
 };
 
+function assetUrl(project: CreativeLabProjectFile, assetId: string): string {
+  const slug = project.folderSlug || project.id;
+  return `/api/ops/creative-lab/projects/${encodeURIComponent(slug)}/assets/${encodeURIComponent(assetId)}`;
+}
+
+function assetForPrompt(project: CreativeLabProjectFile, prompt: GeneratedPrompt) {
+  if (prompt.assetId) return project.assets.find((a) => a.id === prompt.assetId);
+  return project.assets.find((a) => a.promptId === prompt.id && a.filePath?.endsWith(".png"));
+}
+
 export function ConceptDeck(props: Props) {
-  const { prompts, project, busy, onSelectWinner, onGenerateRefinement, onSelectVariation, onGenerateArtwork } = props;
+  const { prompts, project, busy, onSelectWinner, onGenerateRefinement, onSelectVariation } = props;
   const latestSetId = prompts.find((p) => p.variationSetId)?.variationSetId;
   const round1Concepts = useMemo(() => {
     if (!latestSetId) return prompts.slice(0, 4);
@@ -30,46 +35,69 @@ export function ConceptDeck(props: Props) {
 
   const selectedId = project.selectedConceptPromptId ?? null;
   const winningPrompt = round1Concepts.find((p) => p.id === selectedId) ?? null;
-  const winningDirection = winningPrompt ? artDirectionByKey(winningPrompt.variationKey) : null;
+  const world = visualWorldById(project.selectedArtDirectionId);
   const refinementGenerated = project.refinementGenerated === true;
   const refinements = project.refinementVariations ?? [];
   const selectedVariation = project.selectedVariationIndex ?? null;
-  const artTreatments = winningDirection ? refinementsForArtDirection(winningDirection.id) : [];
 
   if (!round1Concepts.length) return null;
 
   return (
-    <section className="cl-concept-deck cl-art-deck" aria-label="Art direction workflow">
+    <section className="cl-concept-deck cl-pass-deck" aria-label="Pass concept workflow">
       {!refinementGenerated ? (
         <>
           <header className="cl-concept-deck__head">
-            <h2>Choose a visual world</h2>
-            <p className="ops-dim">Four illustrated directions — pick the emotional tone you want to refine.</p>
+            <h2>Concept A–D</h2>
+            <p className="ops-dim">
+              Four illustrated passes in <strong>{world.title}</strong> — pick the direction to refine.
+            </p>
           </header>
-          <div className="cl-concept-deck__grid cl-art-deck__grid">
+          <div className="cl-pass-deck__grid">
             {round1Concepts.map((p) => {
               const key = p.variationKey ?? "A";
+              const comp = compositionForKey(key);
+              const asset = assetForPrompt(project, p);
               const isWinner = selectedId === p.id;
               return (
-                <ArtDirectionCard
+                <article
                   key={p.id}
-                  variationKey={key}
-                  project={project}
-                  selected={isWinner}
-                  onSelect={() => onSelectWinner(p.id)}
-                  selectLabel="USE THIS DIRECTION"
-                  selectedLabel="✓ DIRECTION SELECTED"
-                />
+                  className={`cl-pass-card${isWinner ? " cl-pass-card--selected" : ""}`}
+                >
+                  <div className="cl-pass-card__frame">
+                    {asset?.filePath?.endsWith(".png") && asset.id ? (
+                      <img
+                        src={assetUrl(project, asset.id)}
+                        alt={`Concept ${key} — ${comp.label}`}
+                        className="cl-pass-card__img"
+                      />
+                    ) : (
+                      <div className="cl-pass-card__loading">Generating…</div>
+                    )}
+                    <span className="cl-pass-card__key">Concept {key}</span>
+                  </div>
+                  <div className="cl-pass-card__body">
+                    <h3>{comp.label}</h3>
+                    <p className="ops-dim">{p.conceptSummary}</p>
+                    <button
+                      type="button"
+                      className={`cl-pass-card__select${isWinner ? " cl-pass-card__select--on" : ""}`}
+                      disabled={busy || !asset}
+                      onClick={() => onSelectWinner(p.id)}
+                    >
+                      {isWinner ? "✓ CONCEPT SELECTED" : "USE THIS CONCEPT"}
+                    </button>
+                  </div>
+                </article>
               );
             })}
           </div>
 
-          {winningPrompt && winningDirection ? (
+          {winningPrompt ? (
             <section className="cl-refine-cta">
-              <h3 className="cl-refine-cta__title">REFINE THIS DIRECTION</h3>
+              <h3 className="cl-refine-cta__title">REFINE THIS CONCEPT</h3>
               <p className="cl-refine-cta__desc">
-                <strong>{winningDirection.title}</strong> selected — generate 8 illustrated refinements inside the
-                same art family.
+                <strong>{compositionForKey(winningPrompt.variationKey ?? "A").label}</strong> in{" "}
+                <strong>{world.title}</strong> — generate 8 illustrated variations.
               </p>
               <button
                 type="button"
@@ -77,7 +105,7 @@ export function ConceptDeck(props: Props) {
                 disabled={busy}
                 onClick={onGenerateRefinement}
               >
-                GENERATE 8 REFINEMENTS
+                GENERATE 8 VARIATIONS
               </button>
             </section>
           ) : null}
@@ -85,43 +113,43 @@ export function ConceptDeck(props: Props) {
       ) : (
         <>
           <header className="cl-concept-deck__head">
-            <h2>Refine this direction</h2>
+            <h2>Pick your pass</h2>
             <p className="cl-concept-deck__inherit ops-dim">
-              Staying inside <strong>{winningDirection?.title}</strong>
-              {project.event ? <> · {project.event}</> : null}
+              Same world · same composition · varied borders, color, type, and ornament
             </p>
           </header>
-          <div className="cl-concept-deck__grid cl-concept-deck__grid--refine cl-art-deck__grid--refine">
+          <div className="cl-pass-deck__grid cl-pass-deck__grid--refine">
             {refinements.map((variation) => {
-              const treatment =
-                artTreatments.find((t) => t.id === variation.treatmentId) ?? artTreatments[variation.index - 1];
-              const spec = buildRefinementArtBoardSpec(
-                project,
-                winningDirection!.id,
-                treatment,
-                variation.index,
-              );
+              const asset = variation.assetId
+                ? project.assets.find((a) => a.id === variation.assetId)
+                : undefined;
               const isWinner = selectedVariation === variation.index;
               return (
                 <article
                   key={variation.id}
-                  className={`cl-art-card cl-art-card--refine${isWinner ? " cl-art-card--selected" : ""}`}
+                  className={`cl-pass-card cl-pass-card--refine${isWinner ? " cl-pass-card--selected" : ""}`}
                 >
-                  <div className="cl-art-card__frame">
-                    <ArtDirectionBoard spec={spec} compact />
+                  <div className="cl-pass-card__frame">
+                    {asset?.filePath?.endsWith(".png") && asset.id ? (
+                      <img
+                        src={assetUrl(project, asset.id)}
+                        alt={variation.treatmentLabel}
+                        className="cl-pass-card__img"
+                      />
+                    ) : (
+                      <div className="cl-pass-card__loading">Generating…</div>
+                    )}
+                    <span className="cl-pass-card__key">V{variation.index}</span>
                   </div>
-                  <div className="cl-art-card__body cl-art-card__body--compact">
+                  <div className="cl-pass-card__body cl-pass-card__body--compact">
                     <h3>{variation.treatmentLabel}</h3>
-                    <p className="cl-art-card__refine-meta ops-dim">
-                      {treatment.borderTreatment.replace(/-/g, " ")} · {treatment.typography.replace(/-/g, " ")}
-                    </p>
                     <button
                       type="button"
-                      className={`cl-art-card__select${isWinner ? " cl-art-card__select--on" : ""}`}
-                      disabled={busy}
+                      className={`cl-pass-card__select${isWinner ? " cl-pass-card__select--on" : ""}`}
+                      disabled={busy || !asset}
                       onClick={() => onSelectVariation(variation.index)}
                     >
-                      {isWinner ? "✓ VERSION SELECTED" : "USE THIS VERSION"}
+                      {isWinner ? "✓ PASS SELECTED" : "USE THIS PASS"}
                     </button>
                   </div>
                 </article>
@@ -131,18 +159,11 @@ export function ConceptDeck(props: Props) {
 
           {selectedVariation ? (
             <section className="cl-art-winner">
-              <h3>Version selected</h3>
+              <h3>Pass selected</h3>
               <p>
-                <strong>{winningDirection?.title}</strong> · Version {selectedVariation} — ready to generate artwork.
+                <strong>{world.title}</strong> · Variation {selectedVariation} — approve in Asset Library or export
+                from Advanced Workshop.
               </p>
-              <button
-                type="button"
-                className="cl-art-generate-btn"
-                disabled={busy}
-                onClick={onGenerateArtwork}
-              >
-                GENERATE ARTWORK
-              </button>
             </section>
           ) : null}
         </>

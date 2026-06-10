@@ -1,43 +1,33 @@
-import { artifactTypeById } from "../artifact-types";
-import { artDirectionByKey } from "../art-directions";
+import { refinementsForArtDirection } from "../art-direction-refinements";
+import { compositionForKey } from "../concept-compositions";
+import { renderPassConceptPrompt } from "../pass-concept-prompt";
 import type { CreativeLabPresetFile, CreativeLabProjectFile, GeneratedPrompt, RefinementVariation } from "../types";
+import { visualWorldById, type VisualWorldId } from "../visual-worlds";
 import type { ArtworkPromptContext } from "./types";
 
 export function buildArtworkPromptText(
   project: CreativeLabProjectFile,
   winningPrompt: GeneratedPrompt,
-  preset: CreativeLabPresetFile | null,
+  _preset: CreativeLabPresetFile | null,
   refinement?: RefinementVariation,
 ): string {
-  const direction = artDirectionByKey(winningPrompt.variationKey);
-  const artifact = artifactTypeById(project.artifactType);
-  const base = winningPrompt.renderedPrompt.trim();
+  const worldId = (project.selectedArtDirectionId ?? "psychedelic-festival") as VisualWorldId;
+  const conceptKey = winningPrompt.variationKey ?? "A";
+  const treatment = refinement
+    ? refinementsForArtDirection(worldId).find((t) => t.id === refinement.treatmentId)
+    : undefined;
 
-  const treatmentBlock = refinement
-    ? [
-        "",
-        "=== Selected Art Direction ===",
-        `Visual world: ${direction.title}`,
-        `Refinement: ${refinement.treatmentLabel}`,
-        `Treatment focus: ${refinement.treatmentId.replace(/-/g, " ")}`,
-      ].join("\n")
-    : "";
-
-  const artworkBrief = [
-    "",
-    "=== Artwork Brief ===",
-    "Create a collectible illustrated event credential — 95% artwork, 5% event text.",
-    "Portrait orientation VIP pass suitable for lamination.",
-    "Rich illustrated poster quality — not a form layout or business card.",
-    `Artifact: ${artifact.label}`,
-    `Event line (small, integrated): ${project.event} · ${project.venue} · ${project.date}`,
-    `Years: ${project.featuredYears.join(" · ") || "—"}`,
-    preset ? `Preset: ${preset.name}` : "",
-  ]
-    .filter(Boolean)
-    .join("\n");
-
-  return `${base}${treatmentBlock}${artworkBrief}`;
+  return renderPassConceptPrompt({
+    worldId,
+    event: project.event,
+    venue: project.venue,
+    date: project.date,
+    featuredYears: project.featuredYears,
+    conceptKey,
+    refinement: treatment,
+    refinementIndex: refinement?.index,
+    parentConceptSummary: winningPrompt.conceptSummary,
+  });
 }
 
 export function buildArtworkContext(
@@ -46,7 +36,8 @@ export function buildArtworkContext(
   preset: CreativeLabPresetFile | null,
   refinement?: RefinementVariation,
 ): ArtworkPromptContext {
-  const direction = artDirectionByKey(winningPrompt.variationKey);
+  const world = visualWorldById(project.selectedArtDirectionId);
+  const comp = compositionForKey(winningPrompt.variationKey ?? "A");
   return {
     prompt: buildArtworkPromptText(project, winningPrompt, preset, refinement),
     artifactTypeId: project.artifactType ?? "vip-pass",
@@ -57,8 +48,8 @@ export function buildArtworkContext(
     date: project.date,
     featuredYears: project.featuredYears,
     module: project.activeModule,
-    artDirectionTitle: direction.title,
-    treatmentLabel: refinement?.treatmentLabel,
+    artDirectionTitle: world.title,
+    treatmentLabel: refinement?.treatmentLabel ?? comp.label,
     variationIndex: refinement?.index,
   };
 }
