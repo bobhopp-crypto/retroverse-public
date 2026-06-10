@@ -594,6 +594,8 @@ export function CreativeLabWorkspace() {
         {statusBar}
         <CreativeWorkstation
           project={project}
+          projects={projects}
+          projectId={projectId}
           busy={busy}
           event={deskEvent}
           venue={deskVenue}
@@ -605,6 +607,8 @@ export function CreativeLabWorkspace() {
           onDateChange={setDeskDate}
           onYearsChange={setDeskYears}
           onVisualWorldSelect={setSelectedVisualWorldId}
+          onOpenProject={(id) => navigate({ panel: "workstation", project: id })}
+          onNewProject={() => navigate({ panel: "workstation", project: null })}
           onGenerateFrontConcepts={() => void workstationGeneratePasses()}
           onSelectFront={(promptId) => void projectOp({ op: "setSelectedConcept", promptId })}
           onLockFront={() => void projectOp({ op: "lockFront" })}

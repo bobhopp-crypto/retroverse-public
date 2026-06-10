@@ -1,16 +1,25 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
+import { deriveWorkstationStatus } from "@/lib/ops/creative-lab/workstation-state";
 import type { CreativeLabProjectFile } from "@/lib/ops/creative-lab/types";
 import { VISUAL_WORLDS, type VisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 
-import { ConceptDeck } from "./ConceptDeck";
+import type { BrowserSelection } from "./WorkstationBrowser";
+import { WorkstationBrowser } from "./WorkstationBrowser";
+import { WorkstationInspector } from "./WorkstationInspector";
+import { WorkstationSidebar } from "./WorkstationSidebar";
+import { WorkstationStatusStrip } from "./WorkstationStatusStrip";
 import { VisualWorldCard } from "./VisualWorldCard";
 import { YearTokenInput } from "./YearTokenInput";
 
+type ProjectRow = { id: string; name: string; event: string; updatedAt: string };
+
 type Props = {
   project: CreativeLabProjectFile | null;
+  projects: ProjectRow[];
+  projectId: string | null;
   busy: boolean;
   event: string;
   venue: string;
@@ -22,6 +31,8 @@ type Props = {
   onDateChange: (v: string) => void;
   onYearsChange: (years: number[]) => void;
   onVisualWorldSelect: (id: VisualWorldId) => void;
+  onOpenProject: (id: string) => void;
+  onNewProject: () => void;
   onGenerateFrontConcepts: () => void;
   onSelectFront: (promptId: string) => void;
   onLockFront: () => void;
@@ -34,6 +45,8 @@ type Props = {
 export function CreativeWorkstation(props: Props) {
   const {
     project,
+    projects,
+    projectId,
     busy,
     event,
     venue,
@@ -45,6 +58,8 @@ export function CreativeWorkstation(props: Props) {
     onDateChange,
     onYearsChange,
     onVisualWorldSelect,
+    onOpenProject,
+    onNewProject,
     onGenerateFrontConcepts,
     onSelectFront,
     onLockFront,
@@ -54,109 +69,139 @@ export function CreativeWorkstation(props: Props) {
     onOpenAdvanced,
   } = props;
 
+  const [setupOpen, setSetupOpen] = useState(true);
+  const [inspectTarget, setInspectTarget] = useState<BrowserSelection>(null);
+
   const selectedWorld = useMemo(
     () => VISUAL_WORLDS.find((w) => w.id === selectedVisualWorldId) ?? null,
     [selectedVisualWorldId],
   );
 
+  const status = useMemo(() => deriveWorkstationStatus(project), [project]);
+
   const eventReady = Boolean(event.trim() && venue.trim() && date.trim() && years.length > 0);
   const worldReady = Boolean(selectedVisualWorldId);
-  const canGenerate = eventReady && worldReady;
-  const hasConcepts = Boolean(project?.generatedPrompts.length);
+  const canGenerateFronts = eventReady && worldReady;
   const frontLocked = project?.frontLocked === true;
+  const hasFronts = Boolean(project && project.generatedPrompts.some((p) => (p.passSide ?? "front") !== "back"));
+  const hasBacks = Boolean(project?.backVariationSetId);
+  const canLockFront = Boolean(project?.selectedConceptPromptId && !frontLocked);
+  const canGenerateBacks = frontLocked && !hasBacks;
+  const canExport = status.exportStatus === "Ready";
 
   return (
-    <div className="cl-desk">
-      <header className="cl-desk__masthead">
-        <p className="cl-desk__kicker">Retroverse Creative Lab</p>
-        <h1 className="cl-desk__title">Front approval · back generation</h1>
-      </header>
+    <div className="cl-ws">
+      <WorkstationStatusStrip status={status} />
 
-      <section className="cl-desk__step">
-        <p className="cl-desk__step-label">Step 1 — Confirm event</p>
-        <div className="cl-desk__event-panel">
-          <label className="cl-desk__field">
-            <span>Event</span>
-            <input className="cl-desk__input" value={event} onChange={(e) => onEventChange(e.target.value)} />
-          </label>
-          <label className="cl-desk__field">
-            <span>Venue</span>
-            <input className="cl-desk__input" value={venue} onChange={(e) => onVenueChange(e.target.value)} />
-          </label>
-          <label className="cl-desk__field">
-            <span>Date</span>
-            <input className="cl-desk__input" value={date} onChange={(e) => onDateChange(e.target.value)} />
-          </label>
-          <div className="cl-desk__field cl-desk__field--years">
-            <span>Years</span>
-            <YearTokenInput years={years} onChange={onYearsChange} />
-          </div>
-        </div>
-      </section>
-
-      <section className="cl-desk__step">
-        <p className="cl-desk__step-label">Step 2 — Choose one visual world</p>
-        <div className="cl-world-grid">
-          {VISUAL_WORLDS.map((world) => (
-            <VisualWorldCard
-              key={world.id}
-              world={world}
-              selected={selectedVisualWorldId === world.id}
-              onSelect={() => onVisualWorldSelect(world.id)}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="cl-desk__step cl-desk__step--action">
-        {selectedWorld ? (
-          <div className={`cl-desk__ready${canGenerate ? " cl-desk__ready--armed" : ""}`}>
-            <p className="cl-desk__ready-kicker">{canGenerate ? "✓ READY TO GENERATE" : "Almost there"}</p>
-            <p className="cl-desk__ready-line">
-              <strong>Visual world:</strong> {selectedWorld.title}
-            </p>
-            <p className="cl-desk__ready-line">
-              <strong>Event:</strong> {event || "—"} · {date || "—"}
-            </p>
-          </div>
-        ) : null}
-        <button
-          type="button"
-          className={`cl-desk__generate-btn${canGenerate ? " cl-desk__generate-btn--armed" : ""}`}
-          disabled={busy || !canGenerate || frontLocked}
-          onClick={onGenerateFrontConcepts}
-        >
-          {busy ? "GENERATING FRONTS…" : "GENERATE FRONT CONCEPTS"}
-        </button>
-        {!canGenerate ? (
-          <p className="cl-desk__hint ops-dim">Confirm event details and pick one visual world.</p>
-        ) : frontLocked ? (
-          <p className="cl-desk__hint ops-dim">Front is locked — regenerate only from Advanced Workshop.</p>
-        ) : busy ? (
-          <p className="cl-desk__hint ops-dim">Creating four illustrated front concepts — this takes a minute.</p>
-        ) : (
-          <p className="cl-desk__hint ops-dim">Step 3 — four front concepts only. Backs come after lock.</p>
-        )}
-      </section>
-
-      {hasConcepts && project ? (
-        <ConceptDeck
-          prompts={project.generatedPrompts}
-          project={project}
+      <div className="cl-ws__body">
+        <WorkstationSidebar
+          projects={projects}
+          activeProjectId={projectId}
           busy={busy}
-          onSelectFront={onSelectFront}
-          onLockFront={onLockFront}
-          onGenerateBacks={onGenerateBacks}
-          onSelectBack={onSelectBack}
-          onExportPackage={onExportPackage}
+          onOpenProject={onOpenProject}
+          onNewProject={onNewProject}
         />
-      ) : null}
 
-      <footer className="cl-desk__footer">
-        <button type="button" className="cl-desk__advanced-link" onClick={onOpenAdvanced}>
-          Advanced Workshop →
-        </button>
-      </footer>
+        <div className="cl-ws__center">
+          <div className="cl-ws__actions" aria-label="Workflow actions">
+            <button
+              type="button"
+              className="cl-ws__action-btn"
+              disabled={busy || !canGenerateFronts || frontLocked}
+              onClick={onGenerateFrontConcepts}
+            >
+              {busy ? "Working…" : "Generate Fronts"}
+            </button>
+            <button
+              type="button"
+              className="cl-ws__action-btn"
+              disabled={busy || !canLockFront}
+              onClick={onLockFront}
+            >
+              Lock Front
+            </button>
+            <button
+              type="button"
+              className="cl-ws__action-btn"
+              disabled={busy || !canGenerateBacks}
+              onClick={onGenerateBacks}
+            >
+              Generate Backs
+            </button>
+            <button
+              type="button"
+              className="cl-ws__action-btn cl-ws__action-btn--export"
+              disabled={busy || !canExport}
+              onClick={onExportPackage}
+            >
+              Export
+            </button>
+            <button type="button" className="cl-ws__action-link" onClick={onOpenAdvanced}>
+              Advanced →
+            </button>
+          </div>
+
+          <details className="cl-ws__setup" open={setupOpen} onToggle={(e) => setSetupOpen(e.currentTarget.open)}>
+            <summary className="cl-ws__setup-summary">Event & visual world setup</summary>
+            <div className="cl-ws__setup-body">
+              <div className="cl-ws__setup-fields">
+                <label className="cl-desk__field">
+                  <span>Event</span>
+                  <input className="cl-desk__input" value={event} onChange={(e) => onEventChange(e.target.value)} />
+                </label>
+                <label className="cl-desk__field">
+                  <span>Venue</span>
+                  <input className="cl-desk__input" value={venue} onChange={(e) => onVenueChange(e.target.value)} />
+                </label>
+                <label className="cl-desk__field">
+                  <span>Date</span>
+                  <input className="cl-desk__input" value={date} onChange={(e) => onDateChange(e.target.value)} />
+                </label>
+                <div className="cl-desk__field cl-desk__field--years">
+                  <span>Years</span>
+                  <YearTokenInput years={years} onChange={onYearsChange} />
+                </div>
+              </div>
+              {selectedWorld ? (
+                <p className="cl-ws__setup-world ops-dim">
+                  Visual world: <strong>{selectedWorld.title}</strong>
+                </p>
+              ) : null}
+              <div className="cl-ws__world-strip">
+                {VISUAL_WORLDS.map((world) => (
+                  <VisualWorldCard
+                    key={world.id}
+                    world={world}
+                    selected={selectedVisualWorldId === world.id}
+                    onSelect={() => onVisualWorldSelect(world.id)}
+                  />
+                ))}
+              </div>
+            </div>
+          </details>
+
+          {project && hasFronts ? (
+            <WorkstationBrowser
+              project={project}
+              busy={busy}
+              selection={inspectTarget}
+              onSelect={setInspectTarget}
+              onSelectFront={onSelectFront}
+              onSelectBack={onSelectBack}
+            />
+          ) : (
+            <section className="cl-ws__browser cl-ws__browser--empty">
+              <p className="ops-dim">
+                {canGenerateFronts
+                  ? "Generate fronts to fill the asset browser."
+                  : "Complete event details and pick a visual world."}
+              </p>
+            </section>
+          )}
+        </div>
+
+        <WorkstationInspector project={project} target={inspectTarget} />
+      </div>
     </div>
   );
 }

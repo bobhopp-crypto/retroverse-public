@@ -40,10 +40,8 @@ export default function CreativeLabPage() {
           </div>
         </header>
 
-        <p className="ops-banner">
-          <strong>Creative control desk.</strong> Pick an output, enter the event, choose a visual
-          style, and generate concepts — no project setup required. Power tools live under Advanced
-          Workshop.
+        <p className="ops-banner ops-banner--compact">
+          <strong>Creative Lab workstation.</strong> Status, browser, and inspector on one screen.
         </p>
 
         <Suspense fallback={<p className="ops-dim">Loading Creative Lab…</p>}>
