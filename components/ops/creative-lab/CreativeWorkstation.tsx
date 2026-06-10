@@ -40,6 +40,7 @@ type Props = {
   onSelectWinner: (promptId: string) => void;
   onGenerateRefinement: () => void;
   onSelectVariation: (index: number) => void;
+  onGenerateArtwork: () => void;
   onStyleChange: (selection: CreativeLabProjectFile["styleSelection"]) => void;
   onOpenAdvanced: () => void;
 };
@@ -72,6 +73,7 @@ export function CreativeWorkstation(props: Props) {
     onSelectWinner,
     onGenerateRefinement,
     onSelectVariation,
+    onGenerateArtwork,
     onStyleChange,
     onOpenAdvanced,
   } = props;
@@ -230,6 +232,7 @@ export function CreativeWorkstation(props: Props) {
           onSelectWinner={onSelectWinner}
           onGenerateRefinement={onGenerateRefinement}
           onSelectVariation={onSelectVariation}
+          onGenerateArtwork={onGenerateArtwork}
         />
       ) : null}
 

@@ -5,12 +5,15 @@ import { join } from "path";
 import {
   createPlaceholderAssets,
   mirrorAssetToSelected,
+  moduleDefaultAssetType,
   normalizeAssets,
   normalizeFinalSlots,
   setAssetAsFinal,
   updateAssetStatus,
+  writeArtworkAssetFile,
   writePlaceholderAssetFile,
 } from "./assets";
+import { buildArtworkContext, generateArtwork, resolveArtworkProvider } from "./artwork";
 import { buildConceptVariations } from "./concept-variations";
 import { normalizeConceptStrategyMap, strategyForVariation } from "./concept-strategies";
 import { exportFinalDeliverables, exportProjectPackage } from "./export-package";
@@ -588,6 +591,53 @@ export async function setSelectedVariation(
   return updateProject(projectId, {
     selectedVariationIndex: variationIndex,
     workflowRound: 3,
+  });
+}
+
+/** Generate 4 artwork PNGs for the selected art-direction variation. */
+export async function generateArtworkForProject(projectId: string): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  if (!project.selectedConceptPromptId) return null;
+  if (!project.selectedVariationIndex) return null;
+
+  const winningPrompt = project.generatedPrompts.find((p) => p.id === project.selectedConceptPromptId);
+  if (!winningPrompt) return null;
+
+  const refinement = project.refinementVariations?.find((v) => v.index === project.selectedVariationIndex);
+  if (!refinement) return null;
+
+  const preset = project.activePresetId ? await loadPreset(project.activePresetId) : null;
+  const context = buildArtworkContext(project, winningPrompt, preset, refinement);
+  const result = await generateArtwork(context, { count: 4, quality: "medium", size: "1024x1536" });
+
+  const folderId = projectFolderId(project);
+  const now = new Date().toISOString();
+  const type = moduleDefaultAssetType(project.activeModule);
+  const newAssets: CreativeLabAsset[] = [];
+
+  for (const image of result.images) {
+    const id = `asset-${Date.now().toString(36)}-${image.index}-${Math.random().toString(36).slice(2, 6)}`;
+    const rel = await writeArtworkAssetFile(folderId, id, image.buffer);
+    newAssets.push({
+      id,
+      projectId: project.id,
+      type,
+      concept: winningPrompt.variationKey,
+      status: "generated",
+      createdAt: now,
+      filePath: rel,
+      promptId: winningPrompt.id,
+      module: project.activeModule,
+      strategyId: winningPrompt.strategyId,
+      notes: `Artwork ${image.index}/4 · ${refinement.treatmentLabel} · ${resolveArtworkProvider()}`,
+    });
+  }
+
+  return saveProject({
+    ...project,
+    assets: [...newAssets, ...project.assets].slice(0, 96),
+    updatedAt: now,
   });
 }
 

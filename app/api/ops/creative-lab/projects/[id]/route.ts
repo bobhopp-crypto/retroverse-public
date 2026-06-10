@@ -4,6 +4,7 @@ import {
   advanceMockVariations,
   approveAsset,
   deleteProject,
+  generateArtworkForProject,
   generateConceptForModule,
   generateRefinementVariations,
   loadProject,
@@ -90,6 +91,19 @@ export async function PUT(req: Request, ctx: Ctx) {
     const project = await setSelectedVariation(id, body.variationIndex);
     if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
     return NextResponse.json({ ok: true, project });
+  }
+
+  if (body.op === "generateArtwork") {
+    try {
+      const project = await generateArtworkForProject(id);
+      if (!project) {
+        return NextResponse.json({ error: "prerequisites_missing" }, { status: 400 });
+      }
+      return NextResponse.json({ ok: true, project });
+    } catch (e) {
+      const message = e instanceof Error ? e.message : "artwork_generation_failed";
+      return NextResponse.json({ error: message }, { status: 502 });
+    }
   }
 
   if (body.op === "generateConcept" || body.op === "generateConceptVariations") {

@@ -3,6 +3,7 @@ import { copyFile, mkdir, writeFile } from "fs/promises";
 import { join } from "path";
 
 import {
+  creativeLabProjectDir,
   creativeLabProjectGeneratedDir,
   creativeLabProjectSelectedDir,
 } from "./paths";
@@ -180,12 +181,36 @@ export async function writePlaceholderAssetFile(
   return rel;
 }
 
+export async function writeArtworkAssetFile(
+  projectId: string,
+  assetId: string,
+  buffer: Buffer,
+): Promise<string> {
+  const generatedDir = creativeLabProjectGeneratedDir(projectId);
+  await mkdir(generatedDir, { recursive: true });
+  const rel = `generated/${assetId}.png`;
+  const abs = join(generatedDir, `${assetId}.png`);
+  await writeFile(abs, buffer);
+  return rel;
+}
+
 export async function mirrorAssetToSelected(
   projectId: string,
   asset: CreativeLabAsset,
 ): Promise<string> {
   const selectedDir = creativeLabProjectSelectedDir(projectId);
   await mkdir(selectedDir, { recursive: true });
+
+  if (asset.filePath?.endsWith(".png")) {
+    const srcAbs = join(creativeLabProjectDir(projectId), asset.filePath);
+    const destName = `${asset.id}.png`;
+    const destAbs = join(selectedDir, destName);
+    if (existsSync(srcAbs)) {
+      await copyFile(srcAbs, destAbs);
+    }
+    return `selected/${destName}`;
+  }
+
   const destName = `${asset.id}-${asset.status}.placeholder.json`;
   const destAbs = join(selectedDir, destName);
   const srcAbs = join(creativeLabProjectGeneratedDir(projectId), `${asset.id}.placeholder.json`);

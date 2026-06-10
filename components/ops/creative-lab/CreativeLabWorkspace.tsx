@@ -442,6 +442,29 @@ export function CreativeLabWorkspace() {
     }
   }
 
+  async function generateArtwork() {
+    if (!project) return;
+    setBusy(true);
+    setError(null);
+    setNotice(null);
+    try {
+      const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ op: "generateArtwork" }),
+      });
+      const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
+      if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "artwork_failed");
+      setProject(data.project);
+      const pngCount = data.project.assets.filter((a) => a.filePath?.endsWith(".png")).length;
+      setNotice(`Artwork generated — ${pngCount} images in Asset Library.`);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "artwork_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   async function workstationGenerate() {
     const preset = presets.find((p) => p.id === selectedPresetId);
     const output = WORKSTATION_OUTPUTS.find((o) => o.id === outputId) ?? WORKSTATION_OUTPUTS[0];
@@ -559,6 +582,7 @@ export function CreativeLabWorkspace() {
           onSelectVariation={(variationIndex) =>
             void projectOp({ op: "setSelectedVariation", variationIndex })
           }
+          onGenerateArtwork={() => void generateArtwork()}
           onStyleChange={(next) => {
             setDeskSelection(next);
             if (project) setProject({ ...project, styleSelection: next });

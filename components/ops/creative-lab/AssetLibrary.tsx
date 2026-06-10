@@ -119,14 +119,23 @@ export function AssetLibrary(props: Props) {
             <ul className="cl-asset-library__list">
               {rows.map((asset) => (
                 <li key={asset.id} className="cl-asset-card">
-                  <div
-                    className="cl-asset-card__thumb"
-                    style={{
-                      background: `linear-gradient(135deg, hsl(${(asset.concept?.charCodeAt(0) ?? 65) * 3} 50% 62%), hsl(${(asset.type.length * 17) % 360} 42% 40%))`,
-                    }}
-                    aria-hidden
-                  >
-                    <span>{asset.concept ?? "?"}</span>
+                  <div className="cl-asset-card__thumb" aria-hidden={!asset.filePath?.endsWith(".png")}>
+                    {asset.filePath?.endsWith(".png") ? (
+                      <img
+                        src={`/api/ops/creative-lab/projects/${encodeURIComponent(project.folderSlug || project.id)}/assets/${encodeURIComponent(asset.id)}`}
+                        alt=""
+                        className="cl-asset-card__img"
+                      />
+                    ) : (
+                      <div
+                        className="cl-asset-card__placeholder"
+                        style={{
+                          background: `linear-gradient(135deg, hsl(${(asset.concept?.charCodeAt(0) ?? 65) * 3} 50% 62%), hsl(${(asset.type.length * 17) % 360} 42% 40%))`,
+                        }}
+                      >
+                        <span>{asset.concept ?? "?"}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="cl-asset-card__body">
                     <strong>{asset.type}</strong>

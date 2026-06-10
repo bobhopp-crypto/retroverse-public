@@ -17,10 +17,11 @@ type Props = {
   onSelectWinner: (promptId: string) => void;
   onGenerateRefinement: () => void;
   onSelectVariation: (index: number) => void;
+  onGenerateArtwork: () => void;
 };
 
 export function ConceptDeck(props: Props) {
-  const { prompts, project, busy, onSelectWinner, onGenerateRefinement, onSelectVariation } = props;
+  const { prompts, project, busy, onSelectWinner, onGenerateRefinement, onSelectVariation, onGenerateArtwork } = props;
   const latestSetId = prompts.find((p) => p.variationSetId)?.variationSetId;
   const round1Concepts = useMemo(() => {
     if (!latestSetId) return prompts.slice(0, 4);
@@ -130,11 +131,18 @@ export function ConceptDeck(props: Props) {
 
           {selectedVariation ? (
             <section className="cl-art-winner">
-              <h3>Direction locked</h3>
+              <h3>Version selected</h3>
               <p>
-                <strong>{winningDirection?.title}</strong> · Version {selectedVariation} — ready for production in
-                Advanced Workshop.
+                <strong>{winningDirection?.title}</strong> · Version {selectedVariation} — ready to generate artwork.
               </p>
+              <button
+                type="button"
+                className="cl-art-generate-btn"
+                disabled={busy}
+                onClick={onGenerateArtwork}
+              >
+                GENERATE ARTWORK
+              </button>
             </section>
           ) : null}
         </>
