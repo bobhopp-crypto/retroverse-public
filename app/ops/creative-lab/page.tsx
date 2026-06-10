@@ -41,9 +41,9 @@ export default function CreativeLabPage() {
         </header>
 
         <p className="ops-banner">
-          <strong>One style system, many outputs.</strong> Define event context and weighted visual
-          styles — passes, posters, bumpers, cards, and magazines share the same foundation. No
-          image generation yet.
+          <strong>Creative control desk.</strong> Pick an output, enter the event, choose a visual
+          style, and generate concepts — no project setup required. Power tools live under Advanced
+          Workshop.
         </p>
 
         <Suspense fallback={<p className="ops-dim">Loading Creative Lab…</p>}>

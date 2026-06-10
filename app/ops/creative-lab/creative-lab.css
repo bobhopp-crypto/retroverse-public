@@ -729,6 +729,358 @@
   margin-top: 4px;
 }
 
+/* Creative workstation — control desk landing */
+
+.cl-desk {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 8px 4px 24px;
+}
+
+.cl-desk__masthead {
+  padding: 16px 18px;
+  background: var(--panel);
+  border: 4px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.cl-desk__kicker {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.cl-desk__title {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.1;
+}
+
+.cl-desk__step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cl-desk__step-label {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.cl-desk__output-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cl-desk__output-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 96px;
+  padding: 16px;
+  border: 4px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-2);
+  color: var(--text);
+  font-weight: 900;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: transform 0.08s ease, border-color 0.08s ease;
+}
+
+.cl-desk__output-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.cl-desk__output-btn--on {
+  border-color: var(--accent);
+  background: rgba(45, 156, 176, 0.22);
+  box-shadow: inset 0 0 0 2px rgba(45, 156, 176, 0.35);
+}
+
+.cl-desk__output-btn--soon {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cl-desk__output-label {
+  font-size: 1.25rem;
+}
+
+.cl-desk__output-soon {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.cl-desk__link-btn,
+.cl-desk__advanced-link {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cl-desk__event-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 18px;
+  background: var(--panel);
+  border: 4px solid var(--border);
+  border-radius: 10px;
+}
+
+.cl-desk__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cl-desk__field span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.cl-desk__input {
+  padding: 14px 16px;
+  border: 3px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.cl-desk__input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.cl-desk__preset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cl-desk__preset-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  text-align: left;
+  border: 3px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+.cl-desk__preset-card--on {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 2px rgba(45, 156, 176, 0.3);
+}
+
+.cl-desk__preset-thumb {
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+.cl-desk__preset-name {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.cl-desk__preset-desc {
+  font-size: 0.78rem;
+  color: var(--dim);
+  line-height: 1.35;
+}
+
+.cl-desk__preset-meta {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.cl-desk__style-advanced {
+  padding: 14px;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+}
+
+.cl-desk__step--action {
+  align-items: center;
+  text-align: center;
+}
+
+.cl-desk__generate-btn {
+  width: min(100%, 480px);
+  min-height: 72px;
+  padding: 18px 28px;
+  border: 4px solid #1a4a52;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #3db8cc 0%, #2d9cb0 55%, #248a9c 100%);
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #1a4a52, 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.cl-desk__generate-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #1a4a52, 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.cl-desk__generate-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cl-desk__hint {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.cl-desk__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 2px solid var(--border);
+}
+
+.cl-desk__back-btn {
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel-2);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cl-workspace--advanced .cl-workspace__sidebar {
+  border-color: var(--accent-2);
+}
+
+/* Concept deck */
+
+.cl-concept-deck {
+  margin-top: 8px;
+  padding: 18px;
+  background: var(--panel);
+  border: 4px solid var(--border);
+  border-radius: 10px;
+}
+
+.cl-concept-deck__head h2 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+}
+
+.cl-concept-deck__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.cl-concept-deck__card {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--panel-2);
+}
+
+.cl-concept-deck__thumb {
+  display: flex;
+  align-items: flex-end;
+  min-height: 120px;
+  padding: 12px;
+}
+
+.cl-concept-deck__key {
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.cl-concept-deck__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+}
+
+.cl-concept-deck__body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.cl-concept-deck__desc {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--dim);
+  line-height: 1.4;
+}
+
+.cl-concept-deck__view-btn {
+  align-self: flex-start;
+  padding: 6px 10px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.cl-concept-deck__prompt {
+  margin: 0;
+  padding: 10px;
+  max-height: 220px;
+  overflow: auto;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  background: #1a1a1a;
+  color: #e8e4d8;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 900px) {
   .cl-workspace {
     grid-template-columns: 1fr;
@@ -736,5 +1088,15 @@
 
   .cl-catalog-ref__list {
     columns: 1;
+  }
+
+  .cl-desk__output-grid,
+  .cl-desk__preset-grid,
+  .cl-concept-deck__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cl-desk__event-panel {
+    grid-template-columns: 1fr;
   }
 }

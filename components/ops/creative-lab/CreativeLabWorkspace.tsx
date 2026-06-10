@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { STYLE_CATALOG } from "@/lib/ops/creative-lab/style-catalog";
 import type {
   CreativeLabModuleId,
   CreativeLabPresetFile,
@@ -14,16 +13,14 @@ import type {
 } from "@/lib/ops/creative-lab/types";
 import {
   buildCreativeLabHref,
+  isAdvancedPanel,
   type CreativeLabPanel,
 } from "@/lib/ops/creative-lab/workspace/urls";
+import { WORKSTATION_OUTPUTS } from "@/lib/ops/creative-lab/workstation-presets";
 
-import { AssetLibrary } from "./AssetLibrary";
-import { ConceptVariationsPanel } from "./ConceptVariationsPanel";
-import { PresetGallery } from "./PresetGallery";
-import { ProjectToolbar } from "./ProjectToolbar";
-import { PromptPreviewPanel } from "./PromptPreviewPanel";
-import { selectionHasWeights, StyleWeightEditor, weightedStylesSummary } from "./StyleWeightEditor";
-import { StyleBoard, type StyleBoardMode } from "./StyleBoard";
+import { AdvancedWorkshop } from "./AdvancedWorkshop";
+import { CreativeWorkstation } from "./CreativeWorkstation";
+import { type StyleBoardMode } from "./StyleBoard";
 
 type ModuleInfo = {
   id: CreativeLabModuleId;
@@ -31,14 +28,6 @@ type ModuleInfo = {
   description: string;
   available: boolean;
 };
-
-const PANELS: Array<{ id: CreativeLabPanel; label: string }> = [
-  { id: "projects", label: "Projects" },
-  { id: "styles", label: "Styles" },
-  { id: "presets", label: "Presets" },
-  { id: "pass-lab", label: "Pass Lab" },
-  { id: "assets", label: "Assets" },
-];
 
 function slugify(name: string): string {
   return name
@@ -48,10 +37,25 @@ function slugify(name: string): string {
     .slice(0, 48);
 }
 
+function parseYears(raw: string): number[] {
+  return raw
+    .split(/[,\s]+/)
+    .map((y) => Number.parseInt(y.trim(), 10))
+    .filter((y) => Number.isFinite(y));
+}
+
+function projectDisplayName(event: string, outputId: string): string {
+  const eventName = event.trim() || "Creative Session";
+  const output = WORKSTATION_OUTPUTS.find((o) => o.id === outputId);
+  return output ? `${eventName} ${output.label}` : eventName;
+}
+
 export function CreativeLabWorkspace() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const panel = (searchParams.get("panel") as CreativeLabPanel | null) ?? "projects";
+  const rawPanel = searchParams.get("panel") as CreativeLabPanel | null;
+  const panel: CreativeLabPanel = rawPanel ?? "workstation";
+  const isAdvanced = isAdvancedPanel(panel);
   const projectId = searchParams.get("project");
 
   const [loading, setLoading] = useState(true);
@@ -66,6 +70,16 @@ export function CreativeLabWorkspace() {
   const [project, setProject] = useState<CreativeLabProjectFile | null>(null);
   const [busy, setBusy] = useState(false);
 
+  const [deskEvent, setDeskEvent] = useState("Sunday Nights");
+  const [deskVenue, setDeskVenue] = useState("");
+  const [deskDate, setDeskDate] = useState("");
+  const [deskYears, setDeskYears] = useState("1967, 1978, 1992");
+  const [outputId, setOutputId] = useState("pass");
+  const [selectedPresetId, setSelectedPresetId] = useState<string | null>("sunday-nights-classic");
+  const [deskSelection, setDeskSelection] = useState<StyleSelection | null>(null);
+  const [showAdvancedOutputs, setShowAdvancedOutputs] = useState(false);
+  const [showStyleAdvanced, setShowStyleAdvanced] = useState(false);
+
   const [newName, setNewName] = useState("");
   const [newEvent, setNewEvent] = useState("");
   const [newVenue, setNewVenue] = useState("");
@@ -77,9 +91,10 @@ export function CreativeLabWorkspace() {
 
   const navigate = useCallback(
     (patch: { panel?: CreativeLabPanel; project?: string | null }) => {
+      const nextPanel = patch.panel ?? panel;
       router.push(
         buildCreativeLabHref({
-          panel: patch.panel ?? panel,
+          panel: nextPanel === "workstation" ? undefined : nextPanel,
           project: patch.project === null ? undefined : patch.project ?? projectId ?? undefined,
         }),
       );
@@ -134,17 +149,75 @@ export function CreativeLabWorkspace() {
     else setProject(null);
   }, [projectId, loadProject]);
 
-  const draftSelection = project?.styleSelection;
+  useEffect(() => {
+    if (!presets.length || deskSelection) return;
+    const preset = presets.find((p) => p.id === selectedPresetId) ?? presets[0];
+    if (preset) {
+      setSelectedPresetId(preset.id);
+      setDeskSelection(preset.styleSelection);
+    }
+  }, [presets, deskSelection, selectedPresetId]);
+
+  useEffect(() => {
+    if (!project) return;
+    setDeskEvent(project.event);
+    setDeskVenue(project.venue);
+    setDeskDate(project.date);
+    setDeskYears(project.featuredYears.join(", "));
+    setDeskSelection(project.styleSelection);
+    if (project.activePresetId) setSelectedPresetId(project.activePresetId);
+  }, [project?.id]);
+
+  const draftSelection = project?.styleSelection ?? deskSelection;
+
+  async function saveProjectPatch(patch: Partial<CreativeLabProjectFile>) {
+    if (!project) return;
+    setBusy(true);
+    setNotice(null);
+    try {
+      const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(patch),
+      });
+      const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
+      if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "save_failed");
+      setProject(data.project);
+      setDeskSelection(data.project.styleSelection);
+      setNotice("Saved.");
+      await loadIndex();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "save_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function createProjectFromDesk(): Promise<CreativeLabProjectFile> {
+    const name = projectDisplayName(deskEvent, outputId);
+    const res = await fetch("/api/ops/creative-lab/projects", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        event: deskEvent,
+        venue: deskVenue,
+        date: deskDate,
+        featuredYears: parseYears(deskYears),
+        theme: "",
+      }),
+    });
+    const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
+    if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "create_failed");
+    await loadIndex();
+    return data.project;
+  }
 
   async function createProject() {
     if (!newName.trim()) return;
     setBusy(true);
     setNotice(null);
     try {
-      const years = newYears
-        .split(/[,\s]+/)
-        .map((y) => Number.parseInt(y.trim(), 10))
-        .filter((y) => Number.isFinite(y));
       const res = await fetch("/api/ops/creative-lab/projects", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -153,7 +226,7 @@ export function CreativeLabWorkspace() {
           event: newEvent,
           venue: newVenue,
           date: newDate,
-          featuredYears: years,
+          featuredYears: parseYears(newYears),
           theme: newTheme,
         }),
       });
@@ -169,31 +242,11 @@ export function CreativeLabWorkspace() {
     }
   }
 
-  async function saveProjectPatch(patch: Partial<CreativeLabProjectFile>) {
-    if (!project) return;
-    setBusy(true);
-    setNotice(null);
-    try {
-      const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(patch),
-      });
-      const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
-      if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "save_failed");
-      setProject(data.project);
-      setNotice("Saved.");
-      await loadIndex();
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "save_failed");
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  async function applyPreset(preset: CreativeLabPresetFile) {
-    if (!project) {
-      setNotice(`Apply preset from a project — open or create one first.`);
+  async function applyPreset(preset: CreativeLabPresetFile, target?: CreativeLabProjectFile) {
+    const targetProject = target ?? project;
+    if (!targetProject) {
+      setDeskSelection(preset.styleSelection);
+      setSelectedPresetId(preset.id);
       return;
     }
     await saveProjectPatch({
@@ -201,6 +254,8 @@ export function CreativeLabWorkspace() {
       activePresetId: preset.id,
       conceptStrategies: preset.conceptStrategies,
     });
+    setSelectedPresetId(preset.id);
+    setDeskSelection(preset.styleSelection);
     setNotice(`Applied preset ${preset.name}`);
   }
 
@@ -359,19 +414,19 @@ export function CreativeLabWorkspace() {
     }
   }
 
-  async function generateConcept() {
+  async function generateConcept(module: CreativeLabModuleId = "pass-lab") {
     if (!project) return;
     setBusy(true);
     try {
       const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ op: "generateConcept", module: "pass-lab" }),
+        body: JSON.stringify({ op: "generateConcept", module }),
       });
       const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
       if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "concept_failed");
       setProject(data.project);
-      setNotice("Generated Concept A–D with placeholder assets in project/generated/.");
+      setNotice("Generated Concept A–D.");
     } catch (e) {
       setError(e instanceof Error ? e.message : "concept_failed");
     } finally {
@@ -379,399 +434,188 @@ export function CreativeLabWorkspace() {
     }
   }
 
+  async function workstationGenerate() {
+    const preset = presets.find((p) => p.id === selectedPresetId);
+    const output = WORKSTATION_OUTPUTS.find((o) => o.id === outputId) ?? WORKSTATION_OUTPUTS[0];
+    if (!preset || !output.available) return;
+
+    setBusy(true);
+    setError(null);
+    setNotice(null);
+    try {
+      let active = project;
+      if (!active) {
+        active = await createProjectFromDesk();
+        setProject(active);
+        navigate({ project: active.id });
+      }
+
+      const patchRes = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(active.id)}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: projectDisplayName(deskEvent, outputId),
+          event: deskEvent,
+          venue: deskVenue,
+          date: deskDate,
+          featuredYears: parseYears(deskYears),
+          styleSelection: deskSelection ?? preset.styleSelection,
+          activePresetId: preset.id,
+          conceptStrategies: preset.conceptStrategies,
+        }),
+      });
+      const patchData = (await patchRes.json()) as {
+        ok?: boolean;
+        project?: CreativeLabProjectFile;
+        error?: string;
+      };
+      if (!patchRes.ok || !patchData.ok || !patchData.project) throw new Error(patchData.error ?? "save_failed");
+      active = patchData.project;
+      setProject(active);
+
+      const genRes = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(active.id)}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ op: "generateConcept", module: output.module }),
+      });
+      const genData = (await genRes.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
+      if (!genRes.ok || !genData.ok || !genData.project) throw new Error(genData.error ?? "concept_failed");
+      setProject(genData.project);
+      setNotice("Concept deck ready — four directions generated.");
+      await loadIndex();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "generate_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  function onPresetSelect(id: string) {
+    setSelectedPresetId(id);
+    const preset = presets.find((p) => p.id === id);
+    if (preset) {
+      setDeskSelection(preset.styleSelection);
+      if (project) void applyPreset(preset);
+    }
+  }
+
   const activePreset = useMemo(
-    () => (project?.activePresetId ? presets.find((p) => p.id === project.activePresetId) : null),
-    [project?.activePresetId, presets],
+    () => (selectedPresetId ? presets.find((p) => p.id === selectedPresetId) : null) ?? null,
+    [selectedPresetId, presets],
   );
 
-  const modulePlaceholders = useMemo(
-    () => modules.filter((m) => !m.available),
-    [modules],
-  );
+  const modulePlaceholders = useMemo(() => modules.filter((m) => !m.available), [modules]);
 
   if (loading) {
     return <p className="ops-dim cl-workspace__loading">Loading Creative Lab…</p>;
   }
 
-  return (
-    <div className="cl-workspace">
-      <aside className="cl-workspace__sidebar">
-        <p className="cl-workspace__sidebar-label">Creative Lab</p>
-        <nav className="cl-workspace__nav" aria-label="Creative Lab panels">
-          {PANELS.map((p) => (
-            <button
-              key={p.id}
-              type="button"
-              className={`cl-workspace__nav-btn${panel === p.id ? " cl-workspace__nav-btn--on" : ""}`}
-              onClick={() => navigate({ panel: p.id })}
-            >
-              {p.label}
-            </button>
-          ))}
-        </nav>
+  const statusBar = (
+    <>
+      {error ? <p className="mc-notice mc-notice--error">{error}</p> : null}
+      {notice ? <p className="mc-notice">{notice}</p> : null}
+    </>
+  );
 
-        <p className="cl-workspace__sidebar-label">Modules</p>
-        <ul className="cl-workspace__modules">
-          {modules.map((m) => (
-            <li
-              key={m.id}
-              className={`cl-workspace__module${m.available ? "" : " cl-workspace__module--soon"}`}
-            >
-              <span>{m.label}</span>
-              {!m.available ? <em>soon</em> : null}
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      <div className="cl-workspace__main">
-        <ProjectToolbar
+  if (!isAdvanced) {
+    return (
+      <>
+        {statusBar}
+        <CreativeWorkstation
+          presets={presets}
           project={project}
+          styleSelection={deskSelection}
           busy={busy}
-          onSave={() => void projectOp({ op: "saveProject" })}
-          onRevealProject={() => void revealFolder("project")}
-          onRevealExports={() => void revealFolder("exports")}
-          onExportPackage={() => void exportProject("package")}
-          onExportFinals={() => void exportProject("finals")}
+          event={deskEvent}
+          venue={deskVenue}
+          date={deskDate}
+          years={deskYears}
+          outputId={outputId}
+          selectedPresetId={selectedPresetId}
+          showAdvancedOutputs={showAdvancedOutputs}
+          showStyleAdvanced={showStyleAdvanced}
+          onEventChange={setDeskEvent}
+          onVenueChange={setDeskVenue}
+          onDateChange={setDeskDate}
+          onYearsChange={setDeskYears}
+          onOutputChange={setOutputId}
+          onPresetSelect={onPresetSelect}
+          onToggleAdvancedOutputs={() => setShowAdvancedOutputs((v) => !v)}
+          onToggleStyleAdvanced={() => setShowStyleAdvanced((v) => !v)}
+          onGenerate={() => void workstationGenerate()}
+          onStyleChange={(next) => {
+            setDeskSelection(next);
+            if (project) setProject({ ...project, styleSelection: next });
+          }}
+          onOpenAdvanced={() => navigate({ panel: "projects", project: projectId })}
         />
-        {error ? <p className="mc-notice mc-notice--error">{error}</p> : null}
-        {notice ? <p className="mc-notice">{notice}</p> : null}
+      </>
+    );
+  }
 
-        {panel === "projects" ? (
-          <div className="cl-panel">
-            <header className="cl-panel__head">
-              <h2>Projects</h2>
-              <p className="ops-dim">Event metadata + style weights + generated concepts.</p>
-            </header>
-
-            <div className="cl-panel__grid">
-              <section className="cl-card">
-                <h3>New project</h3>
-                <div className="cl-form">
-                  <label>
-                    Name
-                    <input className="ops-input" value={newName} onChange={(e) => setNewName(e.target.value)} />
-                  </label>
-                  <label>
-                    Event
-                    <input className="ops-input" value={newEvent} onChange={(e) => setNewEvent(e.target.value)} />
-                  </label>
-                  <label>
-                    Venue
-                    <input className="ops-input" value={newVenue} onChange={(e) => setNewVenue(e.target.value)} />
-                  </label>
-                  <label>
-                    Date
-                    <input className="ops-input" value={newDate} onChange={(e) => setNewDate(e.target.value)} placeholder="June 14, 2026" />
-                  </label>
-                  <label>
-                    Featured years
-                    <input className="ops-input" value={newYears} onChange={(e) => setNewYears(e.target.value)} />
-                  </label>
-                  <label>
-                    Theme
-                    <input className="ops-input" value={newTheme} onChange={(e) => setNewTheme(e.target.value)} />
-                  </label>
-                  <button type="button" className="ops-btn ops-btn--ok" disabled={busy} onClick={() => void createProject()}>
-                    Create project
-                  </button>
-                </div>
-              </section>
-
-              <section className="cl-card">
-                <h3>Open project</h3>
-                <ul className="cl-project-list">
-                  {projects.length === 0 ? (
-                    <li className="ops-dim">No projects yet.</li>
-                  ) : (
-                    projects.map((p) => (
-                      <li key={p.id}>
-                        <button
-                          type="button"
-                          className={`cl-project-list__btn${projectId === p.id ? " cl-project-list__btn--on" : ""}`}
-                          onClick={() => navigate({ panel: "projects", project: p.id })}
-                        >
-                          <strong>{p.name}</strong>
-                          <span>{p.event || "—"}</span>
-                        </button>
-                      </li>
-                    ))
-                  )}
-                </ul>
-              </section>
-            </div>
-
-            {project ? (
-              <section className="cl-card cl-card--wide">
-                <h3>{project.name}</h3>
-                <dl className="cl-meta-dl">
-                  <dt>Event</dt>
-                  <dd>
-                    <input
-                      className="ops-input"
-                      value={project.event}
-                      onChange={(e) => setProject({ ...project, event: e.target.value })}
-                    />
-                  </dd>
-                  <dt>Venue</dt>
-                  <dd>
-                    <input
-                      className="ops-input"
-                      value={project.venue}
-                      onChange={(e) => setProject({ ...project, venue: e.target.value })}
-                    />
-                  </dd>
-                  <dt>Date</dt>
-                  <dd>
-                    <input
-                      className="ops-input"
-                      value={project.date}
-                      onChange={(e) => setProject({ ...project, date: e.target.value })}
-                    />
-                  </dd>
-                  <dt>Years</dt>
-                  <dd>
-                    <input
-                      className="ops-input"
-                      value={project.featuredYears.join(", ")}
-                      onChange={(e) =>
-                        setProject({
-                          ...project,
-                          featuredYears: e.target.value
-                            .split(/[,\s]+/)
-                            .map((y) => Number.parseInt(y.trim(), 10))
-                            .filter((y) => Number.isFinite(y)),
-                        })
-                      }
-                    />
-                  </dd>
-                  <dt>Theme</dt>
-                  <dd>
-                    <input
-                      className="ops-input"
-                      value={project.theme}
-                      onChange={(e) => setProject({ ...project, theme: e.target.value })}
-                    />
-                  </dd>
-                </dl>
-                <div className="cl-actions">
-                  <button
-                    type="button"
-                    className="ops-btn ops-btn--ok"
-                    disabled={busy}
-                    onClick={() =>
-                      void saveProjectPatch({
-                        name: project.name,
-                        event: project.event,
-                        venue: project.venue,
-                        date: project.date,
-                        featuredYears: project.featuredYears,
-                        theme: project.theme,
-                      })
-                    }
-                  >
-                    Save metadata
-                  </button>
-                  <button type="button" className="ops-btn" disabled={busy} onClick={() => navigate({ panel: "styles", project: project.id })}>
-                    Edit styles →
-                  </button>
-                </div>
-              </section>
-            ) : null}
-          </div>
-        ) : null}
-
-        {panel === "styles" ? (
-          <div className="cl-panel">
-            <header className="cl-panel__head">
-              <h2>Style boards</h2>
-              <p className="ops-dim">
-                {project ? `${project.name} — ${weightedStylesSummary(project.styleSelection)}` : "Select a project to pick styles."}
-              </p>
-            </header>
-            {!project || !draftSelection ? (
-              <p className="ops-dim">Open a project from the Projects panel first.</p>
-            ) : (
-              <>
-                <div className="cl-style-mode">
-                  <span className="cl-style-mode__label">Selection mode</span>
-                  <button
-                    type="button"
-                    className={`ops-btn${styleMode === "simple" ? " ops-btn--ok" : ""}`}
-                    onClick={() => setStyleMode("simple")}
-                  >
-                    Simple — click cards
-                  </button>
-                  <button
-                    type="button"
-                    className={`ops-btn${styleMode === "advanced" ? " ops-btn--ok" : ""}`}
-                    onClick={() => setStyleMode("advanced")}
-                  >
-                    Advanced — manual weights
-                  </button>
-                </div>
-                <div className="cl-style-boards">
-                  <StyleBoard
-                    category="credential"
-                    title="Credential style"
-                    styles={STYLE_CATALOG.credential}
-                    selection={draftSelection}
-                    mode={styleMode}
-                    onChange={(next) => setProject({ ...project, styleSelection: next })}
-                  />
-                  <StyleBoard
-                    category="illustration"
-                    title="Illustration style"
-                    styles={STYLE_CATALOG.illustration}
-                    selection={draftSelection}
-                    mode={styleMode}
-                    onChange={(next) => setProject({ ...project, styleSelection: next })}
-                  />
-                  <StyleBoard
-                    category="color"
-                    title="Color style"
-                    styles={STYLE_CATALOG.color}
-                    selection={draftSelection}
-                    mode={styleMode}
-                    onChange={(next) => setProject({ ...project, styleSelection: next })}
-                  />
-                  {styleMode === "advanced" ? (
-                    <StyleWeightEditor
-                      category="density"
-                      title="Print density"
-                      styles={STYLE_CATALOG.density}
-                      selection={draftSelection}
-                      onChange={(next) => setProject({ ...project, styleSelection: next })}
-                    />
-                  ) : (
-                    <StyleBoard
-                      category="density"
-                      title="Print density"
-                      styles={STYLE_CATALOG.density}
-                      selection={draftSelection}
-                      mode="simple"
-                      onChange={(next) => setProject({ ...project, styleSelection: next })}
-                    />
-                  )}
-                </div>
-                <PromptPreviewPanel project={project} activePreset={activePreset} />
-                <div className="cl-actions">
-                  <button
-                    type="button"
-                    className="ops-btn ops-btn--ok"
-                    disabled={busy || !selectionHasWeights(draftSelection)}
-                    onClick={() => void saveProjectPatch({ styleSelection: draftSelection })}
-                  >
-                    Save styles
-                  </button>
-                  <input
-                    className="ops-input cl-preset-name"
-                    placeholder="Preset name"
-                    value={presetName}
-                    onChange={(e) => setPresetName(e.target.value)}
-                  />
-                  <button type="button" className="ops-btn" disabled={busy} onClick={() => void saveAsPreset()}>
-                    Save as preset
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
-        ) : null}
-
-        {panel === "presets" ? (
-          <div className="cl-panel">
-            <header className="cl-panel__head">
-              <h2>Preset gallery</h2>
-              <p className="ops-dim">
-                {presets.length} presets — one-click styles + concept strategies. Stored in RETROVERSE_DATA/creative_lab/styles/
-              </p>
-            </header>
-            <PresetGallery
-              presets={presets}
-              projectName={project?.name}
-              hasProject={Boolean(project)}
-              busy={busy}
-              onApply={(preset) => void applyPreset(preset)}
-              onDuplicate={(preset) => void duplicatePreset(preset)}
-              onSaveCustom={(preset) => void savePresetAsCustom(preset)}
-            />
-          </div>
-        ) : null}
-
-        {panel === "pass-lab" ? (
-          <div className="cl-panel">
-            <header className="cl-panel__head">
-              <h2>Pass Lab</h2>
-              <p className="ops-dim">Prompt variations only — image generation not enabled yet.</p>
-            </header>
-            {!project ? (
-              <p className="ops-dim">Select a project to build pass concepts.</p>
-            ) : (
-              <>
-                <section className="cl-card cl-card--wide">
-                  <h3>{project.name}</h3>
-                  <p>{project.event} · {project.venue} · {project.date}</p>
-                  <p className="cl-preset-summary">{weightedStylesSummary(project.styleSelection)}</p>
-                  <div className="cl-actions">
-                    <button
-                      type="button"
-                      className="ops-btn ops-btn--ok"
-                      disabled={busy || !selectionHasWeights(project.styleSelection)}
-                      onClick={() => void generateConcept()}
-                    >
-                      Generate Concept A–D
-                    </button>
-                  </div>
-                </section>
-                <PromptPreviewPanel project={project} activePreset={activePreset} />
-                <section className="cl-card cl-card--wide">
-                  <h3>Concept variations</h3>
-                  <ConceptVariationsPanel prompts={project.generatedPrompts} />
-                </section>
-              </>
-            )}
-            {modulePlaceholders.length > 0 ? (
-              <p className="ops-dim cl-soon">
-                Coming soon: {modulePlaceholders.map((m) => m.label).join(", ")}
-              </p>
-            ) : null}
-          </div>
-        ) : null}
-
-        {panel === "assets" ? (
-          <div className="cl-panel">
-            <header className="cl-panel__head">
-              <h2>Asset library</h2>
-              <p className="ops-dim">Approve, reject, and set final deliverables — placeholder assets until image generation.</p>
-            </header>
-            {!project ? (
-              <p className="ops-dim">Select a project to browse assets.</p>
-            ) : (
-              <AssetLibrary
-                project={project}
-                busy={busy}
-                onApprove={(assetId) => void projectOp({ op: "approveAsset", assetId })}
-                onReject={(assetId) => void projectOp({ op: "rejectAsset", assetId })}
-                onSetFinal={(assetId, slot) => void projectOp({ op: "setFinalAsset", assetId, slot })}
-              />
-            )}
-          </div>
-        ) : null}
-
-        {panel === "styles" && styles.length > 0 ? (
-          <details className="cl-catalog-ref">
-            <summary>Style catalog reference ({styles.length} styles)</summary>
-            <ul className="cl-catalog-ref__list">
-              {styles.map((s) => (
-                <li key={s.id}>
-                  <strong>{s.label}</strong> — {s.description}
-                </li>
-              ))}
-            </ul>
-          </details>
-        ) : null}
-      </div>
-    </div>
+  return (
+    <>
+      {statusBar}
+      <AdvancedWorkshop
+        panel={panel}
+        projectId={projectId}
+        project={project}
+        projects={projects}
+        presets={presets}
+        styles={styles}
+        modules={modules}
+        busy={busy}
+        activePreset={activePreset}
+        draftSelection={draftSelection ?? undefined}
+        styleMode={styleMode}
+        presetName={presetName}
+        newName={newName}
+        newEvent={newEvent}
+        newVenue={newVenue}
+        newDate={newDate}
+        newYears={newYears}
+        newTheme={newTheme}
+        modulePlaceholders={modulePlaceholders}
+        onNavigate={(p) => navigate({ panel: p })}
+        onBackToDesk={() => navigate({ panel: "workstation", project: projectId })}
+        onSaveProject={() => void projectOp({ op: "saveProject" })}
+        onRevealProject={() => void revealFolder("project")}
+        onRevealExports={() => void revealFolder("exports")}
+        onExportPackage={() => void exportProject("package")}
+        onExportFinals={() => void exportProject("finals")}
+        onCreateProject={() => void createProject()}
+        onOpenProject={(id) => navigate({ panel, project: id })}
+        onSaveMetadata={() =>
+          project
+            ? void saveProjectPatch({
+                name: project.name,
+                event: project.event,
+                venue: project.venue,
+                date: project.date,
+                featuredYears: project.featuredYears,
+                theme: project.theme,
+              })
+            : undefined
+        }
+        onSetProject={setProject}
+        onStyleModeChange={setStyleMode}
+        onSaveStyles={() => draftSelection && void saveProjectPatch({ styleSelection: draftSelection })}
+        onSaveAsPreset={() => void saveAsPreset()}
+        onPresetNameChange={setPresetName}
+        onNewNameChange={setNewName}
+        onNewEventChange={setNewEvent}
+        onNewVenueChange={setNewVenue}
+        onNewDateChange={setNewDate}
+        onNewYearsChange={setNewYears}
+        onNewThemeChange={setNewTheme}
+        onApplyPreset={(preset) => void applyPreset(preset)}
+        onDuplicatePreset={(preset) => void duplicatePreset(preset)}
+        onSaveCustomPreset={(preset) => void savePresetAsCustom(preset)}
+        onGenerateConcept={() => void generateConcept("pass-lab")}
+        onApproveAsset={(id) => void projectOp({ op: "approveAsset", assetId: id })}
+        onRejectAsset={(id) => void projectOp({ op: "rejectAsset", assetId: id })}
+        onSetFinalAsset={(id, slot) => void projectOp({ op: "setFinalAsset", assetId: id, slot })}
+      />
+    </>
   );
 }
