@@ -69,6 +69,12 @@ export function ConceptDeck(props: Props) {
                         src={assetUrl(project, asset.id)}
                         alt={`Concept ${key} — ${comp.label}`}
                         className="cl-pass-card__img"
+                        onLoad={() =>
+                          console.log("[cl-ui:img] loaded", assetUrl(project, asset.id))
+                        }
+                        onError={(e) =>
+                          console.error("[cl-ui:img] error", assetUrl(project, asset.id), e)
+                        }
                       />
                     ) : (
                       <div className="cl-pass-card__loading">Generating…</div>

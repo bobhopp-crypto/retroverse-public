@@ -310,7 +310,7 @@ async function syncIndexEntry(project: CreativeLabProjectFile): Promise<void> {
 
 async function findProjectPath(projectId: string): Promise<string | null> {
   const index = await loadIndex();
-  const entry = index.projects.find((p) => p.id === projectId);
+  const entry = index.projects.find((p) => p.id === projectId || p.folderSlug === projectId);
   const folder = entry?.folderSlug ?? projectId;
   const path = creativeLabProjectPath(folder);
   if (existsSync(path)) return path;
@@ -557,6 +557,14 @@ export async function generatePassConceptsForProject(
 
     const assetId = `asset-${Date.now().toString(36)}-${key.toLowerCase()}-${Math.random().toString(36).slice(2, 6)}`;
     const rel = await writeArtworkAssetFile(folderId, assetId, image.buffer);
+    console.log("[cl-artwork:register] concept asset", {
+      projectId: project.id,
+      conceptKey: key,
+      assetId,
+      promptId,
+      filePath: rel,
+      bytes: image.buffer.length,
+    });
 
     newAssets.push({
       id: assetId,

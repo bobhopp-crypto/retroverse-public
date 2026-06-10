@@ -38,6 +38,13 @@ export async function generateOpenAIArtwork(
   });
 
   const body = (await res.json()) as OpenAIImageResponse;
+  console.log("[cl-artwork:openai] response", {
+    ok: res.ok,
+    status: res.status,
+    dataCount: body.data?.length ?? 0,
+    hasB64: body.data?.some((row) => Boolean(row.b64_json)) ?? false,
+    error: body.error?.message,
+  });
   if (!res.ok) {
     throw new Error(body.error?.message ?? `OpenAI image API failed (${res.status})`);
   }

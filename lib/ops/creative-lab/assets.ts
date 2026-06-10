@@ -191,6 +191,7 @@ export async function writeArtworkAssetFile(
   const rel = `generated/${assetId}.png`;
   const abs = join(generatedDir, `${assetId}.png`);
   await writeFile(abs, buffer);
+  console.log("[cl-artwork:write] PNG saved", { projectId, assetId, abs, bytes: buffer.length, rel });
   return rel;
 }
 

@@ -85,8 +85,16 @@ export async function PUT(req: Request, ctx: Ctx) {
 
   if (body.op === "generatePasses" && typeof body.visualWorldId === "string") {
     try {
+      console.log("[cl-api:generatePasses] start", { projectId: id, visualWorldId: body.visualWorldId });
       const project = await generatePassConceptsForProject(id, body.visualWorldId as import("@/lib/ops/creative-lab/visual-worlds").VisualWorldId);
       if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+      const pngCount = project.assets.filter((a) => a.filePath?.endsWith(".png")).length;
+      console.log("[cl-api:generatePasses] done", {
+        projectId: id,
+        prompts: project.generatedPrompts.length,
+        pngAssets: pngCount,
+        firstAssetId: project.generatedPrompts[0]?.assetId,
+      });
       return NextResponse.json({ ok: true, project });
     } catch (e) {
       const message = e instanceof Error ? e.message : "pass_generation_failed";

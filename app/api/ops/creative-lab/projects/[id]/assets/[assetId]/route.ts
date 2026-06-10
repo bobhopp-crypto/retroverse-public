@@ -24,15 +24,18 @@ export async function GET(_req: Request, ctx: Ctx) {
 
   const asset = project.assets.find((a) => a.id === assetId);
   if (!asset?.filePath?.endsWith(".png")) {
+    console.log("[cl-api:asset] not_found", { projectId: id, assetId, filePath: asset?.filePath });
     return NextResponse.json({ error: "asset_not_found" }, { status: 404 });
   }
 
   const abs = join(creativeLabProjectDir(project.folderSlug || project.id), asset.filePath);
   if (!existsSync(abs)) {
+    console.log("[cl-api:asset] file_missing", { projectId: id, assetId, abs });
     return NextResponse.json({ error: "file_missing" }, { status: 404 });
   }
 
   const buffer = await readFile(abs);
+  console.log("[cl-api:asset] serve", { projectId: id, assetId, abs, bytes: buffer.length });
   return new NextResponse(buffer, {
     headers: {
       "Content-Type": "image/png",
