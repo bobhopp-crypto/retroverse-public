@@ -1,5 +1,5 @@
 import { generateGeminiArtwork } from "./gemini-provider";
-import { generateOpenAIArtwork } from "./openai-provider";
+import { generateOpenAIArtwork, generateOpenAIArtworkFromReference } from "./openai-provider";
 import { isArtworkProviderConfigured, resolveArtworkProvider } from "./provider-config";
 import type { ArtworkGenerateOptions, ArtworkGenerateResult, ArtworkPromptContext, ArtworkProviderId } from "./types";
 
@@ -27,6 +27,9 @@ export async function generateArtwork(
       return generateGeminiArtwork(context, options);
     case "openai":
     default:
+      if (options.referenceImage?.length) {
+        return generateOpenAIArtworkFromReference(context, options.referenceImage, options);
+      }
       return generateOpenAIArtwork(context, options);
   }
 }

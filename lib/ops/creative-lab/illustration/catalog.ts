@@ -12,13 +12,13 @@ export const ILLUSTRATION_CATALOG: IllustrationAsset[] = [
   ...COLLECTOR_ASSETS,
 ];
 
-export const ILLUSTRATION_BY_CATEGORY: Record<ArtDirectionId, IllustrationAsset[]> = {
+export const ILLUSTRATION_BY_CATEGORY: Partial<Record<ArtDirectionId, IllustrationAsset[]>> = {
   "psychedelic-festival": PSYCHEDELIC_ASSETS,
-  "saturday-morning-cartoon": CARTOON_ASSETS,
+  "music-television-credential": TELEVISION_ASSETS,
   "vintage-television": TELEVISION_ASSETS,
   "collector-memorabilia": COLLECTOR_ASSETS,
   "rock-poster": PSYCHEDELIC_ASSETS,
-  "retro-disney-adventure": CARTOON_ASSETS,
+  "concert-backstage-laminate": TELEVISION_ASSETS,
 };
 
 export function assetsForCategory(id: ArtDirectionId): IllustrationAsset[] {
@@ -29,14 +29,14 @@ export function assetsByLayer(id: ArtDirectionId, layer: IllustrationLayer): Ill
   return assetsForCategory(id).filter((a) => a.layer === layer);
 }
 
-export function catalogStats(): Record<ArtDirectionId, number> & { total: number } {
+export function catalogStats(): Partial<Record<ArtDirectionId, number>> & { total: number } {
   const counts = {
     "psychedelic-festival": PSYCHEDELIC_ASSETS.length,
-    "saturday-morning-cartoon": CARTOON_ASSETS.length,
+    "music-television-credential": TELEVISION_ASSETS.length,
     "vintage-television": TELEVISION_ASSETS.length,
     "collector-memorabilia": COLLECTOR_ASSETS.length,
     "rock-poster": PSYCHEDELIC_ASSETS.length,
-    "retro-disney-adventure": CARTOON_ASSETS.length,
+    "concert-backstage-laminate": TELEVISION_ASSETS.length,
     total: ILLUSTRATION_CATALOG.length,
   };
   return counts;

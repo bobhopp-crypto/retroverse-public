@@ -36,8 +36,9 @@ export function buildArtworkContext(
   preset: CreativeLabPresetFile | null,
   refinement?: RefinementVariation,
 ): ArtworkPromptContext {
-  const world = visualWorldById(project.selectedArtDirectionId);
-  const comp = compositionForKey(winningPrompt.variationKey ?? "A");
+  const worldId = (project.selectedArtDirectionId ?? "psychedelic-festival") as VisualWorldId;
+  const world = visualWorldById(worldId);
+  const comp = compositionForKey(winningPrompt.variationKey ?? "A", worldId);
   return {
     prompt: buildArtworkPromptText(project, winningPrompt, preset, refinement),
     artifactTypeId: project.artifactType ?? "vip-pass",

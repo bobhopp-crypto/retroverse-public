@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 
+import { backCompositionForKey } from "@/lib/ops/creative-lab/pass-back-prompt";
 import { compositionForKey } from "@/lib/ops/creative-lab/concept-compositions";
 import type { CreativeLabProjectFile, GeneratedPrompt } from "@/lib/ops/creative-lab/types";
 import { visualWorldById } from "@/lib/ops/creative-lab/visual-worlds";
@@ -10,9 +11,11 @@ type Props = {
   prompts: GeneratedPrompt[];
   project: CreativeLabProjectFile;
   busy?: boolean;
-  onSelectWinner: (promptId: string) => void;
-  onGenerateRefinement: () => void;
-  onSelectVariation: (index: number) => void;
+  onSelectFront: (promptId: string) => void;
+  onLockFront: () => void;
+  onGenerateBacks: () => void;
+  onSelectBack: (promptId: string) => void;
+  onExportPackage: () => void;
 };
 
 function assetUrl(project: CreativeLabProjectFile, assetId: string): string {
@@ -39,93 +42,140 @@ function missingImageLabel(
   return "No image — generation did not produce a PNG";
 }
 
-export function ConceptDeck(props: Props) {
-  const { prompts, project, busy, onSelectWinner, onGenerateRefinement, onSelectVariation } = props;
-  const latestSetId = prompts.find((p) => p.variationSetId)?.variationSetId;
-  const round1Concepts = useMemo(() => {
-    if (!latestSetId) return prompts.slice(0, 4);
-    return prompts.filter((p) => p.variationSetId === latestSetId);
-  }, [prompts, latestSetId]);
-
-  const selectedId = project.selectedConceptPromptId ?? null;
-  const winningPrompt = round1Concepts.find((p) => p.id === selectedId) ?? null;
-  const world = visualWorldById(project.selectedArtDirectionId);
-  const refinementGenerated = project.refinementGenerated === true;
-  const refinements = project.refinementVariations ?? [];
-  const selectedVariation = project.selectedVariationIndex ?? null;
-
-  if (!round1Concepts.length) return null;
+function PassCardGrid(props: {
+  concepts: GeneratedPrompt[];
+  project: CreativeLabProjectFile;
+  busy?: boolean;
+  selectedId: string | null;
+  side: "front" | "back";
+  worldTitle: string;
+  onSelect: (promptId: string) => void;
+}) {
+  const { concepts, project, busy, selectedId, side, worldTitle, onSelect } = props;
 
   return (
-    <section className="cl-concept-deck cl-pass-deck" aria-label="Pass concept workflow">
-      {!refinementGenerated ? (
+    <div className="cl-pass-deck__grid">
+      {concepts.map((p) => {
+        const key = p.variationKey ?? "A";
+        const label =
+          side === "back"
+            ? backCompositionForKey(key).label
+            : compositionForKey(key, project.selectedArtDirectionId ?? undefined).label;
+        const asset = assetForPrompt(project, p);
+        const isWinner = selectedId === p.id;
+        return (
+          <article
+            key={p.id}
+            className={`cl-pass-card${isWinner ? " cl-pass-card--selected" : ""}`}
+          >
+            <div className="cl-pass-card__frame">
+              {asset?.filePath?.endsWith(".png") && asset.id ? (
+                <img
+                  src={assetUrl(project, asset.id)}
+                  alt={`${side === "back" ? "Back" : "Front"} ${key} — ${label}`}
+                  className="cl-pass-card__img"
+                />
+              ) : (
+                <div className="cl-pass-card__loading">{missingImageLabel(project, p, busy)}</div>
+              )}
+              <span className="cl-pass-card__key">{side === "back" ? "Back" : "Concept"} {key}</span>
+            </div>
+            <div className="cl-pass-card__body">
+              <h3>{label}</h3>
+              <p className="ops-dim">{p.conceptSummary}</p>
+              <button
+                type="button"
+                className={`cl-pass-card__select${isWinner ? " cl-pass-card__select--on" : ""}`}
+                disabled={busy || !asset || (side === "front" && project.frontLocked === true)}
+                onClick={() => onSelect(p.id)}
+              >
+                {isWinner
+                  ? side === "back"
+                    ? "✓ BACK SELECTED"
+                    : "✓ FRONT SELECTED"
+                  : side === "back"
+                    ? "USE THIS BACK"
+                    : "USE THIS FRONT"}
+              </button>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
+export function ConceptDeck(props: Props) {
+  const {
+    prompts,
+    project,
+    busy,
+    onSelectFront,
+    onLockFront,
+    onGenerateBacks,
+    onSelectBack,
+    onExportPackage,
+  } = props;
+
+  const frontSetId =
+    project.frontVariationSetId ??
+    prompts.find((p) => (p.passSide ?? "front") !== "back")?.variationSetId;
+  const frontConcepts = useMemo(() => {
+    if (!frontSetId) return prompts.filter((p) => (p.passSide ?? "front") !== "back").slice(0, 4);
+    return prompts.filter(
+      (p) => (p.passSide ?? "front") !== "back" && p.variationSetId === frontSetId,
+    );
+  }, [prompts, frontSetId]);
+
+  const backConcepts = useMemo(() => {
+    if (!project.backVariationSetId) return [];
+    return prompts.filter(
+      (p) => p.passSide === "back" && p.variationSetId === project.backVariationSetId,
+    );
+  }, [prompts, project.backVariationSetId]);
+
+  const selectedFrontId = project.selectedConceptPromptId ?? null;
+  const selectedBackId = project.selectedBackPromptId ?? null;
+  const world = visualWorldById(project.selectedArtDirectionId);
+  const frontLocked = project.frontLocked === true;
+  const lockedFrontAsset = project.lockedFrontAssetId
+    ? project.assets.find((a) => a.id === project.lockedFrontAssetId)
+    : undefined;
+
+  if (!frontConcepts.length) return null;
+
+  return (
+    <section className="cl-concept-deck cl-pass-deck" aria-label="Pass front/back workflow">
+      {!frontLocked ? (
         <>
           <header className="cl-concept-deck__head">
-            <h2>Concept A–D</h2>
+            <h2>Step 4 — Front concepts A–D</h2>
             <p className="ops-dim">
-              Four illustrated passes in <strong>{world.title}</strong> — pick the direction to refine.
+              Four illustrated fronts in <strong>{world.title}</strong> — select one, then lock it.
             </p>
           </header>
-          <div className="cl-pass-deck__grid">
-            {round1Concepts.map((p) => {
-              const key = p.variationKey ?? "A";
-              const comp = compositionForKey(key);
-              const asset = assetForPrompt(project, p);
-              const isWinner = selectedId === p.id;
-              return (
-                <article
-                  key={p.id}
-                  className={`cl-pass-card${isWinner ? " cl-pass-card--selected" : ""}`}
-                >
-                  <div className="cl-pass-card__frame">
-                    {asset?.filePath?.endsWith(".png") && asset.id ? (
-                      <img
-                        src={assetUrl(project, asset.id)}
-                        alt={`Concept ${key} — ${comp.label}`}
-                        className="cl-pass-card__img"
-                        onLoad={() =>
-                          console.log("[cl-ui:img] loaded", assetUrl(project, asset.id))
-                        }
-                        onError={(e) =>
-                          console.error("[cl-ui:img] error", assetUrl(project, asset.id), e)
-                        }
-                      />
-                    ) : (
-                      <div className="cl-pass-card__loading">{missingImageLabel(project, p, busy)}</div>
-                    )}
-                    <span className="cl-pass-card__key">Concept {key}</span>
-                  </div>
-                  <div className="cl-pass-card__body">
-                    <h3>{comp.label}</h3>
-                    <p className="ops-dim">{p.conceptSummary}</p>
-                    <button
-                      type="button"
-                      className={`cl-pass-card__select${isWinner ? " cl-pass-card__select--on" : ""}`}
-                      disabled={busy || !asset}
-                      onClick={() => onSelectWinner(p.id)}
-                    >
-                      {isWinner ? "✓ CONCEPT SELECTED" : "USE THIS CONCEPT"}
-                    </button>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-
-          {winningPrompt ? (
+          <PassCardGrid
+            concepts={frontConcepts}
+            project={project}
+            busy={busy}
+            selectedId={selectedFrontId}
+            side="front"
+            worldTitle={world.title}
+            onSelect={onSelectFront}
+          />
+          {selectedFrontId ? (
             <section className="cl-refine-cta">
-              <h3 className="cl-refine-cta__title">REFINE THIS CONCEPT</h3>
+              <h3 className="cl-refine-cta__title">LOCK FRONT</h3>
               <p className="cl-refine-cta__desc">
-                <strong>{compositionForKey(winningPrompt.variationKey ?? "A").label}</strong> in{" "}
-                <strong>{world.title}</strong> — generate 8 illustrated variations.
+                Approve your selected front — back generation unlocks after lock.
               </p>
               <button
                 type="button"
                 className="cl-refine-cta__btn"
                 disabled={busy}
-                onClick={onGenerateRefinement}
+                onClick={onLockFront}
               >
-                GENERATE 8 VARIATIONS
+                LOCK FRONT & CONTINUE
               </button>
             </section>
           ) : null}
@@ -133,59 +183,73 @@ export function ConceptDeck(props: Props) {
       ) : (
         <>
           <header className="cl-concept-deck__head">
-            <h2>Pick your pass</h2>
-            <p className="cl-concept-deck__inherit ops-dim">
-              Same world · same composition · varied borders, color, type, and ornament
+            <h2>Locked front</h2>
+            <p className="ops-dim">
+              Approved front in <strong>{world.title}</strong> — generate matching backs.
             </p>
           </header>
-          <div className="cl-pass-deck__grid cl-pass-deck__grid--refine">
-            {refinements.map((variation) => {
-              const asset = variation.assetId
-                ? project.assets.find((a) => a.id === variation.assetId)
-                : undefined;
-              const isWinner = selectedVariation === variation.index;
-              return (
-                <article
-                  key={variation.id}
-                  className={`cl-pass-card cl-pass-card--refine${isWinner ? " cl-pass-card--selected" : ""}`}
-                >
-                  <div className="cl-pass-card__frame">
-                    {asset?.filePath?.endsWith(".png") && asset.id ? (
-                      <img
-                        src={assetUrl(project, asset.id)}
-                        alt={variation.treatmentLabel}
-                        className="cl-pass-card__img"
-                      />
-                    ) : (
-                      <div className="cl-pass-card__loading">{missingImageLabel(project, p, busy)}</div>
-                    )}
-                    <span className="cl-pass-card__key">V{variation.index}</span>
-                  </div>
-                  <div className="cl-pass-card__body cl-pass-card__body--compact">
-                    <h3>{variation.treatmentLabel}</h3>
-                    <button
-                      type="button"
-                      className={`cl-pass-card__select${isWinner ? " cl-pass-card__select--on" : ""}`}
-                      disabled={busy || !asset}
-                      onClick={() => onSelectVariation(variation.index)}
-                    >
-                      {isWinner ? "✓ PASS SELECTED" : "USE THIS PASS"}
-                    </button>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-
-          {selectedVariation ? (
-            <section className="cl-art-winner">
-              <h3>Pass selected</h3>
-              <p>
-                <strong>{world.title}</strong> · Variation {selectedVariation} — approve in Asset Library or export
-                from Advanced Workshop.
-              </p>
-            </section>
+          {lockedFrontAsset?.id ? (
+            <div className="cl-pass-deck__locked-front">
+              <img
+                src={assetUrl(project, lockedFrontAsset.id)}
+                alt="Locked front pass"
+                className="cl-pass-card__img cl-pass-card__img--locked"
+              />
+            </div>
           ) : null}
+
+          {!backConcepts.length ? (
+            <section className="cl-refine-cta">
+              <h3 className="cl-refine-cta__title">GENERATE MATCHING BACKS</h3>
+              <p className="cl-refine-cta__desc">
+                Four reverse-side layouts using your locked front, palette, typography, and event
+                metadata.
+              </p>
+              <button
+                type="button"
+                className="cl-refine-cta__btn"
+                disabled={busy}
+                onClick={onGenerateBacks}
+              >
+                GENERATE 4 MATCHING BACKS
+              </button>
+            </section>
+          ) : (
+            <>
+              <header className="cl-concept-deck__head">
+                <h2>Step 5 — Back concepts A–D</h2>
+                <p className="cl-concept-deck__inherit ops-dim">
+                  Reverse side of your locked front — same visual world, palette, and laminate
+                  language
+                </p>
+              </header>
+              <PassCardGrid
+                concepts={backConcepts}
+                project={project}
+                busy={busy}
+                selectedId={selectedBackId}
+                side="back"
+                worldTitle={world.title}
+                onSelect={onSelectBack}
+              />
+              {selectedBackId ? (
+                <section className="cl-refine-cta">
+                  <h3 className="cl-refine-cta__title">EXPORT PACKAGE</h3>
+                  <p className="cl-refine-cta__desc">
+                    Front + back approved and zipped with project metadata.
+                  </p>
+                  <button
+                    type="button"
+                    className="cl-refine-cta__btn cl-refine-cta__btn--export"
+                    disabled={busy}
+                    onClick={onExportPackage}
+                  >
+                    EXPORT PASS PACKAGE
+                  </button>
+                </section>
+              ) : null}
+            </>
+          )}
         </>
       )}
     </section>

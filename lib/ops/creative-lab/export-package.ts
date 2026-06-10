@@ -82,6 +82,14 @@ export async function exportFinalDeliverables(project: CreativeLabProjectFile): 
 
     const outName = finalExportFilename(slot);
     const outPath = join(finalsDir, outName);
+    const pngSrc = asset.filePath
+      ? join(creativeLabProjectDir(projectId), asset.filePath)
+      : join(creativeLabProjectGeneratedDir(projectId), `${asset.id}.png`);
+    if (asset.filePath?.endsWith(".png") && existsSync(pngSrc)) {
+      await copyFile(pngSrc, outPath);
+      written.push(outPath);
+      continue;
+    }
     const placeholderSrc = join(creativeLabProjectGeneratedDir(projectId), `${asset.id}.placeholder.json`);
     if (existsSync(placeholderSrc)) {
       await copyFile(placeholderSrc, outPath.replace(/\.png$/, ".placeholder.json"));

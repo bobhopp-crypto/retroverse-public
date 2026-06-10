@@ -35,7 +35,7 @@ export const INFLUENCE_LIBRARY: InfluenceDef[] = [
 
 /** Preset → primary influence tags for concept mock panels. */
 export const PRESET_INFLUENCE_MAP: Record<string, InfluenceId[]> = {
-  "sunday-nights-classic": ["flintstones", "tv-1960s", "festival-tickets"],
+  "sunday-nights-classic": ["tv-credentials", "backstage-passes", "tv-1960s"],
   "collector-edition": ["classic-disney", "rocky-bullwinkle", "looney-tunes"],
   "live-aid": ["festival-tickets", "backstage-passes", "tv-1960s"],
   woodstock: ["festival-tickets", "tv-1960s", "looney-tunes"],

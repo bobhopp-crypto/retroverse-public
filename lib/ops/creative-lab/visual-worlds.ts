@@ -2,11 +2,11 @@ import type { ConceptVariationKey } from "./types";
 
 export type VisualWorldId =
   | "psychedelic-festival"
-  | "saturday-morning-cartoon"
+  | "music-television-credential"
   | "vintage-television"
   | "collector-memorabilia"
   | "rock-poster"
-  | "retro-disney-adventure";
+  | "concert-backstage-laminate";
 
 export type VisualWorld = {
   id: VisualWorldId;
@@ -34,15 +34,24 @@ export const VISUAL_WORLDS: VisualWorld[] = [
     heroGradient: "linear-gradient(145deg, #e85d2a 0%, #f4c430 40%, #2d1b4e 100%)",
   },
   {
-    id: "saturday-morning-cartoon",
-    title: "Saturday Morning Cartoon",
-    description: "Hanna-Barbera collectible — thick outlines, playful characters, cel-animation flat color.",
-    visualReferences: ["Flintstones", "Jetsons", "Rocky & Bullwinkle", "Saturday morning title cards"],
-    typographyStyle: "Bold cartoon caps, playful rounded sans, chunky outline lettering",
-    borderStyle: "Thick ink outline frame, halftone corners, action-line accents",
-    colorTreatment: "Flat teal, orange, yellow primaries on cream with heavy black ink",
-    palette: ["#ff6b35", "#4ecdc4", "#ffe66d", "#1a1a2e", "#f7f7f2"],
-    heroGradient: "linear-gradient(145deg, #4ecdc4 0%, #ffe66d 50%, #ff6b35 100%)",
+    id: "music-television-credential",
+    title: "Music Television Credential",
+    description:
+      "Authentic 1980s–1990s music television credentials — MTV backstage passes, VH1 laminates, concert guest passes, production badges. Bold typography, geometric graphics, neon accents. Collectible but adult — music culture, not cartoon culture.",
+    visualReferences: [
+      "MTV backstage passes",
+      "VH1 credentials",
+      "Concert laminates",
+      "Music industry guest passes",
+      "Television production credentials",
+      "All-access badges",
+      "VIP event passes",
+    ],
+    typographyStyle: "Bold sans caps, broadcast display type, credential hierarchy, laminate security lettering",
+    borderStyle: "Laminated pass edge, geometric broadcast frame, neon accent bars, foil-edge suggestion",
+    colorTreatment: "Black and charcoal base with hot pink, electric cyan, and gold neon accents on cream laminate stock",
+    palette: ["#0d0d0d", "#ff2d6a", "#00e5ff", "#f4c430", "#f5f0e8"],
+    heroGradient: "linear-gradient(145deg, #0d0d0d 0%, #ff2d6a 45%, #00e5ff 100%)",
   },
   {
     id: "vintage-television",
@@ -58,9 +67,9 @@ export const VISUAL_WORLDS: VisualWorld[] = [
   {
     id: "collector-memorabilia",
     title: "Collector Memorabilia",
-    description: "Archival keepsake framing — numbered editions, foil corners, ticket-stub soul.",
-    visualReferences: ["Trading cards", "Concert ticket stubs", "Souvenir programs", "Limited edition seals"],
-    typographyStyle: "Editorial serif edition lines, engraved numbering, museum label caps",
+    description: "Archival keepsake framing — foil corners, ticket-stub soul, blank numbering panel for post-print stamp.",
+    visualReferences: ["Trading cards", "Concert ticket stubs", "Souvenir programs", "Collectible seals"],
+    typographyStyle: "Editorial serif edition lines, museum label caps — no printed serial numbers",
     borderStyle: "Trading-card frame, perforated edge, foil corner seals",
     colorTreatment: "Warm tan stock, gold foil, brown ink, archival cream panels",
     palette: ["#d4a574", "#8b6914", "#f5e6c8", "#2d2d2d", "#b8860b"],
@@ -78,20 +87,31 @@ export const VISUAL_WORLDS: VisualWorld[] = [
     heroGradient: "linear-gradient(145deg, #1a1a1a 0%, #c41e3a 50%, #f4c430 100%)",
   },
   {
-    id: "retro-disney-adventure",
-    title: "Retro Disney Adventure",
-    description: "Mid-century adventure park charm — storybook illustration, whimsical borders, enchanted collectible.",
-    visualReferences: ["1950s park maps", "Storybook illustration", "Mid-century adventure graphics", "Enchanted ticket art"],
-    typographyStyle: "Storybook serif, whimsical hand lettering, adventure park display caps",
-    borderStyle: "Storybook scroll border, star-sparkle corners, ticket-shaped frame",
-    colorTreatment: "Sky blue, warm gold, storybook cream, enchanted teal accents",
-    palette: ["#4a90a4", "#f4c430", "#e8d5b7", "#2d5a4a", "#fff8f0"],
-    heroGradient: "linear-gradient(145deg, #4a90a4 0%, #f4c430 45%, #2d5a4a 100%)",
+    id: "concert-backstage-laminate",
+    title: "Concert Backstage Laminate",
+    description:
+      "Tour laminate authority — stage-door credentials, security zones, road-case wear. Bold adult music-industry pass for wallet or scrapbook keepsake.",
+    visualReferences: ["Tour laminates", "Stage-door passes", "Road crew credentials", "Festival backstage badges"],
+    typographyStyle: "Heavy security caps, laminate zone labels, road-tour block type",
+    borderStyle: "Thick laminate border, rounded credential corners, security stripe bands",
+    colorTreatment: "High-contrast ink on white laminate with red, gold, and black access zones",
+    palette: ["#1a1a1a", "#c41e3a", "#f4c430", "#f5f0e8", "#2d4a6e"],
+    heroGradient: "linear-gradient(145deg, #1a1a1a 0%, #c41e3a 50%, #f4c430 100%)",
   },
 ];
 
+/** Map legacy world ids from older projects. */
+export function normalizeVisualWorldId(id: string | null | undefined): VisualWorldId | null {
+  if (!id) return null;
+  if (id === "saturday-morning-cartoon") return "music-television-credential";
+  if (id === "retro-disney-adventure") return "concert-backstage-laminate";
+  if (VISUAL_WORLDS.some((w) => w.id === id)) return id as VisualWorldId;
+  return null;
+}
+
 export function visualWorldById(id: VisualWorldId | string | null | undefined): VisualWorld {
-  return VISUAL_WORLDS.find((w) => w.id === id) ?? VISUAL_WORLDS[0];
+  const normalized = normalizeVisualWorldId(id) ?? "psychedelic-festival";
+  return VISUAL_WORLDS.find((w) => w.id === normalized) ?? VISUAL_WORLDS[0];
 }
 
 /** Legacy A–D keys map to concept slot labels only — all share the selected visual world. */

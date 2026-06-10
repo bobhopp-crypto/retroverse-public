@@ -18,7 +18,7 @@ import {
 } from "@/lib/ops/creative-lab/workspace/urls";
 import { DEFAULT_ARTIFACT_TYPE, type ArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
 import { WORKSTATION_EVENT_DEFAULTS } from "@/lib/ops/creative-lab/workstation-defaults";
-import type { VisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
+import { normalizeVisualWorldId, type VisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 
 import { AdvancedWorkshop } from "./AdvancedWorkshop";
 import { CreativeWorkstation } from "./CreativeWorkstation";
@@ -78,7 +78,7 @@ export function CreativeLabWorkspace() {
   const [deskVenue, setDeskVenue] = useState(DEFAULT_VENUE);
   const [deskDate, setDeskDate] = useState(DEFAULT_DATE);
   const [deskYears, setDeskYears] = useState<number[]>([...DEFAULT_YEARS]);
-  const [selectedVisualWorldId, setSelectedVisualWorldId] = useState<VisualWorldId>("psychedelic-festival");
+  const [selectedVisualWorldId, setSelectedVisualWorldId] = useState<VisualWorldId>("music-television-credential");
   const [selectedPresetId, setSelectedPresetId] = useState<string | null>("sunday-nights-classic");
   const [artifactTypeId, setArtifactTypeId] = useState<ArtifactTypeId>(DEFAULT_ARTIFACT_TYPE);
   const [deskSelection, setDeskSelection] = useState<StyleSelection | null>(null);
@@ -170,7 +170,10 @@ export function CreativeLabWorkspace() {
     setDeskSelection(project.styleSelection);
     if (project.activePresetId) setSelectedPresetId(project.activePresetId);
     if (project.artifactType) setArtifactTypeId(project.artifactType);
-    if (project.selectedArtDirectionId) setSelectedVisualWorldId(project.selectedArtDirectionId);
+    if (project.selectedArtDirectionId) {
+      const worldId = normalizeVisualWorldId(project.selectedArtDirectionId);
+      if (worldId) setSelectedVisualWorldId(worldId);
+    }
   }, [project?.id]);
 
   const draftSelection = project?.styleSelection ?? deskSelection;
@@ -366,10 +369,16 @@ export function CreativeLabWorkspace() {
       const data = (await res.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
       if (!res.ok || !data.ok || !data.project) throw new Error(data.error ?? "project_op_failed");
       setProject(data.project);
-      if (body.op === "generateRefinementImages") {
-        setNotice("Eight pass variations generated — pick your final pass.");
+      if (body.op === "lockFront") {
+        setNotice("Front locked — generate matching backs.");
+      } else if (body.op === "generateBackPasses") {
+        setNotice("Four matching backs generated — pick your reverse side.");
       } else if (body.op === "setSelectedConcept") {
-        setNotice("Concept selected — ready to refine.");
+        setNotice("Front selected — lock when ready.");
+      } else if (body.op === "setSelectedBack") {
+        setNotice("Back selected — export package when ready.");
+      } else if (body.op === "generateRefinementImages") {
+        setNotice("Eight pass variations generated — pick your final pass.");
       } else if (body.op === "setSelectedVariation") {
         setNotice("Pass selected — approve in Advanced Workshop.");
       }
@@ -394,6 +403,34 @@ export function CreativeLabWorkspace() {
       setNotice(target === "exports" ? "Opened exports folder in Finder." : "Revealed project folder in Finder.");
     } catch (e) {
       setError(e instanceof Error ? e.message : "reveal_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function exportPassPairFromDesk() {
+    if (!project) return;
+    setBusy(true);
+    setError(null);
+    setNotice(null);
+    try {
+      const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(project.id)}/export`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ op: "exportPassPair" }),
+      });
+      const data = (await res.json()) as {
+        ok?: boolean;
+        zipRel?: string;
+        files?: string[];
+        project?: CreativeLabProjectFile;
+        error?: string;
+      };
+      if (!res.ok || !data.ok) throw new Error(data.error ?? "export_failed");
+      if (data.project) setProject(data.project);
+      setNotice(`Pass package exported (${data.zipRel ?? "exports"}).`);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "export_failed");
     } finally {
       setBusy(false);
     }
@@ -515,7 +552,7 @@ export function CreativeLabWorkspace() {
       const genData = (await genRes.json()) as { ok?: boolean; project?: CreativeLabProjectFile; error?: string };
       if (!genRes.ok || !genData.ok || !genData.project) throw new Error(genData.error ?? "pass_generation_failed");
       setProject(genData.project);
-      setNotice("Four pass concepts generated — pick your direction.");
+      setNotice("Four front concepts generated — select and lock your front.");
       await loadIndex();
     } catch (e) {
       setError(e instanceof Error ? e.message : "generate_failed");
@@ -568,12 +605,12 @@ export function CreativeLabWorkspace() {
           onDateChange={setDeskDate}
           onYearsChange={setDeskYears}
           onVisualWorldSelect={setSelectedVisualWorldId}
-          onGeneratePasses={() => void workstationGeneratePasses()}
-          onSelectWinner={(promptId) => void projectOp({ op: "setSelectedConcept", promptId })}
-          onGenerateRefinement={() => void projectOp({ op: "generateRefinementImages" })}
-          onSelectVariation={(variationIndex) =>
-            void projectOp({ op: "setSelectedVariation", variationIndex })
-          }
+          onGenerateFrontConcepts={() => void workstationGeneratePasses()}
+          onSelectFront={(promptId) => void projectOp({ op: "setSelectedConcept", promptId })}
+          onLockFront={() => void projectOp({ op: "lockFront" })}
+          onGenerateBacks={() => void projectOp({ op: "generateBackPasses" })}
+          onSelectBack={(promptId) => void projectOp({ op: "setSelectedBack", promptId })}
+          onExportPackage={() => void exportPassPairFromDesk()}
           onOpenAdvanced={() => navigate({ panel: "projects", project: projectId })}
         />
       </>

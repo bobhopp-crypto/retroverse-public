@@ -6,18 +6,22 @@ import {
   deleteProject,
   generateArtworkForProject,
   generateConceptForModule,
+  generateBackConceptsForProject,
   generatePassConceptsForProject,
   generateRefinementImages,
   generateRefinementVariations,
+  lockFrontAsset,
   loadProject,
   markAssetFinal,
   rejectAsset,
   saveProject,
+  setSelectedBack,
   setSelectedConcept,
   setSelectedVariation,
   updateProject,
 } from "@/lib/ops/creative-lab/projects";
 import { normalizeConceptStrategyMap } from "@/lib/ops/creative-lab/concept-strategies";
+import { normalizeVisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 import { normalizeArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
 import { normalizeStyleSelection } from "@/lib/ops/creative-lab/style-catalog";
 import type { CreativeLabModuleId, FinalAssetSlot } from "@/lib/ops/creative-lab/types";
@@ -83,6 +87,38 @@ export async function PUT(req: Request, ctx: Ctx) {
     return NextResponse.json({ ok: true, project });
   }
 
+  if (body.op === "lockFront") {
+    try {
+      const project = await lockFrontAsset(id);
+      if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+      return NextResponse.json({ ok: true, project });
+    } catch (e) {
+      const message = e instanceof Error ? e.message : "lock_front_failed";
+      return NextResponse.json({ error: message }, { status: 400 });
+    }
+  }
+
+  if (body.op === "generateBackPasses") {
+    try {
+      console.log("[cl-api:generateBackPasses] start", { projectId: id });
+      const project = await generateBackConceptsForProject(id);
+      if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+      const backCount = project.generatedPrompts.filter((p) => p.passSide === "back").length;
+      console.log("[cl-api:generateBackPasses] done", { projectId: id, backPrompts: backCount });
+      return NextResponse.json({ ok: true, project });
+    } catch (e) {
+      const message = e instanceof Error ? e.message : "back_generation_failed";
+      if (e instanceof Error) console.error("[cl-api:generateBackPasses] error", e.stack ?? e.message);
+      return NextResponse.json({ error: message }, { status: 502 });
+    }
+  }
+
+  if (body.op === "setSelectedBack" && typeof body.promptId === "string") {
+    const project = await setSelectedBack(id, body.promptId);
+    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    return NextResponse.json({ ok: true, project });
+  }
+
   if (body.op === "generatePasses" && typeof body.visualWorldId === "string") {
     try {
       console.log("[cl-api:generatePasses] start", { projectId: id, visualWorldId: body.visualWorldId });
@@ -98,6 +134,7 @@ export async function PUT(req: Request, ctx: Ctx) {
       return NextResponse.json({ ok: true, project });
     } catch (e) {
       const message = e instanceof Error ? e.message : "pass_generation_failed";
+      if (e instanceof Error) console.error("[cl-api:generatePasses] error", e.stack ?? e.message);
       return NextResponse.json({ error: message }, { status: 502 });
     }
   }
@@ -162,13 +199,8 @@ export async function PUT(req: Request, ctx: Ctx) {
       : undefined,
     artifactType: body.artifactType !== undefined ? normalizeArtifactTypeId(body.artifactType) : undefined,
     selectedArtDirectionId:
-      body.selectedArtDirectionId === "psychedelic-festival" ||
-      body.selectedArtDirectionId === "saturday-morning-cartoon" ||
-      body.selectedArtDirectionId === "vintage-television" ||
-      body.selectedArtDirectionId === "collector-memorabilia" ||
-      body.selectedArtDirectionId === "rock-poster" ||
-      body.selectedArtDirectionId === "retro-disney-adventure"
-        ? body.selectedArtDirectionId
+      typeof body.selectedArtDirectionId === "string"
+        ? normalizeVisualWorldId(body.selectedArtDirectionId) ?? undefined
         : undefined,
     activeModule:
       body.activeModule === "poster-lab" ||

@@ -31,9 +31,9 @@ export const BUILTIN_PRESET_LIBRARY: BuiltinPresetSeed[] = [
   {
     id: "sunday-nights-classic",
     name: "Sunday Nights Classic",
-    description: "Pub-night festival pass with Saturday-morning cartoon warmth and cream vintage stock.",
+    description: "Sunday Nights music-television credential — MTV/VH1 laminate energy, bold type, neon graphics.",
     credentialStyle: "festival-pass",
-    illustrationStyle: "saturday-morning-cartoon",
+    illustrationStyle: "music-television-broadcast",
     colorStyle: "cream-vintage",
     densityStyle: "detailed",
     defaultConceptStrategy: "broadcast-focus",

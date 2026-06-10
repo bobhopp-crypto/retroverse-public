@@ -19,6 +19,7 @@ import { buildConceptVariations } from "./concept-variations";
 import { normalizeConceptStrategyMap, strategyForVariation } from "./concept-strategies";
 import { exportFinalDeliverables, exportProjectPackage } from "./export-package";
 import { loadPreset } from "./presets";
+import { backCompositionForKey, renderPassBackPrompt } from "./pass-back-prompt";
 import { renderPassConceptPrompt } from "./pass-concept-prompt";
 import {
   creativeLabProjectIndexPath,
@@ -32,7 +33,7 @@ import { DEFAULT_ARTIFACT_TYPE, normalizeArtifactTypeId } from "./artifact-types
 import { refinementsForArtDirection } from "./art-direction-refinements";
 import { renderPromptText } from "./prompt-renderer";
 import { emptyStyleSelection, normalizeStyleSelection } from "./style-catalog";
-import { CONCEPT_KEYS, visualWorldById, type VisualWorldId } from "./visual-worlds";
+import { CONCEPT_KEYS, normalizeVisualWorldId, visualWorldById, type VisualWorldId } from "./visual-worlds";
 import type {
   CreativeLabIndexFile,
   CreativeLabModuleId,
@@ -104,6 +105,9 @@ function normalizeGeneratedPrompts(
       renderedPrompt,
       variationKey,
       variationSetId: typeof row.variationSetId === "string" ? row.variationSetId : undefined,
+      passSide: row.passSide === "back" ? "back" : row.passSide === "front" ? "front" : undefined,
+      parentFrontAssetId:
+        typeof row.parentFrontAssetId === "string" ? row.parentFrontAssetId : undefined,
       assetId: typeof row.assetId === "string" ? row.assetId : undefined,
       strategyId,
       structuredConcept: row.structuredConcept ?? {
@@ -131,15 +135,7 @@ function normalizeRefinementVariations(raw: unknown): RefinementVariation[] {
     const row = item as Partial<RefinementVariation> & { layoutId?: string };
     if (typeof row.id !== "string" || typeof row.index !== "number") continue;
     if (row.index < 1 || row.index > 8) continue;
-    const artDirectionId =
-      row.artDirectionId === "psychedelic-festival" ||
-      row.artDirectionId === "saturday-morning-cartoon" ||
-      row.artDirectionId === "vintage-television" ||
-      row.artDirectionId === "collector-memorabilia" ||
-      row.artDirectionId === "rock-poster" ||
-      row.artDirectionId === "retro-disney-adventure"
-        ? row.artDirectionId
-        : "psychedelic-festival";
+    const artDirectionId = normalizeVisualWorldId(row.artDirectionId) ?? "psychedelic-festival";
     out.push({
       id: row.id,
       index: row.index,
@@ -216,15 +212,25 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
       obj.selectedConceptKey === "D"
         ? obj.selectedConceptKey
         : null,
-    selectedArtDirectionId:
-      obj.selectedArtDirectionId === "psychedelic-festival" ||
-      obj.selectedArtDirectionId === "saturday-morning-cartoon" ||
-      obj.selectedArtDirectionId === "vintage-television" ||
-      obj.selectedArtDirectionId === "collector-memorabilia" ||
-      obj.selectedArtDirectionId === "rock-poster" ||
-      obj.selectedArtDirectionId === "retro-disney-adventure"
-        ? obj.selectedArtDirectionId
+    frontLocked: obj.frontLocked === true,
+    lockedFrontAssetId:
+      typeof obj.lockedFrontAssetId === "string" ? obj.lockedFrontAssetId : null,
+    lockedFrontPromptId:
+      typeof obj.lockedFrontPromptId === "string" ? obj.lockedFrontPromptId : null,
+    frontVariationSetId:
+      typeof obj.frontVariationSetId === "string" ? obj.frontVariationSetId : null,
+    backVariationSetId:
+      typeof obj.backVariationSetId === "string" ? obj.backVariationSetId : null,
+    selectedBackPromptId:
+      typeof obj.selectedBackPromptId === "string" ? obj.selectedBackPromptId : null,
+    selectedBackKey:
+      obj.selectedBackKey === "A" ||
+      obj.selectedBackKey === "B" ||
+      obj.selectedBackKey === "C" ||
+      obj.selectedBackKey === "D"
+        ? obj.selectedBackKey
         : null,
+    selectedArtDirectionId: normalizeVisualWorldId(obj.selectedArtDirectionId),
     workflowRound:
       obj.workflowRound === 2 || obj.workflowRound === 3 ? obj.workflowRound : 1,
     refinementGenerated: obj.refinementGenerated === true,
@@ -417,6 +423,13 @@ export async function updateProject(
       | "artifactType"
       | "selectedConceptPromptId"
       | "selectedConceptKey"
+      | "frontLocked"
+      | "lockedFrontAssetId"
+      | "lockedFrontPromptId"
+      | "frontVariationSetId"
+      | "backVariationSetId"
+      | "selectedBackPromptId"
+      | "selectedBackKey"
       | "selectedArtDirectionId"
       | "workflowRound"
       | "refinementGenerated"
@@ -452,6 +465,29 @@ export async function updateProject(
         : existing.selectedConceptPromptId ?? null,
     selectedConceptKey:
       patch.selectedConceptKey !== undefined ? patch.selectedConceptKey : (existing.selectedConceptKey ?? null),
+    frontLocked: patch.frontLocked !== undefined ? patch.frontLocked : (existing.frontLocked ?? false),
+    lockedFrontAssetId:
+      patch.lockedFrontAssetId !== undefined
+        ? patch.lockedFrontAssetId
+        : (existing.lockedFrontAssetId ?? null),
+    lockedFrontPromptId:
+      patch.lockedFrontPromptId !== undefined
+        ? patch.lockedFrontPromptId
+        : (existing.lockedFrontPromptId ?? null),
+    frontVariationSetId:
+      patch.frontVariationSetId !== undefined
+        ? patch.frontVariationSetId
+        : (existing.frontVariationSetId ?? null),
+    backVariationSetId:
+      patch.backVariationSetId !== undefined
+        ? patch.backVariationSetId
+        : (existing.backVariationSetId ?? null),
+    selectedBackPromptId:
+      patch.selectedBackPromptId !== undefined
+        ? patch.selectedBackPromptId
+        : (existing.selectedBackPromptId ?? null),
+    selectedBackKey:
+      patch.selectedBackKey !== undefined ? patch.selectedBackKey : (existing.selectedBackKey ?? null),
     workflowRound: patch.workflowRound !== undefined ? patch.workflowRound : (existing.workflowRound ?? 1),
     refinementGenerated:
       patch.refinementGenerated !== undefined
@@ -534,10 +570,10 @@ export async function generatePassConceptsForProject(
   const world = visualWorldById(visualWorldId);
   const prompts: GeneratedPrompt[] = [];
   const newAssets: CreativeLabAsset[] = [];
-  const type = moduleDefaultAssetType("pass-lab");
+  const type = "pass-front" as const;
 
   for (const key of CONCEPT_KEYS) {
-    const comp = compositionForKey(key);
+    const comp = compositionForKey(key, visualWorldId);
     const promptText = renderPassConceptPrompt({
       worldId: visualWorldId,
       event: project.event,
@@ -586,6 +622,7 @@ export async function generatePassConceptsForProject(
       renderedPrompt: promptText,
       variationKey: key,
       variationSetId,
+      passSide: "front",
       assetId,
       structuredConcept: {
         event: project.event,
@@ -618,8 +655,210 @@ export async function generatePassConceptsForProject(
     selectedVariationIndex: null,
     selectedConceptKey: null,
     selectedConceptPromptId: null,
+    frontLocked: false,
+    lockedFrontAssetId: null,
+    lockedFrontPromptId: null,
+    frontVariationSetId: variationSetId,
+    backVariationSetId: null,
+    selectedBackPromptId: null,
+    selectedBackKey: null,
     updatedAt: now,
   });
+}
+
+/** Approve and lock the selected front — required before back generation. */
+export async function lockFrontAsset(projectId: string): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  const promptId = project.selectedConceptPromptId;
+  if (!promptId) throw new Error("Select a front concept before locking");
+  const winner = project.generatedPrompts.find(
+    (p) => p.id === promptId && (p.passSide ?? "front") !== "back",
+  );
+  if (!winner?.assetId) throw new Error("Selected front has no generated asset");
+
+  let updated = await approveAsset(projectId, winner.assetId);
+  if (!updated) return null;
+
+  return saveProject({
+    ...updated,
+    frontLocked: true,
+    lockedFrontAssetId: winner.assetId,
+    lockedFrontPromptId: promptId,
+    frontVariationSetId: winner.variationSetId ?? project.frontVariationSetId ?? null,
+    workflowRound: 2,
+    backVariationSetId: null,
+    selectedBackPromptId: null,
+    selectedBackKey: null,
+    finalAssetSlots: { ...updated.finalAssetSlots, "final-front": winner.assetId },
+    assets: updated.assets.map((a) =>
+      a.id === winner.assetId ? { ...a, type: "pass-front", status: "approved" } : a,
+    ),
+    updatedAt: new Date().toISOString(),
+  });
+}
+
+/** Generate 4 matching back concepts from the locked front reference. */
+export async function generateBackConceptsForProject(
+  projectId: string,
+): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  if (!project.frontLocked || !project.lockedFrontAssetId) {
+    throw new Error("Lock a front pass before generating backs");
+  }
+
+  const frontAsset = project.assets.find((a) => a.id === project.lockedFrontAssetId);
+  if (!frontAsset?.filePath?.endsWith(".png")) {
+    throw new Error("Locked front asset is missing its PNG file");
+  }
+
+  const frontPrompt = project.generatedPrompts.find((p) => p.id === project.lockedFrontPromptId);
+  const visualWorldId =
+    normalizeVisualWorldId(project.selectedArtDirectionId) ?? "music-television-credential";
+  const world = visualWorldById(visualWorldId);
+  const frontKey = frontPrompt?.variationKey ?? "A";
+  const frontComp = compositionForKey(frontKey, visualWorldId);
+
+  const folderId = projectFolderId(project);
+  const frontAbs = join(creativeLabProjectDir(folderId), frontAsset.filePath);
+  const frontBuffer = await readFile(frontAbs);
+
+  const now = new Date().toISOString();
+  const variationSetId = `back-${Date.now().toString(36)}`;
+  const prompts: GeneratedPrompt[] = [];
+  const newAssets: CreativeLabAsset[] = [];
+
+  for (const key of CONCEPT_KEYS) {
+    const backPromptText = renderPassBackPrompt({
+      worldId: visualWorldId,
+      event: project.event,
+      venue: project.venue,
+      date: project.date,
+      featuredYears: project.featuredYears,
+      theme: project.theme,
+      conceptKey: key,
+      frontConceptSummary: frontPrompt?.conceptSummary ?? `${frontComp.label} — ${world.title}`,
+      frontCompositionLabel: frontComp.label,
+    });
+
+    const promptId = `prompt-back-${Date.now().toString(36)}-${key.toLowerCase()}-${Math.random().toString(36).slice(2, 5)}`;
+    const result = await generateArtwork(
+      artworkContextFromPrompt(project, backPromptText, visualWorldId, `Back ${key}`),
+      { count: 1, quality: "medium", size: "1024x1536", referenceImage: frontBuffer },
+    );
+    const image = result.images[0];
+    if (!image) continue;
+
+    const assetId = `asset-back-${Date.now().toString(36)}-${key.toLowerCase()}-${Math.random().toString(36).slice(2, 6)}`;
+    const rel = await writeArtworkAssetFile(folderId, assetId, image.buffer);
+    console.log("[cl-artwork:register] back concept asset", {
+      projectId: project.id,
+      conceptKey: key,
+      assetId,
+      promptId,
+      parentFront: project.lockedFrontAssetId,
+      filePath: rel,
+      bytes: image.buffer.length,
+    });
+
+    newAssets.push({
+      id: assetId,
+      projectId: project.id,
+      type: "pass-back",
+      concept: key,
+      status: "generated",
+      createdAt: now,
+      filePath: rel,
+      promptId,
+      module: "pass-lab",
+      notes: `Back ${key} · matches ${frontComp.label} · ${resolveArtworkProvider()}`,
+    });
+
+    prompts.push({
+      id: promptId,
+      module: "pass-lab",
+      conceptSummary: `Back ${key} — ${backCompositionForKey(key).label} · matches ${frontComp.label}`,
+      renderedPrompt: backPromptText,
+      variationKey: key,
+      variationSetId,
+      passSide: "back",
+      parentFrontAssetId: project.lockedFrontAssetId,
+      assetId,
+      structuredConcept: {
+        event: project.event,
+        venue: project.venue,
+        date: project.date,
+        featuredYears: project.featuredYears,
+        theme: project.theme,
+        dominantStyles: { credential: [], illustration: [], color: [], density: [] },
+        module: "pass-lab",
+        variationKey: key,
+      },
+      createdAt: now,
+    });
+  }
+
+  if (!prompts.length) {
+    throw new Error("No back concepts were generated");
+  }
+
+  return saveProject({
+    ...project,
+    generatedPrompts: [...prompts, ...project.generatedPrompts].slice(0, 64),
+    assets: [...newAssets, ...project.assets].slice(0, 128),
+    backVariationSetId: variationSetId,
+    selectedBackPromptId: null,
+    selectedBackKey: null,
+    workflowRound: 3,
+    updatedAt: now,
+  });
+}
+
+export async function setSelectedBack(
+  projectId: string,
+  promptId: string,
+): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  const winner = project.generatedPrompts.find(
+    (p) => p.id === promptId && p.passSide === "back",
+  );
+  if (!winner) return null;
+  return updateProject(projectId, {
+    selectedBackPromptId: promptId,
+    selectedBackKey: winner.variationKey ?? null,
+    workflowRound: 3,
+  });
+}
+
+/** Export locked front + selected back as final deliverables and project package. */
+export async function exportPassPair(projectId: string): Promise<{
+  project: CreativeLabProjectFile;
+  zipPath: string;
+  zipRel: string;
+  files: string[];
+} | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  if (!project.frontLocked || !project.lockedFrontAssetId) {
+    throw new Error("Front must be locked before export");
+  }
+  if (!project.selectedBackPromptId) {
+    throw new Error("Select a back pass before export");
+  }
+  const backPrompt = project.generatedPrompts.find((p) => p.id === project.selectedBackPromptId);
+  const backAssetId = backPrompt?.assetId;
+  if (!backAssetId) throw new Error("Selected back has no asset");
+
+  let updated = await approveAsset(projectId, backAssetId);
+  if (!updated) return null;
+  updated = (await markAssetFinal(projectId, project.lockedFrontAssetId, "final-front")) ?? updated;
+  updated = (await markAssetFinal(projectId, backAssetId, "final-back")) ?? updated;
+
+  const pkg = await exportProjectPackage(updated);
+  const finals = await exportFinalDeliverables(updated);
+  return { project: updated, ...pkg, files: finals.files };
 }
 
 /** @deprecated SVG placeholder concepts — use generatePassConceptsForProject */

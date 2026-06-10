@@ -33,6 +33,9 @@ export type StyleSelection = {
 
 export type ConceptVariationKey = "A" | "B" | "C" | "D";
 
+/** Front or reverse pass side for generated prompts. */
+export type PassSide = "front" | "back";
+
 export type ConceptStrategyId =
   | "credential-focus"
   | "collector-focus"
@@ -67,6 +70,10 @@ export type GeneratedPrompt = {
   variationKey?: ConceptVariationKey;
   /** Groups Concept A–D generated together. */
   variationSetId?: string;
+  /** Front or back pass side — defaults to front for legacy prompts. */
+  passSide?: PassSide;
+  /** Back prompts reference the locked front asset. */
+  parentFrontAssetId?: string;
   /** Linked generated PNG asset */
   assetId?: string;
   /** Concept strategy template used for this variation. */
@@ -157,6 +164,17 @@ export type CreativeLabProjectFile = {
   selectedConceptPromptId?: string | null;
   /** Winning concept key A–D */
   selectedConceptKey?: ConceptVariationKey | null;
+  /** Front approved and locked — backs may be generated */
+  frontLocked?: boolean;
+  lockedFrontAssetId?: string | null;
+  lockedFrontPromptId?: string | null;
+  /** Latest front concept variation set */
+  frontVariationSetId?: string | null;
+  /** Latest back concept variation set */
+  backVariationSetId?: string | null;
+  /** Selected back prompt id */
+  selectedBackPromptId?: string | null;
+  selectedBackKey?: ConceptVariationKey | null;
   /** Winning art direction — psychedelic, cartoon, television, collector */
   selectedArtDirectionId?: ArtDirectionId | null;
   /** Workflow round: 1 concept pick, 2 variation pick, 3 asset gen */

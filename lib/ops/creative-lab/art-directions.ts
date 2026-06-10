@@ -2,7 +2,10 @@ import type { VisualWorldId } from "./visual-worlds";
 import { VISUAL_WORLDS } from "./visual-worlds";
 import type { ConceptVariationKey } from "./types";
 
-export type ArtDirectionId = VisualWorldId;
+/** Legacy ids kept for illustration asset categories and old presets. */
+export type LegacyArtDirectionId = "saturday-morning-cartoon" | "retro-disney-adventure";
+
+export type ArtDirectionId = VisualWorldId | LegacyArtDirectionId;
 
 export type CollectibilityLevel = "High" | "Very High" | "Medium";
 
@@ -29,14 +32,14 @@ export const ART_DIRECTIONS: ArtDirection[] = [
     palette: ["#e85d2a", "#f4c430", "#c41e3a", "#2d1b4e", "#f5e6c8"],
   },
   {
-    id: "saturday-morning-cartoon",
+    id: "music-television-credential",
     key: "B",
-    title: "Saturday Morning Cartoon",
-    subtitle: "Flintstones · Jetsons · Hanna-Barbera energy",
-    styleChips: ["Cel Animation", "Playful", "Character-Driven", "Collectible"],
-    collectibility: "High",
-    whyThisWorks: "Playful and character-driven — like a cartoon you want to clip and save.",
-    palette: ["#ff6b35", "#4ecdc4", "#ffe66d", "#1a1a2e", "#f7f7f2"],
+    title: "Music Television Credential",
+    subtitle: "MTV backstage · VH1 · concert laminates",
+    styleChips: ["MTV Era", "Bold Type", "Neon Graphics", "Laminate Pass"],
+    collectibility: "Very High",
+    whyThisWorks: "Authentic music-TV credential — wallet-worthy memorabilia, not cartoon culture.",
+    palette: ["#0d0d0d", "#ff2d6a", "#00e5ff", "#f4c430", "#f5f0e8"],
   },
   {
     id: "vintage-television",
@@ -69,14 +72,14 @@ export const ART_DIRECTIONS: ArtDirection[] = [
     palette: ["#1a1a1a", "#e85d2a", "#f4c430", "#c41e3a", "#f0ead6"],
   },
   {
-    id: "retro-disney-adventure",
+    id: "concert-backstage-laminate",
     key: "B",
-    title: "Retro Disney Adventure",
-    subtitle: "Storybook parks · mid-century enchantment",
-    styleChips: ["Storybook", "Adventure Park", "Whimsical", "Enchanted"],
+    title: "Concert Backstage Laminate",
+    subtitle: "Tour passes · stage-door · road-case credentials",
+    styleChips: ["Tour Laminate", "Stage Door", "Security Zones", "All Access"],
     collectibility: "High",
-    whyThisWorks: "Mid-century adventure park charm — whimsical borders and storybook illustration.",
-    palette: ["#4a90a4", "#f4c430", "#e8d5b7", "#2d5a4a", "#fff8f0"],
+    whyThisWorks: "Road-tour laminate authority — the pass you keep from a legendary night.",
+    palette: ["#1a1a1a", "#c41e3a", "#f4c430", "#f5f0e8", "#2d4a6e"],
   },
 ];
 
@@ -94,7 +97,7 @@ export const ALL_ART_DIRECTIONS: ArtDirection[] = VISUAL_WORLDS.map((w) => ({
 
 export const ART_DIRECTION_BY_KEY: Record<ConceptVariationKey, ArtDirectionId> = {
   A: "psychedelic-festival",
-  B: "saturday-morning-cartoon",
+  B: "music-television-credential",
   C: "vintage-television",
   D: "collector-memorabilia",
 };

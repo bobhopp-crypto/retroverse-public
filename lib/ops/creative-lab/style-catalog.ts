@@ -14,6 +14,7 @@ export const CREDENTIAL_STYLES: StyleDefinition[] = [
 
 export const ILLUSTRATION_STYLES: StyleDefinition[] = [
   { id: "saturday-morning-cartoon", label: "Saturday Morning Cartoon", category: "illustration", description: "Bright cel animation, bold outlines, playful mascots, kid-show graphics." },
+  { id: "music-television-broadcast", label: "Music Television Broadcast", category: "illustration", description: "MTV/VH1-era geometric graphics, bold type, neon accents — no mascots or characters." },
   { id: "comic-book", label: "Comic Book", category: "illustration", description: "Ink lines, halftone dots, action-panel dynamism." },
   { id: "mid-century", label: "Mid-Century", category: "illustration", description: "Atomic-age geometry, limited palettes, modernist optimism." },
   { id: "pop-art", label: "Pop Art", category: "illustration", description: "Ben-Day dots, high contrast, Warhol-era repetition." },

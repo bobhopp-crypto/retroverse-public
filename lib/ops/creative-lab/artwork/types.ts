@@ -12,6 +12,8 @@ export type ArtworkGenerateOptions = {
   quality?: "low" | "medium" | "high";
   /** Optional seed hint per image index */
   variationIndex?: number;
+  /** Front PNG for style-matched back generation */
+  referenceImage?: Buffer;
 };
 
 export type ArtworkImageResult = {

@@ -22,10 +22,12 @@ type Props = {
   onDateChange: (v: string) => void;
   onYearsChange: (years: number[]) => void;
   onVisualWorldSelect: (id: VisualWorldId) => void;
-  onGeneratePasses: () => void;
-  onSelectWinner: (promptId: string) => void;
-  onGenerateRefinement: () => void;
-  onSelectVariation: (index: number) => void;
+  onGenerateFrontConcepts: () => void;
+  onSelectFront: (promptId: string) => void;
+  onLockFront: () => void;
+  onGenerateBacks: () => void;
+  onSelectBack: (promptId: string) => void;
+  onExportPackage: () => void;
   onOpenAdvanced: () => void;
 };
 
@@ -43,10 +45,12 @@ export function CreativeWorkstation(props: Props) {
     onDateChange,
     onYearsChange,
     onVisualWorldSelect,
-    onGeneratePasses,
-    onSelectWinner,
-    onGenerateRefinement,
-    onSelectVariation,
+    onGenerateFrontConcepts,
+    onSelectFront,
+    onLockFront,
+    onGenerateBacks,
+    onSelectBack,
+    onExportPackage,
     onOpenAdvanced,
   } = props;
 
@@ -59,12 +63,13 @@ export function CreativeWorkstation(props: Props) {
   const worldReady = Boolean(selectedVisualWorldId);
   const canGenerate = eventReady && worldReady;
   const hasConcepts = Boolean(project?.generatedPrompts.length);
+  const frontLocked = project?.frontLocked === true;
 
   return (
     <div className="cl-desk">
       <header className="cl-desk__masthead">
         <p className="cl-desk__kicker">Retroverse Creative Lab</p>
-        <h1 className="cl-desk__title">Art-direct your pass</h1>
+        <h1 className="cl-desk__title">Front approval · back generation</h1>
       </header>
 
       <section className="cl-desk__step">
@@ -118,16 +123,20 @@ export function CreativeWorkstation(props: Props) {
         <button
           type="button"
           className={`cl-desk__generate-btn${canGenerate ? " cl-desk__generate-btn--armed" : ""}`}
-          disabled={busy || !canGenerate}
-          onClick={onGeneratePasses}
+          disabled={busy || !canGenerate || frontLocked}
+          onClick={onGenerateFrontConcepts}
         >
-          {busy ? "GENERATING PASSES…" : "GENERATE PASSES"}
+          {busy ? "GENERATING FRONTS…" : "GENERATE FRONT CONCEPTS"}
         </button>
         {!canGenerate ? (
           <p className="cl-desk__hint ops-dim">Confirm event details and pick one visual world.</p>
+        ) : frontLocked ? (
+          <p className="cl-desk__hint ops-dim">Front is locked — regenerate only from Advanced Workshop.</p>
         ) : busy ? (
-          <p className="cl-desk__hint ops-dim">Creating four illustrated pass concepts — this takes a minute.</p>
-        ) : null}
+          <p className="cl-desk__hint ops-dim">Creating four illustrated front concepts — this takes a minute.</p>
+        ) : (
+          <p className="cl-desk__hint ops-dim">Step 3 — four front concepts only. Backs come after lock.</p>
+        )}
       </section>
 
       {hasConcepts && project ? (
@@ -135,9 +144,11 @@ export function CreativeWorkstation(props: Props) {
           prompts={project.generatedPrompts}
           project={project}
           busy={busy}
-          onSelectWinner={onSelectWinner}
-          onGenerateRefinement={onGenerateRefinement}
-          onSelectVariation={onSelectVariation}
+          onSelectFront={onSelectFront}
+          onLockFront={onLockFront}
+          onGenerateBacks={onGenerateBacks}
+          onSelectBack={onSelectBack}
+          onExportPackage={onExportPackage}
         />
       ) : null}
 

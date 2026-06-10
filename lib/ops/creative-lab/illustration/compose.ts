@@ -161,8 +161,9 @@ function composeCollector(spec: ArtBoardSpec, seed: number): BoardComposition {
 export function composeBoard(spec: ArtBoardSpec): BoardComposition {
   const seed = compositionSeed(spec);
   switch (spec.artDirectionId) {
-    case "saturday-morning-cartoon":
-      return composeCartoon(spec, seed);
+    case "music-television-credential":
+    case "concert-backstage-laminate":
+      return composeTelevision(spec, seed);
     case "vintage-television":
       return composeTelevision(spec, seed);
     case "collector-memorabilia":

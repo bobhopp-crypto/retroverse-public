@@ -22,15 +22,26 @@ const PSYCHEDELIC_REFINEMENTS: ArtRefinementTreatment[] = [
   { id: "psy-maximal", label: "Maximal festival collage", borderTreatment: "collage-border", typography: "mixed-lettering", illustrationDensity: "heavy", numberingTreatment: "edition-badge", decorativeMotif: "multi-icon", layoutEmphasis: "layered-depth" },
 ];
 
-const CARTOON_REFINEMENTS: ArtRefinementTreatment[] = [
-  { id: "toon-cel", label: "Cel animation classic", borderTreatment: "thick-outline", typography: "cartoon-bold", illustrationDensity: "heavy", numberingTreatment: "star-badge", decorativeMotif: "action-lines", layoutEmphasis: "character-hero" },
-  { id: "toon-hanna", label: "Hanna-Barbera flat", borderTreatment: "rounded-corners", typography: "playful-sans", illustrationDensity: "medium", numberingTreatment: "bubble-no", decorativeMotif: "halftone-dots", layoutEmphasis: "horizontal-strip" },
-  { id: "toon-flint", label: "Stone-age charm", borderTreatment: "rock-frame", typography: "prehistoric-bold", illustrationDensity: "medium", numberingTreatment: "bone-carved", decorativeMotif: "spot-gag", layoutEmphasis: "family-group" },
-  { id: "toon-jetson", label: "Space-age chrome", borderTreatment: "atomic-curve", typography: "futurist", illustrationDensity: "medium", numberingTreatment: "digital-no", decorativeMotif: "orbit-rings", layoutEmphasis: "skyline" },
-  { id: "toon-bullwinkle", label: "Deadpan charm", borderTreatment: "flat-color-block", typography: "witty-serif", illustrationDensity: "light", numberingTreatment: "simple-stamp", decorativeMotif: "speech-bubble", layoutEmphasis: "title-card" },
-  { id: "toon-sticker", label: "Sticker sheet collectible", borderTreatment: "die-cut", typography: "chunky-outline", illustrationDensity: "heavy", numberingTreatment: "peel-back-no", decorativeMotif: "star-burst", layoutEmphasis: "mascot-center" },
-  { id: "toon-comic", label: "Sunday comics panel", borderTreatment: "panel-grid", typography: "comic-caption", illustrationDensity: "medium", numberingTreatment: "panel-number", decorativeMotif: "ben-day", layoutEmphasis: "multi-panel" },
-  { id: "toon-toy", label: "Toy box packaging", borderTreatment: "blister-frame", typography: "toy-logo", illustrationDensity: "heavy", numberingTreatment: "barcode-style", decorativeMotif: "sparkle", layoutEmphasis: "product-hero" },
+const MUSIC_TV_REFINEMENTS: ArtRefinementTreatment[] = [
+  { id: "mtv-neon", label: "Neon broadcast grid", borderTreatment: "neon-frame", typography: "bold-sans-caps", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "geometric-grid", layoutEmphasis: "title-dominant" },
+  { id: "mtv-backstage", label: "MTV backstage laminate", borderTreatment: "laminate-edge", typography: "security-bold", illustrationDensity: "light", numberingTreatment: "blank-panel", decorativeMotif: "access-stripes", layoutEmphasis: "credential-plate" },
+  { id: "vh1-gold", label: "VH1 gold trim", borderTreatment: "gold-trim", typography: "broadcast-serif", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "foil-band", layoutEmphasis: "center-crest" },
+  { id: "mtv-scan", label: "Scan-line broadcast", borderTreatment: "crt-frame", typography: "display-caps", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "scan-lines", layoutEmphasis: "horizontal-band" },
+  { id: "mtv-geometric", label: "Geometric neon blocks", borderTreatment: "color-block", typography: "stacked-caps", illustrationDensity: "light", numberingTreatment: "blank-panel", decorativeMotif: "neon-triangle", layoutEmphasis: "vertical-marquee" },
+  { id: "mtv-guest", label: "Guest credential plate", borderTreatment: "studio-plate", typography: "guest-caps", illustrationDensity: "light", numberingTreatment: "blank-panel", decorativeMotif: "spotlight-beam", layoutEmphasis: "badge-dominant" },
+  { id: "mtv-collector", label: "Collector laminate", borderTreatment: "foil-edge", typography: "collector-serif", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "music-note-geo", layoutEmphasis: "symmetric-frame" },
+  { id: "mtv-tour", label: "Tour laminate", borderTreatment: "tour-stripe", typography: "road-case-bold", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "hazard-stripe", layoutEmphasis: "wide-banner" },
+];
+
+const CONCERT_LAMINATE_REFINEMENTS: ArtRefinementTreatment[] = [
+  { id: "lam-stage", label: "Stage-door pass", borderTreatment: "laminate-edge", typography: "security-caps", illustrationDensity: "light", numberingTreatment: "blank-panel", decorativeMotif: "spotlight", layoutEmphasis: "credential-plate" },
+  { id: "lam-tour", label: "Tour crew laminate", borderTreatment: "rounded-laminate", typography: "road-bold", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "hazard-stripe", layoutEmphasis: "access-zones" },
+  { id: "lam-vip", label: "VIP all-access", borderTreatment: "foil-border", typography: "vip-caps", illustrationDensity: "light", numberingTreatment: "blank-panel", decorativeMotif: "gold-band", layoutEmphasis: "title-dominant" },
+  { id: "lam-festival", label: "Festival backstage", borderTreatment: "perforated-edge", typography: "festival-bold", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "star-burst", layoutEmphasis: "horizontal-strip" },
+  { id: "lam-guest", label: "Guest of honor", borderTreatment: "guest-frame", typography: "guest-serif", illustrationDensity: "light", numberingTreatment: "blank-panel", decorativeMotif: "ribbon-seal", layoutEmphasis: "center-crest" },
+  { id: "lam-road", label: "Road case wear", borderTreatment: "scuffed-edge", typography: "distressed-caps", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "tape-strip", layoutEmphasis: "vertical-marquee" },
+  { id: "lam-neon", label: "Neon marquee", borderTreatment: "neon-edge", typography: "marquee-bold", illustrationDensity: "medium", numberingTreatment: "blank-panel", decorativeMotif: "neon-glow", layoutEmphasis: "wide-banner" },
+  { id: "lam-collector", label: "Wallet keepsake", borderTreatment: "premium-laminate", typography: "collector-caps", illustrationDensity: "light", numberingTreatment: "blank-panel", decorativeMotif: "foil-corner", layoutEmphasis: "symmetric-frame" },
 ];
 
 const TELEVISION_REFINEMENTS: ArtRefinementTreatment[] = [
@@ -66,24 +77,13 @@ const ROCK_POSTER_REFINEMENTS: ArtRefinementTreatment[] = [
   { id: "rock-maximal", label: "Maximal gig collage", borderTreatment: "layered-posters", typography: "mixed-weights", illustrationDensity: "heavy", numberingTreatment: "foil-badge", decorativeMotif: "multi-icon", layoutEmphasis: "layered-depth" },
 ];
 
-const RETRO_DISNEY_REFINEMENTS: ArtRefinementTreatment[] = [
-  { id: "disney-storybook", label: "Storybook scroll", borderTreatment: "scroll-border", typography: "storybook-serif", illustrationDensity: "heavy", numberingTreatment: "ticket-serial", decorativeMotif: "star-sparkle", layoutEmphasis: "character-hero" },
-  { id: "disney-ticket", label: "Enchanted ticket", borderTreatment: "ticket-shape", typography: "park-display", illustrationDensity: "medium", numberingTreatment: "admit-one", decorativeMotif: "castle-silhouette", layoutEmphasis: "banner-header" },
-  { id: "disney-map", label: "Park map charm", borderTreatment: "map-frame", typography: "wayfinding", illustrationDensity: "medium", numberingTreatment: "zone-badge", decorativeMotif: "compass-rose", layoutEmphasis: "landscape" },
-  { id: "disney-midcentury", label: "Mid-century adventure", borderTreatment: "atomic-curve", typography: "retro-sans", illustrationDensity: "medium", numberingTreatment: "gold-foil-no", decorativeMotif: "teacup-sparkle", layoutEmphasis: "symmetric-frame" },
-  { id: "disney-fantasy", label: "Fantasyland glow", borderTreatment: "enchanted-glow", typography: "whimsical-script", illustrationDensity: "heavy", numberingTreatment: "magic-number", decorativeMotif: "fairy-dust", layoutEmphasis: "center-crest" },
-  { id: "disney-vintage", label: "Vintage souvenir", borderTreatment: "souvenir-frame", typography: "commemorative", illustrationDensity: "light", numberingTreatment: "edition-of", decorativeMotif: "ribbon-seal", layoutEmphasis: "badge-dominant" },
-  { id: "disney-adventure", label: "Adventureland trail", borderTreatment: "jungle-vine", typography: "expedition-caps", illustrationDensity: "medium", numberingTreatment: "expedition-no", decorativeMotif: "compass", layoutEmphasis: "horizontal-strip" },
-  { id: "disney-treasure", label: "Treasure map edition", borderTreatment: "aged-parchment", typography: "pirate-serif", illustrationDensity: "heavy", numberingTreatment: "x-marks", decorativeMotif: "treasure-chest", layoutEmphasis: "map-layout" },
-];
-
-export const ART_REFINEMENT_TREATMENTS: Record<ArtDirectionId, ArtRefinementTreatment[]> = {
+export const ART_REFINEMENT_TREATMENTS: Partial<Record<ArtDirectionId, ArtRefinementTreatment[]>> & Record<import("./visual-worlds").VisualWorldId, ArtRefinementTreatment[]> = {
   "psychedelic-festival": PSYCHEDELIC_REFINEMENTS,
-  "saturday-morning-cartoon": CARTOON_REFINEMENTS,
+  "music-television-credential": MUSIC_TV_REFINEMENTS,
   "vintage-television": TELEVISION_REFINEMENTS,
   "collector-memorabilia": COLLECTOR_REFINEMENTS,
   "rock-poster": ROCK_POSTER_REFINEMENTS,
-  "retro-disney-adventure": RETRO_DISNEY_REFINEMENTS,
+  "concert-backstage-laminate": CONCERT_LAMINATE_REFINEMENTS,
 };
 
 export function refinementsForArtDirection(id: ArtDirectionId | string): ArtRefinementTreatment[] {

@@ -38,14 +38,16 @@ export function VisualWorldHero({ world }: Props) {
     );
   }
 
-  if (id === "saturday-morning-cartoon") {
+  if (id === "music-television-credential") {
     return (
       <svg viewBox="0 0 200 280" className="cl-world-hero" aria-hidden>
-        <rect width="200" height="280" fill={c5} />
-        <rect x="20" y="60" width="160" height="160" fill={c2} stroke={c4} strokeWidth="6" rx="16" />
-        <circle cx="80" cy="130" r="18" fill={c1} stroke={c4} strokeWidth="4" />
-        <circle cx="120" cy="130" r="18" fill={c3} stroke={c4} strokeWidth="4" />
-        <path d="M70 170 Q100 200 130 170" fill="none" stroke={c4} strokeWidth="5" strokeLinecap="round" />
+        <rect width="200" height="280" fill={c1} />
+        <polygon points="100,40 170,200 30,200" fill={c2} opacity="0.9" />
+        <rect x="24" y="210" width="152" height="36" fill={c5} stroke={c4} strokeWidth="2" rx="4" />
+        <text x="100" y="95" textAnchor="middle" fill={c5} fontSize="22" fontWeight="900">
+          MTV
+        </text>
+        <rect x="12" y="12" width="176" height="256" fill="none" stroke={c3} strokeWidth="3" />
       </svg>
     );
   }
@@ -94,16 +96,16 @@ export function VisualWorldHero({ world }: Props) {
     );
   }
 
-  // retro-disney-adventure
+  // concert-backstage-laminate
   return (
     <svg viewBox="0 0 200 280" className="cl-world-hero" aria-hidden>
-      <rect width="200" height="280" fill={c5} />
-      <path d="M20 40 Q100 10 180 40 L180 240 Q100 270 20 240 Z" fill={c1} opacity="0.25" />
-      <circle cx="100" cy="130" r="50" fill={c2} stroke={c4} strokeWidth="3" />
-      <path d="M85 130 L95 145 L115 115" fill="none" stroke={c4} strokeWidth="4" strokeLinecap="round" />
-      {[...Array(5)].map((_, i) => (
-        <circle key={i} cx={40 + i * 30} cy={50 + (i % 2) * 10} r="4" fill={c2} />
-      ))}
+      <rect width="200" height="280" fill={c5} rx="12" />
+      <rect x="16" y="16" width="168" height="248" fill="none" stroke={c1} strokeWidth="5" rx="8" />
+      <rect x="30" y="50" width="140" height="36" fill={c2} />
+      <text x="100" y="74" textAnchor="middle" fill={c5} fontSize="16" fontWeight="900">
+        ALL ACCESS
+      </text>
+      <rect x="55" y="230" width="90" height="22" fill={c5} stroke={c1} strokeWidth="2" />
     </svg>
   );
 }
