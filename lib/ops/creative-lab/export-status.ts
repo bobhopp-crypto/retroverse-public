@@ -3,8 +3,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { creativeLabProjectExportsDir } from "./paths";
-import type { PassExportReport } from "./pass-export-composite";
-import { emptyQrZoneAudit } from "./qr-zone-render";
+import { emptyQrVerification, type PassExportReport } from "./pass-export-composite";
 
 export type ProjectExportStatus = {
   exportDir: string;
@@ -57,19 +56,7 @@ export async function getProjectExportStatus(
       package: zipFilename
         ? { filename: zipFilename, path: join(exportDir, zipFilename), rel: zipRel! }
         : { filename: "", path: "", rel: "" },
-      qrVerification: {
-        ok: false,
-        decodedUrl: null,
-        expectedUrl: "",
-        notes: [],
-        physicalWidthIn: 0,
-        physicalHeightIn: 0,
-        pixelSize: { width: 0, height: 0 },
-        minSizeIn: 1.5,
-        sizePass: false,
-        decodePass: false,
-        zoneAudit: emptyQrZoneAudit(),
-      },
+      qrVerification: emptyQrVerification(""),
       textGovernance: { note: "Export report missing — files found on disk." },
     };
   }

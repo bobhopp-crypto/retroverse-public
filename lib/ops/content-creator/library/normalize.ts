@@ -65,6 +65,7 @@ export function indexEntryFromManifest(m: ContentCreatorGenerationManifest): Con
     thumbnailPath: m.thumbnailPath,
     hasExport: Boolean(m.exportedCredentialPath || m.exportZipPath),
     parentGenerationId: m.parentGenerationId,
+    variationBatchId: m.variationBatchId,
     quality: m.quality,
   };
 }

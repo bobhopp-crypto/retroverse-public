@@ -73,6 +73,7 @@ export async function loadLibraryIndex(): Promise<ContentCreatorLibraryIndex> {
       notes: e.notes ?? "",
       tags: e.tags ?? [],
       parentGenerationId: e.parentGenerationId ?? null,
+      variationBatchId: e.variationBatchId ?? null,
       quality: e.quality ?? { promptCharCount: 0, variationScore: "medium", clicheRisk: "medium" },
     })),
   };
@@ -245,6 +246,7 @@ export type ListGenerationsOptions = {
   tags?: string[];
   dateFrom?: string;
   dateTo?: string;
+  variationBatchId?: string;
   limit?: number;
 };
 
@@ -269,6 +271,10 @@ export async function listGenerations(
   if (opts.dateTo) {
     const to = opts.dateTo;
     items = items.filter((g) => g.timestamp.slice(0, 10) <= to);
+  }
+
+  if (opts.variationBatchId) {
+    items = items.filter((g) => g.variationBatchId === opts.variationBatchId);
   }
 
   const q = opts.q?.trim().toLowerCase();

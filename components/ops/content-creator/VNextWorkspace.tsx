@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 
+import { JobQueuePanel } from "@/components/ops/content-creator/JobQueuePanel";
 import { PromptInspectorModal, QualityPanel } from "@/components/ops/content-creator/PromptInspectorModal";
 import { PassQrSafeAreaOverlay } from "@/components/ops/content-creator/PassQrSafeAreaOverlay";
 import type { ComposedRvbrPrompt, PromptQualityScores } from "@/lib/creative/rvbr-prompt-types";
@@ -257,6 +258,33 @@ export function VNextWorkspace({ eras }: Props) {
     }
   }
 
+  async function pollJobUntilDone(jobId: string): Promise<RunState> {
+    for (let i = 0; i < 180; i++) {
+      const res = await fetch(`/api/ops/content-creator/jobs/${encodeURIComponent(jobId)}`);
+      const data = (await res.json()) as {
+        ok?: boolean;
+        job?: {
+          status: string;
+          error: string | null;
+          result: { runId?: string; frontUrl?: string; backUrl?: string } | null;
+        };
+      };
+      const job = data.job;
+      if (!res.ok || !job) throw new Error("job_poll_failed");
+      if (job.status === "completed" && job.result?.runId) {
+        const t = Date.now();
+        return {
+          runId: job.result.runId,
+          frontUrl: `${job.result.frontUrl ?? `/api/ops/content-creator/vnext/files/${job.result.runId}/front.png`}?t=${t}`,
+          backUrl: `${job.result.backUrl ?? `/api/ops/content-creator/vnext/files/${job.result.runId}/back.png`}?t=${t}`,
+        };
+      }
+      if (job.status === "failed") throw new Error(job.error ?? "generate_failed");
+      await new Promise((r) => setTimeout(r, 2000));
+    }
+    throw new Error("job_timeout");
+  }
+
   async function generate() {
     setBusy(true);
     setError(null);
@@ -265,24 +293,35 @@ export function VNextWorkspace({ eras }: Props) {
     setFront(f);
     setBack(b);
     try {
+      const payload = {
+        eraSlug,
+        artifact,
+        ...fieldsPayload("front", f),
+        ...fieldsPayload("back", b),
+        ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+        background: true,
+      };
       const res = await fetch("/api/ops/content-creator/vnext/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          eraSlug,
-          artifact,
-          ...fieldsPayload("front", f),
-          ...fieldsPayload("back", b),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
-        }),
+        body: JSON.stringify(payload),
       });
       const data = (await res.json()) as RunState & {
         ok?: boolean;
         error?: string;
+        background?: boolean;
+        jobId?: string;
         promptInspector?: { front: ComposedRvbrPrompt; back: ComposedRvbrPrompt };
         qualityScores?: PromptQualityScores;
       };
       if (!res.ok || !data.ok) throw new Error(data.error ?? "generate_failed");
+
+      if (data.background && data.jobId) {
+        const result = await pollJobUntilDone(data.jobId);
+        setRun(result);
+        return;
+      }
+
       setRun({
         runId: data.runId,
         frontUrl: `${data.frontUrl}?t=${Date.now()}`,
@@ -296,6 +335,26 @@ export function VNextWorkspace({ eras }: Props) {
       setError(e instanceof Error ? e.message : "generate_failed");
     } finally {
       setBusy(false);
+    }
+  }
+
+  async function printScanTest() {
+    if (!run?.runId) return;
+    try {
+      const res = await fetch("/api/ops/content-creator/vnext/print-scan-test", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ runId: run.runId }),
+      });
+      if (!res.ok) throw new Error("print_scan_test_failed");
+      const html = await res.text();
+      const w = window.open("", "_blank");
+      if (w) {
+        w.document.write(html);
+        w.document.close();
+      }
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "print_scan_test_failed");
     }
   }
 
@@ -425,8 +484,15 @@ export function VNextWorkspace({ eras }: Props) {
     );
   }
 
+  const qrWarn =
+    run?.qrVerification &&
+    (run.qrVerification.matrixFillWarning ||
+      run.qrVerification.printSizeWarning ||
+      !run.qrVerification.decodePass);
+
   return (
     <div className="cc-creator">
+      <JobQueuePanel />
       <header className="cc-creator__titlebar">
         <h1>Content Creator</h1>
         <Link href="/ops/content-creator" className="cc-creator__btn cc-creator__btn--secondary">
@@ -459,24 +525,44 @@ export function VNextWorkspace({ eras }: Props) {
               )}
             </div>
           </div>
+          {qrWarn ? (
+            <div className="cc-creator__qr-warning" role="alert">
+              {run?.qrVerification?.printSizeWarning
+                ? `QR below recommended print size (${run.qrVerification.physicalWidthIn.toFixed(2)}") — lanyard scan may fail. `
+                : null}
+              {run?.qrVerification?.matrixFillWarning
+                ? `Matrix fill ${run.qrVerification.matrixFillPercent.toFixed(0)}% is below 85% target. `
+                : null}
+              {!run?.qrVerification?.decodePass ? "Decode test failed — re-export before printing." : null}
+            </div>
+          ) : null}
           {run?.qrVerification ? (
             <div className="cc-creator__qr-status" aria-live="polite">
               <p>
-                Reserved zone: {run.qrVerification.zoneAudit.reservedZonePx.width}×
-                {run.qrVerification.zoneAudit.reservedZonePx.height}px
-              </p>
-              <p>
-                Rendered QR: {run.qrVerification.zoneAudit.renderedQrImagePx.width}×
-                {run.qrVerification.zoneAudit.renderedQrImagePx.height}px (
-                {run.qrVerification.zoneAudit.zoneFillPercent.toFixed(1)}% of zone)
-              </p>
-              <p>
-                Physical: {run.qrVerification.physicalWidthIn.toFixed(2)}" ×{" "}
-                {run.qrVerification.physicalHeightIn.toFixed(2)}"
+                Matrix fill: {run.qrVerification.matrixFillPercent.toFixed(1)}% · Physical:{" "}
+                {run.qrVerification.physicalWidthIn.toFixed(2)}" × {run.qrVerification.physicalHeightIn.toFixed(2)}"
               </p>
               <p className={run.qrVerification.decodePass ? "cc-creator__qr-pass" : "cc-creator__qr-fail"}>
                 Scan Test: {run.qrVerification.decodePass ? "PASS" : "FAIL"}
               </p>
+              <button
+                type="button"
+                className="cc-creator__btn cc-creator__btn--secondary cc-creator__print-scan-btn"
+                onClick={() => void printScanTest()}
+              >
+                Print Scan Test
+              </button>
+            </div>
+          ) : run?.runId ? (
+            <div className="cc-creator__qr-status">
+              <button
+                type="button"
+                className="cc-creator__btn cc-creator__btn--secondary cc-creator__print-scan-btn"
+                onClick={() => void printScanTest()}
+              >
+                Print Scan Test
+              </button>
+              <p className="cc-creator__qr-hint">Export first for QR verification metrics.</p>
             </div>
           ) : null}
         </figure>

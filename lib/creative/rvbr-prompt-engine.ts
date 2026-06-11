@@ -59,6 +59,19 @@ const RETROVERSE_BRAND_RULES = [
   `BIG TITLE → BIG ART → DATE stack is forbidden`,
 ].join("\n");
 
+const COLLECTIBLE_HERO_RULES = [
+  `THE COLLECTIBLE OBJECT IS THE HERO — not a person, portrait, or crowd scene`,
+  `Prioritize: credential design, collector ephemera, typography, seals, stamps, archival memorabilia, admission artifacts`,
+  `Favor: laminate plates, ticket stock, VIP panels, embossed seals, foil bands, hand-lettered event typography`,
+  `The pass should look like a discovered physical artifact — not an AI illustration of someone`,
+].join("\n");
+
+const SUBJECT_AVOIDANCE_RULES = [
+  `Strongly avoid: random people, celebrity lookalikes, AI portraits, generic faces, stock models, crowd scenes`,
+  `Do not center the composition on a human figure — center on the collectible object, typography, and era ephemera`,
+  `No photorealistic headshots, no famous-person resemblance, no audience silhouettes as focal subject`,
+].join("\n");
+
 function scorePromptQuality(
   input: RvbrPromptEngineInput,
   eraProfile: ReturnType<typeof loadRvbrPromptProfile>,
@@ -72,12 +85,7 @@ function scorePromptQuality(
 
   const brandSpecificity: PromptQualityLevel = "high";
 
-  const variationScore: PromptQualityLevel =
-    input.settings.maximizeVariation && input.settings.artifactArchetype === "random"
-      ? "high"
-      : input.settings.maximizeVariation
-        ? "medium"
-        : "low";
+  const variationScore: PromptQualityLevel = input.settings.maximizeVariation ? "high" : "medium";
 
   let clicheRisk: PromptQualityLevel = "medium";
   if (input.settings.avoidEraTropes && eraProfile.negativePromptTerms.length >= 4) {
@@ -145,6 +153,12 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     ``,
     `RETROVERSE BRAND`,
     brandContent,
+    ``,
+    `COLLECTIBLE HERO`,
+    COLLECTIBLE_HERO_RULES,
+    ``,
+    `SUBJECT AVOIDANCE`,
+    SUBJECT_AVOIDANCE_RULES,
     ``,
     `GOVERNED TEXT`,
     governedText,

@@ -29,6 +29,7 @@ export async function GET(req: Request) {
   const tags = tagsRaw ? tagsRaw.split(",").map((t) => t.trim().toLowerCase()).filter(Boolean) : undefined;
   const dateFrom = url.searchParams.get("from") ?? undefined;
   const dateTo = url.searchParams.get("to") ?? undefined;
+  const variationBatchId = url.searchParams.get("batch") ?? undefined;
   const backfill = url.searchParams.get("backfill") === "1";
   const statsOnly = url.searchParams.get("stats") === "1";
 
@@ -53,6 +54,7 @@ export async function GET(req: Request) {
     tags,
     dateFrom,
     dateTo,
+    variationBatchId,
   });
 
   const stats = await computeLibraryStats();

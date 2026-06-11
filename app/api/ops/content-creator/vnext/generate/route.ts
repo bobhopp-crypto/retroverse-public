@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { parseSecondaryLineWithLegacy } from "@/lib/ops/content-creator/parse-fields";
 import { parseCreativeDirectionSettings } from "@/lib/ops/content-creator/creative-direction";
 import type { ContentArtifactType } from "@/lib/ops/content-creator/types";
+import { enqueueContentCreatorJob } from "@/lib/ops/content-creator/jobs/enqueue";
 import { runVNextGenerate, vNextFileUrl } from "@/lib/ops/content-creator/vnext-run";
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
 import type { ArtDirectorFields } from "@/lib/ops/content-creator/rvbr-art-director-prompt";
@@ -64,6 +65,15 @@ export async function POST(req: Request) {
   const frontFields = body.frontEvent ? parseFields(body, "front") : top;
   const backFields = body.backEvent ? parseFields(body, "back") : top;
   const creativeSettings = parseCreativeDirectionSettings(body);
+
+  if (body.background === true) {
+    const job = await enqueueContentCreatorJob({
+      type: "generate",
+      title: top.event || "New credential",
+      payload: body as Record<string, unknown>,
+    });
+    return NextResponse.json({ ok: true, background: true, jobId: job.id });
+  }
 
   try {
     const manifest = await runVNextGenerate({

@@ -9,14 +9,18 @@ import {
   PASS_PRINT_WIDTH_IN,
   PASS_WIDTH,
   QR_PRINT_MIN_IN,
+  QR_PRINT_PREFERRED_MIN_IN,
   QR_ZONE,
 } from "./pass-layout";
 import {
   auditExportedQrZone,
+  emptyQrZoneAudit,
   generateZoneFillingQrPng,
-  QR_MIN_ZONE_FILL_PERCENT,
+  QR_MAX_MATRIX_FILL_PERCENT,
+  QR_MIN_MATRIX_FILL_PERCENT,
+  qrMatrixFillInRange,
   qrZoneAuditNotes,
-  renderQrPngForZone,
+  selectOptimalQuietModules,
   type QrZoneAudit,
 } from "./qr-zone-render";
 import type { CreativeLabProjectFile } from "./types";
@@ -35,9 +39,35 @@ export type QrVerificationResult = {
   minSizeIn: number;
   sizePass: boolean;
   decodePass: boolean;
+  matrixFillPercent: number;
+  matrixFillPass: boolean;
+  matrixFillWarning: boolean;
+  printSizeWarning: boolean;
   /** Measured from exported back PNG — not editor preview. */
   zoneAudit: QrZoneAudit;
 };
+
+/** Placeholder when export has not been verified yet. */
+export function emptyQrVerification(expectedUrl: string): QrVerificationResult {
+  const zoneAudit = emptyQrZoneAudit();
+  return {
+    ok: false,
+    decodedUrl: null,
+    expectedUrl,
+    notes: [],
+    physicalWidthIn: 0,
+    physicalHeightIn: 0,
+    pixelSize: { width: 0, height: 0 },
+    minSizeIn: QR_PRINT_MIN_IN,
+    sizePass: false,
+    decodePass: false,
+    matrixFillPercent: 0,
+    matrixFillPass: false,
+    matrixFillWarning: true,
+    printSizeWarning: true,
+    zoneAudit,
+  };
+}
 
 export type PassExportReport = {
   exportedAt: string;
@@ -54,7 +84,7 @@ export type PassExportReport = {
   };
 };
 
-/** Generate zone-filling QR PNG (matrix ≥90% of reserved zone when possible). */
+/** Generate zone-filling QR PNG (matrix 85–90% of reserved zone when possible). */
 export async function generateQrPngBuffer(url: string, targetSize: number): Promise<Buffer> {
   const { png } = await generateZoneFillingQrPng(url, targetSize);
   return png;
@@ -100,7 +130,7 @@ async function decodeQrFromPng(pngPath: string, extract?: { left: number; top: n
 }
 
 /**
- * Composite QR onto back, audit exported PNG, enlarge (tighter quiet zone) if matrix < 90% of zone.
+ * Composite QR onto back, audit exported PNG, tune quiet zone for 85–90% matrix fill.
  */
 export async function compositeQrOntoBackPng(args: {
   backSrc: string | Buffer;
@@ -108,26 +138,16 @@ export async function compositeQrOntoBackPng(args: {
   qrUrl: string;
 }): Promise<{ zoneAudit: QrZoneAudit; quietModules: number }> {
   const zoneSize = QR_ZONE.size;
-  let quietModules = 4;
-  let zoneAudit: QrZoneAudit | null = null;
+  const picked = await selectOptimalQuietModules(args.qrUrl, zoneSize);
 
-  for (let attempt = 4; attempt >= 1; attempt--) {
-    quietModules = attempt;
-    const { png } = await renderQrPngForZone(args.qrUrl, zoneSize, quietModules);
+  const base = typeof args.backSrc === "string" ? sharp(args.backSrc) : sharp(args.backSrc);
+  await base
+    .composite([{ input: picked.png, left: QR_ZONE.left, top: QR_ZONE.top }])
+    .png()
+    .toFile(args.backPath);
 
-    const base = typeof args.backSrc === "string" ? sharp(args.backSrc) : sharp(args.backSrc);
-    await base
-      .composite([{ input: png, left: QR_ZONE.left, top: QR_ZONE.top }])
-      .png()
-      .toFile(args.backPath);
-
-    zoneAudit = await auditExportedQrZone(args.backPath);
-    if (zoneAudit.matrixFillPercent >= QR_MIN_ZONE_FILL_PERCENT) {
-      break;
-    }
-  }
-
-  return { zoneAudit: zoneAudit!, quietModules };
+  const zoneAudit = await auditExportedQrZone(args.backPath, zoneSize, QR_ZONE.left, QR_ZONE.top, picked.quietModules);
+  return { zoneAudit, quietModules: picked.quietModules };
 }
 
 /** Post-export validation — audit exported PNG, decode QR, report physical size. */
@@ -148,10 +168,34 @@ export async function verifyQrInComposite(
   const minSizeIn = QR_PRINT_MIN_IN;
   const sizePass =
     physicalWidthIn >= minSizeIn - 0.001 && physicalHeightIn >= minSizeIn - 0.001;
+  const printSizeWarning = physicalWidthIn < QR_PRINT_PREFERRED_MIN_IN - 0.001;
+  const matrixFillPercent = zoneAudit.matrixFillPercent;
+  const matrixFillPass = qrMatrixFillInRange(zoneAudit);
+  const matrixFillWarning = matrixFillPercent < QR_MIN_MATRIX_FILL_PERCENT;
+
+  const qrMetrics = {
+    physicalWidthIn,
+    physicalHeightIn,
+    pixelSize: { width: pixelWidth, height: pixelHeight },
+    minSizeIn,
+    sizePass,
+    matrixFillPercent,
+    matrixFillPass,
+    matrixFillWarning,
+    printSizeWarning,
+    zoneAudit,
+  };
 
   notes.push(`Print canvas: ${PASS_WIDTH}px = ${PASS_PRINT_WIDTH_IN}" wide`);
   notes.push(`Minimum required: ${minSizeIn}" × ${minSizeIn}"`);
+  notes.push(`Preferred print: ${QR_PRINT_PREFERRED_MIN_IN}"+ for lanyard scan distance`);
   notes.push(`Size check: ${sizePass ? "PASS" : "FAIL"}`);
+  if (printSizeWarning) {
+    notes.push(`PRINT WARNING: QR physical size below ${QR_PRINT_PREFERRED_MIN_IN}" — may fail lanyard scan`);
+  }
+  notes.push(
+    `Matrix fill: ${matrixFillPercent.toFixed(1)}% (target ${QR_MIN_MATRIX_FILL_PERCENT}–${QR_MAX_MATRIX_FILL_PERCENT}%) — ${matrixFillPass ? "PASS" : "WARN"}`,
+  );
   notes.push(
     `Zone fill: ${zoneAudit.zoneFillPercent.toFixed(1)}% (matrix ${zoneAudit.matrixFillPercent.toFixed(1)}%)`,
   );
@@ -178,13 +222,8 @@ export async function verifyQrInComposite(
         decodedUrl: null,
         expectedUrl,
         notes,
-        physicalWidthIn,
-        physicalHeightIn,
-        pixelSize: { width: pixelWidth, height: pixelHeight },
-        minSizeIn,
-        sizePass,
+        ...qrMetrics,
         decodePass: false,
-        zoneAudit,
       };
     }
 
@@ -209,13 +248,8 @@ export async function verifyQrInComposite(
       decodedUrl,
       expectedUrl,
       notes,
-      physicalWidthIn,
-      physicalHeightIn,
-      pixelSize: { width: pixelWidth, height: pixelHeight },
-      minSizeIn,
-      sizePass,
+      ...qrMetrics,
       decodePass,
-      zoneAudit,
     };
   } catch (e) {
     notes.push(e instanceof Error ? e.message : "QR verification error");
@@ -225,13 +259,8 @@ export async function verifyQrInComposite(
       decodedUrl: null,
       expectedUrl,
       notes,
-      physicalWidthIn,
-      physicalHeightIn,
-      pixelSize: { width: pixelWidth, height: pixelHeight },
-      minSizeIn,
-      sizePass,
+      ...qrMetrics,
       decodePass: false,
-      zoneAudit,
     };
   }
 }

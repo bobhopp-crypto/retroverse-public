@@ -6,8 +6,12 @@ import { QR_ZONE, qrPhysicalSizeIn } from "./pass-layout";
 /** ISO minimum quiet zone in modules. */
 export const QR_QUIET_MODULES_ISO = 4;
 
-/** Matrix must occupy at least this share of the reserved zone width/height. */
-export const QR_MIN_ZONE_FILL_PERCENT = 90;
+/** Matrix should occupy 85–90% of reserved safe area (print scan reliability). */
+export const QR_MIN_MATRIX_FILL_PERCENT = 85;
+export const QR_MAX_MATRIX_FILL_PERCENT = 90;
+
+/** @deprecated Use QR_MIN_MATRIX_FILL_PERCENT */
+export const QR_MIN_ZONE_FILL_PERCENT = QR_MIN_MATRIX_FILL_PERCENT;
 
 const QR_RENDER_SCALE = 4;
 
@@ -35,6 +39,13 @@ type RgbaBuffer = {
   width: number;
   height: number;
   channels: number;
+};
+
+type QrRenderCandidate = {
+  png: Buffer;
+  audit: QrZoneAudit;
+  moduleCount: number;
+  quietModules: number;
 };
 
 function luminance(r: number, g: number, b: number): number {
@@ -196,33 +207,51 @@ export async function auditQrPngBufferWithModules(
   return auditQrZonePixels(rgba, zoneSize, moduleCount, quietModules);
 }
 
+/** Pick quiet-module count: 85–90% matrix fill, prefer ISO quiet zone when in range. */
+export async function selectOptimalQuietModules(
+  url: string,
+  zoneSize: number,
+): Promise<QrRenderCandidate> {
+  let best: QrRenderCandidate | null = null;
+  let bestInRange: QrRenderCandidate | null = null;
+
+  for (let quiet = QR_QUIET_MODULES_ISO; quiet >= 1; quiet--) {
+    const { png, moduleCount } = await renderQrPngForZone(url, zoneSize, quiet);
+    const audit = await auditQrPngBufferWithModules(png, zoneSize, moduleCount, quiet);
+    const candidate: QrRenderCandidate = { png, audit, moduleCount, quietModules: quiet };
+
+    if (!best || audit.matrixFillPercent > best.audit.matrixFillPercent) {
+      best = candidate;
+    }
+
+    if (
+      audit.matrixFillPercent >= QR_MIN_MATRIX_FILL_PERCENT &&
+      audit.matrixFillPercent <= QR_MAX_MATRIX_FILL_PERCENT
+    ) {
+      if (!bestInRange || quiet > bestInRange.quietModules) {
+        bestInRange = candidate;
+      }
+    }
+  }
+
+  return bestInRange ?? best!;
+}
+
 /**
  * Generate QR PNG that nearly fills the reserved zone.
- * Tightens quiet-module border only as needed to reach 90% matrix fill.
+ * Targets 85–90% matrix fill while preserving quiet zone when possible.
  */
 export async function generateZoneFillingQrPng(
   url: string,
   zoneSize: number,
 ): Promise<{ png: Buffer; audit: QrZoneAudit; moduleCount: number; quietModules: number }> {
-  let best: {
-    png: Buffer;
-    audit: QrZoneAudit;
-    moduleCount: number;
-    quietModules: number;
-  } | null = null;
-
-  for (let quiet = QR_QUIET_MODULES_ISO; quiet >= 1; quiet--) {
-    const { png, moduleCount } = await renderQrPngForZone(url, zoneSize, quiet);
-    const audit = await auditQrPngBufferWithModules(png, zoneSize, moduleCount, quiet);
-    if (!best || audit.matrixFillPercent > best.audit.matrixFillPercent) {
-      best = { png, audit, moduleCount, quietModules: quiet };
-    }
-    if (audit.matrixFillPercent >= QR_MIN_ZONE_FILL_PERCENT) {
-      return { png, audit, moduleCount, quietModules: quiet };
-    }
-  }
-
-  return best!;
+  const picked = await selectOptimalQuietModules(url, zoneSize);
+  return {
+    png: picked.png,
+    audit: picked.audit,
+    moduleCount: picked.moduleCount,
+    quietModules: picked.quietModules,
+  };
 }
 
 /** Audit QR in the reserved zone of an exported back PNG. */
@@ -231,6 +260,7 @@ export async function auditExportedQrZone(
   zoneSize: number = QR_ZONE.size,
   zoneLeft: number = QR_ZONE.left,
   zoneTop: number = QR_ZONE.top,
+  quietModulesUsed: number = QR_QUIET_MODULES_ISO,
 ): Promise<QrZoneAudit> {
   const { data, info } = await sharp(backPngPath)
     .extract({ left: zoneLeft, top: zoneTop, width: zoneSize, height: zoneSize })
@@ -247,18 +277,18 @@ export async function auditExportedQrZone(
 
   const matrix = measureBlackModuleBounds(rgba);
   if (!matrix) {
-    return auditQrZonePixels(rgba, zoneSize, 0, QR_QUIET_MODULES_ISO);
+    return auditQrZonePixels(rgba, zoneSize, 0, quietModulesUsed);
   }
 
-  const moduleCount = estimateModuleCount(matrix.width, zoneSize);
-  return auditQrZonePixels(rgba, zoneSize, moduleCount, QR_QUIET_MODULES_ISO);
+  const moduleCount = estimateModuleCount(matrix.width, zoneSize, quietModulesUsed);
+  return auditQrZonePixels(rgba, zoneSize, moduleCount, quietModulesUsed);
 }
 
-function estimateModuleCount(matrixWidthPx: number, zoneSize: number): number {
+function estimateModuleCount(matrixWidthPx: number, zoneSize: number, quietModules: number): number {
   let bestN = 29;
   let bestDelta = Infinity;
   for (let n = 21; n <= 177; n++) {
-    const modulePx = zoneSize / (n + 2 * QR_QUIET_MODULES_ISO);
+    const modulePx = zoneSize / (n + 2 * quietModules);
     const expected = n * modulePx;
     const delta = Math.abs(expected - matrixWidthPx);
     if (delta < bestDelta) {
@@ -286,10 +316,19 @@ export function emptyQrZoneAudit(zoneSize: number = QR_ZONE.size): QrZoneAudit {
   };
 }
 
+export function qrMatrixFillInRange(audit: QrZoneAudit): boolean {
+  return (
+    audit.matrixFillPercent >= QR_MIN_MATRIX_FILL_PERCENT &&
+    audit.matrixFillPercent <= QR_MAX_MATRIX_FILL_PERCENT
+  );
+}
+
 export function qrZoneAuditNotes(audit: QrZoneAudit): string[] {
+  const fillOk = qrMatrixFillInRange(audit);
   return [
     `Reserved QR zone: ${audit.reservedZonePx.width}×${audit.reservedZonePx.height}px`,
     `Rendered matrix: ${audit.renderedMatrixPx.width}×${audit.renderedMatrixPx.height}px (${audit.matrixFillPercent.toFixed(1)}% of zone)`,
+    `Target matrix fill: ${QR_MIN_MATRIX_FILL_PERCENT}–${QR_MAX_MATRIX_FILL_PERCENT}% — ${fillOk ? "PASS" : "WARN"}`,
     `Rendered QR image: ${audit.renderedQrImagePx.width}×${audit.renderedQrImagePx.height}px (${audit.zoneFillPercent.toFixed(1)}% of zone)`,
     `Physical matrix: ${audit.physicalMatrixWidthIn.toFixed(2)}" × ${audit.physicalMatrixHeightIn.toFixed(2)}"`,
     `Physical QR image: ${audit.physicalQrImageWidthIn.toFixed(2)}" × ${audit.physicalQrImageHeightIn.toFixed(2)}"`,

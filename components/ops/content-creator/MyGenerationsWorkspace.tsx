@@ -1,26 +1,53 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import {
   GenerationCard,
   type GenerationCardData,
 } from "@/components/ops/content-creator/GenerationCard";
+import { JobQueuePanel } from "@/components/ops/content-creator/JobQueuePanel";
+import { VariationBatchView } from "@/components/ops/content-creator/VariationBatchView";
 import {
   CREATIVE_DIRECTION_IDS,
   CREATIVE_DIRECTIONS,
 } from "@/lib/ops/content-creator/creative-direction";
 import type { ContentCreatorEraOption } from "@/lib/ops/content-creator/types";
-import type { LibraryStats } from "@/lib/ops/content-creator/library/types";
 
 type Props = {
   eras: ContentCreatorEraOption[];
 };
 
+function activeFilterCount(filters: {
+  q: string;
+  eraSlug: string;
+  creativeDirection: string;
+  favoriteOnly: boolean;
+  rating: string;
+  tagFilter: string;
+  dateFrom: string;
+  dateTo: string;
+}): number {
+  let n = 0;
+  if (filters.q.trim()) n += 1;
+  if (filters.eraSlug) n += 1;
+  if (filters.creativeDirection) n += 1;
+  if (filters.favoriteOnly) n += 1;
+  if (filters.rating) n += 1;
+  if (filters.tagFilter.trim()) n += 1;
+  if (filters.dateFrom) n += 1;
+  if (filters.dateTo) n += 1;
+  return n;
+}
+
 export function MyGenerationsWorkspace({ eras }: Props) {
+  const searchParams = useSearchParams();
+  const batchParam = searchParams.get("batch");
   const [items, setItems] = useState<GenerationCardData[]>([]);
-  const [stats, setStats] = useState<LibraryStats | null>(null);
+  const [batchItems, setBatchItems] = useState<GenerationCardData[]>([]);
+  const [activeBatchId, setActiveBatchId] = useState<string | null>(batchParam);
   const [q, setQ] = useState("");
   const [eraSlug, setEraSlug] = useState("");
   const [creativeDirection, setCreativeDirection] = useState("");
@@ -29,9 +56,14 @@ export function MyGenerationsWorkspace({ eras }: Props) {
   const [tagFilter, setTagFilter] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState<string | null>(null);
+
+  const filterState = { q, eraSlug, creativeDirection, favoriteOnly, rating, tagFilter, dateFrom, dateTo };
+  const filterCount = activeFilterCount(filterState);
+  const hasActiveFilters = filterCount > 0;
 
   const load = useCallback(async () => {
     setBusy(true);
@@ -50,12 +82,10 @@ export function MyGenerationsWorkspace({ eras }: Props) {
       const data = (await res.json()) as {
         ok?: boolean;
         generations?: GenerationCardData[];
-        stats?: LibraryStats;
         error?: string;
       };
       if (!res.ok || !data.ok) throw new Error(data.error ?? "load_failed");
       setItems(data.generations ?? []);
-      setStats(data.stats ?? null);
     } catch (e) {
       setError(e instanceof Error ? e.message : "load_failed");
     } finally {
@@ -67,8 +97,48 @@ export function MyGenerationsWorkspace({ eras }: Props) {
     void load();
   }, [load]);
 
+  useEffect(() => {
+    setActiveBatchId(batchParam);
+  }, [batchParam]);
+
+  const loadBatch = useCallback(async (batchId: string) => {
+    try {
+      const res = await fetch(`/api/ops/content-creator/library?batch=${encodeURIComponent(batchId)}`);
+      const data = (await res.json()) as { ok?: boolean; generations?: GenerationCardData[] };
+      if (res.ok && data.generations) setBatchItems(data.generations);
+    } catch {
+      setBatchItems([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (activeBatchId) void loadBatch(activeBatchId);
+    else setBatchItems([]);
+  }, [activeBatchId, loadBatch]);
+
+  const batchParent = useMemo(() => {
+    if (!batchItems.length) return null;
+    const parentId = batchItems[0]?.parentGenerationId;
+    if (!parentId) return null;
+    return items.find((i) => i.id === parentId) ?? null;
+  }, [batchItems, items]);
+
+  const favorites = useMemo(() => items.filter((item) => item.favorite), [items]);
+  const recent = useMemo(() => items.filter((item) => !item.favorite), [items]);
+
+  function clearFilters() {
+    setQ("");
+    setEraSlug("");
+    setCreativeDirection("");
+    setFavoriteOnly(false);
+    setRating("");
+    setTagFilter("");
+    setDateFrom("");
+    setDateTo("");
+  }
+
   async function backfill() {
-    setStatus("Scanning vnext runs…");
+    setStatus("Scanning prior runs…");
     await fetch("/api/ops/content-creator/library?backfill=1");
     setStatus("Import complete");
     await load();
@@ -84,7 +154,7 @@ export function MyGenerationsWorkspace({ eras }: Props) {
   }
 
   async function exportAgain(id: string) {
-    setStatus(`Exporting…`);
+    setStatus("Exporting…");
     const res = await fetch(`/api/ops/content-creator/library/${encodeURIComponent(id)}/export`, {
       method: "POST",
     });
@@ -99,174 +169,239 @@ export function MyGenerationsWorkspace({ eras }: Props) {
   }
 
   async function generateVariations(id: string, count: number) {
-    setStatus(`Generating ${count} variations… (this may take several minutes)`);
-    setBusy(true);
+    setStatus(`Queued ${count} variations…`);
+    setError(null);
     try {
       const res = await fetch(`/api/ops/content-creator/library/${encodeURIComponent(id)}/variations`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ count }),
+        body: JSON.stringify({ count, background: true }),
       });
-      const data = (await res.json()) as { ok?: boolean; runIds?: string[]; error?: string };
+      const data = (await res.json()) as { ok?: boolean; jobId?: string; error?: string };
       if (!res.ok || !data.ok) throw new Error(data.error ?? "variations_failed");
-      setStatus(`Created ${data.runIds?.length ?? 0} variations`);
-      await load();
+      setStatus(data.jobId ? `Variation job queued — track in Queue panel` : "Variations started");
     } catch (e) {
       setError(e instanceof Error ? e.message : "variations_failed");
-    } finally {
-      setBusy(false);
     }
   }
 
-  return (
-    <div className="cc-creator cc-generations">
-      <header className="cc-creator__titlebar cc-generations__head">
-        <div>
-          <h1>Collectible Library</h1>
-          <p className="cc-generations__sub">
-            Browse · favorite · generate variations · export your best credentials.
-          </p>
-        </div>
-        <div className="cc-generations__head-actions">
-          <Link href="/ops/content-creator/create" className="cc-creator__btn cc-creator__btn--generate">
-            + New Credential
-          </Link>
-          <button type="button" className="cc-creator__btn cc-creator__btn--secondary" onClick={() => void backfill()}>
-            Import prior runs
-          </button>
-        </div>
-      </header>
+  function openBatch(batchId: string) {
+    setActiveBatchId(batchId);
+    window.history.replaceState(null, "", `/ops/content-creator?batch=${encodeURIComponent(batchId)}`);
+    void loadBatch(batchId);
+  }
 
-      {stats ? (
-        <section className="cc-generations__dashboard" aria-label="Library dashboard">
-          <div className="cc-generations__stat">
-            <span className="cc-generations__stat-n">{stats.total}</span>
-            <span className="cc-generations__stat-l">Total</span>
-          </div>
-          <div className="cc-generations__stat">
-            <span className="cc-generations__stat-n">{stats.favorites}</span>
-            <span className="cc-generations__stat-l">Favorites</span>
-          </div>
-          <div className="cc-generations__stat">
-            <span className="cc-generations__stat-n">{stats.exports}</span>
-            <span className="cc-generations__stat-l">Exports</span>
-          </div>
-          <div className="cc-generations__stat cc-generations__stat--wide">
-            <span className="cc-generations__stat-l">By Era</span>
-            <div className="cc-generations__chips">
-              {Object.entries(stats.byEra).map(([name, n]) => (
-                <button
-                  key={name}
-                  type="button"
-                  className="cc-generations__chip"
-                  onClick={() => {
-                    const era = eras.find((e) => e.name === name);
-                    if (era) setEraSlug(era.slug);
-                  }}
-                >
-                  {name} ({n})
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="cc-generations__stat cc-generations__stat--wide">
-            <span className="cc-generations__stat-l">By Direction</span>
-            <div className="cc-generations__chips">
-              {Object.entries(stats.byCreativeDirection).map(([name, n]) => (
-                <button
-                  key={name}
-                  type="button"
-                  className="cc-generations__chip"
-                  onClick={() => {
-                    const id = CREATIVE_DIRECTION_IDS.find((d) => CREATIVE_DIRECTIONS[d].label === name);
-                    if (id) setCreativeDirection(id);
-                  }}
-                >
-                  {name} ({n})
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
+  function closeBatch() {
+    setActiveBatchId(null);
+    setBatchItems([]);
+    window.history.replaceState(null, "", "/ops/content-creator");
+  }
 
-      <section className="cc-generations__filters">
-        <input
-          className="cc-generations__search"
-          placeholder="Search event, venue, tags, notes…"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          aria-label="Search generations"
-        />
-        <select className="cc-generations__era" value={eraSlug} onChange={(e) => setEraSlug(e.target.value)} aria-label="Era">
-          <option value="">All eras</option>
-          {eras.map((era) => (
-            <option key={era.slug} value={era.slug}>
-              {era.years} — {era.name}
-            </option>
-          ))}
-        </select>
-        <select
-          className="cc-generations__era"
-          value={creativeDirection}
-          onChange={(e) => setCreativeDirection(e.target.value)}
-          aria-label="Creative direction"
-        >
-          <option value="">All directions</option>
-          {CREATIVE_DIRECTION_IDS.map((id) => (
-            <option key={id} value={id}>
-              {CREATIVE_DIRECTIONS[id].label}
-            </option>
-          ))}
-        </select>
-        <select className="cc-generations__era" value={rating} onChange={(e) => setRating(e.target.value)} aria-label="Rating">
-          <option value="">Any rating</option>
-          {[5, 4, 3, 2, 1].map((n) => (
-            <option key={n} value={String(n)}>
-              {n} stars
-            </option>
-          ))}
-        </select>
-        <input
-          className="cc-generations__tags-filter"
-          placeholder="Tag filter"
-          value={tagFilter}
-          onChange={(e) => setTagFilter(e.target.value)}
-          aria-label="Tag filter"
-        />
-        <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} aria-label="From date" />
-        <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} aria-label="To date" />
-        <label className="cc-generations__fav-toggle">
-          <input type="checkbox" checked={favoriteOnly} onChange={(e) => setFavoriteOnly(e.target.checked)} />
-          Favorites
-        </label>
-        <button type="button" className="cc-creator__btn cc-creator__btn--secondary" disabled={busy} onClick={() => void load()}>
-          Refresh
-        </button>
-      </section>
-
-      {error ? <p className="cc-generations__error">{error}</p> : null}
-      {status ? <p className="cc-generations__status">{status}</p> : null}
-
-      {busy && !items.length ? <p className="cc-generations__empty">Loading…</p> : null}
-      {!busy && !items.length ? (
-        <p className="cc-generations__empty">
-          No generations yet.{" "}
-          <Link href="/ops/content-creator/create">Create your first credential</Link>.
-        </p>
-      ) : null}
-
-      <div className="cc-generations__grid">
-        {items.map((item) => (
+  function renderGrid(gridItems: GenerationCardData[]) {
+    return (
+      <div className="cc-library__grid">
+        {gridItems.map((item) => (
           <GenerationCard
             key={item.id}
             item={item}
             onCuratorChange={curatorChange}
             onExport={exportAgain}
             onVariations={generateVariations}
+            onViewBatch={openBatch}
           />
         ))}
       </div>
+    );
+  }
+
+  return (
+    <div className="cc-creator cc-library">
+      <JobQueuePanel />
+      {activeBatchId ? (
+        <VariationBatchView
+          batchId={activeBatchId}
+          items={batchItems}
+          parent={batchParent}
+          onCuratorChange={curatorChange}
+          onExport={exportAgain}
+          onVariations={generateVariations}
+          onClose={closeBatch}
+        />
+      ) : null}
+      <header className="cc-library__header">
+        <div className="cc-library__brand">
+          <h1>Collectible Library</h1>
+          <p>Your generated credentials — browse by artwork, not spreadsheets.</p>
+        </div>
+        <Link href="/ops/content-creator/create" className="cc-library__create-btn">
+          + New Credential
+        </Link>
+      </header>
+
+      <div className="cc-library__toolbar">
+        <label className="cc-library__search-wrap">
+          <span className="cc-library__search-icon" aria-hidden>
+            ⌕
+          </span>
+          <input
+            className="cc-library__search"
+            placeholder="Search event, venue, tags, notes…"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            aria-label="Search library"
+          />
+        </label>
+        <button
+          type="button"
+          className={`cc-library__filter-toggle${filtersOpen ? " is-open" : ""}`}
+          onClick={() => setFiltersOpen((open) => !open)}
+          aria-expanded={filtersOpen}
+        >
+          Filters{filterCount > 0 ? ` (${filterCount})` : ""}
+        </button>
+      </div>
+
+      <div className={`cc-library__drawer${filtersOpen ? " is-open" : ""}`} hidden={!filtersOpen}>
+        <div className="cc-library__drawer-inner">
+          <select className="cc-library__control" value={eraSlug} onChange={(e) => setEraSlug(e.target.value)} aria-label="Era">
+            <option value="">All eras</option>
+            {eras.map((era) => (
+              <option key={era.slug} value={era.slug}>
+                {era.years} — {era.name}
+              </option>
+            ))}
+          </select>
+          <select
+            className="cc-library__control"
+            value={creativeDirection}
+            onChange={(e) => setCreativeDirection(e.target.value)}
+            aria-label="Creative direction"
+          >
+            <option value="">All directions</option>
+            {CREATIVE_DIRECTION_IDS.map((id) => (
+              <option key={id} value={id}>
+                {CREATIVE_DIRECTIONS[id].label}
+              </option>
+            ))}
+          </select>
+          <select className="cc-library__control" value={rating} onChange={(e) => setRating(e.target.value)} aria-label="Rating">
+            <option value="">Any rating</option>
+            {[5, 4, 3, 2, 1].map((n) => (
+              <option key={n} value={String(n)}>
+                {n} stars minimum
+              </option>
+            ))}
+          </select>
+          <input
+            className="cc-library__control"
+            placeholder="Tag filter"
+            value={tagFilter}
+            onChange={(e) => setTagFilter(e.target.value)}
+            aria-label="Tag filter"
+          />
+          <input
+            type="date"
+            className="cc-library__control"
+            value={dateFrom}
+            onChange={(e) => setDateFrom(e.target.value)}
+            aria-label="From date"
+          />
+          <input
+            type="date"
+            className="cc-library__control"
+            value={dateTo}
+            onChange={(e) => setDateTo(e.target.value)}
+            aria-label="To date"
+          />
+          <label className="cc-library__checkbox">
+            <input type="checkbox" checked={favoriteOnly} onChange={(e) => setFavoriteOnly(e.target.checked)} />
+            Favorites only
+          </label>
+          <div className="cc-library__drawer-actions">
+            <button type="button" className="cc-library__drawer-btn" disabled={busy} onClick={() => void load()}>
+              Refresh
+            </button>
+            <button type="button" className="cc-library__drawer-btn" onClick={() => void backfill()}>
+              Import prior runs
+            </button>
+            {hasActiveFilters ? (
+              <button type="button" className="cc-library__drawer-btn cc-library__drawer-btn--ghost" onClick={clearFilters}>
+                Clear filters
+              </button>
+            ) : null}
+          </div>
+        </div>
+      </div>
+
+      {error ? <p className="cc-library__banner cc-library__banner--error">{error}</p> : null}
+      {status ? <p className="cc-library__banner cc-library__banner--status">{status}</p> : null}
+
+      {busy && !items.length ? (
+        <div className="cc-library__loading" aria-live="polite">
+          <div className="cc-library__loading-art" aria-hidden />
+          <p>Loading your library…</p>
+        </div>
+      ) : null}
+
+      {!busy && !items.length ? (
+        <div className="cc-library__empty">
+          <div className="cc-library__empty-art" aria-hidden>
+            <span className="cc-library__empty-card cc-library__empty-card--a" />
+            <span className="cc-library__empty-card cc-library__empty-card--b" />
+            <span className="cc-library__empty-card cc-library__empty-card--c" />
+          </div>
+          <h2>{hasActiveFilters ? "No matches" : "Your library is empty"}</h2>
+          <p>
+            {hasActiveFilters
+              ? "Try different filters or clear them to see everything."
+              : "Generate VIP pass credentials and they will appear here as large artwork cards."}
+          </p>
+          {hasActiveFilters ? (
+            <button type="button" className="cc-library__empty-btn" onClick={clearFilters}>
+              Clear filters
+            </button>
+          ) : (
+            <Link href="/ops/content-creator/create" className="cc-library__empty-btn">
+              Create First Credential
+            </Link>
+          )}
+        </div>
+      ) : null}
+
+      {items.length > 0 ? (
+        <div className={`cc-library__sections${busy ? " is-busy" : ""}`}>
+          {hasActiveFilters ? (
+            <section className="cc-library__section" aria-label="Search results">
+              <header className="cc-library__section-head">
+                <h2>Results</h2>
+                <span>{items.length} credential{items.length === 1 ? "" : "s"}</span>
+              </header>
+              {renderGrid(items)}
+            </section>
+          ) : (
+            <>
+              {favorites.length > 0 ? (
+                <section className="cc-library__section" aria-label="Favorites">
+                  <header className="cc-library__section-head">
+                    <h2>★ Favorites</h2>
+                    <span>{favorites.length}</span>
+                  </header>
+                  {renderGrid(favorites)}
+                </section>
+              ) : null}
+              {recent.length > 0 ? (
+                <section className="cc-library__section" aria-label="Recent">
+                  <header className="cc-library__section-head">
+                    <h2>Recent</h2>
+                    <span>{recent.length}</span>
+                  </header>
+                  {renderGrid(recent)}
+                </section>
+              ) : null}
+            </>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -1,5 +1,21 @@
 import type { RvbrPromptProfile } from "@/lib/creative/rvbr-prompt-profile";
 
+const GLOBAL_NEGATIVE_WEIGHTING = [
+  "AI portrait of a person as focal subject",
+  "celebrity lookalike or famous face",
+  "generic stock photo people",
+  "crowd scene as main subject",
+  "photorealistic headshot",
+  "random human figure dominating the card",
+];
+
+const GLOBAL_REQUIRE_COMPOSITION = [
+  "credential object and typography as hero",
+  "collector seals, stamps, and admission plates",
+  "archival memorabilia fragments and laminate stock",
+  "hand-lettered event typography on ephemera",
+];
+
 /** Era-specific anti-repetition — require distinct artifacts, not recolored templates. */
 const ERA_ANTI_REPETITION: Record<string, { negativeWeighting: string[]; requireComposition: string[] }> = {
   "1970-1973": {
@@ -42,6 +58,7 @@ export function antiRepetitionPromptBlock(
   }
 
   const negative = [
+    ...GLOBAL_NEGATIVE_WEIGHTING,
     ...(eraBlock?.negativeWeighting ?? []),
     ...(profile.negativePromptTerms ?? []),
   ];
@@ -49,7 +66,11 @@ export function antiRepetitionPromptBlock(
     parts.push(``, `Negative weighting — strongly avoid:`, ...negative.map((n) => `- ${n}`));
   }
 
-  const required = eraBlock?.requireComposition ?? profile.compositionVariety ?? [];
+  const required = [
+    ...GLOBAL_REQUIRE_COMPOSITION,
+    ...(eraBlock?.requireComposition ?? []),
+    ...(profile.compositionVariety ?? []),
+  ];
   if (required.length) {
     parts.push(
       ``,

@@ -61,6 +61,7 @@ export type ContentCreatorGenerationIndexEntry = {
   thumbnailPath: string;
   hasExport: boolean;
   parentGenerationId: string | null;
+  variationBatchId: string | null;
   quality: GenerationQualitySnapshot;
 };
 

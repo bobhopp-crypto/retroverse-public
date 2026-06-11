@@ -1,9 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 
-import { GenerationQualityBadges } from "@/components/ops/content-creator/GenerationQualityBadges";
 import { CREATIVE_DIRECTIONS } from "@/lib/ops/content-creator/creative-direction";
 import type { GenerationRating } from "@/lib/ops/content-creator/library/types";
 
@@ -23,6 +21,7 @@ export type GenerationCardData = {
   hasExport: boolean;
   thumbnailUrl: string;
   parentGenerationId: string | null;
+  variationBatchId?: string | null;
   quality: {
     promptCharCount: number;
     variationScore: string;
@@ -35,136 +34,88 @@ type Props = {
   onCuratorChange: (id: string, patch: Record<string, unknown>) => Promise<void>;
   onExport: (id: string) => Promise<void>;
   onVariations: (id: string, count: number) => Promise<void>;
+  onViewBatch?: (batchId: string) => void;
 };
 
-export function GenerationCard({ item, onCuratorChange, onExport, onVariations }: Props) {
-  const [notes, setNotes] = useState(item.notes);
-  const [tagsText, setTagsText] = useState(item.tags.join(", "));
-  const [expanded, setExpanded] = useState(false);
-  const [varCount, setVarCount] = useState(5);
+const VARIATION_COUNT = 10;
 
+export function GenerationCard({ item, onCuratorChange, onExport, onVariations, onViewBatch }: Props) {
   const dirLabel =
     CREATIVE_DIRECTIONS[item.creativeDirection as keyof typeof CREATIVE_DIRECTIONS]?.label ??
     item.creativeDirection;
 
-  async function saveCurator() {
-    await onCuratorChange(item.id, {
-      notes,
-      tags: tagsText.split(",").map((t) => t.trim()).filter(Boolean),
-    });
-  }
+  const openHref = `/ops/content-creator/create?runId=${encodeURIComponent(item.runId)}`;
 
   return (
-    <article className="cc-generations__card">
-      <div className="cc-generations__thumb-wrap">
-        <img src={item.thumbnailUrl} alt="" className="cc-generations__thumb" />
+    <article className="cc-library-card">
+      <div className="cc-library-card__visual">
+        <Link href={openHref} className="cc-library-card__thumb-link" aria-label={`Open ${item.event}`}>
+          <img src={item.thumbnailUrl} alt="" className="cc-library-card__thumb" loading="lazy" />
+        </Link>
         <button
           type="button"
-          className={`cc-generations__fav${item.favorite ? " is-on" : ""}`}
-          aria-label={item.favorite ? "Remove favorite" : "Favorite"}
+          className={`cc-library-card__fav${item.favorite ? " is-on" : ""}`}
+          aria-label={item.favorite ? "Remove from favorites" : "Add to favorites"}
           onClick={() => void onCuratorChange(item.id, { favorite: !item.favorite })}
         >
           ★
         </button>
-        {item.parentGenerationId ? (
-          <span className="cc-generations__variation-pill">Variation</span>
-        ) : null}
-      </div>
-
-      <div className="cc-generations__meta">
-        <h2>{item.event}</h2>
-        <p>{item.venue}</p>
-        <GenerationQualityBadges
-          eraName={item.eraName}
-          creativeDirectionLabel={dirLabel}
-          timestamp={item.timestamp}
-          quality={{
-            promptCharCount: item.quality.promptCharCount,
-            variationScore: item.quality.variationScore as "low" | "medium" | "high",
-            clicheRisk: item.quality.clicheRisk as "low" | "medium" | "high",
-          }}
-        />
-        <div className="cc-generations__rating" role="group" aria-label="Rating">
+        <div className="cc-library-card__rating" role="group" aria-label="Rating">
           {[1, 2, 3, 4, 5].map((n) => (
             <button
               key={n}
               type="button"
-              className={`cc-generations__star${item.rating === n ? " is-on" : ""}`}
+              className={`cc-library-card__star${(item.rating ?? 0) >= n ? " is-on" : ""}`}
               aria-label={`Rate ${n}`}
               onClick={() => void onCuratorChange(item.id, { rating: item.rating === n ? null : n })}
             >
-              {n}
+              ★
             </button>
           ))}
         </div>
+        {item.parentGenerationId ? <span className="cc-library-card__badge">Var</span> : null}
       </div>
 
-      <div className="cc-generations__curator">
-        <button
-          type="button"
-          className="cc-generations__expand"
-          onClick={() => setExpanded(!expanded)}
-        >
-          {expanded ? "Hide notes & tags" : "Notes & tags"}
-        </button>
-        {expanded ? (
-          <>
-            <textarea
-              className="cc-generations__notes"
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              placeholder="Curator notes…"
-              rows={3}
-            />
-            <input
-              className="cc-generations__tags"
-              value={tagsText}
-              onChange={(e) => setTagsText(e.target.value)}
-              placeholder="tags, comma, separated"
-            />
-            <button type="button" className="cc-creator__btn cc-creator__btn--secondary" onClick={() => void saveCurator()}>
-              Save
-            </button>
-          </>
-        ) : null}
+      <div className="cc-library-card__body">
+        <h2 className="cc-library-card__title">{item.event}</h2>
+        <p className="cc-library-card__meta">
+          {item.eraName} · {dirLabel}
+        </p>
       </div>
 
-      <div className="cc-generations__actions">
+      <div className="cc-library-card__actions">
+        <Link href={openHref} className="cc-library-card__action">
+          Open
+        </Link>
         <Link
           href={`/ops/content-creator/create?duplicate=${encodeURIComponent(item.id)}`}
-          className="cc-creator__btn cc-creator__btn--secondary"
+          className="cc-library-card__action"
         >
           Duplicate
         </Link>
-        <Link
-          href={`/ops/content-creator/create?runId=${encodeURIComponent(item.runId)}`}
-          className="cc-creator__btn cc-creator__btn--secondary"
-        >
-          Open
-        </Link>
         <button
           type="button"
-          className="cc-creator__btn cc-creator__btn--generate"
-          onClick={() => void onVariations(item.id, varCount)}
+          className="cc-library-card__action cc-library-card__action--accent"
+          onClick={() => void onVariations(item.id, VARIATION_COUNT)}
         >
-          Variations ({varCount})
+          Variations
         </button>
-        <input
-          type="range"
-          min={1}
-          max={10}
-          value={varCount}
-          onChange={(e) => setVarCount(Number(e.target.value))}
-          className="cc-generations__var-slider"
-          aria-label="Variation count"
-        />
         <button
           type="button"
-          className="cc-creator__btn cc-creator__btn--export"
+          className="cc-library-card__action cc-library-card__action--export"
           onClick={() => void onExport(item.id)}
         >
-          {item.hasExport ? "Re-export" : "Export"}
+          Export
         </button>
+        {item.variationBatchId && onViewBatch ? (
+          <button
+            type="button"
+            className="cc-library-card__action cc-library-card__action--batch"
+            onClick={() => onViewBatch(item.variationBatchId!)}
+          >
+            Batch
+          </button>
+        ) : null}
       </div>
     </article>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 import { MyGenerationsWorkspace } from "@/components/ops/content-creator/MyGenerationsWorkspace";
 import { inspectPing } from "@/lib/inspect/pg";
@@ -32,7 +33,9 @@ export default async function ContentCreatorLibraryPage() {
     const eras = await loadContentCreatorEras();
     return (
       <main className="ops-page ops-page--content-creator cc-creator-page">
-        <MyGenerationsWorkspace eras={eras} />
+        <Suspense fallback={<p style={{ padding: "2rem" }}>Loading library…</p>}>
+          <MyGenerationsWorkspace eras={eras} />
+        </Suspense>
       </main>
     );
   } catch {
