@@ -55,7 +55,7 @@ main.home-directory {
   min-height: 100vh;
   height: auto;
   overflow: visible;
-  padding: 1.25rem 1rem 2.5rem;
+  padding: 0.65rem max(2vw, 0.4rem) 1.6rem;
   box-sizing: border-box;
 }
 
@@ -74,9 +74,10 @@ main.home-directory::before {
 .home-directory__board {
   position: relative;
   z-index: 1;
-  max-width: min(100%, 22.5rem);
+  width: 100%;
+  max-width: min(96vw, 100%);
   margin: 0 auto;
-  padding: 1.35rem 1.15rem 2.1rem;
+  padding: 1rem 0.85rem 1.35rem;
   overflow: visible;
   background: var(--home-paper);
   border: var(--home-frame);
@@ -100,14 +101,14 @@ main.home-directory::before {
 
 .home-directory__header {
   text-align: center;
-  margin-bottom: 0.95rem;
-  padding-bottom: 0.85rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.65rem;
   border-bottom: 2px solid rgba(45, 62, 70, 0.12);
 }
 
 .home-directory__kicker {
-  margin: 0 0 0.35rem;
-  font-size: 0.72rem;
+  margin: 0 0 0.3rem;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -117,7 +118,7 @@ main.home-directory::before {
 .home-directory__title {
   margin: 0;
   font-family: "Brush Script MT", "Segoe Script", cursive;
-  font-size: clamp(2.75rem, 12vw, 3.75rem);
+  font-size: clamp(3rem, 14vw, 4.25rem);
   font-weight: 400;
   line-height: 1;
   color: var(--home-orange);
@@ -125,9 +126,9 @@ main.home-directory::before {
 }
 
 .home-directory__tagline {
-  margin: 0.5rem 0 0;
+  margin: 0.4rem 0 0;
   font-family: "Georgia", "Times New Roman", serif;
-  font-size: clamp(0.95rem, 3.8vw, 1.08rem);
+  font-size: clamp(1.05rem, 4.2vw, 1.2rem);
   font-weight: 400;
   font-style: italic;
   letter-spacing: 0.04em;
@@ -136,16 +137,16 @@ main.home-directory::before {
 }
 
 .home-directory__search {
-  margin-bottom: 1rem;
-  padding: 0.75rem 0.7rem;
+  margin-bottom: 0.75rem;
+  padding: 0.6rem 0.55rem;
   background: rgba(111, 168, 161, 0.1);
   border: 2px solid rgba(31, 94, 99, 0.22);
   border-radius: 2px;
 }
 
 .home-directory__search-label {
-  margin: 0 0 0.45rem;
-  font-size: 0.68rem;
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -157,8 +158,8 @@ main.home-directory::before {
 }
 
 .home-directory__years-label {
-  margin: 0 0 0.5rem;
-  font-size: 0.68rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -168,14 +169,14 @@ main.home-directory::before {
 .home-directory__years-stack {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.6rem;
 }
 
 .home-directory__year {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  padding: 0.75rem 0.65rem 0.7rem;
+  gap: 0.55rem;
+  padding: 0.7rem 0.6rem 0.65rem;
   text-decoration: none;
   color: var(--home-ink);
   border: 3px solid var(--year-border, rgba(45, 62, 70, 0.32));
@@ -206,7 +207,7 @@ main.home-directory::before {
 }
 
 .home-directory__year-number {
-  font-size: clamp(1.65rem, 8vw, 2.1rem);
+  font-size: clamp(2.75rem, 13vw, 3.5rem);
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0.03em;
@@ -214,9 +215,9 @@ main.home-directory::before {
 }
 
 .home-directory__year-desc {
-  max-width: 18rem;
+  max-width: 100%;
   font-family: "Georgia", "Times New Roman", serif;
-  font-size: clamp(0.74rem, 3.2vw, 0.86rem);
+  font-size: clamp(0.92rem, 3.8vw, 1.05rem);
   font-weight: 600;
   font-style: italic;
   line-height: 1.35;
@@ -227,7 +228,7 @@ main.home-directory::before {
 .home-directory__year-covers {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
+  gap: 0.55rem;
   width: 100%;
 }
 
@@ -578,14 +579,14 @@ main.home-directory::before {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: 3.45rem;
+  min-height: 3.65rem;
   margin: 0;
-  padding: 0.8rem 0.95rem;
+  padding: 0.85rem 1rem;
   border: var(--home-frame);
   border-radius: 2px;
   background: linear-gradient(180deg, #fffaf2 0%, #f8f0e0 100%);
   color: var(--home-ink);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   text-align: left;
   cursor: pointer;
@@ -659,14 +660,69 @@ main.home-directory::before {
   }
 }
 
-@media (min-width: 480px) {
+/* Tablet / desktop — preserve narrow directory board */
+@media (min-width: 768px) {
   main.home-directory {
     padding: 2rem 1.5rem 3rem;
   }
 
   .home-directory__board {
+    width: auto;
     max-width: 24rem;
     padding: 1.65rem 1.45rem 1.55rem;
+  }
+
+  .home-directory__header {
+    margin-bottom: 0.95rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .home-directory__kicker {
+    font-size: 0.72rem;
+  }
+
+  .home-directory__title {
+    font-size: clamp(2.75rem, 12vw, 3.75rem);
+  }
+
+  .home-directory__tagline {
+    margin-top: 0.5rem;
+    font-size: clamp(0.95rem, 3.8vw, 1.08rem);
+  }
+
+  .home-directory__search {
+    margin-bottom: 1rem;
+    padding: 0.75rem 0.7rem;
+  }
+
+  .home-directory__search-label,
+  .home-directory__years-label,
+  .home-directory__archive-label {
+    font-size: 0.68rem;
+  }
+
+  .home-directory .home-search-trigger {
+    min-height: 3.45rem;
+    padding: 0.8rem 0.95rem;
+    font-size: 1.05rem;
+  }
+
+  .home-directory__years-stack {
+    gap: 0.7rem;
+  }
+
+  .home-directory__year {
+    gap: 0.65rem;
+    padding: 0.85rem 0.75rem 0.8rem;
+  }
+
+  .home-directory__year-number {
+    font-size: clamp(1.65rem, 8vw, 2.1rem);
+  }
+
+  .home-directory__year-desc {
+    max-width: 18rem;
+    font-size: clamp(0.74rem, 3.2vw, 0.86rem);
   }
 
   .home-directory__archive-grid {
@@ -676,10 +732,6 @@ main.home-directory::before {
   .home-directory__archive-card {
     min-height: 5rem;
     padding: 0.85rem 0.9rem;
-  }
-
-  .home-directory__year {
-    padding: 0.85rem 0.75rem 0.8rem;
   }
 
   .home-directory__year-covers {
