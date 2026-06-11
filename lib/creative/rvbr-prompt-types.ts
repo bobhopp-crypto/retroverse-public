@@ -1,3 +1,7 @@
+import type { PromptMetrics } from "@/lib/creative/prompt-metrics";
+
+export type { PromptMetrics } from "@/lib/creative/prompt-metrics";
+
 export type PromptSide = "front" | "back";
 
 export type PromptLayer = {
@@ -15,22 +19,18 @@ export type PromptQualityScores = {
   clicheRisk: PromptQualityLevel;
 };
 
+/** Compressed 5-layer breakdown — each concept appears exactly once. */
 export type PromptDebugBreakdown = {
-  basePrompt: PromptLayer;
   artifactArchetype: PromptLayer;
   eraProfile: PromptLayer;
   brandRules: PromptLayer;
   directionRules: PromptLayer;
-  physicalEphemera: PromptLayer;
-  antiClicheRules: PromptLayer;
-  antiRepetition: PromptLayer;
-  layoutRules: PromptLayer;
-  eventData: PromptLayer;
-  rvbrMandate: PromptLayer;
+  governedText: PromptLayer;
 };
 
 export type ComposedRvbrPrompt = {
   finalPrompt: string;
   debugBreakdown: PromptDebugBreakdown;
   qualityScores: PromptQualityScores;
+  promptMetrics: PromptMetrics;
 };

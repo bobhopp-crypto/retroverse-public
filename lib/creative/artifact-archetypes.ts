@@ -215,28 +215,13 @@ export function resolveArtifactArchetype(
   return ARTIFACT_ARCHETYPE_IDS[Math.abs(seed + 31) % ARTIFACT_ARCHETYPE_IDS.length]!;
 }
 
-export function artifactArchetypePromptBlock(archetype: ArtifactArchetypeDef, seed: number): string {
+/** Single artifact source — object type + physical production. No duplication elsewhere. */
+export function artifactArchetypePromptBlock(archetype: ArtifactArchetypeDef, _seed: number): string {
   return [
-    `ARTIFACT ARCHETYPE — ${archetype.label.toUpperCase()} (OBJECT TYPE):`,
-    `This pass is a ${archetype.objectType}`,
-    `Archetype seed ${seed} — this object type must materially change layout, shape, and production method.`,
-    ``,
-    `Layout structure: ${archetype.layoutStructure}`,
-    `Composition anchors: ${archetype.compositionAnchors}`,
-    ``,
-    `PHYSICAL PRODUCTION (render these material cues):`,
-    `- Printing: ${archetype.printingMethod}`,
-    `- Paper stock: ${archetype.paperStock}`,
-    `- Shape: ${archetype.shape}`,
-    `- Perforations: ${archetype.perforations}`,
-    `- Embossing: ${archetype.embossing}`,
-    `- Seals: ${archetype.seals}`,
-    `- Collector marks: ${archetype.collectorMarks}`,
-    ``,
-    `FORBIDDEN GENERIC LAYOUT: ${archetype.avoidGenericLayout}`,
-    `Do NOT produce: BIG TITLE → BIG ART → DATE → YEARS stacked poster template.`,
-    `Do NOT illustrate buildings, facades, or venue architecture — venue is governed text only.`,
-    `This must read as a distinct physical Retroverse collectible — compelling even if venue reads "Venue XYZ".`,
+    `${archetype.label}: ${archetype.objectType}`,
+    `Structure: ${archetype.layoutStructure}`,
+    `Production: ${archetype.printingMethod}; ${archetype.paperStock}; ${archetype.shape}; ${archetype.embossing}`,
+    `Avoid: ${archetype.avoidGenericLayout}`,
   ].join("\n");
 }
 

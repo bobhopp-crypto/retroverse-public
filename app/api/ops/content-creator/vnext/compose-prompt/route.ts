@@ -67,5 +67,6 @@ export async function POST(req: Request) {
     finalPrompt: composed.finalPrompt,
     debugBreakdown: composed.debugBreakdown,
     qualityScores: composed.qualityScores,
+    promptMetrics: composed.promptMetrics,
   });
 }

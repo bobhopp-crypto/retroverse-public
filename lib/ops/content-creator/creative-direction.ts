@@ -250,28 +250,45 @@ export function parseCreativeDirectionSettings(
   };
 }
 
+const BACK_LAYOUT_HINTS = [
+  "ornamental border back; QR medallion + serial plate lower area",
+  "handbill reverse; QR seal above serial footer",
+  "ticket stub back; embossed QR frame + numbering plate",
+  "label promo reverse; catalog strip + QR medallion",
+] as const;
+
+/** Single composition/layout source — no duplication elsewhere. */
 export function creativeDirectionPromptBlock(
   settings: CreativeDirectionSettings,
   compositionSeed: number,
+  side: "front" | "back" = "front",
+  frontSummary?: string,
 ): string {
   const dir = creativeDirectionById(settings.creativeDirection);
   const variation = pickDirectionVariation(dir.id, compositionSeed);
+  const backHint = BACK_LAYOUT_HINTS[Math.abs(compositionSeed + 17) % BACK_LAYOUT_HINTS.length]!;
 
-  return [
-    `CREATIVE DIRECTION — ${dir.label.toUpperCase()} (COMPOSITION & SUBJECT):`,
-    `This direction controls layout, subject matter, and composition.`,
-    `It is INDEPENDENT from era style — do not default to era clichés for subject choice.`,
-    ``,
-    `Composition: ${dir.composition}`,
-    `Subject matter: ${dir.subjectMatter}`,
-    `Typography arrangement: ${dir.typographyArrangement}`,
-    `Design references: ${dir.references}`,
-    ``,
-    `Sub-variation (seed ${compositionSeed}): ${variation}`,
-    ``,
-    `RULE: Era provides visual language ONLY (color, type, ornament, print texture).`,
-    `Creative Direction provides structure and subject — they must not collapse into one another.`,
-  ].join("\n");
+  const lines = [
+    `${dir.label}: ${dir.composition}`,
+    `Subject: ${dir.subjectMatter}`,
+    `Typography: ${dir.typographyArrangement}`,
+    `Variation: ${variation}`,
+  ];
+
+  if (side === "front") {
+    lines.push(`Layout: Full-bleed front, 100% artwork, no QR/serial zones, no generated numbers`);
+  } else {
+    lines.push(
+      `Layout: ${backHint} · QR frame 1.6" square + serial plate 1.56×0.5" bottom (clear interiors for export)`,
+    );
+    if (frontSummary) lines.push(`Mirror front: ${frontSummary}`);
+  }
+
+  if (settings.maximizeVariation) {
+    lines.push(`Vary layout skeleton and focal subject each generation`);
+  }
+
+  return lines.join("\n");
 }
 
 export function avoidEraTropesPromptBlock(enabled: boolean): string {

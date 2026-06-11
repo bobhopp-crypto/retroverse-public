@@ -1726,6 +1726,68 @@
   background: color-mix(in srgb, #b91c1c 8%, #fff);
 }
 
+.cc-prompt-size {
+  background: var(--cc-surface-2);
+  border: 2px solid var(--cc-line);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.cc-prompt-size__title {
+  display: block;
+  font-size: 1.0625rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cc-dim);
+  margin-bottom: 0.75rem;
+}
+
+.cc-prompt-size__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.65rem;
+}
+
+.cc-prompt-size__item {
+  min-height: 48px;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 2px solid var(--cc-line-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cc-prompt-size__item--target {
+  border-color: #0d7a6f;
+  background: color-mix(in srgb, #0d7a6f 8%, #fff);
+}
+
+.cc-prompt-size__item--warn {
+  border-color: #b45309;
+  background: color-mix(in srgb, #b45309 10%, #fff);
+}
+
+.cc-prompt-size__label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cc-dim);
+}
+
+.cc-prompt-size__value {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.cc-prompt-size__hint {
+  margin: 0.65rem 0 0;
+  font-size: 0.95rem;
+  color: #b45309;
+  font-weight: 700;
+}
+
 @media (max-width: 800px) {
   .cc-creator {
     padding: 1rem;

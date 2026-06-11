@@ -44,6 +44,24 @@ export function buildAllowedTextCorpus(fields: PassTextFields, qrUrl?: string): 
   return out;
 }
 
+/** Compressed governed text — exact strings only, no venue narrative. */
+export function compressedTextGovernancePromptBlock(fields: PassTextFields, qrUrl?: string): string {
+  const allowed: string[] = [];
+  if (fields.passTypeLabel.trim()) allowed.push(`Pass type: ${fields.passTypeLabel}`);
+  if (fields.event.trim()) allowed.push(`Event: ${fields.event.trim()}`);
+  if (fields.venue.trim()) allowed.push(`Venue: ${fields.venue.trim()}`);
+  if (fields.date.trim()) allowed.push(`Date: ${fields.date.trim()}`);
+  if (fields.secondaryLine.trim()) allowed.push(`Secondary line: ${fields.secondaryLine.trim()}`);
+  const host = displayUrl(qrUrl);
+  if (host) allowed.push(`URL (back only): ${host}`);
+
+  return [
+    `GOVERNED TEXT — use ONLY these exact strings, no invented words:`,
+    ...(allowed.length ? allowed.map((line) => `- ${line}`) : ["- (none — decoration only)"]),
+    `Empty fields = no text for that field. No serial numbers in artwork.`,
+  ].join("\n");
+}
+
 /** Retroverse controls words; AI controls artwork only. */
 export function textGovernancePromptBlock(fields: PassTextFields, qrUrl?: string): string {
   const allowed: string[] = [];

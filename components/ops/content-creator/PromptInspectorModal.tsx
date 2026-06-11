@@ -5,6 +5,7 @@ import { useState } from "react";
 import type {
   ComposedRvbrPrompt,
   PromptDebugBreakdown,
+  PromptMetrics,
   PromptQualityScores,
 } from "@/lib/creative/rvbr-prompt-types";
 
@@ -16,17 +17,11 @@ type Props = {
 };
 
 const LAYER_ORDER: (keyof PromptDebugBreakdown)[] = [
-  "basePrompt",
   "artifactArchetype",
   "eraProfile",
-  "brandRules",
   "directionRules",
-  "physicalEphemera",
-  "antiClicheRules",
-  "antiRepetition",
-  "layoutRules",
-  "eventData",
-  "rvbrMandate",
+  "brandRules",
+  "governedText",
 ];
 
 function copyText(text: string) {
@@ -54,7 +49,7 @@ export function PromptInspectorModal({ open, onClose, front, back }: Props) {
     );
   }
 
-  const { debugBreakdown, finalPrompt, qualityScores } = composed;
+  const { debugBreakdown, finalPrompt, qualityScores, promptMetrics } = composed;
 
   function handleCopy() {
     copyText(finalPrompt);
@@ -91,12 +86,13 @@ export function PromptInspectorModal({ open, onClose, front, back }: Props) {
         </div>
 
         <QualityPanel scores={qualityScores} />
+        <PromptSizePanel metrics={promptMetrics} />
 
         <div className="cc-prompt-modal__layers">
           {LAYER_ORDER.map((key) => {
             const layer = debugBreakdown[key];
             return (
-              <details key={key} className="cc-prompt-modal__layer" open={key === "basePrompt"}>
+              <details key={key} className="cc-prompt-modal__layer" open={key === "artifactArchetype"}>
                 <summary>{layer.label}</summary>
                 <pre>{layer.content}</pre>
               </details>
@@ -114,6 +110,32 @@ export function PromptInspectorModal({ open, onClose, front, back }: Props) {
           </button>
         </footer>
       </div>
+    </div>
+  );
+}
+
+export function PromptSizePanel({ metrics }: { metrics: PromptMetrics }) {
+  const overTarget = metrics.charCount > metrics.targetCharCount;
+  return (
+    <div className="cc-prompt-size" aria-label="Prompt size">
+      <span className="cc-prompt-size__title">Prompt Size</span>
+      <div className="cc-prompt-size__grid">
+        <div className={`cc-prompt-size__item${overTarget ? " cc-prompt-size__item--warn" : ""}`}>
+          <span className="cc-prompt-size__label">Current</span>
+          <span className="cc-prompt-size__value">
+            {metrics.charCount.toLocaleString()} chars · ~{metrics.tokenEstimate.toLocaleString()} tokens
+          </span>
+        </div>
+        <div className="cc-prompt-size__item cc-prompt-size__item--target">
+          <span className="cc-prompt-size__label">Target</span>
+          <span className="cc-prompt-size__value">
+            ≤{metrics.targetCharCount.toLocaleString()} chars · ~{metrics.targetTokenEstimate.toLocaleString()} tokens
+          </span>
+        </div>
+      </div>
+      {overTarget ? (
+        <p className="cc-prompt-size__hint">Prompt exceeds one-screen target — scroll in final prompt means too large.</p>
+      ) : null}
     </div>
   );
 }

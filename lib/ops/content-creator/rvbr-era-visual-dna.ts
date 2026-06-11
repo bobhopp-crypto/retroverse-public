@@ -116,6 +116,10 @@ function canonLine(profile: RvbrProfile, key: string): string | null {
   return typeof text === "string" && text.trim() ? text.trim() : null;
 }
 
+export function hasKnownEraDna(slug: string): boolean {
+  return slug in ERA_VISUAL_DNA;
+}
+
 export function rvbrEraVisualDnaForProfile(profile: RvbrProfile): RvbrEraVisualDna {
   const known = ERA_VISUAL_DNA[profile.slug];
   if (known) return known;

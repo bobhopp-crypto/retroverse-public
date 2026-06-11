@@ -1,6 +1,13 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
+import {
+  hasKnownEraDna,
+  rvbrEraVisualDnaForProfile,
+} from "@/lib/ops/content-creator/rvbr-era-visual-dna";
+import type { CreativeDirectionSettings } from "@/lib/ops/content-creator/creative-direction";
+import type { RvbrProfile } from "@/lib/ops/rvbr/types";
+
 export type RvbrPromptProfile = {
   slug: string;
   preferredMotifs: string[];
@@ -54,22 +61,31 @@ export function loadRvbrPromptProfile(eraSlug: string): RvbrPromptProfile {
   }
 }
 
-export function eraProfilePromptBlock(profile: RvbrPromptProfile, eraLabel: string): string {
-  return [
-    `ERA PROFILE — ${eraLabel}:`,
-    `Scope: visual language ONLY — palette, ornament, typography mood, print texture.`,
-    `Does NOT dictate layout skeleton or central subject (Creative Direction controls those).`,
-    ``,
-    `Preferred motifs: ${profile.preferredMotifs.join(" · ")}`,
-    `Preferred composition language: ${profile.preferredComposition.join(" · ")}`,
-    `Preferred typography: ${profile.preferredTypography.join(" · ")}`,
-    `Preferred color language: ${profile.preferredColorLanguage.join(" · ")}`,
-    ``,
-    `Discouraged motifs: ${profile.discouragedMotifs.join(" · ")}`,
-    profile.negativePromptTerms.length
-      ? `Negative terms (do not illustrate): ${profile.negativePromptTerms.join(", ")}`
-      : "",
-  ]
-    .filter(Boolean)
-    .join("\n");
+/** Single era source — palette, typography, references, anti-cliché. No duplication elsewhere. */
+export function compressedEraProfileBlock(
+  profile: RvbrPromptProfile,
+  rvbrProfile: RvbrProfile,
+  settings: CreativeDirectionSettings,
+): string {
+  const dna = rvbrEraVisualDnaForProfile(rvbrProfile);
+  const known = hasKnownEraDna(rvbrProfile.slug);
+  const lines = [
+    `${rvbrProfile.name} (${rvbrProfile.eraStartYear}–${rvbrProfile.eraEndYear})`,
+    `Palette: ${dna.palette.join(", ")} · Accent: ${rvbrProfile.visualIdentity.accent ?? dna.palette[0]}`,
+    `Motifs: ${profile.preferredMotifs.join(", ")}`,
+    `Typography: ${profile.preferredTypography.join(", ")}`,
+    `Ornament: ${profile.preferredColorLanguage.join(", ")}`,
+    known
+      ? `Character: ${dna.mandate.slice(0, 4).join(" · ")}`
+      : `Character: ${profile.preferredComposition.slice(0, 2).join(" · ") || rvbrProfile.name}`,
+    `References: ${known ? dna.references.slice(0, 4).join(", ") : profile.preferredMotifs.slice(0, 3).join(", ")}`,
+  ];
+  const avoid = new Set([
+    ...profile.discouragedMotifs,
+    ...(settings.avoidEraTropes ? profile.negativePromptTerms : []),
+    ...(known ? dna.forbidden.slice(0, 4) : []),
+  ]);
+  if (avoid.size) lines.push(`Avoid: ${[...avoid].join(", ")}`);
+  return lines.join("\n");
 }
+
