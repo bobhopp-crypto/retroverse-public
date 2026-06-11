@@ -63,6 +63,33 @@ export function creativeLabIllustrationLibraryDir(): string {
   return join(creativeLabRoot(), "illustration_library");
 }
 
+/** `RETROVERSE_DATA/creative_lab/v2-poc` — artwork/data split POC runs */
+export function creativeLabV2PocDir(): string {
+  return join(creativeLabRoot(), "v2-poc");
+}
+
+export function creativeLabV2PocRunDir(runId: string): string {
+  return join(creativeLabV2PocDir(), runId);
+}
+
+/** `RETROVERSE_DATA/creative_lab/vnext` — Art Director workflow runs */
+export function creativeLabVNextDir(): string {
+  return join(creativeLabRoot(), "vnext");
+}
+
+export function creativeLabVNextRunDir(runId: string): string {
+  return join(creativeLabVNextDir(), runId);
+}
+
+/** `RETROVERSE_DATA/creative_lab/rvbr-validation` — era visual dominance tests */
+export function creativeLabRvbrValidationDir(): string {
+  return join(creativeLabRoot(), "rvbr-validation");
+}
+
+export function creativeLabRvbrValidationRunDir(runId: string): string {
+  return join(creativeLabRvbrValidationDir(), runId);
+}
+
 export const PROJECT_SUBDIRS = [
   "prompts",
   "concepts",
