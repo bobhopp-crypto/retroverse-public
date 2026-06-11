@@ -1,12 +1,33 @@
+import { ArtworkProviderError } from "./provider-error";
 import type { ArtworkGenerateOptions, ArtworkGenerateResult, ArtworkPromptContext } from "./types";
 
 const DEFAULT_SIZE = "1024x1536";
 const DEFAULT_QUALITY = "medium";
+const GENERATIONS_ENDPOINT = "https://api.openai.com/v1/images/generations";
+const EDITS_ENDPOINT = "https://api.openai.com/v1/images/edits";
+const IMAGE_MODEL = "gpt-image-2";
 
 type OpenAIImageResponse = {
   data?: Array<{ b64_json?: string; url?: string }>;
-  error?: { message?: string };
+  error?: { message?: string; type?: string; code?: string; param?: string | null };
 };
+
+function throwOpenAIProviderError(
+  endpoint: string,
+  httpStatus: number,
+  body: OpenAIImageResponse,
+): never {
+  const providerMessage = body.error?.message ?? `OpenAI image API failed (${httpStatus})`;
+  throw new ArtworkProviderError({
+    provider: "openai",
+    model: IMAGE_MODEL,
+    httpStatus,
+    providerMessage,
+    endpoint,
+    code: body.error?.code,
+    type: body.error?.type,
+  });
+}
 
 export async function generateOpenAIArtwork(
   context: ArtworkPromptContext,
@@ -21,14 +42,14 @@ export async function generateOpenAIArtwork(
   const size = options.size ?? DEFAULT_SIZE;
   const quality = options.quality ?? DEFAULT_QUALITY;
 
-  const res = await fetch("https://api.openai.com/v1/images/generations", {
+  const res = await fetch(GENERATIONS_ENDPOINT, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "gpt-image-2",
+      model: IMAGE_MODEL,
       prompt: context.prompt,
       n: count,
       size,
@@ -41,12 +62,16 @@ export async function generateOpenAIArtwork(
   console.log("[cl-artwork:openai] response", {
     ok: res.ok,
     status: res.status,
+    model: IMAGE_MODEL,
+    endpoint: GENERATIONS_ENDPOINT,
     dataCount: body.data?.length ?? 0,
     hasB64: body.data?.some((row) => Boolean(row.b64_json)) ?? false,
     error: body.error?.message,
+    code: body.error?.code,
+    type: body.error?.type,
   });
   if (!res.ok) {
-    throw new Error(body.error?.message ?? `OpenAI image API failed (${res.status})`);
+    throwOpenAIProviderError(GENERATIONS_ENDPOINT, res.status, body);
   }
 
   const images = (body.data ?? [])
@@ -82,7 +107,7 @@ export async function generateOpenAIArtworkFromReference(
   const quality = options.quality ?? DEFAULT_QUALITY;
 
   const form = new FormData();
-  form.append("model", "gpt-image-2");
+  form.append("model", IMAGE_MODEL);
   form.append("prompt", context.prompt);
   form.append(
     "image",
@@ -94,7 +119,7 @@ export async function generateOpenAIArtworkFromReference(
   form.append("n", "1");
   form.append("output_format", "png");
 
-  const res = await fetch("https://api.openai.com/v1/images/edits", {
+  const res = await fetch(EDITS_ENDPOINT, {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}` },
     body: form,
@@ -104,8 +129,12 @@ export async function generateOpenAIArtworkFromReference(
   console.log("[cl-artwork:openai:edit] response", {
     ok: res.ok,
     status: res.status,
+    model: IMAGE_MODEL,
+    endpoint: EDITS_ENDPOINT,
     dataCount: body.data?.length ?? 0,
     error: body.error?.message,
+    code: body.error?.code,
+    type: body.error?.type,
   });
 
   if (res.ok && body.data?.length) {

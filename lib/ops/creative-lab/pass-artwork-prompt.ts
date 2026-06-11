@@ -24,7 +24,7 @@ const ARTWORK_FORBIDDEN = [
   `FORBIDDEN IN ARTWORK:`,
   `- Any readable text, numerals, dates, years, venue names, event titles`,
   `- QR patterns, checkerboard modules, fake barcodes, scannable-looking pixels`,
-  `- Flat opaque cream/white rectangles that cover illustration (no PowerPoint-style blocks)`,
+  `- Flat opaque blocks that cover illustration (except the intentional back-side white verification window)`,
   `- Placeholder lorem ipsum, gibberish lettering, or decorative fake type`,
 ].join("\n");
 
@@ -46,7 +46,7 @@ function informationPanelsBlock(side: "front" | "back"): string {
     ...lines,
     `- Serial stamp panel: ${SERIAL_PANEL.width}×${SERIAL_PANEL.height}px at bottom center — embossed empty footer frame only`,
     side === "back"
-      ? `- Verification reserve: large clear white square in lower half — no labels, no measurements, no fake QR modules`
+      ? `- Verification window: intentional flat white square in lower half — design element for export QR, not a fake code`
       : "",
     `Illustration remains the hero between and around panels. Ornament may frame OUTSIDE zones.`,
   ]

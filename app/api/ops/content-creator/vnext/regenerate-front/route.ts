@@ -5,6 +5,7 @@ import { parseSecondaryLineWithLegacy } from "@/lib/ops/content-creator/parse-fi
 import { parseCreativeDirectionSettings } from "@/lib/ops/content-creator/creative-direction";
 import { runVNextRegenerateFront, vNextFileUrl } from "@/lib/ops/content-creator/vnext-run";
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
+import { artworkErrorJson } from "@/lib/ops/creative-lab/artwork/provider-error";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 
@@ -57,7 +58,8 @@ export async function POST(req: Request) {
       backUrl: vNextFileUrl(manifest.runId, manifest.backFilename),
     });
   } catch (e) {
-    const message = e instanceof Error ? e.message : "regenerate_front_failed";
-    return NextResponse.json({ error: message }, { status: 502 });
+    const payload = artworkErrorJson(e);
+    console.error("[vnext:regenerate-front]", payload, e);
+    return NextResponse.json(payload, { status: 502 });
   }
 }

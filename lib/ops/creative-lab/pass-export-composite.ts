@@ -14,6 +14,7 @@ import {
 } from "./pass-layout";
 import {
   auditExportedQrZone,
+  auditQrPngBufferWithModules,
   emptyQrZoneAudit,
   generateZoneFillingQrPng,
   QR_MAX_MATRIX_FILL_PERCENT,
@@ -84,7 +85,7 @@ export type PassExportReport = {
   };
 };
 
-/** Generate zone-filling QR PNG (matrix 85–90% of reserved zone when possible). */
+/** Export-only — SVG matrix → Sharp PNG, 85–90% fill with auto quiet zone. */
 export async function generateQrPngBuffer(url: string, targetSize: number): Promise<Buffer> {
   const { png } = await generateZoneFillingQrPng(url, targetSize);
   return png;
@@ -132,22 +133,33 @@ async function decodeQrFromPng(pngPath: string, extract?: { left: number; top: n
 /**
  * Composite QR onto back, audit exported PNG, tune quiet zone for 85–90% matrix fill.
  */
+export async function compositeQrOntoBackBuffer(args: {
+  backSrc: string | Buffer;
+  qrUrl: string;
+}): Promise<{ buffer: Buffer; zoneAudit: QrZoneAudit; quietModules: number }> {
+  const zoneSize = QR_ZONE.size;
+  const picked = await selectOptimalQuietModules(args.qrUrl, zoneSize);
+  const base = typeof args.backSrc === "string" ? sharp(args.backSrc) : sharp(args.backSrc);
+  const buffer = await base
+    .composite([{ input: picked.png, left: QR_ZONE.left, top: QR_ZONE.top }])
+    .png()
+    .toBuffer();
+  const zoneAudit = await auditQrPngBufferWithModules(buffer, zoneSize, picked.moduleCount, picked.quietModules);
+  return { buffer, zoneAudit, quietModules: picked.quietModules };
+}
+
 export async function compositeQrOntoBackPng(args: {
   backSrc: string | Buffer;
   backPath: string;
   qrUrl: string;
 }): Promise<{ zoneAudit: QrZoneAudit; quietModules: number }> {
-  const zoneSize = QR_ZONE.size;
-  const picked = await selectOptimalQuietModules(args.qrUrl, zoneSize);
-
-  const base = typeof args.backSrc === "string" ? sharp(args.backSrc) : sharp(args.backSrc);
-  await base
-    .composite([{ input: picked.png, left: QR_ZONE.left, top: QR_ZONE.top }])
-    .png()
-    .toFile(args.backPath);
-
-  const zoneAudit = await auditExportedQrZone(args.backPath, zoneSize, QR_ZONE.left, QR_ZONE.top, picked.quietModules);
-  return { zoneAudit, quietModules: picked.quietModules };
+  const { buffer, zoneAudit, quietModules } = await compositeQrOntoBackBuffer({
+    backSrc: args.backSrc,
+    qrUrl: args.qrUrl,
+  });
+  await sharp(buffer).png().toFile(args.backPath);
+  const zoneAuditFile = await auditExportedQrZone(args.backPath, QR_ZONE.size, QR_ZONE.left, QR_ZONE.top, quietModules);
+  return { zoneAudit: zoneAuditFile, quietModules };
 }
 
 /** Post-export validation — audit exported PNG, decode QR, report physical size. */

@@ -8,6 +8,8 @@ export type ContentCreatorJobProgress = {
   step: string;
 };
 
+import type { ProviderErrorDetail } from "@/lib/ops/creative-lab/artwork/provider-error";
+
 export type ContentCreatorJobResult = {
   runId?: string;
   runIds?: string[];
@@ -29,6 +31,7 @@ export type ContentCreatorJob = {
   updatedAt: string;
   progress: ContentCreatorJobProgress;
   error: string | null;
+  errorDetail: ProviderErrorDetail | null;
   result: ContentCreatorJobResult | null;
   payload: Record<string, unknown>;
 };

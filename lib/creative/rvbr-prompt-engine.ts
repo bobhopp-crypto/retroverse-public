@@ -24,6 +24,7 @@ import {
   NO_FAKE_NETWORK_BRANDS_PROMPT,
   NO_MEASUREMENT_ON_ARTWORK_PROMPT,
 } from "@/lib/ops/creative-lab/pass-prompt-safety";
+import { QR_PRODUCTION_DATA_RULES } from "@/lib/ops/creative-lab/qr-production";
 import { artworkBackLayoutPrompt, PASS_HEIGHT, PASS_WIDTH } from "@/lib/ops/creative-lab/pass-layout";
 import {
   compressedTextGovernancePromptBlock,
@@ -167,7 +168,9 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     `ARTWORK SAFETY`,
     NO_MEASUREMENT_ON_ARTWORK_PROMPT,
     NO_FAKE_NETWORK_BRANDS_PROMPT,
-    ...(input.side === "back" ? [``, `BACK LAYOUT`, artworkBackLayoutPrompt()] : []),
+    ...(input.side === "back"
+      ? [``, `QR PRODUCTION`, QR_PRODUCTION_DATA_RULES, ``, `BACK LAYOUT`, artworkBackLayoutPrompt()]
+      : []),
     ``,
     `GOVERNED TEXT`,
     governedText,

@@ -1,11 +1,14 @@
-import { mkdir, writeFile } from "fs/promises";
+import { mkdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
 import { generateArtwork, resolveArtworkProvider } from "@/lib/ops/creative-lab/artwork";
 import type { ArtworkPromptContext } from "@/lib/ops/creative-lab/artwork/types";
 import { renderPassArtworkPrompt } from "@/lib/ops/creative-lab/pass-artwork-prompt";
 import { compositePassDataOverlay } from "@/lib/ops/creative-lab/pass-data-overlay";
-import { verifyQrInComposite } from "@/lib/ops/creative-lab/pass-export-composite";
+import {
+  compositeQrOntoBackPng,
+  verifyQrInComposite,
+} from "@/lib/ops/creative-lab/pass-export-composite";
 import { renderPassConceptPrompt } from "@/lib/ops/creative-lab/pass-concept-prompt";
 import { creativeLabV2PocRunDir } from "@/lib/ops/creative-lab/paths";
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
@@ -180,14 +183,29 @@ export async function runV2PocComparison(input: V2PocInput): Promise<V2PocResult
   const compositeBackPath = await writePng(runDir, "v2-composite-back.png", compositeBack);
   artifacts.push({
     id: "v2-composite-back",
-    label: "v2 Phase 1 — Credential layout + QR (back)",
+    label: "v2 Phase 1 — Credential layout (back, QR window only)",
     filename: "v2-composite-back.png",
     path: compositeBackPath,
     group: "v2-composite",
     side: "back",
   });
 
-  const qrVerification = await verifyQrInComposite(compositeBackPath, input.qrUrl);
+  const exportBackPath = join(runDir, "v2-export-back.png");
+  await compositeQrOntoBackPng({
+    backSrc: compositeBack,
+    backPath: exportBackPath,
+    qrUrl: input.qrUrl,
+  });
+  artifacts.push({
+    id: "v2-export-back",
+    label: "v2 Export — composited QR (back)",
+    filename: "v2-export-back.png",
+    path: exportBackPath,
+    group: "v2-composite",
+    side: "back",
+  });
+
+  const qrVerification = await verifyQrInComposite(exportBackPath, input.qrUrl);
 
   // —— v2 export package (single path: composites only) ——
   const exportZipFilename = "v2-poc-export.zip";
@@ -198,6 +216,7 @@ export async function runV2PocComparison(input: V2PocInput): Promise<V2PocResult
   await mkdir(staging, { recursive: true });
   await writeFile(join(staging, "v2-composite-front.png"), compositeFront);
   await writeFile(join(staging, "v2-composite-back.png"), compositeBack);
+  await writeFile(join(staging, "v2-export-back.png"), await readFile(exportBackPath));
   await writeFile(
     join(staging, "v2-poc-report.json"),
     `${JSON.stringify(

@@ -11,7 +11,7 @@ export const CONTENT_CREATOR_DEFAULTS = {
   secondaryLine: "1967 • 1978 • 1992",
   passTypeLabel: "VIP PASS" as const,
   qrUrl: "https://retroverse.live",
-  quantity: 200,
+  quantity: 12,
   creativeDirection: DEFAULT_CREATIVE_DIRECTION_SETTINGS.creativeDirection,
   avoidEraTropes: DEFAULT_CREATIVE_DIRECTION_SETTINGS.avoidEraTropes,
   maximizeVariation: DEFAULT_CREATIVE_DIRECTION_SETTINGS.maximizeVariation,

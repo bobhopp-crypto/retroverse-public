@@ -5,8 +5,16 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 
 import { JobQueuePanel } from "@/components/ops/content-creator/JobQueuePanel";
+import { ProviderErrorAlert } from "@/components/ops/creative-lab/ProviderErrorAlert";
+import type { ProviderErrorDetail } from "@/lib/ops/creative-lab/artwork/provider-error";
 import { PromptInspectorModal, QualityPanel } from "@/components/ops/content-creator/PromptInspectorModal";
-import { PassQrSafeAreaOverlay } from "@/components/ops/content-creator/PassQrSafeAreaOverlay";
+import { QR_EXPORT_REQUIRED_MESSAGE } from "@/lib/ops/creative-lab/qr-production";
+import {
+  QR_STATUS_LABELS,
+  resolveQrExportStatus,
+  type QrExportStatus,
+} from "@/lib/ops/content-creator/qr-export-status";
+import { PRINT_QUANTITY_PRESETS } from "@/lib/ops/content-creator/serial-stamp";
 import type { ComposedRvbrPrompt, PromptQualityScores } from "@/lib/creative/rvbr-prompt-types";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { RETROVERSE_COLLECTIBLE_CREDENTIAL_LABEL } from "@/lib/creative/artifact-archetypes";
@@ -27,12 +35,61 @@ type Props = {
   eras: ContentCreatorEraOption[];
 };
 
+type ProviderApiBody = {
+  error?: string;
+  providerError?: ProviderErrorDetail;
+};
+
+function raiseApiError(data: ProviderApiBody, fallback: string): never {
+  const err = new Error(data.error ?? fallback) as Error & { providerError?: ProviderErrorDetail };
+  err.providerError = data.providerError;
+  throw err;
+}
+
+function readProviderError(error: unknown): ProviderErrorDetail | null {
+  if (error && typeof error === "object" && "providerError" in error) {
+    const detail = (error as { providerError?: ProviderErrorDetail }).providerError;
+    return detail ?? null;
+  }
+  return null;
+}
+
+type ExportDownloads = {
+  exportZipUrl?: string;
+  singleFrontUrl?: string;
+  singleBackUrl?: string;
+  singlePassZipUrl?: string;
+  printFrontPngUrls?: string[];
+  printBackPngUrls?: string[];
+  printFrontPdfUrls?: string[];
+  printBackPdfUrls?: string[];
+  printInstructionsUrl?: string;
+};
+
+type ExportApiResponse = {
+  ok?: boolean;
+  error?: string;
+  qrVerification?: QrVerificationResult;
+  qrStatus?: QrExportStatus;
+  exportZipUrl?: string;
+  singleFrontUrl?: string;
+  singleBackUrl?: string;
+  singlePassZipUrl?: string;
+  printFrontPngUrls?: string[];
+  printBackPngUrls?: string[];
+  printFrontPdfUrls?: string[];
+  printBackPdfUrls?: string[];
+  printInstructionsUrl?: string;
+};
+
 type RunState = {
   runId: string;
   frontUrl: string | null;
   backUrl: string | null;
   exportZipUrl?: string;
+  qrStatus?: QrExportStatus;
   qrVerification?: QrVerificationResult;
+  downloads?: ExportDownloads;
 };
 
 type ContentFields = {
@@ -115,6 +172,7 @@ export function VNextWorkspace({ eras }: Props) {
   );
   const [avoidEraTropes, setAvoidEraTropes] = useState(CONTENT_CREATOR_DEFAULTS.avoidEraTropes);
   const [maximizeVariation, setMaximizeVariation] = useState(CONTENT_CREATOR_DEFAULTS.maximizeVariation);
+  const [printQuantity, setPrintQuantity] = useState(CONTENT_CREATOR_DEFAULTS.quantity);
   const [top, setTop] = useState(defaultFields);
   const [front, setFront] = useState(defaultFields);
   const [back, setBack] = useState(defaultFields);
@@ -123,6 +181,7 @@ export function VNextWorkspace({ eras }: Props) {
 
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [providerError, setProviderError] = useState<ProviderErrorDetail | null>(null);
   const [run, setRun] = useState<RunState | null>(null);
   const [promptInspector, setPromptInspector] = useState<{
     front: ComposedRvbrPrompt | null;
@@ -248,6 +307,7 @@ export function VNextWorkspace({ eras }: Props) {
   async function viewPrompt() {
     setBusy(true);
     setError(null);
+    setProviderError(null);
     try {
       await composePrompts();
       setInspectorOpen(true);
@@ -266,6 +326,7 @@ export function VNextWorkspace({ eras }: Props) {
         job?: {
           status: string;
           error: string | null;
+          errorDetail?: ProviderErrorDetail | null;
           result: { runId?: string; frontUrl?: string; backUrl?: string } | null;
         };
       };
@@ -279,7 +340,12 @@ export function VNextWorkspace({ eras }: Props) {
           backUrl: `${job.result.backUrl ?? `/api/ops/content-creator/vnext/files/${job.result.runId}/back.png`}?t=${t}`,
         };
       }
-      if (job.status === "failed") throw new Error(job.error ?? "generate_failed");
+      if (job.status === "failed") {
+        raiseApiError(
+          { error: job.error ?? "generate_failed", providerError: job.errorDetail ?? undefined },
+          "generate_failed",
+        );
+      }
       await new Promise((r) => setTimeout(r, 2000));
     }
     throw new Error("job_timeout");
@@ -288,6 +354,7 @@ export function VNextWorkspace({ eras }: Props) {
   async function generate() {
     setBusy(true);
     setError(null);
+    setProviderError(null);
     const f = { ...top };
     const b = { ...top };
     setFront(f);
@@ -306,15 +373,15 @@ export function VNextWorkspace({ eras }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = (await res.json()) as RunState & {
-        ok?: boolean;
-        error?: string;
-        background?: boolean;
-        jobId?: string;
-        promptInspector?: { front: ComposedRvbrPrompt; back: ComposedRvbrPrompt };
-        qualityScores?: PromptQualityScores;
-      };
-      if (!res.ok || !data.ok) throw new Error(data.error ?? "generate_failed");
+      const data = (await res.json()) as RunState &
+        ProviderApiBody & {
+          ok?: boolean;
+          background?: boolean;
+          jobId?: string;
+          promptInspector?: { front: ComposedRvbrPrompt; back: ComposedRvbrPrompt };
+          qualityScores?: PromptQualityScores;
+        };
+      if (!res.ok || !data.ok) raiseApiError(data, "generate_failed");
 
       if (data.background && data.jobId) {
         const result = await pollJobUntilDone(data.jobId);
@@ -333,6 +400,7 @@ export function VNextWorkspace({ eras }: Props) {
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : "generate_failed");
+      setProviderError(readProviderError(e));
     } finally {
       setBusy(false);
     }
@@ -340,13 +408,24 @@ export function VNextWorkspace({ eras }: Props) {
 
   async function printScanTest() {
     if (!run?.runId) return;
+    if (!run.exportZipUrl) {
+      setError(QR_EXPORT_REQUIRED_MESSAGE);
+      return;
+    }
     try {
       const res = await fetch("/api/ops/content-creator/vnext/print-scan-test", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ runId: run.runId }),
       });
-      if (!res.ok) throw new Error("print_scan_test_failed");
+      const contentType = res.headers.get("content-type") ?? "";
+      if (!res.ok) {
+        if (contentType.includes("application/json")) {
+          const data = (await res.json()) as { error?: string };
+          throw new Error(data.error ?? QR_EXPORT_REQUIRED_MESSAGE);
+        }
+        throw new Error("print_scan_test_failed");
+      }
       const html = await res.text();
       const w = window.open("", "_blank");
       if (w) {
@@ -362,6 +441,7 @@ export function VNextWorkspace({ eras }: Props) {
     if (!run) return;
     setBusy(true);
     setError(null);
+    setProviderError(null);
     try {
       const res = await fetch("/api/ops/content-creator/vnext/regenerate-front", {
         method: "POST",
@@ -373,11 +453,19 @@ export function VNextWorkspace({ eras }: Props) {
           ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
         }),
       });
-      const data = (await res.json()) as RunState & { ok?: boolean; error?: string };
-      if (!res.ok || !data.ok) throw new Error(data.error ?? "regenerate_failed");
-      setRun({ ...run, frontUrl: `${data.frontUrl}?t=${Date.now()}`, exportZipUrl: undefined, qrVerification: undefined });
+      const data = (await res.json()) as RunState & ProviderApiBody & { ok?: boolean };
+      if (!res.ok || !data.ok) raiseApiError(data, "regenerate_failed");
+      setRun({
+        ...run,
+        frontUrl: `${data.frontUrl}?t=${Date.now()}`,
+        exportZipUrl: undefined,
+        qrVerification: undefined,
+        qrStatus: undefined,
+        downloads: undefined,
+      });
     } catch (e) {
       setError(e instanceof Error ? e.message : "regenerate_failed");
+      setProviderError(readProviderError(e));
     } finally {
       setBusy(false);
     }
@@ -387,6 +475,7 @@ export function VNextWorkspace({ eras }: Props) {
     if (!run) return;
     setBusy(true);
     setError(null);
+    setProviderError(null);
     try {
       const res = await fetch("/api/ops/content-creator/vnext/regenerate-back", {
         method: "POST",
@@ -398,14 +487,44 @@ export function VNextWorkspace({ eras }: Props) {
           ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
         }),
       });
-      const data = (await res.json()) as RunState & { ok?: boolean; error?: string };
-      if (!res.ok || !data.ok) throw new Error(data.error ?? "regenerate_failed");
-      setRun({ ...run, backUrl: `${data.backUrl}?t=${Date.now()}`, exportZipUrl: undefined, qrVerification: undefined });
+      const data = (await res.json()) as RunState & ProviderApiBody & { ok?: boolean };
+      if (!res.ok || !data.ok) raiseApiError(data, "regenerate_failed");
+      setRun({
+        ...run,
+        backUrl: `${data.backUrl}?t=${Date.now()}`,
+        exportZipUrl: undefined,
+        qrVerification: undefined,
+        qrStatus: undefined,
+        downloads: undefined,
+      });
     } catch (e) {
       setError(e instanceof Error ? e.message : "regenerate_failed");
+      setProviderError(readProviderError(e));
     } finally {
       setBusy(false);
     }
+  }
+
+  function applyExportResponse(prev: RunState, data: ExportApiResponse): RunState {
+    return {
+      ...prev,
+      exportZipUrl: data.exportZipUrl,
+      qrVerification: data.qrVerification,
+      qrStatus:
+        data.qrStatus ??
+        resolveQrExportStatus({ exported: true, qrVerification: data.qrVerification }),
+      downloads: {
+        exportZipUrl: data.exportZipUrl,
+        singleFrontUrl: data.singleFrontUrl,
+        singleBackUrl: data.singleBackUrl,
+        singlePassZipUrl: data.singlePassZipUrl,
+        printFrontPngUrls: data.printFrontPngUrls,
+        printBackPngUrls: data.printBackPngUrls,
+        printFrontPdfUrls: data.printFrontPdfUrls,
+        printBackPdfUrls: data.printBackPdfUrls,
+        printInstructionsUrl: data.printInstructionsUrl,
+      },
+    };
   }
 
   async function exportPackage() {
@@ -416,19 +535,43 @@ export function VNextWorkspace({ eras }: Props) {
       const res = await fetch("/api/ops/content-creator/vnext/export", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ runId: run.runId, eraSlug }),
+        body: JSON.stringify({
+          runId: run.runId,
+          eraSlug,
+          quantity: printQuantity,
+          qrUrl: back.qrUrl,
+        }),
       });
-      const data = (await res.json()) as RunState & { ok?: boolean; error?: string; qrVerification?: QrVerificationResult };
+      const data = (await res.json()) as ExportApiResponse;
       if (!res.ok || !data.ok) throw new Error(data.error ?? "export_failed");
-      setRun({
-        ...run,
-        frontUrl: `${data.frontUrl}?t=${Date.now()}`,
-        backUrl: `${data.backUrl}?t=${Date.now()}`,
-        exportZipUrl: data.exportZipUrl,
-        qrVerification: data.qrVerification,
-      });
+      setRun(applyExportResponse(run, data));
     } catch (e) {
       setError(e instanceof Error ? e.message : "export_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function exportPrintSheet() {
+    if (!run) return;
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/ops/content-creator/vnext/export-print-sheet", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          runId: run.runId,
+          eraSlug,
+          quantity: printQuantity,
+          qrUrl: back.qrUrl,
+        }),
+      });
+      const data = (await res.json()) as ExportApiResponse;
+      if (!res.ok || !data.ok) throw new Error(data.error ?? "export_print_sheet_failed");
+      setRun(applyExportResponse(run, data));
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "export_print_sheet_failed");
     } finally {
       setBusy(false);
     }
@@ -484,6 +627,13 @@ export function VNextWorkspace({ eras }: Props) {
     );
   }
 
+  const qrStatus: QrExportStatus =
+    run?.qrStatus ??
+    resolveQrExportStatus({
+      exported: Boolean(run?.exportZipUrl),
+      qrVerification: run?.qrVerification,
+    });
+
   const qrWarn =
     run?.qrVerification &&
     (run.qrVerification.matrixFillWarning ||
@@ -516,53 +666,39 @@ export function VNextWorkspace({ eras }: Props) {
           <div className="cc-creator__preview-frame cc-creator__preview-frame--back">
             <div className="cc-creator__pass-aspect">
               {run?.backUrl ? (
-                <>
-                  <img src={run.backUrl} alt="Back artwork preview" className="cc-creator__pass-img" />
-                  <PassQrSafeAreaOverlay showLabel={false} />
-                </>
+                <img src={run.backUrl} alt="Back artwork preview" className="cc-creator__pass-img" />
               ) : (
                 <p className="cc-creator__preview-placeholder">Generate to see your pass back</p>
               )}
             </div>
           </div>
-          {qrWarn ? (
-            <div className="cc-creator__qr-warning" role="alert">
-              {run?.qrVerification?.printSizeWarning
-                ? `QR below recommended print size (${run.qrVerification.physicalWidthIn.toFixed(2)}") — lanyard scan may fail. `
-                : null}
-              {run?.qrVerification?.matrixFillWarning
-                ? `Matrix fill ${run.qrVerification.matrixFillPercent.toFixed(0)}% is below 85% target. `
-                : null}
-              {!run?.qrVerification?.decodePass ? "Decode test failed — re-export before printing." : null}
-            </div>
-          ) : null}
-          {run?.qrVerification ? (
+          {run?.runId ? (
             <div className="cc-creator__qr-status" aria-live="polite">
-              <p>
-                Matrix fill: {run.qrVerification.matrixFillPercent.toFixed(1)}% · Physical:{" "}
-                {run.qrVerification.physicalWidthIn.toFixed(2)}" × {run.qrVerification.physicalHeightIn.toFixed(2)}"
+              <p className={`cc-creator__qr-badge cc-creator__qr-badge--${qrStatus}`}>
+                QR: {QR_STATUS_LABELS[qrStatus]}
               </p>
-              <p className={run.qrVerification.decodePass ? "cc-creator__qr-pass" : "cc-creator__qr-fail"}>
-                Scan Test: {run.qrVerification.decodePass ? "PASS" : "FAIL"}
-              </p>
-              <button
-                type="button"
-                className="cc-creator__btn cc-creator__btn--secondary cc-creator__print-scan-btn"
-                onClick={() => void printScanTest()}
-              >
-                Print Scan Test
-              </button>
-            </div>
-          ) : run?.runId ? (
-            <div className="cc-creator__qr-status">
-              <button
-                type="button"
-                className="cc-creator__btn cc-creator__btn--secondary cc-creator__print-scan-btn"
-                onClick={() => void printScanTest()}
-              >
-                Print Scan Test
-              </button>
-              <p className="cc-creator__qr-hint">Export first for QR verification metrics.</p>
+              {run.qrVerification ? (
+                <p className="cc-creator__qr-meta">
+                  Matrix fill: {run.qrVerification.matrixFillPercent.toFixed(1)}% · Physical:{" "}
+                  {run.qrVerification.physicalWidthIn.toFixed(2)}" × {run.qrVerification.physicalHeightIn.toFixed(2)}"
+                </p>
+              ) : null}
+              {qrWarn ? (
+                <div className="cc-creator__qr-warning" role="alert">
+                  {run.qrVerification?.printSizeWarning
+                    ? `QR below recommended print size (${run.qrVerification.physicalWidthIn.toFixed(2)}"). `
+                    : null}
+                  {run.qrVerification?.matrixFillWarning
+                    ? `Matrix fill ${run.qrVerification.matrixFillPercent.toFixed(0)}% below 85% target. `
+                    : null}
+                  {run.qrVerification && !run.qrVerification.decodePass
+                    ? "Decode test failed — re-export before printing."
+                    : null}
+                </div>
+              ) : null}
+              {qrStatus === "not_exported" ? (
+                <p className="cc-creator__qr-hint">{QR_EXPORT_REQUIRED_MESSAGE}</p>
+              ) : null}
             </div>
           ) : null}
         </figure>
@@ -585,12 +721,48 @@ export function VNextWorkspace({ eras }: Props) {
         >
           Export
         </button>
-        {run?.exportZipUrl ? (
-          <a className="cc-creator__btn cc-creator__btn--download" href={run.exportZipUrl} download>
-            Download
-          </a>
-        ) : null}
+        <button
+          type="button"
+          className="cc-creator__btn cc-creator__btn--secondary"
+          disabled={busy || !run}
+          onClick={() => void exportPrintSheet()}
+        >
+          Export Print Sheet
+        </button>
       </section>
+
+      {run?.downloads?.exportZipUrl ? (
+        <section className="cc-creator__download-panel" aria-label="Print downloads">
+          <h2 className="cc-creator__download-title">Print package</h2>
+          <div className="cc-creator__download-grid">
+            {run.downloads.singlePassZipUrl ? (
+              <a className="cc-creator__btn cc-creator__btn--download" href={run.downloads.singlePassZipUrl} download>
+                Download Single Pass
+              </a>
+            ) : null}
+            {run.downloads.printFrontPdfUrls?.[0] ? (
+              <a className="cc-creator__btn cc-creator__btn--download" href={run.downloads.printFrontPdfUrls[0]} download>
+                Download Print Sheet Front
+              </a>
+            ) : null}
+            {run.downloads.printBackPdfUrls?.[0] ? (
+              <a className="cc-creator__btn cc-creator__btn--download" href={run.downloads.printBackPdfUrls[0]} download>
+                Download Print Sheet Back
+              </a>
+            ) : null}
+            <a className="cc-creator__btn cc-creator__btn--download" href={run.downloads.exportZipUrl} download>
+              Download Full Print Package
+            </a>
+            <button
+              type="button"
+              className="cc-creator__btn cc-creator__btn--secondary"
+              onClick={() => void printScanTest()}
+            >
+              Print Scan Test
+            </button>
+          </div>
+        </section>
+      ) : null}
 
       <section className="cc-creator__setup" aria-label="Project setup">
         <div className="cc-creator__setup-row">
@@ -689,6 +861,43 @@ export function VNextWorkspace({ eras }: Props) {
               onChange={(e) => setTop({ ...top, secondaryLine: e.target.value })}
             />
           </label>
+          <label className="cc-creator__field">
+            <span>QR URL</span>
+            <input
+              value={top.qrUrl}
+              onChange={(e) => {
+                const qrUrl = e.target.value;
+                setTop({ ...top, qrUrl });
+                setBack({ ...back, qrUrl });
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="cc-creator__setup-group">
+          <span className="cc-creator__setup-label">Print quantity</span>
+          <div className="cc-creator__chips">
+            {PRINT_QUANTITY_PRESETS.map((n) => (
+              <button
+                key={n}
+                type="button"
+                className={`cc-creator__chip${printQuantity === n ? " is-on" : ""}`}
+                onClick={() => setPrintQuantity(n)}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+          <label className="cc-creator__field cc-creator__field--inline-qty">
+            <span>Custom</span>
+            <input
+              type="number"
+              min={1}
+              max={999}
+              value={printQuantity}
+              onChange={(e) => setPrintQuantity(Number.parseInt(e.target.value, 10) || 12)}
+            />
+          </label>
         </div>
 
         {qualityScores ? (
@@ -723,7 +932,7 @@ export function VNextWorkspace({ eras }: Props) {
         </button>
       </section>
 
-      {error ? <p className="cc-creator__error" role="alert">{error}</p> : null}
+      {error ? <ProviderErrorAlert message={error} detail={providerError} /> : null}
 
       <section className="cc-creator__panels">
         <CollapsiblePanel title="Front content" open={frontOpen} onToggle={() => setFrontOpen((v) => !v)}>

@@ -17,7 +17,7 @@ export function buildPrintScanTestHtml(input: PrintScanTestInput): string {
   const v = input.qrVerification;
   const warnings: string[] = [];
   if (!input.exportedBack) {
-    warnings.push("Showing preview back — export first for QR compositing and scan verification.");
+    warnings.push("Export required for QR verification.");
   }
   if (v?.printSizeWarning) {
     warnings.push(
@@ -93,7 +93,7 @@ export function buildPrintScanTestHtml(input: PrintScanTestInput): string {
       <li>Cut out the credential at the printed border (${PASS_PRINT_WIDTH_IN}" × ${PASS_PRINT_HEIGHT_IN}").</li>
       <li>Hold phone camera 8–12 inches away (typical lanyard scan distance).</li>
       <li>Scan the <strong>back</strong> QR — it should open the configured URL.</li>
-      <li>If scan fails: re-export, check for artwork overlapping the white QR square, verify matrix fill ≥85%.</li>
+      <li>If scan fails: re-export, check artwork does not overlap the white verification window, verify matrix fill ≥85%.</li>
     </ol>
   </section>
   <section class="credential-row">

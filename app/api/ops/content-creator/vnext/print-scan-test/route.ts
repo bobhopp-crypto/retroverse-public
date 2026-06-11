@@ -3,6 +3,7 @@ import { join } from "path";
 import { NextResponse } from "next/server";
 
 import { buildPrintScanTestHtml } from "@/lib/ops/creative-lab/print-scan-test-sheet";
+import { QR_EXPORT_REQUIRED_MESSAGE } from "@/lib/ops/creative-lab/qr-production";
 import { creativeLabVNextRunDir } from "@/lib/ops/creative-lab/paths";
 import { loadVNextManifest, vNextFileUrl } from "@/lib/ops/content-creator/vnext-run";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
@@ -22,19 +23,17 @@ export async function POST(req: Request) {
   try {
     const manifest = await loadVNextManifest(runId);
     const runDir = creativeLabVNextRunDir(runId);
-    const exportBack = join(runDir, "export", "final-back.png");
-    const exportFront = join(runDir, "export", "final-front.png");
+    const exportBack = join(runDir, "export", "single", "final-back.png");
+    const exportFront = join(runDir, "export", "single", "final-front.png");
     const exportedBack = existsSync(exportBack);
     const exportedFront = existsSync(exportFront);
 
-    const frontImageUrl = vNextFileUrl(
-      runId,
-      exportedFront ? "export/final-front.png" : manifest.frontFilename,
-    );
-    const backImageUrl = vNextFileUrl(
-      runId,
-      exportedBack ? "export/final-back.png" : manifest.backFilename,
-    );
+    if (!exportedBack || !exportedFront) {
+      return NextResponse.json({ error: QR_EXPORT_REQUIRED_MESSAGE }, { status: 400 });
+    }
+
+    const frontImageUrl = vNextFileUrl(runId, "export/single/final-front.png");
+    const backImageUrl = vNextFileUrl(runId, "export/single/final-back.png");
     const title = manifest.frontFields.event || manifest.backFields.event || runId;
 
     const html = buildPrintScanTestHtml({

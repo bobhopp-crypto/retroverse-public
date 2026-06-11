@@ -18,7 +18,9 @@ import {
   renderArtDirectorFrontPrompt,
   type ArtDirectorFields,
 } from "@/lib/ops/content-creator/rvbr-art-director-prompt";
-import { compositeVNextExport, writeVNextExportReport, writeVNextExportZip } from "@/lib/ops/content-creator/vnext-export";
+import { buildVNextPrintPackage, type PrintPackagePaths } from "@/lib/ops/content-creator/print-package";
+import type { QrExportStatus } from "@/lib/ops/content-creator/qr-export-status";
+import { normalizePrintQuantity } from "@/lib/ops/content-creator/serial-stamp";
 import { syncGenerationFromVNext } from "@/lib/ops/content-creator/library";
 import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
@@ -57,6 +59,9 @@ export type VNextManifest = {
     back: ComposedRvbrPrompt;
   };
   exportZipFilename?: string;
+  quantity?: number;
+  printPackage?: PrintPackagePaths;
+  qrStatus?: QrExportStatus;
   qrVerification?: QrVerificationResult;
   startedAt: string;
   updatedAt: string;
@@ -281,41 +286,57 @@ export async function runVNextRegenerateBack(args: {
 export async function runVNextExport(
   runId: string,
   profile: RvbrProfile,
-): Promise<VNextManifest & { exportZipPath: string; qrVerification: QrVerificationResult }> {
+  options?: { quantity?: number; qrUrl?: string },
+): Promise<
+  VNextManifest & {
+    exportZipPath: string;
+    qrVerification: QrVerificationResult;
+    printPackage: PrintPackagePaths;
+    qrStatus: QrExportStatus;
+  }
+> {
   const manifest = await loadVNextManifest(runId);
   const exportDir = join(manifest.runDir, "export");
   const frontPng = await readFile(join(manifest.runDir, manifest.frontFilename));
   const backPng = await readFile(join(manifest.runDir, manifest.backFilename));
-  const serial = manifest.serialNumber ?? serialForRun(runId);
+  const quantity = normalizePrintQuantity(options?.quantity ?? manifest.quantity, 12);
+  const qrUrl =
+    options?.qrUrl?.trim() || manifest.backFields.qrUrl?.trim() || "https://retroverse.live";
+  manifest.backFields = { ...manifest.backFields, qrUrl };
+  manifest.quantity = quantity;
+  const zipBasename = `${manifest.frontFields.event.replace(/\s+/g, "-")}-print-package`;
 
-  const { qrVerification } = await compositeVNextExport({
+  const printPackage = await buildVNextPrintPackage({
+    exportDir,
     frontPng,
     backPng,
-    qrUrl: manifest.backFields.qrUrl ?? "",
-    serialNumber: serial,
-    profile,
-    exportDir,
-  });
-
-  await writeVNextExportReport(exportDir, {
-    exportedAt: new Date().toISOString(),
+    qrUrl,
+    event: manifest.frontFields.event,
     runId,
-    qrUrl: manifest.backFields.qrUrl ?? "",
-    qrVerification,
+    quantity,
+    zipBasename,
   });
 
-  const exportZipFilename = `${manifest.frontFields.event.replace(/\s+/g, "-")}-pass.zip`;
-  const exportZipPath = await writeVNextExportZip({ exportDir, zipFilename: exportZipFilename });
-
-  manifest.exportZipFilename = exportZipFilename;
-  manifest.serialNumber = serial;
-  manifest.qrVerification = qrVerification;
+  manifest.exportZipFilename = printPackage.paths.fullZip;
+  manifest.quantity = quantity;
+  manifest.printPackage = printPackage.paths;
+  manifest.serialNumber = printPackage.serials[0] ?? serialForRun(runId);
+  manifest.qrVerification = printPackage.qrVerification;
+  manifest.qrStatus = printPackage.qrStatus;
   manifest.updatedAt = new Date().toISOString();
   await writeManifest(manifest.runDir, manifest);
 
   const synced = await syncGenerationFromVNext(manifest, profile);
   void synced;
-  return { ...manifest, exportZipPath, qrVerification };
+
+  const exportZipPath = join(exportDir, printPackage.paths.fullZip);
+  return {
+    ...manifest,
+    exportZipPath,
+    qrVerification: printPackage.qrVerification,
+    printPackage: printPackage.paths,
+    qrStatus: printPackage.qrStatus,
+  };
 }
 
 export function vNextFileUrl(runId: string, filename: string): string {

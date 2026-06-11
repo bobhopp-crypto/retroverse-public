@@ -8,6 +8,7 @@ import { runVNextGenerate, vNextFileUrl } from "@/lib/ops/content-creator/vnext-
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
 import type { ArtDirectorFields } from "@/lib/ops/content-creator/rvbr-art-director-prompt";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
+import { artworkErrorJson } from "@/lib/ops/creative-lab/artwork/provider-error";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 
@@ -92,8 +93,8 @@ export async function POST(req: Request) {
       qualityScores: manifest.promptInspector?.front.qualityScores,
     });
   } catch (e) {
-    const message = e instanceof Error ? e.message : "generate_failed";
-    console.error("[vnext:generate]", message, e);
-    return NextResponse.json({ error: message }, { status: 502 });
+    const payload = artworkErrorJson(e);
+    console.error("[vnext:generate]", payload, e);
+    return NextResponse.json(payload, { status: 502 });
   }
 }

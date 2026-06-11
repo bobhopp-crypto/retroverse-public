@@ -114,7 +114,7 @@ export function renderPassBackPrompt(input: PassBackPromptInput): string {
     input.date.trim() ? `- Date: ${input.date.trim()}` : "",
     input.secondaryLine.trim() ? `- Secondary line: ${input.secondaryLine.trim()}` : "",
     urlLabel ? `- URL label (exact): ${urlLabel}` : "",
-    `- QR + serial: integrated reserved zones on back only — NO QR pattern, NO modules, NO fake barcode, NO generated serial numbers`,
+    `- Verification window + serial: white QR window is intentional laminate design — NO QR modules, NO fake barcode, NO generated serial numbers`,
     ``,
     `REVERSE-SIDE RULES:`,
     `- Feels like flipping the approved front over — same laminate, same era, same print house`,
@@ -123,7 +123,7 @@ export function renderPassBackPrompt(input: PassBackPromptInput): string {
     `- Print-ready illustration — no wireframe, no UI mockup, no watermarks`,
     `- ${NO_GENERATED_NUMBERING_PROMPT.split("\n")[0]}`,
     ``,
-    `FINAL CHECK: Integrated QR + serial zones on back only. Back matches front collectible family.`,
+    `FINAL CHECK: White verification window + serial zones on back only. Real QR is export production data. Back matches front collectible family.`,
   ]
     .filter(Boolean)
     .join("\n");

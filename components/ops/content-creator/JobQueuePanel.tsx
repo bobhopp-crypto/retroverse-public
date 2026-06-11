@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
+import { formatProviderErrorInline } from "@/components/ops/creative-lab/ProviderErrorAlert";
+import type { ProviderErrorDetail } from "@/lib/ops/creative-lab/artwork/provider-error";
+
 type JobRow = {
   id: string;
   type: string;
@@ -12,6 +15,7 @@ type JobRow = {
   progress: { current: number; total: number; step: string };
   elapsedMs: number;
   error: string | null;
+  errorDetail?: ProviderErrorDetail | null;
   result: { runId?: string; batchId?: string } | null;
 };
 
@@ -58,7 +62,11 @@ function JobCard({ job, onRetry }: { job: JobRow; onRetry?: (id: string) => void
         ) : null}
         <p className="cc-job__meta">
           {formatElapsed(job.elapsedMs)}
-          {job.error ? ` · ${job.error}` : ""}
+          {job.errorDetail
+            ? ` · ${formatProviderErrorInline(job.errorDetail)}`
+            : job.error
+              ? ` · ${job.error}`
+              : ""}
         </p>
         {href ? (
           <Link href={href} className="cc-job__link">

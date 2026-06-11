@@ -10,6 +10,11 @@ import type { ArtDirectorFields } from "@/lib/ops/content-creator/rvbr-art-direc
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
 import type { ContentArtifactType } from "@/lib/ops/content-creator/types";
+import {
+  artworkErrorJson,
+  extractProviderErrorDetail,
+  formatProviderErrorSummary,
+} from "@/lib/ops/creative-lab/artwork/provider-error";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 
@@ -153,11 +158,13 @@ async function processJob(jobId: string): Promise<void> {
       await runVariationsJob(jobId, job.payload);
     }
   } catch (e) {
-    const message = e instanceof Error ? e.message : "job_failed";
+    const payload = artworkErrorJson(e);
+    const detail = extractProviderErrorDetail(e);
     await updateJob(jobId, {
       status: "failed",
       completedAt: new Date().toISOString(),
-      error: message,
+      error: detail ? formatProviderErrorSummary(detail) : payload.error,
+      errorDetail: detail,
       progress: { ...job.progress, step: "Failed" },
     });
   }

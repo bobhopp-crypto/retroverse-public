@@ -10,6 +10,7 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 export const maxDuration = 300;
 
+/** Rebuild full print package (QR + numbered backs + 12-up sheets). */
 export async function POST(req: Request) {
   if (!isOpsEnabled()) {
     return NextResponse.json({ error: "Ops disabled" }, { status: 403 });
@@ -31,7 +32,7 @@ export async function POST(req: Request) {
     const result = await runVNextExport(runId, profile, { quantity, qrUrl });
     return NextResponse.json(buildExportApiResponse(result));
   } catch (e) {
-    const message = e instanceof Error ? e.message : "export_failed";
+    const message = e instanceof Error ? e.message : "export_print_sheet_failed";
     return NextResponse.json({ error: message }, { status: 502 });
   }
 }

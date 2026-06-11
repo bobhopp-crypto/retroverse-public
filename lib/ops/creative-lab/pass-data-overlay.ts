@@ -5,7 +5,6 @@ import {
   credentialTextZonesForSide,
   PASS_HEIGHT,
   PASS_WIDTH,
-  QR_ZONE,
   SERIAL_PANEL,
   type CredentialZone,
 } from "./pass-credential-layout";
@@ -14,7 +13,6 @@ import {
   type CredentialTypographyProfile,
   type ZoneTypography,
 } from "./pass-credential-typography";
-import { generateQrPngBuffer } from "./pass-export-composite";
 import { assertWellFormedSvg } from "./svg-validate";
 import { normalizePassTypeLabel } from "./pass-text-governance";
 import type { VisualWorldId } from "./visual-worlds";
@@ -141,7 +139,7 @@ export function buildPassDataLayerSvg(
   return svg;
 }
 
-/** Composite Retroverse credential layout (+ QR on back) onto artwork PNG. */
+/** Composite Retroverse credential typography onto artwork PNG. QR is export-only — never here. */
 export async function compositePassDataOverlay(args: {
   artworkPng: Buffer;
   side: "front" | "back";
@@ -149,14 +147,8 @@ export async function compositePassDataOverlay(args: {
   visualWorldId: VisualWorldId | string;
 }): Promise<Buffer> {
   const svg = buildPassDataLayerSvg(args.side, args.fields, args.visualWorldId);
-  const layers: Array<{ input: Buffer; top: number; left: number }> = [
-    { input: Buffer.from(svg), top: 0, left: 0 },
-  ];
-
-  if (args.side === "back" && args.fields.qrUrl?.trim()) {
-    const qrBuffer = await generateQrPngBuffer(args.fields.qrUrl, QR_ZONE.size);
-    layers.push({ input: qrBuffer, top: QR_ZONE.top, left: QR_ZONE.left });
-  }
-
-  return sharp(args.artworkPng).composite(layers).png().toBuffer();
+  return sharp(args.artworkPng)
+    .composite([{ input: Buffer.from(svg), top: 0, left: 0 }])
+    .png()
+    .toBuffer();
 }

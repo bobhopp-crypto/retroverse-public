@@ -61,6 +61,7 @@ export async function createJob(
     updatedAt: now,
     progress: { current: 0, total: 1, step: "Queued" },
     error: null,
+    errorDetail: null,
     result: null,
     payload: partial.payload,
   };
@@ -80,6 +81,7 @@ export async function updateJob(
       | "completedAt"
       | "progress"
       | "error"
+      | "errorDetail"
       | "result"
     >
   >,

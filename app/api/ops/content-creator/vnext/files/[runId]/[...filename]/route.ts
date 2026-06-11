@@ -13,6 +13,8 @@ function contentType(name: string): string {
   if (name.endsWith(".png")) return "image/png";
   if (name.endsWith(".json")) return "application/json";
   if (name.endsWith(".zip")) return "application/zip";
+  if (name.endsWith(".pdf")) return "application/pdf";
+  if (name.endsWith(".txt")) return "text/plain; charset=utf-8";
   return "application/octet-stream";
 }
 
