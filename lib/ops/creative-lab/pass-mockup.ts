@@ -1,4 +1,5 @@
 import { artifactTypeById } from "./artifact-types";
+import { projectSecondaryLine } from "./project-secondary-line";
 import { strategyById } from "./concept-strategies";
 import { presetCardVisual } from "./preset-visuals";
 import type { RefinementTreatment } from "./refinement-treatments";
@@ -67,7 +68,7 @@ export function buildPassMockupSpec(
   const visual = preset ? presetCardVisual(preset) : null;
   const artifact = artifactTypeById(project.artifactType);
   const key = prompt.variationKey ?? "A";
-  const years = project.featuredYears.length ? project.featuredYears.join(" · ") : "—";
+  const years = projectSecondaryLine(project) || "—";
 
   return {
     event: project.event || "Sunday Nights",

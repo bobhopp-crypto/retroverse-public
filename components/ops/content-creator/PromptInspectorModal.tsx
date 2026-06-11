@@ -21,7 +21,7 @@ const LAYER_ORDER: (keyof PromptDebugBreakdown)[] = [
   "eraProfile",
   "brandRules",
   "directionRules",
-  "venueReference",
+  "physicalEphemera",
   "antiClicheRules",
   "antiRepetition",
   "layoutRules",

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { runV2PocComparison, v2PocFileUrl } from "@/lib/ops/content-creator/v2-poc-run";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
+import { parseSecondaryLineWithLegacy } from "@/lib/ops/content-creator/parse-fields";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
 import { normalizeVisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
@@ -21,9 +22,7 @@ export async function POST(req: Request) {
   const event = typeof body.event === "string" ? body.event : CONTENT_CREATOR_DEFAULTS.event;
   const venue = typeof body.venue === "string" ? body.venue : CONTENT_CREATOR_DEFAULTS.venue;
   const date = typeof body.date === "string" ? body.date : CONTENT_CREATOR_DEFAULTS.date;
-  const featuredYears = Array.isArray(body.featuredYears)
-    ? body.featuredYears.filter((y): y is number => typeof y === "number")
-    : [...CONTENT_CREATOR_DEFAULTS.featuredYears];
+  const secondaryLine = parseSecondaryLineWithLegacy(body);
   const passTypeLabel =
     typeof body.passTypeLabel === "string" ? body.passTypeLabel : CONTENT_CREATOR_DEFAULTS.passTypeLabel;
   const qrUrl = typeof body.qrUrl === "string" ? body.qrUrl : CONTENT_CREATOR_DEFAULTS.qrUrl;
@@ -43,7 +42,7 @@ export async function POST(req: Request) {
       event,
       venue,
       date,
-      featuredYears,
+      secondaryLine,
       passTypeLabel,
       qrUrl,
       visualWorldId,

@@ -15,7 +15,7 @@ export type PassPromptInput = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   passTypeLabel?: string;
   conceptKey: ConceptVariationKey;
   refinement?: ArtRefinementTreatment;
@@ -47,7 +47,7 @@ function passTextFields(input: PassPromptInput): PassTextFields {
     event: input.event,
     venue: input.venue,
     date: input.date,
-    featuredYears: input.featuredYears,
+    secondaryLine: input.secondaryLine,
     passTypeLabel: normalizePassTypeLabel(input.passTypeLabel),
   };
 }

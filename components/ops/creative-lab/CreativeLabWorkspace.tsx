@@ -17,6 +17,7 @@ import {
   type CreativeLabPanel,
 } from "@/lib/ops/creative-lab/workspace/urls";
 import { DEFAULT_ARTIFACT_TYPE, type ArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
+import { projectSecondaryLine } from "@/lib/ops/creative-lab/project-secondary-line";
 import { WORKSTATION_EVENT_DEFAULTS } from "@/lib/ops/creative-lab/workstation-defaults";
 import { normalizeVisualWorldId, type VisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 
@@ -39,15 +40,12 @@ function slugify(name: string): string {
     .slice(0, 48);
 }
 
-function parseYears(raw: string): number[] {
-  return raw
-    .split(/[,\s]+/)
-    .map((y) => Number.parseInt(y.trim(), 10))
-    .filter((y) => Number.isFinite(y));
-}
-
-const { event: DEFAULT_EVENT, venue: DEFAULT_VENUE, date: DEFAULT_DATE, featuredYears: DEFAULT_YEARS } =
-  WORKSTATION_EVENT_DEFAULTS;
+const {
+  event: DEFAULT_EVENT,
+  venue: DEFAULT_VENUE,
+  date: DEFAULT_DATE,
+  secondaryLine: DEFAULT_SECONDARY_LINE,
+} = WORKSTATION_EVENT_DEFAULTS;
 
 function projectDisplayName(event: string): string {
   const eventName = event.trim() || "Creative Session";
@@ -77,7 +75,7 @@ export function CreativeLabWorkspace() {
   const [deskEvent, setDeskEvent] = useState(DEFAULT_EVENT);
   const [deskVenue, setDeskVenue] = useState(DEFAULT_VENUE);
   const [deskDate, setDeskDate] = useState(DEFAULT_DATE);
-  const [deskYears, setDeskYears] = useState<number[]>([...DEFAULT_YEARS]);
+  const [deskSecondaryLine, setDeskSecondaryLine] = useState(DEFAULT_SECONDARY_LINE);
   const [selectedVisualWorldId, setSelectedVisualWorldId] = useState<VisualWorldId>("music-television-credential");
   const [selectedPresetId, setSelectedPresetId] = useState<string | null>("sunday-nights-classic");
   const [artifactTypeId, setArtifactTypeId] = useState<ArtifactTypeId>(DEFAULT_ARTIFACT_TYPE);
@@ -87,7 +85,7 @@ export function CreativeLabWorkspace() {
   const [newEvent, setNewEvent] = useState("");
   const [newVenue, setNewVenue] = useState("");
   const [newDate, setNewDate] = useState("");
-  const [newYears, setNewYears] = useState("1967, 1978, 1992");
+  const [newSecondaryLine, setNewSecondaryLine] = useState("1967 • 1978 • 1992");
   const [newTheme, setNewTheme] = useState("");
   const [presetName, setPresetName] = useState("");
   const [styleMode, setStyleMode] = useState<StyleBoardMode>("simple");
@@ -166,7 +164,7 @@ export function CreativeLabWorkspace() {
     setDeskEvent(project.event);
     setDeskVenue(project.venue);
     setDeskDate(project.date);
-    setDeskYears(project.featuredYears.length ? [...project.featuredYears] : [...DEFAULT_YEARS]);
+    setDeskSecondaryLine(projectSecondaryLine(project) || DEFAULT_SECONDARY_LINE);
     setDeskSelection(project.styleSelection);
     if (project.activePresetId) setSelectedPresetId(project.activePresetId);
     if (project.artifactType) setArtifactTypeId(project.artifactType);
@@ -211,7 +209,7 @@ export function CreativeLabWorkspace() {
         event: deskEvent,
         venue: deskVenue,
         date: deskDate,
-        featuredYears: deskYears,
+        secondaryLine: deskSecondaryLine,
         theme: "",
         artifactType: artifactTypeId,
       }),
@@ -235,7 +233,7 @@ export function CreativeLabWorkspace() {
           event: newEvent,
           venue: newVenue,
           date: newDate,
-          featuredYears: parseYears(newYears),
+          secondaryLine: newSecondaryLine,
           theme: newTheme,
         }),
       });
@@ -530,7 +528,7 @@ export function CreativeLabWorkspace() {
           event: deskEvent,
           venue: deskVenue,
           date: deskDate,
-          featuredYears: deskYears,
+          secondaryLine: deskSecondaryLine,
           selectedArtDirectionId: selectedVisualWorldId,
           artifactType: "vip-pass",
         }),
@@ -600,12 +598,12 @@ export function CreativeLabWorkspace() {
           event={deskEvent}
           venue={deskVenue}
           date={deskDate}
-          years={deskYears}
+          secondaryLine={deskSecondaryLine}
           selectedVisualWorldId={selectedVisualWorldId}
           onEventChange={setDeskEvent}
           onVenueChange={setDeskVenue}
           onDateChange={setDeskDate}
-          onYearsChange={setDeskYears}
+          onSecondaryLineChange={setDeskSecondaryLine}
           onVisualWorldSelect={setSelectedVisualWorldId}
           onOpenProject={(id) => navigate({ panel: "workstation", project: id })}
           onNewProject={() => navigate({ panel: "workstation", project: null })}
@@ -641,7 +639,7 @@ export function CreativeLabWorkspace() {
         newEvent={newEvent}
         newVenue={newVenue}
         newDate={newDate}
-        newYears={newYears}
+        newSecondaryLine={newSecondaryLine}
         newTheme={newTheme}
         modulePlaceholders={modulePlaceholders}
         onNavigate={(p) => navigate({ panel: p })}
@@ -660,7 +658,7 @@ export function CreativeLabWorkspace() {
                 event: project.event,
                 venue: project.venue,
                 date: project.date,
-                featuredYears: project.featuredYears,
+                secondaryLine: projectSecondaryLine(project),
                 theme: project.theme,
               })
             : undefined
@@ -674,7 +672,7 @@ export function CreativeLabWorkspace() {
         onNewEventChange={setNewEvent}
         onNewVenueChange={setNewVenue}
         onNewDateChange={setNewDate}
-        onNewYearsChange={setNewYears}
+        onNewSecondaryLineChange={setNewSecondaryLine}
         onNewThemeChange={setNewTheme}
         onApplyPreset={(preset) => void applyPreset(preset)}
         onDuplicatePreset={(preset) => void duplicatePreset(preset)}

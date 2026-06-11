@@ -15,7 +15,7 @@ import type {
   PromptQualityScores,
   PromptSide,
 } from "@/lib/creative/rvbr-prompt-types";
-import { venueReferencePromptBlock } from "@/lib/creative/venue-references";
+import { physicalEphemeraPromptBlock } from "@/lib/creative/physical-ephemera";
 import {
   avoidEraTropesPromptBlock,
   creativeDirectionById,
@@ -67,6 +67,8 @@ const RETROVERSE_BRAND_RULES = [
   `- Feels discovered rather than manufactured — music-history object, not AI poster art`,
   `- Authentic printed ephemera: ticket, pass, sleeve, card, invite, laminate, promo stock`,
   `- Tangible keepsake from the Retroverse universe — not generic decorated template`,
+  `- Physical production evidence: paper stock, printing method, perforations, embossing, seals, collector marks`,
+  `- Venue names are governed text only — never buildings, facades, or architectural illustration`,
   `- Visual storytelling over form-field layout`,
   `- Avoid generic corporate design, SaaS UI, conference badge templates`,
 ].join("\n");
@@ -83,6 +85,7 @@ const TEXT_INTEGRATION = [
   `TEXT INTEGRATION:`,
   `- Governed text woven into artifact structure — not form fields`,
   `- Typography follows archetype object type (ticket stub, press card, laminate plate, etc.)`,
+  `- Venue is a text string in typographic bands — never a visual subject or illustrated location`,
 ].join("\n");
 
 const BACK_LAYOUTS = [
@@ -240,7 +243,7 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     event: input.fields.event,
     venue: input.fields.venue,
     date: input.fields.date,
-    featuredYears: input.fields.featuredYears,
+    secondaryLine: input.fields.secondaryLine,
     passTypeLabel: normalizePassTypeLabel(input.fields.passTypeLabel),
   };
 
@@ -257,9 +260,7 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
 
   const brand = RETROVERSE_BRAND_RULES;
   const direction = creativeDirectionPromptBlock(input.settings, input.compositionSeed);
-  const venueRef =
-    venueReferencePromptBlock(input.fields.venue) ??
-    `VENUE: No reference asset for "${input.fields.venue}" — use typographic venue treatment only. Do not invent or illustrate a fictional building facade.`;
+  const physicalEphemera = physicalEphemeraPromptBlock(input.compositionSeed);
   const antiCliche = antiClicheLayer(input.settings, eraProfile);
   const antiRep = antiRepetitionPromptBlock(
     input.profile.slug,
@@ -278,7 +279,7 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     eraProfile: { id: "era", label: "Era Layer", content: eraProfileContent },
     brandRules: { id: "brand", label: "Brand Layer", content: brand },
     directionRules: { id: "direction", label: "Direction Layer", content: direction },
-    venueReference: { id: "venue", label: "Venue Reference", content: venueRef },
+    physicalEphemera: { id: "physical", label: "Physical Ephemera", content: physicalEphemera },
     antiClicheRules: { id: "anti-cliche", label: "Anti-Cliché Layer", content: antiCliche },
     antiRepetition: { id: "anti-repetition", label: "Anti-Repetition Layer", content: antiRep },
     layoutRules: { id: "layout", label: "Layout Layer", content: layout },
@@ -301,8 +302,8 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     `═══ CREATIVE DIRECTION ═══`,
     direction,
     ``,
-    `═══ VENUE REFERENCE ═══`,
-    venueRef,
+    `═══ PHYSICAL EPHEMERA ═══`,
+    physicalEphemera,
     ``,
     `═══ ANTI-CLICHÉ ═══`,
     antiCliche,

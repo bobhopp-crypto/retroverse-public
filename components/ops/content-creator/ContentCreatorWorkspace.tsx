@@ -8,7 +8,7 @@ import {
   ExportCompletePanel,
   type ExportCompleteState,
 } from "@/components/ops/content-creator/ExportCompletePanel";
-import { FeaturedYearsRail } from "@/components/ops/content-creator/FeaturedYearsRail";
+import { projectSecondaryLine } from "@/lib/ops/creative-lab/project-secondary-line";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
 import type { ContentArtifactType, ContentCreatorEraOption } from "@/lib/ops/content-creator/types";
@@ -97,7 +97,7 @@ export function ContentCreatorWorkspace({ eras }: Props) {
   const [event, setEvent] = useState(CONTENT_CREATOR_DEFAULTS.event);
   const [venue, setVenue] = useState(CONTENT_CREATOR_DEFAULTS.venue);
   const [date, setDate] = useState(CONTENT_CREATOR_DEFAULTS.date);
-  const [years, setYears] = useState<number[]>([...CONTENT_CREATOR_DEFAULTS.featuredYears]);
+  const [secondaryLine, setSecondaryLine] = useState(CONTENT_CREATOR_DEFAULTS.secondaryLine);
   const [passTypeLabel, setPassTypeLabel] = useState<ControlledPassTypeLabel>(
     CONTENT_CREATOR_DEFAULTS.passTypeLabel,
   );
@@ -176,11 +176,11 @@ export function ContentCreatorWorkspace({ eras }: Props) {
     setEvent(p.event);
     setVenue(p.venue);
     setDate(p.date);
-    setYears(p.featuredYears.length ? [...p.featuredYears] : years);
+    setSecondaryLine(projectSecondaryLine(p) || secondaryLine);
     if (p.qrUrl) setQrUrl(p.qrUrl);
     if (p.passTypeLabel) setPassTypeLabel(normalizePassTypeLabel(p.passTypeLabel));
     if (p.quantity) setQuantity(p.quantity);
-  }, [years]);
+  }, [secondaryLine]);
 
   const loadProject = useCallback(async (id: string) => {
     const res = await fetch(`/api/ops/creative-lab/projects/${encodeURIComponent(id)}`, {
@@ -267,7 +267,7 @@ export function ContentCreatorWorkspace({ eras }: Props) {
       event,
       venue,
       date,
-      featuredYears: years,
+      secondaryLine,
       eraSlug: selectedEraSlug,
       theme: selectedEra?.name ?? "",
       qrUrl,
@@ -319,7 +319,7 @@ export function ContentCreatorWorkspace({ eras }: Props) {
         event,
         venue,
         date,
-        featuredYears: years,
+        secondaryLine,
         eraSlug: selectedEraSlug,
         theme: selectedEra?.name ?? "",
         qrUrl,
@@ -479,7 +479,7 @@ export function ContentCreatorWorkspace({ eras }: Props) {
     }
   }
 
-  const eventReady = Boolean(event.trim() && venue.trim() && date.trim() && years.length > 0);
+  const eventReady = Boolean(event.trim() && venue.trim() && date.trim() && secondaryLine.trim());
   const canGenerate = artifactType === "pass" && eventReady && Boolean(selectedEra);
   const backAssetId = project?.selectedBackPromptId
     ? project.generatedPrompts.find((p) => p.id === project.selectedBackPromptId)?.assetId
@@ -595,7 +595,10 @@ export function ContentCreatorWorkspace({ eras }: Props) {
           ))}
         </div>
 
-        <FeaturedYearsRail years={years} onChange={setYears} />
+        <label className="cc-rail__secondary-line">
+          <span>Secondary Line</span>
+          <input value={secondaryLine} onChange={(e) => setSecondaryLine(e.target.value)} />
+        </label>
 
         <div className="cc-rail__eras" role="listbox" aria-label="Era">
           {eras.map((era) => (

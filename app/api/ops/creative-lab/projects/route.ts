@@ -27,7 +27,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "name_required" }, { status: 400 });
   }
 
-  const featuredYears = Array.isArray(body.featuredYears)
+  const secondaryLine =
+    typeof body.secondaryLine === "string"
+      ? body.secondaryLine
+      : Array.isArray(body.featuredYears)
+        ? body.featuredYears
+            .filter((y): y is number => typeof y === "number")
+            .map(String)
+            .join(" · ")
+        : undefined;
+  const legacyFeaturedYears = Array.isArray(body.featuredYears)
     ? body.featuredYears.filter((y): y is number => typeof y === "number")
     : undefined;
 
@@ -36,8 +45,13 @@ export async function POST(req: Request) {
     event: typeof body.event === "string" ? body.event : undefined,
     venue: typeof body.venue === "string" ? body.venue : undefined,
     date: typeof body.date === "string" ? body.date : undefined,
-    featuredYears,
+    secondaryLine,
+    featuredYears: legacyFeaturedYears,
     theme: typeof body.theme === "string" ? body.theme : undefined,
+    eraSlug: typeof body.eraSlug === "string" ? body.eraSlug : undefined,
+    qrUrl: typeof body.qrUrl === "string" ? body.qrUrl : undefined,
+    passTypeLabel: typeof body.passTypeLabel === "string" ? body.passTypeLabel : undefined,
+    quantity: typeof body.quantity === "number" ? body.quantity : undefined,
     styleSelection: body.styleSelection ? normalizeStyleSelection(body.styleSelection) : undefined,
     artifactType: body.artifactType !== undefined ? normalizeArtifactTypeId(body.artifactType) : undefined,
   });

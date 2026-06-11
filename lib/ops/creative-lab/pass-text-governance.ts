@@ -18,7 +18,7 @@ export type PassTextFields = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   passTypeLabel: ControlledPassTypeLabel;
 };
 
@@ -38,7 +38,7 @@ export function buildAllowedTextCorpus(fields: PassTextFields, qrUrl?: string): 
   if (fields.event.trim()) out.push(fields.event.trim());
   if (fields.venue.trim()) out.push(fields.venue.trim());
   if (fields.date.trim()) out.push(fields.date.trim());
-  for (const y of fields.featuredYears) out.push(String(y));
+  if (fields.secondaryLine.trim()) out.push(fields.secondaryLine.trim());
   const host = displayUrl(qrUrl);
   if (host) out.push(host);
   return out;
@@ -51,8 +51,8 @@ export function textGovernancePromptBlock(fields: PassTextFields, qrUrl?: string
   if (fields.event.trim()) allowed.push(`Event (exact): ${fields.event.trim()}`);
   if (fields.venue.trim()) allowed.push(`Venue (exact): ${fields.venue.trim()}`);
   if (fields.date.trim()) allowed.push(`Date (exact): ${fields.date.trim()}`);
-  if (fields.featuredYears.length) {
-    allowed.push(`Featured years (exact order): ${fields.featuredYears.join(" · ")}`);
+  if (fields.secondaryLine.trim()) {
+    allowed.push(`Secondary line (exact): ${fields.secondaryLine.trim()}`);
   }
   const host = displayUrl(qrUrl);
   if (host) allowed.push(`URL label on back only (exact): ${host}`);
@@ -71,6 +71,7 @@ export function textGovernancePromptBlock(fields: PassTextFields, qrUrl?: string
     ...allowed.map((line) => `- ${line}`),
     ``,
     `Empty field rule: if a field is not listed above, do NOT render any text for it.`,
+    `Venue rule: venue name is governed text only — typographic treatment in bands, stamps, or captions. Never illustrate buildings, facades, or venue architecture.`,
     `Illustration, borders, color, and ornamentation are AI-controlled.`,
     `Typography content is Retroverse-controlled — no extra labels, slogans, or credentials.`,
   ].join("\n");

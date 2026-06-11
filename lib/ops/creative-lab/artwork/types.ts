@@ -35,7 +35,7 @@ export type ArtworkPromptContext = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   module: CreativeLabModuleId;
   artDirectionTitle?: string;
   treatmentLabel?: string;

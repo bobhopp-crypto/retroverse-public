@@ -8,7 +8,7 @@ export const CONTENT_CREATOR_DEFAULTS = {
   event: "Sunday Nights",
   venue: "The Main Pub",
   date: "June 14, 2026",
-  featuredYears: [1967, 1978, 1992],
+  secondaryLine: "1967 • 1978 • 1992",
   passTypeLabel: "VIP PASS" as const,
   qrUrl: "https://retroverse.live",
   quantity: 200,
@@ -20,7 +20,7 @@ export const CONTENT_CREATOR_DEFAULTS = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   passTypeLabel: "VIP PASS";
   qrUrl: string;
   quantity: number;

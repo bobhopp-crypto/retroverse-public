@@ -37,7 +37,7 @@ type ContentFields = {
   event: string;
   venue: string;
   date: string;
-  years: number[];
+  secondaryLine: string;
   passTypeLabel: ControlledPassTypeLabel;
   qrUrl: string;
 };
@@ -55,7 +55,7 @@ function defaultFields(): ContentFields {
     event: CONTENT_CREATOR_DEFAULTS.event,
     venue: CONTENT_CREATOR_DEFAULTS.venue,
     date: CONTENT_CREATOR_DEFAULTS.date,
-    years: [...CONTENT_CREATOR_DEFAULTS.featuredYears],
+    secondaryLine: CONTENT_CREATOR_DEFAULTS.secondaryLine,
     passTypeLabel: CONTENT_CREATOR_DEFAULTS.passTypeLabel,
     qrUrl: CONTENT_CREATOR_DEFAULTS.qrUrl,
   };
@@ -75,7 +75,7 @@ function fieldsPayload(prefix: "front" | "back", f: ContentFields) {
     [`${prefix}Event`]: f.event,
     [`${prefix}Venue`]: f.venue,
     [`${prefix}Date`]: f.date,
-    [`${prefix}FeaturedYears`]: f.years,
+    [`${prefix}SecondaryLine`]: f.secondaryLine,
     [`${prefix}PassTypeLabel`]: f.passTypeLabel,
     ...(prefix === "back" ? { backQrUrl: f.qrUrl } : {}),
   };
@@ -134,7 +134,7 @@ export function VNextWorkspace({ eras }: Props) {
       event: top.event,
       venue: top.venue,
       date: top.date,
-      featuredYears: top.years,
+      secondaryLine: top.secondaryLine,
       passTypeLabel: top.passTypeLabel,
       qrUrl: top.qrUrl,
       compositionSeed: Date.now(),
@@ -174,13 +174,6 @@ export function VNextWorkspace({ eras }: Props) {
     } finally {
       setBusy(false);
     }
-  }
-
-  function parseYears(raw: string): number[] {
-    return raw
-      .split(/[,·\s]+/)
-      .map((s) => Number.parseInt(s.trim(), 10))
-      .filter((y) => Number.isFinite(y));
   }
 
   async function generate() {
@@ -321,10 +314,10 @@ export function VNextWorkspace({ eras }: Props) {
           <input value={fields.date} onChange={(e) => onChange({ ...fields, date: e.target.value })} />
         </label>
         <label className="cc-creator__field">
-          <span>Years</span>
+          <span>Secondary Line</span>
           <input
-            value={fields.years.join(", ")}
-            onChange={(e) => onChange({ ...fields, years: parseYears(e.target.value) })}
+            value={fields.secondaryLine}
+            onChange={(e) => onChange({ ...fields, secondaryLine: e.target.value })}
           />
         </label>
         <label className="cc-creator__field">
@@ -514,10 +507,10 @@ export function VNextWorkspace({ eras }: Props) {
             <input value={top.date} onChange={(e) => setTop({ ...top, date: e.target.value })} />
           </label>
           <label className="cc-creator__field">
-            <span>Years</span>
+            <span>Secondary Line</span>
             <input
-              value={top.years.join(", ")}
-              onChange={(e) => setTop({ ...top, years: parseYears(e.target.value) })}
+              value={top.secondaryLine}
+              onChange={(e) => setTop({ ...top, secondaryLine: e.target.value })}
             />
           </label>
         </div>

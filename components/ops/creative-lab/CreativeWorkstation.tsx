@@ -12,7 +12,6 @@ import { WorkstationInspector } from "./WorkstationInspector";
 import { WorkstationSidebar } from "./WorkstationSidebar";
 import { WorkstationStatusStrip } from "./WorkstationStatusStrip";
 import { VisualWorldCard } from "./VisualWorldCard";
-import { YearTokenInput } from "./YearTokenInput";
 
 type ProjectRow = { id: string; name: string; event: string; updatedAt: string };
 
@@ -24,12 +23,12 @@ type Props = {
   event: string;
   venue: string;
   date: string;
-  years: number[];
+  secondaryLine: string;
   selectedVisualWorldId: VisualWorldId | null;
   onEventChange: (v: string) => void;
   onVenueChange: (v: string) => void;
   onDateChange: (v: string) => void;
-  onYearsChange: (years: number[]) => void;
+  onSecondaryLineChange: (v: string) => void;
   onVisualWorldSelect: (id: VisualWorldId) => void;
   onOpenProject: (id: string) => void;
   onNewProject: () => void;
@@ -51,12 +50,12 @@ export function CreativeWorkstation(props: Props) {
     event,
     venue,
     date,
-    years,
+    secondaryLine,
     selectedVisualWorldId,
     onEventChange,
     onVenueChange,
     onDateChange,
-    onYearsChange,
+    onSecondaryLineChange,
     onVisualWorldSelect,
     onOpenProject,
     onNewProject,
@@ -79,7 +78,7 @@ export function CreativeWorkstation(props: Props) {
 
   const status = useMemo(() => deriveWorkstationStatus(project), [project]);
 
-  const eventReady = Boolean(event.trim() && venue.trim() && date.trim() && years.length > 0);
+  const eventReady = Boolean(event.trim() && venue.trim() && date.trim() && secondaryLine.trim());
   const worldReady = Boolean(selectedVisualWorldId);
   const canGenerateFronts = eventReady && worldReady;
   const frontLocked = project?.frontLocked === true;
@@ -157,10 +156,14 @@ export function CreativeWorkstation(props: Props) {
                   <span>Date</span>
                   <input className="cl-desk__input" value={date} onChange={(e) => onDateChange(e.target.value)} />
                 </label>
-                <div className="cl-desk__field cl-desk__field--years">
-                  <span>Years</span>
-                  <YearTokenInput years={years} onChange={onYearsChange} />
-                </div>
+                <label className="cl-desk__field">
+                  <span>Secondary Line</span>
+                  <input
+                    className="cl-desk__input"
+                    value={secondaryLine}
+                    onChange={(e) => onSecondaryLineChange(e.target.value)}
+                  />
+                </label>
               </div>
               {selectedWorld ? (
                 <p className="cl-ws__setup-world ops-dim">

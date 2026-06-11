@@ -1,5 +1,6 @@
 import { artDirectionById, artDirectionByKey, type ArtDirectionId } from "./art-directions";
 import type { ArtRefinementTreatment } from "./art-direction-refinements";
+import { projectSecondaryLine } from "./project-secondary-line";
 import type { ConceptVariationKey, CreativeLabProjectFile } from "./types";
 
 export type ArtBoardSpec = {
@@ -20,7 +21,7 @@ export function buildArtBoardSpec(
   refinementIndex?: number,
 ): ArtBoardSpec {
   const direction = artDirectionByKey(variationKey);
-  const years = project.featuredYears.length ? project.featuredYears.join(" · ") : "";
+  const years = projectSecondaryLine(project);
   const idx = refinementIndex ?? 0;
   return {
     artDirectionId: direction.id,
@@ -40,7 +41,7 @@ export function buildRefinementArtBoardSpec(
   treatment: ArtRefinementTreatment,
   refinementIndex: number,
 ): ArtBoardSpec {
-  const years = project.featuredYears.length ? project.featuredYears.join(" · ") : "";
+  const years = projectSecondaryLine(project);
   return {
     artDirectionId,
     event: project.event || "Sunday Nights",

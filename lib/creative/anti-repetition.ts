@@ -10,6 +10,9 @@ const ERA_ANTI_REPETITION: Record<string, { negativeWeighting: string[]; require
       "generic crowd silhouette",
       "generic psychedelic poster",
       "BIG TITLE over BIG ART poster stack",
+      "venue building illustration",
+      "pub facade or invented architecture",
+      "marquee or stadium as visual subject",
     ],
     requireComposition: [
       "close-up objects and ephemera fragments",

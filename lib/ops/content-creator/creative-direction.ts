@@ -51,9 +51,9 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     id: "festival-pass",
     label: "Festival Pass",
     composition:
-      "Admission credential layout — ornamental gate or venue framing, event title as admission headline, venue and date as entry metadata woven into border bands.",
+      "Admission credential layout — ornamental gate framing, event title as admission headline, venue and date as typographic metadata woven into border bands.",
     subjectMatter:
-      "Venue architecture, gate graphics, admission typography, festival branding — NOT generic crowd scenes unless composition demands a small silhouette accent.",
+      "Gate graphics, admission typography, festival branding, perforated stub energy — NOT buildings, facades, or crowd scenes.",
     typographyArrangement:
       "Bold admission headline, secondary venue/date band, years as accent strip along edge or banner.",
     references: "Fillmore hand-stamps, festival gate passes, venue admission plates, summer concert credentials.",
@@ -64,7 +64,7 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     composition:
       "Production laminate structure — access hierarchy through typography weight and border seals, not security color blocks. Compact metadata rails.",
     subjectMatter:
-      "Stage-door plates, production seals, venue backline iconography — no lanyard holes, no employee photo slots.",
+      "Stage-door plates, production seals, tour backline iconography — no lanyard holes, no employee photo slots.",
     typographyArrangement:
       "Event name primary, venue and date in production footer, pass type as small seal marking.",
     references: "Tour laminate plates, stage-door guest lists, production company credentials, road-case stickers.",
@@ -75,10 +75,10 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     composition:
       "Poster-first layout — hero illustration or typographic monument dominates, event text as display lettering integrated into poster hierarchy.",
     subjectMatter:
-      "Performance iconography, venue marquee energy, bill-headline composition — illustration serves the poster concept, not era cliché filler.",
+      "Performance iconography, bill-headline composition, hand-screened print texture — illustration serves the poster concept, not era cliché filler. No building or marquee illustration.",
     typographyArrangement:
-      "Oversized event title as poster headline, venue and date as secondary poster lines, years as billing accent.",
-    references: "Concert hall bills, venue poster walls, hand-screened show prints, promoter handbills.",
+      "Oversized event title as poster headline, venue and date as secondary typographic lines, years as billing accent.",
+    references: "Concert hall bills, hand-screened show prints, promoter handbills, letterpress poster stock.",
   },
   "collector-card": {
     id: "collector-card",
@@ -141,7 +141,7 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     composition:
       "Tour book / program cover layout — itinerary elegance, tour crest, premium souvenir program framing.",
     subjectMatter:
-      "Tour map accents, program cover illustration, venue circuit graphics — refined keepsake, not road-worn cliché.",
+      "Tour map accents, program cover illustration, routing typography — refined keepsake, not road-worn cliché. No venue architecture.",
     typographyArrangement:
       "Tour/event title as program cover, venue and date as itinerary line, years as tour season accent.",
     references: "Arena tour programs, concert souvenir books, tour date sheets, VIP program covers.",
@@ -152,7 +152,7 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     composition:
       "Admission stub layout — perforated tear edge, seat or admission block, stub tear as compositional anchor.",
     subjectMatter:
-      "Ticket stock typography, admission numbering area (back only for real serial), venue stub graphics — NOT crowd scenes.",
+      "Ticket stock typography, admission numbering area (back only for real serial), perforation and stub graphics — NOT crowd scenes or building illustration.",
     typographyArrangement:
       "Event as admission title, venue and date in stub metadata band, years as price-tier or series accent.",
     references: "Concert ticket stubs, venue admission tickets, box-office keepsakes, mailed ticket stock.",
@@ -164,8 +164,8 @@ const DIRECTION_VARIATIONS: Record<CreativeDirectionId, string[]> = {
   "festival-pass": [
     "Asymmetric gate-frame with corner ornaments",
     "Centered admission medallion with side bands",
-    "Diagonal entry banner with inset venue block",
-    "Vertical venue column with horizontal event band",
+    "Diagonal entry banner with inset metadata block",
+    "Vertical caption column with horizontal event band",
   ],
   "backstage-credential": [
     "Corner seal layout with centered production plate",
@@ -213,12 +213,12 @@ const DIRECTION_VARIATIONS: Record<CreativeDirectionId, string[]> = {
     "Tour crest centered with itinerary footer",
     "Program cover illustration with title overlay",
     "Elegant border frame with tour season band",
-    "Arena marquee energy with refined typography",
+    "Tour crest energy with refined itinerary typography",
   ],
   "ticket-stub": [
     "Classic horizontal stub with right tear perforation",
     "Vertical stub with bottom admission band",
-    "Centered admission block with corner venue marks",
+    "Centered admission block with corner stamp marks",
     "Layered stub collage with primary tear edge",
   ],
 };

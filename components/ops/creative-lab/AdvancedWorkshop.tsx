@@ -53,7 +53,7 @@ type Props = {
   newEvent: string;
   newVenue: string;
   newDate: string;
-  newYears: string;
+  newSecondaryLine: string;
   newTheme: string;
   modulePlaceholders: ModuleInfo[];
   onNavigate: (panel: CreativeLabPanel) => void;
@@ -75,7 +75,7 @@ type Props = {
   onNewEventChange: (v: string) => void;
   onNewVenueChange: (v: string) => void;
   onNewDateChange: (v: string) => void;
-  onNewYearsChange: (v: string) => void;
+  onNewSecondaryLineChange: (v: string) => void;
   onNewThemeChange: (v: string) => void;
   onApplyPreset: (preset: CreativeLabPresetFile) => void;
   onDuplicatePreset: (preset: CreativeLabPresetFile) => void;
@@ -146,7 +146,7 @@ export function AdvancedWorkshop(props: Props) {
                   <label>Event<input className="ops-input" value={p.newEvent} onChange={(e) => p.onNewEventChange(e.target.value)} /></label>
                   <label>Venue<input className="ops-input" value={p.newVenue} onChange={(e) => p.onNewVenueChange(e.target.value)} /></label>
                   <label>Date<input className="ops-input" value={p.newDate} onChange={(e) => p.onNewDateChange(e.target.value)} /></label>
-                  <label>Years<input className="ops-input" value={p.newYears} onChange={(e) => p.onNewYearsChange(e.target.value)} /></label>
+                  <label>Secondary Line<input className="ops-input" value={p.newSecondaryLine} onChange={(e) => p.onNewSecondaryLineChange(e.target.value)} /></label>
                   <label>Theme<input className="ops-input" value={p.newTheme} onChange={(e) => p.onNewThemeChange(e.target.value)} /></label>
                   <button type="button" className="ops-btn ops-btn--ok" disabled={p.busy} onClick={p.onCreateProject}>Create project</button>
                 </div>
@@ -185,18 +185,15 @@ export function AdvancedWorkshop(props: Props) {
                   <dd>
                     <input className="ops-input" value={p.project.date} onChange={(e) => p.onSetProject({ ...p.project!, date: e.target.value })} />
                   </dd>
-                  <dt>Years</dt>
+                  <dt>Secondary Line</dt>
                   <dd>
                     <input
                       className="ops-input"
-                      value={p.project.featuredYears.join(", ")}
+                      value={p.project.secondaryLine ?? ""}
                       onChange={(e) =>
                         p.onSetProject({
                           ...p.project!,
-                          featuredYears: e.target.value
-                            .split(/[,\s]+/)
-                            .map((y) => Number.parseInt(y.trim(), 10))
-                            .filter((y) => Number.isFinite(y)),
+                          secondaryLine: e.target.value,
                         })
                       }
                     />

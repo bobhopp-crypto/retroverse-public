@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 
-import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
+import { parseSecondaryLineWithLegacy } from "@/lib/ops/content-creator/parse-fields";
 import { parseCreativeDirectionSettings } from "@/lib/ops/content-creator/creative-direction";
 import type { ContentArtifactType } from "@/lib/ops/content-creator/types";
 import { runVNextGenerate, vNextFileUrl } from "@/lib/ops/content-creator/vnext-run";
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
 import type { ArtDirectorFields } from "@/lib/ops/content-creator/rvbr-art-director-prompt";
+import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 
@@ -26,13 +27,17 @@ function parseFields(body: Record<string, unknown>, prefix?: "front" | "back"): 
   const eventVal = raw("event");
   const venueVal = raw("venue");
   const dateVal = raw("date");
+  const secondaryLine = prefix
+    ? parseSecondaryLineWithLegacy(body, {
+        line: `${prefix}SecondaryLine`,
+        legacyYears: `${prefix}FeaturedYears`,
+      })
+    : parseSecondaryLineWithLegacy(body);
   return {
     event: typeof eventVal === "string" ? eventVal : CONTENT_CREATOR_DEFAULTS.event,
     venue: typeof venueVal === "string" ? venueVal : CONTENT_CREATOR_DEFAULTS.venue,
     date: typeof dateVal === "string" ? dateVal : CONTENT_CREATOR_DEFAULTS.date,
-    featuredYears: Array.isArray(raw("featuredYears"))
-      ? (raw("featuredYears") as unknown[]).filter((y): y is number => typeof y === "number")
-      : [...CONTENT_CREATOR_DEFAULTS.featuredYears],
+    secondaryLine,
     passTypeLabel: normalizePassTypeLabel(String(passRaw)),
     qrUrl: typeof qrRaw === "string" ? qrRaw : CONTENT_CREATOR_DEFAULTS.qrUrl,
   };

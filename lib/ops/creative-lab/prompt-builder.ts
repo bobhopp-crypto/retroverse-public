@@ -1,4 +1,5 @@
 import { artifactTypeById } from "./artifact-types";
+import { projectSecondaryLine } from "./project-secondary-line";
 import { strategyById, strategyForVariation } from "./concept-strategies";
 import { influencesForConcept } from "./influences";
 import { renderPromptText } from "./prompt-renderer";
@@ -39,7 +40,7 @@ export function buildPromptConcept(
 
   const artifact = artifactTypeById(project.artifactType);
   const influenceTags = influencesForConcept(project.activePresetId, strategyId).map((i) => i.label);
-  const years = project.featuredYears.length ? project.featuredYears.join(" · ") : "—";
+  const years = projectSecondaryLine(project) || "—";
   const conceptSummary = [
     variationKey ? `Concept ${variationKey}` : null,
     strategyLabel,
@@ -60,7 +61,7 @@ export function buildPromptConcept(
     event: project.event,
     venue: project.venue,
     date: project.date,
-    featuredYears: project.featuredYears,
+    secondaryLine: projectSecondaryLine(project),
     theme: project.theme,
     styleSelection: project.styleSelection,
     module,
@@ -81,7 +82,7 @@ export function buildPromptConcept(
       event: project.event,
       venue: project.venue,
       date: project.date,
-      featuredYears: project.featuredYears,
+      secondaryLine: projectSecondaryLine(project),
       theme: project.theme,
       artifactType: project.artifactType,
       influenceTags,

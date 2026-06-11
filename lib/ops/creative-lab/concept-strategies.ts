@@ -27,7 +27,7 @@ export type StrategyRenderContext = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   theme: string;
   module: CreativeLabModuleId;
   styleSelection: StyleSelection;
@@ -68,10 +68,9 @@ function topLabel(selection: StyleSelection, category: keyof StyleSelection): st
   return top ? (styleById(top.id)?.label ?? top.id) : "unspecified";
 }
 
-function yearsPhrase(years: number[]): string {
-  if (!years.length) return "the featured era";
-  if (years.length === 1) return String(years[0]);
-  return `${years.slice(0, -1).join(", ")} and ${years[years.length - 1]}`;
+function secondaryLinePhrase(line: string): string {
+  const trimmed = line.trim();
+  return trimmed || "the event subtitle";
 }
 
 export function normalizeConceptStrategyMap(raw: unknown): ConceptStrategyMap {
@@ -117,7 +116,7 @@ export function renderStrategySections(
   const illust = topLabel(ctx.styleSelection, "illustration");
   const color = topLabel(ctx.styleSelection, "color");
   const density = topLabel(ctx.styleSelection, "density");
-  const years = yearsPhrase(ctx.featuredYears);
+  const years = secondaryLinePhrase(ctx.secondaryLine);
   const tpl = strategyById(strategyId);
 
   const shared = [

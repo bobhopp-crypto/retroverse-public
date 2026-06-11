@@ -12,7 +12,7 @@ export type PassBackPromptInput = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   passTypeLabel?: string;
   qrUrl?: string;
   conceptKey: ConceptVariationKey;
@@ -78,7 +78,7 @@ export function renderPassBackPrompt(input: PassBackPromptInput): string {
         event: input.event,
         venue: input.venue,
         date: input.date,
-        featuredYears: input.featuredYears,
+        secondaryLine: input.secondaryLine,
         passTypeLabel: normalizePassTypeLabel(input.passTypeLabel),
       },
       input.qrUrl,
@@ -112,7 +112,7 @@ export function renderPassBackPrompt(input: PassBackPromptInput): string {
     input.event.trim() ? `- Event: ${input.event.trim()}` : "",
     input.venue.trim() ? `- Venue: ${input.venue.trim()}` : "",
     input.date.trim() ? `- Date: ${input.date.trim()}` : "",
-    input.featuredYears.length ? `- Featured years: ${input.featuredYears.join(" · ")}` : "",
+    input.secondaryLine.trim() ? `- Secondary line: ${input.secondaryLine.trim()}` : "",
     urlLabel ? `- URL label (exact): ${urlLabel}` : "",
     `- QR + serial: integrated reserved zones on back only — NO QR pattern, NO modules, NO fake barcode, NO generated serial numbers`,
     ``,

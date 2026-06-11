@@ -1,4 +1,5 @@
 import { refinementsForArtDirection } from "../art-direction-refinements";
+import { projectSecondaryLine } from "../project-secondary-line";
 import { compositionForKey } from "../concept-compositions";
 import { renderPassConceptPrompt } from "../pass-concept-prompt";
 import type { CreativeLabPresetFile, CreativeLabProjectFile, GeneratedPrompt, RefinementVariation } from "../types";
@@ -22,7 +23,7 @@ export function buildArtworkPromptText(
     event: project.event,
     venue: project.venue,
     date: project.date,
-    featuredYears: project.featuredYears,
+    secondaryLine: projectSecondaryLine(project),
     conceptKey,
     refinement: treatment,
     refinementIndex: refinement?.index,
@@ -47,7 +48,7 @@ export function buildArtworkContext(
     event: project.event,
     venue: project.venue,
     date: project.date,
-    featuredYears: project.featuredYears,
+    secondaryLine: projectSecondaryLine(project),
     module: project.activeModule,
     artDirectionTitle: world.title,
     treatmentLabel: refinement?.treatmentLabel ?? comp.label,

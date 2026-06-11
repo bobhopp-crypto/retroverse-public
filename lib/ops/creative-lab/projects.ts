@@ -4,6 +4,7 @@ import { join } from "path";
 
 import {
   createPlaceholderAssets,
+  finalExportFilename,
   mirrorAssetToSelected,
   moduleDefaultAssetType,
   normalizeAssets,
@@ -18,10 +19,19 @@ import { compositionForKey } from "./concept-compositions";
 import { buildConceptVariations } from "./concept-variations";
 import { normalizeConceptStrategyMap, strategyForVariation } from "./concept-strategies";
 import { exportFinalDeliverables, exportProjectPackage } from "./export-package";
+import {
+  compositePassExportPair,
+  writePassExportReport,
+  type PassExportReport,
+} from "./pass-export-composite";
+import { projectSecondaryLine } from "./project-secondary-line";
+import { normalizePassTypeLabel } from "./pass-text-governance";
+import { assertPassTextApproved, validatePassAssetText } from "./pass-text-validation";
 import { loadPreset } from "./presets";
 import { backCompositionForKey, renderPassBackPrompt } from "./pass-back-prompt";
 import { renderPassConceptPrompt } from "./pass-concept-prompt";
 import {
+  creativeLabProjectExportsDir,
   creativeLabProjectIndexPath,
   creativeLabProjectPath,
   creativeLabProjectDir,
@@ -53,7 +63,7 @@ function normalizeGeneratedPrompts(
     | "event"
     | "venue"
     | "date"
-    | "featuredYears"
+    | "secondaryLine"
     | "theme"
     | "styleSelection"
     | "activeModule"
@@ -86,7 +96,7 @@ function normalizeGeneratedPrompts(
             event: project.event,
             venue: project.venue,
             date: project.date,
-            featuredYears: project.featuredYears,
+            secondaryLine: projectSecondaryLine(project),
             theme: project.theme,
             styleSelection: project.styleSelection,
             module,
@@ -114,7 +124,7 @@ function normalizeGeneratedPrompts(
         event: project.event,
         venue: project.venue,
         date: project.date,
-        featuredYears: project.featuredYears,
+        secondaryLine: projectSecondaryLine(project),
         theme: project.theme,
         dominantStyles: { credential: [], illustration: [], color: [], density: [] },
         module,
@@ -174,9 +184,15 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
   const id = typeof obj.id === "string" && obj.id.trim() ? obj.id.trim() : fallbackId;
   const folderSlug = typeof obj.folderSlug === "string" && obj.folderSlug.trim() ? obj.folderSlug.trim() : id;
 
-  const featuredYears = Array.isArray(obj.featuredYears)
+  const legacyFeaturedYears = Array.isArray(obj.featuredYears)
     ? obj.featuredYears.filter((y): y is number => typeof y === "number" && y > 1900 && y < 2100)
     : [];
+  const secondaryLine =
+    typeof obj.secondaryLine === "string"
+      ? obj.secondaryLine
+      : legacyFeaturedYears.length
+        ? legacyFeaturedYears.join(" · ")
+        : "";
 
   const activeModule: CreativeLabModuleId =
     obj.activeModule === "poster-lab" ||
@@ -195,8 +211,33 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
     event: typeof obj.event === "string" ? obj.event : "",
     venue: typeof obj.venue === "string" ? obj.venue : "",
     date: typeof obj.date === "string" ? obj.date : "",
-    featuredYears,
+    secondaryLine,
+    featuredYears: legacyFeaturedYears.length ? legacyFeaturedYears : undefined,
     theme: typeof obj.theme === "string" ? obj.theme : "",
+    eraSlug: typeof obj.eraSlug === "string" ? obj.eraSlug : undefined,
+    qrUrl: typeof obj.qrUrl === "string" ? obj.qrUrl : undefined,
+    passTypeLabel:
+      typeof obj.passTypeLabel === "string"
+        ? normalizePassTypeLabel(obj.passTypeLabel)
+        : undefined,
+    quantity: typeof obj.quantity === "number" && obj.quantity > 0 ? obj.quantity : undefined,
+    generationProgress:
+      obj.generationProgress && typeof obj.generationProgress === "object"
+        ? (() => {
+            const g = obj.generationProgress as Record<string, unknown>;
+            const phase = g.phase;
+            if (phase !== "front" && phase !== "back" && phase !== "export" && phase !== "idle") {
+              return null;
+            }
+            return {
+              phase,
+              step: typeof g.step === "number" ? g.step : 0,
+              total: typeof g.total === "number" ? g.total : 4,
+              label: typeof g.label === "string" ? g.label : "",
+              startedAt: typeof g.startedAt === "string" ? g.startedAt : new Date().toISOString(),
+            };
+          })()
+        : null,
     styleSelection: normalizeStyleSelection(obj.styleSelection),
     activePresetId: typeof obj.activePresetId === "string" ? obj.activePresetId : undefined,
     conceptStrategies: obj.conceptStrategies
@@ -366,8 +407,14 @@ export async function createProject(input: {
   event?: string;
   venue?: string;
   date?: string;
+  secondaryLine?: string;
+  /** @deprecated Legacy — use secondaryLine */
   featuredYears?: number[];
   theme?: string;
+  eraSlug?: string;
+  qrUrl?: string;
+  passTypeLabel?: string;
+  quantity?: number;
   styleSelection?: StyleSelection;
   artifactType?: CreativeLabProjectFile["artifactType"];
 }): Promise<CreativeLabProjectFile> {
@@ -381,8 +428,16 @@ export async function createProject(input: {
     event: input.event?.trim() ?? "",
     venue: input.venue?.trim() ?? "",
     date: input.date?.trim() ?? "",
-    featuredYears: input.featuredYears ?? [],
+    secondaryLine:
+      input.secondaryLine?.trim() ??
+      (input.featuredYears?.length ? input.featuredYears.join(" · ") : ""),
     theme: input.theme?.trim() ?? "",
+    eraSlug: input.eraSlug?.trim() || undefined,
+    qrUrl: input.qrUrl?.trim() || undefined,
+    passTypeLabel: input.passTypeLabel
+      ? normalizePassTypeLabel(input.passTypeLabel)
+      : undefined,
+    quantity: input.quantity && input.quantity > 0 ? input.quantity : undefined,
     styleSelection: input.styleSelection ? normalizeStyleSelection(input.styleSelection) : emptyStyleSelection(),
     artifactType: normalizeArtifactTypeId(input.artifactType ?? DEFAULT_ARTIFACT_TYPE),
     generatedPrompts: [],
@@ -414,8 +469,13 @@ export async function updateProject(
       | "event"
       | "venue"
       | "date"
-      | "featuredYears"
+      | "secondaryLine"
       | "theme"
+      | "eraSlug"
+      | "qrUrl"
+      | "passTypeLabel"
+      | "quantity"
+      | "generationProgress"
       | "styleSelection"
       | "activeModule"
       | "activePresetId"
@@ -523,6 +583,14 @@ export async function deleteProject(projectId: string): Promise<boolean> {
   return true;
 }
 
+async function auditPassAsset(
+  project: CreativeLabProjectFile,
+  asset: CreativeLabAsset,
+): Promise<CreativeLabAsset> {
+  const textAudit = await validatePassAssetText({ project, asset });
+  return { ...asset, textAudit };
+}
+
 function artworkContextFromPrompt(
   project: CreativeLabProjectFile,
   prompt: string,
@@ -536,7 +604,7 @@ function artworkContextFromPrompt(
     event: project.event,
     venue: project.venue,
     date: project.date,
-    featuredYears: project.featuredYears,
+    secondaryLine: projectSecondaryLine(project),
     module: project.activeModule,
     artDirectionTitle: world.title,
     treatmentLabel,
@@ -571,21 +639,47 @@ export async function generatePassConceptsForProject(
   const prompts: GeneratedPrompt[] = [];
   const newAssets: CreativeLabAsset[] = [];
   const type = "pass-front" as const;
+  const total = CONCEPT_KEYS.length;
 
-  for (const key of CONCEPT_KEYS) {
+  let working = await saveProject({
+    ...project,
+    generationProgress: {
+      phase: "front",
+      step: 0,
+      total,
+      label: "Generating Fronts…",
+      startedAt: now,
+    },
+  });
+  if (!working) return null;
+
+  for (let i = 0; i < CONCEPT_KEYS.length; i++) {
+    const key = CONCEPT_KEYS[i];
+    working = (await saveProject({
+      ...working,
+      generationProgress: {
+        phase: "front",
+        step: i + 1,
+        total,
+        label: `Generating Front ${i + 1} of ${total}…`,
+        startedAt: now,
+      },
+    }))!;
+
     const comp = compositionForKey(key, visualWorldId);
     const promptText = renderPassConceptPrompt({
       worldId: visualWorldId,
-      event: project.event,
-      venue: project.venue,
-      date: project.date,
-      featuredYears: project.featuredYears,
+      event: working.event,
+      venue: working.venue,
+      date: working.date,
+      secondaryLine: projectSecondaryLine(working),
+      passTypeLabel: working.passTypeLabel,
       conceptKey: key,
     });
 
     const promptId = `prompt-${Date.now().toString(36)}-${key.toLowerCase()}-${Math.random().toString(36).slice(2, 5)}`;
     const result = await generateArtwork(
-      artworkContextFromPrompt(project, promptText, visualWorldId, comp.label),
+      artworkContextFromPrompt(working, promptText, visualWorldId, comp.label),
       { count: 1, quality: "medium", size: "1024x1536" },
     );
     const image = result.images[0];
@@ -604,7 +698,7 @@ export async function generatePassConceptsForProject(
 
     newAssets.push({
       id: assetId,
-      projectId: project.id,
+      projectId: working.id,
       type,
       concept: key,
       status: "generated",
@@ -625,11 +719,11 @@ export async function generatePassConceptsForProject(
       passSide: "front",
       assetId,
       structuredConcept: {
-        event: project.event,
-        venue: project.venue,
-        date: project.date,
-        featuredYears: project.featuredYears,
-        theme: project.theme,
+        event: working.event,
+        venue: working.venue,
+        date: working.date,
+        secondaryLine: projectSecondaryLine(working),
+        theme: "",
         dominantStyles: { credential: [], illustration: [], color: [], density: [] },
         module: "pass-lab",
         variationKey: key,
@@ -642,10 +736,13 @@ export async function generatePassConceptsForProject(
     throw new Error("No pass concepts were generated");
   }
 
+  const auditedAssets = await Promise.all(newAssets.map((a) => auditPassAsset(working!, a)));
+
   return saveProject({
-    ...project,
-    generatedPrompts: [...prompts, ...project.generatedPrompts].slice(0, 48),
-    assets: [...newAssets, ...project.assets].slice(0, 96),
+    ...working,
+    generatedPrompts: [...prompts, ...working.generatedPrompts].slice(0, 48),
+    assets: [...auditedAssets, ...working.assets].slice(0, 96),
+    generationProgress: null,
     activeModule: "pass-lab",
     selectedArtDirectionId: visualWorldId,
     artifactType: project.artifactType ?? "vip-pass",
@@ -676,6 +773,9 @@ export async function lockFrontAsset(projectId: string): Promise<CreativeLabProj
     (p) => p.id === promptId && (p.passSide ?? "front") !== "back",
   );
   if (!winner?.assetId) throw new Error("Selected front has no generated asset");
+
+  const frontAsset = project.assets.find((a) => a.id === winner.assetId);
+  assertPassTextApproved(frontAsset?.textAudit);
 
   let updated = await approveAsset(projectId, winner.assetId);
   if (!updated) return null;
@@ -728,15 +828,41 @@ export async function generateBackConceptsForProject(
   const variationSetId = `back-${Date.now().toString(36)}`;
   const prompts: GeneratedPrompt[] = [];
   const newAssets: CreativeLabAsset[] = [];
+  const total = CONCEPT_KEYS.length;
 
-  for (const key of CONCEPT_KEYS) {
+  let working = await saveProject({
+    ...project,
+    generationProgress: {
+      phase: "back",
+      step: 0,
+      total,
+      label: "Generating Back…",
+      startedAt: now,
+    },
+  });
+  if (!working) return null;
+
+  for (let i = 0; i < CONCEPT_KEYS.length; i++) {
+    const key = CONCEPT_KEYS[i];
+    working = (await saveProject({
+      ...working,
+      generationProgress: {
+        phase: "back",
+        step: i + 1,
+        total,
+        label: `Generating Back ${i + 1} of ${total}…`,
+        startedAt: now,
+      },
+    }))!;
+
     const backPromptText = renderPassBackPrompt({
       worldId: visualWorldId,
-      event: project.event,
-      venue: project.venue,
-      date: project.date,
-      featuredYears: project.featuredYears,
-      theme: project.theme,
+      event: working.event,
+      venue: working.venue,
+      date: working.date,
+      secondaryLine: projectSecondaryLine(working),
+      passTypeLabel: working.passTypeLabel,
+      qrUrl: working.qrUrl,
       conceptKey: key,
       frontConceptSummary: frontPrompt?.conceptSummary ?? `${frontComp.label} — ${world.title}`,
       frontCompositionLabel: frontComp.label,
@@ -744,7 +870,7 @@ export async function generateBackConceptsForProject(
 
     const promptId = `prompt-back-${Date.now().toString(36)}-${key.toLowerCase()}-${Math.random().toString(36).slice(2, 5)}`;
     const result = await generateArtwork(
-      artworkContextFromPrompt(project, backPromptText, visualWorldId, `Back ${key}`),
+      artworkContextFromPrompt(working, backPromptText, visualWorldId, `Back ${key}`),
       { count: 1, quality: "medium", size: "1024x1536", referenceImage: frontBuffer },
     );
     const image = result.images[0];
@@ -764,7 +890,7 @@ export async function generateBackConceptsForProject(
 
     newAssets.push({
       id: assetId,
-      projectId: project.id,
+      projectId: working.id,
       type: "pass-back",
       concept: key,
       status: "generated",
@@ -786,11 +912,11 @@ export async function generateBackConceptsForProject(
       parentFrontAssetId: project.lockedFrontAssetId,
       assetId,
       structuredConcept: {
-        event: project.event,
-        venue: project.venue,
-        date: project.date,
-        featuredYears: project.featuredYears,
-        theme: project.theme,
+        event: working.event,
+        venue: working.venue,
+        date: working.date,
+        secondaryLine: projectSecondaryLine(working),
+        theme: "",
         dominantStyles: { credential: [], illustration: [], color: [], density: [] },
         module: "pass-lab",
         variationKey: key,
@@ -803,14 +929,17 @@ export async function generateBackConceptsForProject(
     throw new Error("No back concepts were generated");
   }
 
+  const auditedBackAssets = await Promise.all(newAssets.map((a) => auditPassAsset(working!, a)));
+
   return saveProject({
-    ...project,
-    generatedPrompts: [...prompts, ...project.generatedPrompts].slice(0, 64),
-    assets: [...newAssets, ...project.assets].slice(0, 128),
+    ...working,
+    generatedPrompts: [...prompts, ...working.generatedPrompts].slice(0, 64),
+    assets: [...auditedBackAssets, ...working.assets].slice(0, 128),
     backVariationSetId: variationSetId,
     selectedBackPromptId: null,
     selectedBackKey: null,
     workflowRound: 3,
+    generationProgress: null,
     updatedAt: now,
   });
 }
@@ -832,13 +961,21 @@ export async function setSelectedBack(
   });
 }
 
-/** Export locked front + selected back as final deliverables and project package. */
-export async function exportPassPair(projectId: string): Promise<{
+export type ExportPassPairResult = {
   project: CreativeLabProjectFile;
   zipPath: string;
   zipRel: string;
+  exportDir: string;
   files: string[];
-} | null> {
+  frontFilename: string;
+  backFilename: string;
+  zipFilename: string;
+  reportPath: string;
+  report: PassExportReport;
+};
+
+/** Export locked front + selected back as final deliverables and project package. */
+export async function exportPassPair(projectId: string): Promise<ExportPassPairResult | null> {
   const project = await loadProject(projectId);
   if (!project) return null;
   if (!project.frontLocked || !project.lockedFrontAssetId) {
@@ -851,14 +988,83 @@ export async function exportPassPair(projectId: string): Promise<{
   const backAssetId = backPrompt?.assetId;
   if (!backAssetId) throw new Error("Selected back has no asset");
 
+  const backAsset = project.assets.find((a) => a.id === backAssetId);
+  assertPassTextApproved(backAsset?.textAudit);
+
   let updated = await approveAsset(projectId, backAssetId);
   if (!updated) return null;
   updated = (await markAssetFinal(projectId, project.lockedFrontAssetId, "final-front")) ?? updated;
   updated = (await markAssetFinal(projectId, backAssetId, "final-back")) ?? updated;
 
+  const qrUrl = updated.qrUrl?.trim() || "https://retroverse.live";
+  const exportStarted = new Date().toISOString();
+  updated =
+    (await saveProject({
+      ...updated,
+      generationProgress: {
+        phase: "export",
+        step: 1,
+        total: 2,
+        label: "Compositing real QR code…",
+        startedAt: exportStarted,
+      },
+    })) ?? updated;
+
+  const projectFolder = updated.folderSlug || updated.id;
+  const exportDir = creativeLabProjectExportsDir(projectFolder);
+  const finalsDir = join(exportDir, "finals");
+  const frontFilename = finalExportFilename("final-front");
+  const backFilename = finalExportFilename("final-back");
+
+  const composited = await compositePassExportPair({
+    project: updated,
+    frontAssetId: updated.lockedFrontAssetId!,
+    backAssetId,
+    qrUrl,
+    exportDir: finalsDir,
+    frontOutName: frontFilename,
+    backOutName: backFilename,
+  });
+
+  updated =
+    (await saveProject({
+      ...updated,
+      generationProgress: null,
+    })) ?? updated;
+
   const pkg = await exportProjectPackage(updated);
-  const finals = await exportFinalDeliverables(updated);
-  return { project: updated, ...pkg, files: finals.files };
+  const zipFilename = pkg.zipRel.split("/").pop() ?? "export.zip";
+  const frontAssetFinal = updated.assets.find((a) => a.id === updated.lockedFrontAssetId);
+  const backAssetFinal = updated.assets.find((a) => a.id === backAssetId);
+
+  const report: PassExportReport = {
+    exportedAt: new Date().toISOString(),
+    projectId: updated.id,
+    qrUrl,
+    front: { filename: frontFilename, path: composited.frontPath },
+    back: { filename: backFilename, path: composited.backPath },
+    package: { filename: zipFilename, path: pkg.zipPath, rel: pkg.zipRel },
+    qrVerification: composited.qrVerification,
+    textGovernance: {
+      note: "Only Retroverse-controlled fields may appear as text. AI artwork only.",
+      frontValidatedAt: frontAssetFinal?.textAudit?.checkedAt,
+      backValidatedAt: backAssetFinal?.textAudit?.checkedAt,
+    },
+  };
+
+  const reportPath = await writePassExportReport(exportDir, report);
+
+  return {
+    project: updated,
+    ...pkg,
+    exportDir,
+    files: [composited.frontPath, composited.backPath],
+    frontFilename,
+    backFilename,
+    zipFilename,
+    reportPath,
+    report,
+  };
 }
 
 /** @deprecated SVG placeholder concepts — use generatePassConceptsForProject */
@@ -941,7 +1147,7 @@ export async function generateRefinementImages(
       event: project.event,
       venue: project.venue,
       date: project.date,
-      featuredYears: project.featuredYears,
+      secondaryLine: projectSecondaryLine(project),
       conceptKey: parent.variationKey,
       refinement: treatment,
       refinementIndex: i + 1,
@@ -1050,7 +1256,29 @@ export async function setAssetStatus(
 }
 
 export async function approveAsset(projectId: string, assetId: string): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  const asset = project.assets.find((a) => a.id === assetId);
+  if (asset && (asset.type === "pass-front" || asset.type === "pass-back")) {
+    assertPassTextApproved(asset.textAudit);
+  }
   return setAssetStatus(projectId, assetId, "approved");
+}
+
+export async function revalidatePassAsset(
+  projectId: string,
+  assetId: string,
+): Promise<CreativeLabProjectFile | null> {
+  const project = await loadProject(projectId);
+  if (!project) return null;
+  const asset = project.assets.find((a) => a.id === assetId);
+  if (!asset) throw new Error("Asset not found");
+  const audited = await auditPassAsset(project, asset);
+  return saveProject({
+    ...project,
+    assets: project.assets.map((a) => (a.id === assetId ? audited : a)),
+    updatedAt: new Date().toISOString(),
+  });
 }
 
 export async function rejectAsset(projectId: string, assetId: string): Promise<CreativeLabProjectFile | null> {

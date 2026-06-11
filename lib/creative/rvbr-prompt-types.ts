@@ -21,7 +21,7 @@ export type PromptDebugBreakdown = {
   eraProfile: PromptLayer;
   brandRules: PromptLayer;
   directionRules: PromptLayer;
-  venueReference: PromptLayer;
+  physicalEphemera: PromptLayer;
   antiClicheRules: PromptLayer;
   antiRepetition: PromptLayer;
   layoutRules: PromptLayer;

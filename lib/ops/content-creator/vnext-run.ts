@@ -61,7 +61,7 @@ function artworkContext(prompt: string, fields: ArtDirectorFields, profile: Rvbr
     event: fields.event,
     venue: fields.venue,
     date: fields.date,
-    featuredYears: fields.featuredYears,
+    secondaryLine: fields.secondaryLine,
     module: "pass-lab",
     artDirectionTitle: profile.name,
     treatmentLabel: "vnext-creator",

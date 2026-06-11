@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
+import { parseSecondaryLineWithLegacy } from "@/lib/ops/content-creator/parse-fields";
 import { parseCreativeDirectionSettings } from "@/lib/ops/content-creator/creative-direction";
 import { runVNextRegenerateFront, vNextFileUrl } from "@/lib/ops/content-creator/vnext-run";
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
@@ -30,9 +31,10 @@ export async function POST(req: Request) {
     event: typeof body.frontEvent === "string" ? body.frontEvent : CONTENT_CREATOR_DEFAULTS.event,
     venue: typeof body.frontVenue === "string" ? body.frontVenue : CONTENT_CREATOR_DEFAULTS.venue,
     date: typeof body.frontDate === "string" ? body.frontDate : CONTENT_CREATOR_DEFAULTS.date,
-    featuredYears: Array.isArray(body.frontFeaturedYears)
-      ? body.frontFeaturedYears.filter((y): y is number => typeof y === "number")
-      : [...CONTENT_CREATOR_DEFAULTS.featuredYears],
+    secondaryLine: parseSecondaryLineWithLegacy(body, {
+      line: "frontSecondaryLine",
+      legacyYears: "frontFeaturedYears",
+    }),
     passTypeLabel: normalizePassTypeLabel(
       typeof body.frontPassTypeLabel === "string"
         ? body.frontPassTypeLabel

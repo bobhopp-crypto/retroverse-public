@@ -15,7 +15,7 @@ export type V2PocInput = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   passTypeLabel?: string;
   qrUrl: string;
   visualWorldId: VisualWorldId;
@@ -49,7 +49,7 @@ function artworkContext(prompt: string, worldId: VisualWorldId): ArtworkPromptCo
     event: "",
     venue: "",
     date: "",
-    featuredYears: [],
+    secondaryLine: "",
     module: "pass-lab",
     artDirectionTitle: world.title,
     treatmentLabel: "v2-poc",
@@ -72,7 +72,7 @@ export async function runV2PocComparison(input: V2PocInput): Promise<V2PocResult
     event: input.event,
     venue: input.venue,
     date: input.date,
-    featuredYears: input.featuredYears,
+    secondaryLine: input.secondaryLine,
     passTypeLabel: normalizePassTypeLabel(input.passTypeLabel),
     qrUrl: input.qrUrl,
   };
@@ -85,7 +85,7 @@ export async function runV2PocComparison(input: V2PocInput): Promise<V2PocResult
     event: input.event,
     venue: input.venue,
     date: input.date,
-    featuredYears: input.featuredYears,
+    secondaryLine: input.secondaryLine,
     passTypeLabel: fields.passTypeLabel,
     conceptKey: "A",
   });

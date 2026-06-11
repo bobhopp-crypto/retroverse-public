@@ -14,12 +14,14 @@ import {
   loadProject,
   markAssetFinal,
   rejectAsset,
+  revalidatePassAsset,
   saveProject,
   setSelectedBack,
   setSelectedConcept,
   setSelectedVariation,
   updateProject,
 } from "@/lib/ops/creative-lab/projects";
+import { PassTextViolationError } from "@/lib/ops/creative-lab/pass-text-validation";
 import { normalizeConceptStrategyMap } from "@/lib/ops/creative-lab/concept-strategies";
 import { normalizeVisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 import { normalizeArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
@@ -57,9 +59,30 @@ export async function PUT(req: Request, ctx: Ctx) {
   }
 
   if (body.op === "approveAsset" && typeof body.assetId === "string") {
-    const project = await approveAsset(id, body.assetId);
-    if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
-    return NextResponse.json({ ok: true, project });
+    try {
+      const project = await approveAsset(id, body.assetId);
+      if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+      return NextResponse.json({ ok: true, project });
+    } catch (e) {
+      if (e instanceof PassTextViolationError) {
+        return NextResponse.json(
+          { error: e.message, textAudit: e.audit, code: "text_violation" },
+          { status: 400 },
+        );
+      }
+      throw e;
+    }
+  }
+
+  if (body.op === "revalidateAssetText" && typeof body.assetId === "string") {
+    try {
+      const project = await revalidatePassAsset(id, body.assetId);
+      if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
+      return NextResponse.json({ ok: true, project });
+    } catch (e) {
+      const message = e instanceof Error ? e.message : "revalidate_failed";
+      return NextResponse.json({ error: message }, { status: 400 });
+    }
   }
 
   if (body.op === "rejectAsset" && typeof body.assetId === "string") {
@@ -93,6 +116,12 @@ export async function PUT(req: Request, ctx: Ctx) {
       if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
       return NextResponse.json({ ok: true, project });
     } catch (e) {
+      if (e instanceof PassTextViolationError) {
+        return NextResponse.json(
+          { error: e.message, textAudit: e.audit, code: "text_violation" },
+          { status: 400 },
+        );
+      }
       const message = e instanceof Error ? e.message : "lock_front_failed";
       return NextResponse.json({ error: message }, { status: 400 });
     }
@@ -189,9 +218,19 @@ export async function PUT(req: Request, ctx: Ctx) {
     venue: typeof body.venue === "string" ? body.venue : undefined,
     date: typeof body.date === "string" ? body.date : undefined,
     theme: typeof body.theme === "string" ? body.theme : undefined,
-    featuredYears: Array.isArray(body.featuredYears)
-      ? body.featuredYears.filter((y): y is number => typeof y === "number")
-      : undefined,
+    eraSlug: typeof body.eraSlug === "string" ? body.eraSlug : undefined,
+    qrUrl: typeof body.qrUrl === "string" ? body.qrUrl : undefined,
+    passTypeLabel: typeof body.passTypeLabel === "string" ? body.passTypeLabel : undefined,
+    quantity: typeof body.quantity === "number" ? body.quantity : undefined,
+    secondaryLine:
+      typeof body.secondaryLine === "string"
+        ? body.secondaryLine
+        : Array.isArray(body.featuredYears)
+          ? body.featuredYears
+              .filter((y): y is number => typeof y === "number")
+              .map(String)
+              .join(" · ")
+          : undefined,
     styleSelection: body.styleSelection ? normalizeStyleSelection(body.styleSelection) : undefined,
     activePresetId: typeof body.activePresetId === "string" ? body.activePresetId : undefined,
     conceptStrategies: body.conceptStrategies

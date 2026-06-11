@@ -54,7 +54,7 @@ const ERA_STYLE_SCOPE = [
 const TEXT_INTEGRATION = [
   `TEXT INTEGRATION:`,
   `- Render governed text as designed poster typography — curved, arched, bannered, or hand-lettered`,
-  `- Weave event, venue, date, and years into borders, ribbons, and illustration — not form fields`,
+  `- Weave event, venue, date, and years into typographic bands and ornament — venue is text only, never illustrated`,
   `- Pass type may appear as small souvenir marking, not a security header bar`,
 ].join("\n");
 
@@ -83,7 +83,7 @@ export function renderCollectibleFrontPrompt(
     event: fields.event,
     venue: fields.venue,
     date: fields.date,
-    featuredYears: fields.featuredYears,
+    secondaryLine: fields.secondaryLine,
     passTypeLabel: normalizePassTypeLabel(fields.passTypeLabel),
   };
 
@@ -132,7 +132,7 @@ export function renderCollectibleBackPrompt(
     event: fields.event,
     venue: fields.venue,
     date: fields.date,
-    featuredYears: fields.featuredYears,
+    secondaryLine: fields.secondaryLine,
     passTypeLabel: normalizePassTypeLabel(fields.passTypeLabel),
   };
 

@@ -82,7 +82,8 @@ export type GeneratedPrompt = {
     event: string;
     venue: string;
     date: string;
-    featuredYears: number[];
+    secondaryLine: string;
+    /** @deprecated Internal only — never render on artwork */
     theme: string;
     artifactType?: ArtifactTypeId;
     influenceTags?: string[];
@@ -121,6 +122,18 @@ export const FINAL_SLOT_LABELS: Record<FinalAssetSlot, string> = {
   "final-bumper": "Final Bumper",
 };
 
+export type PassTextAuditStatus = "pass" | "warn" | "fail" | "skipped";
+
+export type PassTextAudit = {
+  status: PassTextAuditStatus;
+  summary?: string;
+  forbiddenFound: string[];
+  debugLeaks: string[];
+  unexpectedText: string[];
+  extractedText?: string;
+  checkedAt: string;
+};
+
 /** Project asset — placeholder or future generated image. */
 export type CreativeLabAsset = {
   /** asset_id */
@@ -137,10 +150,20 @@ export type CreativeLabAsset = {
   promptId?: string;
   module?: CreativeLabModuleId;
   strategyId?: ConceptStrategyId;
+  /** Post-generation text governance audit */
+  textAudit?: PassTextAudit;
 };
 
 /** @deprecated Use CreativeLabAsset */
 export type GeneratedAsset = CreativeLabAsset;
+
+export type GenerationProgress = {
+  phase: "idle" | "front" | "back" | "export";
+  step: number;
+  total: number;
+  label: string;
+  startedAt: string;
+};
 
 export type CreativeLabProjectFile = {
   version: 2;
@@ -151,8 +174,20 @@ export type CreativeLabProjectFile = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  /** Governed subtitle — years, edition, anniversary, series, etc. */
+  secondaryLine?: string;
+  /** @deprecated Legacy — migrated to secondaryLine on read */
+  featuredYears?: number[];
   theme: string;
+  /** Internal era slug for Content Creator — never sent to image prompts. */
+  eraSlug?: string;
+  /** Scannable QR target — composited at export, never AI-generated. */
+  qrUrl?: string;
+  /** Controlled pass type label — VIP PASS, PASS, or EVENT PASS. */
+  passTypeLabel?: string;
+  quantity?: number;
+  /** Live generation progress for Content Creator status UI. */
+  generationProgress?: GenerationProgress | null;
   styleSelection: StyleSelection;
   /** Last applied built-in or custom preset id. */
   activePresetId?: string;

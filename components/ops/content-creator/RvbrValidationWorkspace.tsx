@@ -21,7 +21,7 @@ type ValidationResult = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   eras: ValidationEra[];
 };
 
@@ -71,7 +71,7 @@ export function RvbrValidationWorkspace() {
       <section className="cc-validate__brief">
         <div>
           <strong>Fixed event data</strong>
-          <p>Sunday Nights · The Main Pub · June 14, 2026 · 1967 · 1978 · 1992</p>
+          <p>Sunday Nights · The Main Pub · June 14, 2026 · 1967 • 1978 • 1992</p>
         </div>
         <div>
           <strong>Eras tested</strong>

@@ -32,7 +32,7 @@ export async function POST() {
       event: result.event,
       venue: result.venue,
       date: result.date,
-      featuredYears: result.featuredYears,
+      secondaryLine: result.secondaryLine,
       eras: result.eras.map((era) => ({
         ...era,
         imageUrl: rvbrValidationFileUrl(result.runId, era.filename),

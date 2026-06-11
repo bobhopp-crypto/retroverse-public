@@ -1,4 +1,5 @@
 import { artifactTypeById } from "./artifact-types";
+import { projectSecondaryLine } from "./project-secondary-line";
 import { strategyById } from "./concept-strategies";
 import { influencesForConcept } from "./influences";
 import { presetCardVisual } from "./preset-visuals";
@@ -36,7 +37,7 @@ export function buildConceptMockBoard(
   const colorLabel = color?.label ?? styleById(color?.id ?? "")?.label ?? "Color";
 
   const influences = influencesForConcept(project.activePresetId, prompt.strategyId);
-  const years = project.featuredYears.length ? project.featuredYears.join(" · ") : "—";
+  const years = projectSecondaryLine(project) || "—";
 
   return {
     title: `Concept ${key}`,

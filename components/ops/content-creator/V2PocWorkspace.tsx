@@ -82,7 +82,7 @@ export function V2PocWorkspace({ eras }: Props) {
   const [event, setEvent] = useState(CONTENT_CREATOR_DEFAULTS.event);
   const [venue, setVenue] = useState(CONTENT_CREATOR_DEFAULTS.venue);
   const [date, setDate] = useState(CONTENT_CREATOR_DEFAULTS.date);
-  const [years, setYears] = useState<number[]>([...CONTENT_CREATOR_DEFAULTS.featuredYears]);
+  const [secondaryLine, setSecondaryLine] = useState(CONTENT_CREATOR_DEFAULTS.secondaryLine);
   const [passTypeLabel, setPassTypeLabel] = useState<ControlledPassTypeLabel>(
     CONTENT_CREATOR_DEFAULTS.passTypeLabel,
   );
@@ -114,7 +114,7 @@ export function V2PocWorkspace({ eras }: Props) {
           event,
           venue,
           date,
-          featuredYears: years,
+          secondaryLine,
           passTypeLabel,
           qrUrl,
           eraSlug,
@@ -169,18 +169,8 @@ export function V2PocWorkspace({ eras }: Props) {
           <input value={date} onChange={(e) => setDate(e.target.value)} />
         </label>
         <label>
-          <span>Years</span>
-          <input
-            value={years.join(", ")}
-            onChange={(e) =>
-              setYears(
-                e.target.value
-                  .split(/[,·\s]+/)
-                  .map((s) => Number.parseInt(s.trim(), 10))
-                  .filter((y) => Number.isFinite(y)),
-              )
-            }
-          />
+          <span>Secondary Line</span>
+          <input value={secondaryLine} onChange={(e) => setSecondaryLine(e.target.value)} />
         </label>
         <label>
           <span>Pass type</span>

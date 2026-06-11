@@ -6,13 +6,14 @@ import {
 } from "./concept-strategies";
 import { styleById, topWeightedStyles } from "./style-catalog";
 import { artifactTypeById, type ArtifactTypeId } from "./artifact-types";
+import { projectSecondaryLine } from "./project-secondary-line";
 import type { CreativeLabModuleId, CreativeLabPresetFile, CreativeLabProjectFile, StyleCategory } from "./types";
 
 export type PromptRenderInput = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   theme: string;
   styleSelection: CreativeLabProjectFile["styleSelection"];
   module: CreativeLabModuleId;
@@ -45,14 +46,14 @@ function formatWeightedList(
     .join("\n");
 }
 
-function yearsLine(years: number[]): string {
-  if (!years.length) return "Featured years not specified.";
-  return years.join(", ");
+function secondaryLineLabel(line: string): string {
+  if (!line.trim()) return "Secondary line not specified.";
+  return line.trim();
 }
 
 /** Provider-neutral, human-readable prompt text. */
 export function renderPromptText(input: PromptRenderInput): string {
-  const years = yearsLine(input.featuredYears);
+  const secondary = secondaryLineLabel(input.secondaryLine);
   const theme = input.theme.trim() || "No theme specified.";
   const presetLine = input.preset
     ? `Style preset: ${input.preset.name} (${input.preset.id}). Default strategy: ${strategyById(input.preset.defaultConceptStrategy).label}.`
@@ -63,7 +64,7 @@ export function renderPromptText(input: PromptRenderInput): string {
     event: input.event,
     venue: input.venue,
     date: input.date,
-    featuredYears: input.featuredYears,
+    secondaryLine: input.secondaryLine,
     theme: input.theme,
     module: input.module,
     styleSelection: input.styleSelection,
@@ -75,7 +76,7 @@ export function renderPromptText(input: PromptRenderInput): string {
     `Event: ${input.event || "—"}`,
     `Venue: ${input.venue || "—"}`,
     `Date: ${input.date || "—"}`,
-    `Featured years: ${years}`,
+    `Secondary line: ${secondary}`,
     `Theme: ${theme}`,
     `Module: ${MODULE_LABELS[input.module]}`,
     `Artifact type: ${artifactTypeById(input.artifactType).label}`,
@@ -108,7 +109,7 @@ export function renderLivePreview(
     event: project.event,
     venue: project.venue,
     date: project.date,
-    featuredYears: project.featuredYears,
+    secondaryLine: projectSecondaryLine(project),
     theme: project.theme,
     styleSelection: project.styleSelection,
     module: project.activeModule,

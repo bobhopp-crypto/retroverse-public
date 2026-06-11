@@ -24,7 +24,7 @@ export type RvbrValidationResult = {
   event: string;
   venue: string;
   date: string;
-  featuredYears: number[];
+  secondaryLine: string;
   eras: Array<{
     slug: string;
     name: string;
@@ -43,7 +43,7 @@ function fields() {
     event: CONTENT_CREATOR_DEFAULTS.event,
     venue: CONTENT_CREATOR_DEFAULTS.venue,
     date: CONTENT_CREATOR_DEFAULTS.date,
-    featuredYears: [...CONTENT_CREATOR_DEFAULTS.featuredYears],
+    secondaryLine: CONTENT_CREATOR_DEFAULTS.secondaryLine,
     passTypeLabel: CONTENT_CREATOR_DEFAULTS.passTypeLabel,
     qrUrl: CONTENT_CREATOR_DEFAULTS.qrUrl,
   };
@@ -56,7 +56,7 @@ function artworkContext(prompt: string, profile: RvbrProfile): ArtworkPromptCont
     event: CONTENT_CREATOR_DEFAULTS.event,
     venue: CONTENT_CREATOR_DEFAULTS.venue,
     date: CONTENT_CREATOR_DEFAULTS.date,
-    featuredYears: CONTENT_CREATOR_DEFAULTS.featuredYears,
+    secondaryLine: CONTENT_CREATOR_DEFAULTS.secondaryLine,
     module: "pass-lab",
     artDirectionTitle: profile.name,
     treatmentLabel: "rvbr-validation",
@@ -129,7 +129,7 @@ export async function runRvbrValidation(
     event: f.event,
     venue: f.venue,
     date: f.date,
-    featuredYears: f.featuredYears,
+    secondaryLine: f.secondaryLine,
     eras,
     startedAt,
     completedAt,
