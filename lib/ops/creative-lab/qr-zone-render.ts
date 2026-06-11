@@ -2,6 +2,7 @@ import QRCode from "qrcode";
 import sharp from "sharp";
 
 import { QR_ZONE, qrPhysicalSizeIn } from "./pass-layout";
+import { assertWellFormedSvg } from "./svg-validate";
 
 /** ISO minimum quiet zone in modules. */
 export const QR_QUIET_MODULES_ISO = 4;
@@ -179,6 +180,7 @@ function buildQrSvg(url: string, zoneSize: number, quietModules: number): { svg:
     `</svg>`,
   ].join("");
 
+  assertWellFormedSvg(svg, "qr-matrix");
   return { svg, moduleCount: n };
 }
 

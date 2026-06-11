@@ -63,13 +63,15 @@ const ERA_VISUAL_DNA: Record<string, RvbrEraVisualDna> = {
   "1982-1985": {
     slug: "1982-1985",
     mandate: [
-      "MTV pop dominance — music television broadcast credential",
-      "Neon magenta, electric cyan, gold accents on charcoal laminate",
-      "Geometric television framing, scan lines, broadcast graphics",
-      "High-energy pop spectacle, video-era visual hierarchy",
-      "VH1 / MTV backstage laminate collectible authority",
+      "Early music-video era laminate — neon magenta, electric cyan, gold on charcoal stock",
+      "Geometric framing, scan-line texture, bold sans display type",
+      "High-energy pop spectacle without invented network branding",
+      "1980s concert guest laminate and backstage credential ephemera",
+      "Video-era visual hierarchy expressed through color and typography",
     ],
     forbidden: [
+      "Invented television network logos (RTV, RVTV, fake MTV/VH1 marks)",
+      "Fake cable channel bugs or parody broadcast identities",
       "1950s teen idol ballroom innocence aesthetic",
       "Psychedelic paisley flower-power framing as dominant style",
       "Grunge distress, xerox tear, alternative zine darkness",
@@ -77,11 +79,11 @@ const ERA_VISUAL_DNA: Record<string, RvbrEraVisualDna> = {
     ],
     palette: ["#0d0d0d", "#ff2d6a", "#00e5ff", "#f4c430", "#f5f0e8"],
     references: [
-      "MTV backstage passes",
-      "VH1 credentials",
       "1980s concert laminates",
-      "Music television guest badges",
-      "Neon broadcast graphic frames",
+      "Neon graphic concert credentials",
+      "Backstage guest passes",
+      "Video-era promotional ephemera",
+      "Bold geometric print frames",
     ],
   },
   "1990-1993": {

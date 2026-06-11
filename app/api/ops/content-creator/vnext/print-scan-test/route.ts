@@ -1,18 +1,14 @@
-import { readFile } from "fs/promises";
+import { existsSync } from "node:fs";
 import { join } from "path";
 import { NextResponse } from "next/server";
 
 import { buildPrintScanTestHtml } from "@/lib/ops/creative-lab/print-scan-test-sheet";
 import { creativeLabVNextRunDir } from "@/lib/ops/creative-lab/paths";
-import { loadVNextManifest } from "@/lib/ops/content-creator/vnext-run";
+import { loadVNextManifest, vNextFileUrl } from "@/lib/ops/content-creator/vnext-run";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
-
-function bufferToDataUrl(buf: Buffer, mime = "image/png"): string {
-  return `data:${mime};base64,${buf.toString("base64")}`;
-}
 
 export async function POST(req: Request) {
   if (!isOpsEnabled()) {
@@ -26,14 +22,26 @@ export async function POST(req: Request) {
   try {
     const manifest = await loadVNextManifest(runId);
     const runDir = creativeLabVNextRunDir(runId);
-    const frontBuf = await readFile(join(runDir, manifest.frontFilename));
-    const backBuf = await readFile(join(runDir, manifest.backFilename));
+    const exportBack = join(runDir, "export", "final-back.png");
+    const exportFront = join(runDir, "export", "final-front.png");
+    const exportedBack = existsSync(exportBack);
+    const exportedFront = existsSync(exportFront);
+
+    const frontImageUrl = vNextFileUrl(
+      runId,
+      exportedFront ? "export/final-front.png" : manifest.frontFilename,
+    );
+    const backImageUrl = vNextFileUrl(
+      runId,
+      exportedBack ? "export/final-back.png" : manifest.backFilename,
+    );
     const title = manifest.frontFields.event || manifest.backFields.event || runId;
 
     const html = buildPrintScanTestHtml({
       title,
-      frontImageDataUrl: bufferToDataUrl(frontBuf),
-      backImageDataUrl: bufferToDataUrl(backBuf),
+      frontImageUrl,
+      backImageUrl,
+      exportedBack,
       qrVerification: manifest.qrVerification ?? null,
     });
 
@@ -45,6 +53,7 @@ export async function POST(req: Request) {
     });
   } catch (e) {
     const message = e instanceof Error ? e.message : "print_scan_test_failed";
+    console.error("[print-scan-test]", message, e);
     return NextResponse.json({ error: message }, { status: 502 });
   }
 }

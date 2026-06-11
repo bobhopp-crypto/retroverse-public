@@ -14,7 +14,7 @@ type Props = {
 };
 
 /** Editor overlay — maps compositing coordinates onto the scaled back preview. */
-export function PassQrSafeAreaOverlay({ showLabel = true }: Props) {
+export function PassQrSafeAreaOverlay({ showLabel = false }: Props) {
   const leftPct = (QR_ZONE.left / PASS_WIDTH) * 100;
   const topPct = (QR_ZONE.top / PASS_HEIGHT) * 100;
   const widthPct = (QR_ZONE.size / PASS_WIDTH) * 100;

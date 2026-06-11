@@ -6,8 +6,9 @@ import type { QrVerificationResult } from "./pass-export-composite";
 
 export type PrintScanTestInput = {
   title: string;
-  frontImageDataUrl: string;
-  backImageDataUrl: string;
+  frontImageUrl: string;
+  backImageUrl: string;
+  exportedBack: boolean;
   qrVerification?: QrVerificationResult | null;
 };
 
@@ -15,8 +16,13 @@ export type PrintScanTestInput = {
 export function buildPrintScanTestHtml(input: PrintScanTestInput): string {
   const v = input.qrVerification;
   const warnings: string[] = [];
+  if (!input.exportedBack) {
+    warnings.push("Showing preview back — export first for QR compositing and scan verification.");
+  }
   if (v?.printSizeWarning) {
-    warnings.push(`QR physical size (${v.physicalWidthIn.toFixed(2)}") is below the ${v.minSizeIn}"+ recommended minimum for lanyard scanning.`);
+    warnings.push(
+      `QR physical size (${v.physicalWidthIn.toFixed(2)}") is below the recommended minimum for lanyard scanning.`,
+    );
   }
   if (v?.matrixFillWarning) {
     warnings.push(`QR matrix fill (${v.matrixFillPercent.toFixed(1)}%) is below the 85% target — re-export may help.`);
@@ -27,7 +33,7 @@ export function buildPrintScanTestHtml(input: PrintScanTestInput): string {
 
   const warningBlock =
     warnings.length > 0
-      ? `<section class="warnings"><h2>⚠ Print warnings</h2><ul>${warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join("")}</ul></section>`
+      ? `<section class="warnings"><h2>Print warnings</h2><ul>${warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join("")}</ul></section>`
       : "";
 
   const metrics = v
@@ -92,11 +98,11 @@ export function buildPrintScanTestHtml(input: PrintScanTestInput): string {
   </section>
   <section class="credential-row">
     <figure>
-      <div class="credential"><img src="${input.frontImageDataUrl}" alt="Front" /></div>
+      <div class="credential"><img src="${escapeHtml(input.frontImageUrl)}" alt="Front" /></div>
       <figcaption>Front</figcaption>
     </figure>
     <figure>
-      <div class="credential"><img src="${input.backImageDataUrl}" alt="Back" /></div>
+      <div class="credential"><img src="${escapeHtml(input.backImageUrl)}" alt="Back" /></div>
       <figcaption>Back (scan this)</figcaption>
     </figure>
   </section>

@@ -279,7 +279,7 @@ export function creativeDirectionPromptBlock(
     lines.push(`Layout: Full-bleed front, 100% artwork, no QR/serial zones, no generated numbers`);
   } else {
     lines.push(
-      `Layout: ${backHint} · QR ~65–75% card width (1.6–1.7" square) · retroverse.live below QR · serial bottom · ornament yields to QR`,
+      `Layout: ${backHint} · large clear verification square lower half · retroverse.live below · serial bottom · ornament yields to QR`,
     );
     if (frontSummary) lines.push(`Mirror front: ${frontSummary}`);
   }

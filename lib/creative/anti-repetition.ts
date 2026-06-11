@@ -7,6 +7,9 @@ const GLOBAL_NEGATIVE_WEIGHTING = [
   "crowd scene as main subject",
   "photorealistic headshot",
   "random human figure dominating the card",
+  "invented television network logos (RTV, RVTV, fake MTV/VH1 marks)",
+  "fake cable channel bugs or parody broadcast branding",
+  "QR safe area labels or inch/pixel measurement text on artwork",
 ];
 
 const GLOBAL_REQUIRE_COMPOSITION = [

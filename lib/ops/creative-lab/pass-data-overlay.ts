@@ -15,6 +15,7 @@ import {
   type ZoneTypography,
 } from "./pass-credential-typography";
 import { generateQrPngBuffer } from "./pass-export-composite";
+import { assertWellFormedSvg } from "./svg-validate";
 import { normalizePassTypeLabel } from "./pass-text-governance";
 import type { VisualWorldId } from "./visual-worlds";
 
@@ -135,7 +136,9 @@ export function buildPassDataLayerSvg(
 
   parts.push(serialAreaSvg(profile));
   parts.push("</svg>");
-  return parts.join("");
+  const svg = parts.join("");
+  assertWellFormedSvg(svg, `pass-data-layer-${side}`);
+  return svg;
 }
 
 /** Composite Retroverse credential layout (+ QR on back) onto artwork PNG. */

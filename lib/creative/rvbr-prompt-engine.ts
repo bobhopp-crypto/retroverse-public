@@ -20,7 +20,11 @@ import {
   creativeDirectionPromptBlock,
   type CreativeDirectionSettings,
 } from "@/lib/ops/content-creator/creative-direction";
-import { PASS_HEIGHT, PASS_WIDTH } from "@/lib/ops/creative-lab/pass-layout";
+import {
+  NO_FAKE_NETWORK_BRANDS_PROMPT,
+  NO_MEASUREMENT_ON_ARTWORK_PROMPT,
+} from "@/lib/ops/creative-lab/pass-prompt-safety";
+import { artworkBackLayoutPrompt, PASS_HEIGHT, PASS_WIDTH } from "@/lib/ops/creative-lab/pass-layout";
 import {
   compressedTextGovernancePromptBlock,
   normalizePassTypeLabel,
@@ -159,6 +163,11 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     ``,
     `SUBJECT AVOIDANCE`,
     SUBJECT_AVOIDANCE_RULES,
+    ``,
+    `ARTWORK SAFETY`,
+    NO_MEASUREMENT_ON_ARTWORK_PROMPT,
+    NO_FAKE_NETWORK_BRANDS_PROMPT,
+    ...(input.side === "back" ? [``, `BACK LAYOUT`, artworkBackLayoutPrompt()] : []),
     ``,
     `GOVERNED TEXT`,
     governedText,

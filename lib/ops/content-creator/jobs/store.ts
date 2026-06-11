@@ -107,6 +107,21 @@ export async function listJobs(opts?: { status?: ContentCreatorJobStatus; limit?
   return jobs;
 }
 
+export async function retryJob(jobId: string): Promise<ContentCreatorJob> {
+  const job = await loadJob(jobId);
+  if (!job) throw new Error("Job not found");
+  if (job.status !== "failed") throw new Error("Only failed jobs can be retried");
+
+  return updateJob(jobId, {
+    status: "queued",
+    error: null,
+    startedAt: null,
+    completedAt: null,
+    progress: { current: 0, total: job.progress.total, step: "Queued" },
+    result: null,
+  });
+}
+
 export async function listActiveJobs(): Promise<ContentCreatorJob[]> {
   const index = await loadJobIndex();
   const jobs: ContentCreatorJob[] = [];

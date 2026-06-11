@@ -518,7 +518,7 @@ export function VNextWorkspace({ eras }: Props) {
               {run?.backUrl ? (
                 <>
                   <img src={run.backUrl} alt="Back artwork preview" className="cc-creator__pass-img" />
-                  <PassQrSafeAreaOverlay />
+                  <PassQrSafeAreaOverlay showLabel={false} />
                 </>
               ) : (
                 <p className="cc-creator__preview-placeholder">Generate to see your pass back</p>

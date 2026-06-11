@@ -1,4 +1,25 @@
 /** Blocks internal/debug strings from appearing in generated artwork. */
+export const MEASUREMENT_LEAK_FORBIDDEN_PATTERNS = [
+  /qr\s*safe\s*area/i,
+  /\d+\.\d+\s*["″]?\s*[×x]\s*\d+\.\d+/i,
+  /\d+\s*×\s*\d+\s*px/i,
+  /reserved\s*zone/i,
+] as const;
+
+export const NO_MEASUREMENT_ON_ARTWORK_PROMPT = [
+  `NO MEASUREMENT OR LAYOUT LABELS ON ARTWORK:`,
+  `Never print inch dimensions, pixel counts, zone names, or editor guides on the pass.`,
+  `Forbidden on artwork: "QR Safe Area", "1.65 x 1.65", "751px", "reserved zone", or any compositing metadata.`,
+  `Safe-area guides exist only in the editor — not in exported or generated artwork.`,
+].join("\n");
+
+export const NO_FAKE_NETWORK_BRANDS_PROMPT = [
+  `NO INVENTED BROADCAST BRANDS:`,
+  `Do not invent or illustrate fake television networks, channel logos, or cable marks.`,
+  `Forbidden: RTV, RVTV, fake MTV/VH1 logo parodies, invented network bugs, or generic "music TV" channel branding.`,
+  `Express era through palette, typography, framing, and print ephemera — not invented broadcast identities.`,
+].join("\n");
+
 export const DEBUG_LEAK_FORBIDDEN_PATTERNS = [
   /rvbr:/i,
   /\bRVER\d{6}\b/i,

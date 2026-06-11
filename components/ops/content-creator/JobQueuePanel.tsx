@@ -30,7 +30,7 @@ function formatElapsed(ms: number): string {
   return `${m}m ${s % 60}s`;
 }
 
-function JobCard({ job }: { job: JobRow }) {
+function JobCard({ job, onRetry }: { job: JobRow; onRetry?: (id: string) => void }) {
   const pct = job.progress.total > 0 ? Math.round((job.progress.current / job.progress.total) * 100) : 0;
   const href =
     job.result?.batchId
@@ -65,6 +65,11 @@ function JobCard({ job }: { job: JobRow }) {
             Open result
           </Link>
         ) : null}
+        {job.status === "failed" && onRetry ? (
+          <button type="button" className="cc-job__retry" onClick={() => onRetry(job.id)}>
+            Retry
+          </button>
+        ) : null}
       </div>
     </div>
   );
@@ -90,6 +95,11 @@ export function JobQueuePanel() {
     return () => clearInterval(t);
   }, [load]);
 
+  async function retryFailedJob(id: string) {
+    await fetch(`/api/ops/content-creator/jobs/${encodeURIComponent(id)}/retry`, { method: "POST" });
+    await load();
+  }
+
   const active = (queue?.generating.length ?? 0) + (queue?.waiting.length ?? 0);
   const hasAny =
     active > 0 ||
@@ -107,7 +117,7 @@ export function JobQueuePanel() {
         <div className="cc-queue__panels">
           {queue?.generating.length ? (
             <section>
-              <h3>Generating</h3>
+              <h3>Running</h3>
               {queue.generating.map((j) => (
                 <JobCard key={j.id} job={j} />
               ))}
@@ -133,7 +143,7 @@ export function JobQueuePanel() {
             <section>
               <h3>Failed</h3>
               {queue.failed.slice(0, 3).map((j) => (
-                <JobCard key={j.id} job={j} />
+                <JobCard key={j.id} job={j} onRetry={(id) => void retryFailedJob(id)} />
               ))}
             </section>
           ) : null}

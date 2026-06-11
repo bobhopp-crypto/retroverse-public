@@ -15,6 +15,8 @@ import {
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 import sharp from "sharp";
 
+import { assertWellFormedSvg } from "@/lib/ops/creative-lab/svg-validate";
+
 function escapeXml(text: string): string {
   return text
     .replace(/&/g, "&amp;")
@@ -26,12 +28,9 @@ function escapeXml(text: string): string {
 function serialOverlaySvg(serial: string): string {
   const cx = SERIAL_X0 + SERIAL_WIDTH_PX / 2;
   const cy = SERIAL_Y0 + SERIAL_HEIGHT_PX / 2 + 4;
-  return [
-    `<svg width="1024" height="1536" xmlns="http://www.w3.org/2000/svg">`,
-    `<text x="${cx}" y="${cy}" font-family='Helvetica Neue, Arial, sans-serif' font-size="20" font-weight="700"`,
-    `letter-spacing="2" text-anchor="middle" fill="#2d2d2d">${escapeXml(serial)}</text>`,
-    `</svg>`,
-  ].join("");
+  const svg = `<svg width="1024" height="1536" xmlns="http://www.w3.org/2000/svg"><text x="${cx}" y="${cy}" font-family="Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2" text-anchor="middle" fill="#2d2d2d">${escapeXml(serial)}</text></svg>`;
+  assertWellFormedSvg(svg, "serial-overlay");
+  return svg;
 }
 
 /** Export — front unchanged; serial + high-res QR composited on back only. */

@@ -1,10 +1,7 @@
 import {
-  avoidEraTropesPromptBlock,
-  creativeDirectionById,
-  creativeDirectionPromptBlock,
-  maximizeVariationPromptBlock,
-  type CreativeDirectionSettings,
-} from "@/lib/ops/content-creator/creative-direction";
+  NO_FAKE_NETWORK_BRANDS_PROMPT,
+  NO_MEASUREMENT_ON_ARTWORK_PROMPT,
+} from "@/lib/ops/creative-lab/pass-prompt-safety";
 import {
   fullBleedFrontPrompt,
   integratedBackFunctionalZonesPrompt,
@@ -107,6 +104,8 @@ export function renderCollectibleFrontPrompt(
     ``,
     COLLECTIBLE_ARTIFACT_BRIEF,
     ANTI_TEMPLATE_RULES,
+    NO_MEASUREMENT_ON_ARTWORK_PROMPT,
+    NO_FAKE_NETWORK_BRANDS_PROMPT,
     fullBleedFrontPrompt(),
     avoidEraTropesPromptBlock(settings.avoidEraTropes),
     maximizeVariationPromptBlock(settings.maximizeVariation),
@@ -156,6 +155,8 @@ export function renderCollectibleBackPrompt(
     TEXT_INTEGRATION,
     ``,
     COLLECTIBLE_ARTIFACT_BRIEF,
+    NO_MEASUREMENT_ON_ARTWORK_PROMPT,
+    NO_FAKE_NETWORK_BRANDS_PROMPT,
     integratedBackFunctionalZonesPrompt(),
     avoidEraTropesPromptBlock(settings.avoidEraTropes),
     maximizeVariationPromptBlock(settings.maximizeVariation),
