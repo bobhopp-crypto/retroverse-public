@@ -1,21 +1,21 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState, type ReactNode } from "react";
 
 import { PromptInspectorModal, QualityPanel } from "@/components/ops/content-creator/PromptInspectorModal";
+import { PassQrSafeAreaOverlay } from "@/components/ops/content-creator/PassQrSafeAreaOverlay";
 import type { ComposedRvbrPrompt, PromptQualityScores } from "@/lib/creative/rvbr-prompt-types";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
-import {
-  ARTIFACT_ARCHETYPES,
-  ARTIFACT_ARCHETYPE_IDS,
-  type ArtifactArchetypeChoice,
-} from "@/lib/creative/artifact-archetypes";
+import { RETROVERSE_COLLECTIBLE_CREDENTIAL_LABEL } from "@/lib/creative/artifact-archetypes";
 import {
   CREATIVE_DIRECTIONS,
   CREATIVE_DIRECTION_IDS,
   type CreativeDirectionId,
 } from "@/lib/ops/content-creator/creative-direction";
 import type { ContentArtifactType, ContentCreatorEraOption } from "@/lib/ops/content-creator/types";
+import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
 import {
   CONTROLLED_PASS_TYPE_LABELS,
   normalizePassTypeLabel,
@@ -31,6 +31,7 @@ type RunState = {
   frontUrl: string | null;
   backUrl: string | null;
   exportZipUrl?: string;
+  qrVerification?: QrVerificationResult;
 };
 
 type ContentFields = {
@@ -65,9 +66,13 @@ function creativePayload(
   creativeDirection: CreativeDirectionId,
   avoidEraTropes: boolean,
   maximizeVariation: boolean,
-  artifactArchetype: ArtifactArchetypeChoice,
 ) {
-  return { creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype };
+  return {
+    creativeDirection,
+    avoidEraTropes,
+    maximizeVariation,
+    artifactArchetype: CONTENT_CREATOR_DEFAULTS.artifactArchetype,
+  };
 }
 
 function fieldsPayload(prefix: "front" | "back", f: ContentFields) {
@@ -101,6 +106,7 @@ function CollapsiblePanel(props: {
 }
 
 export function VNextWorkspace({ eras }: Props) {
+  const searchParams = useSearchParams();
   const [artifact, setArtifact] = useState<ContentArtifactType>("pass");
   const [eraSlug, setEraSlug] = useState(eras[0]?.slug ?? "");
   const [creativeDirection, setCreativeDirection] = useState<CreativeDirectionId>(
@@ -108,9 +114,6 @@ export function VNextWorkspace({ eras }: Props) {
   );
   const [avoidEraTropes, setAvoidEraTropes] = useState(CONTENT_CREATOR_DEFAULTS.avoidEraTropes);
   const [maximizeVariation, setMaximizeVariation] = useState(CONTENT_CREATOR_DEFAULTS.maximizeVariation);
-  const [artifactArchetype, setArtifactArchetype] = useState<ArtifactArchetypeChoice>(
-    CONTENT_CREATOR_DEFAULTS.artifactArchetype,
-  );
   const [top, setTop] = useState(defaultFields);
   const [front, setFront] = useState(defaultFields);
   const [back, setBack] = useState(defaultFields);
@@ -127,6 +130,84 @@ export function VNextWorkspace({ eras }: Props) {
   const [qualityScores, setQualityScores] = useState<PromptQualityScores | null>(null);
   const [inspectorOpen, setInspectorOpen] = useState(false);
 
+  useEffect(() => {
+    const runId = searchParams.get("runId");
+    const duplicateId = searchParams.get("duplicate");
+    const loadId = duplicateId ?? runId;
+    if (!loadId) return;
+
+    void (async () => {
+      try {
+        const res = await fetch(`/api/ops/content-creator/library/${encodeURIComponent(loadId)}`);
+        const data = (await res.json()) as {
+          ok?: boolean;
+          generation?: {
+            runId: string;
+            eraSlug: string;
+            creativeDirection: CreativeDirectionId;
+            creativeSettings?: {
+              creativeDirection: CreativeDirectionId;
+              avoidEraTropes: boolean;
+              maximizeVariation: boolean;
+            };
+            event: string;
+            venue: string;
+            date: string;
+            secondaryLine: string;
+            passTypeLabel: string;
+            qrUrl: string;
+            exportZipPath: string | null;
+            frontUrl: string;
+            backUrl: string;
+          };
+        };
+        if (!res.ok || !data.generation) return;
+        const g = data.generation;
+        setEraSlug(g.eraSlug);
+        setCreativeDirection(g.creativeDirection);
+        if (g.creativeSettings) {
+          setCreativeDirection(g.creativeSettings.creativeDirection);
+          setAvoidEraTropes(g.creativeSettings.avoidEraTropes);
+          setMaximizeVariation(g.creativeSettings.maximizeVariation);
+        }
+        const fields = {
+          event: g.event,
+          venue: g.venue,
+          date: g.date,
+          secondaryLine: g.secondaryLine,
+          passTypeLabel: g.passTypeLabel as ControlledPassTypeLabel,
+          qrUrl: g.qrUrl,
+        };
+        setTop(fields);
+        setFront(fields);
+        setBack(fields);
+
+        if (duplicateId) {
+          const t = Date.now();
+          setRun({
+            runId: "",
+            frontUrl: `${g.frontUrl}?t=${t}`,
+            backUrl: `${g.backUrl}?t=${t}`,
+          });
+          return;
+        }
+
+        const t = Date.now();
+        setRun({
+          runId: g.runId,
+          frontUrl: `/api/ops/content-creator/vnext/files/${encodeURIComponent(g.runId)}/front.png?t=${t}`,
+          backUrl: `/api/ops/content-creator/vnext/files/${encodeURIComponent(g.runId)}/back.png?t=${t}`,
+          exportZipUrl: g.exportZipPath
+            ? `/api/ops/content-creator/vnext/files/${encodeURIComponent(g.runId)}/${encodeURIComponent(g.exportZipPath.split("/").pop() ?? "")}`
+            : undefined,
+        });
+      } catch {
+        // library entry may exist without live vnext run
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- load once when query present
+  }, [searchParams]);
+
   async function composePrompts(): Promise<void> {
     const payload = {
       eraSlug,
@@ -138,7 +219,7 @@ export function VNextWorkspace({ eras }: Props) {
       passTypeLabel: top.passTypeLabel,
       qrUrl: top.qrUrl,
       compositionSeed: Date.now(),
-      ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype),
+      ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
     };
 
     const [frontRes, backRes] = await Promise.all([
@@ -192,7 +273,7 @@ export function VNextWorkspace({ eras }: Props) {
           artifact,
           ...fieldsPayload("front", f),
           ...fieldsPayload("back", b),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype),
+          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
         }),
       });
       const data = (await res.json()) as RunState & {
@@ -230,12 +311,12 @@ export function VNextWorkspace({ eras }: Props) {
           runId: run.runId,
           eraSlug,
           ...fieldsPayload("front", front),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype),
+          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
         }),
       });
       const data = (await res.json()) as RunState & { ok?: boolean; error?: string };
       if (!res.ok || !data.ok) throw new Error(data.error ?? "regenerate_failed");
-      setRun({ ...run, frontUrl: `${data.frontUrl}?t=${Date.now()}`, exportZipUrl: undefined });
+      setRun({ ...run, frontUrl: `${data.frontUrl}?t=${Date.now()}`, exportZipUrl: undefined, qrVerification: undefined });
     } catch (e) {
       setError(e instanceof Error ? e.message : "regenerate_failed");
     } finally {
@@ -255,12 +336,12 @@ export function VNextWorkspace({ eras }: Props) {
           runId: run.runId,
           eraSlug,
           ...fieldsPayload("back", back),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype),
+          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
         }),
       });
       const data = (await res.json()) as RunState & { ok?: boolean; error?: string };
       if (!res.ok || !data.ok) throw new Error(data.error ?? "regenerate_failed");
-      setRun({ ...run, backUrl: `${data.backUrl}?t=${Date.now()}`, exportZipUrl: undefined });
+      setRun({ ...run, backUrl: `${data.backUrl}?t=${Date.now()}`, exportZipUrl: undefined, qrVerification: undefined });
     } catch (e) {
       setError(e instanceof Error ? e.message : "regenerate_failed");
     } finally {
@@ -278,13 +359,14 @@ export function VNextWorkspace({ eras }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ runId: run.runId, eraSlug }),
       });
-      const data = (await res.json()) as RunState & { ok?: boolean; error?: string };
+      const data = (await res.json()) as RunState & { ok?: boolean; error?: string; qrVerification?: QrVerificationResult };
       if (!res.ok || !data.ok) throw new Error(data.error ?? "export_failed");
       setRun({
         ...run,
         frontUrl: `${data.frontUrl}?t=${Date.now()}`,
         backUrl: `${data.backUrl}?t=${Date.now()}`,
         exportZipUrl: data.exportZipUrl,
+        qrVerification: data.qrVerification,
       });
     } catch (e) {
       setError(e instanceof Error ? e.message : "export_failed");
@@ -347,6 +429,9 @@ export function VNextWorkspace({ eras }: Props) {
     <div className="cc-creator">
       <header className="cc-creator__titlebar">
         <h1>Content Creator</h1>
+        <Link href="/ops/content-creator" className="cc-creator__btn cc-creator__btn--secondary">
+          ← Library
+        </Link>
       </header>
 
       <section className="cc-creator__hero" aria-label="Artwork previews">
@@ -362,13 +447,38 @@ export function VNextWorkspace({ eras }: Props) {
         </figure>
         <figure className="cc-creator__preview">
           <figcaption>Back</figcaption>
-          <div className="cc-creator__preview-frame">
-            {run?.backUrl ? (
-              <img src={run.backUrl} alt="Back artwork preview" />
-            ) : (
-              <p className="cc-creator__preview-placeholder">Generate to see your pass back</p>
-            )}
+          <div className="cc-creator__preview-frame cc-creator__preview-frame--back">
+            <div className="cc-creator__pass-aspect">
+              {run?.backUrl ? (
+                <>
+                  <img src={run.backUrl} alt="Back artwork preview" className="cc-creator__pass-img" />
+                  <PassQrSafeAreaOverlay />
+                </>
+              ) : (
+                <p className="cc-creator__preview-placeholder">Generate to see your pass back</p>
+              )}
+            </div>
           </div>
+          {run?.qrVerification ? (
+            <div className="cc-creator__qr-status" aria-live="polite">
+              <p>
+                Reserved zone: {run.qrVerification.zoneAudit.reservedZonePx.width}×
+                {run.qrVerification.zoneAudit.reservedZonePx.height}px
+              </p>
+              <p>
+                Rendered QR: {run.qrVerification.zoneAudit.renderedQrImagePx.width}×
+                {run.qrVerification.zoneAudit.renderedQrImagePx.height}px (
+                {run.qrVerification.zoneAudit.zoneFillPercent.toFixed(1)}% of zone)
+              </p>
+              <p>
+                Physical: {run.qrVerification.physicalWidthIn.toFixed(2)}" ×{" "}
+                {run.qrVerification.physicalHeightIn.toFixed(2)}"
+              </p>
+              <p className={run.qrVerification.decodePass ? "cc-creator__qr-pass" : "cc-creator__qr-fail"}>
+                Scan Test: {run.qrVerification.decodePass ? "PASS" : "FAIL"}
+              </p>
+            </div>
+          ) : null}
         </figure>
       </section>
 
@@ -450,28 +560,8 @@ export function VNextWorkspace({ eras }: Props) {
         </div>
 
         <div className="cc-creator__setup-group">
-          <span className="cc-creator__setup-label">Artifact Archetype</span>
-          <div className="cc-creator__direction-grid" role="group" aria-label="Artifact Archetype">
-            <button
-              type="button"
-              className={`cc-creator__direction-btn${artifactArchetype === "random" ? " is-on" : ""}`}
-              onClick={() => setArtifactArchetype("random")}
-              aria-pressed={artifactArchetype === "random"}
-            >
-              Random
-            </button>
-            {ARTIFACT_ARCHETYPE_IDS.map((id) => (
-              <button
-                key={id}
-                type="button"
-                className={`cc-creator__direction-btn${artifactArchetype === id ? " is-on" : ""}`}
-                onClick={() => setArtifactArchetype(id)}
-                aria-pressed={artifactArchetype === id}
-              >
-                {ARTIFACT_ARCHETYPES[id].label}
-              </button>
-            ))}
-          </div>
+          <span className="cc-creator__setup-label">Artifact Type</span>
+          <p className="cc-creator__fixed-archetype">{RETROVERSE_COLLECTIBLE_CREDENTIAL_LABEL}</p>
         </div>
 
         <div className="cc-creator__toggles">

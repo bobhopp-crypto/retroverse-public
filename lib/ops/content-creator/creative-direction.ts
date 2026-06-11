@@ -251,10 +251,10 @@ export function parseCreativeDirectionSettings(
 }
 
 const BACK_LAYOUT_HINTS = [
-  "ornamental border back; QR medallion + serial plate lower area",
-  "handbill reverse; QR seal above serial footer",
-  "ticket stub back; embossed QR frame + numbering plate",
-  "label promo reverse; catalog strip + QR medallion",
+  "collector card back; dominant QR safe area in lower half · retroverse.live below QR · serial at bottom edge",
+  "keepsake reverse; large functional QR square (~70% card width) · shrink seal before QR",
+  "laminate back; artwork upper half · QR dominates lower half · thin ornament outside safe area only",
+  "binder card reverse; QR primary · URL band under QR · serial footer flush bottom",
 ] as const;
 
 /** Single composition/layout source — no duplication elsewhere. */
@@ -279,7 +279,7 @@ export function creativeDirectionPromptBlock(
     lines.push(`Layout: Full-bleed front, 100% artwork, no QR/serial zones, no generated numbers`);
   } else {
     lines.push(
-      `Layout: ${backHint} · QR frame 1.6" square + serial plate 1.56×0.5" bottom (clear interiors for export)`,
+      `Layout: ${backHint} · QR ~65–75% card width (1.6–1.7" square) · retroverse.live below QR · serial bottom · ornament yields to QR`,
     );
     if (frontSummary) lines.push(`Mirror front: ${frontSummary}`);
   }

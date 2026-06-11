@@ -2,19 +2,17 @@ import { mkdir, writeFile } from "fs/promises";
 import { join } from "path";
 
 import {
+  compositeQrOntoBackPng,
   verifyQrInComposite,
   type QrVerificationResult,
 } from "@/lib/ops/creative-lab/pass-export-composite";
 import {
-  QR_ZONE,
   SERIAL_HEIGHT_PX,
   SERIAL_WIDTH_PX,
   SERIAL_X0,
   SERIAL_Y0,
 } from "@/lib/ops/creative-lab/pass-layout";
-import { rvbrEraVisualDnaForProfile } from "@/lib/ops/content-creator/rvbr-era-visual-dna";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
-import QRCode from "qrcode";
 import sharp from "sharp";
 
 function escapeXml(text: string): string {
@@ -23,25 +21,6 @@ function escapeXml(text: string): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
-}
-
-/** Era-compatible QR colors — solid fills only, high contrast, fully scannable. */
-export function qrColorsForProfile(profile: RvbrProfile): { dark: string; light: string } {
-  const dna = rvbrEraVisualDnaForProfile(profile);
-  const accent = profile.visualIdentity.accent ?? dna.palette[0] ?? "#1a1a1a";
-  const ink = dna.palette.find((c) => c.toLowerCase() !== "#ffffff" && c.toLowerCase() !== "#f5f0e8") ?? "#1a1a1a";
-  const dark = ink.length === 7 ? ink : accent;
-  return { dark, light: "#ffffff" };
-}
-
-async function generateEraQrPng(url: string, size: number, colors: { dark: string; light: string }): Promise<Buffer> {
-  return QRCode.toBuffer(url.trim(), {
-    type: "png",
-    width: size,
-    margin: 1,
-    errorCorrectionLevel: "H",
-    color: { dark: colors.dark, light: colors.light },
-  });
 }
 
 function serialOverlaySvg(serial: string): string {
@@ -55,7 +34,7 @@ function serialOverlaySvg(serial: string): string {
   ].join("");
 }
 
-/** Export — front unchanged; serial + QR composited on back only. */
+/** Export — front unchanged; serial + high-res QR composited on back only. */
 export async function compositeVNextExport(args: {
   frontPng: Buffer;
   backPng: Buffer;
@@ -75,23 +54,31 @@ export async function compositeVNextExport(args: {
 
   await sharp(args.frontPng).png().toFile(frontPath);
 
-  // QR modules stay high-contrast black/white for scan reliability; era color lives in AI frame only.
-  const qrBuffer = await generateEraQrPng(args.qrUrl, QR_ZONE.size, {
-    dark: "#000000",
-    light: "#ffffff",
-  });
   const serialSvg = serialOverlaySvg(args.serialNumber);
+  const qrBackPath = join(args.exportDir, "final-back-qr.png");
 
-  await sharp(args.backPng)
-    .composite([
-      { input: qrBuffer, top: QR_ZONE.top, left: QR_ZONE.left },
-      { input: Buffer.from(serialSvg), top: 0, left: 0 },
-    ])
+  await compositeQrOntoBackPng({
+    backSrc: args.backPng,
+    backPath: qrBackPath,
+    qrUrl: args.qrUrl,
+  });
+
+  await sharp(qrBackPath)
+    .composite([{ input: Buffer.from(serialSvg), top: 0, left: 0 }])
     .png()
     .toFile(backPath);
 
   const qrVerification = await verifyQrInComposite(backPath, args.qrUrl);
   return { frontPath, backPath, qrVerification };
+}
+
+export async function writeVNextExportReport(
+  exportDir: string,
+  report: Record<string, unknown>,
+): Promise<string> {
+  const reportPath = join(exportDir, "export-report.json");
+  await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+  return reportPath;
 }
 
 export async function writeVNextExportZip(args: {

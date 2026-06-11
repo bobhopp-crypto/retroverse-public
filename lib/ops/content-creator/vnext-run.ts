@@ -18,7 +18,9 @@ import {
   renderArtDirectorFrontPrompt,
   type ArtDirectorFields,
 } from "@/lib/ops/content-creator/rvbr-art-director-prompt";
-import { compositeVNextExport, writeVNextExportZip } from "@/lib/ops/content-creator/vnext-export";
+import { compositeVNextExport, writeVNextExportReport, writeVNextExportZip } from "@/lib/ops/content-creator/vnext-export";
+import { syncGenerationFromVNext } from "@/lib/ops/content-creator/library";
+import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 
@@ -28,6 +30,9 @@ export type VNextInput = {
   frontFields: ArtDirectorFields;
   backFields: ArtDirectorFields;
   creativeSettings: CreativeDirectionSettings;
+  compositionSeed?: number;
+  parentGenerationId?: string;
+  variationBatchId?: string;
 };
 
 export type VNextManifest = {
@@ -45,11 +50,14 @@ export type VNextManifest = {
   compositionSeed?: number;
   creativeSettings?: CreativeDirectionSettings;
   resolvedArtifactArchetype?: string;
+  parentGenerationId?: string;
+  variationBatchId?: string;
   promptInspector?: {
     front: ComposedRvbrPrompt;
     back: ComposedRvbrPrompt;
   };
   exportZipFilename?: string;
+  qrVerification?: QrVerificationResult;
   startedAt: string;
   updatedAt: string;
 };
@@ -99,7 +107,7 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
     passTypeLabel: normalizePassTypeLabel(input.backFields.passTypeLabel),
   };
 
-  const compositionSeed = Date.now();
+  const compositionSeed = input.compositionSeed ?? Date.now();
   const creativeSettings = input.creativeSettings ?? DEFAULT_CREATIVE_DIRECTION_SETTINGS;
   const frontComposed = renderArtDirectorFrontPrompt(
     input.profile,
@@ -160,12 +168,18 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
       creativeSettings.artifactArchetype,
       compositionSeed,
     ),
+    parentGenerationId: input.parentGenerationId,
+    variationBatchId: input.variationBatchId,
     promptInspector: { front: frontComposed, back: backComposed },
     startedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   };
 
   await writeManifest(runDir, manifest);
+  await syncGenerationFromVNext(manifest, input.profile, {
+    parentGenerationId: input.parentGenerationId,
+    variationBatchId: input.variationBatchId,
+  });
   return manifest;
 }
 
@@ -212,6 +226,7 @@ export async function runVNextRegenerateFront(args: {
   manifest.exportZipFilename = undefined;
   manifest.updatedAt = new Date().toISOString();
   await writeManifest(manifest.runDir, manifest);
+  await syncGenerationFromVNext(manifest, args.profile);
   return manifest;
 }
 
@@ -259,20 +274,21 @@ export async function runVNextRegenerateBack(args: {
   manifest.exportZipFilename = undefined;
   manifest.updatedAt = new Date().toISOString();
   await writeManifest(manifest.runDir, manifest);
+  await syncGenerationFromVNext(manifest, args.profile);
   return manifest;
 }
 
 export async function runVNextExport(
   runId: string,
   profile: RvbrProfile,
-): Promise<VNextManifest & { exportZipPath: string }> {
+): Promise<VNextManifest & { exportZipPath: string; qrVerification: QrVerificationResult }> {
   const manifest = await loadVNextManifest(runId);
   const exportDir = join(manifest.runDir, "export");
   const frontPng = await readFile(join(manifest.runDir, manifest.frontFilename));
   const backPng = await readFile(join(manifest.runDir, manifest.backFilename));
   const serial = manifest.serialNumber ?? serialForRun(runId);
 
-  await compositeVNextExport({
+  const { qrVerification } = await compositeVNextExport({
     frontPng,
     backPng,
     qrUrl: manifest.backFields.qrUrl ?? "",
@@ -281,15 +297,25 @@ export async function runVNextExport(
     exportDir,
   });
 
+  await writeVNextExportReport(exportDir, {
+    exportedAt: new Date().toISOString(),
+    runId,
+    qrUrl: manifest.backFields.qrUrl ?? "",
+    qrVerification,
+  });
+
   const exportZipFilename = `${manifest.frontFields.event.replace(/\s+/g, "-")}-pass.zip`;
   const exportZipPath = await writeVNextExportZip({ exportDir, zipFilename: exportZipFilename });
 
   manifest.exportZipFilename = exportZipFilename;
   manifest.serialNumber = serial;
+  manifest.qrVerification = qrVerification;
   manifest.updatedAt = new Date().toISOString();
   await writeManifest(manifest.runDir, manifest);
 
-  return { ...manifest, exportZipPath };
+  const synced = await syncGenerationFromVNext(manifest, profile);
+  void synced;
+  return { ...manifest, exportZipPath, qrVerification };
 }
 
 export function vNextFileUrl(runId: string, filename: string): string {

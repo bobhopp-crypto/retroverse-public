@@ -56,7 +56,10 @@ export function ExportCompletePanel({ projectId, exportResult, onDismiss }: Prop
           <dd>
             <code>{backFilename}</code>
             <span className="cc-export-panel__qr">
-              QR: {report.qrVerification.ok ? "✓ verified scannable" : "⚠ verification failed"}
+              QR: {report.qrVerification.ok ? "✓ PASS" : "⚠ FAIL"} ·{" "}
+              {report.qrVerification.physicalWidthIn.toFixed(2)}" ×{" "}
+              {report.qrVerification.physicalHeightIn.toFixed(2)}" · Scan:{" "}
+              {report.qrVerification.decodePass ? "PASS" : "FAIL"}
             </span>
           </dd>
         </div>

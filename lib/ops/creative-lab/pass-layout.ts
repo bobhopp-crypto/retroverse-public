@@ -9,25 +9,55 @@ export const PASS_PRINT_HEIGHT_IN = 3.5;
 
 export const PX_PER_IN = PASS_WIDTH / PASS_PRINT_WIDTH_IN;
 
-/** Back — serial zone: ~25% wider than 1.25" → 1.5625" × 0.5" at print. */
-export const SERIAL_PRINT_W_IN = 1.5625;
+/** QR occupies ~65–75% of card width — functional first, not decorative. */
+export const QR_CARD_WIDTH_RATIO_MIN = 0.65;
+export const QR_CARD_WIDTH_RATIO_MAX = 0.75;
+export const QR_CARD_WIDTH_RATIO_TARGET = 0.7;
+
+export const QR_PRINT_MIN_IN = 1.5;
+export const QR_PRINT_PREFERRED_MIN_IN = 1.6;
+export const QR_PRINT_PREFERRED_MAX_IN = 1.7;
+
+/** Target square QR — center of preferred 1.60–1.70" band (~73% card width). */
+export const QR_PRINT_SIZE_IN = 1.65;
+
+export const QR_SIZE_PX = Math.round(QR_PRINT_SIZE_IN * PX_PER_IN);
+export const QR_WIDTH_RATIO_OF_CARD = QR_PRINT_SIZE_IN / PASS_PRINT_WIDTH_IN;
+
+/** Back — serial stamp at bottom edge. */
+export const SERIAL_PRINT_W_IN = 1.95;
 export const SERIAL_PRINT_H_IN = 0.5;
+export const SERIAL_BOTTOM_MARGIN_IN = 0.06;
 
 export const SERIAL_WIDTH_PX = Math.round(SERIAL_PRINT_W_IN * PX_PER_IN);
 export const SERIAL_HEIGHT_PX = Math.round(SERIAL_PRINT_H_IN * PX_PER_IN);
 export const SERIAL_X0 = Math.round((PASS_WIDTH - SERIAL_WIDTH_PX) / 2);
 export const SERIAL_Y0 =
-  PASS_HEIGHT - SERIAL_HEIGHT_PX - Math.round(0.12 * PX_PER_IN);
+  PASS_HEIGHT - SERIAL_HEIGHT_PX - Math.round(SERIAL_BOTTOM_MARGIN_IN * PX_PER_IN);
 
-/** Back — QR reserve: 1.6" square (min 1.5", preferred 1.6" for scan reliability). */
-export const QR_PRINT_SIZE_IN = 1.6;
-export const QR_SIZE_PX = Math.round(QR_PRINT_SIZE_IN * PX_PER_IN);
+/** Back — retroverse.live label band below QR. */
+export const URL_PRINT_H_IN = 0.2;
+export const URL_HEIGHT_PX = Math.round(URL_PRINT_H_IN * PX_PER_IN);
+export const URL_QR_GAP_IN = 0.08;
+export const URL_SERIAL_GAP_IN = 0.1;
 
-const QR_SERIAL_GAP_PX = Math.round(0.18 * PX_PER_IN);
+export const URL_ZONE = {
+  left: Math.round((PASS_WIDTH - QR_SIZE_PX) / 2),
+  top:
+    SERIAL_Y0 -
+    Math.round(URL_SERIAL_GAP_IN * PX_PER_IN) -
+    URL_HEIGHT_PX,
+  width: QR_SIZE_PX,
+  height: URL_HEIGHT_PX,
+} as const;
 
+/** Back — large QR dominates lower half; composited at export. */
 export const QR_ZONE = {
   left: Math.round((PASS_WIDTH - QR_SIZE_PX) / 2),
-  top: SERIAL_Y0 - QR_SERIAL_GAP_PX - QR_SIZE_PX,
+  top:
+    URL_ZONE.top -
+    Math.round(URL_QR_GAP_IN * PX_PER_IN) -
+    QR_SIZE_PX,
   size: QR_SIZE_PX,
 } as const;
 
@@ -49,7 +79,16 @@ export function serialZonePromptInches(): string {
 }
 
 export function qrZonePromptInches(): string {
-  return `${QR_PRINT_SIZE_IN}" × ${QR_PRINT_SIZE_IN}" (min 1.5", preferred 1.6" at print)`;
+  const pct = Math.round(QR_WIDTH_RATIO_OF_CARD * 100);
+  return `${QR_PRINT_SIZE_IN}" × ${QR_PRINT_SIZE_IN}" (~${pct}% card width; min ${QR_PRINT_MIN_IN}")`;
+}
+
+export function qrPhysicalSizeIn(pixelSize: number): number {
+  return pixelSize / PX_PER_IN;
+}
+
+export function qrCardWidthPercent(): number {
+  return Math.round(QR_WIDTH_RATIO_OF_CARD * 100);
 }
 
 const NO_GENERATED_NUMBERING = [
@@ -61,29 +100,25 @@ const NO_GENERATED_NUMBERING = [
 /** Front — full bleed artwork, no reserved zones. */
 export function fullBleedFrontPrompt(): string {
   return [
-    `FRONT SURFACE — 100% ARTWORK (NO RESERVED ZONES):`,
+    `FRONT SURFACE — 100% COLLECTIBLE ARTWORK (NO RESERVED ZONES):`,
     `Use the entire front for the collectible design — edge to edge, full bleed.`,
     `No stamp panel, no serial area, no blank rectangle, no masked dead zones.`,
-    `The front is a complete Retroverse artifact face — not a partial template with reserved functional areas.`,
+    `The front is a complete Retroverse collector card face — not a partial template.`,
     `Illustration, ornament, typography, and atmosphere fill the complete surface.`,
     ``,
     NO_GENERATED_NUMBERING,
   ].join("\n");
 }
 
-/** Integrated serial zone on back — intentional souvenir element, not a blank white box. */
+/** Integrated serial zone on back — bottom edge, subordinate to QR. */
 export function integratedSerialZonePrompt(): string {
   return [
-    `INTEGRATED SERIAL ZONE (BACK ONLY — MANDATORY):`,
-    `Reserve a bottom-center zone for programmatic serial overlay at export.`,
+    `SERIAL STAMP ZONE (BACK ONLY — BOTTOM EDGE):`,
+    `Reserve bottom-center zone for programmatic serial overlay at export.`,
     `Print size: ${serialZonePromptInches()} (${SERIAL_WIDTH_PX}×${SERIAL_HEIGHT_PX}px at x=${SERIAL_X0}–${SERIAL_X0 + SERIAL_WIDTH_PX}, y=${SERIAL_Y0}–${PASS_HEIGHT}).`,
-    `Wider collector stamp plate for reliable post-print numbering.`,
-    ``,
-    `This zone must look DESIGNED — part of the collectible back:`,
-    `- Collector stamp plate, ticket stub numbering footer, embossed verification band, or souvenir edition frame`,
-    `- Era-appropriate ornament framing the zone — foil band, scalloped edge, perforated tear, broadcast lower-third`,
-    `- Interior stays clear for serial overlay — no numbers, no serial text, no barcode`,
-    `- NOT a flat blank white rectangle — integrate into the artwork as an intentional keepsake element`,
+    `Flush to bottom edge — thin collector stamp plate, not a dominant panel.`,
+    `- Interior stays clear for serial overlay — no numbers, no serial text`,
+    `- Reduce ornament before shrinking QR or URL band`,
     ``,
     NO_GENERATED_NUMBERING,
   ].join("\n");
@@ -94,29 +129,55 @@ export function integratedSerialStampPrompt(): string {
   return integratedSerialZonePrompt();
 }
 
-/** Integrated QR zone — decorative era-colored frame; interior clear for high-contrast QR at export. */
-export function integratedQrZonePrompt(): string {
+/** URL label band below QR — AI may paint retroverse.live here; export QR is above. */
+export function integratedUrlZonePrompt(): string {
   return [
-    `INTEGRATED QR ZONE (BACK ONLY — MANDATORY):`,
-    `Reserve a square zone (${qrZonePromptInches()}) for programmatic QR insertion.`,
-    `Position: ${QR_ZONE.size}px square at x=${QR_ZONE.left}, y=${QR_ZONE.top} on ${PASS_WIDTH}×${PASS_HEIGHT} canvas.`,
-    `Place above the serial zone — both functional areas live on the back only.`,
-    ``,
-    `This zone must look DESIGNED — part of the collectible back:`,
-    `- QR medallion with era-colored decorative FRAME around the square — frame uses era palette, ornament outside zone only`,
-    `- Interior must stay clear for high-contrast black/white QR inserted at export — no fake modules`,
-    `- NOT a flat blank white box — integrate frame as intentional souvenir back element`,
-    `- Minimum 1.5" square at print; 1.6" preferred for scan reliability after lamination`,
-    ``,
-    `Real scannable QR (black modules on white) is inserted at export — never generated by AI.`,
+    `URL LABEL BAND (BACK ONLY — BELOW QR):`,
+    `Reserve a narrow band directly below the QR safe area for "retroverse.live".`,
+    `Print size: ${URL_PRINT_H_IN}" high × ${QR_PRINT_SIZE_IN}" wide (${URL_ZONE.width}×${URL_ZONE.height}px at y=${URL_ZONE.top}).`,
+    `Small typeset URL label — subordinate to QR, not competing for space.`,
+    `Do NOT draw fake QR modules or barcodes in this band.`,
   ].join("\n");
 }
 
-/** Combined back functional zones — QR + serial, both integrated into artwork. */
+/** QR safe area — primary functional element, not a decorative medallion. */
+export function integratedQrZonePrompt(): string {
+  return [
+    `QR SAFE AREA (BACK ONLY — PRIMARY FUNCTIONAL ELEMENT):`,
+    `The QR is NOT decorative. It is the largest functional element on the back.`,
+    `Reserve a square safe area (${qrZonePromptInches()}) for programmatic QR insertion at export.`,
+    `Position: ${QR_ZONE.size}px square at x=${QR_ZONE.left}, y=${QR_ZONE.top} on ${PASS_WIDTH}×${PASS_HEIGHT} canvas.`,
+    `QR must visually dominate the lower half of the card (~${qrCardWidthPercent()}% of card width).`,
+    ``,
+    `LAYOUT PRIORITY (back, top to bottom):`,
+    `1. Upper area — collectible artwork + small authenticity seal (seal stays small)`,
+    `2. Large QR safe area — clear white square interior, no fake modules, no texture inside`,
+    `3. retroverse.live label band below QR`,
+    `4. Serial stamp at bottom edge`,
+    ``,
+    `REDUCE decorative ornament before reducing QR size.`,
+    `No embossed/beveled/rounded QR matrix. No ornamental frame eating into the white square.`,
+    `Ornament may sit OUTSIDE the safe area only — thin border at most.`,
+    ``,
+    `Real scannable QR (pure black on white) is inserted at export — never generated by AI.`,
+  ].join("\n");
+}
+
+/** Combined back functional zones — QR-first layout. */
 export function integratedBackFunctionalZonesPrompt(): string {
-  return [integratedQrZonePrompt(), ``, integratedSerialZonePrompt()].join("\n");
+  return [
+    `BACK SIDE — FUNCTIONAL LAYOUT (COLLECTOR CARD):`,
+    `Front = collectible artwork. Back = collectible artwork + dominant QR + serial.`,
+    `QR is the primary functional element — not a small medallion or badge.`,
+    ``,
+    integratedQrZonePrompt(),
+    ``,
+    integratedUrlZonePrompt(),
+    ``,
+    integratedSerialZonePrompt(),
+  ].join("\n");
 }
 
 export function qrZonePromptBlock(): string {
-  return integratedQrZonePrompt();
+  return integratedBackFunctionalZonesPrompt();
 }

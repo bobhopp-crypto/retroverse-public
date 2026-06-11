@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
-import { MyGenerationsWorkspace } from "@/components/ops/content-creator/MyGenerationsWorkspace";
+import { VNextWorkspace } from "@/components/ops/content-creator/VNextWorkspace";
 import { inspectPing } from "@/lib/inspect/pg";
 import { loadContentCreatorEras } from "@/lib/ops/content-creator/load-era-options";
 
-import "./content-creator.css";
+import "../content-creator.css";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Collectible Library — Content Creator",
+  title: "New Credential — Content Creator",
   robots: { index: false, follow: false },
 };
 
-export default async function ContentCreatorLibraryPage() {
+export default async function ContentCreatorCreatePage() {
   if (process.env.RETROVERSE_OPS !== "1") {
     notFound();
   }
@@ -32,13 +33,15 @@ export default async function ContentCreatorLibraryPage() {
     const eras = await loadContentCreatorEras();
     return (
       <main className="ops-page ops-page--content-creator cc-creator-page">
-        <MyGenerationsWorkspace eras={eras} />
+        <Suspense fallback={<p style={{ padding: "2rem" }}>Loading…</p>}>
+          <VNextWorkspace eras={eras} />
+        </Suspense>
       </main>
     );
   } catch {
     return (
       <main className="ops-page ops-page--content-creator">
-        <p style={{ padding: "2rem" }}>RVBR not seeded — run npx tsx tools/rvbr/seed-rvbr-profiles.ts</p>
+        <p style={{ padding: "2rem" }}>RVBR not seeded.</p>
       </main>
     );
   }

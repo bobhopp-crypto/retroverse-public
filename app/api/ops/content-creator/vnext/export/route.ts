@@ -31,6 +31,7 @@ export async function POST(req: Request) {
       frontUrl: vNextFileUrl(result.runId, "export/final-front.png"),
       backUrl: vNextFileUrl(result.runId, "export/final-back.png"),
       exportZipUrl: vNextFileUrl(result.runId, zipName),
+      qrVerification: result.qrVerification,
     });
   } catch (e) {
     const message = e instanceof Error ? e.message : "export_failed";

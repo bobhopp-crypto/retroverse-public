@@ -31,7 +31,7 @@ export default function ContentCreatorDebugPage() {
         ))}
       </ul>
       <p style={{ marginTop: "2rem" }}>
-        <a href="/ops/content-creator">← Content Creator</a>
+        <a href="/ops/content-creator/create">← New Credential</a>
       </p>
     </main>
   );

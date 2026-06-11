@@ -10,6 +10,7 @@ import {
   normalizePassTypeLabel,
   type ControlledPassTypeLabel,
 } from "@/lib/ops/creative-lab/pass-text-governance";
+import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 
 type PocArtifact = {
@@ -26,7 +27,7 @@ type PocResult = {
   runDir: string;
   exportZipUrl: string;
   artifacts: PocArtifact[];
-  qrVerification: { ok: boolean; notes: string[] } | null;
+  qrVerification: QrVerificationResult | null;
 };
 
 type Props = {
@@ -249,10 +250,14 @@ export function V2PocWorkspace({ eras }: Props) {
             <code>{result.runDir}</code>
           </div>
           {result.qrVerification ? (
-            <p className={result.qrVerification.ok ? "cc-poc__qr-ok" : "cc-poc__qr-bad"}>
-              QR: {result.qrVerification.ok ? "verified scannable" : "verification failed"}
-              {result.qrVerification.notes[0] ? ` — ${result.qrVerification.notes[0]}` : ""}
-            </p>
+            <div className={result.qrVerification.ok ? "cc-poc__qr-ok" : "cc-poc__qr-bad"}>
+              <p>
+                QR Width: {result.qrVerification.physicalWidthIn.toFixed(2)}" · Height:{" "}
+                {result.qrVerification.physicalHeightIn.toFixed(2)}"
+              </p>
+              <p>Scan Test: {result.qrVerification.decodePass ? "PASS" : "FAIL"}</p>
+              <p>Export: {result.qrVerification.ok ? "PASS" : "FAIL"}</p>
+            </div>
           ) : null}
           <a className="cc-btn cc-btn--export" href={result.exportZipUrl} download>
             Download v2 Phase 1 Package

@@ -9,6 +9,7 @@ import {
   type ExportCompleteState,
 } from "@/components/ops/content-creator/ExportCompletePanel";
 import { projectSecondaryLine } from "@/lib/ops/creative-lab/project-secondary-line";
+import { emptyQrZoneAudit } from "@/lib/ops/creative-lab/qr-zone-render";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
 import type { ContentArtifactType, ContentCreatorEraOption } from "@/lib/ops/content-creator/types";
@@ -237,7 +238,19 @@ export function ContentCreatorWorkspace({ eras }: Props) {
               front: { filename: "final-front.png", path: "" },
               back: { filename: "final-back.png", path: "" },
               package: { filename: data.zipFilename ?? "export.zip", path: "", rel: data.zipRel },
-              qrVerification: { ok: false, decodedUrl: null, expectedUrl: qrUrl, notes: [] },
+              qrVerification: {
+                ok: false,
+                decodedUrl: null,
+                expectedUrl: qrUrl,
+                notes: [],
+                physicalWidthIn: 0,
+                physicalHeightIn: 0,
+                pixelSize: { width: 0, height: 0 },
+                minSizeIn: 1.5,
+                sizePass: false,
+                decodePass: false,
+                zoneAudit: emptyQrZoneAudit(),
+              },
               textGovernance: { note: "Loaded from disk." },
             },
           });
@@ -466,7 +479,19 @@ export function ContentCreatorWorkspace({ eras }: Props) {
               front: { filename: "final-front.png", path: "" },
               back: { filename: "final-back.png", path: "" },
               package: { filename: zipFilename, path: "", rel: zipRel },
-              qrVerification: { ok: false, decodedUrl: null, expectedUrl: qrUrl, notes: [] },
+              qrVerification: {
+                ok: false,
+                decodedUrl: null,
+                expectedUrl: qrUrl,
+                notes: [],
+                physicalWidthIn: 0,
+                physicalHeightIn: 0,
+                pixelSize: { width: 0, height: 0 },
+                minSizeIn: 1.5,
+                sizePass: false,
+                decodePass: false,
+                zoneAudit: emptyQrZoneAudit(),
+              },
               textGovernance: { note: "Export complete." },
             } as ExportCompleteState["report"]),
         });
