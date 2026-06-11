@@ -73,6 +73,8 @@ export async function POST(req: Request) {
       runId: manifest.runId,
       frontUrl: vNextFileUrl(manifest.runId, manifest.frontFilename),
       backUrl: vNextFileUrl(manifest.runId, manifest.backFilename),
+      promptInspector: manifest.promptInspector,
+      qualityScores: manifest.promptInspector?.front.qualityScores,
     });
   } catch (e) {
     const message = e instanceof Error ? e.message : "generate_failed";

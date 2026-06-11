@@ -2,6 +2,8 @@
 
 import { useState, type ReactNode } from "react";
 
+import { PromptInspectorModal, QualityPanel } from "@/components/ops/content-creator/PromptInspectorModal";
+import type { ComposedRvbrPrompt, PromptQualityScores } from "@/lib/creative/rvbr-prompt-types";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import {
   CREATIVE_DIRECTIONS,
@@ -105,6 +107,61 @@ export function VNextWorkspace({ eras }: Props) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [run, setRun] = useState<RunState | null>(null);
+  const [promptInspector, setPromptInspector] = useState<{
+    front: ComposedRvbrPrompt | null;
+    back: ComposedRvbrPrompt | null;
+  }>({ front: null, back: null });
+  const [qualityScores, setQualityScores] = useState<PromptQualityScores | null>(null);
+  const [inspectorOpen, setInspectorOpen] = useState(false);
+
+  async function composePrompts(): Promise<void> {
+    const payload = {
+      eraSlug,
+      artifact,
+      event: top.event,
+      venue: top.venue,
+      date: top.date,
+      featuredYears: top.years,
+      passTypeLabel: top.passTypeLabel,
+      qrUrl: top.qrUrl,
+      compositionSeed: Date.now(),
+      ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+    };
+
+    const [frontRes, backRes] = await Promise.all([
+      fetch("/api/ops/content-creator/vnext/compose-prompt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...payload, side: "front" }),
+      }),
+      fetch("/api/ops/content-creator/vnext/compose-prompt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...payload, side: "back" }),
+      }),
+    ]);
+
+    const frontData = (await frontRes.json()) as ComposedRvbrPrompt & { ok?: boolean; error?: string };
+    const backData = (await backRes.json()) as ComposedRvbrPrompt & { ok?: boolean; error?: string };
+    if (!frontRes.ok || !frontData.finalPrompt) throw new Error(frontData.error ?? "compose_front_failed");
+    if (!backRes.ok || !backData.finalPrompt) throw new Error(backData.error ?? "compose_back_failed");
+
+    setPromptInspector({ front: frontData, back: backData });
+    setQualityScores(frontData.qualityScores);
+  }
+
+  async function viewPrompt() {
+    setBusy(true);
+    setError(null);
+    try {
+      await composePrompts();
+      setInspectorOpen(true);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "compose_failed");
+    } finally {
+      setBusy(false);
+    }
+  }
 
   function parseYears(raw: string): number[] {
     return raw
@@ -132,13 +189,22 @@ export function VNextWorkspace({ eras }: Props) {
           ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
         }),
       });
-      const data = (await res.json()) as RunState & { ok?: boolean; error?: string };
+      const data = (await res.json()) as RunState & {
+        ok?: boolean;
+        error?: string;
+        promptInspector?: { front: ComposedRvbrPrompt; back: ComposedRvbrPrompt };
+        qualityScores?: PromptQualityScores;
+      };
       if (!res.ok || !data.ok) throw new Error(data.error ?? "generate_failed");
       setRun({
         runId: data.runId,
         frontUrl: `${data.frontUrl}?t=${Date.now()}`,
         backUrl: `${data.backUrl}?t=${Date.now()}`,
       });
+      if (data.promptInspector) {
+        setPromptInspector(data.promptInspector);
+        setQualityScores(data.qualityScores ?? data.promptInspector.front.qualityScores);
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "generate_failed");
     } finally {
@@ -417,6 +483,10 @@ export function VNextWorkspace({ eras }: Props) {
             />
           </label>
         </div>
+
+        {qualityScores ? (
+          <QualityPanel scores={qualityScores} />
+        ) : null}
       </section>
 
       <section className="cc-creator__secondary-actions">
@@ -436,6 +506,14 @@ export function VNextWorkspace({ eras }: Props) {
         >
           Regenerate Back
         </button>
+        <button
+          type="button"
+          className="cc-creator__btn cc-creator__btn--secondary"
+          disabled={busy || !eraSlug}
+          onClick={() => void viewPrompt()}
+        >
+          View Prompt
+        </button>
       </section>
 
       {error ? <p className="cc-creator__error" role="alert">{error}</p> : null}
@@ -448,6 +526,13 @@ export function VNextWorkspace({ eras }: Props) {
           <FieldGrid fields={back} onChange={setBack} showQr />
         </CollapsiblePanel>
       </section>
+
+      <PromptInspectorModal
+        open={inspectorOpen}
+        onClose={() => setInspectorOpen(false)}
+        front={promptInspector.front}
+        back={promptInspector.back}
+      />
     </div>
   );
 }

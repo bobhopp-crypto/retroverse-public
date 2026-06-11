@@ -10,7 +10,9 @@ import {
   DEFAULT_CREATIVE_DIRECTION_SETTINGS,
   type CreativeDirectionSettings,
 } from "@/lib/ops/content-creator/creative-direction";
+import type { ComposedRvbrPrompt } from "@/lib/creative/rvbr-prompt-types";
 import {
+  artDirectorPromptText,
   renderArtDirectorBackPrompt,
   renderArtDirectorFrontPrompt,
   type ArtDirectorFields,
@@ -41,6 +43,10 @@ export type VNextManifest = {
   serialNumber?: string;
   compositionSeed?: number;
   creativeSettings?: CreativeDirectionSettings;
+  promptInspector?: {
+    front: ComposedRvbrPrompt;
+    back: ComposedRvbrPrompt;
+  };
   exportZipFilename?: string;
   startedAt: string;
   updatedAt: string;
@@ -93,13 +99,16 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
 
   const compositionSeed = Date.now();
   const creativeSettings = input.creativeSettings ?? DEFAULT_CREATIVE_DIRECTION_SETTINGS;
-  const frontPrompt = renderArtDirectorFrontPrompt(
+  const frontComposed = renderArtDirectorFrontPrompt(
     input.profile,
     frontFields,
     compositionSeed,
     creativeSettings,
+    input.artifact,
   );
-  const frontResult = await generateArtwork(artworkContext(frontPrompt, frontFields, input.profile), {
+  const frontResult = await generateArtwork(
+    artworkContext(artDirectorPromptText(frontComposed), frontFields, input.profile),
+    {
     count: 1,
     quality: "medium",
     size: "1024x1536",
@@ -110,13 +119,16 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
   const frontFilename = "front.png";
   await writePng(runDir, frontFilename, frontImage.buffer);
 
-  const backPrompt = renderArtDirectorBackPrompt(
+  const backComposed = renderArtDirectorBackPrompt(
     input.profile,
     backFields,
     compositionSeed,
     creativeSettings,
+    input.artifact,
   );
-  const backResult = await generateArtwork(artworkContext(backPrompt, backFields, input.profile), {
+  const backResult = await generateArtwork(
+    artworkContext(artDirectorPromptText(backComposed), backFields, input.profile),
+    {
     count: 1,
     quality: "medium",
     size: "1024x1536",
@@ -142,6 +154,7 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
     serialNumber: serialForRun(runId),
     compositionSeed,
     creativeSettings,
+    promptInspector: { front: frontComposed, back: backComposed },
     startedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   };
@@ -162,13 +175,16 @@ export async function runVNextRegenerateFront(args: {
   const compositionSeed = Date.now();
   const creativeSettings =
     args.creativeSettings ?? manifest.creativeSettings ?? DEFAULT_CREATIVE_DIRECTION_SETTINGS;
-  const prompt = renderArtDirectorFrontPrompt(
+  const composed = renderArtDirectorFrontPrompt(
     args.profile,
     fields,
     compositionSeed,
     creativeSettings,
+    manifest.artifact,
   );
-  const result = await generateArtwork(artworkContext(prompt, fields, args.profile), {
+  const result = await generateArtwork(
+    artworkContext(artDirectorPromptText(composed), fields, args.profile),
+    {
     count: 1,
     quality: "medium",
     size: "1024x1536",
@@ -180,6 +196,11 @@ export async function runVNextRegenerateFront(args: {
   manifest.frontFields = fields;
   manifest.compositionSeed = compositionSeed;
   manifest.creativeSettings = creativeSettings;
+  if (manifest.promptInspector) {
+    manifest.promptInspector.front = composed;
+  } else {
+    manifest.promptInspector = { front: composed, back: composed };
+  }
   manifest.eraSlug = args.profile.slug;
   manifest.visualWorldId = resolveVisualWorldFromRvbr(args.profile);
   manifest.exportZipFilename = undefined;
@@ -201,13 +222,16 @@ export async function runVNextRegenerateBack(args: {
   const compositionSeed = manifest.compositionSeed ?? Date.now();
   const creativeSettings =
     args.creativeSettings ?? manifest.creativeSettings ?? DEFAULT_CREATIVE_DIRECTION_SETTINGS;
-  const prompt = renderArtDirectorBackPrompt(
+  const composed = renderArtDirectorBackPrompt(
     args.profile,
     fields,
     compositionSeed,
     creativeSettings,
+    manifest.artifact,
   );
-  const result = await generateArtwork(artworkContext(prompt, fields, args.profile), {
+  const result = await generateArtwork(
+    artworkContext(artDirectorPromptText(composed), fields, args.profile),
+    {
     count: 1,
     quality: "medium",
     size: "1024x1536",
@@ -219,6 +243,11 @@ export async function runVNextRegenerateBack(args: {
   await writePng(manifest.runDir, manifest.backFilename, image.buffer);
   manifest.backFields = fields;
   manifest.creativeSettings = creativeSettings;
+  if (manifest.promptInspector) {
+    manifest.promptInspector.back = composed;
+  } else {
+    manifest.promptInspector = { front: composed, back: composed };
+  }
   manifest.eraSlug = args.profile.slug;
   manifest.visualWorldId = resolveVisualWorldFromRvbr(args.profile);
   manifest.exportZipFilename = undefined;

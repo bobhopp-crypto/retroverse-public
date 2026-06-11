@@ -6,7 +6,10 @@ import type { ArtworkPromptContext } from "@/lib/ops/creative-lab/artwork/types"
 import { creativeLabRvbrValidationRunDir } from "@/lib/ops/creative-lab/paths";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { DEFAULT_CREATIVE_DIRECTION_SETTINGS } from "@/lib/ops/content-creator/creative-direction";
-import { renderArtDirectorFrontPrompt } from "@/lib/ops/content-creator/rvbr-art-director-prompt";
+import {
+  artDirectorPromptText,
+  renderArtDirectorFrontPrompt,
+} from "@/lib/ops/content-creator/rvbr-art-director-prompt";
 import {
   RVBR_VALIDATION_ERAS,
   rvbrEraVisualDnaForProfile,
@@ -77,13 +80,13 @@ export async function runRvbrValidation(
     if (!profile) continue;
 
     const compositionSeed = Date.now() + i * 7919;
-    const prompt = renderArtDirectorFrontPrompt(
+    const composed = renderArtDirectorFrontPrompt(
       profile,
       f,
       compositionSeed,
       DEFAULT_CREATIVE_DIRECTION_SETTINGS,
     );
-    const result = await generateArtwork(artworkContext(prompt, profile), {
+    const result = await generateArtwork(artworkContext(artDirectorPromptText(composed), profile), {
       count: 1,
       quality: "medium",
       size: "1024x1536",
