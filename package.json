@@ -31,7 +31,10 @@
     "ops:media-lab": "npx --yes tsx tools/run-media-lab-transcribe.ts",
     "ops:media-lab-labels": "npx --yes tsx tools/media-lab/build-segment-labels-cli.ts",
     "rvbr:seed": "npx --yes tsx tools/rvbr/seed-rvbr-profiles.ts",
-    "smoke:public-search": "node tools/smoke-public-search.mjs"
+    "smoke:public-search": "node tools/smoke-public-search.mjs",
+    "live-now-playing": "npx --yes tsx tools/live/start-live-now-playing.ts",
+    "live-stop": "npx --yes tsx tools/live/stop-live-now-playing.ts",
+    "live-diagnose": "npx --yes tsx tools/live/diagnose-live-now-playing.ts"
   },
   "dependencies": {
     "jsqr": "^1.4.0",

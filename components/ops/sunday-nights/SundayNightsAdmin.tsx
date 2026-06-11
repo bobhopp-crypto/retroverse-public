@@ -310,6 +310,7 @@ export function SundayNightsAdmin() {
             title: song.title,
             year: song.year,
             songKey: song.key,
+            source: "manual",
           },
         }),
       });

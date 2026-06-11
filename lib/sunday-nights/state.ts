@@ -39,7 +39,34 @@ function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
   const songKey =
     typeof obj.songKey === "string" && obj.songKey.trim() ? obj.songKey.trim() : null;
 
-  return { rvtr, artist, title, year, coverUrl, songKey };
+  const source = obj.source === "manual" || obj.source === "bridge" ? obj.source : null;
+  const filepath =
+    typeof obj.filepath === "string" && obj.filepath.trim() ? obj.filepath.trim() : null;
+  const deck = typeof obj.deck === "number" && Number.isFinite(obj.deck) ? obj.deck : null;
+  const bridgeTimestamp =
+    typeof obj.bridgeTimestamp === "string" && obj.bridgeTimestamp.trim()
+      ? obj.bridgeTimestamp.trim()
+      : null;
+  const resolution =
+    obj.resolution === "filepath" ||
+    obj.resolution === "fallback" ||
+    obj.resolution === "unresolved"
+      ? obj.resolution
+      : null;
+
+  return {
+    rvtr,
+    artist,
+    title,
+    year,
+    coverUrl,
+    songKey,
+    source,
+    filepath,
+    deck,
+    bridgeTimestamp,
+    resolution,
+  };
 }
 
 function normalizeState(raw: unknown): SundayNightsState {

@@ -99,6 +99,11 @@ export async function PATCH(req: Request) {
           year: typeof payload.live.year === "number" ? payload.live.year : null,
           coverUrl: payload.live.coverUrl ?? null,
           songKey: payload.live.songKey ?? null,
+          source: "manual",
+          filepath: null,
+          deck: null,
+          bridgeTimestamp: null,
+          resolution: null,
         });
       } else if (payload.currentTrackId === null || payload.currentTrackId === undefined) {
         state = await setLiveTrack(null);
