@@ -3,6 +3,13 @@ import {
   NO_MEASUREMENT_ON_ARTWORK_PROMPT,
 } from "@/lib/ops/creative-lab/pass-prompt-safety";
 import {
+  avoidEraTropesPromptBlock,
+  creativeDirectionById,
+  creativeDirectionPromptBlock,
+  maximizeVariationPromptBlock,
+  type CreativeDirectionSettings,
+} from "@/lib/ops/content-creator/creative-direction";
+import {
   fullBleedFrontPrompt,
   integratedBackFunctionalZonesPrompt,
   PASS_HEIGHT,
