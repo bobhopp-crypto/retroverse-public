@@ -6,6 +6,11 @@ import { PromptInspectorModal, QualityPanel } from "@/components/ops/content-cre
 import type { ComposedRvbrPrompt, PromptQualityScores } from "@/lib/creative/rvbr-prompt-types";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import {
+  ARTIFACT_ARCHETYPES,
+  ARTIFACT_ARCHETYPE_IDS,
+  type ArtifactArchetypeChoice,
+} from "@/lib/creative/artifact-archetypes";
+import {
   CREATIVE_DIRECTIONS,
   CREATIVE_DIRECTION_IDS,
   type CreativeDirectionId,
@@ -56,8 +61,13 @@ function defaultFields(): ContentFields {
   };
 }
 
-function creativePayload(creativeDirection: CreativeDirectionId, avoidEraTropes: boolean, maximizeVariation: boolean) {
-  return { creativeDirection, avoidEraTropes, maximizeVariation };
+function creativePayload(
+  creativeDirection: CreativeDirectionId,
+  avoidEraTropes: boolean,
+  maximizeVariation: boolean,
+  artifactArchetype: ArtifactArchetypeChoice,
+) {
+  return { creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype };
 }
 
 function fieldsPayload(prefix: "front" | "back", f: ContentFields) {
@@ -98,6 +108,9 @@ export function VNextWorkspace({ eras }: Props) {
   );
   const [avoidEraTropes, setAvoidEraTropes] = useState(CONTENT_CREATOR_DEFAULTS.avoidEraTropes);
   const [maximizeVariation, setMaximizeVariation] = useState(CONTENT_CREATOR_DEFAULTS.maximizeVariation);
+  const [artifactArchetype, setArtifactArchetype] = useState<ArtifactArchetypeChoice>(
+    CONTENT_CREATOR_DEFAULTS.artifactArchetype,
+  );
   const [top, setTop] = useState(defaultFields);
   const [front, setFront] = useState(defaultFields);
   const [back, setBack] = useState(defaultFields);
@@ -125,7 +138,7 @@ export function VNextWorkspace({ eras }: Props) {
       passTypeLabel: top.passTypeLabel,
       qrUrl: top.qrUrl,
       compositionSeed: Date.now(),
-      ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+      ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype),
     };
 
     const [frontRes, backRes] = await Promise.all([
@@ -186,7 +199,7 @@ export function VNextWorkspace({ eras }: Props) {
           artifact,
           ...fieldsPayload("front", f),
           ...fieldsPayload("back", b),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype),
         }),
       });
       const data = (await res.json()) as RunState & {
@@ -224,7 +237,7 @@ export function VNextWorkspace({ eras }: Props) {
           runId: run.runId,
           eraSlug,
           ...fieldsPayload("front", front),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype),
         }),
       });
       const data = (await res.json()) as RunState & { ok?: boolean; error?: string };
@@ -249,7 +262,7 @@ export function VNextWorkspace({ eras }: Props) {
           runId: run.runId,
           eraSlug,
           ...fieldsPayload("back", back),
-          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation),
+          ...creativePayload(creativeDirection, avoidEraTropes, maximizeVariation, artifactArchetype),
         }),
       });
       const data = (await res.json()) as RunState & { ok?: boolean; error?: string };
@@ -438,6 +451,31 @@ export function VNextWorkspace({ eras }: Props) {
                 aria-pressed={creativeDirection === id}
               >
                 {CREATIVE_DIRECTIONS[id].label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="cc-creator__setup-group">
+          <span className="cc-creator__setup-label">Artifact Archetype</span>
+          <div className="cc-creator__direction-grid" role="group" aria-label="Artifact Archetype">
+            <button
+              type="button"
+              className={`cc-creator__direction-btn${artifactArchetype === "random" ? " is-on" : ""}`}
+              onClick={() => setArtifactArchetype("random")}
+              aria-pressed={artifactArchetype === "random"}
+            >
+              Random
+            </button>
+            {ARTIFACT_ARCHETYPE_IDS.map((id) => (
+              <button
+                key={id}
+                type="button"
+                className={`cc-creator__direction-btn${artifactArchetype === id ? " is-on" : ""}`}
+                onClick={() => setArtifactArchetype(id)}
+                aria-pressed={artifactArchetype === id}
+              >
+                {ARTIFACT_ARCHETYPES[id].label}
               </button>
             ))}
           </div>

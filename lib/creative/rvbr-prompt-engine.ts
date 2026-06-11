@@ -1,3 +1,21 @@
+import { antiRepetitionPromptBlock } from "@/lib/creative/anti-repetition";
+import {
+  artifactArchetypeById,
+  artifactArchetypePromptBlock,
+  resolveArtifactArchetype,
+} from "@/lib/creative/artifact-archetypes";
+import {
+  eraProfilePromptBlock,
+  loadRvbrPromptProfile,
+} from "@/lib/creative/rvbr-prompt-profile";
+import type {
+  ComposedRvbrPrompt,
+  PromptDebugBreakdown,
+  PromptQualityLevel,
+  PromptQualityScores,
+  PromptSide,
+} from "@/lib/creative/rvbr-prompt-types";
+import { venueReferencePromptBlock } from "@/lib/creative/venue-references";
 import {
   avoidEraTropesPromptBlock,
   creativeDirectionById,
@@ -5,10 +23,6 @@ import {
   maximizeVariationPromptBlock,
   type CreativeDirectionSettings,
 } from "@/lib/ops/content-creator/creative-direction";
-import {
-  eraProfilePromptBlock,
-  loadRvbrPromptProfile,
-} from "@/lib/creative/rvbr-prompt-profile";
 import {
   fullBleedFrontPrompt,
   integratedBackFunctionalZonesPrompt,
@@ -27,13 +41,6 @@ import { rvbrEraVisualMandateBlock } from "@/lib/ops/content-creator/rvbr-era-vi
 import type { ContentArtifactType } from "@/lib/ops/content-creator/types";
 import { buildRvbrPresentation } from "@/lib/ops/rvbr/presentation";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
-import type {
-  ComposedRvbrPrompt,
-  PromptDebugBreakdown,
-  PromptQualityLevel,
-  PromptQualityScores,
-  PromptSide,
-} from "@/lib/creative/rvbr-prompt-types";
 
 export type {
   ComposedRvbrPrompt,
@@ -57,34 +64,33 @@ export type RvbrPromptEngineInput = {
 const RETROVERSE_BRAND_RULES = [
   `RETROVERSE BRAND RULES:`,
   `- Collectible artifact first, credential second`,
-  `- Feels discovered rather than manufactured`,
-  `- Music-history object — tangible keepsake from a specific era`,
-  `- Authentic printed ephemera — poster, pass, sleeve, card, or promo stock`,
+  `- Feels discovered rather than manufactured — music-history object, not AI poster art`,
+  `- Authentic printed ephemera: ticket, pass, sleeve, card, invite, laminate, promo stock`,
+  `- Tangible keepsake from the Retroverse universe — not generic decorated template`,
   `- Visual storytelling over form-field layout`,
   `- Avoid generic corporate design, SaaS UI, conference badge templates`,
-  `- Retroverse identity: curated, connected, emotionally rich music memorabilia`,
 ].join("\n");
 
 const ANTI_TEMPLATE_RULES = [
   `ANTI-TEMPLATE RULES:`,
   `- No generic laminate credential with horizontal metadata strips`,
+  `- No BIG TITLE → BIG ART → DATE → YEARS stacked poster layout`,
   `- No conference-badge photo holes or lanyard corporate ID`,
-  `- No employee-access color-block security zones`,
-  `- Vary structural composition across generations`,
+  `- Each artifact archetype must produce a materially different object type`,
 ].join("\n");
 
 const TEXT_INTEGRATION = [
   `TEXT INTEGRATION:`,
-  `- Governed text as poster typography — curved, arched, bannered, hand-lettered`,
-  `- Weave event, venue, date, years into borders and illustration — not form fields`,
+  `- Governed text woven into artifact structure — not form fields`,
+  `- Typography follows archetype object type (ticket stub, press card, laminate plate, etc.)`,
 ].join("\n");
 
 const BACK_LAYOUTS = [
   "Souvenir back — metadata in ornamental border; QR medallion and serial plate in lower area.",
   "Handbill reverse — illustration echo; QR seal above collector serial footer.",
   "Ticket back — stub layout; QR in embossed seal, serial in numbering plate.",
-  "Poster reverse — ribbon banner text; QR and serial as verification elements.",
-  "Memorabilia back — collage ephemera; QR and serial as stamp and seal plates.",
+  "Label promo reverse — catalog strip and QR verification medallion.",
+  "Press credential back — editorial footer and QR press corps stamp.",
 ] as const;
 
 function pickBackLayout(seed: number): string {
@@ -133,7 +139,7 @@ function antiClicheLayer(
 
   if (eraProfile.discouragedMotifs.length) {
     parts.push(
-      `ERA-DISCOURAGED MOTIFS (do not default to these):`,
+      `ERA-DISCOURAGED MOTIFS:`,
       ...eraProfile.discouragedMotifs.map((m) => `- ${m}`),
     );
   }
@@ -155,7 +161,7 @@ function antiClicheLayer(
 function basePromptLayer(input: RvbrPromptEngineInput): string {
   const artifact =
     input.artifactType === "pass"
-      ? "portrait VIP laminate collectible pass"
+      ? "portrait Retroverse collectible pass"
       : `${input.artifactType} collectible artifact`;
   const sideLabel = input.side === "front" ? "FRONT" : "BACK / REVERSE";
 
@@ -163,7 +169,7 @@ function basePromptLayer(input: RvbrPromptEngineInput): string {
     `RVBR PROMPT ENGINE — ${sideLabel}`,
     `Create a FINISHED ${sideLabel} of a ${artifact}.`,
     `Canvas: ${PASS_WIDTH}×${PASS_HEIGHT}px, portrait, print-ready at 2.25" × 3.5".`,
-    `User inputs are governed — never pass raw field values without Retroverse brand orchestration.`,
+    `User inputs pass through Retroverse brand orchestration — never raw to the image model.`,
     ANTI_TEMPLATE_RULES,
   ].join("\n");
 }
@@ -191,13 +197,21 @@ function scorePromptQuality(
   input: RvbrPromptEngineInput,
   eraProfile: ReturnType<typeof loadRvbrPromptProfile>,
 ): PromptQualityScores {
-  const motifCount = eraProfile.preferredMotifs.length + eraProfile.preferredComposition.length;
+  const motifCount =
+    eraProfile.preferredMotifs.length +
+    eraProfile.preferredComposition.length +
+    (eraProfile.compositionVariety?.length ?? 0);
   const eraSpecificity: PromptQualityLevel =
-    motifCount >= 8 ? "high" : motifCount >= 4 ? "medium" : "low";
+    motifCount >= 10 ? "high" : motifCount >= 5 ? "medium" : "low";
 
   const brandSpecificity: PromptQualityLevel = "high";
 
-  const variationScore: PromptQualityLevel = input.settings.maximizeVariation ? "high" : "medium";
+  const variationScore: PromptQualityLevel =
+    input.settings.maximizeVariation && input.settings.artifactArchetype === "random"
+      ? "high"
+      : input.settings.maximizeVariation
+        ? "medium"
+        : "low";
 
   let clicheRisk: PromptQualityLevel = "medium";
   if (input.settings.avoidEraTropes && eraProfile.negativePromptTerms.length >= 4) {
@@ -216,6 +230,12 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
   const dir = creativeDirectionById(input.settings.creativeDirection);
   const eraLabel = `${input.profile.name} (${input.profile.eraStartYear}–${input.profile.eraEndYear})`;
 
+  const archetypeId = resolveArtifactArchetype(
+    input.settings.artifactArchetype,
+    input.compositionSeed,
+  );
+  const archetype = artifactArchetypeById(archetypeId);
+
   const textFields: PassTextFields = {
     event: input.fields.event,
     venue: input.fields.venue,
@@ -225,6 +245,7 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
   };
 
   const base = basePromptLayer(input);
+  const archetypeContent = artifactArchetypePromptBlock(archetype, input.compositionSeed);
   const eraProfileContent = [
     eraProfilePromptBlock(eraProfile, eraLabel),
     rvbrVisualDnaBlock(input.profile),
@@ -236,7 +257,15 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
 
   const brand = RETROVERSE_BRAND_RULES;
   const direction = creativeDirectionPromptBlock(input.settings, input.compositionSeed);
+  const venueRef =
+    venueReferencePromptBlock(input.fields.venue) ??
+    `VENUE: No reference asset for "${input.fields.venue}" — use typographic venue treatment only. Do not invent or illustrate a fictional building facade.`;
   const antiCliche = antiClicheLayer(input.settings, eraProfile);
+  const antiRep = antiRepetitionPromptBlock(
+    input.profile.slug,
+    eraProfile,
+    input.settings.maximizeVariation,
+  );
   const layout = layoutRulesLayer(input);
   const eventData = [textGovernancePromptBlock(textFields, input.fields.qrUrl), TEXT_INTEGRATION].join(
     "\n\n",
@@ -245,10 +274,13 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
 
   const debugBreakdown: PromptDebugBreakdown = {
     basePrompt: { id: "base", label: "Base Prompt", content: base },
+    artifactArchetype: { id: "archetype", label: "Artifact Archetype", content: archetypeContent },
     eraProfile: { id: "era", label: "Era Layer", content: eraProfileContent },
     brandRules: { id: "brand", label: "Brand Layer", content: brand },
     directionRules: { id: "direction", label: "Direction Layer", content: direction },
+    venueReference: { id: "venue", label: "Venue Reference", content: venueRef },
     antiClicheRules: { id: "anti-cliche", label: "Anti-Cliché Layer", content: antiCliche },
+    antiRepetition: { id: "anti-repetition", label: "Anti-Repetition Layer", content: antiRep },
     layoutRules: { id: "layout", label: "Layout Layer", content: layout },
     eventData: { id: "event", label: "Event Data", content: eventData },
     rvbrMandate: { id: "mandate", label: "RVBR Era Mandate", content: mandate },
@@ -256,6 +288,9 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
 
   const finalPrompt = [
     base,
+    ``,
+    `═══ ARTIFACT ARCHETYPE ═══`,
+    archetypeContent,
     ``,
     `═══ ERA STYLE ═══`,
     eraProfileContent,
@@ -266,8 +301,14 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     `═══ CREATIVE DIRECTION ═══`,
     direction,
     ``,
+    `═══ VENUE REFERENCE ═══`,
+    venueRef,
+    ``,
     `═══ ANTI-CLICHÉ ═══`,
     antiCliche,
+    ``,
+    `═══ ANTI-REPETITION ═══`,
+    antiRep,
     ``,
     `═══ LAYOUT ═══`,
     layout,
@@ -278,7 +319,7 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     `═══ RVBR ERA MANDATE (PRIMARY) ═══`,
     mandate,
     ``,
-    `FINAL: ${input.side === "front" ? "100% artwork front" : "QR + serial on back"} · Direction: ${dir.label} · Seed: ${input.compositionSeed}`,
+    `FINAL: ${input.side === "front" ? "100% artwork front" : "QR + serial on back"} · Archetype: ${archetype.label} · Direction: ${dir.label} · Seed: ${input.compositionSeed}`,
   ].join("\n");
 
   return {

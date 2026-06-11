@@ -75,8 +75,11 @@ export async function compositeVNextExport(args: {
 
   await sharp(args.frontPng).png().toFile(frontPath);
 
-  const qrColors = qrColorsForProfile(args.profile);
-  const qrBuffer = await generateEraQrPng(args.qrUrl, QR_ZONE.size, qrColors);
+  // QR modules stay high-contrast black/white for scan reliability; era color lives in AI frame only.
+  const qrBuffer = await generateEraQrPng(args.qrUrl, QR_ZONE.size, {
+    dark: "#000000",
+    light: "#ffffff",
+  });
   const serialSvg = serialOverlaySvg(args.serialNumber);
 
   await sharp(args.backPng)

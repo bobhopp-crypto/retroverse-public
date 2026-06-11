@@ -17,10 +17,13 @@ type Props = {
 
 const LAYER_ORDER: (keyof PromptDebugBreakdown)[] = [
   "basePrompt",
+  "artifactArchetype",
   "eraProfile",
   "brandRules",
   "directionRules",
+  "venueReference",
   "antiClicheRules",
+  "antiRepetition",
   "layoutRules",
   "eventData",
   "rvbrMandate",

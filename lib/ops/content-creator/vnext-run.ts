@@ -10,6 +10,7 @@ import {
   DEFAULT_CREATIVE_DIRECTION_SETTINGS,
   type CreativeDirectionSettings,
 } from "@/lib/ops/content-creator/creative-direction";
+import { resolveArtifactArchetype } from "@/lib/creative/artifact-archetypes";
 import type { ComposedRvbrPrompt } from "@/lib/creative/rvbr-prompt-types";
 import {
   artDirectorPromptText,
@@ -43,6 +44,7 @@ export type VNextManifest = {
   serialNumber?: string;
   compositionSeed?: number;
   creativeSettings?: CreativeDirectionSettings;
+  resolvedArtifactArchetype?: string;
   promptInspector?: {
     front: ComposedRvbrPrompt;
     back: ComposedRvbrPrompt;
@@ -154,6 +156,10 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
     serialNumber: serialForRun(runId),
     compositionSeed,
     creativeSettings,
+    resolvedArtifactArchetype: resolveArtifactArchetype(
+      creativeSettings.artifactArchetype,
+      compositionSeed,
+    ),
     promptInspector: { front: frontComposed, back: backComposed },
     startedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),

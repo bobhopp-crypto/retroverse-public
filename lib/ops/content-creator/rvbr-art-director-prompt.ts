@@ -59,7 +59,9 @@ export function renderArtDirectorBackPrompt(
   artifactType: ContentArtifactType = "pass",
 ): ComposedRvbrPrompt {
   const dir = settings.creativeDirection;
-  const frontSummary = `${profile.name} · ${dir} · seed ${compositionSeed}`;
+  const archetype =
+    settings.artifactArchetype === "random" ? "random-archetype" : settings.artifactArchetype;
+  const frontSummary = `${profile.name} · ${dir} · ${archetype} · seed ${compositionSeed}`;
 
   return composeSide({
     side: "back",

@@ -1,3 +1,9 @@
+import {
+  DEFAULT_ARTIFACT_ARCHETYPE,
+  parseArtifactArchetypeChoice,
+  type ArtifactArchetypeChoice,
+} from "@/lib/creative/artifact-archetypes";
+
 /** Phase 2 — Era (visual language) and Creative Direction (composition) are independent. */
 
 export const CREATIVE_DIRECTION_IDS = [
@@ -21,12 +27,14 @@ export type CreativeDirectionSettings = {
   creativeDirection: CreativeDirectionId;
   avoidEraTropes: boolean;
   maximizeVariation: boolean;
+  artifactArchetype: ArtifactArchetypeChoice;
 };
 
 export const DEFAULT_CREATIVE_DIRECTION_SETTINGS: CreativeDirectionSettings = {
   creativeDirection: DEFAULT_CREATIVE_DIRECTION,
   avoidEraTropes: true,
   maximizeVariation: true,
+  artifactArchetype: DEFAULT_ARTIFACT_ARCHETYPE,
 };
 
 export type CreativeDirectionDef = {
@@ -238,6 +246,7 @@ export function parseCreativeDirectionSettings(
     creativeDirection,
     avoidEraTropes: body.avoidEraTropes !== false,
     maximizeVariation: body.maximizeVariation !== false,
+    artifactArchetype: parseArtifactArchetypeChoice(body.artifactArchetype),
   };
 }
 

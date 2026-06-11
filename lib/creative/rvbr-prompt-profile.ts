@@ -9,6 +9,7 @@ export type RvbrPromptProfile = {
   preferredColorLanguage: string[];
   discouragedMotifs: string[];
   negativePromptTerms: string[];
+  compositionVariety?: string[];
 };
 
 const PROFILE_DIR = join(process.cwd(), "data/rvbr/prompt-profiles");
@@ -44,6 +45,7 @@ export function loadRvbrPromptProfile(eraSlug: string): RvbrPromptProfile {
       preferredColorLanguage: raw.preferredColorLanguage ?? [],
       discouragedMotifs: raw.discouragedMotifs ?? [],
       negativePromptTerms: raw.negativePromptTerms ?? [],
+      compositionVariety: raw.compositionVariety ?? [],
     };
     cache.set(eraSlug, profile);
     return profile;

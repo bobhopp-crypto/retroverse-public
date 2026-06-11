@@ -15,6 +15,7 @@ export const CONTENT_CREATOR_DEFAULTS = {
   creativeDirection: DEFAULT_CREATIVE_DIRECTION_SETTINGS.creativeDirection,
   avoidEraTropes: DEFAULT_CREATIVE_DIRECTION_SETTINGS.avoidEraTropes,
   maximizeVariation: DEFAULT_CREATIVE_DIRECTION_SETTINGS.maximizeVariation,
+  artifactArchetype: DEFAULT_CREATIVE_DIRECTION_SETTINGS.artifactArchetype,
 } satisfies {
   event: string;
   venue: string;

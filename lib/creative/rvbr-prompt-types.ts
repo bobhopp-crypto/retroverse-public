@@ -17,10 +17,13 @@ export type PromptQualityScores = {
 
 export type PromptDebugBreakdown = {
   basePrompt: PromptLayer;
+  artifactArchetype: PromptLayer;
   eraProfile: PromptLayer;
   brandRules: PromptLayer;
   directionRules: PromptLayer;
+  venueReference: PromptLayer;
   antiClicheRules: PromptLayer;
+  antiRepetition: PromptLayer;
   layoutRules: PromptLayer;
   eventData: PromptLayer;
   rvbrMandate: PromptLayer;
