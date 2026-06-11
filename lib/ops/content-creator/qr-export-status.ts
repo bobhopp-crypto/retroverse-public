@@ -3,10 +3,10 @@ import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-co
 export type QrExportStatus = "not_exported" | "composited" | "scan_verified" | "failed";
 
 export const QR_STATUS_LABELS: Record<QrExportStatus, string> = {
-  not_exported: "Not exported",
-  composited: "QR composited",
-  scan_verified: "Scan verified",
-  failed: "Failed",
+  not_exported: "Artwork only — export to composite QR",
+  composited: "QR composited — verifying…",
+  scan_verified: "QR Present / Decodable",
+  failed: "QR Missing / Decode Failed",
 };
 
 export function resolveQrExportStatus(args: {
@@ -15,7 +15,8 @@ export function resolveQrExportStatus(args: {
 }): QrExportStatus {
   if (!args.exported) return "not_exported";
   if (!args.qrVerification) return "composited";
-  if (args.qrVerification.decodePass && args.qrVerification.ok) return "scan_verified";
-  if (args.qrVerification.decodePass) return "scan_verified";
+  if (args.qrVerification.ok && args.qrVerification.modulesPresent && args.qrVerification.decodePass) {
+    return "scan_verified";
+  }
   return "failed";
 }

@@ -18,10 +18,10 @@ export const QR_CARD_WIDTH_RATIO_TARGET = 0.7;
 
 export const QR_PRINT_MIN_IN = 1.5;
 export const QR_PRINT_PREFERRED_MIN_IN = 1.6;
-export const QR_PRINT_PREFERRED_MAX_IN = 1.7;
+export const QR_PRINT_PREFERRED_MAX_IN = 1.8;
 
-/** Target square QR — center of preferred band (~76% card width). */
-export const QR_PRINT_SIZE_IN = 1.72;
+/** Target square QR — centered in 1.6–1.8" print band. */
+export const QR_PRINT_SIZE_IN = 1.7;
 
 export const QR_SIZE_PX = Math.round(QR_PRINT_SIZE_IN * PX_PER_IN);
 export const QR_WIDTH_RATIO_OF_CARD = QR_PRINT_SIZE_IN / PASS_PRINT_WIDTH_IN;
@@ -145,8 +145,9 @@ export function integratedQrZonePrompt(): string {
   return [
     QR_PRODUCTION_DATA_RULES,
     ``,
-    `QR RESERVE WINDOW (BACK ONLY — INTENTIONAL DESIGN ELEMENT):`,
-    `Paint one large, flat, clean white square in the lower half of the back.`,
+    `QR RESERVE WINDOW (BACK ONLY — SQUARE ONLY):`,
+    `Paint one large, flat, clean WHITE SQUARE in the lower half of the back.`,
+    `The opening must be perfectly square — equal width and height. Never a rectangle or wide band.`,
     `This is laminate stock reserved for verification — not a temporary placeholder.`,
     `Do NOT print measurements, zone names, or editor labels on the artwork.`,
     ``,

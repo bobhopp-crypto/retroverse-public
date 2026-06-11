@@ -20,7 +20,11 @@ import {
 } from "@/lib/ops/content-creator/rvbr-art-director-prompt";
 import { buildVNextPrintPackage, type PrintPackagePaths } from "@/lib/ops/content-creator/print-package";
 import type { QrExportStatus } from "@/lib/ops/content-creator/qr-export-status";
-import { normalizePrintQuantity } from "@/lib/ops/content-creator/serial-stamp";
+import {
+  DEFAULT_PASS_NUMBERING,
+  normalizePrintQuantity,
+  type PassNumberingSettings,
+} from "@/lib/ops/content-creator/pass-numbering";
 import { syncGenerationFromVNext } from "@/lib/ops/content-creator/library";
 import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
@@ -60,6 +64,7 @@ export type VNextManifest = {
   };
   exportZipFilename?: string;
   quantity?: number;
+  numbering?: PassNumberingSettings;
   printPackage?: PrintPackagePaths;
   qrStatus?: QrExportStatus;
   qrVerification?: QrVerificationResult;
@@ -286,7 +291,7 @@ export async function runVNextRegenerateBack(args: {
 export async function runVNextExport(
   runId: string,
   profile: RvbrProfile,
-  options?: { quantity?: number; qrUrl?: string },
+  options?: { quantity?: number; qrUrl?: string; numbering?: PassNumberingSettings },
 ): Promise<
   VNextManifest & {
     exportZipPath: string;
@@ -300,10 +305,12 @@ export async function runVNextExport(
   const frontPng = await readFile(join(manifest.runDir, manifest.frontFilename));
   const backPng = await readFile(join(manifest.runDir, manifest.backFilename));
   const quantity = normalizePrintQuantity(options?.quantity ?? manifest.quantity, 12);
+  const numbering = options?.numbering ?? manifest.numbering ?? DEFAULT_PASS_NUMBERING;
   const qrUrl =
     options?.qrUrl?.trim() || manifest.backFields.qrUrl?.trim() || "https://retroverse.live";
   manifest.backFields = { ...manifest.backFields, qrUrl };
   manifest.quantity = quantity;
+  manifest.numbering = numbering;
   const zipBasename = `${manifest.frontFields.event.replace(/\s+/g, "-")}-print-package`;
 
   const printPackage = await buildVNextPrintPackage({
@@ -314,13 +321,16 @@ export async function runVNextExport(
     event: manifest.frontFields.event,
     runId,
     quantity,
+    numbering,
     zipBasename,
   });
 
   manifest.exportZipFilename = printPackage.paths.fullZip;
   manifest.quantity = quantity;
+  manifest.numbering = numbering;
   manifest.printPackage = printPackage.paths;
-  manifest.serialNumber = printPackage.serials[0] ?? serialForRun(runId);
+  manifest.serialNumber =
+    printPackage.serials[0] ?? printPackage.writeInLabel ?? serialForRun(runId);
   manifest.qrVerification = printPackage.qrVerification;
   manifest.qrStatus = printPackage.qrStatus;
   manifest.updatedAt = new Date().toISOString();

@@ -2,6 +2,10 @@ import {
   DEFAULT_CREATIVE_DIRECTION_SETTINGS,
   type CreativeDirectionSettings,
 } from "@/lib/ops/content-creator/creative-direction";
+import {
+  DEFAULT_PASS_NUMBERING,
+  type PassNumberingSettings,
+} from "@/lib/ops/content-creator/pass-numbering";
 
 /** Content Creator — Sunday Nights pass defaults. */
 export const CONTENT_CREATOR_DEFAULTS = {
@@ -12,6 +16,7 @@ export const CONTENT_CREATOR_DEFAULTS = {
   passTypeLabel: "VIP PASS" as const,
   qrUrl: "https://retroverse.live",
   quantity: 12,
+  ...DEFAULT_PASS_NUMBERING,
   creativeDirection: DEFAULT_CREATIVE_DIRECTION_SETTINGS.creativeDirection,
   avoidEraTropes: DEFAULT_CREATIVE_DIRECTION_SETTINGS.avoidEraTropes,
   maximizeVariation: DEFAULT_CREATIVE_DIRECTION_SETTINGS.maximizeVariation,
@@ -24,4 +29,5 @@ export const CONTENT_CREATOR_DEFAULTS = {
   passTypeLabel: "VIP PASS";
   qrUrl: string;
   quantity: number;
-} & CreativeDirectionSettings;
+} & PassNumberingSettings &
+  CreativeDirectionSettings;

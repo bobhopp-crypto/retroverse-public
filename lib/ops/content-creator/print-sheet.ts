@@ -1,5 +1,6 @@
 import sharp from "sharp";
 
+import type { PassNumberingSettings } from "@/lib/ops/content-creator/pass-numbering";
 import {
   PASS_HEIGHT,
   PASS_PRINT_HEIGHT_IN,
@@ -114,7 +115,26 @@ export function printInstructionsText(args: {
   event: string;
   quantity: number;
   sheetCount: number;
+  numbering?: PassNumberingSettings;
 }): string {
+  const numbering = args.numbering;
+  const numberingLines = numbering?.printSerialNumbers
+    ? [
+        "NUMBERING",
+        "- Machine-printed serial on each pass (unique per position on sheet)",
+        `- Format: ${numbering.numberFormat}${numbering.numberFormat === "custom" ? ` (${numbering.customFormat})` : ""}`,
+        "",
+      ]
+    : [
+        "NUMBERING",
+        "- Hand-number after print — reserved write-in zone on each pass back",
+        numbering?.collectorEdition
+          ? "- Collector Edition: stamp or marker in Pass No. __________ area"
+          : "- Write in serial at No. ______ line",
+        "- All passes on print sheet are identical (number after cut)",
+        "",
+      ];
+
   return [
     "RETROVERSE CONTENT CREATOR — PRINT INSTRUCTIONS",
     "================================================",
@@ -122,6 +142,7 @@ export function printInstructionsText(args: {
     `Event: ${args.event}`,
     `Quantity: ${args.quantity} passes (${args.sheetCount} sheet${args.sheetCount === 1 ? "" : "s"} × 12-up)`,
     "",
+    ...numberingLines,
     "PAPER",
     "- 11\" × 14\" cardstock",
     "",

@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 
 import { buildExportApiResponse } from "@/lib/ops/content-creator/export-api-response";
-import { normalizePrintQuantity } from "@/lib/ops/content-creator/serial-stamp";
+import { isQrExportVerificationError } from "@/lib/ops/content-creator/qr-export-error";
+import { normalizePrintQuantity, parsePassNumberingSettings } from "@/lib/ops/content-creator/pass-numbering";
 import { runVNextExport } from "@/lib/ops/content-creator/vnext-run";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
@@ -28,9 +29,16 @@ export async function POST(req: Request) {
   if (!profile) return NextResponse.json({ error: "No RVBR profiles" }, { status: 503 });
 
   try {
-    const result = await runVNextExport(runId, profile, { quantity, qrUrl });
+    const numbering = parsePassNumberingSettings(body);
+    const result = await runVNextExport(runId, profile, { quantity, qrUrl, numbering });
     return NextResponse.json(buildExportApiResponse(result));
   } catch (e) {
+    if (isQrExportVerificationError(e)) {
+      return NextResponse.json(
+        { error: e.message, qrVerification: e.verification, qrStatus: "failed" },
+        { status: 422 },
+      );
+    }
     const message = e instanceof Error ? e.message : "export_failed";
     return NextResponse.json({ error: message }, { status: 502 });
   }

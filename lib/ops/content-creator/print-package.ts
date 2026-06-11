@@ -3,7 +3,11 @@ import { mkdir, writeFile } from "fs/promises";
 import { join } from "path";
 import { promisify } from "util";
 
-import { verifyQrInComposite, type QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
+import {
+  verifyQrInCompositeBuffer,
+  type QrVerificationResult,
+} from "@/lib/ops/creative-lab/pass-export-composite";
+import { QrExportVerificationError } from "@/lib/ops/content-creator/qr-export-error";
 import { pngSheetToPdf } from "@/lib/ops/content-creator/print-pdf";
 import {
   buildPrintSheetPng,
@@ -12,10 +16,13 @@ import {
 } from "@/lib/ops/content-creator/print-sheet";
 import { resolveQrExportStatus, type QrExportStatus } from "@/lib/ops/content-creator/qr-export-status";
 import {
-  formatPassSerial,
+  DEFAULT_PASS_NUMBERING,
   normalizePrintQuantity,
+  resolveSerialStampOverlay,
   sheetCountForQuantity,
-} from "@/lib/ops/content-creator/serial-stamp";
+  writeInStampLabel,
+  type PassNumberingSettings,
+} from "@/lib/ops/content-creator/pass-numbering";
 import { compositeVNextBackPng, compositeVNextFrontPng } from "@/lib/ops/content-creator/vnext-export";
 
 const execFileAsync = promisify(execFile);
@@ -41,7 +48,9 @@ export type PrintPackageResult = {
   paths: PrintPackagePaths;
   qrVerification: QrVerificationResult;
   qrStatus: QrExportStatus;
+  numbering: PassNumberingSettings;
   serials: string[];
+  writeInLabel: string | null;
 };
 
 function sheetBaseName(side: "front" | "back", sheetIndex: number, sheetCount: number): string {
@@ -57,9 +66,11 @@ export async function buildVNextPrintPackage(args: {
   event: string;
   runId: string;
   quantity?: number;
+  numbering?: PassNumberingSettings;
   zipBasename: string;
 }): Promise<PrintPackageResult> {
   const quantity = normalizePrintQuantity(args.quantity, 12);
+  const numbering = args.numbering ?? DEFAULT_PASS_NUMBERING;
   const sheetCount = sheetCountForQuantity(quantity);
   const singleDir = join(args.exportDir, "single");
   const printDir = join(args.exportDir, "print");
@@ -77,21 +88,41 @@ export async function buildVNextPrintPackage(args: {
 
   const numberedBackBuffers: Buffer[] = [];
   const serials: string[] = [];
+  const writeInLabel = numbering.printSerialNumbers ? null : writeInStampLabel(numbering);
 
-  for (let i = 1; i <= quantity; i++) {
-    const serial = formatPassSerial(i, quantity);
-    serials.push(serial);
-    const backBuffer = await compositeVNextBackPng({
+  if (!numbering.printSerialNumbers) {
+    const stamp = resolveSerialStampOverlay(numbering, 1, quantity);
+    const sharedBack = await compositeVNextBackPng({
       backPng: args.backPng,
       qrUrl: args.qrUrl,
-      serialLabel: serial,
+      stamp,
     });
-    numberedBackBuffers.push(backBuffer);
-    const pad = String(quantity).length;
-    await writeFile(join(numberedDir, `back-${String(i).padStart(pad, "0")}.png`), backBuffer);
+    for (let i = 0; i < quantity; i++) {
+      numberedBackBuffers.push(sharedBack);
+    }
+    await writeFile(join(numberedDir, "back-write-in.png"), sharedBack);
+  } else {
+    for (let i = 1; i <= quantity; i++) {
+      const stamp = resolveSerialStampOverlay(numbering, i, quantity);
+      serials.push(stamp.text);
+      const backBuffer = await compositeVNextBackPng({
+        backPng: args.backPng,
+        qrUrl: args.qrUrl,
+        stamp,
+      });
+      numberedBackBuffers.push(backBuffer);
+      const pad = String(quantity).length;
+      await writeFile(join(numberedDir, `back-${String(i).padStart(pad, "0")}.png`), backBuffer);
+    }
   }
 
-  await writeFile(singleBackPath, numberedBackBuffers[0]!);
+  const sampleBack = numberedBackBuffers[0]!;
+  const qrVerification = await verifyQrInCompositeBuffer(sampleBack, args.qrUrl);
+  if (!qrVerification.ok || !qrVerification.modulesPresent || !qrVerification.decodePass) {
+    throw new QrExportVerificationError(qrVerification);
+  }
+
+  await writeFile(singleBackPath, sampleBack);
 
   const singlePassZipName = "single-pass.zip";
   const singlePassZipPath = join(singleDir, singlePassZipName);
@@ -101,7 +132,6 @@ export async function buildVNextPrintPackage(args: {
     });
   }
 
-  const qrVerification = await verifyQrInComposite(singleBackPath, args.qrUrl);
   const qrStatus = resolveQrExportStatus({ exported: true, qrVerification });
 
   const printFrontPng: string[] = [];
@@ -155,7 +185,9 @@ export async function buildVNextPrintPackage(args: {
     qrUrl: args.qrUrl,
     quantity,
     sheetCount,
+    numbering,
     serials,
+    writeInLabel,
     qrStatus,
     paths: {
       singleFront: "single/final-front.png",
@@ -175,7 +207,7 @@ export async function buildVNextPrintPackage(args: {
   );
   await writeFile(
     printInstructions,
-    printInstructionsText({ event: args.event, quantity, sheetCount }),
+    printInstructionsText({ event: args.event, quantity, sheetCount, numbering }),
     "utf8",
   );
 
@@ -206,6 +238,8 @@ export async function buildVNextPrintPackage(args: {
     },
     qrVerification,
     qrStatus,
+    numbering,
     serials,
+    writeInLabel,
   };
 }

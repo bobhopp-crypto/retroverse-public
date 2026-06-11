@@ -7,7 +7,10 @@ import {
   verifyQrInComposite,
   type QrVerificationResult,
 } from "@/lib/ops/creative-lab/pass-export-composite";
+import type { SerialStampOverlay } from "@/lib/ops/content-creator/pass-numbering";
 import {
+  PASS_HEIGHT,
+  PASS_WIDTH,
   SERIAL_HEIGHT_PX,
   SERIAL_WIDTH_PX,
   SERIAL_X0,
@@ -26,12 +29,32 @@ function escapeXml(text: string): string {
     .replace(/"/g, "&quot;");
 }
 
+export function serialStampOverlaySvg(overlay: SerialStampOverlay): {
+  svg: string;
+  left: number;
+  top: number;
+} {
+  const isWriteIn = overlay.mode === "write_in";
+  const fill = isWriteIn ? "#5c5c5c" : "#2d2d2d";
+  const fontSize = isWriteIn ? 18 : 20;
+  const weight = isWriteIn ? 600 : 700;
+  const letterSpacing = isWriteIn ? 1.5 : 2;
+  const opacity = isWriteIn ? 0.72 : 1;
+
+  const localX = SERIAL_WIDTH_PX / 2;
+  const localY = SERIAL_HEIGHT_PX / 2 + 4;
+  const svg = [
+    `<svg width="${SERIAL_WIDTH_PX}" height="${SERIAL_HEIGHT_PX}" xmlns="http://www.w3.org/2000/svg">`,
+    `<text x="${localX}" y="${localY}" font-family="Helvetica Neue, Arial, sans-serif" font-size="${fontSize}" font-weight="${weight}" letter-spacing="${letterSpacing}" text-anchor="middle" fill="${fill}" opacity="${opacity}">${escapeXml(overlay.text)}</text>`,
+    `</svg>`,
+  ].join("");
+  assertWellFormedSvg(svg, "serial-stamp-overlay");
+  return { svg, left: SERIAL_X0, top: SERIAL_Y0 };
+}
+
+/** @deprecated Use serialStampOverlaySvg */
 export function serialOverlaySvg(serial: string): string {
-  const cx = SERIAL_X0 + SERIAL_WIDTH_PX / 2;
-  const cy = SERIAL_Y0 + SERIAL_HEIGHT_PX / 2 + 4;
-  const svg = `<svg width="1024" height="1536" xmlns="http://www.w3.org/2000/svg"><text x="${cx}" y="${cy}" font-family="Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2" text-anchor="middle" fill="#2d2d2d">${escapeXml(serial)}</text></svg>`;
-  assertWellFormedSvg(svg, "serial-overlay");
-  return svg;
+  return serialStampOverlaySvg({ mode: "printed", text: serial }).svg;
 }
 
 export async function compositeVNextFrontPng(frontPng: Buffer, outPath: string): Promise<void> {
@@ -40,24 +63,24 @@ export async function compositeVNextFrontPng(frontPng: Buffer, outPath: string):
   await sharp(frontPng).png().toFile(outPath);
 }
 
-/** Export back — QR (SVG→Sharp) + serial stamp in reserved zone. */
+/** Export back — QR (SVG→Sharp) + serial / write-in stamp in reserved zone. */
 export async function compositeVNextBackPng(args: {
   backPng: Buffer;
   qrUrl: string;
-  serialLabel: string;
+  stamp: SerialStampOverlay;
 }): Promise<Buffer> {
   const { buffer: withQr } = await compositeQrOntoBackBuffer({
     backSrc: args.backPng,
     qrUrl: args.qrUrl,
   });
-  const serialSvg = serialOverlaySvg(args.serialLabel);
+  const stamp = serialStampOverlaySvg(args.stamp);
   return sharp(withQr)
-    .composite([{ input: Buffer.from(serialSvg), top: 0, left: 0 }])
+    .composite([{ input: Buffer.from(stamp.svg), top: stamp.top, left: stamp.left }])
     .png()
     .toBuffer();
 }
 
-/** @deprecated Use buildVNextPrintPackage — kept for legacy single-pair export callers. */
+/** @deprecated Use buildVNextPrintPackage */
 export async function compositeVNextExport(args: {
   frontPng: Buffer;
   backPng: Buffer;
@@ -79,7 +102,7 @@ export async function compositeVNextExport(args: {
   const backBuffer = await compositeVNextBackPng({
     backPng: args.backPng,
     qrUrl: args.qrUrl,
-    serialLabel: args.serialNumber,
+    stamp: { mode: "printed", text: args.serialNumber },
   });
   await writeFile(backPath, backBuffer);
 

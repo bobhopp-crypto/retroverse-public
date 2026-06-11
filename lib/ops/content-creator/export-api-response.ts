@@ -1,3 +1,7 @@
+import {
+  serialNumberPreview,
+  type PassNumberingSettings,
+} from "@/lib/ops/content-creator/pass-numbering";
 import { QR_STATUS_LABELS } from "@/lib/ops/content-creator/qr-export-status";
 import { vNextFileUrl } from "@/lib/ops/content-creator/vnext-run";
 import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
@@ -11,14 +15,19 @@ function urlFor(runId: string, rel: string): string {
 export function buildExportApiResponse(result: {
   runId: string;
   quantity?: number;
+  numbering?: PassNumberingSettings;
   qrStatus: QrExportStatus;
   qrVerification: QrVerificationResult;
   printPackage: PrintPackagePaths;
 }) {
   const pkg = result.printPackage;
+  const numbering = result.numbering;
+  const quantity = result.quantity ?? 12;
   return {
     ok: true as const,
-    quantity: result.quantity,
+    quantity,
+    numbering,
+    serialPreview: numbering ? serialNumberPreview(numbering, quantity) : null,
     qrStatus: result.qrStatus,
     qrStatusLabel: QR_STATUS_LABELS[result.qrStatus],
     qrVerification: result.qrVerification,

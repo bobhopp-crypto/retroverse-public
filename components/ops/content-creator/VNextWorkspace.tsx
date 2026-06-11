@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 
 import { JobQueuePanel } from "@/components/ops/content-creator/JobQueuePanel";
 import { ProviderErrorAlert } from "@/components/ops/creative-lab/ProviderErrorAlert";
@@ -14,7 +14,12 @@ import {
   resolveQrExportStatus,
   type QrExportStatus,
 } from "@/lib/ops/content-creator/qr-export-status";
-import { PRINT_QUANTITY_PRESETS } from "@/lib/ops/content-creator/serial-stamp";
+import {
+  PASS_NUMBER_FORMAT_OPTIONS,
+  PRINT_QUANTITY_PRESETS,
+  serialNumberPreview,
+  type PassNumberFormatId,
+} from "@/lib/ops/content-creator/pass-numbering";
 import type { ComposedRvbrPrompt, PromptQualityScores } from "@/lib/creative/rvbr-prompt-types";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { RETROVERSE_COLLECTIBLE_CREDENTIAL_LABEL } from "@/lib/creative/artifact-archetypes";
@@ -173,6 +178,10 @@ export function VNextWorkspace({ eras }: Props) {
   const [avoidEraTropes, setAvoidEraTropes] = useState(CONTENT_CREATOR_DEFAULTS.avoidEraTropes);
   const [maximizeVariation, setMaximizeVariation] = useState(CONTENT_CREATOR_DEFAULTS.maximizeVariation);
   const [printQuantity, setPrintQuantity] = useState(CONTENT_CREATOR_DEFAULTS.quantity);
+  const [printSerialNumbers, setPrintSerialNumbers] = useState(CONTENT_CREATOR_DEFAULTS.printSerialNumbers);
+  const [collectorEdition, setCollectorEdition] = useState(CONTENT_CREATOR_DEFAULTS.collectorEdition);
+  const [numberFormat, setNumberFormat] = useState<PassNumberFormatId>(CONTENT_CREATOR_DEFAULTS.numberFormat);
+  const [customFormat, setCustomFormat] = useState(CONTENT_CREATOR_DEFAULTS.customFormat);
   const [top, setTop] = useState(defaultFields);
   const [front, setFront] = useState(defaultFields);
   const [back, setBack] = useState(defaultFields);
@@ -505,14 +514,44 @@ export function VNextWorkspace({ eras }: Props) {
     }
   }
 
+  const numberingSettings = useMemo(
+    () => ({
+      printSerialNumbers,
+      collectorEdition,
+      numberFormat,
+      customFormat,
+    }),
+    [printSerialNumbers, collectorEdition, numberFormat, customFormat],
+  );
+
+  const serialPreview = useMemo(
+    () => serialNumberPreview(numberingSettings, printQuantity),
+    [numberingSettings, printQuantity],
+  );
+
+  function exportRequestBody() {
+    return {
+      runId: run?.runId,
+      eraSlug,
+      quantity: printQuantity,
+      qrUrl: back.qrUrl,
+      printSerialNumbers,
+      collectorEdition,
+      numberFormat,
+      customFormat,
+    };
+  }
+
   function applyExportResponse(prev: RunState, data: ExportApiResponse): RunState {
+    const qrVerification = data.qrVerification;
+    const qrStatus =
+      data.qrStatus ?? resolveQrExportStatus({ exported: true, qrVerification });
     return {
       ...prev,
       exportZipUrl: data.exportZipUrl,
-      qrVerification: data.qrVerification,
-      qrStatus:
-        data.qrStatus ??
-        resolveQrExportStatus({ exported: true, qrVerification: data.qrVerification }),
+      backUrl: data.singleBackUrl ? `${data.singleBackUrl}?t=${Date.now()}` : prev.backUrl,
+      qrVerification,
+      qrStatus,
       downloads: {
         exportZipUrl: data.exportZipUrl,
         singleFrontUrl: data.singleFrontUrl,
@@ -535,15 +574,19 @@ export function VNextWorkspace({ eras }: Props) {
       const res = await fetch("/api/ops/content-creator/vnext/export", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          runId: run.runId,
-          eraSlug,
-          quantity: printQuantity,
-          qrUrl: back.qrUrl,
-        }),
+        body: JSON.stringify({ ...exportRequestBody(), runId: run.runId }),
       });
       const data = (await res.json()) as ExportApiResponse;
-      if (!res.ok || !data.ok) throw new Error(data.error ?? "export_failed");
+      if (!res.ok || !data.ok) {
+        if (data.qrVerification) {
+          setRun({
+            ...run,
+            qrVerification: data.qrVerification,
+            qrStatus: "failed",
+          });
+        }
+        throw new Error(data.error ?? "export_failed");
+      }
       setRun(applyExportResponse(run, data));
     } catch (e) {
       setError(e instanceof Error ? e.message : "export_failed");
@@ -560,15 +603,19 @@ export function VNextWorkspace({ eras }: Props) {
       const res = await fetch("/api/ops/content-creator/vnext/export-print-sheet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          runId: run.runId,
-          eraSlug,
-          quantity: printQuantity,
-          qrUrl: back.qrUrl,
-        }),
+        body: JSON.stringify({ ...exportRequestBody(), runId: run.runId }),
       });
       const data = (await res.json()) as ExportApiResponse;
-      if (!res.ok || !data.ok) throw new Error(data.error ?? "export_print_sheet_failed");
+      if (!res.ok || !data.ok) {
+        if (data.qrVerification) {
+          setRun({
+            ...run,
+            qrVerification: data.qrVerification,
+            qrStatus: "failed",
+          });
+        }
+        throw new Error(data.error ?? "export_print_sheet_failed");
+      }
       setRun(applyExportResponse(run, data));
     } catch (e) {
       setError(e instanceof Error ? e.message : "export_print_sheet_failed");
@@ -662,7 +709,7 @@ export function VNextWorkspace({ eras }: Props) {
           </div>
         </figure>
         <figure className="cc-creator__preview">
-          <figcaption>Back</figcaption>
+          <figcaption>{run?.exportZipUrl ? "Back (exported)" : "Back (artwork)"}</figcaption>
           <div className="cc-creator__preview-frame cc-creator__preview-frame--back">
             <div className="cc-creator__pass-aspect">
               {run?.backUrl ? (
@@ -691,8 +738,11 @@ export function VNextWorkspace({ eras }: Props) {
                   {run.qrVerification?.matrixFillWarning
                     ? `Matrix fill ${run.qrVerification.matrixFillPercent.toFixed(0)}% below 85% target. `
                     : null}
-                  {run.qrVerification && !run.qrVerification.decodePass
-                    ? "Decode test failed — re-export before printing."
+                  {run.qrVerification && !run.qrVerification.modulesPresent
+                    ? "QR modules missing — export blocked."
+                    : null}
+                  {run.qrVerification?.modulesPresent && !run.qrVerification.decodePass
+                    ? "Decode test failed — export blocked."
                     : null}
                 </div>
               ) : null}
@@ -874,8 +924,64 @@ export function VNextWorkspace({ eras }: Props) {
           </label>
         </div>
 
-        <div className="cc-creator__setup-group">
-          <span className="cc-creator__setup-label">Print quantity</span>
+        <div className="cc-creator__setup-group cc-creator__numbering">
+          <span className="cc-creator__setup-label">Pass numbering</span>
+          <label className="cc-creator__toggle">
+            <input
+              type="checkbox"
+              checked={printSerialNumbers}
+              onChange={(e) => setPrintSerialNumbers(e.target.checked)}
+            />
+            <span>Print serial numbers</span>
+          </label>
+
+          {!printSerialNumbers ? (
+            <label className="cc-creator__toggle">
+              <input
+                type="checkbox"
+                checked={collectorEdition}
+                onChange={(e) => setCollectorEdition(e.target.checked)}
+              />
+              <span>Collector Edition</span>
+              <span className="cc-creator__toggle-hint">
+                Hand-number after print — {collectorEdition ? "Pass No. __________" : "No. ______"}
+              </span>
+            </label>
+          ) : (
+            <>
+              <span className="cc-creator__setup-sublabel">Number format</span>
+              <div className="cc-creator__chips">
+                {PASS_NUMBER_FORMAT_OPTIONS.map((opt) => (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    className={`cc-creator__chip${numberFormat === opt.id ? " is-on" : ""}`}
+                    onClick={() => setNumberFormat(opt.id)}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              {numberFormat === "custom" ? (
+                <label className="cc-creator__field">
+                  <span>Custom format</span>
+                  <input
+                    value={customFormat}
+                    onChange={(e) => setCustomFormat(e.target.value)}
+                    placeholder="VIP-{NNN}"
+                  />
+                  <span className="cc-creator__field-hint">Use {"{NNN}"} for padded index — e.g. SN-2026-{"{NNN}"}</span>
+                </label>
+              ) : null}
+              {serialPreview ? (
+                <p className="cc-creator__serial-preview">
+                  Preview: <strong>{serialPreview.first}</strong> — <strong>{serialPreview.last}</strong>
+                </p>
+              ) : null}
+            </>
+          )}
+
+          <span className="cc-creator__setup-sublabel">Quantity</span>
           <div className="cc-creator__chips">
             {PRINT_QUANTITY_PRESETS.map((n) => (
               <button
@@ -898,6 +1004,15 @@ export function VNextWorkspace({ eras }: Props) {
               onChange={(e) => setPrintQuantity(Number.parseInt(e.target.value, 10) || 12)}
             />
           </label>
+          {!printSerialNumbers ? (
+            <p className="cc-creator__numbering-note">
+              Print sheets use identical backs — hand-number after cut.
+            </p>
+          ) : (
+            <p className="cc-creator__numbering-note">
+              Each position on the print sheet gets a unique serial.
+            </p>
+          )}
         </div>
 
         {qualityScores ? (

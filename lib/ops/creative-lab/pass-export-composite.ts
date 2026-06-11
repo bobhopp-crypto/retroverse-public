@@ -1,7 +1,6 @@
 import { existsSync } from "node:fs";
 import { copyFile, mkdir, writeFile } from "fs/promises";
 import { join } from "path";
-import jsQR from "jsqr";
 import sharp from "sharp";
 
 import { creativeLabProjectDir } from "./paths";
@@ -15,11 +14,16 @@ import {
 import {
   auditExportedQrZone,
   auditQrPngBufferWithModules,
+  auditQrZonePixels,
+  decodeQrFromPngBuffer,
   emptyQrZoneAudit,
   generateZoneFillingQrPng,
+  measureBlackModuleBounds,
   QR_MAX_MATRIX_FILL_PERCENT,
   QR_MIN_MATRIX_FILL_PERCENT,
+  QR_QUIET_MODULES_ISO,
   qrMatrixFillInRange,
+  qrModulesPresent,
   qrZoneAuditNotes,
   selectOptimalQuietModules,
   type QrZoneAudit,
@@ -29,8 +33,9 @@ import type { CreativeLabProjectFile } from "./types";
 export type { QrZoneAudit };
 
 export type QrVerificationResult = {
-  /** PASS only when QR decodes from the final exported PNG. */
+  /** PASS only when QR modules are present and decode matches expected URL. */
   ok: boolean;
+  modulesPresent: boolean;
   decodedUrl: string | null;
   expectedUrl: string;
   notes: string[];
@@ -53,6 +58,7 @@ export function emptyQrVerification(expectedUrl: string): QrVerificationResult {
   const zoneAudit = emptyQrZoneAudit();
   return {
     ok: false,
+    modulesPresent: false,
     decodedUrl: null,
     expectedUrl,
     notes: [],
@@ -100,36 +106,6 @@ function normalizeUrlForCompare(url: string): string {
   }
 }
 
-function rgbaToJsQrPixels(
-  data: Buffer,
-  width: number,
-  height: number,
-  channels: number,
-): Uint8ClampedArray {
-  const pixels = new Uint8ClampedArray(width * height * 4);
-  for (let y = 0; y < height; y++) {
-    for (let x = 0; x < width; x++) {
-      const src = (y * width + x) * channels;
-      const dst = (y * width + x) * 4;
-      pixels[dst] = data[src] ?? 0;
-      pixels[dst + 1] = data[src + 1] ?? 0;
-      pixels[dst + 2] = data[src + 2] ?? 0;
-      pixels[dst + 3] = 255;
-    }
-  }
-  return pixels;
-}
-
-async function decodeQrFromPng(pngPath: string, extract?: { left: number; top: number; width: number; height: number }) {
-  let pipeline = sharp(pngPath);
-  if (extract) {
-    pipeline = pipeline.extract(extract);
-  }
-  const { data, info } = await pipeline.ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-  const pixels = rgbaToJsQrPixels(data, info.width, info.height, info.channels);
-  return jsQR(pixels, info.width, info.height);
-}
-
 /**
  * Composite QR onto back, audit exported PNG, tune quiet zone for 85–90% matrix fill.
  */
@@ -167,11 +143,21 @@ export async function verifyQrInComposite(
   backPngPath: string,
   expectedUrl: string,
 ): Promise<QrVerificationResult> {
+  const fileBuffer = await sharp(backPngPath).png().toBuffer();
+  return verifyQrInCompositeBuffer(fileBuffer, expectedUrl);
+}
+
+export async function verifyQrInCompositeBuffer(
+  backPng: Buffer,
+  expectedUrl: string,
+): Promise<QrVerificationResult> {
   const notes: string[] = [];
   const expected = normalizeUrlForCompare(expectedUrl);
-  const zoneAudit = await auditExportedQrZone(backPngPath);
+  const zoneAudit = await auditExportedQrZoneFromBuffer(backPng);
+  const modulesPresent = qrModulesPresent(zoneAudit);
 
   notes.push(...qrZoneAuditNotes(zoneAudit));
+  notes.push(`Module check: ${modulesPresent ? "PASS — black modules in reserved zone" : "FAIL — no QR modules detected"}`);
 
   const pixelWidth = zoneAudit.renderedQrImagePx.width;
   const pixelHeight = zoneAudit.renderedQrImagePx.height;
@@ -212,25 +198,40 @@ export async function verifyQrInComposite(
     `Zone fill: ${zoneAudit.zoneFillPercent.toFixed(1)}% (matrix ${zoneAudit.matrixFillPercent.toFixed(1)}%)`,
   );
 
+  if (!modulesPresent) {
+    notes.push("Decode check: FAIL — blank white window (no composited modules)");
+    notes.push("Overall: FAIL");
+    return {
+      ok: false,
+      modulesPresent: false,
+      decodedUrl: null,
+      expectedUrl,
+      notes,
+      ...qrMetrics,
+      decodePass: false,
+    };
+  }
+
   let decodedUrl: string | null = null;
   let decodePass = false;
 
   try {
-    let code = await decodeQrFromPng(backPngPath);
-    if (!code?.data) {
-      code = await decodeQrFromPng(backPngPath, {
+    let decoded =
+      (await decodeQrFromPngBuffer(backPng)) ??
+      (await decodeQrFromPngBuffer(backPng, {
         left: QR_ZONE.left,
         top: QR_ZONE.top,
         width: QR_ZONE.size,
         height: QR_ZONE.size,
-      });
-    }
+      }));
 
-    if (!code?.data) {
+    if (!decoded) {
       notes.push("Decode check: FAIL — QR not readable in exported back PNG");
-      notes.push("Zone may be obscured or AI drew over reserved area");
+      notes.push("Zone may be obscured or compositor misaligned");
+      notes.push("Overall: FAIL");
       return {
         ok: false,
+        modulesPresent: true,
         decodedUrl: null,
         expectedUrl,
         notes,
@@ -239,11 +240,11 @@ export async function verifyQrInComposite(
       };
     }
 
-    decodedUrl = code.data;
-    const decoded = normalizeUrlForCompare(code.data);
-    decodePass = decoded === expected || code.data.trim() === expectedUrl.trim();
+    decodedUrl = decoded;
+    const normalized = normalizeUrlForCompare(decoded);
+    decodePass = normalized === expected || decoded.trim() === expectedUrl.trim();
 
-    notes.push(`Decoded: ${code.data}`);
+    notes.push(`Decoded: ${decoded}`);
     notes.push(`Expected: ${expectedUrl}`);
     notes.push(`Decode check: ${decodePass ? "PASS" : "FAIL"}`);
     notes.push("QR inserted programmatically — pure black on white, no stylization");
@@ -252,11 +253,12 @@ export async function verifyQrInComposite(
       notes.push("Decoded URL does not match expected QR URL");
     }
 
-    const ok = decodePass;
-    notes.push(`Overall: ${ok ? "PASS" : "FAIL"} (decode-only)`);
+    const ok = modulesPresent && decodePass;
+    notes.push(`Overall: ${ok ? "PASS" : "FAIL"}`);
 
     return {
       ok,
+      modulesPresent,
       decodedUrl,
       expectedUrl,
       notes,
@@ -268,6 +270,7 @@ export async function verifyQrInComposite(
     notes.push("Overall: FAIL");
     return {
       ok: false,
+      modulesPresent,
       decodedUrl: null,
       expectedUrl,
       notes,
@@ -275,6 +278,45 @@ export async function verifyQrInComposite(
       decodePass: false,
     };
   }
+}
+
+async function auditExportedQrZoneFromBuffer(
+  backPng: Buffer,
+  zoneSize: number = QR_ZONE.size,
+  zoneLeft: number = QR_ZONE.left,
+  zoneTop: number = QR_ZONE.top,
+  quietModulesUsed: number = QR_QUIET_MODULES_ISO,
+): Promise<QrZoneAudit> {
+  const { data, info } = await sharp(backPng)
+    .extract({ left: zoneLeft, top: zoneTop, width: zoneSize, height: zoneSize })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  const rgba = {
+    data,
+    width: info.width,
+    height: info.height,
+    channels: info.channels,
+  };
+
+  const matrix = measureBlackModuleBounds(rgba);
+  if (!matrix) {
+    return auditQrZonePixels(rgba, zoneSize, 0, quietModulesUsed);
+  }
+
+  let bestN = 29;
+  let bestDelta = Infinity;
+  for (let n = 21; n <= 177; n++) {
+    const modulePx = zoneSize / (n + 2 * quietModulesUsed);
+    const expected = n * modulePx;
+    const delta = Math.abs(expected - matrix.width);
+    if (delta < bestDelta) {
+      bestDelta = delta;
+      bestN = n;
+    }
+  }
+  return auditQrZonePixels(rgba, zoneSize, bestN, quietModulesUsed);
 }
 
 /** Composite real scannable QR onto approved back PNG. Front is copied unchanged. */
@@ -310,8 +352,9 @@ export async function compositePassExportPair(args: {
   await compositeQrOntoBackPng({ backSrc, backPath, qrUrl: args.qrUrl });
 
   const qrVerification = await verifyQrInComposite(backPath, args.qrUrl);
-  if (!qrVerification.ok) {
-    console.warn("[cl-export:qr] verification failed", qrVerification);
+  if (!qrVerification.ok || !qrVerification.modulesPresent || !qrVerification.decodePass) {
+    const { QrExportVerificationError } = await import("@/lib/ops/content-creator/qr-export-error");
+    throw new QrExportVerificationError(qrVerification);
   }
 
   return { frontPath, backPath, qrVerification };

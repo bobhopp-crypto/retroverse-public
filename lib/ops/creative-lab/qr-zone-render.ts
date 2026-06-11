@@ -1,8 +1,8 @@
+import jsQR from "jsqr";
 import QRCode from "qrcode";
 import sharp from "sharp";
 
 import { QR_ZONE, qrPhysicalSizeIn } from "./pass-layout";
-import { assertWellFormedSvg } from "./svg-validate";
 
 /** ISO minimum quiet zone in modules. */
 export const QR_QUIET_MODULES_ISO = 4;
@@ -14,7 +14,38 @@ export const QR_MAX_MATRIX_FILL_PERCENT = 90;
 /** @deprecated Use QR_MIN_MATRIX_FILL_PERCENT */
 export const QR_MIN_ZONE_FILL_PERCENT = QR_MIN_MATRIX_FILL_PERCENT;
 
-const QR_RENDER_SCALE = 4;
+function rgbaToJsQrPixels(data: Buffer, width: number, height: number, channels: number): Uint8ClampedArray {
+  const pixels = new Uint8ClampedArray(width * height * 4);
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const src = (y * width + x) * channels;
+      const dst = (y * width + x) * 4;
+      pixels[dst] = data[src] ?? 0;
+      pixels[dst + 1] = data[src + 1] ?? 0;
+      pixels[dst + 2] = data[src + 2] ?? 0;
+      pixels[dst + 3] = 255;
+    }
+  }
+  return pixels;
+}
+
+/** Decode QR from PNG buffer — used for export verification and render tuning. */
+export async function decodeQrFromPngBuffer(
+  png: Buffer,
+  extract?: { left: number; top: number; width: number; height: number },
+): Promise<string | null> {
+  let pipeline = sharp(png);
+  if (extract) {
+    pipeline = pipeline.extract(extract);
+  }
+  const { data, info } = await pipeline.ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const pixels = rgbaToJsQrPixels(data, info.width, info.height, info.channels);
+  return jsQR(pixels, info.width, info.height)?.data ?? null;
+}
+
+export function qrModulesPresent(audit: QrZoneAudit): boolean {
+  return audit.renderedMatrixPx.width > 0 && audit.renderedMatrixPx.height > 0;
+}
 
 export type QrZoneAudit = {
   reservedZonePx: { width: number; height: number };
@@ -156,46 +187,22 @@ async function readRgba(buffer: Buffer): Promise<RgbaBuffer> {
   return { data, width: info.width, height: info.height, channels: info.channels };
 }
 
-function buildQrSvg(url: string, zoneSize: number, quietModules: number): { svg: string; moduleCount: number } {
-  const qr = QRCode.create(url.trim(), { errorCorrectionLevel: "H" });
-  const n = qr.modules.size;
-  const modulePx = zoneSize / (n + 2 * quietModules);
-  const offset = quietModules * modulePx;
-  const rects: string[] = [];
-
-  for (let y = 0; y < n; y++) {
-    for (let x = 0; x < n; x++) {
-      if (qr.modules.get(x, y)) {
-        rects.push(
-          `<rect x="${(offset + x * modulePx).toFixed(4)}" y="${(offset + y * modulePx).toFixed(4)}" width="${modulePx.toFixed(4)}" height="${modulePx.toFixed(4)}" fill="#000000"/>`,
-        );
-      }
-    }
-  }
-
-  const svg = [
-    `<svg width="${zoneSize}" height="${zoneSize}" viewBox="0 0 ${zoneSize} ${zoneSize}" xmlns="http://www.w3.org/2000/svg">`,
-    `<rect width="${zoneSize}" height="${zoneSize}" fill="#ffffff"/>`,
-    ...rects,
-    `</svg>`,
-  ].join("");
-
-  assertWellFormedSvg(svg, "qr-matrix");
-  return { svg, moduleCount: n };
-}
-
-/** Render QR to exactly fill zoneSize × zoneSize; quiet zone in modules, matrix maximized. */
+/** Render scannable QR PNG — square zone, quiet margin in modules (qrcode library). */
 export async function renderQrPngForZone(
   url: string,
   zoneSize: number,
   quietModules: number,
 ): Promise<{ png: Buffer; moduleCount: number }> {
-  const { svg, moduleCount } = buildQrSvg(url, zoneSize * QR_RENDER_SCALE, quietModules);
-  const hiRes = await sharp(Buffer.from(svg)).png().toBuffer();
-  const png = await sharp(hiRes)
-    .resize(zoneSize, zoneSize, { kernel: "nearest" })
-    .png()
-    .toBuffer();
+  const trimmed = url.trim();
+  const qr = QRCode.create(trimmed, { errorCorrectionLevel: "H" });
+  const moduleCount = qr.modules.size;
+  const png = await QRCode.toBuffer(trimmed, {
+    errorCorrectionLevel: "H",
+    type: "png",
+    width: zoneSize,
+    margin: quietModules,
+    color: { dark: "#000000", light: "#ffffff" },
+  });
   return { png, moduleCount };
 }
 
@@ -209,21 +216,24 @@ export async function auditQrPngBufferWithModules(
   return auditQrZonePixels(rgba, zoneSize, moduleCount, quietModules);
 }
 
-/** Pick quiet-module count: 85–90% matrix fill, prefer ISO quiet zone when in range. */
+/** Pick quiet-module count — must decode; prefer 85–90% matrix fill and ISO quiet zone. */
 export async function selectOptimalQuietModules(
   url: string,
   zoneSize: number,
 ): Promise<QrRenderCandidate> {
-  let best: QrRenderCandidate | null = null;
+  let bestDecodable: QrRenderCandidate | null = null;
   let bestInRange: QrRenderCandidate | null = null;
 
   for (let quiet = QR_QUIET_MODULES_ISO; quiet >= 1; quiet--) {
     const { png, moduleCount } = await renderQrPngForZone(url, zoneSize, quiet);
+    const decoded = await decodeQrFromPngBuffer(png);
+    if (!decoded) continue;
+
     const audit = await auditQrPngBufferWithModules(png, zoneSize, moduleCount, quiet);
     const candidate: QrRenderCandidate = { png, audit, moduleCount, quietModules: quiet };
 
-    if (!best || audit.matrixFillPercent > best.audit.matrixFillPercent) {
-      best = candidate;
+    if (!bestDecodable || audit.matrixFillPercent > bestDecodable.audit.matrixFillPercent) {
+      bestDecodable = candidate;
     }
 
     if (
@@ -236,7 +246,11 @@ export async function selectOptimalQuietModules(
     }
   }
 
-  return bestInRange ?? best!;
+  if (!bestDecodable) {
+    throw new Error("qr_render_failed: no decodable QR candidate for reserved zone");
+  }
+
+  return bestInRange ?? bestDecodable;
 }
 
 /**
