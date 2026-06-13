@@ -9,7 +9,7 @@ import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
-export const maxDuration = 600;
+export const maxDuration = 300;
 
 export async function POST() {
   if (!isOpsEnabled()) {
