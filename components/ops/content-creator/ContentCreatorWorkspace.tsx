@@ -9,7 +9,7 @@ import {
   type ExportCompleteState,
 } from "@/components/ops/content-creator/ExportCompletePanel";
 import { projectSecondaryLine } from "@/lib/ops/creative-lab/project-secondary-line";
-import { emptyQrVerification } from "@/lib/ops/creative-lab/pass-export-composite";
+import { emptyQrVerification } from "@/lib/ops/creative-lab/qr-verification-placeholder";
 import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
 import type { ContentArtifactType, ContentCreatorEraOption } from "@/lib/ops/content-creator/types";

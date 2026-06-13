@@ -46,7 +46,6 @@ export function TrackPageView({ data }: TrackPageViewProps) {
               artist: data.artistName,
               album: data.albums[0]?.title ?? data.title,
               releaseYear: data.releaseYear ?? data.albums[0]?.releaseYear ?? null,
-              rval: data.albums[0]?.rval ?? undefined,
             }}
           />
         </div>

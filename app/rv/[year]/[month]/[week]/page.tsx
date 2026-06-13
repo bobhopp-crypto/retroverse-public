@@ -47,7 +47,6 @@ export default async function RvWeekPage({ params }: Props) {
       history={history}
       initialMonth={month}
       highlightChartDate={week}
-      fileTag={`RV ${rvYear} · ${formatChartDateLabel(week)}`}
     />
   );
 }

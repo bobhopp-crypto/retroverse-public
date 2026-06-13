@@ -1,85 +1,99 @@
-/** Placeholder editorial framing for RV Year worlds — expand over time. */
+/** Editorial framing for RV Year worlds — magazine voice, not chart database copy. */
 
 export type RvYearEditorial = {
-  tagline: string;
+  /** Strong headline under the year numeral, e.g. "Rock Gets Bigger". */
+  headline: string;
+  /** 2–3 sentence editorial summary. */
   lead: string;
 };
 
 const BY_YEAR: Partial<Record<number, RvYearEditorial>> = {
   1964: {
-    tagline: "The British arrive. Beatlemania rewires the airwaves.",
-    lead: "A year when the charts still felt like a national event — and the room got louder.",
+    headline: "The British Invasion Lands",
+    lead: "Beatlemania rewires the radio. A year when the charts still felt like a national event — and the room got louder.",
   },
   1967: {
-    tagline: "Summer of love. Psychedelia hits the Hot 100.",
-    lead: "Color, rebellion, and studio ambition spill out of the speakers week by week.",
+    headline: "Summer Turns Psychedelic",
+    lead: "Color, rebellion, and studio ambition spill out of the speakers. Pop stops playing it safe and starts chasing the infinite.",
+  },
+  1971: {
+    headline: "Rock Gets Bigger",
+    lead: "Singer-songwriters, soul, and FM ambition share the spotlight. The albums grow longer, the feelings get louder, and every hit feels like a statement.",
   },
   1973: {
-    tagline: "Glitter and grit share the same chart run.",
-    lead: "Arena rock rises while soul and funk keep the dance floor honest.",
+    headline: "Glitter Meets Grit",
+    lead: "Arena rock rises while soul and funk keep the dance floor honest. Glam, grit, and groove trade the spotlight all year long.",
   },
   1976: {
-    tagline: "Disco crosses over. Fleetwood Mac dominates the summer.",
-    lead: "The mirror ball meets the tour bus — a yearbook page where radio still ruled the room.",
+    headline: "Disco Crosses Over",
+    lead: "The mirror ball meets the tour bus. Fleetwood Mac owns the summer while dance music learns to speak to everyone.",
   },
   1977: {
-    tagline: "Saturday night fever. The pulse gets faster.",
-    lead: "Four-on-the-floor energy climbs the Hot 100 while rock holds the line at the top.",
+    headline: "Saturday Night Fever",
+    lead: "Four-on-the-floor energy takes the mainstream. Rock still packs arenas, but the pulse of the city gets faster.",
+  },
+  1978: {
+    headline: "The Year Disco Took Over",
+    lead: "Mirror balls, polyester, and unstoppable hooks. Pop and dance collide while rock answers from the stadium seats.",
   },
   1983: {
-    tagline: "MTV reshapes the spotlight. Synths go mainstream.",
-    lead: "Image and sound lock together — every #1 week feels like a broadcast premiere.",
+    headline: "Video Changes Everything",
+    lead: "Image and sound lock together. Synths go mainstream and every big single feels like a broadcast premiere.",
   },
   1984: {
-    tagline: "Pop turns maximal. Every week wants an anthem.",
-    lead: "Big hooks, bigger hair, and chart weeks that still echo in grocery-store aisles.",
+    headline: "Pop Turns Maximal",
+    lead: "Big hooks, bigger hair, and anthems built for singalongs. The year when pop learned to fill every inch of the screen.",
   },
   1991: {
-    tagline: "Grunge cracks the surface. Hip-hop owns the conversation.",
-    lead: "The monoculture starts to splinter — but the #1 slot still tells the story.",
+    headline: "Alternative Breaks Through",
+    lead: "Grunge cracks the surface while hip-hop owns the conversation. The monoculture starts to splinter — but the hits still feel huge.",
+  },
+  1992: {
+    headline: "Alternative Becomes Mainstream",
+    lead: "Guitar bands return to the center of the culture. Hip-hop keeps evolving, and pop learns to borrow from every corner of the map.",
   },
   1999: {
-    tagline: "The millennium hums. Teen pop returns in force.",
-    lead: "A pre-streaming cliff edge — chart weeks still felt like shared memory.",
+    headline: "The Millennium Hums",
+    lead: "Teen pop returns in force on the eve of a new century. Every smash still feels like shared memory before streaming rewrote the rules.",
   },
   2008: {
-    tagline: "Digital singles reshape the climb.",
-    lead: "The Hot 100 learns new velocity — but the weekly ritual stays the same.",
+    headline: "Digital Singles Reshape the Climb",
+    lead: "The download era accelerates how hits rise and fall. The velocity changes, but a great song still stops the room.",
   },
 };
 
 const BY_DECADE: Partial<Record<number, RvYearEditorial>> = {
   1950: {
-    tagline: "Postwar optimism on the dial.",
-    lead: "Early rock & roll and the last breath of the big-band era share the same chart paper.",
+    headline: "Postwar Optimism on the Dial",
+    lead: "Early rock and roll and the last breath of the big-band era share the same airwaves.",
   },
   1960: {
-    tagline: "Youth culture finds its voice.",
+    headline: "Youth Culture Finds Its Voice",
     lead: "British invasion, Motown, and folk-rock rewrite what a hit can sound like.",
   },
   1970: {
-    tagline: "The rise of arena rock — and the disco countercurrent.",
-    lead: "Stadium anthems and dance-floor fever trade the #1 spot all year long.",
+    headline: "Arena Rock and the Dance Floor",
+    lead: "Stadium anthems and disco fever trade the spotlight all year long.",
   },
   1980: {
-    tagline: "MTV, synth-pop, and blockbuster pop.",
-    lead: "Video-ready stars and drum-machine dreams compete for the top of the chart.",
+    headline: "MTV and the Blockbuster Single",
+    lead: "Video-ready stars and drum-machine dreams compete for the center of culture.",
   },
   1990: {
-    tagline: "Alternative breaks through. Hip-hop goes global.",
-    lead: "Genre walls soften while the weekly #1 still crowns a cultural moment.",
+    headline: "Genre Walls Come Down",
+    lead: "Alternative, hip-hop, and pop collide in a faster cycle — but every smash still feels personal.",
   },
   2000: {
-    tagline: "The download era accelerates the chart.",
+    headline: "The Download Era",
     lead: "Pop, R&B, and rock collide in a faster cycle — but every week still leaves a mark.",
   },
   2010: {
-    tagline: "Streaming reshapes the climb.",
-    lead: "Virality enters the chart vocabulary — yet month-by-month, the story stays human.",
+    headline: "Streaming Rewrites the Rules",
+    lead: "Virality enters the vocabulary — yet month by month, the story stays human.",
   },
   2020: {
-    tagline: "A fragmented audience, a shared top spot.",
-    lead: "Every #1 week still feels like opening a time capsule — one chart date at a time.",
+    headline: "A Fragmented Audience, Shared Moments",
+    lead: "Every breakout still feels like opening a time capsule — one song at a time.",
   },
 };
 
@@ -92,7 +106,7 @@ export function rvYearEditorial(year: number): RvYearEditorial {
   if (decadeCopy) return decadeCopy;
 
   return {
-    tagline: "A chart year in the Retroverse canon.",
-    lead: "Move month by month — each week reveals who held #1 on the Hot 100 and Album 200.",
+    headline: "A Year in Popular Music",
+    lead: `Move through the months and rediscover what people were playing, sharing, and arguing about in ${year}.`,
   };
 }

@@ -35,4 +35,10 @@ export type RvChartSnapshot = {
   artist: string;
   coverUrl: string | null;
   releaseYear?: number | null;
+  /** Consecutive weeks at #1 for this leader run (when collapsed for display). */
+  numberOneWeeks?: number;
+  /** First chart date of the #1 run (ISO YYYY-MM-DD). */
+  numberOneStartDate?: string;
+  /** Last chart date of the #1 run (ISO YYYY-MM-DD). */
+  numberOneEndDate?: string;
 };

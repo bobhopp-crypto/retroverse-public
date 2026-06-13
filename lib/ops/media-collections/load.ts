@@ -1,5 +1,5 @@
 import { buildDownloadProgress, loadDownloadRunState } from "./download-state";
-import { auditCollectionDownloadHealth } from "./classify-download";
+import { auditCollectionDownloadHealth, type CollectionDownloadHealth } from "./classify-download";
 import { collectionSlugFromId, mediaCollectionsRoot } from "./paths";
 import { loadCollectionStorageStats } from "./storage-stats";
 import {
@@ -19,7 +19,6 @@ import { loadMsSyncState } from "./midnight-special/sync-state";
 import { MS_COLLECTION_ID } from "./midnight-special/paths";
 import type {
   CollectionCardData,
-  CollectionDownloadHealth,
   CollectionManifest,
   EpisodeManifest,
   MediaCollection,

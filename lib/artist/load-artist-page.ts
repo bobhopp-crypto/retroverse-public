@@ -71,7 +71,6 @@ function fallbackArtistPageData(slugParam: string): ArtistPageData {
     relatedArtists: [],
     exploreLinks: [
       { label: "Search catalog", href: `/search?q=${encodeURIComponent(displayName)}` },
-      { label: "Inspect graph", href: `/inspect?q=${encodeURIComponent(displayName)}` },
     ],
   };
 }
@@ -377,7 +376,6 @@ async function loadArtistPageImpl(
 
   const exploreRaw: { label: string; href: string }[] = [
     { label: "Search catalog", href: `/search?q=${encodeURIComponent(displayName)}` },
-    { label: "Inspect graph", href: `/inspect?q=${encodeURIComponent(displayName)}` },
     ...(chartAlbumSpotlight
       ? [
           {

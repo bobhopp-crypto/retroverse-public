@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { loadAlbumPage } from "@/lib/album/load-album-page";
-import type { AlbumPageData } from "@/lib/album/load-album-page";
 import { resolveAlbumRvalParam } from "@/lib/album/resolve-album-route";
 
 import { AlbumPageView } from "./album-page-view";
@@ -27,45 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function fallbackAlbumPageData(idParam: string): AlbumPageData {
-  const raw = decodeURIComponent(idParam).trim();
-  const isRval = RE_RVAL.test(raw);
-  const rval = isRval ? raw.toUpperCase() : "RVAL000000";
-
-  const title =
-    raw
-      .replace(/-/g, " ")
-      .replace(/\s+/g, " ")
-      .trim() || (isRval ? rval : "Album");
-
-  return {
-    rval,
-    title,
-    artistName: "Unknown artist",
-    artistSlug: "unknown-artist",
-    artistHref: `/search?q=${encodeURIComponent(title)}`,
-    releaseYear: null,
-    coverUrl: null,
-    b200Peak: null,
-    chartWeeks: 0,
-    firstChartDate: null,
-    trajectoryWeeks: [],
-    chartRunLabel: "Billboard 200",
-    tracks: [],
-    relatedAlbums: [],
-    rvYearHref: null,
-  };
-}
-
 export default async function AlbumPage({ params }: Props) {
   const id = decodeURIComponent((await params).id).trim();
 
   const rval = RE_RVAL.test(id) ? id.toUpperCase() : await resolveAlbumRvalParam(id);
+  if (!rval) notFound();
 
-  if (rval) {
-    const data = await loadAlbumPage(rval);
-    return <AlbumPageView data={data ?? fallbackAlbumPageData(rval)} />;
-  }
+  const data = await loadAlbumPage(rval);
+  if (!data) notFound();
 
-  return <AlbumPageView data={fallbackAlbumPageData(id)} />;
+  return <AlbumPageView data={data} />;
 }

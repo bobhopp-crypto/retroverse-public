@@ -111,7 +111,14 @@ function album200Branch(artistIdClause: string, yearClause: string): string {
 function rvYearHot100Branch(yearClause: string): string {
   return `
     SELECT
-      t.id::text AS track_id,
+      (
+        SELECT upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), ctd.track_id)))
+        FROM canonical_tracks ct
+        JOIN canonical_track_display ctd ON ctd.id = ct.id
+        WHERE ct.graph_track_id = t.id
+          AND upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), ctd.track_id))) ~ '^RVTR\\d{6}$'
+        LIMIT 1
+      ) AS track_id,
       t.title AS track_title,
       ca.chart_date::text AS chart_date,
       ca.chart_position,
@@ -142,15 +149,12 @@ function rvYearHot100Branch(yearClause: string): string {
 function rvYearAlbum200Branch(yearClause: string): string {
   return `
     SELECT
-      COALESCE(
-        (
-          SELECT upper(aek.external_key)
-          FROM album_external_keys aek
-          WHERE aek.album_id = al.id
-            AND aek.external_key ~* '^RVAL\\d{6}$'
-          LIMIT 1
-        ),
-        'album-' || al.id::text
+      (
+        SELECT upper(aek.external_key)
+        FROM album_external_keys aek
+        WHERE aek.album_id = al.id
+          AND aek.external_key ~* '^RVAL\\d{6}$'
+        LIMIT 1
       ) AS track_id,
       al.title AS track_title,
       ca.chart_date::text AS chart_date,
@@ -183,7 +187,7 @@ function rowsToChartHistory(
     const dateKey = r.chart_date.slice(0, 10);
     const year = Number(dateKey.slice(0, 4));
     const month = Number(dateKey.slice(5, 7));
-    const trackId = r.track_id.trim();
+    const trackId = r.track_id?.trim() ?? "";
     const coverUrl =
       coverByTrackId.get(trackId.toUpperCase()) ??
       pickCoverUrl(r.cover_path, r.artwork_path, r.r2_cover_key) ??
@@ -346,7 +350,7 @@ async function loadRvYearChartHistoryCore(
 const cachedRvYearChartHistory = (resolvedYear: number) =>
   unstable_cache(
     () => loadRvYearChartHistoryCore(resolvedYear, new Map(), null),
-    [`rv-year-chart-history-v2-${resolvedYear}`],
+    [`rv-year-chart-history-v4-${resolvedYear}`],
     { revalidate: 3600, tags: [`rv-year-${resolvedYear}`] },
   );
 
@@ -364,3 +368,6 @@ export async function loadRvYearChartHistory(
 
   return loadRvYearChartHistoryCore(resolvedYear, coverByTrackId, fallbackCover);
 }
+
+/** Tooling — bypass unstable_cache when auditing chart rows. */
+export { loadRvYearChartHistoryCore };

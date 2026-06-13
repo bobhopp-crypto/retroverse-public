@@ -27,6 +27,8 @@ export function chartsToTrajectoryWeeks(
     (a, b) => a.chart_date.localeCompare(b.chart_date) || a.chart_position - b.chart_position,
   );
 
+  let runWeek = 0;
+
   return sorted.map((row, index) => {
     const previous = index > 0 ? sorted[index - 1]! : null;
     let movement: TrackTrajectoryWeek["movement"] = "debut";
@@ -36,13 +38,20 @@ export function chartsToTrajectoryWeeks(
       else if (row.chart_position > previous.chart_position) movement = "down";
       else movement = "same";
     }
+
+    if (movement === "debut" || movement === "reentry") runWeek = 1;
+    else runWeek += 1;
+
+    const dbWeeks = row.weeks_on_chart;
+    const weeksOnChart = dbWeeks != null && dbWeeks > 0 ? dbWeeks : runWeek;
+
     const previousX = previous ? rankX(previous.chart_position, maxRank) : null;
     return {
       issueDate: row.chart_date,
       rank: row.chart_position,
       lastWeek: previous?.chart_position ?? null,
       peakToDate: Math.min(...sorted.slice(0, index + 1).map((w) => w.chart_position)),
-      weeksOnChart: row.weeks_on_chart,
+      weeksOnChart,
       x: rankX(row.chart_position, maxRank),
       previousX,
       movement,

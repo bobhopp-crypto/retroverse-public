@@ -77,6 +77,7 @@ export function useCollectionDownload(options: UseCollectionDownloadOptions) {
     downloading,
     progress,
     busy,
+    pollWarning: null as string | null,
     startDownload,
     pollDownload,
     setDownloading,

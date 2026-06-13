@@ -41,7 +41,6 @@ export default async function RvMonthPage({ params }: Props) {
       rvYear={rvYear}
       history={history}
       initialMonth={month}
-      fileTag={`RV ${rvYear} · ${monthLabel(month)}`}
     />
   );
 }

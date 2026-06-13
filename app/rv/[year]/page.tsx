@@ -2,6 +2,10 @@ import { notFound } from "next/navigation";
 
 import { isUsableChartHistory } from "@/lib/artist/chart-history";
 import { loadRvYearChartHistory } from "@/lib/artist/load-chart-history";
+import {
+  buildRvYearDestination,
+  enrichRvYearDestination,
+} from "@/lib/rv-year/enrich-rv-year-destination";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 
 import { RvYearView } from "./rv-year-view";
@@ -28,5 +32,7 @@ export default async function RvYearPage({ params }: Props) {
   const history = await loadRvYearChartHistory(rvYear);
   if (!history || !isUsableChartHistory(history)) notFound();
 
-  return <RvYearView rvYear={rvYear} history={history} />;
+  const destination = await enrichRvYearDestination(buildRvYearDestination(history, rvYear));
+
+  return <RvYearView rvYear={rvYear} history={history} destination={destination} />;
 }

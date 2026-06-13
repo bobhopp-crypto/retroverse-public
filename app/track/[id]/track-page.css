@@ -9,6 +9,7 @@
 @import "../../exhibit-cohesion.css";
 @import "../../exhibit-authority.css";
 @import "../../exhibit-silence.css";
+@import "../../public-mobile-width.css";
 
 .track-exhibit {
   --paper-warm: #f4e9d3;
@@ -76,9 +77,10 @@
 
 .track-hero__cover-wrap {
   aspect-ratio: 1 / 1;
-  max-width: min(26rem, 92vw);
+  max-width: min(26rem, 100%);
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
   border: var(--frame);
   border-radius: 4px;
   overflow: hidden;
@@ -483,6 +485,12 @@ a.track-trajectory-week--portal:active {
     transform: translateY(-1px);
     box-shadow: 4px 5px 0 rgba(45, 62, 70, 0.18);
     border-color: rgba(31, 94, 99, 0.42);
+  }
+
+  .track-album-module--static:hover {
+    transform: none;
+    box-shadow: 3px 4px 0 rgba(45, 62, 70, 0.14);
+    border-color: rgba(45, 62, 70, 0.22);
   }
 }
 

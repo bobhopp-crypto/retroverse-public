@@ -91,6 +91,43 @@ export function formatChartDateLabel(isoDate: string): string {
   return `${mon} ${day}, ${year}`;
 }
 
+/** Short range for #1 runs, e.g. Feb 6–Feb 20, 1971 */
+export function formatNumberOneDateRange(startIso: string, endIso: string): string {
+  const start = startIso.slice(0, 10);
+  const end = endIso.slice(0, 10);
+  if (start === end) return formatChartDateLabel(start);
+  const startDate = new Date(`${start}T12:00:00`);
+  const endDate = new Date(`${end}T12:00:00`);
+  if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDate.getTime())) {
+    return `${start} – ${end}`;
+  }
+  const startMon = startDate.toLocaleString("en-US", { month: "short" });
+  const endMon = endDate.toLocaleString("en-US", { month: "short" });
+  const year = endDate.getFullYear();
+  if (startMon === endMon) {
+    return `${startMon} ${startDate.getDate()}–${endDate.getDate()}, ${year}`;
+  }
+  return `${startMon} ${startDate.getDate()}–${endMon} ${endDate.getDate()}, ${year}`;
+}
+
+export function formatMonthYearLeadersHeading(year: number, month: number): string {
+  const safeMonth = month >= 1 && month <= 12 ? month : 1;
+  const safeYear = Number.isFinite(year) ? year : 1970;
+  const d = new Date(safeYear, safeMonth - 1, 1);
+  const mon = d.toLocaleString("en-US", { month: "long" });
+  return `${mon} ${safeYear}`;
+}
+
+export function formatNumberOneTiming(snapshot: RvChartSnapshot): string {
+  const weeks = snapshot.numberOneWeeks ?? 1;
+  const start = snapshot.numberOneStartDate ?? snapshot.chartDate.slice(0, 10);
+  const end = snapshot.numberOneEndDate ?? snapshot.chartDate.slice(0, 10);
+  if (weeks > 1) {
+    return `${weeks} weeks at the top · ${formatNumberOneDateRange(start, end)}`;
+  }
+  return `Breakout · ${formatChartDateLabel(start)}`;
+}
+
 export function formatMonthYearHeading(year: number, month: number): string {
   const safeMonth = month >= 1 && month <= 12 ? month : 1;
   const safeYear = Number.isFinite(year) ? year : 1970;

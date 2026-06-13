@@ -8,7 +8,7 @@ function chartFamilyKey(chartName: string): string {
 
 function formatChartDisplayName(chartName: string): string {
   const stripped = chartName.replace(/billboard\s*/gi, "").trim();
-  if (/200/.test(stripped)) return "Album 200";
+  if (/200/.test(stripped)) return "Billboard 200";
   if (!stripped || /hot\s*100/i.test(stripped)) return "Hot 100";
   return stripped;
 }
@@ -25,7 +25,54 @@ function normalizeEntityKey(title: string, artist: string): string {
   return `${t}|${a}`;
 }
 
-function entryToSnapshot(entry: ChartHistoryEntry): RvChartSnapshot {
+type NumberOneRun = {
+  entry: ChartHistoryEntry;
+  weeksAtOne: number;
+  startDate: string;
+  endDate: string;
+};
+
+function buildNumberOneRuns(sortedWeeklyOnes: ChartHistoryEntry[]): NumberOneRun[] {
+  if (!sortedWeeklyOnes.length) return [];
+
+  const runs: NumberOneRun[] = [];
+  let current: NumberOneRun = {
+    entry: sortedWeeklyOnes[0]!,
+    weeksAtOne: 1,
+    startDate: sortedWeeklyOnes[0]!.chartDate.slice(0, 10),
+    endDate: sortedWeeklyOnes[0]!.chartDate.slice(0, 10),
+  };
+
+  for (let index = 1; index < sortedWeeklyOnes.length; index += 1) {
+    const week = sortedWeeklyOnes[index]!;
+    const key = normalizeEntityKey(week.title, week.artist);
+    const currentKey = normalizeEntityKey(current.entry.title, current.entry.artist);
+    if (key === currentKey) {
+      current.weeksAtOne += 1;
+      current.endDate = week.chartDate.slice(0, 10);
+      continue;
+    }
+    runs.push(current);
+    current = {
+      entry: week,
+      weeksAtOne: 1,
+      startDate: week.chartDate.slice(0, 10),
+      endDate: week.chartDate.slice(0, 10),
+    };
+  }
+  runs.push(current);
+  return runs;
+}
+
+function runForChartDate(runs: NumberOneRun[], chartDate: string): NumberOneRun | null {
+  const key = chartDate.slice(0, 10);
+  for (const run of runs) {
+    if (key >= run.startDate && key <= run.endDate) return run;
+  }
+  return runs.find((run) => run.startDate === key) ?? null;
+}
+
+function entryToSnapshot(entry: ChartHistoryEntry, run: NumberOneRun | null): RvChartSnapshot {
   return {
     id: `${entry.chartDate}|${chartFamilyKey(entry.chartName)}|${entry.trackId}`,
     trackId: entry.trackId,
@@ -39,6 +86,9 @@ function entryToSnapshot(entry: ChartHistoryEntry): RvChartSnapshot {
     artist: entry.artist,
     coverUrl: entry.coverUrl,
     releaseYear: entry.releaseYear ?? null,
+    numberOneWeeks: run?.weeksAtOne ?? 1,
+    numberOneStartDate: run?.startDate ?? entry.chartDate.slice(0, 10),
+    numberOneEndDate: run?.endDate ?? entry.chartDate.slice(0, 10),
   };
 }
 
@@ -138,8 +188,12 @@ function shapedSnapshotsForFamily(
   family: ChartFamily,
 ): RvChartSnapshot[] {
   const weeklyOnes = numberOneEntriesForWeeks(inMonth, family);
+  const runs = buildNumberOneRuns(weeklyOnes);
   const shaped = shapeNumberOneEvents(weeklyOnes);
-  return sortSnapshotsForFamily(shaped.map(entryToSnapshot), family);
+  const snapshots = shaped.map((entry) =>
+    entryToSnapshot(entry, runForChartDate(runs, entry.chartDate)),
+  );
+  return sortSnapshotsForFamily(snapshots, family);
 }
 
 /** When both chart families have data, avoid crowding one side out of the month story. */
@@ -148,6 +202,10 @@ export function balanceSnapshotFamilies(
   albums: RvChartSnapshot[],
   limitPerFamily: number,
 ): { singles: RvChartSnapshot[]; albums: RvChartSnapshot[] } {
+  if (limitPerFamily >= 50) {
+    return { singles, albums };
+  }
+
   if (singles.length === 0 || albums.length === 0) {
     return {
       singles: singles.slice(0, limitPerFamily),
@@ -192,4 +250,21 @@ export function monthChartSnapshotGroups(
     singleSnapshots: balanced.singles,
     albumSnapshots: balanced.albums,
   };
+}
+
+/** Count raw #1 chart weeks in a month (before changeover collapse). */
+export function countNumberOneWeeksInMonth(
+  entries: ChartHistoryEntry[],
+  year: number,
+  month: number,
+  family: ChartFamily,
+): number {
+  const inMonth = entries.filter(
+    (entry) =>
+      entry &&
+      entry.year === year &&
+      entry.month === month &&
+      typeof entry.chartDate === "string",
+  );
+  return numberOneEntriesForWeeks(inMonth, family).length;
 }

@@ -153,8 +153,443 @@ main.home-directory::before {
   color: var(--home-teal);
 }
 
+.home-directory__header--compact {
+  margin-bottom: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+.home-directory__header--compact .home-directory__title {
+  font-size: clamp(2.1rem, 10vw, 2.75rem);
+}
+
+.home-directory__header--compact .home-directory__tagline {
+  font-size: clamp(0.88rem, 3.4vw, 0.98rem);
+}
+
+/* —— Cover-story hero —— */
+
+.home-directory__board--publication {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-directory__hero {
+  margin-bottom: 1.1rem;
+}
+
+.home-directory__hero-masthead {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.62);
+}
+
+.home-directory__hero-kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hero-accent, var(--home-teal));
+}
+
+.home-directory__hero-card {
+  --hero-accent: var(--home-teal);
+  --hero-accent-hot: var(--home-orange-dusty);
+  overflow: hidden;
+  border: 4px solid var(--hero-border, rgba(31, 94, 99, 0.42));
+  border-radius: 2px;
+  background: linear-gradient(
+    168deg,
+    var(--hero-bg-start, rgba(111, 168, 161, 0.18)) 0%,
+    #faf4e8 46%,
+    var(--hero-bg-end, #f0e6d2) 100%
+  );
+  box-shadow:
+    5px 7px 0 rgba(45, 62, 70, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.home-directory__hero-card--rvbr-default {
+  --hero-accent: #1f5e63;
+  --hero-accent-hot: #d4693f;
+  --hero-border: rgba(31, 94, 99, 0.42);
+  --hero-bg-start: rgba(111, 168, 161, 0.18);
+  --hero-bg-end: #f0e6d2;
+}
+
+.home-directory__hero-card--rvbr-1960s {
+  --hero-accent: #0d6e7a;
+  --hero-accent-hot: #f4c430;
+  --hero-border: rgba(13, 110, 122, 0.45);
+  --hero-bg-start: rgba(244, 196, 48, 0.14);
+  --hero-bg-end: #faf4e8;
+}
+
+.home-directory__hero-card--rvbr-1970s {
+  --hero-accent: #b8860b;
+  --hero-accent-hot: #d44f1a;
+  --hero-border: rgba(184, 134, 11, 0.45);
+  --hero-bg-start: rgba(212, 79, 26, 0.1);
+  --hero-bg-end: #f6eedc;
+}
+
+.home-directory__hero-card--rvbr-1980s {
+  --hero-accent: #5c2d82;
+  --hero-accent-hot: #e85d2a;
+  --hero-border: rgba(92, 45, 130, 0.42);
+  --hero-bg-start: rgba(232, 93, 42, 0.12);
+  --hero-bg-end: #f3ead8;
+}
+
+.home-directory__hero-card--rvbr-1990s {
+  --hero-accent: #9b4d3a;
+  --hero-accent-hot: #5c2d82;
+  --hero-border: rgba(155, 77, 58, 0.42);
+  --hero-bg-start: rgba(92, 45, 130, 0.1);
+  --hero-bg-end: #efe4cf;
+}
+
+.home-directory__hero-card--rvbr-2000s {
+  --hero-accent: #6e7c8f;
+  --hero-accent-hot: #0d6e7a;
+  --hero-border: rgba(110, 124, 143, 0.42);
+  --hero-bg-start: rgba(13, 110, 122, 0.12);
+  --hero-bg-end: #ebe6da;
+}
+
+.home-directory__hero-media {
+  width: 100%;
+  max-height: min(42vw, 220px);
+  overflow: hidden;
+  border-bottom: 3px solid rgba(45, 62, 70, 0.14);
+}
+
+.home-directory__hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: min(42vw, 220px);
+  object-fit: cover;
+}
+
+.home-directory__hero-body {
+  padding: 1.15rem 0.9rem 1.15rem;
+  text-align: center;
+}
+
+.home-directory__hero-eyebrow {
+  margin: 0 0 0.45rem;
+  font-size: clamp(0.72rem, 3vw, 0.82rem);
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hero-accent-hot, var(--home-orange-dusty));
+}
+
+.home-directory__hero-headline {
+  margin: 0 0 0.45rem;
+  font-size: clamp(2rem, 9vw, 2.85rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  color: var(--hero-accent, var(--home-teal));
+}
+
+.home-directory__hero-subheadline {
+  margin: 0 0 0.55rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1rem, 4.2vw, 1.2rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(45, 62, 70, 0.82);
+}
+
+.home-directory__hero-venue {
+  margin: 0 0 0.15rem;
+  font-size: clamp(0.98rem, 3.8vw, 1.08rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--home-ink);
+}
+
+.home-directory__hero-date {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(0.92rem, 3.5vw, 1rem);
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(45, 62, 70, 0.78);
+}
+
+.home-directory__hero-artist {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hero-accent-hot, var(--home-orange-dusty));
+}
+
+.home-directory__hero-artist a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(224, 122, 79, 0.45);
+}
+
+.home-directory__hero-cta {
+  display: inline-block;
+  margin-top: 0.2rem;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--home-paper);
+  background: var(--hero-accent, var(--home-teal));
+  border: 3px solid rgba(45, 62, 70, 0.28);
+  border-radius: 2px;
+  box-shadow: 3px 4px 0 rgba(45, 62, 70, 0.16);
+}
+
+.home-directory__hero-tagline {
+  margin: 0.75rem 0 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(0.88rem, 3.4vw, 0.98rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: rgba(45, 62, 70, 0.72);
+}
+
+.home-directory__hero-brand {
+  margin: 0.7rem 0 0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.48);
+}
+
+.home-directory__search--tertiary {
+  margin-bottom: 0.65rem;
+  padding: 0.45rem 0.5rem;
+  background: rgba(111, 168, 161, 0.05);
+  border: 1px dashed rgba(31, 94, 99, 0.22);
+}
+
+.home-directory__search--tertiary .home-directory__search-label {
+  font-size: 0.68rem;
+  color: rgba(45, 62, 70, 0.55);
+}
+
+.home-directory__archive--tertiary .home-directory__archive-label {
+  font-size: 0.68rem;
+  color: rgba(45, 62, 70, 0.52);
+}
+
+.home-directory__archive--tertiary .home-directory__archive-card {
+  padding: 0.55rem 0.5rem;
+}
+
+.home-directory__year--support {
+  border-width: 2px;
+  box-shadow:
+    2px 3px 0 rgba(45, 62, 70, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.home-directory__years--secondary {
+  margin-top: 0.15rem;
+}
+
+.home-directory__years--secondary .home-directory__years-label {
+  font-size: 0.72rem;
+  color: rgba(45, 62, 70, 0.58);
+}
+
+.home-directory__years--secondary .home-directory__year {
+  padding: 0.58rem 0.55rem 0.52rem;
+}
+
+.home-directory__years--secondary .home-directory__year-number {
+  font-size: clamp(2.2rem, 11vw, 2.85rem);
+}
+
+/* Phase 11 — magazine cover fits ~2 mobile screens */
+@media (max-width: 767px) {
+  main.home-directory--has-hero {
+    padding: 0.45rem max(1.5vw, 0.25rem) 1rem;
+  }
+
+  main.home-directory--has-hero .home-directory__board {
+    padding: 0.75rem 0.65rem 0.85rem;
+  }
+
+  main.home-directory--has-hero .home-directory__header--compact {
+    margin-bottom: 0.45rem;
+    padding-bottom: 0.45rem;
+  }
+
+  main.home-directory--has-hero .home-directory__hero {
+    margin-bottom: 0.65rem;
+  }
+
+  main.home-directory--has-hero .home-directory__hero-body {
+    padding: 0.75rem 0.6rem 0.8rem;
+  }
+
+  main.home-directory--has-hero .home-directory__hero-headline {
+    font-size: clamp(1.65rem, 8.2vw, 2.15rem);
+  }
+
+  main.home-directory--has-hero .home-directory__hero-description {
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.88rem, 3.5vw, 0.98rem);
+    line-height: 1.45;
+  }
+
+  main.home-directory--has-hero .home-directory__years--secondary {
+    margin-top: 0;
+    margin-bottom: 0.55rem;
+  }
+
+  main.home-directory--has-hero .home-directory__years--secondary .home-directory__year {
+    padding: 0.48rem 0.5rem 0.42rem;
+  }
+
+  main.home-directory--has-hero .home-directory__years--secondary .home-directory__year-number {
+    font-size: clamp(1.75rem, 8.5vw, 2.2rem);
+  }
+
+  main.home-directory--has-hero .home-directory__years--secondary .home-directory__year-covers {
+    gap: 0.35rem;
+  }
+
+  main.home-directory--has-hero .home-directory__search--tertiary {
+    margin-bottom: 0.4rem;
+    padding: 0.35rem 0.4rem;
+  }
+
+  main.home-directory--has-hero .home-directory__archive--tertiary {
+    margin-bottom: 0.35rem;
+  }
+
+  main.home-directory--has-hero .home-directory__archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  main.home-directory--has-hero .home-directory__archive-card {
+    min-height: 0;
+    padding: 0.42rem 0.38rem;
+  }
+
+  main.home-directory--has-hero .home-directory__archive-card-sub {
+    font-size: 0.62rem;
+  }
+
+  main.home-directory--has-hero .home-directory__footer {
+    margin-top: 0.35rem;
+    padding-top: 0.35rem;
+  }
+
+  main.home-directory--has-hero .home-directory__footer-line {
+    font-size: 0.68rem;
+  }
+
+  .home-directory--embedded .home-directory__footer-links,
+  .home-directory--embedded .home-directory__ops-utility {
+    display: none;
+  }
+}
+
+.home-directory__hero-description {
+  margin: 0 0 0.75rem;
+  font-size: clamp(0.95rem, 3.8vw, 1.05rem);
+  line-height: 1.55;
+  color: rgba(45, 62, 70, 0.86);
+}
+
+.home-directory__hero-meta {
+  margin: 0 0 0.65rem;
+}
+
 .home-directory__years {
   margin-bottom: 1rem;
+}
+
+.home-directory__event {
+  margin-bottom: 1rem;
+}
+
+.home-directory__event-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--home-teal);
+}
+
+.home-directory__event-card {
+  padding: 0.85rem 0.75rem;
+  text-align: center;
+  border: 3px solid rgba(31, 94, 99, 0.38);
+  border-radius: 2px;
+  background: linear-gradient(
+    168deg,
+    rgba(111, 168, 161, 0.14) 0%,
+    #faf4e8 52%,
+    #f3ead8 100%
+  );
+  box-shadow:
+    3px 4px 0 rgba(45, 62, 70, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.home-directory__event-title {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--home-teal);
+}
+
+.home-directory__event-venue {
+  margin: 0 0 0.2rem;
+  font-size: clamp(0.95rem, 3.8vw, 1.05rem);
+  font-weight: 700;
+  color: var(--home-ink);
+}
+
+.home-directory__event-date {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(0.92rem, 3.6vw, 1rem);
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(45, 62, 70, 0.78);
+}
+
+.home-directory__event-artist {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--home-orange-dusty);
+}
+
+.home-directory__event-artist a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(224, 122, 79, 0.45);
 }
 
 .home-directory__years-label {

@@ -47,6 +47,30 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
     subtitle: "Live event prep and day-to-day reconciliation.",
     entries: [
       {
+        id: "operations-hub",
+        name: "Operations Hub",
+        href: "/ops/hub",
+        description: "Visual cockpit — every route, status, and system relationships.",
+        purpose: "Return-after-absence map of the full Retroverse ops surface.",
+        status: "ACTIVE",
+      },
+      {
+        id: "library-atlas",
+        name: "Library Atlas",
+        href: "/ops/infrastructure",
+        description: "Storage visibility — what you own, where it lives, and what is at risk.",
+        purpose: "Read-only map of DJ Media, Synology, USB archives, and R2 coverage.",
+        status: "ACTIVE",
+      },
+      {
+        id: "recovery-ops",
+        name: "Recovery Operations",
+        href: "/ops/recovery",
+        description: "Live graph recovery dashboard — coverage, queues, jobs, recent applies.",
+        purpose: "Leave open overnight to watch Hot 100 linkage and cover backfill progress.",
+        status: "ACTIVE",
+      },
+      {
         id: "sunday-nights",
         name: "Sunday Nights",
         href: "/ops/sunday-nights",
@@ -55,11 +79,28 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         status: "SUNDAY NIGHTS",
       },
       {
+        id: "event-control",
+        name: "Event Control",
+        href: "/ops/event-control",
+        description: "Homepage cover story — headline, mode, years, hero, and CTA.",
+        purpose: "Single editor for the public homepage magazine cover.",
+        status: "ACTIVE",
+      },
+      {
         id: "live-now-playing",
-        name: "Bridge Health",
+        name: "Event Command Center",
         href: "/ops/live",
-        description: "VDJ bridge diagnostics and authoritative live track readout.",
-        purpose: "Monitor bridge process; live state is shared with Sunday Nights.",
+        description:
+          "Run the show — event state, featured years, live resolution, certification, and bridge health.",
+        purpose: "One screen for Sunday Nights: configure, certify, resolve, and go live.",
+        status: "SUNDAY NIGHTS",
+      },
+      {
+        id: "sunday-certification",
+        name: "Playlist Certification",
+        href: "/ops/live#certification",
+        description: "Certify tonight's VDJ playlist — embedded in the Event Command Center.",
+        purpose: "Pre-show checklist: filepath→RVTR links that persist for future shows.",
         status: "SUNDAY NIGHTS",
       },
       {
@@ -325,6 +366,7 @@ export const OPS_PUBLIC_QUICK_LINKS: OpsQuickLink[] = [
 ];
 
 export const OPS_CONSOLE_QUICK_LINKS: OpsQuickLink[] = [
+  { label: "Operations Hub", href: "/ops/hub" },
   { label: "Sunday Nights", href: "/ops/sunday-nights" },
   { label: "Pass Generator", href: "/ops/passes" },
   { label: "Year Workspace 1967", href: "/ops/year/1967" },

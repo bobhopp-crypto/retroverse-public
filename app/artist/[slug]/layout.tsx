@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import { loadArtistExhibitShell } from "@/lib/artist/load-artist-exhibit-shell";
+import { loadArtistYoutubeVideoCount } from "@/lib/youtube/load-artist-video-count";
 import {
   artistFileCode,
   artistNameFromSlug,
@@ -37,9 +38,10 @@ export default async function ArtistSlugLayout({ children, params }: Props) {
   const { slug } = await params;
   const shell = await loadArtistExhibitShell(slug);
   const safeShell = shell ?? fallbackArtistShell(slug);
+  const youtubeVideoCount = await loadArtistYoutubeVideoCount(safeShell.displayName);
 
   return (
-    <ArtistExhibitShell shell={safeShell}>
+    <ArtistExhibitShell shell={safeShell} youtubeVideoCount={youtubeVideoCount}>
       <ArtistExhibitScroll slug={safeShell.slug} />
       {children}
     </ArtistExhibitShell>

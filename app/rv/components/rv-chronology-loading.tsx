@@ -1,31 +1,26 @@
 import Link from "next/link";
 
+import { RvPublicMasthead } from "./rv-public-masthead";
+import { RvYearNavBand } from "./rv-year-nav-band";
+
 import "../[year]/rv-year.css";
 
 /** Stable RV chronology shell while route data loads — same chrome as drill pages. */
-export function RvChronologyLoading({ label = "RV Chronicle" }: { label?: string }) {
+export function RvChronologyLoading({ rvYear = 1971 }: { rvYear?: number; label?: string }) {
   return (
-    <div className="rv-year-world rv-year-world--loading" aria-busy="true" aria-label="Loading chart chronicle">
+    <div className="rv-year-world rv-year-world--loading" aria-busy="true" aria-label="Loading">
       <div className="rv-year-world__grain" aria-hidden />
-      <header className="rv-year-topbar">
-        <Link href="/" className="rv-year-logo" prefetch>
-          Retroverse
-        </Link>
-        <span className="rv-year-file-tag">{label}</span>
-      </header>
-      <nav className="rv-year-nav" aria-hidden>
-        <span className="rv-year-nav__link rv-year-nav__link--disabled">←</span>
-        <span className="rv-year-nav__link">Year</span>
-        <span className="rv-year-nav__link rv-year-nav__link--disabled">→</span>
-      </nav>
+      <RvPublicMasthead searchQuery={String(rvYear)} />
       <section className="rv-year-hero rv-year-hero--loading">
-        <p className="rv-year-hero__eyebrow">From the archive</p>
+        <p className="rv-year-hero__label">Year</p>
         <h1 className="rv-year-hero__year">…</h1>
-        <p className="rv-year-hero__lead">Opening chart chronicle…</p>
+        <h2 className="rv-year-hero__headline">Loading the story…</h2>
+        <p className="rv-year-hero__lead">One moment while we pull together the music from this year.</p>
       </section>
+      <RvYearNavBand rvYear={rvYear} showYearHome />
       <footer className="rv-year-footer">
         <Link href="/">← Home</Link>
-        <Link href="/search">Search entities</Link>
+        <Link href="/search">Search music</Link>
       </footer>
     </div>
   );

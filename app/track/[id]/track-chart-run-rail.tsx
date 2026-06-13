@@ -75,7 +75,9 @@ export function TrackChartRunRail({
             <>
               <div className="track-trajectory-date">
                 <span>{formatChartDate(week.issueDate)}</span>
-                <small>week {week.weeksOnChart ?? index + 1}</small>
+                <small>
+                  week {week.weeksOnChart != null && week.weeksOnChart > 0 ? week.weeksOnChart : index + 1}
+                </small>
               </div>
               <div className="track-trajectory-track" aria-hidden />
               <div className="track-trajectory-rank">

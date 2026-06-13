@@ -18,6 +18,8 @@ export type EpisodeStatus =
   | "queued"
   | "downloading"
   | "downloaded"
+  | "partial"
+  | "corrupt"
   | "processing"
   | "processed"
   | "harvested"

@@ -1,4 +1,4 @@
-import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
+import type { QrVerificationResult } from "@/lib/ops/creative-lab/qr-verification-placeholder";
 
 export class QrExportVerificationError extends Error {
   readonly verification: QrVerificationResult;

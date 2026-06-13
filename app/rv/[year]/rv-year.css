@@ -1,4 +1,4 @@
-/* RV Year world — musical yearbook entry (entity exhibit family) */
+/* RV Year world — retrospective issue, not analytics dashboard */
 
 .rv-year-world {
   --paper-warm: #f4e9d3;
@@ -9,13 +9,14 @@
   --ink: var(--charcoal);
   --frame: 3px solid var(--charcoal);
   --purple-band: #ddd0ff;
+  --rv-page-gutter: max(0.55rem, 2.5vw);
 
   min-height: 100vh;
   background: var(--paper-warm);
   color: var(--ink);
   font-family: "Avenir Next", "Trebuchet MS", "Gill Sans", system-ui, sans-serif;
   overflow-x: hidden;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 .rv-year-world__grain {
@@ -34,57 +35,633 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem 0;
+  gap: 0.5rem;
+  padding: 0.55rem var(--rv-page-gutter) 0;
 }
 
-.rv-year-topbar__brand {
+/* —— Public masthead (logo + integrated search) —— */
+
+.rv-public-masthead {
+  position: relative;
+  z-index: 2;
+  padding: 0.55rem var(--rv-page-gutter) 0.35rem;
+}
+
+.rv-public-masthead__kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(31, 94, 99, 0.78);
+}
+
+.rv-public-masthead__row {
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
   flex-wrap: wrap;
 }
 
-.rv-year-topbar__actions {
-  display: flex;
-  align-items: center;
-}
-
-.rv-year-topbar__action {
-  font-size: 0.74rem;
+.rv-public-masthead__search {
+  flex: 1 1 auto;
+  max-width: 12rem;
+  margin-left: auto;
+  padding: 0.42rem 0.75rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--teal-deep);
-  border: 2px solid rgba(31, 94, 99, 0.5);
-  border-radius: 3px;
-  padding: 0.4rem 0.55rem;
-  background: rgba(255, 248, 238, 0.9);
+  text-align: center;
+  color: var(--ink);
+  border: 2px solid var(--charcoal);
+  border-radius: 999px;
+  background: #fff8ee;
+  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.18);
 }
 
-.rv-year-topbar__action:hover {
-  background: rgba(31, 94, 99, 0.1);
+.rv-public-masthead__search:hover {
+  background: var(--paper-tan);
 }
 
 .rv-year-logo {
   font-family: "Brush Script MT", "Segoe Script", cursive;
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   color: var(--orange-dusty);
   text-decoration: none;
   line-height: 1;
 }
 
 .rv-year-file-tag {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.35rem 0.55rem;
+  padding: 0.3rem 0.5rem;
   background: var(--paper-tan);
   border: var(--frame);
   border-radius: 2px;
 }
+
+/* —— Editorial hero —— */
+
+.rv-year-hero {
+  position: relative;
+  z-index: 1;
+  margin: 0.65rem var(--rv-page-gutter) 0.75rem;
+  padding: 0.9rem 0.75rem 1rem;
+  text-align: center;
+  border: var(--frame);
+  border-radius: 6px;
+  background:
+    linear-gradient(165deg, rgba(221, 208, 255, 0.55) 0%, rgba(244, 233, 211, 0.95) 42%),
+    var(--paper-warm);
+  box-shadow: 7px 9px 0 rgba(45, 62, 70, 0.28);
+}
+
+.rv-year-hero__label {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+.rv-year-hero__year {
+  margin: 0;
+  font-size: clamp(5rem, 28vw, 10rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--charcoal);
+  text-shadow: 3px 4px 0 rgba(224, 122, 79, 0.35);
+}
+
+.rv-year-hero__headline {
+  margin: 0.55rem auto 0;
+  max-width: none;
+  padding: 0 0.15rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1.35rem, 5.5vw, 1.85rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: rgba(45, 62, 70, 0.95);
+}
+
+.rv-year-hero__lead {
+  margin: 0.75rem auto 0;
+  max-width: 36rem;
+  padding: 0 0.25rem;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1rem, 4.2vw, 1.12rem);
+  font-weight: 600;
+  line-height: 1.48;
+  color: rgba(45, 62, 70, 0.9);
+  text-align: center;
+}
+
+.rv-year-hero__covers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.rv-year-hero__cover-link,
+.rv-year-hero__cover-static {
+  display: block;
+  min-width: 0;
+}
+
+.rv-year-hero__cover-link {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 2px;
+}
+
+.rv-year-hero__cover-link:focus-visible {
+  outline: 3px solid var(--teal-deep);
+  outline-offset: 2px;
+}
+
+.rv-year-hero__cover-link:hover .rv-year-hero__cover {
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.24);
+  transform: translateY(-1px);
+}
+
+.rv-year-hero__cover {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid rgba(45, 62, 70, 0.78);
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 rgba(45, 62, 70, 0.16);
+  transition: box-shadow 0.12s ease, transform 0.12s ease;
+}
+
+/* —— Year nav (below hero) —— */
+
+.rv-year-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0 var(--rv-page-gutter) 0.75rem;
+  padding: 0.45rem 0.55rem;
+  border: var(--frame);
+  border-radius: 4px;
+  background: #fff8ee;
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.22);
+}
+
+.rv-year-nav__link {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--teal-deep);
+  padding: 0.4rem 0.65rem;
+  border: 2px solid transparent;
+  border-radius: 3px;
+}
+
+.rv-year-nav__link:hover {
+  border-color: rgba(31, 94, 99, 0.35);
+  background: rgba(31, 94, 99, 0.08);
+}
+
+.rv-year-nav__link--explore {
+  color: var(--ink);
+  border: 2px solid var(--charcoal);
+  background: var(--paper-tan);
+  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.2);
+}
+
+.rv-year-nav--secondary {
+  margin-top: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  border: 2px solid rgba(45, 62, 70, 0.35);
+  background: rgba(255, 248, 238, 0.72);
+  box-shadow: none;
+}
+
+.rv-year-nav--secondary .rv-year-nav__link {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3rem 0.5rem;
+}
+
+.rv-year-nav__label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(45, 62, 70, 0.55);
+  padding: 0.3rem 0.45rem;
+}
+
+.rv-year-nav__link--year {
+  color: var(--ink);
+  border: 2px solid rgba(45, 62, 70, 0.25);
+  border-radius: 3px;
+  background: rgba(244, 233, 211, 0.65);
+}
+
+.rv-year-nav__link--disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* —— Editorial sections —— */
+
+.rv-year-section {
+  position: relative;
+  z-index: 1;
+  margin: 0 var(--rv-page-gutter) 0.75rem;
+  padding: 0.75rem 0.65rem 0.8rem;
+  border: var(--frame);
+  border-radius: 4px;
+  background: #fff8ee;
+  box-shadow: 4px 5px 0 rgba(45, 62, 70, 0.2);
+}
+
+.rv-year-section__title {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1rem, 4vw, 1.15rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+
+.rv-year-album-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rv-year-album-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.rv-year-album-card__art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid rgba(45, 62, 70, 0.75);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 3px 3px 0 rgba(45, 62, 70, 0.14);
+  background: rgba(244, 233, 211, 0.65);
+}
+
+.rv-year-album-card__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rv-year-album-card__title {
+  font-size: 0.88rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--charcoal);
+}
+
+.rv-year-album-card:hover .rv-year-album-card__title {
+  color: var(--teal-deep);
+}
+
+.rv-year-album-card__caption {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: rgba(45, 62, 70, 0.72);
+}
+
+.rv-year-album-card--static,
+.rv-year-song-row--static,
+.rv-year-artist-card--static {
+  cursor: default;
+  pointer-events: none;
+}
+
+.rv-year-album-card--static:hover .rv-year-album-card__title {
+  color: inherit;
+}
+
+.rv-year-artist-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rv-year-artist-card {
+  display: inline-block;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  background: rgba(111, 168, 161, 0.14);
+  border: 2px solid rgba(31, 94, 99, 0.28);
+  border-radius: 3px;
+  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.12);
+}
+
+.rv-year-artist-card:hover {
+  background: rgba(31, 94, 99, 0.12);
+}
+
+.rv-year-song-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+  counter-reset: rv-song;
+}
+
+.rv-year-song-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid rgba(45, 62, 70, 0.12);
+  border-radius: 3px;
+  background: rgba(244, 233, 211, 0.45);
+}
+
+.rv-year-song-row:hover {
+  border-color: rgba(31, 94, 99, 0.35);
+  background: rgba(244, 233, 211, 0.75);
+}
+
+.rv-year-song-row--text-only {
+  padding-left: 0.65rem;
+}
+
+.rv-year-song-row__thumb {
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: cover;
+  border: 2px solid rgba(45, 62, 70, 0.65);
+  border-radius: 2px;
+}
+
+.rv-year-song-row__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.rv-year-song-row__title {
+  font-size: 0.92rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--charcoal);
+}
+
+.rv-year-song-row__artist {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(45, 62, 70, 0.75);
+}
+
+/* —— Month by month (final major section) —— */
+
+.rv-year-chronicle {
+  position: relative;
+  z-index: 1;
+  margin: 0.25rem 0 0;
+}
+
+.rv-year-chronicle__head {
+  margin: 0 var(--rv-page-gutter) 0.55rem;
+  padding: 0.65rem 0.7rem;
+  border: var(--frame);
+  border-radius: 4px;
+  background: var(--purple-band);
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.22);
+}
+
+.rv-year-chronicle__title {
+  margin: 0;
+  font-size: clamp(1rem, 3.7vw, 1.15rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.rv-year-chronicle__hint {
+  margin: 0.25rem 0 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(45, 62, 70, 0.82);
+}
+
+.rv-year-bridge {
+  position: relative;
+  z-index: 1;
+  margin: 0 var(--rv-page-gutter) 0.65rem;
+  padding: 0.65rem 0.7rem;
+  border: var(--frame);
+  border-radius: 4px;
+  background: var(--purple-band);
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.22);
+}
+
+.rv-year-bridge__title {
+  margin: 0;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.rv-year-bridge__hint {
+  margin: 0.3rem 0 0;
+  font-size: clamp(0.82rem, 3.4vw, 0.92rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: rgba(45, 62, 70, 0.85);
+}
+
+.charts-world-chronicle {
+  margin-bottom: 0.5rem;
+}
+
+.charts-world-bridge {
+  text-align: left;
+}
+
+.rv-month-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  margin: 0 var(--rv-page-gutter);
+}
+
+.rv-month-card {
+  border: var(--frame);
+  border-radius: 4px;
+  background: #fff8ee;
+  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.18);
+  padding: 0.6rem 0.7rem;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.rv-month-card--tappable:hover {
+  transform: translateY(-1px);
+  border-color: rgba(31, 94, 99, 0.45);
+  box-shadow: 5px 5px 0 rgba(45, 62, 70, 0.2);
+}
+
+.rv-month-card--tappable {
+  cursor: pointer;
+}
+
+.rv-month-card__head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.rv-month-card__chevron {
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: var(--teal-deep);
+}
+
+.rv-month-card--accordion .rv-month-card__head {
+  cursor: pointer;
+}
+
+.rv-month-card__open {
+  margin-top: 0.55rem;
+  width: 100%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  border: 2px solid rgba(31, 94, 99, 0.44);
+  border-radius: 3px;
+  padding: 0.42rem 0.55rem;
+  background: rgba(31, 94, 99, 0.09);
+  cursor: pointer;
+}
+
+.rv-month-card__open:hover {
+  background: rgba(31, 94, 99, 0.15);
+}
+
+.rv-month-card__head {
+  margin-bottom: 0.4rem;
+}
+
+.rv-month-card__month {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.rv-month-card__meta {
+  margin: 0.08rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(45, 62, 70, 0.65);
+}
+
+.rv-month-card__leaders {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+}
+
+.rv-month-card__label {
+  margin: 0;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(31, 94, 99, 0.88);
+}
+
+.rv-month-card__value {
+  margin: 0.08rem 0 0;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.rv-month-card__value--muted {
+  color: rgba(45, 62, 70, 0.62);
+}
+
+.rv-month-card__notable {
+  margin: 0.45rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.rv-month-card__notable li,
+.rv-month-card__notable a {
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: rgba(45, 62, 70, 0.9);
+}
+
+.rv-month-card__notable a {
+  text-decoration: none;
+}
+
+.rv-month-card__notable a:hover {
+  text-decoration: underline;
+}
+
+.rv-month-card__week {
+  color: rgba(45, 62, 70, 0.72);
+}
+
+/* Month detail (sub-pages) */
 
 .rv-chronology-crumb {
   position: relative;
@@ -93,13 +670,13 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem;
-  margin: 0 1rem 0.65rem;
-  padding: 0.45rem 0.65rem;
+  margin: 0 var(--rv-page-gutter) 0.55rem;
+  padding: 0.4rem 0.6rem;
   border: var(--frame);
   border-radius: 4px;
   background: #fff8ee;
   box-shadow: 3px 3px 0 rgba(45, 62, 70, 0.16);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.04em;
 }
@@ -123,275 +700,13 @@
   opacity: 0.55;
 }
 
-.rv-year-nav {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  margin: 0.85rem 1rem 0;
-  padding: 0.55rem 0.65rem;
-  border: var(--frame);
-  border-radius: 4px;
-  background: #fff8ee;
-  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.22);
-}
-
-.rv-year-nav__link {
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--teal-deep);
-  padding: 0.45rem 0.7rem;
-  border: 2px solid transparent;
-  border-radius: 3px;
-}
-
-.rv-year-nav__link:hover {
-  border-color: rgba(31, 94, 99, 0.35);
-  background: rgba(31, 94, 99, 0.08);
-}
-
-.rv-year-nav__link--explore {
-  color: var(--ink);
-  border: 2px solid var(--charcoal);
-  background: var(--paper-tan);
-  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.2);
-}
-
-.rv-year-nav__link--disabled {
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-.rv-year-hero {
-  position: relative;
-  z-index: 1;
-  margin: 1.15rem 1rem 1.5rem;
-  padding: 1.35rem 1rem 1.5rem;
-  text-align: center;
-  border: var(--frame);
-  border-radius: 6px;
-  background:
-    linear-gradient(165deg, rgba(221, 208, 255, 0.55) 0%, rgba(244, 233, 211, 0.95) 42%),
-    var(--paper-warm);
-  box-shadow: 7px 9px 0 rgba(45, 62, 70, 0.28);
-}
-
-.rv-year-hero__eyebrow {
-  margin: 0 0 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--teal-deep);
-}
-
-.rv-year-hero__year {
-  margin: 0;
-  font-size: clamp(4.5rem, 24vw, 8.5rem);
-  font-weight: 900;
-  line-height: 0.92;
-  letter-spacing: -0.04em;
-  color: var(--charcoal);
-  text-shadow: 3px 4px 0 rgba(224, 122, 79, 0.35);
-}
-
-.rv-year-hero__tagline {
-  margin: 0.85rem auto 0;
-  max-width: 22rem;
-  font-size: clamp(1.15rem, 4.5vw, 1.45rem);
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-
-.rv-year-hero__lead {
-  margin: 0.85rem auto 0;
-  max-width: 26rem;
-  font-size: 1.02rem;
-  font-weight: 600;
-  line-height: 1.45;
-  color: rgba(45, 62, 46, 0.88);
-}
-
-.rv-year-hero__stats {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.45rem 0.75rem;
-  margin: 1.15rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.rv-year-hero__stat {
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.4rem 0.65rem;
-  border: 2px solid var(--charcoal);
-  border-radius: 999px;
-  background: rgba(255, 248, 238, 0.85);
-}
-
-.rv-year-bridge {
-  position: relative;
-  z-index: 1;
-  margin: 0 1rem 0.65rem;
-  padding: 0.65rem 0.8rem;
-  border: var(--frame);
-  border-radius: 4px;
-  background: var(--purple-band);
-  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.22);
-}
-
-.rv-year-bridge__title {
-  margin: 0;
-  font-size: clamp(1rem, 3.7vw, 1.15rem);
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.rv-year-bridge__hint {
-  margin: 0.28rem 0 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-  line-height: 1.35;
-  color: rgba(45, 62, 70, 0.82);
-}
-
-.rv-year-chronicle {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-}
-
-.rv-month-stack {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.65rem;
-  margin: 0 1rem;
-}
-
-.rv-month-card-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.rv-month-card {
-  border: var(--frame);
-  border-radius: 4px;
-  background: #fff8ee;
-  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.18);
-  padding: 0.68rem 0.78rem;
-  transition:
-    transform 0.12s ease,
-    box-shadow 0.12s ease,
-    border-color 0.12s ease;
-}
-
-.rv-month-card-link:hover .rv-month-card,
-.rv-month-card--tappable:hover {
-  transform: translateY(-1px);
-  border-color: rgba(31, 94, 99, 0.45);
-  box-shadow: 5px 5px 0 rgba(45, 62, 70, 0.2);
-}
-
-.rv-month-card--tappable {
-  cursor: pointer;
-}
-
-.rv-month-card__head {
-  margin-bottom: 0.48rem;
-}
-
-.rv-month-card__month {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-}
-
-.rv-month-card__meta {
-  margin: 0.1rem 0 0;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: rgba(45, 62, 70, 0.8);
-}
-
-.rv-month-card__leaders {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.35rem;
-}
-
-.rv-month-card__label {
-  margin: 0;
-  font-size: 0.67rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(31, 94, 99, 0.88);
-}
-
-.rv-month-card__value {
-  margin: 0.1rem 0 0;
-  display: inline-block;
-  text-decoration: none;
-  color: var(--ink);
-  font-size: 0.89rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.rv-month-card__value--muted {
-  color: rgba(45, 62, 70, 0.62);
-}
-
-.rv-month-card__value:hover {
-  text-decoration: underline;
-}
-
-.rv-month-card__notable {
-  margin: 0.5rem 0 0;
-  padding-left: 1rem;
-  display: grid;
-  gap: 0.18rem;
-}
-
-.rv-month-card__notable li,
-.rv-month-card__notable a {
-  font-size: 0.8rem;
-  line-height: 1.3;
-  color: rgba(45, 62, 70, 0.9);
-}
-
-.rv-month-card__notable a {
-  text-decoration: none;
-}
-
-.rv-month-card__notable a:hover {
-  text-decoration: underline;
-}
-
-.rv-month-card__week {
-  color: rgba(45, 62, 70, 0.72);
-}
-
 .rv-month-detail {
-  margin: 0 1rem;
+  margin: 0 var(--rv-page-gutter);
   border: var(--frame);
   border-radius: 4px;
   background: #fff8ee;
   box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.18);
-  padding: 0.75rem 0.82rem;
+  padding: 0.65rem 0.75rem;
 }
 
 .rv-month-detail__head {
@@ -400,25 +715,25 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.4rem 0.8rem;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.5rem;
 }
 
 .rv-month-detail__title {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 900;
   letter-spacing: 0.05em;
 }
 
 .rv-month-detail__back {
   text-decoration: none;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 2px solid rgba(31, 94, 99, 0.44);
   border-radius: 3px;
-  padding: 0.34rem 0.5rem;
+  padding: 0.32rem 0.48rem;
   color: var(--teal-deep);
   background: rgba(31, 94, 99, 0.09);
 }
@@ -433,14 +748,14 @@
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .rv-month-detail-card {
   border: 2px solid rgba(45, 62, 70, 0.24);
   border-radius: 3px;
   background: #fcf6ec;
-  padding: 0.55rem 0.6rem;
+  padding: 0.5rem 0.55rem;
 }
 
 .rv-month-detail-card__meta {
@@ -448,7 +763,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.2rem 0.55rem;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -456,11 +771,11 @@
 }
 
 .rv-month-detail-card__title {
-  margin: 0.28rem 0 0;
+  margin: 0.25rem 0 0;
   display: inline-block;
   text-decoration: none;
   color: var(--ink);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 800;
   line-height: 1.25;
 }
@@ -470,15 +785,15 @@
 }
 
 .rv-month-detail-card__artist {
-  margin: 0.18rem 0 0;
-  font-size: 0.85rem;
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
   font-weight: 700;
   color: rgba(45, 62, 70, 0.86);
 }
 
 .rv-month-detail-card__rank {
-  margin: 0.28rem 0 0;
-  font-size: 0.72rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -486,8 +801,8 @@
 }
 
 .rv-month-detail__empty {
-  margin: 0.3rem 0 0;
-  font-size: 0.86rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.84rem;
   font-weight: 700;
   color: rgba(45, 62, 70, 0.78);
 }
@@ -498,10 +813,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem 1.5rem;
-  margin: 1.75rem 1rem 0;
-  padding-top: 0.5rem;
-  font-size: 0.92rem;
+  gap: 0.85rem 1.25rem;
+  margin: 1.25rem var(--rv-page-gutter) 0;
+  padding-top: 0.35rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.04em;
 }
@@ -518,20 +833,30 @@
 @media (min-width: 640px) {
   .rv-year-hero,
   .rv-year-nav,
-  .rv-year-bridge {
-    max-width: 36rem;
+  .rv-year-section {
+    max-width: 38rem;
     margin-inline: auto;
   }
 
   .rv-year-hero {
-    margin-top: 1.35rem;
+    margin-top: 0.85rem;
+    padding: 1.15rem 1rem 1.2rem;
   }
 
-  .rv-year-nav {
-    margin-top: 1rem;
+  .rv-year-hero__covers {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .rv-year-album-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .rv-year-chronicle {
+    max-width: 62rem;
+    margin-inline: auto;
+  }
+
+  .rv-year-chronicle__head {
     max-width: 62rem;
     margin-inline: auto;
   }
@@ -542,5 +867,76 @@
 
   .rv-month-detail__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  html:has(.rv-year-world),
+  html:has(.rv-year-world) body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  .rv-year-world {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  .rv-year-hero {
+    overflow: hidden;
+    box-shadow: 4px 5px 0 rgba(45, 62, 70, 0.22);
+  }
+
+  .rv-year-hero__year {
+    max-width: 100%;
+    font-size: clamp(3.5rem, 22vw, 8rem);
+    text-shadow: 2px 3px 0 rgba(224, 122, 79, 0.35);
+  }
+
+  .rv-year-nav,
+  .rv-year-section {
+    box-shadow: 3px 4px 0 rgba(45, 62, 70, 0.18);
+  }
+
+  .rv-year-topbar {
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .rv-year-topbar__actions {
+    width: 100%;
+  }
+
+  .rv-year-topbar__action {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 0.68rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .rv-year-nav {
+    gap: 0.3rem;
+    padding: 0.4rem 0.45rem;
+  }
+
+  .rv-year-nav__link {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .rv-month-stack--accordion {
+    gap: 0.35rem;
+  }
+
+  .rv-month-card--accordion {
+    padding: 0.45rem 0.6rem;
+  }
+
+  .rv-month-card--accordion:not(.rv-month-card--open) .rv-month-card__head {
+    margin-bottom: 0;
+  }
+
+  .rv-month-card--accordion .rv-month-card__month {
+    font-size: 0.88rem;
   }
 }

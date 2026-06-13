@@ -9,9 +9,10 @@ import { ArtistExhibitNav } from "./artist-exhibit-nav";
 type Props = {
   shell: ArtistExhibitShellData;
   children: ReactNode;
+  youtubeVideoCount?: number;
 };
 
-export function ArtistExhibitShell({ shell, children }: Props) {
+export function ArtistExhibitShell({ shell, children, youtubeVideoCount = 0 }: Props) {
   const { slug, displayName, heroImageUrl } = shell;
 
   return (
@@ -42,6 +43,11 @@ export function ArtistExhibitShell({ shell, children }: Props) {
       <div className="artist-hero__headline">
         <p className="artist-hero__eyebrow">From the archive</p>
         <h1 className="artist-hero__name">{displayName}</h1>
+        {youtubeVideoCount > 0 ? (
+          <p className="artist-hero__youtube-count">
+            {youtubeVideoCount} linked video{youtubeVideoCount === 1 ? "" : "s"}
+          </p>
+        ) : null}
       </div>
 
       <ArtistExhibitNav slug={slug} />

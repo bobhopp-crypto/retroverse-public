@@ -70,7 +70,9 @@ export default function OpsMediaCollectionDetail(props: {
     slug: data.slug,
     initialRunning: props.initial.download_progress.running,
     initialProgress: props.initial.download_progress,
-    onRefresh: () => refreshRef.current(),
+    onRefresh: () => {
+      void refreshRef.current();
+    },
   });
 
   const refresh = useCallback(async (): Promise<boolean> => {

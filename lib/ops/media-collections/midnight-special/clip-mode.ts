@@ -1,7 +1,6 @@
 import { buildMediaLabPerformanceHref } from "@/lib/ops/media-lab/workspace/urls";
 
-import { collectionSlugFromId } from "../paths";
-import { MS_COLLECTION_ID } from "./paths";
+const MS_COLLECTION_ID = "midnight_special";
 
 export type ClipReviewModeParams = {
   collection_id: string;

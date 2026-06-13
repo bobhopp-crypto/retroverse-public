@@ -53,9 +53,6 @@ export default async function ArtistPage({ params }: Props) {
     const searchHref =
       data.exploreLinks.find((l) => l.label === "Search catalog")?.href ??
       `/search?q=${encodeURIComponent(data.displayName)}`;
-    const inspectHref =
-      data.exploreLinks.find((l) => l.label === "Inspect graph")?.href ??
-      `/inspect?q=${encodeURIComponent(data.displayName)}`;
 
     return (
       <section className="artist-missing" aria-label="Nothing in the archive">
@@ -64,15 +61,12 @@ export default async function ArtistPage({ params }: Props) {
           {data.displayName} is on the list, but the archive is still indexing.
         </p>
         <p className="artist-placeholder__note">
-          Try the catalog search or inspect the graph.
-        </p>
-        <p className="artist-placeholder__note">
           <Link href={searchHref} prefetch>
             Search catalog →
           </Link>{" "}
           ·{" "}
-          <Link href={inspectHref} prefetch>
-            Inspect graph →
+          <Link href="/" prefetch>
+            Home →
           </Link>
         </p>
       </section>

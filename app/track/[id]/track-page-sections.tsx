@@ -19,9 +19,9 @@ export function TrackAlbumsSection({ data }: SectionProps) {
         <h2 id="track-on-albums">Appears on</h2>
       </div>
       <ul className="track-albums__list">
-        {data.albums.map((album) => (
-          <li key={album.href}>
-            <Link href={album.href} prefetch className="track-album-module">
+        {data.albums.map((album) => {
+          const body = (
+            <>
               <span className="track-album-module__cover-wrap">
                 <ArtistCover
                   src={album.coverUrl}
@@ -33,7 +33,6 @@ export function TrackAlbumsSection({ data }: SectionProps) {
                     artist: data.artistName,
                     album: album.title,
                     releaseYear: album.releaseYear,
-                    rval: album.rval ?? undefined,
                   }}
                   plateDensity="compact"
                 />
@@ -46,9 +45,21 @@ export function TrackAlbumsSection({ data }: SectionProps) {
                   </span>
                 ) : null}
               </span>
-            </Link>
-          </li>
-        ))}
+            </>
+          );
+
+          return (
+            <li key={album.rval ?? album.title}>
+              {album.href ? (
+                <Link href={album.href} prefetch className="track-album-module">
+                  {body}
+                </Link>
+              ) : (
+                <div className="track-album-module track-album-module--static">{body}</div>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

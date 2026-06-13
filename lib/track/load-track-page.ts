@@ -3,8 +3,11 @@ import { cache } from "react";
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
-import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
+import { trackPageHref } from "@/lib/search/entity-routes";
+
+const RE_RVAL = /^RVAL\d{6}$/i;
 import { chartsToTrajectoryWeeks } from "@/lib/track/charts-to-trajectory-weeks";
+import { formatCanonicalTitle } from "@/lib/track/format-canonical-title";
 import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
 import type { TrackTrajectoryWeek } from "@/lib/track/track-trajectory-types";
 
@@ -13,7 +16,7 @@ export type TrackAlbumLink = {
   releaseYear: number | null;
   rval: string | null;
   coverUrl: string | null;
-  href: string;
+  href: string | null;
 };
 
 export type TrackRelatedSong = {
@@ -108,7 +111,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
   if (!track) return null;
 
   const rvtr = track.track_id.trim().toUpperCase();
-  const title = track.canonical_title.trim();
+  const title = formatCanonicalTitle(track.canonical_title);
   const artistName = displayArtistName(track.canonical_artist_name.trim());
   const artistSlug = slugFromArtistName(artistName);
   const releaseYear = yearFromDate(track.first_chart_date);
@@ -218,9 +221,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
       releaseYear: row.release_year,
       rval,
       coverUrl: pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key),
-      href:
-        albumSuggestionHref(row.title.trim(), rval ? `/albums/${rval}` : null) ??
-        `/album/${row.title.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`,
+      href: rval && RE_RVAL.test(rval) ? `/album/${rval}` : null,
     };
   });
 
@@ -243,7 +244,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
 
   const relatedTracks: TrackRelatedSong[] = relatedRows.map((row) => ({
     rvtr: row.track_id,
-    title: row.canonical_title.trim(),
+    title: formatCanonicalTitle(row.canonical_title),
     releaseYear: yearFromDate(row.first_chart_date),
     peakHot100: row.peak_hot100_position,
     href: trackPageHref(row.track_id),

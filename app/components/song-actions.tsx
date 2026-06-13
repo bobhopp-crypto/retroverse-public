@@ -20,6 +20,8 @@ type SongActionsProps = {
   layout?: "stack" | "inline";
   /** Hub rows: ▶ + ◎ only */
   minimal?: boolean;
+  /** Omit disabled or href-less actions (chart cards). */
+  omitUnavailable?: boolean;
   className?: string;
 };
 
@@ -51,6 +53,7 @@ export function SongActions({
   target,
   layout = "stack",
   minimal = false,
+  omitUnavailable = false,
   className,
 }: SongActionsProps) {
   const inspectHref = songInspectHref(target);
@@ -81,47 +84,58 @@ export function SongActions({
       role="group"
       aria-label={`Actions for ${target.title}`}
     >
-      <button
-        type="button"
-        className="song-actions__btn"
-        aria-label={rvtr ? `Play ${target.title}` : `Play ${target.title} (no RVTR)`}
-        disabled={!rvtr}
-        onClick={handlePlay}
-      >
-        ▶
-      </button>
-      <button
-        type="button"
-        className="song-actions__btn"
-        aria-label={`Add ${target.title} to queue (coming soon)`}
-        disabled
-        onClick={stopBubble}
-      >
-        +
-      </button>
-      {!minimal && trackHref ? (
+      {(rvtr || !omitUnavailable) ? (
+        <button
+          type="button"
+          className="song-actions__btn"
+          aria-label={rvtr ? `Play ${target.title}` : `Play ${target.title} (no RVTR)`}
+          disabled={!rvtr}
+          onClick={handlePlay}
+        >
+          ▶
+        </button>
+      ) : null}
+      {!omitUnavailable ? (
+        <button
+          type="button"
+          className="song-actions__btn"
+          aria-label={`Add ${target.title} to queue (coming soon)`}
+          disabled
+          onClick={stopBubble}
+        >
+          +
+        </button>
+      ) : null}
+      {!minimal && !omitUnavailable && trackHref ? (
         <ActionLink href={trackHref} label={`Open ${target.title}`} onClick={stopBubble}>
           ↗
         </ActionLink>
       ) : null}
-      {!minimal && artistHref ? (
+      {omitUnavailable && trackHref ? (
+        <ActionLink href={trackHref} label={`Open ${target.title}`} onClick={stopBubble}>
+          ↗
+        </ActionLink>
+      ) : null}
+      {!minimal && !omitUnavailable && artistHref ? (
         <ActionLink href={artistHref} label={`Open ${target.artist}`} onClick={stopBubble}>
           ★
         </ActionLink>
       ) : null}
-      {!minimal && yearHref ? (
+      {!minimal && !omitUnavailable && yearHref ? (
         <ActionLink href={yearHref} label={`Open RV year for ${target.title}`} onClick={stopBubble}>
           Y
         </ActionLink>
       ) : null}
-      {!minimal && chartsHref ? (
+      {!minimal && !omitUnavailable && chartsHref ? (
         <ActionLink href={chartsHref} label={`Chart journey for ${target.artist}`} onClick={stopBubble}>
           ⌁
         </ActionLink>
       ) : null}
-      <ActionLink href={inspectHref} label={`Inspect ${target.title}`} onClick={stopBubble}>
-        ◎
-      </ActionLink>
+      {!omitUnavailable ? (
+        <ActionLink href={inspectHref} label={`Inspect ${target.title}`} onClick={stopBubble}>
+          ◎
+        </ActionLink>
+      ) : null}
     </div>
   );
 }

@@ -9,6 +9,7 @@
 @import "../../exhibit-cohesion.css";
 @import "../../exhibit-authority.css";
 @import "../../exhibit-silence.css";
+@import "../../public-mobile-width.css";
 
 .artist-exhibit {
   --paper-warm: var(--rv-paper, #f7edd8);
@@ -174,6 +175,15 @@
   padding: 0.35rem 0.15rem 0.5rem;
   background: var(--paper-warm);
   border-bottom: var(--frame);
+}
+
+.artist-hero__youtube-count {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
 }
 
 .artist-hero__name {

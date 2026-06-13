@@ -72,6 +72,15 @@
   font-weight: 900;
 }
 
+.ops-topbar__sub {
+  margin: 0.45rem 0 0;
+  max-width: 42rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dim);
+  line-height: 1.45;
+}
+
 .ops-topbar__meta {
   display: grid;
   gap: 0.2rem;
@@ -11363,6 +11372,35 @@
   font-size: 0.68rem;
   color: var(--dim);
   font-weight: 600;
+}
+
+.ops-cont__block {
+  margin-top: 1rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--panel);
+  border: 2px solid var(--grid);
+}
+
+.ops-cont__block-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.ops-cont__pre {
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.62rem;
+  line-height: 1.45;
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--grid);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* Midnight Special clip review (Media Lab mode) */

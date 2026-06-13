@@ -1,7 +1,10 @@
 /* Album page — extends song exhibit shell */
+@import "../../public-mobile-width.css";
 
 .album-exhibit .track-hero__cover-wrap {
-  max-width: min(28rem, 94vw);
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
 }
 
 .album-hero-cover {
@@ -27,7 +30,10 @@
 }
 
 .album-tracklist {
-  margin: 0 1rem 2.25rem;
+  margin: 0 var(--rv-public-gutter, 1rem) 2.25rem;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .album-tracklist .track-section-head--dark {

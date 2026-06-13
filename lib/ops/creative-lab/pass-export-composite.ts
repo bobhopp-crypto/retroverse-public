@@ -32,49 +32,9 @@ import type { CreativeLabProjectFile } from "./types";
 
 export type { QrZoneAudit };
 
-export type QrVerificationResult = {
-  /** PASS only when QR modules are present and decode matches expected URL. */
-  ok: boolean;
-  modulesPresent: boolean;
-  decodedUrl: string | null;
-  expectedUrl: string;
-  notes: string[];
-  physicalWidthIn: number;
-  physicalHeightIn: number;
-  pixelSize: { width: number; height: number };
-  minSizeIn: number;
-  sizePass: boolean;
-  decodePass: boolean;
-  matrixFillPercent: number;
-  matrixFillPass: boolean;
-  matrixFillWarning: boolean;
-  printSizeWarning: boolean;
-  /** Measured from exported back PNG — not editor preview. */
-  zoneAudit: QrZoneAudit;
-};
-
-/** Placeholder when export has not been verified yet. */
-export function emptyQrVerification(expectedUrl: string): QrVerificationResult {
-  const zoneAudit = emptyQrZoneAudit();
-  return {
-    ok: false,
-    modulesPresent: false,
-    decodedUrl: null,
-    expectedUrl,
-    notes: [],
-    physicalWidthIn: 0,
-    physicalHeightIn: 0,
-    pixelSize: { width: 0, height: 0 },
-    minSizeIn: QR_PRINT_MIN_IN,
-    sizePass: false,
-    decodePass: false,
-    matrixFillPercent: 0,
-    matrixFillPass: false,
-    matrixFillWarning: true,
-    printSizeWarning: true,
-    zoneAudit,
-  };
-}
+import type { QrVerificationResult } from "./qr-verification-placeholder";
+export type { QrVerificationResult } from "./qr-verification-placeholder";
+export { emptyQrVerification } from "./qr-verification-placeholder";
 
 export type PassExportReport = {
   exportedAt: string;

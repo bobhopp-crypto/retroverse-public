@@ -9,6 +9,8 @@ import {
   decadeLabel,
   formatChartDateLabel,
   formatMonthYearHeading,
+  formatMonthYearLeadersHeading,
+  formatNumberOneTiming,
   monthLabel,
   monthsWithChartData,
   monthChartSnapshotGroups,
@@ -17,6 +19,8 @@ import {
   weeklyEntriesFromHistory,
   yearsInDecade,
 } from "@/lib/artist/chart-history-display";
+import { monthRecordsDefinedCopy } from "@/lib/rv-year/rv-month-editorial";
+import { countNumberOneWeeksInMonth } from "@/lib/artist/chart-snapshot-shaping";
 import {
   isUsableChartHistory,
   normalizeArtistChartHistory,
@@ -33,14 +37,15 @@ import {
 } from "@/lib/artist/chart-history-url";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
-import { albumSuggestionHref, trackPageHref } from "@/lib/search/entity-routes";
+import { trackHrefFromToken, albumHrefFromToken } from "@/lib/public/canonical-public-hrefs";
 import {
   matchRvChronologyPath,
   parseRvWeekParam,
   rvChronologyPathFromState,
   rvWeekHref,
 } from "@/lib/rv/rv-chronology-paths";
-import { songActionTargetFromParts } from "@/lib/songs/song-actions";
+import { songActionTargetFromParts, rvtrFromToken } from "@/lib/songs/song-actions";
+import { formatRvYearArtist, formatRvYearTitle } from "@/lib/rv-year/display-format";
 import type {
   ArtistChartHistory,
   RvChartSnapshot,
@@ -48,6 +53,7 @@ import type {
 
 import { SongActions } from "@/app/components/song-actions";
 import { ArtistCover } from "./artist-cover";
+import "./artist-charts-history.css";
 
 type Props = {
   artistName: string;
@@ -63,6 +69,10 @@ type Props = {
   highlightChartDate?: string | null;
   /** Charts explore — year chosen upstream; skip duplicate year step. */
   hideYearStep?: boolean;
+  /** RV /rv/YEAR/MONTH — #1 leader cards, not full chart weeks. */
+  rvChronologyLeaders?: boolean;
+  /** Month comes from the URL — hide month pill grid. */
+  lockMonthNavigation?: boolean;
 };
 
 function asPillNumber(value: unknown): number | null {
@@ -79,15 +89,10 @@ function isHighlighted(trackId: string | undefined, highlightIds: Set<string>): 
 
 function snapshotEntityHref(snapshot: RvChartSnapshot): string | null {
   if (isAlbumChartSnapshot(snapshot)) {
-    if (/^RVAL\d{6}$/i.test(snapshot.trackId)) {
-      return `/album/${snapshot.trackId.toUpperCase()}`;
-    }
-    return albumSuggestionHref(snapshot.title, null);
+    return albumHrefFromToken(snapshot.trackId);
   }
   if (!snapshot.chartName.includes("Hot 100")) return null;
-  if (/^RVTR\d{6}$/i.test(snapshot.trackId)) return trackPageHref(snapshot.trackId);
-  if (snapshot.title?.trim()) return trackPageHref(snapshot.title);
-  return null;
+  return trackHrefFromToken(snapshot.trackId);
 }
 
 export function ArtistChartsHistoryClient({
@@ -100,6 +105,8 @@ export function ArtistChartsHistoryClient({
   initialMonth = null,
   highlightChartDate = null,
   hideYearStep = false,
+  rvChronologyLeaders = false,
+  lockMonthNavigation = false,
 }: Props) {
   const safeHistory = useMemo(
     () => normalizeArtistChartHistory(historyProp, artistName),
@@ -128,6 +135,8 @@ export function ArtistChartsHistoryClient({
   const syncChartUrl = /\/artist\/[^/]+\/charts\/?$/.test(pathname);
   const rvChronologyPath = useMemo(() => matchRvChronologyPath(pathname), [pathname]);
   const syncRvChronologyUrl = rvChronologyPath != null;
+  const leaderMode = rvChronologyLeaders || syncRvChronologyUrl;
+  const summaryMode = leaderMode && lockMonthNavigation;
   const hydratedRef = useRef(false);
   const applyingUrlRef = useRef(false);
 
@@ -382,8 +391,8 @@ export function ArtistChartsHistoryClient({
     if (year == null || month == null) {
       return { singleSnapshots: [], albumSnapshots: [] };
     }
-    return monthChartSnapshotGroups(weeklyEntries, year, month, 5);
-  }, [weeklyEntries, selectedYear, selectedMonth]);
+    return monthChartSnapshotGroups(weeklyEntries, year, month, leaderMode ? 999 : 5);
+  }, [weeklyEntries, selectedYear, selectedMonth, leaderMode]);
 
   const hasSnapshots = singleSnapshots.length > 0 || albumSnapshots.length > 0;
 
@@ -427,25 +436,86 @@ export function ArtistChartsHistoryClient({
     const year = asPillNumber(selectedYear);
     const month = asPillNumber(selectedMonth);
     const rvWeekNavHref =
-      syncRvChronologyUrl && year != null && month != null && parseRvWeekParam(weekKey)
+      syncRvChronologyUrl && !summaryMode && year != null && month != null && parseRvWeekParam(weekKey)
         ? rvWeekHref(year, month, weekKey)
         : null;
 
+    const displayTitle = leaderMode ? formatRvYearTitle(snapshot.title || "—") : snapshot.title || "—";
+    const displayArtist = leaderMode
+      ? formatRvYearArtist(snapshot.artist || artistName)
+      : snapshot.artist || artistName;
+    const timingLabel = leaderMode ? formatNumberOneTiming(snapshot) : formatChartDateLabel(snapshot.chartDate ?? "");
+
+    const actionTarget = songActionTargetFromParts({
+      title: snapshot.title,
+      artist: snapshot.artist || artistName,
+      rvtr: snapshot.trackId,
+      href: entityHref,
+      artistSlug: artistStorageKey,
+      chartYear: snapshot.year,
+      chartDate: snapshot.chartDate,
+      chartsHref: chartsContextHref,
+    });
+    const showSongActions =
+      !isAlbum && (leaderMode ? Boolean(entityHref || rvtrFromToken(snapshot.trackId)) : true);
+
+    if (summaryMode) {
+      const titleNode = entityHref ? (
+        <Link href={entityHref} prefetch className="charts-summary-card__title-link">
+          {displayTitle}
+        </Link>
+      ) : (
+        displayTitle
+      );
+
+      return (
+        <li
+          key={snapshot.id}
+          className={`charts-summary-card${active ? " charts-summary-card--active" : ""}`}
+        >
+          <div className="charts-summary-card__row">
+            <div className="charts-summary-card__cover">
+              <ArtistCover
+                src={snapshot.coverUrl}
+                alt=""
+                className="charts-summary-card__cover-img"
+                fallbackClassName="charts-summary-card__cover-fallback"
+                fallbackVariant="vinyl"
+              />
+            </div>
+            <div className="charts-summary-card__text">
+              <h4 className="charts-summary-card__title">{titleNode}</h4>
+              <p className="charts-summary-card__artist">{displayArtist}</p>
+              <p className="charts-summary-card__timing">{timingLabel}</p>
+            </div>
+            {showSongActions ? (
+              <SongActions
+                layout="inline"
+                omitUnavailable
+                className="charts-summary-card__actions"
+                target={actionTarget}
+              />
+            ) : null}
+          </div>
+        </li>
+      );
+    }
+
     const titleNode =
-      entityHref && syncRvChronologyUrl ? (
+      entityHref && (syncRvChronologyUrl || leaderMode) ? (
         <Link
           href={entityHref}
           prefetch
           className="charts-history-card__title-link"
           onClick={(event) => event.stopPropagation()}
         >
-          {snapshot.title || "—"}
+          {displayTitle}
         </Link>
       ) : (
-        snapshot.title || "—"
+        displayTitle
       );
 
-    const cardBody = (
+    const cardMain = (
       <>
         <div className="charts-history-card__cover">
           <ArtistCover
@@ -458,16 +528,16 @@ export function ArtistChartsHistoryClient({
             placeholderContext={
               isAlbum
                 ? {
-                    artist: snapshot.artist || artistName,
-                    album: snapshot.title,
+                    artist: displayArtist,
+                    album: displayTitle,
                     releaseYear: snapshot.releaseYear ?? null,
                     rval: /^RVAL\d{6}$/i.test(snapshot.trackId)
                       ? snapshot.trackId.toUpperCase()
                       : undefined,
                   }
                 : {
-                    artist: snapshot.artist || artistName,
-                    album: snapshot.title,
+                    artist: displayArtist,
+                    album: displayTitle,
                     releaseYear: snapshot.releaseYear ?? null,
                   }
             }
@@ -475,16 +545,21 @@ export function ArtistChartsHistoryClient({
         </div>
         <div className="charts-history-card__body">
           <h4 className="charts-history-card__title">{titleNode}</h4>
-          <p className="charts-history-card__artist">{snapshot.artist || artistName}</p>
+          <p className="charts-history-card__artist">{displayArtist}</p>
+          {leaderMode ? (
+            <p className="charts-history-card__chart-line">{snapshot.chartDisplayName}</p>
+          ) : null}
           <p className="charts-history-card__facts">
-            <span>{formatChartDateLabel(snapshot.chartDate ?? "")}</span>
+            <span>{timingLabel}</span>
           </p>
         </div>
         <div className="charts-history-card__stamp">
           <span className="charts-history-card__stamp-peak">#{peak}</span>
-          <span className="charts-history-card__stamp-date">
-            {formatChartDateLabel(snapshot.chartDate ?? "")}
-          </span>
+          {leaderMode ? null : (
+            <span className="charts-history-card__stamp-date">
+              {formatChartDateLabel(snapshot.chartDate ?? "")}
+            </span>
+          )}
         </div>
       </>
     );
@@ -492,44 +567,36 @@ export function ArtistChartsHistoryClient({
     return (
       <li
         key={snapshot.id}
-        className={`charts-history-card${active ? " charts-history-card--active" : ""}`}
+        className={`charts-history-card${active ? " charts-history-card--active" : ""}${leaderMode ? " charts-history-card--leader" : ""}`}
       >
         {rvWeekNavHref ? (
           <button
             type="button"
-            className="charts-history-card__link"
-            aria-label={`Chart week ${formatChartDateLabel(weekKey)}`}
+            className="charts-history-card__hitbox"
+            aria-label={`#1 leader ${displayTitle}`}
             aria-current={active ? "true" : undefined}
             onClick={() => pickWeek(snapshot.chartDate)}
           >
-            {cardBody}
+            {cardMain}
           </button>
         ) : entityHref ? (
           <Link
             href={entityHref}
             prefetch
-            className="charts-history-card__link"
-            aria-label={`Open ${snapshot.title}`}
+            className="charts-history-card__hitbox"
+            aria-label={`Open ${displayTitle}`}
           >
-            {cardBody}
+            {cardMain}
           </Link>
         ) : (
-          cardBody
+          <div className="charts-history-card__hitbox charts-history-card__hitbox--static">{cardMain}</div>
         )}
-        {!isAlbum ? (
+        {showSongActions ? (
           <SongActions
             layout="inline"
+            omitUnavailable
             className="charts-history-card__song-actions"
-            target={songActionTargetFromParts({
-              title: snapshot.title,
-              artist: snapshot.artist || artistName,
-              rvtr: snapshot.trackId,
-              href: entityHref,
-              artistSlug: artistStorageKey,
-              chartYear: snapshot.year,
-              chartDate: snapshot.chartDate,
-              chartsHref: chartsContextHref,
-            })}
+            target={actionTarget}
           />
         ) : null}
       </li>
@@ -581,27 +648,47 @@ export function ArtistChartsHistoryClient({
   const yearForLabel = asPillNumber(selectedYear);
   const monthForLabel = asPillNumber(selectedMonth);
 
-  const step2Label = useDecades
-    ? decadeForLabel != null
-      ? `SELECT MONTH (${decadeLabel(decadeForLabel)})`
-      : "SELECT MONTH"
-    : yearForLabel != null
-      ? `SELECT MONTH (${yearForLabel})`
-      : "SELECT MONTH";
+  const step2Label = leaderMode
+    ? "Browse months"
+    : useDecades
+      ? decadeForLabel != null
+        ? `SELECT MONTH (${decadeLabel(decadeForLabel)})`
+        : "SELECT MONTH"
+      : yearForLabel != null
+        ? `SELECT MONTH (${yearForLabel})`
+        : "SELECT MONTH";
 
   const step3Label =
     yearForLabel != null && monthForLabel != null
-      ? formatMonthYearHeading(yearForLabel, monthForLabel)
-      : "CHART RESULTS";
+      ? leaderMode
+        ? "New #1s this month"
+        : formatMonthYearHeading(yearForLabel, monthForLabel)
+      : leaderMode
+        ? "CHART LEADERS"
+        : "CHART RESULTS";
+
+  const hot100WeekCount =
+    yearForLabel != null && monthForLabel != null
+      ? countNumberOneWeeksInMonth(weeklyEntries, yearForLabel, monthForLabel, "hot-100")
+      : 0;
+  const album200WeekCount =
+    yearForLabel != null && monthForLabel != null
+      ? countNumberOneWeeksInMonth(weeklyEntries, yearForLabel, monthForLabel, "album-200")
+      : 0;
 
   const monthStepNum = hideYearStep ? 1 : 2;
   const snapshotStepNum = hideYearStep ? 2 : 3;
+  const summaryHeading =
+    yearForLabel != null && monthForLabel != null
+      ? formatMonthYearLeadersHeading(yearForLabel, monthForLabel)
+      : "This month in music";
+  const summaryRecordTotal = singleSnapshots.length + albumSnapshots.length;
 
   return (
     <section
-      className="charts-history"
-      aria-label={hideBanner ? `Chart history for ${artistName}` : undefined}
-      aria-labelledby={hideBanner ? undefined : "charts-history-heading"}
+      className={`charts-history${leaderMode ? " charts-history--rv-chronology" : ""}${summaryMode ? " charts-history--rv-summary" : ""}`}
+      aria-label={summaryMode ? summaryHeading : hideBanner ? `Chart history for ${artistName}` : undefined}
+      aria-labelledby={summaryMode || hideBanner ? undefined : "charts-history-heading"}
     >
       {hideBanner ? null : (
         <header className="charts-history__banner">
@@ -683,7 +770,7 @@ export function ArtistChartsHistoryClient({
         </>
       )}
 
-      {yearForLabel != null ? (
+      {yearForLabel != null && !summaryMode ? (
         <>
           <div className="charts-history__step">
             <div className="charts-history__step-head">
@@ -720,6 +807,35 @@ export function ArtistChartsHistoryClient({
       ) : null}
 
       {hasSnapshots ? (
+        summaryMode ? (
+          <div className="charts-history__summary">
+            <header className="charts-history__summary-head">
+              <h2 className="charts-history__summary-title">{summaryHeading}</h2>
+              <p className="charts-history__summary-subtitle">What America Was Listening To</p>
+              <p className="charts-history__summary-meta">
+                {monthRecordsDefinedCopy(summaryRecordTotal)}
+              </p>
+            </header>
+
+            {singleSnapshots.length > 0 ? (
+              <div className="charts-history__group charts-history__group--summary">
+                <h3 className="charts-history__group-title">Singles</h3>
+                <ul className="charts-history__summary-list">
+                  {singleSnapshots.map((snapshot) => renderSnapshotCard(snapshot))}
+                </ul>
+              </div>
+            ) : null}
+
+            {albumSnapshots.length > 0 ? (
+              <div className="charts-history__group charts-history__group--summary">
+                <h3 className="charts-history__group-title">Albums</h3>
+                <ul className="charts-history__summary-list">
+                  {albumSnapshots.map((snapshot) => renderSnapshotCard(snapshot))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        ) : (
         <div className="charts-history__step">
           <div className="charts-history__step-head">
             <span className="charts-history__step-num">{snapshotStepNum}</span>
@@ -728,7 +844,7 @@ export function ArtistChartsHistoryClient({
 
           {singleSnapshots.length > 0 ? (
             <div className="charts-history__group">
-              <h4 className="charts-history__group-title">Singles · Hot 100</h4>
+              <h4 className="charts-history__group-title">Singles — Hot 100</h4>
               <ul className="charts-history__results">
                 {singleSnapshots.map((snapshot) => renderSnapshotCard(snapshot))}
               </ul>
@@ -737,7 +853,7 @@ export function ArtistChartsHistoryClient({
 
           {albumSnapshots.length > 0 ? (
             <div className="charts-history__group">
-              <h4 className="charts-history__group-title">Albums · Album 200</h4>
+              <h4 className="charts-history__group-title">Albums — Billboard 200</h4>
               <ul className="charts-history__results charts-history__results--albums">
                 {albumSnapshots.map((snapshot) => renderSnapshotCard(snapshot))}
               </ul>
@@ -745,27 +861,50 @@ export function ArtistChartsHistoryClient({
           ) : null}
 
           <p className="charts-history__range">
-            {singleSnapshots.length > 0
-              ? `${singleSnapshots.length} single${singleSnapshots.length === 1 ? "" : "s"}`
-              : null}
-            {singleSnapshots.length > 0 && albumSnapshots.length > 0 ? " · " : null}
-            {albumSnapshots.length > 0
-              ? `${albumSnapshots.length} album${albumSnapshots.length === 1 ? "" : "s"}`
-              : null}{" "}
-            for {monthForLabel != null ? monthLabel(monthForLabel) : "—"} {yearForLabel ?? ""}
+            {leaderMode ? (
+              <>
+                {singleSnapshots.length} new #1 single{singleSnapshots.length === 1 ? "" : "s"}
+                {hot100WeekCount > 0 ? ` (${hot100WeekCount} chart week${hot100WeekCount === 1 ? "" : "s"} at #1)` : ""}
+                {singleSnapshots.length > 0 && albumSnapshots.length > 0 ? " · " : null}
+                {albumSnapshots.length > 0 ? (
+                  <>
+                    {albumSnapshots.length} new #1 album{albumSnapshots.length === 1 ? "" : "s"}
+                    {album200WeekCount > 0
+                      ? ` (${album200WeekCount} chart week${album200WeekCount === 1 ? "" : "s"} at #1)`
+                      : ""}
+                  </>
+                ) : null}
+              </>
+            ) : (
+              <>
+                {singleSnapshots.length > 0
+                  ? `${singleSnapshots.length} single${singleSnapshots.length === 1 ? "" : "s"}`
+                  : null}
+                {singleSnapshots.length > 0 && albumSnapshots.length > 0 ? " · " : null}
+                {albumSnapshots.length > 0
+                  ? `${albumSnapshots.length} album${albumSnapshots.length === 1 ? "" : "s"}`
+                  : null}{" "}
+                for {monthForLabel != null ? monthLabel(monthForLabel) : "—"} {yearForLabel ?? ""}
+              </>
+            )}
           </p>
         </div>
+        )
       ) : yearForLabel != null && monthForLabel != null ? (
         <p className="charts-history__empty charts-history__empty--archival" role="status">
-          No chart week on file for this month — the archive is quiet here.
+          {leaderMode
+            ? "Nothing new reached the top this month."
+            : "No chart activity on file for this month."}
         </p>
       ) : yearForLabel != null ? (
         <p className="charts-history__empty charts-history__empty--hint" role="status">
-          Choose a month to open chart weeks from the archive.
+          {leaderMode
+            ? "Pick a month to explore what was playing."
+            : "Pick a month to open the weekly view."}
         </p>
       ) : (
         <p className="charts-history__empty charts-history__empty--hint" role="status">
-          Choose a year to browse months in the archive.
+          Pick a year to begin.
         </p>
       )}
 
