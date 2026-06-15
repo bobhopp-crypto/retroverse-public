@@ -29,7 +29,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, registration: entry });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Registration failed";
-    const status = message.includes("required") ? 400 : 500;
+    const status = message.includes("required")
+      ? 400
+      : message.includes("already registered")
+        ? 409
+        : 500;
     return NextResponse.json({ error: message }, { status });
   }
 }

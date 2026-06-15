@@ -45,8 +45,3 @@ export type PassRegistration = {
   email: string | null;
   registeredAt: string;
 };
-
-export type PassRegistrationsFile = {
-  version: 1;
-  registrations: PassRegistration[];
-};

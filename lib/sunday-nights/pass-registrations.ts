@@ -1,27 +1,26 @@
-import { mkdir, readFile, writeFile } from "fs/promises";
-import { join } from "path";
+import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 
-import { opsStateDir } from "@/lib/ops/ops-state-path";
+import type { PassRegistration } from "./types";
 
-import type { PassRegistration, PassRegistrationsFile } from "./types";
+type PassRegistrationRow = {
+  pass_number: string;
+  first_name: string;
+  last_name: string;
+  email: string | null;
+  created_at: Date | string;
+};
 
-function registrationsPath(): string {
-  return join(opsStateDir(), "sunday-nights", "registrations.json");
-}
-
-function emptyFile(): PassRegistrationsFile {
-  return { version: 1, registrations: [] };
-}
-
-async function loadFile(): Promise<PassRegistrationsFile> {
-  try {
-    const raw = await readFile(registrationsPath(), "utf8");
-    const parsed = JSON.parse(raw) as Partial<PassRegistrationsFile>;
-    if (!parsed || !Array.isArray(parsed.registrations)) return emptyFile();
-    return { version: 1, registrations: parsed.registrations };
-  } catch {
-    return emptyFile();
-  }
+function mapRow(row: PassRegistrationRow): PassRegistration {
+  return {
+    passNumber: row.pass_number,
+    firstName: row.first_name,
+    lastName: row.last_name,
+    email: row.email,
+    registeredAt:
+      row.created_at instanceof Date
+        ? row.created_at.toISOString()
+        : new Date(row.created_at).toISOString(),
+  };
 }
 
 export async function registerCollectorPass(input: {
@@ -39,20 +38,36 @@ export async function registerCollectorPass(input: {
     throw new Error("Pass number, first name, and last name are required.");
   }
 
-  const entry: PassRegistration = {
-    passNumber,
-    firstName,
-    lastName,
-    email,
-    registeredAt: new Date().toISOString(),
-  };
+  const ping = await inspectPing();
+  if (!ping.ok) {
+    throw new Error(ping.error ?? "Database offline — registration unavailable");
+  }
 
-  const file = await loadFile();
-  file.registrations.push(entry);
-
-  const dir = join(opsStateDir(), "sunday-nights");
-  await mkdir(dir, { recursive: true });
-  await writeFile(registrationsPath(), `${JSON.stringify(file, null, 2)}\n`, "utf8");
-
-  return entry;
+  try {
+    const rows = await inspectQuery<PassRegistrationRow>(
+      `
+      INSERT INTO sunday_nights_pass_registrations
+        (pass_number, first_name, last_name, email)
+      VALUES ($1, $2, $3, $4)
+      RETURNING pass_number, first_name, last_name, email, created_at
+      `,
+      [passNumber, firstName, lastName, email],
+    );
+    const row = rows[0];
+    if (!row) {
+      throw new Error("Registration failed");
+    }
+    return mapRow(row);
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    if (msg.includes("sunday_nights_pass_registrations")) {
+      throw new Error(
+        "Pass registration table missing — run docs/migrations/sunday-nights-pass-registrations.sql on production Postgres",
+      );
+    }
+    if (msg.includes("duplicate key") || msg.includes("unique constraint")) {
+      throw new Error("Pass number already registered.");
+    }
+    throw err;
+  }
 }

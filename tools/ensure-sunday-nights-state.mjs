@@ -1,5 +1,5 @@
 /**
- * Ensures sunday_nights_state table exists on production Postgres during Vercel build.
+ * Ensures Sunday Nights Postgres tables exist on production during Vercel build.
  */
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -8,6 +8,17 @@ import { Pool } from "pg";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
+
+const MIGRATIONS = [
+  {
+    table: "sunday_nights_state",
+    file: "sunday-nights-state.sql",
+  },
+  {
+    table: "sunday_nights_pass_registrations",
+    file: "sunday-nights-pass-registrations.sql",
+  },
+] as const;
 
 function env(name) {
   return process.env[name]?.trim() ?? "";
@@ -40,20 +51,25 @@ async function main() {
   });
 
   try {
-    const check = await pool.query(
-      `SELECT to_regclass('public.sunday_nights_state') AS reg`,
-    );
-    if (check.rows[0]?.reg) {
-      console.log("[ensure-sunday-nights-state] table already present");
-      return;
-    }
+    for (const migration of MIGRATIONS) {
+      const check = await pool.query(
+        `SELECT to_regclass('public.${migration.table}') AS reg`,
+      );
+      if (check.rows[0]?.reg) {
+        console.log(`[ensure-sunday-nights-state] ${migration.table} already present`);
+        continue;
+      }
 
-    console.log("[ensure-sunday-nights-state] applying docs/migrations/sunday-nights-state.sql …");
-    const sql = readFileSync(
-      join(root, "docs/migrations/sunday-nights-state.sql"),
-      "utf8",
-    );
-    await pool.query(sql);
+      console.log(
+        `[ensure-sunday-nights-state] applying docs/migrations/${migration.file} …`,
+      );
+      const sql = readFileSync(
+        join(root, "docs/migrations", migration.file),
+        "utf8",
+      );
+      await pool.query(sql);
+      console.log(`[ensure-sunday-nights-state] ${migration.table} ready`);
+    }
     console.log("[ensure-sunday-nights-state] done");
   } finally {
     await pool.end();
