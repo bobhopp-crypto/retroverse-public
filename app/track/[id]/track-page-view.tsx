@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { TrackEventBackLink, TrackExhibitNav } from "@/app/components/track-exhibit-nav";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { TrackPageData } from "@/lib/track/load-track-page";
@@ -13,13 +14,15 @@ import {
 import { PublicTrackPlayButton } from "@/app/components/public-track-play-button";
 
 import "@/app/components/public-track-play-button.css";
+import "@/app/components/track-exhibit-nav.css";
 import "./track-page.css";
 
 type TrackPageViewProps = {
   data: TrackPageData;
+  sundayEventActive?: boolean;
 };
 
-export function TrackPageView({ data }: TrackPageViewProps) {
+export function TrackPageView({ data, sundayEventActive = false }: TrackPageViewProps) {
   const yearLabel = formatSongYear(data.releaseYear);
   const exhibitSparse = trackPageIsSparse(data);
 
@@ -27,12 +30,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
     <div className={`track-exhibit${exhibitSparse ? " track-exhibit--sparse" : ""}`}>
       <div className="track-exhibit__grain" aria-hidden />
 
-      <header className="track-topbar">
-        <Link href="/" className="track-logo" prefetch>
-          Retroverse
-        </Link>
-        <span className="track-file-tag">Song</span>
-      </header>
+      <TrackExhibitNav sundayEventActive={sundayEventActive} />
 
       <section className="track-hero" aria-label={`${data.title} song page`}>
         <div className="track-hero__cover-wrap">
@@ -50,6 +48,7 @@ export function TrackPageView({ data }: TrackPageViewProps) {
           />
         </div>
         <div className="track-hero__identity">
+          {sundayEventActive ? <TrackEventBackLink /> : null}
           <p className="track-hero__eyebrow">From the archive</p>
           <div className="track-hero__title-row">
             <h1 className="track-hero__title">{data.title}</h1>
@@ -86,11 +85,17 @@ export function TrackPageView({ data }: TrackPageViewProps) {
         <Link href="/" prefetch>
           Home
         </Link>
+        <Link href="/sunday-nights" prefetch>
+          Sunday Nights
+        </Link>
         <Link href="/search" prefetch>
           Search
         </Link>
-        <Link href={data.artistHref} prefetch>
-          {data.artistName}
+        <Link href="/search" prefetch>
+          Artists
+        </Link>
+        <Link href="/charts" prefetch>
+          Years
         </Link>
       </nav>
     </div>

@@ -4,7 +4,9 @@
   position: sticky;
   bottom: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  gap: 0.35rem 0.5rem;
   padding: 0.6rem 0.25rem calc(0.6rem + env(safe-area-inset-bottom));
   background: var(--charcoal);
   border-top: var(--frame);
