@@ -17,7 +17,7 @@ import { SundayNightsLive } from "./sunday-nights-live";
 
 const VIP_PASS_SRC = "/sunday-nights/main-pub-vip-pass.png";
 const VIP_PASS_ALT =
-  "The Main Pub presents Sunday Nights VIP Pass for June 7, 2026, featuring artists from 1967, 1978, and 1992.";
+  "The Main Pub presents Sunday Nights VIP Pass for June 14, 2026, featuring artists from 1971, 1982, and 2000.";
 
 type Props = {
   initialTrack: TrackPageData | null;
