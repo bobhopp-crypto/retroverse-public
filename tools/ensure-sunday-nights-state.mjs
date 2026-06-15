@@ -18,7 +18,7 @@ const MIGRATIONS = [
     table: "sunday_nights_pass_registrations",
     file: "sunday-nights-pass-registrations.sql",
   },
-] as const;
+];
 
 function env(name) {
   return process.env[name]?.trim() ?? "";
