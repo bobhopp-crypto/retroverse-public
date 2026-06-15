@@ -38,4 +38,4 @@ export type SundayEventMode = {
   updatedAt: string;
 };
 
-export type { CollectorPassRegistration as PassRegistration } from "@/lib/collector-pass/registrations";
+export type { CollectorPassRegistration as PassRegistration } from "@/lib/collector-pass/types";

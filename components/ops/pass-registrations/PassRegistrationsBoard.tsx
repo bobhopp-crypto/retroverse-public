@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { OpsPill, OpsTable } from "@/components/ops/OpsTable";
-import type { CollectorPassRegistration } from "@/lib/collector-pass/registrations";
-import { collectorPassRegistrationsToCsv } from "@/lib/collector-pass/registrations";
+import type { CollectorPassRegistration } from "@/lib/collector-pass/types";
+import { collectorPassRegistrationsToCsv } from "@/lib/collector-pass/csv";
 import { downloadTextFile } from "@/lib/ops/acquisition-export";
 
 function formatWhen(iso: string): string {

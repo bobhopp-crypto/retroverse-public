@@ -1,13 +1,9 @@
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 
-export type CollectorPassRegistration = {
-  id: number;
-  passNumber: string;
-  firstName: string;
-  lastName: string;
-  email: string | null;
-  createdAt: string;
-};
+import { collectorPassRegistrationsToCsv } from "./csv";
+import type { CollectorPassRegistration } from "./types";
+
+export type { CollectorPassRegistration } from "./types";
 
 type CollectorPassRegistrationRow = {
   id: number | string;
@@ -144,29 +140,6 @@ export async function countCollectorPassRegistrations(search?: string): Promise<
     filter.param ? [filter.param] : undefined,
   );
   return Number(rows[0]?.count ?? 0);
-}
-
-function csvEscape(value: string): string {
-  if (/[",\n\r]/.test(value)) {
-    return `"${value.replace(/"/g, '""')}"`;
-  }
-  return value;
-}
-
-export function collectorPassRegistrationsToCsv(
-  rows: CollectorPassRegistration[],
-): string {
-  const header = "pass_number,first_name,last_name,email,created_at";
-  const lines = rows.map((row) =>
-    [
-      csvEscape(row.passNumber),
-      csvEscape(row.firstName),
-      csvEscape(row.lastName),
-      csvEscape(row.email ?? ""),
-      csvEscape(row.createdAt),
-    ].join(","),
-  );
-  return [header, ...lines].join("\n");
 }
 
 export async function exportCollectorPassRegistrationsCsv(
