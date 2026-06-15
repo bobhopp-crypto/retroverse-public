@@ -38,10 +38,4 @@ export type SundayEventMode = {
   updatedAt: string;
 };
 
-export type PassRegistration = {
-  passNumber: string;
-  firstName: string;
-  lastName: string;
-  email: string | null;
-  registeredAt: string;
-};
+export type { CollectorPassRegistration as PassRegistration } from "@/lib/collector-pass/registrations";

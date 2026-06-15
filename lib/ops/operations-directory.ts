@@ -112,6 +112,14 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         status: "SUNDAY NIGHTS",
       },
       {
+        id: "pass-registrations",
+        name: "Pass Registrations",
+        href: "/ops/pass-registrations",
+        description: "Collector pass sign-ups from the Sunday Nights landing page.",
+        purpose: "Search, count, and export door pass registrations from Postgres.",
+        status: "SUNDAY NIGHTS",
+      },
+      {
         id: "year-match",
         name: "Year Match Console",
         href: "/ops#year-match",
@@ -369,6 +377,7 @@ export const OPS_CONSOLE_QUICK_LINKS: OpsQuickLink[] = [
   { label: "Operations Hub", href: "/ops/hub" },
   { label: "Sunday Nights", href: "/ops/sunday-nights" },
   { label: "Pass Generator", href: "/ops/passes" },
+  { label: "Pass Registrations", href: "/ops/pass-registrations" },
   { label: "Year Workspace 1967", href: "/ops/year/1967" },
   { label: "Year Workspace 1978", href: "/ops/year/1978" },
   { label: "Year Workspace 1992", href: "/ops/year/1992" },

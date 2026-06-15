@@ -15,8 +15,8 @@ const MIGRATIONS = [
     file: "sunday-nights-state.sql",
   },
   {
-    table: "sunday_nights_pass_registrations",
-    file: "sunday-nights-pass-registrations.sql",
+    table: "collector_pass_registrations",
+    file: "collector-pass-registrations.sql",
   },
 ];
 
