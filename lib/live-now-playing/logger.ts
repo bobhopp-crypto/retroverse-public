@@ -20,6 +20,8 @@ export async function logLiveNowPlaying(
   event: LiveNowPlayingLogEvent,
   detail: Record<string, unknown>,
 ): Promise<void> {
+  if (process.env.VERCEL === "1") return;
+
   const dir = liveNowPlayingDir();
   await mkdir(dir, { recursive: true });
   const line = JSON.stringify({
