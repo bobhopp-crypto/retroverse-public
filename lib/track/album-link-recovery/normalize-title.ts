@@ -18,3 +18,9 @@ export function titlesLikelyMatch(a: string, b: string): boolean {
   if (ka.includes(kb) || kb.includes(ka)) return true;
   return false;
 }
+
+/** First significant word for tracklist ILIKE fallback (e.g. "Rhiannon Will You Ever Win" → "rhiannon"). */
+export function primaryTitleToken(raw: string): string | null {
+  const words = normalizeTrackTitleKey(raw).split(" ").filter((w) => w.length >= 4);
+  return words[0] ?? null;
+}

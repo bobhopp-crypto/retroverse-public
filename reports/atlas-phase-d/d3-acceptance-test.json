@@ -1,0 +1,324 @@
+{
+  "generatedAt": "2026-06-16T00:22:51.403Z",
+  "rhiannon": {
+    "initial": {
+      "exhibitDepthPct": 50,
+      "status": "FORTIFIED",
+      "gaps": [
+        "album"
+      ],
+      "seals": [
+        "rvtr",
+        "identity",
+        "chart",
+        "commentary",
+        "tv",
+        "movie"
+      ],
+      "pointsEarned": 9,
+      "pointsAvailable": 5,
+      "territoryMappedPct": 65,
+      "territoryMappedAfterPct": 65.5,
+      "nextRvtr": "RVTR347287",
+      "prevRvtr": null,
+      "topAlbum": "Fleetwood Mac (1975)",
+      "topAlbumConf": 100,
+      "topAlbumTier": "high",
+      "evidenceCount": 8
+    },
+    "final": {
+      "exhibitDepthPct": 50,
+      "status": "FORTIFIED",
+      "gaps": [
+        "album"
+      ],
+      "seals": [
+        "rvtr",
+        "identity",
+        "chart",
+        "commentary",
+        "tv",
+        "movie"
+      ],
+      "pointsEarned": 9,
+      "pointsAvailable": 5,
+      "territoryMappedPct": 65,
+      "territoryMappedAfterPct": 65.5,
+      "nextRvtr": "RVTR347287",
+      "prevRvtr": null,
+      "topAlbum": "Fleetwood Mac (1975)",
+      "topAlbumConf": 100,
+      "topAlbumTier": "high",
+      "evidenceCount": 8
+    },
+    "steps": [
+      {
+        "step": "album-link",
+        "ok": false,
+        "httpStatus": 409,
+        "error": "Tracklist slot already keyed to RVTR215144.",
+        "before": {
+          "exhibitDepthPct": 50,
+          "status": "FORTIFIED",
+          "gaps": [
+            "album"
+          ],
+          "seals": [
+            "rvtr",
+            "identity",
+            "chart",
+            "commentary",
+            "tv",
+            "movie"
+          ],
+          "pointsEarned": 9,
+          "pointsAvailable": 5,
+          "territoryMappedPct": 65,
+          "territoryMappedAfterPct": 65.5,
+          "nextRvtr": "RVTR347287",
+          "prevRvtr": null,
+          "topAlbum": "Fleetwood Mac (1975)",
+          "topAlbumConf": 100,
+          "topAlbumTier": "high",
+          "evidenceCount": 8
+        },
+        "after": {
+          "exhibitDepthPct": 50,
+          "status": "FORTIFIED",
+          "gaps": [
+            "album"
+          ],
+          "seals": [
+            "rvtr",
+            "identity",
+            "chart",
+            "commentary",
+            "tv",
+            "movie"
+          ],
+          "pointsEarned": 9,
+          "pointsAvailable": 5,
+          "territoryMappedPct": 65,
+          "territoryMappedAfterPct": 65.5,
+          "nextRvtr": "RVTR347287",
+          "prevRvtr": null,
+          "topAlbum": "Fleetwood Mac (1975)",
+          "topAlbumConf": 100,
+          "topAlbumTier": "high",
+          "evidenceCount": 8
+        },
+        "delta": {
+          "exhibitDepth": 0,
+          "gapsClosed": 0,
+          "sealsAdded": 0,
+          "pointsEarned": 0,
+          "territoryMappedAfter": 0
+        }
+      }
+    ],
+    "albumWriteProbe": {
+      "album": "Fleetwood Mac (1975)",
+      "confidencePct": 100,
+      "linkedRvtr": "RVTR215144",
+      "httpStatus": 409,
+      "ok": false,
+      "code": "slot_occupied",
+      "message": "Tracklist slot already keyed to RVTR215144."
+    },
+    "queueNext": {
+      "rank": 2,
+      "verb": "Fortify",
+      "artist": "Bob Seger",
+      "title": "Night Moves",
+      "rvtr": "RVTR347287",
+      "playCount": 85,
+      "completenessPct": 69,
+      "priority": 26.4,
+      "active": false
+    },
+    "allWritesOk": false,
+    "gapsRemaining": [
+      "album"
+    ],
+    "missionComplete": false
+  },
+  "relatedFleetwoodMac": [
+    {
+      "rvtr": "RVTR569927",
+      "title": "Dreams",
+      "ok": true,
+      "hasMissionPage": true,
+      "gapKinds": [
+        "commentary",
+        "tv",
+        "movie"
+      ]
+    },
+    {
+      "rvtr": "RVTR374298",
+      "title": "Go Your Own Way",
+      "ok": true,
+      "hasMissionPage": true,
+      "gapKinds": [
+        "commentary",
+        "tv",
+        "movie"
+      ]
+    },
+    {
+      "rvtr": "RVTR377579",
+      "title": "Over My Head",
+      "ok": true,
+      "hasMissionPage": true,
+      "gapKinds": [
+        "commentary",
+        "tv",
+        "movie"
+      ]
+    }
+  ],
+  "stressCases": [
+    {
+      "category": "alternate_title",
+      "rvtr": "RVTR097615",
+      "auditTitle": "Rhiannon",
+      "canonicalTitle": "Rhiannon Will You Ever Win",
+      "topAlbum": "Fleetwood Mac (1975)",
+      "topConf": 100,
+      "tier": "high",
+      "evidenceSignals": 8,
+      "gapCount": 1,
+      "verdict": "pass",
+      "notes": [
+        "Canonical: Rhiannon Will You Ever Win"
+      ]
+    },
+    {
+      "category": "live_version",
+      "rvtr": "RVTR300772",
+      "auditTitle": "Dream On",
+      "canonicalTitle": "Dream On",
+      "topAlbum": "Aerosmith (1973)",
+      "topConf": 100,
+      "tier": "high",
+      "evidenceSignals": 8,
+      "gapCount": 3,
+      "verdict": "pass",
+      "notes": [
+        "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Aerosmith - Dream On (Live).mp4"
+      ]
+    },
+    {
+      "category": "live_version",
+      "rvtr": "RVTR003583",
+      "auditTitle": "Can't Get Enough",
+      "canonicalTitle": "Can'T Get Enough",
+      "topAlbum": "10 From 6 (1986)",
+      "topConf": 100,
+      "tier": "high",
+      "evidenceSignals": 8,
+      "gapCount": 3,
+      "verdict": "pass",
+      "notes": [
+        "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bad Company - Can't Get Enough (Live At Seminole Hard Rock 2008).mp4"
+      ]
+    },
+    {
+      "category": "featuring_artist",
+      "rvtr": "RVTR008301",
+      "auditTitle": "A Horse With No Name",
+      "canonicalTitle": "A Horse With No Name",
+      "topAlbum": "America (1972)",
+      "topConf": 100,
+      "tier": "high",
+      "evidenceSignals": 7,
+      "gapCount": 3,
+      "verdict": "pass",
+      "notes": [
+        "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - A Horse With No Name.mp4"
+      ]
+    },
+    {
+      "category": "featuring_artist",
+      "rvtr": "RVTR121636",
+      "auditTitle": "Make It with You",
+      "canonicalTitle": "Make It With You",
+      "topAlbum": "On The Waters (1970)",
+      "topConf": 100,
+      "tier": "high",
+      "evidenceSignals": 7,
+      "gapCount": 3,
+      "verdict": "pass",
+      "notes": [
+        "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bread - Make It with You.mp4"
+      ]
+    },
+    {
+      "category": "one_hit_wonder",
+      "rvtr": "RVTR165042",
+      "auditTitle": "S.O.S.",
+      "canonicalTitle": "S O S",
+      "topAlbum": "The Best Of ABBA: 20th Century Masters The Millennium Collection (2011)",
+      "topConf": 75,
+      "tier": "medium",
+      "evidenceSignals": 5,
+      "gapCount": 4,
+      "verdict": "pass",
+      "notes": [
+        "Hot100 #15, 2 plays",
+        "Review tier — evidence shown, no blind approve",
+        "Canonical title drift: \"S O S\""
+      ]
+    },
+    {
+      "category": "one_hit_wonder",
+      "rvtr": "RVTR020280",
+      "auditTitle": "Ring My Bell",
+      "canonicalTitle": "Ring My Bell",
+      "topAlbum": "Songs Of Love (1979)",
+      "topConf": 100,
+      "tier": "high",
+      "evidenceSignals": 7,
+      "gapCount": 4,
+      "verdict": "pass",
+      "notes": [
+        "Hot100 #1, 1 plays"
+      ]
+    },
+    {
+      "category": "poor_vdj_metadata",
+      "rvtr": "RVTR499866",
+      "auditTitle": "I'm Not In Love",
+      "canonicalTitle": "I'M Not In Love",
+      "topAlbum": "The Original Soundtrack (1975)",
+      "topConf": 100,
+      "tier": "high",
+      "evidenceSignals": 8,
+      "gapCount": 3,
+      "verdict": "pass",
+      "notes": [
+        "No tags, 0 plays"
+      ]
+    },
+    {
+      "category": "poor_vdj_metadata",
+      "rvtr": "RVTR915536",
+      "auditTitle": "Fernando",
+      "canonicalTitle": "Fernando",
+      "topAlbum": "Greatest Hits (1976)",
+      "topConf": 100,
+      "tier": "high",
+      "evidenceSignals": 7,
+      "gapCount": 3,
+      "verdict": "pass",
+      "notes": [
+        "No tags, 0 plays"
+      ]
+    }
+  ],
+  "stressSummary": {
+    "pass": 9,
+    "warn": 0,
+    "fail": 0
+  }
+}

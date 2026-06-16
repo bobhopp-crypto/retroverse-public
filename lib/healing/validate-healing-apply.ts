@@ -6,17 +6,27 @@ import type {
   HealingApplyPreviousState,
 } from "@/lib/healing/types";
 import {
-  validateAlbumLinkProposal,
+  validateAlbumLinkProposalBase,
   type GuardrailResult,
 } from "@/lib/track/album-link-recovery/guardrails";
+import {
+  countRvtrAlbumMemberships,
+  loadAlbumSlotAtPosition,
+  resolveAlbumRelationshipMode,
+  rvtrLinkedAlbumIds,
+  type AlbumRelationshipMode,
+} from "@/lib/track/album-link-recovery/rvtr-album-membership";
 import type { AlbumLinkWriteProposal } from "@/lib/track/album-link-recovery/types";
 
 export type HealingApplyValidation =
   | {
       ok: true;
+      linkMode: AlbumRelationshipMode;
       proposal: AlbumLinkWriteProposal;
       previousState: HealingApplyPreviousState;
       albumTitle: string;
+      anchorCatRowId: number | null;
+      slotRvtr: string | null;
     }
   | ({ ok: false } & GuardrailResult);
 
@@ -40,15 +50,36 @@ export async function loadHealingApplyPreviousState(
   const track = trackRows[0];
   if (!track) return null;
 
-  const linkRows = await inspectQuery<{ album_id: number; has_cover: boolean }>(
+  const linkedAlbumIds = await rvtrLinkedAlbumIds(rvtr);
+
+  let hasCanonicalCover = false;
+  if (linkedAlbumIds.length > 0) {
+    const coverRows = await inspectQuery<{ ok: boolean }>(
+      `
+      SELECT true AS ok
+      FROM albums al
+      WHERE al.id = ANY($1::int[])
+        AND (
+          coalesce(al.canonical_cover_path, '') <> ''
+          OR EXISTS (
+            SELECT 1 FROM album_artwork_links aal
+            WHERE aal.album_id = al.id
+              AND (coalesce(aal.canonical_cover_path, '') <> '' OR coalesce(aal.r2_cover_key, '') <> '')
+          )
+        )
+      LIMIT 1
+      `,
+      [linkedAlbumIds],
+    );
+    hasCanonicalCover = coverRows.length > 0;
+  }
+
+  const catCount = await inspectQuery<{ c: number }>(
     `
-    SELECT
-      cat.album_id,
-      (al.canonical_cover_path IS NOT NULL AND trim(al.canonical_cover_path) <> '') AS has_cover
-    FROM canonical_album_tracks cat
-    JOIN albums al ON al.id = cat.album_id
-    WHERE upper(trim(cat.canonical_track_key)) = upper(trim($1))
-  `,
+    SELECT count(*)::int AS c
+    FROM canonical_album_tracks
+    WHERE upper(trim(canonical_track_key)) = upper(trim($1))
+    `,
     [rvtr],
   );
 
@@ -56,9 +87,9 @@ export async function loadHealingApplyPreviousState(
     rvtr,
     trackTitle: track.canonical_title.trim(),
     artistName: track.canonical_artist_name.trim(),
-    albumLinkCount: linkRows.length,
-    linkedAlbumIds: linkRows.map((r) => r.album_id),
-    hasCanonicalCover: linkRows.some((r) => r.has_cover),
+    albumLinkCount: catCount[0]?.c ?? 0,
+    linkedAlbumIds,
+    hasCanonicalCover,
   };
 }
 
@@ -72,7 +103,7 @@ async function albumExists(albumId: number): Promise<{ id: number; title: string
   return { id: row.id, title: row.title.trim() };
 }
 
-/** Pre-write validation — RVTR + album existence, no duplicate link, guardrails. */
+/** Pre-write validation — RVTR + album existence, tracklist slot or co-album membership. */
 export async function validateHealingAlbumLinkApply(
   request: AlbumLinkApplyRequest,
 ): Promise<HealingApplyValidation> {
@@ -105,22 +136,36 @@ export async function validateHealingAlbumLinkApply(
     sourceKind: request.sourceKind,
   };
 
-  const slot = await inspectQuery<{ rvtr: string | null }>(
-    `
-    SELECT upper(trim(canonical_track_key)) AS rvtr
-    FROM canonical_album_tracks
-    WHERE album_id = $1 AND position = $2
-    LIMIT 1
-    `,
-    [proposal.albumId, proposal.position ?? 0],
-  );
+  const base = validateAlbumLinkProposalBase(proposal);
+  if (!base.ok) return base;
 
-  const guard = validateAlbumLinkProposal(
+  const slot = await loadAlbumSlotAtPosition(proposal.albumId, proposal.position);
+  const membershipCount = await countRvtrAlbumMemberships(rvtr);
+
+  const resolved = resolveAlbumRelationshipMode({
     proposal,
-    previousState.albumLinkCount,
-    slot[0]?.rvtr ?? null,
-  );
-  if (!guard.ok) return guard;
+    existingLinkCount: previousState.albumLinkCount,
+    existingMembershipCount: membershipCount,
+    slotRvtr: slot?.rvtr || null,
+    slotTitle: slot?.sequence_title ?? null,
+    trackTitle: previousState.trackTitle,
+  });
 
-  return { ok: true, proposal, previousState, albumTitle: album.title };
+  if (!resolved.ok) {
+    return {
+      ok: false,
+      code: resolved.code,
+      message: resolved.message,
+    };
+  }
+
+  return {
+    ok: true,
+    linkMode: resolved.mode,
+    proposal,
+    previousState,
+    albumTitle: album.title,
+    anchorCatRowId: slot?.cat_row_id ?? null,
+    slotRvtr: slot?.rvtr || null,
+  };
 }

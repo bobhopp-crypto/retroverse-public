@@ -96,8 +96,9 @@ export async function auditTrackAlbumLinks(
   const rawCandidates = await fetchAlbumLinkCandidates(track);
   const candidates = rankCandidates(
     {
-      title: track.canonical_title,
-      artistName: track.canonical_artist_name,
+      rvtr,
+      title: track.canonical_title?.trim() ?? "",
+      artistName: track.canonical_artist_name?.trim() ?? "",
       firstChartYear,
       chartWeeks: d?.chart_weeks ?? 0,
     },
@@ -110,8 +111,8 @@ export async function auditTrackAlbumLinks(
 
   return {
     rvtr,
-    title: track.canonical_title.trim(),
-    artistName: track.canonical_artist_name.trim(),
+    title: track.canonical_title?.trim() ?? "Unknown title",
+    artistName: track.canonical_artist_name?.trim() ?? "Unknown artist",
     artistId: track.artist_id,
     firstChartYear,
     chartWeeks: d?.chart_weeks ?? 0,

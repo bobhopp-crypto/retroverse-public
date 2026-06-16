@@ -3,7 +3,7 @@ import "server-only";
 import { inspectQuery } from "@/lib/inspect/pg";
 import {
   healingWritesEnabled,
-  validateAlbumLinkProposal,
+  validateAlbumLinkProposalBase,
 } from "@/lib/track/album-link-recovery/guardrails";
 import type { AlbumLinkWriteProposal } from "@/lib/track/album-link-recovery/types";
 
@@ -45,12 +45,27 @@ export async function applyApprovedAlbumLinkProposal(
     [proposal.albumId, proposal.position ?? 0],
   );
 
-  const guard = validateAlbumLinkProposal(
-    proposal,
-    existing[0]?.c ?? 0,
-    slot[0]?.rvtr ?? null,
-  );
+  const guard = validateAlbumLinkProposalBase(proposal);
   if (!guard.ok) return guard;
+
+  if ((existing[0]?.c ?? 0) > 0) {
+    return {
+      ok: false,
+      code: "already_linked",
+      message: "Track already has canonical_album_tracks — no replace.",
+    };
+  }
+
+  if (
+    slot[0]?.rvtr &&
+    slot[0].rvtr.toUpperCase() !== rvtr
+  ) {
+    return {
+      ok: false,
+      code: "slot_occupied",
+      message: `Tracklist slot already keyed to ${slot[0].rvtr}.`,
+    };
+  }
 
   const logRows = await inspectQuery<{ id: number }>(
     `

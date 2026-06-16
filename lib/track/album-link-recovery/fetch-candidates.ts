@@ -1,5 +1,8 @@
 import { inspectQuery } from "@/lib/inspect/pg";
-import { normalizeTrackTitleKey } from "@/lib/track/album-link-recovery/normalize-title";
+import {
+  normalizeTrackTitleKey,
+  primaryTitleToken,
+} from "@/lib/track/album-link-recovery/normalize-title";
 import type {
   AlbumLinkCandidate,
   CandidateSourceKind,
@@ -30,8 +33,8 @@ type CandidateRow = {
 function rowToCandidate(row: CandidateRow): AlbumLinkCandidate {
   return {
     albumId: row.album_id,
-    albumTitle: row.album_title.trim(),
-    artistName: row.artist_name.trim(),
+    albumTitle: row.album_title?.trim() ?? "Unknown album",
+    artistName: row.artist_name?.trim() ?? "Unknown artist",
     releaseYear: row.release_year,
     sourceKind: row.source_kind as CandidateSourceKind,
     trackPosition: row.track_position,
@@ -74,17 +77,30 @@ export async function countExistingAlbumLinks(rvtr: string): Promise<number> {
 export async function fetchAlbumLinkCandidates(
   track: TrackRow,
 ): Promise<AlbumLinkCandidate[]> {
-  const rvtr = track.track_id.trim().toUpperCase();
-  const titleKey = normalizeTrackTitleKey(track.canonical_title);
+  const rvtr = track.track_id?.trim().toUpperCase() ?? "";
+  if (!rvtr) return [];
+  const title = track.canonical_title?.trim() ?? "";
+  const titleKey = normalizeTrackTitleKey(title);
+  const titleToken = primaryTitleToken(title);
   const artistId = track.artist_id;
 
   const byMap = new Map<number, AlbumLinkCandidate>();
+
+  function candidateQuality(c: AlbumLinkCandidate): number {
+    let q = 0;
+    if (c.sequenceTitle) q += 10;
+    if (c.sourceKind === "tracklist_title_unlinked") q += 8;
+    if (c.sourceKind === "tracklist_title_match") q += 7;
+    if (c.sourceKind === "track_family_link") q += 6;
+    if (c.sourceKind === "compilation_title_match") q += 5;
+    return q;
+  }
 
   function merge(rows: CandidateRow[]) {
     for (const row of rows) {
       const c = rowToCandidate(row);
       const prev = byMap.get(c.albumId);
-      if (!prev || c.sourceKind === "tracklist_title_unlinked") {
+      if (!prev || candidateQuality(c) > candidateQuality(prev)) {
         byMap.set(c.albumId, c);
       }
     }
@@ -134,12 +150,15 @@ export async function fetchAlbumLinkCandidates(
       WHERE lower(regexp_replace(trim(cat.title), '[^a-z0-9]+', ' ', 'g'))
             = lower(regexp_replace(trim($2), '[^a-z0-9]+', ' ', 'g'))
          OR cat.title ILIKE $3
+         OR ($4::text IS NOT NULL AND cat.title ILIKE ('%' || $4 || '%'))
+         OR ($4::text IS NOT NULL AND lower(regexp_replace(trim(cat.title), '[^a-z0-9]+', ' ', 'g'))
+             LIKE lower($4 || '%'))
       ORDER BY
         (CASE WHEN $1::bigint IS NOT NULL AND ar.id = $1 THEN 1 ELSE 0 END) DESC,
         al.release_year ASC NULLS LAST
       LIMIT 24
       `,
-      [artistId, track.canonical_title, `%${track.canonical_title.trim()}%`],
+      [artistId, title, title ? `%${title}%` : "%", titleToken],
     ),
   );
 
@@ -167,6 +186,7 @@ export async function fetchAlbumLinkCandidates(
   }
 
   if (titleKey.length >= 4) {
+    const compilationPattern = titleToken ? `%${titleToken}%` : `%${title}%`;
     merge(
       await inspectQuery<CandidateRow>(
         `
@@ -186,7 +206,7 @@ export async function fetchAlbumLinkCandidates(
         ORDER BY al.release_year ASC NULLS LAST
         LIMIT 16
         `,
-        [`%${track.canonical_title.trim()}%`, rvtr],
+        [compilationPattern, rvtr],
       ),
     );
   }

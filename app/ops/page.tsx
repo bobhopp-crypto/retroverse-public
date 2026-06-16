@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { OpsBoard } from "@/components/ops/OpsBoard";
+import { OpsHome } from "@/components/ops/OpsHome";
 import { OpsDirectory } from "@/components/ops/OpsDirectory";
-import { loadOpsConsoleData } from "@/lib/ops/load-ops-data";
+import { loadOpsHomeData } from "@/lib/ops/load-ops-home";
 import { trackPageHref } from "@/lib/search/entity-routes";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 
@@ -12,7 +12,7 @@ import "./ops.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Ops Console — Retroverse (internal)",
+  title: "Ops Home — Retroverse (internal)",
   robots: { index: false, follow: false },
 };
 
@@ -44,10 +44,7 @@ export default async function OpsPage() {
   }
 
   const now = new Date().toISOString().replace("T", " ").slice(0, 19);
-  const [ops, liveState] = await Promise.all([
-    loadOpsConsoleData(),
-    loadSundayNightsState(),
-  ]);
+  const [home, liveState] = await Promise.all([loadOpsHomeData(), loadSundayNightsState()]);
   const liveRvtr = liveState.currentTrackId;
   const liveTrackHref = liveRvtr ? trackPageHref(liveRvtr) : "/sunday-nights";
   const liveTrackLabel = liveState.live
@@ -63,14 +60,20 @@ export default async function OpsPage() {
         <header className="ops-topbar">
           <div>
             <p className="ops-topbar__kicker">Internal · operations</p>
-            <h1 className="ops-topbar__title">Ops</h1>
+            <h1 className="ops-topbar__title">Ops Home</h1>
           </div>
           <div className="ops-topbar__meta">
             <div>
               Snapshot <strong>{now}</strong>
             </div>
             <div>
-              Focus year <strong>{ops.year}</strong>
+              <Link className="ops-link" href="/ops/finance">
+                Finance
+              </Link>
+              {" · "}
+              <Link className="ops-link" href="/ops/atlas/1970s">
+                Library Atlas
+              </Link>
               {" · "}
               <Link className="ops-link" href="/ops/sunday-nights">
                 Sunday Nights
@@ -79,42 +82,12 @@ export default async function OpsPage() {
           </div>
         </header>
 
-        <OpsDirectory liveTrackHref={liveTrackHref} liveTrackLabel={liveTrackLabel} />
+        <OpsHome data={home} />
 
-        <p className="ops-banner">
-          <strong>Chart-to-library reconciliation</strong> — Billboard cultural universe with
-          VDJ playable-media overlay. Complete <strong>{ops.year}</strong> first.
-          {ops.status.pgOk ? (
-            <>
-              {" "}
-              Live Postgres
-              {ops.status.yearStats
-                ? ` · ${ops.status.yearStats.matched} matched / ${ops.status.yearStats.missing} missing (${ops.status.yearStats.chartRows} songs)`
-                : " · year match table loads after page shell"}
-              {ops.status.partial.length
-                ? ` · ${ops.status.partial.join("; ")}`
-                : ""}
-              .
-            </>
-          ) : (
-            <>
-              {" "}
-              <strong>Postgres offline</strong>
-              {ops.status.pgError ? ` (${ops.status.pgError})` : ""}.
-            </>
-          )}
-        </p>
-
-        <div id="year-match">
-          <OpsBoard
-            year={ops.year}
-            yearMatch={ops.yearMatch}
-            acquisition={ops.acquisition}
-            weeklyRefresh={ops.weeklyRefresh}
-            recentActivity={ops.recentActivity}
-            yearStats={ops.status.yearStats}
-          />
-        </div>
+        <details className="ops-home__directory-fold">
+          <summary className="ops-home__directory-summary">All ops tools</summary>
+          <OpsDirectory liveTrackHref={liveTrackHref} liveTrackLabel={liveTrackLabel} />
+        </details>
       </div>
     </main>
   );

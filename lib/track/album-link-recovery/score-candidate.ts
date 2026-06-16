@@ -5,6 +5,7 @@ import type {
 } from "@/lib/track/album-link-recovery/types";
 
 export type TrackScoringContext = {
+  rvtr: string;
   title: string;
   artistName: string;
   firstChartYear: number | null;
@@ -17,6 +18,7 @@ export function scoreAlbumLinkCandidate(
 ): ScoredAlbumLinkCandidate {
   const reasons: string[] = [];
   let score = 0;
+  const rvtr = track.rvtr.trim().toUpperCase();
 
   const sameArtist =
     candidate.artistName.trim().toLowerCase() ===
@@ -39,6 +41,17 @@ export function scoreAlbumLinkCandidate(
         ? "album_tracklist_title_matches"
         : "album_title_related",
     );
+  } else if (candidate.sourceKind === "same_artist_album" && !candidate.sequenceTitle) {
+    score -= 15;
+    reasons.push("artist_discography_only_no_tracklist");
+  }
+
+  if (
+    candidate.existingRvtrOnSlot &&
+    candidate.existingRvtrOnSlot !== rvtr
+  ) {
+    score -= 5;
+    reasons.push("slot_linked_other_rvtr");
   }
 
   if (

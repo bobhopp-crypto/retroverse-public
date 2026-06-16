@@ -1,0 +1,678 @@
+{
+  "checkpoint": {
+    "lastBatchId": "0108",
+    "currentBatchIndex": 108,
+    "mainCursor": 100,
+    "updatedAt": "2026-06-15T18:00:13.587Z",
+    "paused": false,
+    "running": false,
+    "uniqueSuccesses": 6159,
+    "uniqueFailures": 2772,
+    "retryQueueSize": 2063
+  },
+  "diagnostics": {
+    "queueSize": 5038,
+    "neverAttempted": 2492,
+    "previouslyFailed": 2546,
+    "cursor": 100
+  },
+  "metrics": {
+    "coversRemaining": 5038,
+    "coversAcquiredToday": 23,
+    "averagePerHour": 334,
+    "successRate": 45.3,
+    "uniqueSuccessRate": 69,
+    "etaMs": 54301796,
+    "uniqueAlbumsProcessed": 8931,
+    "uniqueSuccesses": 6159,
+    "uniqueFailures": 2772,
+    "retryQueueSize": 2063,
+    "mainQueuePosition": 100,
+    "skippedDueToRetryRules": 0,
+    "currentlyCovered": 16719,
+    "projectedAdditionalCovers": 3476,
+    "projectedTotalCovered": 20195,
+    "projectedCoveragePct": 92.8,
+    "topFailureReasons": [
+      {
+        "reason": "no_catalog_hit:low_album_similarity",
+        "count": 1919
+      },
+      {
+        "reason": "no_catalog_hit:no_results",
+        "count": 389
+      },
+      {
+        "reason": "no_catalog_hit:artist_mismatch",
+        "count": 309
+      },
+      {
+        "reason": "itunes_no_file_on_disk",
+        "count": 72
+      },
+      {
+        "reason": "no_catalog_hit:score_below_threshold",
+        "count": 51
+      },
+      {
+        "reason": "no_catalog_hit:remaster_noise",
+        "count": 15
+      },
+      {
+        "reason": "no_catalog_hit:ambiguous_match",
+        "count": 11
+      },
+      {
+        "reason": "NOT_FOUND",
+        "count": 5
+      },
+      {
+        "reason": "The operation was aborted due to timeout",
+        "count": 1
+      }
+    ]
+  },
+  "nextBatchId": "0109",
+  "next100": [
+    {
+      "rval": "RVAL064230",
+      "artist": "The Babys",
+      "album": "Head First",
+      "b200Peak": 22
+    },
+    {
+      "rval": "RVAL396174",
+      "artist": "kiss",
+      "album": "Double Platinum",
+      "b200Peak": 22
+    },
+    {
+      "rval": "RVAL792198",
+      "artist": "slave",
+      "album": "Slave",
+      "b200Peak": 22
+    },
+    {
+      "rval": "RVAL114212",
+      "artist": "spirit",
+      "album": "The Family That Plays Together",
+      "b200Peak": 22
+    },
+    {
+      "rval": "RVAL441492",
+      "artist": "various artists",
+      "album": "When You're In Love The Whole World Is Jewish",
+      "b200Peak": 22
+    },
+    {
+      "rval": "RVAL011643",
+      "artist": "The Kingsmen",
+      "album": "The Kingsmen, Volume 3",
+      "b200Peak": 22
+    },
+    {
+      "rval": "RVAL551799",
+      "artist": "bad wolves",
+      "album": "Disobey",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL769780",
+      "artist": "various artists",
+      "album": "Cities 97: Sampler Vol 28, Live From Studio C",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL238852",
+      "artist": "good charlotte",
+      "album": "Youth Authority",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL264785",
+      "artist": "electric light orchestra",
+      "album": "Alone In The Universe",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL140053",
+      "artist": "lord huron",
+      "album": "Strange Trails",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL930063",
+      "artist": "jodeci",
+      "album": "The Past, The Present, The Future",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL775063",
+      "artist": "luke bryan",
+      "album": "Spring Break 3... It's A Shore (EP)",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL793557",
+      "artist": "papa roach",
+      "album": "Time For Annihilation ... On The Record & On The Road",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL223235",
+      "artist": "gucci mane",
+      "album": "Murder Was The Case",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL481496",
+      "artist": "frank sinatra",
+      "album": "Seduction: Sinatra Sings Of Love",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL483623",
+      "artist": "oasis",
+      "album": "Heathen Chemistry",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL633057",
+      "artist": "az",
+      "album": "9 Lives",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL132096",
+      "artist": "various artists",
+      "album": "Southwest Riders",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL488878",
+      "artist": "jay-z",
+      "album": "Reasonable Doubt",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL063970",
+      "artist": "total",
+      "album": "Total",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL685484",
+      "artist": "nine inch nails",
+      "album": "Further Down The Spiral (EP)",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL810709",
+      "artist": "green jelly",
+      "album": "Cereal Killer Soundtrack",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL415782",
+      "artist": "queensryche",
+      "album": "Queensryche",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL269201",
+      "artist": "war",
+      "album": "Platinum Jazz",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL092700",
+      "artist": "edgar winter",
+      "album": "Roadwork",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL779170",
+      "artist": "norman greenbaum",
+      "album": "Spirit In The Sky",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL998890",
+      "artist": "The Charles Randolph Grean Sounde",
+      "album": "Quentin's Theme",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL204254",
+      "artist": "The Association",
+      "album": "Birthday",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL658048",
+      "artist": "al martino",
+      "album": "Daddy's Little Girl",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL547715",
+      "artist": "mantovani",
+      "album": "Mantovani Magic",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL897797",
+      "artist": "debbie reynolds",
+      "album": "The Singing Nun",
+      "b200Peak": 23
+    },
+    {
+      "rval": "RVAL322363",
+      "artist": "machine gun kelly",
+      "album": "BINGE",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL741429",
+      "artist": "three days grace",
+      "album": "Outsider",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL071675",
+      "artist": "theory of a deadman",
+      "album": "Wake Up Call",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL426142",
+      "artist": "jaheim",
+      "album": "Struggle Love",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL055574",
+      "artist": "franz ferdinand",
+      "album": "Right Thoughts, Right Words, Right Action",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL952547",
+      "artist": "heart",
+      "album": "Fanatic",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL087138",
+      "artist": "avenged sevenfold",
+      "album": "Live In The LBC & Diamonds In The Rough",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL921704",
+      "artist": "hurricane chris",
+      "album": "51/50 Ratchet",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL341184",
+      "artist": "kenny rogers",
+      "album": "21 Number Ones",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL104406",
+      "artist": "arctic monkeys",
+      "album": "Whatever People Say I Am, That's What I'm Not",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL210517",
+      "artist": "aerosmith",
+      "album": "Rockin' The Joint: Live At The Hard Rock Hotel Las Vegas",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL342911",
+      "artist": "loretta lynn",
+      "album": "Van Lear Rose",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL952559",
+      "artist": "baby",
+      "album": "Birdman",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL856753",
+      "artist": "various artists",
+      "album": "Irv Gotti Presents The Remixes",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL935426",
+      "artist": "oasis",
+      "album": "Standing On The Shoulder Of Giants",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL504052",
+      "artist": "baz luhrmann",
+      "album": "Something For Everybody",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL687871",
+      "artist": "michael jackson",
+      "album": "Blood On The Dance Floor: HIStory In The Mix",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL027429",
+      "artist": "various artists",
+      "album": "Deadicated",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL990168",
+      "artist": "geto boys",
+      "album": "We Can't Be Stopped",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL059104",
+      "artist": "digital underground",
+      "album": "Sex Packets",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL513214",
+      "artist": "queen",
+      "album": "The Miracle",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL791311",
+      "artist": "el debarge",
+      "album": "El DeBarge",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL813188",
+      "artist": "The Clash",
+      "album": "Sandinista",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL765336",
+      "artist": "sheena easton",
+      "album": "Sheena Easton",
+      "b200Peak": 24
+    },
+    {
+      "rval": "RVAL869077",
+      "artist": "kodak black",
+      "album": "Heart Break Kodak",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL897854",
+      "artist": "grateful dead",
+      "album": "Barton Hall, Cornell Univ., Ithaca, NY, May 8, 1977",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL309694",
+      "artist": "prince royce",
+      "album": "FIVE",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL948977",
+      "artist": "daniel caesar",
+      "album": "Freudian",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL697855",
+      "artist": "bob seger",
+      "album": "I Knew You When",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL392131",
+      "artist": "common",
+      "album": "Black America Again",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL884017",
+      "artist": "little mix",
+      "album": "Glory Days",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL292027",
+      "artist": "The Game",
+      "album": "Streets Of Compton",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL664336",
+      "artist": "mac demarco",
+      "album": "Another One",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL256234",
+      "artist": "kaskade",
+      "album": "Automatic",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL556078",
+      "artist": "jess glynne",
+      "album": "I Cry When I Laugh",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL964757",
+      "artist": "collective soul",
+      "album": "See What You Started By Continuing",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL994188",
+      "artist": "r. city",
+      "album": "What Dreams Are Made Of",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL455062",
+      "artist": "various artists",
+      "album": "Disney Junior: DJ Shuffle",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL000675",
+      "artist": "The Kenny Wayne Shepherd Band",
+      "album": "Goin' Home",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL375197",
+      "artist": "michael w. smith",
+      "album": "Hymns",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL499880",
+      "artist": "new found glory",
+      "album": "Resurrection",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL857678",
+      "artist": "'n sync",
+      "album": "The Essential *NSync",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL131953",
+      "artist": "fall out boy",
+      "album": "PAX-AM Days (EP)",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL577882",
+      "artist": "phillip phillips",
+      "album": "American Idol: Season 11: Highlights (EP)",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL237726",
+      "artist": "jimmy fallon",
+      "album": "Blow Your Pants Off",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL922202",
+      "artist": "swv",
+      "album": "I Missed Us",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL721637",
+      "artist": "various artists",
+      "album": "That's My Jam!",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL440524",
+      "artist": "various artists",
+      "album": "Cities 97 Sampler 22: Live From Studio C",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL464426",
+      "artist": "travie mccoy",
+      "album": "Lazarus",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL311994",
+      "artist": "keane",
+      "album": "Night Train",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL220734",
+      "artist": "trapt",
+      "album": "No Apologies",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL750011",
+      "artist": "him",
+      "album": "Screamworks: Love In Theory And Practice, Chapters 1-13",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL118543",
+      "artist": "mandy moore",
+      "album": "Amanda Leigh",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL718916",
+      "artist": "queensryche",
+      "album": "American Soldier",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL791961",
+      "artist": "maino",
+      "album": "If Tomorrow Comes...",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL649954",
+      "artist": "creedence clearwater revival",
+      "album": "Opus Collection",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL619156",
+      "artist": "queen latifah",
+      "album": "Persona",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL960289",
+      "artist": "slaughterhouse",
+      "album": "Slaughterhouse",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL932645",
+      "artist": "relient k",
+      "album": "The Bird And The Bee Sides",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL572308",
+      "artist": "lil mama",
+      "album": "VYP: Voice Of The Young People",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL292764",
+      "artist": "gloria estefan",
+      "album": "90 Millas",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL734569",
+      "artist": "kings of leon",
+      "album": "Because Of The Times",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL776031",
+      "artist": "carl thomas",
+      "album": "So Much Better",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL392211",
+      "artist": "julie roberts",
+      "album": "Men & Mascara",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL344215",
+      "artist": "shareefa",
+      "album": "Point Of No Return",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL952404",
+      "artist": "bone thugs-n-harmony",
+      "album": "Thug Stories",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL391283",
+      "artist": "wynonna",
+      "album": "Her Story: Scenes From A Lifetime",
+      "b200Peak": 25
+    },
+    {
+      "rval": "RVAL668780",
+      "artist": "van morrison",
+      "album": "Magic Time",
+      "b200Peak": 25
+    }
+  ]
+}

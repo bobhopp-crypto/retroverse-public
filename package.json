@@ -31,6 +31,9 @@
     "ops:media-lab": "npx --yes tsx tools/run-media-lab-transcribe.ts",
     "ops:media-lab-labels": "npx --yes tsx tools/media-lab/build-segment-labels-cli.ts",
     "rvbr:seed": "npx --yes tsx tools/rvbr/seed-rvbr-profiles.ts",
+    "mb:canary:apply-readiness": "npx --yes tsx tools/healing/mb-canary-apply-readiness.ts",
+    "mb:wave-100:prep": "npx --yes tsx tools/healing/mb-wave-100-prep.ts",
+    "mb:wave-100:apply": "npx --yes tsx tools/healing/mb-wave-100-apply.ts",
     "smoke:public-search": "node tools/smoke-public-search.mjs",
     "live-now-playing": "npx --yes tsx tools/live/start-live-now-playing.ts",
     "live-stop": "npx --yes tsx tools/live/stop-live-now-playing.ts",
@@ -40,6 +43,7 @@
     "jsqr": "^1.4.0",
     "next": "^15.3.3",
     "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.1",
     "pg": "^8.16.0",
     "qrcode": "^1.5.4",
     "react": "^19.1.0",
@@ -52,6 +56,8 @@
     "@types/qrcode": "^1.5.6",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.2.3",
+    "playwright": "^1.61.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.8.3"
   }
 }

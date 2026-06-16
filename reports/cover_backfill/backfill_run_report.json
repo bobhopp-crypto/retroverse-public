@@ -1,41 +1,45 @@
 {
   "mode": "safe",
-  "generatedAt": "2026-06-02T09:36:03.885Z",
-  "uniqueAlbumsProcessed": 8831,
-  "uniqueSuccesses": 6136,
-  "uniqueFailures": 2695,
-  "successRate": 69.5,
-  "mainCursorBefore": 4650,
-  "mainCursorAfter": 8544,
-  "retryQueueSize": 1986,
+  "generatedAt": "2026-06-16T15:59:35.694Z",
+  "uniqueAlbumsProcessed": 10850,
+  "uniqueSuccesses": 6955,
+  "uniqueFailures": 3895,
+  "successRate": 64.1,
+  "mainCursorBefore": 4186,
+  "mainCursorAfter": 33,
+  "retryQueueSize": 3676,
   "topFailureReasons": [
     {
       "reason": "no_catalog_hit:low_album_similarity",
-      "count": 1861
-    },
-    {
-      "reason": "no_catalog_hit:no_results",
-      "count": 386
+      "count": 2775
     },
     {
       "reason": "no_catalog_hit:artist_mismatch",
-      "count": 299
+      "count": 453
     },
     {
-      "reason": "itunes_no_file_on_disk",
-      "count": 72
+      "reason": "no_catalog_hit:no_results",
+      "count": 412
+    },
+    {
+      "reason": "NOT_FOUND",
+      "count": 79
     },
     {
       "reason": "no_catalog_hit:score_below_threshold",
-      "count": 51
+      "count": 78
+    },
+    {
+      "reason": "itunes_no_file_on_disk",
+      "count": 58
     },
     {
       "reason": "no_catalog_hit:remaster_noise",
-      "count": 14
+      "count": 22
     },
     {
       "reason": "no_catalog_hit:ambiguous_match",
-      "count": 11
+      "count": 17
     },
     {
       "reason": "The operation was aborted due to timeout",
@@ -45,16 +49,25 @@
   "topFailurePatterns": [
     {
       "pattern": "standard_studio_album",
-      "count": 1403,
+      "count": 2718,
       "examples": [
-        "double — Blue (RVAL911336)",
-        "The Fixx — Walkabout (RVAL465275)",
-        "rainbow — Straight Between The Eyes (RVAL870323)"
+        "david bowie — Blackstar (RVAL607895)",
+        "The 1975 — I Like It When You Sleep, For You Are So Beautiful Yet So Unaware Of It (RVAL659225)",
+        "pearl jam — Lightning Bolt (RVAL456831)"
+      ]
+    },
+    {
+      "pattern": "various_artists",
+      "count": 607,
+      "examples": [
+        "various artists — NOW 49 (RVAL636480)",
+        "various artists — NOW 50 (RVAL964082)",
+        "various artists — NOW 37 (RVAL513222)"
       ]
     },
     {
       "pattern": "punctuation_only_title",
-      "count": 809,
+      "count": 228,
       "examples": [
         "? — ? (RVAL906016)",
         "? — ? (RVAL267427)",
@@ -62,71 +75,63 @@
       ]
     },
     {
-      "pattern": "various_artists",
-      "count": 322,
-      "examples": [
-        "various artists — Themes Like Old Times (RVAL771179)",
-        "various artists — Musique Pop De Paris (RVAL819136)",
-        "various artists — Cities 97 Sampler 21: Live From Studio C (RVAL120444)"
-      ]
-    },
-    {
       "pattern": "title_punctuation_heavy",
-      "count": 59,
+      "count": 118,
       "examples": [
-        "total — Kima, Keisha & Pam (RVAL929725)",
-        "e-40 — The Block Brochure: Welcome To The Soil 1, 2 & 3 (RVAL647189)",
-        "dr. hook — Dr. Hook & The Medicine Show (RVAL764456)"
+        "queens of the stone age — ...Like Clockwork (RVAL384277)",
+        "bruce springsteen — Devils & Dust (RVAL831070)",
+        "luke bryan — Spring Break 6 ...Like We Ain't Ever (EP) (RVAL662950)"
       ]
     },
     {
       "pattern": "compilation_or_variant_title",
-      "count": 47,
+      "count": 81,
       "examples": [
-        "pearl jam — Let's Play Two: Live At Wrigley Field (Soundtrack) (RVAL381681)",
-        "grateful dead — Dave's Picks, Volume 17: Selland Arena, Fresno, CA 7/19/1974 (RVAL245540)",
-        "grateful dead — Dave's Picks Volume 14: Academy Of Music, New York, NY, 3/26/72 (RVAL407207)"
+        "jennifer lopez — J To Tha L-O! The Remixes (RVAL198540)",
+        "funkmaster flex — Funkmaster Flex The Mix Tape Volume III: 60 Minutes Of Funk The Final Chapt (RVAL816448)",
+        "mariah carey — Glitter (Soundtrack) (RVAL273284)"
       ]
     },
     {
       "pattern": "artist_name_special_chars",
-      "count": 26,
+      "count": 79,
       "examples": [
-        "lil' romeo — Game Time (RVAL465095)",
-        "ol' dirty bastard — The Trials And Tribulations Of Russell Jones (RVAL843911)",
-        "ginger baker's air force — Ginger Baker's Air Force (RVAL893154)"
+        "beyonce — Beyonce (RVAL283541)",
+        "A$ap Rocky — Long.Live.A$AP (RVAL647901)",
+        "jay-z — The Dynasty Roc La Familia (2000 -- ) (RVAL199571)"
       ]
     },
     {
       "pattern": "title_with_year_noise",
-      "count": 19,
+      "count": 40,
       "examples": [
+        "jack white — Acoustic Recordings: 1998-2016 (RVAL017491)",
         "dave matthews band — DMBLivetrax Vol. 6: Fenway Park, Boston, MA July 7 -- 8, 2006 (RVAL656416)",
-        "jefferson starship — Flight Log (1966-1976) (RVAL187438)",
-        "grateful dead — Spring 1990: The Other One (RVAL246500)"
+        "jefferson starship — Flight Log (1966-1976) (RVAL187438)"
       ]
     },
     {
       "pattern": "short_title_le2",
-      "count": 8,
+      "count": 19,
       "examples": [
-        "david guetta — 7 (RVAL513999)",
-        "sza — Z (RVAL565644)",
-        "matchbox twenty — EP (RVAL254252)"
+        "beyonce — 4 (RVAL270175)",
+        "godsmack — IV (RVAL128242)",
+        "omarion — O (RVAL528963)"
       ]
     },
     {
       "pattern": "artist_name_live",
-      "count": 2,
+      "count": 5,
       "examples": [
+        "live — Throwing Copper (RVAL605359)",
         "live — Songs From Black Mountain (RVAL762341)",
         "live — The Turn (RVAL798420)"
       ]
     }
   ],
-  "currentlyCovered": 13188,
-  "coversRemaining": 8482,
-  "projectedAdditionalCovers": 5895,
-  "projectedTotalCovered": 19083,
-  "projectedCoveragePct": 88.1
+  "currentlyCovered": 17515,
+  "coversRemaining": 4242,
+  "projectedAdditionalCovers": 2719,
+  "projectedTotalCovered": 20234,
+  "projectedCoveragePct": 93
 }

@@ -12,9 +12,13 @@ import {
   applyApprovedAlbumLinkProposal,
   type ApplyProposalResult,
 } from "@/lib/track/album-link-recovery/apply-proposal";
+import { applyCoAlbumMembership } from "@/lib/track/album-link-recovery/rvtr-album-membership";
+
 export type HealingApplyResult = ApplyProposalResult & {
   revalidated?: boolean;
   revalidatedPaths?: string[];
+  linkMode?: "tracklist_slot" | "co_album_membership";
+  membershipId?: number;
 };
 
 export async function applyHealingAlbumLink(
@@ -36,8 +40,20 @@ export async function applyHealingAlbumLink(
     return validation;
   }
 
-  const { proposal, previousState } = validation;
-  const result = await applyApprovedAlbumLinkProposal(proposal, actor);
+  const { proposal, previousState, linkMode, anchorCatRowId } = validation;
+
+  const result =
+    linkMode === "co_album_membership"
+      ? await (async () => {
+          const co = await applyCoAlbumMembership(proposal, actor, anchorCatRowId);
+          if (!co.ok) return co;
+          return {
+            ok: true as const,
+            proposalId: co.proposalId,
+            catRowId: co.membershipId,
+          };
+        })()
+      : await applyApprovedAlbumLinkProposal(proposal, actor);
 
   if (!result.ok) {
     await appendHealingAudit({
@@ -59,6 +75,11 @@ export async function applyHealingAlbumLink(
     (p): p is string => Boolean(p),
   );
 
+  const successMessage =
+    linkMode === "co_album_membership"
+      ? "Attached RVTR to canonical album via co-album membership."
+      : "Applied canonical_album_tracks row (healing_approved).";
+
   await appendHealingAudit({
     action: "apply",
     rvtr: proposal.rvtr,
@@ -68,13 +89,19 @@ export async function applyHealingAlbumLink(
     confidence: proposal.confidence,
     actor,
     ok: true,
-    message: "Applied canonical_album_tracks row (healing_approved).",
+    message: successMessage,
     reasons: proposal.reasons,
     previousState,
     revalidatedPaths,
   });
 
-  return { ...result, revalidated: true, revalidatedPaths };
+  return {
+    ...result,
+    revalidated: true,
+    revalidatedPaths,
+    linkMode,
+    membershipId: linkMode === "co_album_membership" ? result.catRowId : undefined,
+  };
 }
 
 export type RollbackResult =

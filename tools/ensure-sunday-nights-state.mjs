@@ -18,6 +18,10 @@ const MIGRATIONS = [
     table: "collector_pass_registrations",
     file: "collector-pass-registrations.sql",
   },
+  {
+    table: "finance_transactions",
+    file: "finance.sql",
+  },
 ];
 
 function env(name) {

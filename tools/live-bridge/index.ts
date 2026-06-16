@@ -1,12 +1,12 @@
 /**
- * VirtualDJ → Retroverse live now playing bridge.
+ * VirtualDJ OSC → Retroverse live now playing bridge.
  *
  * Prerequisites:
- *   - VirtualDJ 2023+ Pro with Network Control enabled
+ *   - VirtualDJ Pro with OSC enabled (oscPort / oscPortBack)
  *   - Retroverse API reachable (local dev or production)
  *
  * Usage:
- *   VDJ_NETWORK_PORT=8088 \
+ *   VDJ_OSC_PORT=9000 VDJ_OSC_BACK_PORT=9001 \
  *   LIVE_NOW_PLAYING_URL=http://127.0.0.1:3000/api/sunday-nights/bridge \
  *   LIVE_NOW_PLAYING_SECRET=your-secret \
  *   npx tsx tools/live-bridge/index.ts
@@ -14,52 +14,78 @@
 import { loadConfig } from "./config";
 import { AudibleDeckHysteresis } from "./hysteresis";
 import { bridgeLog } from "./logger";
+import { VdjOscSensor } from "./osc-sensor";
 import { publishLiveTrack } from "./publish";
-import {
-  pickAudibleDeck,
-  probeVdj,
-  readAllDecks,
-  readCrossfaderResult,
-} from "./vdj";
+import { pickCrossfaderDeck } from "./vdj";
 
 async function main() {
   const config = loadConfig();
-  const vdj = { port: config.vdjPort, bearer: config.vdjBearer || undefined };
   const hysteresis = new AudibleDeckHysteresis(config.stablePolls);
+  const sensor = new VdjOscSensor({
+    host: config.oscHost,
+    vdjPort: config.oscPort,
+    listenPort: config.oscPortBack,
+  });
 
   await bridgeLog(config.dataRoot, "bridge_start", {
-    vdjPort: config.vdjPort,
+    oscHost: config.oscHost,
+    oscPort: config.oscPort,
+    oscPortBack: config.oscPortBack,
     apiUrl: config.apiUrl,
     pollMs: config.pollMs,
     stablePolls: config.stablePolls,
+    crossfaderLow: config.crossfaderLow,
+    crossfaderHigh: config.crossfaderHigh,
   });
 
-  const reachable = await probeVdj(vdj);
+  const reachable = await sensor.start();
   if (!reachable) {
+    sensor.stop();
     await bridgeLog(config.dataRoot, "vdj_error", {
-      message: "VirtualDJ Network Control not reachable",
-      port: config.vdjPort,
+      message: "VirtualDJ OSC not reachable",
+      oscPort: config.oscPort,
+      oscPortBack: config.oscPortBack,
     });
     process.exit(1);
   }
 
-  console.log(`Live bridge running — polling VDJ every ${config.pollMs}ms`);
+  let lastPickedDeck: number | null = null;
+
+  console.log(
+    `Live bridge running — OSC ${config.oscHost}:${config.oscPort} → listen :${config.oscPortBack} every ${config.pollMs}ms`,
+  );
+
+  const shutdown = () => {
+    sensor.stop();
+    process.exit(0);
+  };
+  process.on("SIGINT", shutdown);
+  process.on("SIGTERM", shutdown);
 
   const tick = async () => {
     try {
-      const [decks, crossfader] = await Promise.all([
-        readAllDecks(vdj, config.deckCount),
-        readCrossfaderResult(vdj),
-      ]);
+      await sensor.refreshQueries();
+      await sleep(200);
 
-      const audibleDeck = pickAudibleDeck(decks, crossfader);
-      const stable = hysteresis.observe(audibleDeck);
+      const decks = sensor.getDeckSnapshots(config.deckCount);
+      const crossfader = sensor.getCrossfaderResult();
+      const activeDeck = pickCrossfaderDeck(decks, crossfader, {
+        low: config.crossfaderLow,
+        high: config.crossfaderHigh,
+        lastDeck: lastPickedDeck,
+      });
 
+      if (activeDeck) {
+        lastPickedDeck = activeDeck.deck;
+      }
+
+      const stable = hysteresis.observe(activeDeck);
       if (!stable) return;
 
       const timestamp = new Date().toISOString();
       await bridgeLog(config.dataRoot, "track_detected", {
         ...stable,
+        crossfader,
         timestamp,
       });
 
@@ -80,6 +106,7 @@ async function main() {
       await bridgeLog(config.dataRoot, "track_published", {
         filepath: stable.filepath,
         deck: stable.deck,
+        crossfader,
         status: result.status,
       });
     } catch (err) {
@@ -91,6 +118,10 @@ async function main() {
 
   await tick();
   setInterval(tick, config.pollMs);
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((r) => setTimeout(r, ms));
 }
 
 void main();
