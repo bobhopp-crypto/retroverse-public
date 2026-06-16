@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
  * Stable Next.js dev launcher.
- * Clears stale webpack chunks before start (fixes "Cannot find module './NNN.js'").
- * Use RETROVERSE_DEV_NO_CLEAN=1 or --no-clean for a faster restart when cache is trusted.
+ * Does not wipe .next on normal restarts (avoids ENOENT during active dev).
+ * Opt-in clean: npm run dev:clean, CLEAN_NEXT=1, RETROVERSE_DEV_CLEAN=1, or --clean.
+ * Auto-clean only when switching from a production build (.production-build marker).
  */
 import { spawn } from "node:child_process";
 import fs from "node:fs";
@@ -19,7 +20,9 @@ const argv = process.argv.slice(2);
 const noClean =
   argv.includes("--no-clean") || process.env.RETROVERSE_DEV_NO_CLEAN === "1";
 const forceClean =
-  argv.includes("--clean") || process.env.RETROVERSE_DEV_CLEAN === "1";
+  argv.includes("--clean") ||
+  process.env.RETROVERSE_DEV_CLEAN === "1" ||
+  process.env.CLEAN_NEXT === "1";
 
 function rmSafe(dir) {
   if (fs.existsSync(dir)) {
@@ -28,10 +31,9 @@ function rmSafe(dir) {
 }
 
 function shouldClean() {
-  if (fs.existsSync(productionMarker)) return true;
-  if (noClean && !forceClean) return false;
   if (forceClean) return true;
-  if (fs.existsSync(nextDir)) return true;
+  if (noClean) return false;
+  if (fs.existsSync(productionMarker)) return true;
   return false;
 }
 
