@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import type { FinanceAccount } from "@/lib/ops/finance/db/accounts";
+import type { FinanceAccount } from "@/lib/ops/finance/finance-account";
 import type { MerchantSummary } from "@/lib/ops/finance/db/merchants";
 import { readOpsJsonResponse } from "@/lib/ops/finance/fetch-ops-json";
 import { FINANCE_IMPORTANCE_LEVELS } from "@/lib/ops/finance/finance-importance";
@@ -68,14 +68,14 @@ export function FinanceMerchantsClient({
         {activeBookkeepingOnly ? (
           <>
             {" · "}
-            <Link className="ops-link" href="/ops/finance/merchants?history=1">
+            <Link className="ops-link" href="/ops/finance/reports/merchants?history=1">
               Show historical
             </Link>
           </>
         ) : (
           <>
             {" · "}
-            <Link className="ops-link" href="/ops/finance/merchants">
+            <Link className="ops-link" href="/ops/finance/reports/merchants">
               Active year only
             </Link>
           </>
@@ -99,7 +99,7 @@ export function FinanceMerchantsClient({
           {merchants.map((m) => (
             <tr key={m.merchantKey}>
               <td>
-                <Link className="ops-link" href={`/ops/finance/merchants/${encodeURIComponent(m.merchantKey)}`}>
+                <Link className="ops-link" href={`/ops/finance/reports/merchants/${encodeURIComponent(m.merchantKey)}`}>
                   {m.merchant}
                 </Link>
                 {m.mixed ? <span className="ops-finance__dim"> mixed</span> : null}

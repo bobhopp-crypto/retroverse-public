@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
-import type { FinanceAccount } from "@/lib/ops/finance/db/accounts";
+import type { FinanceAccount } from "@/lib/ops/finance/finance-account";
 import type { MerchantDetail } from "@/lib/ops/finance/db/merchants";
 import type { FinanceTransaction } from "@/lib/ops/finance/db/transactions";
 import { FINANCE_IMPORTANCE_LEVELS } from "@/lib/ops/finance/finance-importance";
@@ -133,7 +133,7 @@ export function FinanceMerchantDetailClient({ merchant, transactions, accounts }
       </table>
 
       <p>
-        <Link className="ops-link" href="/ops/finance/merchants">
+        <Link className="ops-link" href="/ops/finance/reports/merchants">
           ← All merchants
         </Link>
       </p>

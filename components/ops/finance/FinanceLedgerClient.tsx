@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import type { FinanceAccount } from "@/lib/ops/finance/db/accounts";
+import type { FinanceAccount } from "@/lib/ops/finance/finance-account";
 import type { FinanceTransaction } from "@/lib/ops/finance/db/transactions";
 import { FINANCE_IMPORTANCE_LEVELS } from "@/lib/ops/finance/finance-importance";
 import { readOpsJsonResponse } from "@/lib/ops/finance/fetch-ops-json";
@@ -97,6 +97,33 @@ export function FinanceLedgerClient({ initialTransactions, accounts }: Props) {
     }
   }
 
+  async function deleteTransactions(ids: number[]) {
+    if (!ids.length) return;
+    const message =
+      ids.length === 1
+        ? "Delete this transaction permanently?\n\nThis cannot be undone."
+        : `Delete ${ids.length} transactions permanently?\n\nThis cannot be undone.`;
+    if (!window.confirm(message)) return;
+
+    setBusy(true);
+    try {
+      const res = await fetch("/api/ops/finance/ledger", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ transactionIds: ids }),
+      });
+      await readOpsJsonResponse(res);
+      setSelected((prev) => {
+        const next = new Set(prev);
+        for (const id of ids) next.delete(id);
+        return next;
+      });
+      await reload();
+    } finally {
+      setBusy(false);
+    }
+  }
+
   function toggleSort(key: SortKey) {
     if (sort === key) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
     else {
@@ -171,6 +198,14 @@ export function FinanceLedgerClient({ initialTransactions, accounts }: Props) {
           <button type="button" className="ops-finance-review__btn ops-finance-review__btn--rule" disabled={busy} onClick={() => void bulkApply(true)}>
             Apply + Rule
           </button>
+          <button
+            type="button"
+            className="ops-finance-review__btn ops-finance-review__btn--danger"
+            disabled={busy}
+            onClick={() => void deleteTransactions([...selected])}
+          >
+            Delete selected
+          </button>
         </div>
       ) : null}
 
@@ -216,6 +251,7 @@ export function FinanceLedgerClient({ initialTransactions, accounts }: Props) {
               <th>Tax</th>
               <th>Rule</th>
               <th>Notes</th>
+              <th aria-label="Delete" />
             </tr>
           </thead>
           <tbody>
@@ -301,6 +337,16 @@ export function FinanceLedgerClient({ initialTransactions, accounts }: Props) {
                       }
                     }}
                   />
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    className="ops-finance-review__btn ops-finance-review__btn--small ops-finance-review__btn--danger"
+                    disabled={busy}
+                    onClick={() => void deleteTransactions([txn.id])}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

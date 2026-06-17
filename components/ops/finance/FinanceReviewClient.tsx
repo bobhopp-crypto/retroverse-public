@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
-import type { FinanceAccount } from "@/lib/ops/finance/db/accounts";
+import type { FinanceAccount } from "@/lib/ops/finance/finance-account";
 import type { FinanceTransaction } from "@/lib/ops/finance/db/transactions";
 import { FINANCE_IMPORTANCE_LEVELS } from "@/lib/ops/finance/finance-importance";
 import { normalizeMerchant } from "@/lib/ops/finance/finance-model";
