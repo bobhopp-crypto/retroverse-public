@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { slugFromArtistName } from "@/lib/artist/slug";
 import type { SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
@@ -78,7 +79,7 @@ function displayFromPayload(
     year: 1974,
     coverUrl: null,
     songHref: "/search?q=Sweet%20Home%20Alabama",
-    artistHref: "/search?q=Lynyrd%20Skynyrd",
+    artistHref: "/artist/lynyrd-skynyrd",
     yearHref: "/rv/1974",
     rvtr: null,
     track: null,
@@ -231,7 +232,15 @@ export function RetroverseLive2View({ initial, exploringTrack }: Props) {
           <Link href={display.songHref ?? "/search"} className="rv2-live__action rv2-live__action--primary">
             Explore Song
           </Link>
-          <Link href={display.artistHref ?? `/search?q=${encodeURIComponent(display.artist)}`} className="rv2-live__action">
+          <Link
+            href={
+              display.artistHref ??
+              (display.artist.trim()
+                ? `/artist/${slugFromArtistName(display.artist)}`
+                : "/search")
+            }
+            className="rv2-live__action"
+          >
             Explore Artist
           </Link>
           <Link href={display.yearHref ?? (display.year ? `/rv/${display.year}` : "/search")} className="rv2-live__action">

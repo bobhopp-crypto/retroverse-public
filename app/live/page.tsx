@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-
-import { maybeAdvanceLiveChannel } from "@/lib/live-control/engine";
-import {
-  liveSongExperienceHref,
-  shouldOpenSongExperienceDirect,
-} from "@/lib/live-control/experience-route";
-import { loadLiveControlState } from "@/lib/live-control/state";
-import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
-import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 import { redirect } from "next/navigation";
+
+import { getPublicLiveRedirectUrl } from "@/lib/live-control/public-entry";
+import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
+import { loadLiveControlState } from "@/lib/live-control/state";
+import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 
 import { LiveNowPlayingView } from "./live-now-playing";
 
@@ -22,22 +18,16 @@ export const metadata: Metadata = {
 };
 
 export default async function LivePage() {
-  await maybeAdvanceLiveChannel();
+  const liveRedirect = await getPublicLiveRedirectUrl();
+  if (liveRedirect) {
+    redirect(liveRedirect);
+  }
+
   const [state, control] = await Promise.all([
     loadSundayNightsState(),
     loadLiveControlState(),
   ]);
   const initial = await buildSundayNightsCurrentPayload(state, control);
-
-  if (
-    initial.currentTrackId &&
-    shouldOpenSongExperienceDirect({
-      channelRunning: control.running,
-      liveSource: initial.live?.source,
-    })
-  ) {
-    redirect(liveSongExperienceHref(initial.currentTrackId));
-  }
 
   return <LiveNowPlayingView initial={initial} />;
 }

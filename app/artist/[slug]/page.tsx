@@ -50,9 +50,7 @@ export default async function ArtistPage({ params }: Props) {
     data.relatedArtists.length === 0;
 
   if (exhibitEmpty) {
-    const searchHref =
-      data.exploreLinks.find((l) => l.label === "Search catalog")?.href ??
-      `/search?q=${encodeURIComponent(data.displayName)}`;
+    const artistHref = `/artist/${slug}`;
 
     return (
       <section className="artist-missing" aria-label="Nothing in the archive">
@@ -61,8 +59,8 @@ export default async function ArtistPage({ params }: Props) {
           {data.displayName} is on the list, but the archive is still indexing.
         </p>
         <p className="artist-placeholder__note">
-          <Link href={searchHref} prefetch>
-            Search catalog →
+          <Link href={artistHref} prefetch>
+            Artist exhibit →
           </Link>{" "}
           ·{" "}
           <Link href="/" prefetch>

@@ -29,7 +29,7 @@ export function RvChronologyChrome({ rvYear, children }: Props) {
   const pathMonth = pathState?.month ?? null;
   const pathWeek = pathState?.week ?? null;
 
-  const searchHref = `/search?q=${encodeURIComponent(String(rvYear))}`;
+  const searchHref = rvYearHref(rvYear);
 
   return (
     <div className="rv-year-world">

@@ -5,7 +5,9 @@ import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
+import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
 import { slugFromArtistName } from "@/lib/artist/slug";
+import { trackPageHref } from "@/lib/search/entity-routes";
 import type {
   PerformanceDeckCard,
   PerformanceDeckModel,
@@ -54,11 +56,11 @@ function categoryLabel(category: PerformanceDeckStoryCard["category"]): string {
 }
 
 function trackHref(rvtr: string): string {
-  return `/track/${rvtr}`;
+  return trackPageHref(rvtr);
 }
 
 function songSheetHref(rvtr: string): string {
-  return `/rvtr/${rvtr}/song-sheet`;
+  return liveSongExperienceHref(rvtr);
 }
 
 function artistHref(artist: string): string {

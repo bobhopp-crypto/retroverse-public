@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
-import { LiveExperienceShell } from "@/components/live-experience/LiveExperienceShell";
-import { PerformanceDeckView } from "@/components/rvtr/performance-deck/PerformanceDeckView";
-import { buildLiveExperienceShellModel } from "@/lib/live-experience/shell-model";
+import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
 import { loadPerformanceDeck } from "@/lib/ops/intelligence/load-performance-deck";
+import { normalizePackageRvtr } from "@/lib/ops/intelligence/song-package-store";
 
 export const dynamic = "force-dynamic";
 
@@ -25,23 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Legacy performance deck route — redirect to canonical Song Experience. */
 export default async function PerformanceDeckPage({ params }: Props) {
   const { rvtr } = await params;
-  const model = await loadPerformanceDeck(rvtr);
-  if (!model) notFound();
-  const hero = model.cards.find((card) => card.type === "hero");
-  const shell = await buildLiveExperienceShellModel({
-    rvtr: model.rvtr,
-    title: model.title,
-    artist: model.artist,
-    year: hero?.type === "hero" ? hero.year : null,
-    peakHot100: hero?.type === "hero" ? hero.peakHot100 : null,
-    activeTab: "Deck",
-  });
-
-  return (
-    <LiveExperienceShell {...shell}>
-      <PerformanceDeckView model={model} />
-    </LiveExperienceShell>
-  );
+  const normalized = normalizePackageRvtr(rvtr);
+  if (!normalized) notFound();
+  redirect(liveSongExperienceHref(normalized));
 }

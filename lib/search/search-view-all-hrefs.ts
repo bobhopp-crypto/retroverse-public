@@ -1,5 +1,6 @@
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { rvYearHref, RV_CHRONOLOGY_DEFAULT_YEAR } from "@/lib/rv/rv-chronology-paths";
+import { SONG_EXPERIENCE_PREFIX } from "@/lib/search/entity-routes";
 
 import type { SearchPanels } from "./types";
 
@@ -43,6 +44,9 @@ export function searchSongsViewAllHref(
 ): string {
   const slug = resolveSearchArtistSlug(panels, artistSlug);
   if (slug) return `/artist/${slug}/songs`;
-  const firstSong = panels.songs.find((item) => item.href?.startsWith("/track/"));
+  const firstSong = panels.songs.find(
+    (item) =>
+      item.href?.startsWith(`${SONG_EXPERIENCE_PREFIX}/`) || item.href?.startsWith("/track/"),
+  );
   return firstSong?.href ?? rvYearHref(RV_CHRONOLOGY_DEFAULT_YEAR);
 }

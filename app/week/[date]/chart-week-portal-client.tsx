@@ -9,6 +9,7 @@ import { movementLabel } from "@/lib/charts/chart-week-movement";
 import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import type { ChartWeekPortalContext, ChartWeekPortalRow } from "@/lib/charts/chart-week-portal-types";
 import { rvWeekHref, rvYearHref } from "@/lib/rv/rv-chronology-paths";
+import { trackPageHref } from "@/lib/search/entity-routes";
 
 import "./chart-week-portal.css";
 
@@ -108,7 +109,7 @@ export function ChartWeekPortalClient({ initial, focusQuery }: Props) {
     const focusRow = context.rows.find((r) => r.position === context.focusPosition);
     if (focusRow?.trackHref) return focusRow.trackHref;
     if (focusQuery && /^RVTR\d{6}$/i.test(focusQuery)) {
-      return `/track/${focusQuery.toUpperCase()}`;
+      return trackPageHref(focusQuery.toUpperCase());
     }
     return null;
   }, [context, focusQuery]);

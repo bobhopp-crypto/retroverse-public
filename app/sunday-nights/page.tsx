@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
+import { getPublicLiveRedirectUrl } from "@/lib/live-control/public-entry";
 import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
@@ -19,6 +21,11 @@ export const metadata: Metadata = {
 };
 
 export default async function SundayNightsPage() {
+  const liveRedirect = await getPublicLiveRedirectUrl();
+  if (liveRedirect) {
+    redirect(liveRedirect);
+  }
+
   const state = await loadSundayNightsState();
   const current = await buildSundayNightsCurrentPayload(state);
   const shell = await buildLiveShellFromCurrent(current, "Live");

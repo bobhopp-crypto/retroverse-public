@@ -25,6 +25,7 @@ import {
 } from "@/lib/artist/load-chart-history";
 import { loadRelatedArtistsFromGraph } from "@/lib/artist/load-related-artists";
 import { normalizeHomeSearchPayload } from "@/lib/search/map-home-search";
+import { albumSuggestionHref } from "@/lib/search/entity-routes";
 
 const RE_RVAL_HREF = /\/albums\/(RVAL\d{6})/i;
 
@@ -69,9 +70,7 @@ function fallbackArtistPageData(slugParam: string): ArtistPageData {
     },
     chartHistory: null,
     relatedArtists: [],
-    exploreLinks: [
-      { label: "Search catalog", href: `/search?q=${encodeURIComponent(displayName)}` },
-    ],
+    exploreLinks: [{ label: "Artist exhibit", href: `/artist/${key || slugFromArtistName(displayName)}` }],
   };
 }
 
@@ -375,12 +374,16 @@ async function loadArtistPageImpl(
   const libraryAlbums = essentialAlbums.filter((a) => a.coverUrl).length;
 
   const exploreRaw: { label: string; href: string }[] = [
-    { label: "Search catalog", href: `/search?q=${encodeURIComponent(displayName)}` },
+    { label: "Artist exhibit", href: `/artist/${canonicalSlug}` },
     ...(chartAlbumSpotlight
       ? [
           {
             label: chartAlbumSpotlight.albumTitle,
-            href: `/search?q=${encodeURIComponent(`${displayName} ${chartAlbumSpotlight.albumTitle}`)}`,
+            href:
+              albumSuggestionHref(
+                chartAlbumSpotlight.albumTitle,
+                chartAlbumSpotlight.rval ? `/album/${chartAlbumSpotlight.rval}` : null,
+              ) ?? `/artist/${canonicalSlug}#essential-albums`,
           },
         ]
       : []),

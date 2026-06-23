@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-import { LiveExperienceShell, type LiveExperienceAction, type LiveExperienceStatus } from "@/components/live-experience/LiveExperienceShell";
+import {
+  LiveExperienceShell,
+  type LiveExperienceAction,
+  type LiveExperienceStatus,
+} from "@/components/live-experience/LiveExperienceShell";
+import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
+import { trackPageHref } from "@/lib/search/entity-routes";
 import type { LiveDestinationKind, SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import type { SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
 import type { TrackPageData } from "@/lib/track/load-track-page";
@@ -62,11 +68,11 @@ function statusFromDestination(kind: LiveDestinationKind, hasDisplay: boolean): 
 
 function shellActions(payload: SundayNightsCurrentPayload, display: ReturnType<typeof displayFromTrack>): LiveExperienceAction[] {
   const rvtr = payload.currentTrackId;
-  const experienceHref = rvtr ? `/retroverse-2/song/${rvtr}` : null;
+  const experienceHref = rvtr ? liveSongExperienceHref(rvtr) : null;
   return [
-    { label: "Story", href: experienceHref ?? (rvtr && payload.destination.kind !== "TRACK" ? `/rvtr/${rvtr}/song-sheet` : null) },
-    { label: "Deck", href: rvtr && payload.destination.kind === "DECK" ? `/rvtr/${rvtr}/deck` : null },
-    { label: "Chart", href: rvtr ? `/track/${rvtr}` : null },
+    { label: "Story", href: experienceHref },
+    { label: "Deck", href: experienceHref },
+    { label: "Chart", href: rvtr ? trackPageHref(rvtr) : null },
     { label: "Artist", href: display?.artistHref ?? null },
     { label: "Live", href: "/live" },
   ];

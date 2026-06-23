@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
-import { LiveExperienceShell } from "@/components/live-experience/LiveExperienceShell";
-import { SongSheetView } from "@/components/rvtr/SongSheetView";
-import { buildLiveExperienceShellModel } from "@/lib/live-experience/shell-model";
+import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
+import { normalizePackageRvtr } from "@/lib/ops/intelligence/song-package-store";
 import { loadSongSheet } from "@/lib/ops/intelligence/load-song-sheet";
 
 export const dynamic = "force-dynamic";
@@ -29,22 +28,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Legacy song-sheet route — redirect to canonical Song Experience. */
 export default async function SongSheetPage({ params }: Props) {
   const { rvtr } = await params;
-  const model = await loadSongSheet(rvtr);
-  if (!model) notFound();
-  const shell = await buildLiveExperienceShellModel({
-    rvtr: model.rvtr,
-    title: model.title,
-    artist: model.artist,
-    year: model.year,
-    peakHot100: model.chartPeak,
-    activeTab: "Story",
-  });
-
-  return (
-    <LiveExperienceShell {...shell}>
-      <SongSheetView model={model} />
-    </LiveExperienceShell>
-  );
+  const normalized = normalizePackageRvtr(rvtr);
+  if (!normalized) notFound();
+  redirect(liveSongExperienceHref(normalized));
 }

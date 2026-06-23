@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { yearSuggestionHref } from "@/lib/search/entity-routes";
 import { RV_YEAR_KICKER } from "@/lib/rv-year/rv-year-brand";
 
 type Props = {
@@ -7,9 +8,13 @@ type Props = {
 };
 
 export function RvPublicMasthead({ searchQuery }: Props) {
-  const searchHref = searchQuery
-    ? `/search?q=${encodeURIComponent(searchQuery)}`
-    : "/search";
+  const trimmed = searchQuery?.trim() ?? "";
+  const searchHref =
+    trimmed && /^\d{4}$/.test(trimmed)
+      ? yearSuggestionHref(trimmed)
+      : trimmed
+        ? `/search?q=${encodeURIComponent(trimmed)}`
+        : "/search";
 
   return (
     <header className="rv-public-masthead">

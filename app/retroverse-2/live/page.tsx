@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-import { maybeAdvanceLiveChannel } from "@/lib/live-control/engine";
-import {
-  liveSongExperienceHref,
-  shouldOpenSongExperienceDirect,
-} from "@/lib/live-control/experience-route";
-import { loadLiveControlState } from "@/lib/live-control/state";
+import { getPublicLiveRedirectUrl } from "@/lib/live-control/public-entry";
 import { loadTrackPage } from "@/lib/track/load-track-page";
 import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
+import { loadLiveControlState } from "@/lib/live-control/state";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
-import { redirect } from "next/navigation";
 
 import { RetroverseLive2View } from "./retroverse-live-2-view";
 
@@ -23,7 +19,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Retroverse2LivePage() {
-  await maybeAdvanceLiveChannel();
+  const liveRedirect = await getPublicLiveRedirectUrl();
+  if (liveRedirect) {
+    redirect(liveRedirect);
+  }
+
   const [state, control] = await Promise.all([
     loadSundayNightsState(),
     loadLiveControlState(),
@@ -33,16 +33,6 @@ export default async function Retroverse2LivePage() {
     current.live?.source === "bridge" ||
     current.live?.source === "channel" ||
     control.running;
-
-  if (
-    current.currentTrackId &&
-    shouldOpenSongExperienceDirect({
-      channelRunning: control.running,
-      liveSource: current.live?.source,
-    })
-  ) {
-    redirect(liveSongExperienceHref(current.currentTrackId));
-  }
 
   const exploringTrack = onAir ? null : await loadTrackPage("Sweet Home Alabama");
 

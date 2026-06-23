@@ -1,9 +1,12 @@
 import "server-only";
 
-import { coerceArtistPublicHref } from "@/lib/search/entity-routes";
-import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { coverPathToUrl } from "@/lib/artist/cover-url";
-import { albumSuggestionHref } from "@/lib/search/entity-routes";
+import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
+import {
+  albumSuggestionHref,
+  coerceArtistPublicHref,
+  trackPageHref,
+} from "@/lib/search/entity-routes";
 import type { HomeSearchPayload } from "@/lib/search/home-search-types";
 
 function likePattern(query: string): string {
@@ -102,7 +105,7 @@ export async function loadPgPrefixSearchPayload(
       kind: "track" as const,
       title: row.canonical_title,
       artist: row.canonical_artist_name,
-      href: `/track/${row.track_id}`,
+      href: trackPageHref(row.track_id),
       subtitle: null,
       year: null,
       coverUrl: null,

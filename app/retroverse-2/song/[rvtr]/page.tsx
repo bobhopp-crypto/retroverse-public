@@ -14,6 +14,8 @@ import {
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import type { RvYearDestination } from "@/lib/rv-year/rv-year-destination";
 import { loadSongControlPackage, songControlData, type SongControlData } from "@/lib/retroverse-2/song-control";
+import { resolveTrackPlayback } from "@/lib/playback/resolve-track-playback";
+import { trackPageHref } from "@/lib/search/entity-routes";
 import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
 
 import { RetroverseSong2Tabs, type Song2Fact, type Song2Item, type Song2Section, type Song2Tab } from "./retroverse-song-2-tabs";
@@ -271,7 +273,7 @@ function overviewSections(track: TrackPageData, artist: ArtistPageData, control?
         copy: control?.story.exploreFurther?.trim() || null,
         items: [
           { label: "The Day The Music Died", href: "/search?q=the%20day%20the%20music%20died", meta: "Origin story" },
-          { label: "Buddy Holly", href: "/search?q=Buddy%20Holly", meta: "Reference point" },
+          { label: "Buddy Holly", href: "/artist/buddy-holly", meta: "Reference point" },
           { label: "Vincent", href: "/search?q=Don%20McLean%20Vincent", meta: "Don McLean" },
           { label: "1971", href: track.rvYearHref ?? "/rv/1971", meta: "Year context" },
         ],
@@ -349,7 +351,7 @@ function storySections(track: TrackPageData, artist: ArtistPageData): Song2Secti
       section("Legacy", "Explore Further", {
         items: [
           { label: "The Day The Music Died", href: "/search?q=the%20day%20the%20music%20died", meta: "Origin story" },
-          { label: "Buddy Holly", href: "/search?q=Buddy%20Holly", meta: "Reference point" },
+          { label: "Buddy Holly", href: "/artist/buddy-holly", meta: "Reference point" },
           { label: "Vincent", href: "/search?q=Don%20McLean%20Vincent", meta: "Don McLean" },
         ],
       }),
@@ -404,7 +406,7 @@ function artistSections(track: TrackPageData, artist: ArtistPageData): Song2Sect
       section("Major Hits", "Explore Further", {
         items: [
           { label: "Vincent", href: "/search?q=Don%20McLean%20Vincent", meta: "Major song" },
-          { label: "American Pie", href: `/track/${track.rvtr}`, meta: "Signature song" },
+          { label: "American Pie", href: trackPageHref(track.rvtr), meta: "Signature song" },
         ],
       }),
     ].filter((item): item is Song2Section => item != null);
@@ -497,7 +499,7 @@ function mediaSections(track: TrackPageData, artist: ArtistPageData): Song2Secti
     return [
       section("Media", "Cultural Moments", {
         items: [
-          { label: "American Pie", href: `/track/${track.rvtr}`, meta: "Song archive" },
+          { label: "American Pie", href: trackPageHref(track.rvtr), meta: "Song archive" },
           { label: "American Pie album", href: firstAlbum(track)?.href, meta: "Album" },
           { label: "The Day The Music Died", href: "/search?q=the%20day%20the%20music%20died", meta: "Reference" },
         ],
@@ -509,7 +511,7 @@ function mediaSections(track: TrackPageData, artist: ArtistPageData): Song2Secti
   return [
     section("Media", "Cultural Moments", {
       items: [
-        track.coverUrl ? { label: track.title, href: `/track/${track.rvtr}`, meta: "Cover art" } : null,
+        track.coverUrl ? { label: track.title, href: trackPageHref(track.rvtr), meta: "Cover art" } : null,
         album?.href ? { label: album.title, href: album.href, meta: "Album" } : null,
         ...artist.essentialAlbums.slice(0, 3).map((entry) => ({
           label: entry.title,
@@ -531,8 +533,8 @@ function timelineSections(track: TrackPageData, artist: ArtistPageData): Song2Se
         items: [
           { label: "1959", href: "/search?q=the%20day%20the%20music%20died", meta: "Plane crash remembered in the song" },
           { label: "1971", href: track.rvYearHref ?? "/rv/1971", meta: "American Pie enters its moment" },
-          { label: "8:42", href: `/track/${track.rvtr}`, meta: "Full-length single" },
-          { label: "#1", href: `/track/${track.rvtr}`, meta: "Hot 100 peak" },
+          { label: "8:42", href: trackPageHref(track.rvtr), meta: "Full-length single" },
+          { label: "#1", href: trackPageHref(track.rvtr), meta: "Hot 100 peak" },
         ],
       }),
     ].filter((item): item is Song2Section => item != null);
@@ -546,10 +548,10 @@ function timelineSections(track: TrackPageData, artist: ArtistPageData): Song2Se
       ? { label: `${album.title}`, href: album.href, meta: `${album.releaseYear} album` }
       : null,
     track.firstChartDate
-      ? { label: "First chart appearance", href: `/track/${track.rvtr}`, meta: compactDate(track.firstChartDate) }
+      ? { label: "First chart appearance", href: trackPageHref(track.rvtr), meta: compactDate(track.firstChartDate) }
       : null,
     track.peakHot100
-      ? { label: `Reached Hot 100 #${track.peakHot100}`, href: `/track/${track.rvtr}`, meta: track.chartRunLabel }
+      ? { label: `Reached Hot 100 #${track.peakHot100}`, href: trackPageHref(track.rvtr), meta: track.chartRunLabel }
       : null,
     ...artist.dominantYears.slice(0, 3).map((year) => ({
       label: String(year.year),
@@ -587,9 +589,10 @@ export default async function Retroverse2SongPage({ params }: Props) {
   const track = await loadTrackPage(rvtr);
   if (!track) notFound();
 
-  const [artist, destination] = await Promise.all([
+  const [artist, destination, playback] = await Promise.all([
     loadArtistPage(track.artistSlug),
     yearDestination(track),
+    resolveTrackPlayback(track.rvtr, { title: track.title, artist: track.artistName }),
   ]);
   const controlPackage = await loadSongControlPackage(track);
   const control = songControlData(controlPackage);
@@ -644,18 +647,30 @@ export default async function Retroverse2SongPage({ params }: Props) {
         </div>
 
         <div className="rv2-song__hero-stage">
-          {track.coverUrl ? (
-            <div className="rv2-song__art-wrap">
-              <img
-                src={track.coverUrl}
-                alt=""
-                className="rv2-song__art"
-                width={520}
-                height={520}
-                decoding="async"
-              />
-            </div>
-          ) : null}
+          <div className="rv2-song__hero-art-col">
+            {track.coverUrl ? (
+              <div className="rv2-song__art-wrap">
+                <img
+                  src={track.coverUrl}
+                  alt=""
+                  className="rv2-song__art"
+                  width={520}
+                  height={520}
+                  decoding="async"
+                />
+              </div>
+            ) : null}
+            {playback?.target?.url ? (
+              <a
+                href={playback.target.url}
+                className="rv2-song__youtube-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Play on YouTube
+              </a>
+            ) : null}
+          </div>
           <div className="rv2-song__hero-side">
             {about ? (
               <div className="rv2-song__about-card">

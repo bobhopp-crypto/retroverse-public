@@ -431,7 +431,7 @@ export function RvYearView({ rvYear, history, destination }: RvYearViewProps) {
 
       <footer className="rv-year-footer">
         <Link href="/">← Home</Link>
-        <Link href={`/search?q=${encodeURIComponent(String(rvYear))}`}>Search music</Link>
+        <Link href={`/rv/${rvYear}`}>Search music</Link>
       </footer>
     </div>
   );

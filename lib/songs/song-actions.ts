@@ -1,6 +1,6 @@
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { rvChronologyHrefFromChartDate } from "@/lib/rv/rv-chronology-paths";
-import { trackPageHref } from "@/lib/search/entity-routes";
+import { SONG_EXPERIENCE_PREFIX, trackPageHref } from "@/lib/search/entity-routes";
 
 export type SongActionTarget = {
   title: string;
@@ -22,10 +22,18 @@ export function rvtrFromToken(token: string | null | undefined): string | null {
   return match ? match.toUpperCase() : null;
 }
 
+function isSongExperienceHref(href: string): boolean {
+  const path = href.split("?")[0] ?? href;
+  return path.startsWith(`${SONG_EXPERIENCE_PREFIX}/`) || path.startsWith("/track/");
+}
+
 export function songPageHrefForTarget(target: SongActionTarget): string | null {
   const fromRvtr = rvtrFromToken(target.rvtr);
   if (fromRvtr) return trackPageHref(fromRvtr);
-  if (target.href?.trim() && target.href.startsWith("/track/")) return target.href.split("?")[0] ?? target.href;
+  const rawHref = target.href?.trim();
+  if (rawHref && isSongExperienceHref(rawHref)) {
+    return trackPageHref(rawHref.split("/").pop() ?? rawHref);
+  }
   const fromId = rvtrFromToken(target.title);
   if (fromId) return trackPageHref(fromId);
   if (target.title.trim()) return trackPageHref(target.title);

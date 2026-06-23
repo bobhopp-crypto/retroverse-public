@@ -4,7 +4,7 @@ import { buildFeaturedYearsFromConfig } from "@/lib/ops/event-control/featured-y
 import { buildHomepageHero, yearsSectionLabel } from "@/lib/ops/event-control/homepage-hero";
 import { loadEventControlConfig } from "@/lib/ops/event-control/store";
 import { loadFeaturedYearCovers } from "@/lib/home/load-featured-year-covers";
-import { isSundayEventModeEnabled } from "@/lib/sunday-nights/event-mode";
+import { getPublicLiveRedirectUrl } from "@/lib/live-control/public-entry";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 import { HomeDirectory } from "./components/home-directory";
@@ -16,8 +16,9 @@ import "./public-mobile-width.css";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  if (await isSundayEventModeEnabled()) {
-    redirect("/sunday-nights");
+  const liveRedirect = await getPublicLiveRedirectUrl();
+  if (liveRedirect) {
+    redirect(liveRedirect);
   }
 
   const [opsEnabled, yearCovers, eventConfig] = await Promise.all([

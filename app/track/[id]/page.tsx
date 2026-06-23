@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
-import { isSundayEventModeEnabled } from "@/lib/sunday-nights/event-mode";
+import { trackPageHref } from "@/lib/search/entity-routes";
 import { loadTrackPage } from "@/lib/track/load-track-page";
-import { LiveExperienceShell } from "@/components/live-experience/LiveExperienceShell";
-import { buildLiveExperienceShellModel } from "@/lib/live-experience/shell-model";
-
-import { TrackPageView } from "./track-page-view";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -23,24 +19,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Legacy track route — redirect to canonical Song Experience. */
 export default async function TrackPage({ params }: Props) {
   const { id } = await params;
-  const [data, sundayEventActive] = await Promise.all([
-    loadTrackPage(id),
-    isSundayEventModeEnabled(),
-  ]);
+  const data = await loadTrackPage(id);
   if (!data) notFound();
-  const shell = await buildLiveExperienceShellModel({
-    rvtr: data.rvtr,
-    title: data.title,
-    artist: data.artistName,
-    year: data.releaseYear,
-    peakHot100: data.peakHot100,
-    activeTab: "Chart",
-  });
-  return (
-    <LiveExperienceShell {...shell}>
-      <TrackPageView data={data} sundayEventActive={sundayEventActive} />
-    </LiveExperienceShell>
-  );
+  redirect(trackPageHref(data.rvtr));
 }

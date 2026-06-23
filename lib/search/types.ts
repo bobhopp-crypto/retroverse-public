@@ -25,7 +25,7 @@ export type SongResult = {
   hasVdj?: boolean;
   coverAccent: string;
   coverUrl?: string;
-  /** Public entity route — `/track/...` */
+  /** Public entity route — `/retroverse-2/song/...` */
   href?: string;
 };
 

@@ -9,10 +9,8 @@ import {
   EMPTY_SUGGESTION_GROUPS,
   type SearchSuggestionItem,
 } from "@/lib/search/search-suggestion-types";
-import {
-  pickFirstSuggestion,
-  suggestionGroupsHaveResults,
-} from "@/lib/search/pick-first-suggestion";
+import { suggestionGroupsHaveResults } from "@/lib/search/pick-first-suggestion";
+import { resolveSearchDestination } from "@/lib/search/resolve-search-destination";
 import { navigateToEntityRoute } from "@/lib/search/navigate-entity";
 import { resolveSuggestionHref } from "@/lib/search/resolve-suggestion-href";
 import {
@@ -124,17 +122,14 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
       navigateTo(yearSuggestionHref(resolvedYear));
       return;
     }
-    const first = pickFirstSuggestion(displaySuggestions);
-    if (first) {
-      routeFromSuggestion(first);
-    }
+    const destination = resolveSearchDestination(trimmed, displaySuggestions);
+    navigateTo(destination.href);
   }, [
     isYearPowerRoute,
     resolvedYear,
-    suggestions,
-    navigateTo,
-    routeFromSuggestion,
+    trimmed,
     displaySuggestions,
+    navigateTo,
   ]);
 
   useEffect(() => {
