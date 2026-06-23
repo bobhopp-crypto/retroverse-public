@@ -56,7 +56,7 @@ async function resolveTrackPlaybackImpl(
       LIMIT 1
       `,
       [rvtr],
-    ),
+    ).catch(() => [] as { youtube_id: string; title: string | null }[]),
     inspectQuery<{ media_asset_id: number; r2_media_key: string | null; source_path: string | null }>(
       `
       SELECT ma.id AS media_asset_id, ma.r2_media_key, ma.source_path
