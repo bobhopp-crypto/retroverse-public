@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { LiveChannelFollower } from "@/components/live-channel/LiveChannelFollower";
+import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { isUsableChartHistory } from "@/lib/artist/chart-history";
 import { loadArtistPage } from "@/lib/artist/load-artist-page";
 import type { ArtistPageData } from "@/lib/artist/types";
@@ -20,7 +21,6 @@ import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
 
 import { RetroverseSong2Tabs, type Song2Fact, type Song2Item, type Song2Section, type Song2Tab } from "./retroverse-song-2-tabs";
 
-import "../../live/retroverse-live-2.css";
 import "./retroverse-song-2.css";
 
 type Props = {
@@ -604,30 +604,11 @@ export default async function Retroverse2SongPage({ params }: Props) {
   const opsEnabled = isOpsEnabled();
 
   return (
-    <main className="rv2-live rv2-song">
-      <LiveChannelFollower rvtr={track.rvtr} />
-      <div className="rv2-live__grid-glow" aria-hidden />
-      <header className="rv2-live__topbar">
-        <Link href="/" className="rv2-live__brand" aria-label="Retroverse home">
-          Retroverse
-        </Link>
-        <nav className="rv2-live__nav" aria-label="Retroverse sections">
-          <Link href="/retroverse-2/live">Live</Link>
-          <Link href="/search">Search</Link>
-          <Link href={track.rvYearHref ?? (year ? `/rv/${year}` : "/search")}>
-            Years
-          </Link>
-        </nav>
-      </header>
-
-      <section className="rv2-live__search-panel" aria-label="Global search">
-        <p className="rv2-live__eyebrow">Global Search</p>
-        <form className="rv2-live__search" action="/search">
-          <input name="q" type="search" placeholder="Search music..." />
-          <button type="submit">Search</button>
-        </form>
-      </section>
-
+    <Rv2PublicShell
+      className="rv2-song"
+      yearsHref={track.rvYearHref ?? (year ? `/rv/${year}` : "/search")}
+      lead={<LiveChannelFollower rvtr={track.rvtr} />}
+    >
       <section className="rv2-song__hero" aria-label="Song overview">
         <div className="rv2-song__hero-top">
           <div className="rv2-song__hero-copy">
@@ -720,6 +701,6 @@ export default async function Retroverse2SongPage({ params }: Props) {
           </div>
         </section>
       ) : null}
-    </main>
+    </Rv2PublicShell>
   );
 }

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+
+import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
+
 import SearchClient from "./search-client";
 
 export const metadata: Metadata = {
@@ -9,13 +12,13 @@ export const metadata: Metadata = {
 
 function SearchPageFallback() {
   return (
-    <div className="search-page" aria-busy="true">
-      <div className="search-page__inner">
-        <header className="search-hero search-hero--boot">
+    <Rv2PublicShell className="rv2-search">
+      <div className="search-page" aria-busy="true">
+        <div className="search-page__inner">
           <p className="search-idle__lead">Opening the stacks…</p>
-        </header>
+        </div>
       </div>
-    </div>
+    </Rv2PublicShell>
   );
 }
 

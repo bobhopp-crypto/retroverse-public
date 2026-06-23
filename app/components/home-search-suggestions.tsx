@@ -7,6 +7,7 @@ import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { rvalFromPublicHref } from "@/lib/artwork/rval-from-href";
 import { highlightMatchText } from "@/lib/search/highlight-match";
 import { resolveSuggestionHref } from "@/lib/search/resolve-suggestion-href";
+import { suggestionKindLabel } from "@/lib/search/suggestion-display";
 import { OVERLAY_VISIBLE_INITIAL } from "@/lib/search/search-breadth";
 import type {
   SearchSuggestionGroups,
@@ -20,6 +21,9 @@ type HomeSearchSuggestionsProps = {
   onSelect: (item: SearchSuggestionItem) => void;
   /** Close overlay after Link navigation (overlay mode). */
   onDismiss?: () => void;
+  /** Spotlight overlay — explicit discovery escape hatch. */
+  query?: string;
+  onViewAll?: () => void;
   className?: string;
   overlayMode?: boolean;
   pending?: boolean;
@@ -115,18 +119,20 @@ function SuggestionRow({
   overlayMode?: boolean;
 }) {
   const isYear = item.kind === "year";
-  const isArtist = item.kind === "artist";
   const actionLabel = item.actionLabel?.trim();
   const title = highlightQuery?.trim()
     ? highlightMatchText(item.title, highlightQuery)
     : item.title;
+  const kindLabel = overlayMode ? suggestionKindLabel(item) : "";
 
   return (
     <>
       {!overlayMode ? <SuggestionThumb item={item} /> : null}
       <span className="home-search-suggestions__copy">
         <span className="home-search-suggestions__title">{title}</span>
-        {item.artist && !isArtist ? (
+        {overlayMode && kindLabel ? (
+          <span className="home-search-suggestions__kind">{kindLabel}</span>
+        ) : item.artist && item.kind !== "artist" ? (
           <span className="home-search-suggestions__artist">
             {highlightQuery?.trim()
               ? highlightMatchText(item.artist, highlightQuery)
@@ -136,10 +142,12 @@ function SuggestionRow({
           <span className="home-search-suggestions__artist">RV History</span>
         ) : null}
       </span>
-      {actionLabel ? (
+      {!overlayMode && actionLabel ? (
         <span className="home-search-suggestions__cta">{actionLabel}</span>
-      ) : item.year != null && item.year > 0 && item.kind !== "year" ? (
+      ) : !overlayMode && item.year != null && item.year > 0 && item.kind !== "year" ? (
         <span className="home-search-suggestions__year">{item.year}</span>
+      ) : overlayMode && actionLabel ? (
+        <span className="home-search-suggestions__cta">{actionLabel}</span>
       ) : null}
     </>
   );
@@ -232,12 +240,33 @@ function SectionList({
   );
 }
 
+function ViewAllResults({
+  query,
+  onViewAll,
+}: {
+  query: string;
+  onViewAll: () => void;
+}) {
+  const trimmed = query.trim();
+  if (trimmed.length < 2) return null;
+
+  return (
+    <div className="home-search-suggestions__view-all-wrap">
+      <button type="button" className="home-search-suggestions__view-all" onClick={onViewAll}>
+        View All Results
+      </button>
+    </div>
+  );
+}
+
 export function HomeSearchSuggestions({
   groups,
   loading = false,
   rvYearIntent = false,
   onSelect,
   onDismiss,
+  query = "",
+  onViewAll,
   className = "",
   overlayMode = false,
   pending = false,
@@ -318,6 +347,8 @@ export function HomeSearchSuggestions({
           </div>
         );
       })}
+
+      {overlayMode && onViewAll ? <ViewAllResults query={query} onViewAll={onViewAll} /> : null}
     </div>
   );
 }

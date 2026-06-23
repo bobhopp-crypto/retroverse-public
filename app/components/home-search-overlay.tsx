@@ -10,8 +10,8 @@ import {
   type SearchSuggestionItem,
 } from "@/lib/search/search-suggestion-types";
 import { suggestionGroupsHaveResults } from "@/lib/search/pick-first-suggestion";
-import { resolveSearchDestination } from "@/lib/search/resolve-search-destination";
-import { navigateToEntityRoute } from "@/lib/search/navigate-entity";
+import { resolveHighConfidenceDestination } from "@/lib/search/resolve-search-destination";
+import { navigateToDiscoverySearch, navigateToEntityRoute } from "@/lib/search/navigate-entity";
 import { resolveSuggestionHref } from "@/lib/search/resolve-suggestion-href";
 import {
   isRvYearOnlyQuery,
@@ -117,19 +117,31 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
     [navigateTo],
   );
 
-  const routeBestMatch = useCallback(() => {
+  const openDiscoverySearch = useCallback(() => {
+    navigateToDiscoverySearch(router, trimmed, onClose);
+  }, [router, trimmed, onClose]);
+
+  const handleEnterKey = useCallback(() => {
     if (isYearPowerRoute && resolvedYear != null) {
       navigateTo(yearSuggestionHref(resolvedYear));
       return;
     }
-    const destination = resolveSearchDestination(trimmed, displaySuggestions);
-    navigateTo(destination.href);
+    if (trimmed.length < 2) return;
+
+    const highConfidence = resolveHighConfidenceDestination(trimmed, displaySuggestions);
+    if (highConfidence) {
+      navigateTo(highConfidence.href);
+      return;
+    }
+
+    openDiscoverySearch();
   }, [
     isYearPowerRoute,
     resolvedYear,
     trimmed,
     displaySuggestions,
     navigateTo,
+    openDiscoverySearch,
   ]);
 
   useEffect(() => {
@@ -228,14 +240,14 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
               aria-label="Search artists, albums, and tracks"
               autoComplete="off"
               spellCheck={false}
-              enterKeyHint="go"
+              enterKeyHint="search"
               placeholder={scopeSearchPlaceholder(scope)}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
-                  routeBestMatch();
+                  handleEnterKey();
                 }
               }}
             />
@@ -260,7 +272,20 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
             </div>
           ) : null}
 
-          {phase === "searching" ? <HomeSearchOverlaySearching /> : null}
+          {phase === "searching" ? (
+            <>
+              <HomeSearchOverlaySearching />
+              <div className="home-search-overlay__view-all-only">
+                <button
+                  type="button"
+                  className="home-search-suggestions__view-all"
+                  onClick={openDiscoverySearch}
+                >
+                  View All Results
+                </button>
+              </div>
+            </>
+          ) : null}
 
           {phase === "results" ? (
             <>
@@ -273,8 +298,10 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
                 groups={displaySuggestions}
                 loading={false}
                 rvYearIntent={rvYearIntent}
+                query={trimmed}
                 onSelect={routeFromSuggestion}
                 onDismiss={onClose}
+                onViewAll={openDiscoverySearch}
               />
             </>
           ) : null}
@@ -292,11 +319,22 @@ export function HomeSearchOverlay({ onClose, scope = "all" }: Props) {
           ) : null}
 
           {phase === "empty" ? (
-            <HomeSearchOverlayRecovery
-              mode="empty"
-              query={trimmed}
-              onNavigate={navigateTo}
-            />
+            <>
+              <HomeSearchOverlayRecovery
+                mode="empty"
+                query={trimmed}
+                onNavigate={navigateTo}
+              />
+              <div className="home-search-overlay__view-all-only">
+                <button
+                  type="button"
+                  className="home-search-suggestions__view-all"
+                  onClick={openDiscoverySearch}
+                >
+                  View All Results
+                </button>
+              </div>
+            </>
           ) : null}
         </div>
       </div>

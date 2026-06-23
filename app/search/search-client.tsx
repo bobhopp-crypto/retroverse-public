@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { coverInitialsFromTitle, DiscoverCard } from "./components/discover-card";
 import { ResultsPanel } from "./components/results-panel";
 import { SearchChartsHistoryPanel } from "./components/search-charts-history-panel";
@@ -246,19 +247,25 @@ export default function SearchClient() {
     showEmpty,
   ]);
 
+  const yearsHref =
+    yearContext.rvYear != null ? `/rv/${yearContext.rvYear}` : "/rv/1974";
+
   return (
-    <div className="search-page">
-      <div className="search-page__grain" aria-hidden="true" />
-      <div className="search-page__inner">
-        <SearchHeader
-          query={query}
-          onQueryChange={setQuery}
-          onQueryCommit={commitQuery}
-          queryDisplay={queryDisplay}
-          countsLabel={countsLabel}
-          countParts={countParts}
-          loading={loading}
-        />
+    <Rv2PublicShell
+      className="rv2-search"
+      yearsHref={yearsHref}
+      searchQuery={query}
+      onSearchQueryChange={setQuery}
+      onSearchCommit={commitQuery}
+    >
+      <div className="search-page">
+        <div className="search-page__inner">
+          <SearchHeader
+            queryDisplay={queryDisplay}
+            countsLabel={countsLabel}
+            countParts={countParts}
+            loading={loading}
+          />
 
         {isIdle ? (
           <div className="search-idle" role="status">
@@ -360,8 +367,8 @@ export default function SearchClient() {
             ) : null}
           </div>
         ) : null}
-
+        </div>
       </div>
-    </div>
+    </Rv2PublicShell>
   );
 }

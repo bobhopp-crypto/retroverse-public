@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import type { SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import type { TrackPageData } from "@/lib/track/load-track-page";
@@ -173,27 +174,7 @@ export function RetroverseLive2View({ initial, exploringTrack }: Props) {
   const cards = useMemo(() => storyCards(display, isLiveNow), [display, isLiveNow]);
 
   return (
-    <main className="rv2-live">
-      <div className="rv2-live__grid-glow" aria-hidden />
-      <header className="rv2-live__topbar">
-        <Link href="/" className="rv2-live__brand" aria-label="Retroverse home">
-          Retroverse
-        </Link>
-        <nav className="rv2-live__nav" aria-label="Retroverse sections">
-          <Link href="/retroverse-2/live">Live</Link>
-          <Link href="/search">Search</Link>
-          <Link href={display.yearHref ?? "/rv/1974"}>Years</Link>
-        </nav>
-      </header>
-
-      <section className="rv2-live__search-panel" aria-label="Global search">
-        <p className="rv2-live__eyebrow">Global Search</p>
-        <form className="rv2-live__search" action="/search">
-          <input name="q" type="search" placeholder="Search music..." />
-          <button type="submit">Search</button>
-        </form>
-      </section>
-
+    <Rv2PublicShell yearsHref={display.yearHref ?? "/rv/1974"}>
       <section className="rv2-live__hero" aria-label={isLiveNow ? "Live now" : "Now exploring"}>
         <div className="rv2-live__status-row">
           <p className={isLiveNow ? "rv2-live__status rv2-live__status--live" : "rv2-live__status"}>
@@ -261,6 +242,6 @@ export function RetroverseLive2View({ initial, exploringTrack }: Props) {
           ))}
         </div>
       </section>
-    </main>
+    </Rv2PublicShell>
   );
 }

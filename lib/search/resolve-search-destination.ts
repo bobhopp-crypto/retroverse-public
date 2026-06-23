@@ -53,7 +53,7 @@ function destinationFromSuggestion(item: SearchSuggestionItem): SearchDestinatio
   return { kind, href };
 }
 
-function searchDiscoveryHref(query: string): SearchDestination {
+export function searchDiscoveryHref(query: string): SearchDestination {
   const trimmed = query.trim();
   return {
     kind: "search",
@@ -62,18 +62,15 @@ function searchDiscoveryHref(query: string): SearchDestination {
 }
 
 /**
- * Resolve a query to a patron destination.
- * Home search uses this for Enter-key direct navigation.
- * `/search` page does not auto-redirect — it renders discovery panels.
+ * High-confidence entity match only — no first-result fallback, no /search escape.
+ * Used for optional Enter-key shortcuts; tap-to-navigate is primary.
  */
-export function resolveSearchDestination(
+export function resolveHighConfidenceDestination(
   query: string,
   suggestions: SearchSuggestionGroups = EMPTY_SUGGESTION_GROUPS,
-): SearchDestination {
+): SearchDestination | null {
   const trimmed = query.trim();
-  if (trimmed.length < 2) {
-    return { kind: "search", href: "/search" };
-  }
+  if (trimmed.length < 2) return null;
 
   const rvtr = rvtrFromQuery(trimmed);
   if (rvtr) {
@@ -117,6 +114,25 @@ export function resolveSearchDestination(
       if (resolved) return resolved;
     }
   }
+
+  return null;
+}
+
+/**
+ * Resolve a query to a patron destination (legacy helper — includes first-result fallback).
+ * Prefer tap navigation + `searchDiscoveryHref` for ambiguous queries.
+ */
+export function resolveSearchDestination(
+  query: string,
+  suggestions: SearchSuggestionGroups = EMPTY_SUGGESTION_GROUPS,
+): SearchDestination {
+  const trimmed = query.trim();
+  if (trimmed.length < 2) {
+    return searchDiscoveryHref(trimmed);
+  }
+
+  const highConfidence = resolveHighConfidenceDestination(trimmed, suggestions);
+  if (highConfidence) return highConfidence;
 
   const priority: (keyof SearchSuggestionGroups)[] = ["artists", "albums", "songs", "years"];
   for (const key of priority) {

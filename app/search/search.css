@@ -1,87 +1,67 @@
-/* Search results shell — matches illustrated blueprint (HTML/CSS only) */
-
-/* Document scroll only — no visible vertical scrollbar; shelves scroll horizontally */
-html:has(.search-page),
-html:has(.search-page) body {
-  overflow-x: clip;
-  max-width: 100%;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-html:has(.search-page)::-webkit-scrollbar,
-html:has(.search-page) body::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
+/* Search results — content layout (shell chrome from Rv2PublicShell) */
 
 .search-page--boot .search-page__boot-msg {
   margin: 2rem 1rem;
   font-size: 1.1rem;
   font-weight: 800;
-  color: var(--ink, #12343a);
+  color: var(--ink, var(--rv2-ink, #f3f7ff));
 }
 
-.search-page {
-  --ink: #12343a;
-  --paper: #f4ead8;
-  --cream: #faf4e8;
-  --cream-card: #f7edd8;
-  --footer-bar: #2f3d40;
-  --orange: #e85d1a;
-  --teal: #0d6e7a;
-  --teal-band: #c5e8e8;
-  --teal-header: #0a5560;
-  --query-ink: #0f4a52;
-  --meta-ink: #5a7378;
-  --orange-band: #ffd4b8;
-  --orange-header: #c44d2a;
-  --purple-band: #ddd0ff;
-  --purple-header: #5c3d9e;
+.rv2-search .search-page {
+  --ink: var(--rv2-ink, #f3f7ff);
+  --paper: transparent;
+  --cream: rgba(13, 36, 80, 0.72);
+  --cream-card: rgba(9, 27, 57, 0.92);
+  --footer-bar: rgba(6, 19, 38, 0.95);
+  --orange: var(--rv2-gold, #e7bd67);
+  --teal: var(--rv2-cyan, #4fd5ff);
+  --teal-band: rgba(9, 27, 57, 0.55);
+  --teal-header: var(--rv2-cyan, #4fd5ff);
+  --query-ink: var(--rv2-ink, #f3f7ff);
+  --meta-ink: var(--rv2-muted, #9db4df);
+  --orange-band: rgba(9, 27, 57, 0.55);
+  --orange-header: var(--rv2-gold, #e7bd67);
+  --purple-band: rgba(9, 27, 57, 0.55);
+  --purple-header: var(--rv2-line-hot, #2c75ff);
   --card-strip-width: clamp(11.25rem, 42vw, 14rem);
   --search-card-footer-min: 4.35rem;
-  --hero-teal: #b8e8e8;
-  --hero-teal-deep: #0a5560;
+  --hero-teal: rgba(13, 36, 80, 0.92);
+  --hero-teal-deep: var(--rv2-cyan, #4fd5ff);
+  --panel-line: var(--rv2-line, rgba(87, 146, 255, 0.42));
+  --panel-bg: linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9));
 
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: 0;
   overflow-x: clip;
-  background: var(--paper);
+  background: transparent;
   color: var(--ink);
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
 }
 
-.search-page__grain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.032;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  mix-blend-mode: multiply;
-  z-index: 0;
-}
-
-.search-page__inner {
+.rv2-search .search-page__inner {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: min(56rem, 100%);
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 0 0 2rem;
   overflow-x: clip;
   box-sizing: border-box;
 }
 
-/* —— Hero header (reference v2) —— */
-.search-hero {
+/* —— Results header (query + counts; search field lives in Rv2PublicShell) —— */
+.rv2-search .search-hero {
   position: relative;
-  padding: 0.85rem 0.85rem 1.15rem;
-  background: linear-gradient(175deg, var(--hero-teal) 0%, #a8dede 55%, #c5e8e8 100%);
-  border-bottom: 3px solid var(--ink);
+  margin: 0 0 0.55rem;
+  padding: 0.65rem 0.75rem;
+  background: var(--panel-bg), var(--rv2-panel, rgba(9, 27, 57, 0.92));
+  border: 1px solid var(--panel-line);
+  border-radius: 0.65rem;
+  box-shadow:
+    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    0 18px 44px rgba(0, 0, 0, 0.28);
   overflow: hidden;
 }
 
@@ -809,7 +789,7 @@ html:has(.search-page) body::-webkit-scrollbar {
 }
 
 @media (min-width: 768px) {
-  .search-page {
+  .rv2-search .search-page {
     --card-strip-width: 13.5rem;
   }
 }

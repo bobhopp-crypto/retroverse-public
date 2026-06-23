@@ -1,0 +1,206 @@
+/* RV2 public shell — shared chrome for Song, Live, and future public routes */
+
+html:has(.rv2-live),
+html:has(.rv2-live) body {
+  min-height: 100%;
+  margin: 0;
+  background: #061326;
+  color-scheme: dark;
+  overflow-x: clip;
+  scrollbar-gutter: stable;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html:has(.rv2-live)::-webkit-scrollbar,
+html:has(.rv2-live) body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.rv2-live {
+  --rv2-bg: #061326;
+  --rv2-panel: rgba(9, 27, 57, 0.92);
+  --rv2-panel-strong: #0d2450;
+  --rv2-line: rgba(87, 146, 255, 0.42);
+  --rv2-line-hot: #2c75ff;
+  --rv2-ink: #f3f7ff;
+  --rv2-muted: #9db4df;
+  --rv2-cyan: #4fd5ff;
+  --rv2-green: #42f187;
+  --rv2-gold: #e7bd67;
+
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  padding: calc(0.45rem + env(safe-area-inset-top, 0px)) 0.65rem 1.35rem;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(50, 116, 255, 0.38), transparent 18rem),
+    radial-gradient(circle at 8% 28%, rgba(58, 214, 255, 0.16), transparent 14rem),
+    linear-gradient(180deg, #061326 0%, #071a36 56%, #061326 100%);
+  color: var(--rv2-ink);
+  font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+}
+
+.rv2-live__grid-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.44;
+  background-image:
+    linear-gradient(rgba(75, 132, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(75, 132, 255, 0.12) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+}
+
+.rv2-live__topbar,
+.rv2-live__search-panel,
+.rv2-public-shell__body {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.rv2-live__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.rv2-live__brand {
+  color: var(--rv2-ink);
+  font-size: 0.7rem;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rv2-live__nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.rv2-live__nav a {
+  flex: 0 1 auto;
+  padding: 0.38rem 0.48rem;
+  border: 1px solid rgba(116, 163, 255, 0.28);
+  border-radius: 0.35rem;
+  color: var(--rv2-muted);
+  font-size: 0.58rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rv2-live__search-panel {
+  border: 1px solid var(--rv2-line);
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
+    var(--rv2-panel);
+  box-shadow:
+    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    0 18px 44px rgba(0, 0, 0, 0.28);
+  position: sticky;
+  top: 0.45rem;
+  z-index: 5;
+  margin-bottom: 0.55rem;
+  padding: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.rv2-live__eyebrow,
+.rv2-live__kicker,
+.rv2-live__rvtr,
+.rv2-live__story-label {
+  margin: 0;
+  color: var(--rv2-cyan);
+  font-size: 0.62rem;
+  font-weight: 950;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.rv2-live__search-panel .rv2-live__eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.rv2-live__search {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.rv2-live__search input {
+  min-width: 0;
+  flex: 1 1 auto;
+  min-height: 2.45rem;
+  padding: 0 0.75rem;
+  border: 1px solid rgba(134, 177, 255, 0.42);
+  border-radius: 0.45rem;
+  background: rgba(2, 10, 24, 0.78);
+  color: var(--rv2-ink);
+  font: inherit;
+  font-size: 0.94rem;
+  font-weight: 750;
+  outline: none;
+}
+
+.rv2-live__search input::placeholder {
+  color: rgba(157, 180, 223, 0.7);
+}
+
+.rv2-live__search button,
+.rv2-live__action {
+  border: 1px solid rgba(92, 149, 255, 0.72);
+  border-radius: 0.45rem;
+  background: linear-gradient(180deg, #123977, #0b2450);
+  color: var(--rv2-ink);
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.rv2-live__search button {
+  flex: 0 0 auto;
+  padding: 0 0.65rem;
+  font-size: 0.68rem;
+}
+
+.rv2-live__search-clear {
+  min-width: 2.45rem;
+  padding: 0;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.rv2-public-shell__body {
+  box-sizing: border-box;
+}
+
+@media (min-width: 620px) {
+  .rv2-live {
+    padding-inline: 0.9rem;
+  }
+}
+
+@media (min-width: 980px) {
+  .rv2-live {
+    padding-top: 0.85rem;
+  }
+
+  .rv2-live__search-panel {
+    top: 0.75rem;
+  }
+}
