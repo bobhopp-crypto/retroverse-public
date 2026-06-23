@@ -47,9 +47,10 @@ async function main() {
   console.log(`Base URL:     ${config.baseUrl}`);
   console.log(`Bridge URL:   ${config.bridgeUrl}`);
   console.log(`Current API:  ${config.currentApiUrl}`);
-  console.log(`VDJ port:     ${config.vdjPort}`);
+  console.log(`VDJ OSC:      ${config.vdjHost}:${config.vdjPort} → listen ${config.vdjBackPort}`);
 
   const manifest = readManifest(config.dataRoot);
+  const bridgeRunning = manifest?.bridge ? pidAlive(manifest.bridge.pid) : false;
   if (manifest) {
     console.log(`\nSession started: ${manifest.startedAt}`);
     if (manifest.dev) {
@@ -70,13 +71,14 @@ async function main() {
 
   console.log("");
 
-  const vdjResolved = await resolveVdjPort(config.vdjPort, config.vdjBearer);
-  if (vdjResolved) {
-    const note = vdjResolved.discovered ? " (auto-discovered)" : "";
-    statusOk("VDJ connectivity", `port ${vdjResolved.port}${note}`);
+  const vdjResolved = bridgeRunning ? null : await resolveVdjPort(config.vdjPort, config.vdjBearer);
+  if (bridgeRunning) {
+    statusOk("VDJ connectivity", `OSC owned by running bridge pid ${manifest?.bridge?.pid}`);
+  } else if (vdjResolved) {
+    statusOk("VDJ connectivity", `OSC port ${vdjResolved.port}`);
   } else {
-    statusFail("VDJ connectivity", `port ${config.vdjPort} (+ fallbacks)`);
-    console.log("  → Enable Network Control in VirtualDJ");
+    statusFail("VDJ connectivity", `OSC ${config.vdjHost}:${config.vdjPort} → listen ${config.vdjBackPort}`);
+    console.log("  → Enable OSC in VirtualDJ settings, or stop an existing bridge using the OSC back port");
   }
 
   const api = await probeApi(config.currentApiUrl);
@@ -104,7 +106,6 @@ async function main() {
     }
   }
 
-  const bridgeRunning = manifest?.bridge ? pidAlive(manifest.bridge.pid) : false;
   if (bridgeRunning) statusOk("Bridge status", "running");
   else statusFail("Bridge status", "not running — run npm run live-now-playing");
 

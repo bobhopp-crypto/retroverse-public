@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "rvtr": "RVTR812965",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:06:33.286Z",
+  "updatedAt": "2026-06-17T19:06:33.561Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:06:33.286Z · Processing Swearin' To God · Frankie Valli (Canon First)",
+    "2026-06-17T19:06:33.287Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:06:33.287Z · Canon vault: 3 Retroverse sources",
+    "2026-06-17T19:06:33.288Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:06:33.559Z · Research vault: 3 sources (0 external)",
+    "2026-06-17T19:06:33.561Z · Emitting canonical facts…",
+    "2026-06-17T19:06:33.561Z · Canonical facts: 3",
+    "2026-06-17T19:06:33.561Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR812965",
+    "artist": "Frankie Valli",
+    "title": "Swearin' To God",
+    "year": 1975,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": 6,
+    "chartWeeks": 14,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:33.287Z",
+      "excerpt": "Retroverse track identity: RVTR812965. \"Swearin' To God\" by Frankie Valli.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:33.287Z",
+      "excerpt": "Billboard Hot 100 peak: #6. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:33.287Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

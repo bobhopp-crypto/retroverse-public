@@ -8,6 +8,11 @@ const PHASE2_PATH = join(process.cwd(), "docs/migrations/finance-phase2.sql");
 const PHASE3_PATH = join(process.cwd(), "docs/migrations/finance-phase3.sql");
 const PHASE4_PATH = join(process.cwd(), "docs/migrations/finance-phase4.sql");
 const PHASE5_PATH = join(process.cwd(), "docs/migrations/finance-phase5.sql");
+const PHASE6_PATH = join(process.cwd(), "docs/migrations/finance-phase6-trust-reset.sql");
+const PHASE7_PATH = join(process.cwd(), "docs/migrations/finance-phase7-account-setup.sql");
+const PHASE8_PATH = join(process.cwd(), "docs/migrations/finance-phase8-statement-integrity.sql");
+const PHASE9_PATH = join(process.cwd(), "docs/migrations/finance-phase9-jan-2026-repair.sql");
+const PHASE10_PATH = join(process.cwd(), "docs/migrations/finance-phase10-apple-card-statements.sql");
 
 export async function ensureFinanceSchema(): Promise<boolean> {
   const ping = await inspectPing();
@@ -47,6 +52,41 @@ export async function ensureFinanceSchema(): Promise<boolean> {
     await inspectExecute(phase5);
   } catch {
     // Phase 5 migration optional until file exists on disk.
+  }
+
+  try {
+    const phase6 = await readFile(PHASE6_PATH, "utf8");
+    await inspectExecute(phase6);
+  } catch {
+    // Phase 6 migration optional until file exists on disk.
+  }
+
+  try {
+    const phase7 = await readFile(PHASE7_PATH, "utf8");
+    await inspectExecute(phase7);
+  } catch {
+    // Phase 7 migration optional until file exists on disk.
+  }
+
+  try {
+    const phase8 = await readFile(PHASE8_PATH, "utf8");
+    await inspectExecute(phase8);
+  } catch {
+    // Phase 8 migration optional until file exists on disk.
+  }
+
+  try {
+    const phase9 = await readFile(PHASE9_PATH, "utf8");
+    await inspectExecute(phase9);
+  } catch {
+    // Phase 9 migration optional until file exists on disk.
+  }
+
+  try {
+    const phase10 = await readFile(PHASE10_PATH, "utf8");
+    await inspectExecute(phase10);
+  } catch {
+    // Phase 10 migration optional until file exists on disk.
   }
 
   await seedAccountsIfEmpty();

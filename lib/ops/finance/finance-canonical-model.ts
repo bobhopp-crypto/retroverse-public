@@ -28,6 +28,11 @@ export type FinanceImportStats = {
 
 export type FinanceImportHistoryRow = {
   id: number;
+  label: string;
+  statusLabel: string;
+  detail: string;
+  difference: number | null;
+  createdAt: string;
   fileName: string;
   source: string;
   status: string;
@@ -35,7 +40,6 @@ export type FinanceImportHistoryRow = {
   transactionsSkipped: number;
   transactionsUpdated: number;
   transactionsPending: number;
-  createdAt: string;
 };
 
 export type FinanceAmazonImportReport = {

@@ -1,0 +1,319 @@
+{
+  "version": 2,
+  "rvtr": "RVTR595526",
+  "status": "cards_ready",
+  "createdAt": "2026-06-17T19:18:54.716Z",
+  "updatedAt": "2026-06-19T03:15:53.389Z",
+  "processedAt": "2026-06-17T19:18:55.004Z",
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:18:54.716Z · Processing Ain't No Way To Treat A Lady · Helen Reddy (Canon First)",
+    "2026-06-17T19:18:54.717Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:18:54.717Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:18:54.717Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:18:55.001Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:18:55.002Z · Emitting canonical facts…",
+    "2026-06-17T19:18:55.002Z · Canonical facts: 5",
+    "2026-06-17T19:18:55.002Z · Extracting candidate facts from research…",
+    "2026-06-17T19:18:55.003Z · Candidate facts: 5 (5 approved)",
+    "2026-06-17T19:18:55.003Z · Proposing candidate stories…",
+    "2026-06-17T19:18:55.003Z · Candidate stories: 4",
+    "2026-06-17T19:18:55.003Z · Ranking stories…",
+    "2026-06-17T19:18:55.003Z · Top story: \"Where Did That Name Come From?\"",
+    "2026-06-17T19:18:55.004Z · Package intel: 3 timeline events",
+    "2026-06-17T19:18:55.004Z · Ready for human review — build cards after approving facts/stories",
+    "2026-06-19T03:15:53.389Z · Story cards assembled: 5"
+  ],
+  "metadata": {
+    "rvtr": "RVTR595526",
+    "artist": "Helen Reddy",
+    "title": "Ain't No Way To Treat A Lady",
+    "year": 1975,
+    "albumTitle": "No Way To Treat A Lady",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL573737/RVAL573737__helen-reddy__no-way-to-treat-a-lady.jpg",
+    "peakHot100": 8,
+    "chartWeeks": 16,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:54.717Z",
+      "excerpt": "Retroverse track identity: RVTR595526. \"Ain't No Way To Treat A Lady\" by Helen Reddy. Album: No Way To Treat A Lady (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL573737/RVAL573737__helen-reddy__no-way-to-treat-a-lady.jpg",
+      "capturedAt": "2026-06-17T19:18:54.717Z",
+      "excerpt": "Canonical cover assignment for RVTR595526 (Ain't No Way To Treat A Lady). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:54.717Z",
+      "excerpt": "Album: No Way To Treat A Lady (1975). Billboard Hot 100 peak: #8. 16 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:54.717Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "493f2985-bb2c-4a2f-9b13-7a1b22f6e50d",
+      "createdAt": "2026-06-17T19:18:55.002Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "trivia",
+      "factText": "Retroverse track identity: RVTR595526.",
+      "sourceType": "canonical",
+      "sourceId": "meta-rvtr-RVTR595526",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR595526",
+      "excerptAnchor": "RVTR595526",
+      "confidence": 1,
+      "importance": 1,
+      "locked": true
+    },
+    {
+      "id": "ba9556b8-c60d-4c01-a36d-20444b880451",
+      "createdAt": "2026-06-17T19:18:55.002Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "Ain't No Way To Treat A Lady is performed by Helen Reddy.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR595526",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR595526",
+      "excerptAnchor": "Helen Reddy",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    },
+    {
+      "id": "f10597d2-df4f-4d5a-943e-003692766b11",
+      "createdAt": "2026-06-17T19:18:55.002Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "album",
+      "factText": "The song appears on the album \"No Way To Treat A Lady\" (1975).",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR595526",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR595526",
+      "excerptAnchor": "No Way To Treat A Lady",
+      "confidence": 1,
+      "importance": 0.8,
+      "locked": true
+    },
+    {
+      "id": "0daa82c6-0456-4da7-bc11-19d9e1196841",
+      "createdAt": "2026-06-17T19:18:55.002Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "album",
+      "factText": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR595526.",
+      "sourceType": "canonical",
+      "sourceId": "meta-cover-RVTR595526",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL573737/RVAL573737__helen-reddy__no-way-to-treat-a-lady.jpg",
+      "sourceExcerpt": "Retroverse canonical record for RVTR595526",
+      "excerptAnchor": "Cover Library",
+      "confidence": 1,
+      "importance": 0.9,
+      "locked": true
+    },
+    {
+      "id": "f9e6eb50-1bf0-42e1-955a-90ef4f1d68fe",
+      "createdAt": "2026-06-17T19:18:55.002Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "chart",
+      "factText": "The song peaked at #8 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "sourceType": "canonical",
+      "sourceId": "meta-chart-RVTR595526",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #8. 16 weeks on chart.",
+      "excerptAnchor": "Billboard Hot 100 peak: #8.",
+      "confidence": 1,
+      "importance": 0.85,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "f04ef6b9-894c-4238-9ad4-5c5d1d79da5f",
+      "headline": "Where Did That Name Come From?",
+      "hookType": "question",
+      "primaryFactId": "493f2985-bb2c-4a2f-9b13-7a1b22f6e50d",
+      "supportingFactIds": [
+        "f10597d2-df4f-4d5a-943e-003692766b11",
+        "f9e6eb50-1bf0-42e1-955a-90ef4f1d68fe"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.808,
+      "createdAt": "2026-06-17T19:18:55.003Z"
+    },
+    {
+      "id": "e5e03dea-5600-410e-93ab-757ea435b2cf",
+      "headline": "Chart Peak: #8",
+      "hookType": "chart",
+      "primaryFactId": "f9e6eb50-1bf0-42e1-955a-90ef4f1d68fe",
+      "supportingFactIds": [
+        "f10597d2-df4f-4d5a-943e-003692766b11"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 2,
+      "rankScore": 0.7,
+      "createdAt": "2026-06-17T19:18:55.003Z"
+    },
+    {
+      "id": "f110df23-5c32-42b3-bbe9-d2a6a4ad9a35",
+      "headline": "Album Context",
+      "hookType": "surprise",
+      "primaryFactId": "0daa82c6-0456-4da7-bc11-19d9e1196841",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 3,
+      "rankScore": 0.665,
+      "createdAt": "2026-06-17T19:18:55.003Z"
+    },
+    {
+      "id": "24b718c2-b0e5-4154-b95c-7a01a612263b",
+      "headline": "From the Album \"No Way To Treat A Lady\"",
+      "hookType": "surprise",
+      "primaryFactId": "f10597d2-df4f-4d5a-943e-003692766b11",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 4,
+      "rankScore": 0.635,
+      "createdAt": "2026-06-17T19:18:55.003Z"
+    }
+  ],
+  "storyCards": [
+    {
+      "id": "78983b8a-121f-4c28-9def-fdaaebcea1ac",
+      "storyId": "cover",
+      "rank": 0,
+      "headline": "Ain't No Way To Treat A Lady",
+      "fact": "Ain't No Way To Treat A Lady by Helen Reddy. From No Way To Treat A Lady (1975). Billboard Hot 100 peak: #8.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Canonical metadata for RVTR595526",
+      "confidence": 1,
+      "category": "artist"
+    },
+    {
+      "id": "f7c65dc2-0224-48fd-8f4b-30fa40412fa5",
+      "storyId": "f04ef6b9-894c-4238-9ad4-5c5d1d79da5f",
+      "rank": 1,
+      "headline": "Where Did That Name Come From?",
+      "fact": "Retroverse track identity: RVTR595526.",
+      "supportingContext": "The song appears on the album \"No Way To Treat A Lady\" (1975). · The song peaked at #8 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR595526",
+      "confidence": 1,
+      "category": "trivia"
+    },
+    {
+      "id": "d62fd482-ed6d-4c98-b386-c2525754aa8b",
+      "storyId": "e5e03dea-5600-410e-93ab-757ea435b2cf",
+      "rank": 2,
+      "headline": "Chart Peak: #8",
+      "fact": "The song peaked at #8 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "supportingContext": "The song appears on the album \"No Way To Treat A Lady\" (1975).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #8. 16 weeks on chart.",
+      "confidence": 1,
+      "category": "chart"
+    },
+    {
+      "id": "01fda93d-8e09-4261-b18f-31047d158a6e",
+      "storyId": "f110df23-5c32-42b3-bbe9-d2a6a4ad9a35",
+      "rank": 3,
+      "headline": "Album Context",
+      "fact": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR595526.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL573737/RVAL573737__helen-reddy__no-way-to-treat-a-lady.jpg",
+      "sourceExcerpt": "Retroverse canonical record for RVTR595526",
+      "confidence": 1,
+      "category": "album"
+    },
+    {
+      "id": "2c949531-c6ce-438e-bb03-508324cf255a",
+      "storyId": "24b718c2-b0e5-4154-b95c-7a01a612263b",
+      "rank": 4,
+      "headline": "From the Album \"No Way To Treat A Lady\"",
+      "fact": "The song appears on the album \"No Way To Treat A Lady\" (1975).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR595526",
+      "confidence": 1,
+      "category": "album"
+    }
+  ],
+  "intel": {
+    "label": null,
+    "catalogNumber": "1975-NOWAYT",
+    "chartHistory": [
+      {
+        "chart": "Billboard Hot 100",
+        "peak": 8,
+        "weeks": 16,
+        "detail": "16 weeks on chart"
+      }
+    ],
+    "timelineEvents": [
+      {
+        "id": "ab807218-c657-4fd3-97cf-6ec54dd85b7a",
+        "year": 1975,
+        "title": "Release",
+        "description": "Ain't No Way To Treat A Lady released on No Way To Treat A Lady."
+      },
+      {
+        "id": "515c558b-9078-4920-a207-0a30cde8047e",
+        "year": 1975,
+        "title": "Origin",
+        "description": "Retroverse track identity: RVTR595526."
+      },
+      {
+        "id": "c797ce83-257c-4333-a609-bf0e3ad54dd9",
+        "year": 1975,
+        "title": "Where Did That Name Come From?",
+        "description": "Retroverse track identity: RVTR595526."
+      },
+      {
+        "id": "fb72d4b9-23e6-4f1b-8705-f97deb527100",
+        "year": 1976,
+        "title": "Chart Peak",
+        "description": "Peaked at #8 on Billboard Hot 100."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  },
+  "issueFlags": []
+}

@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR467562",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:06:39.337Z",
+  "updatedAt": "2026-06-17T19:06:39.635Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:06:39.337Z · Processing Locomotive Breath · Jethro Tull (Canon First)",
+    "2026-06-17T19:06:39.348Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:06:39.348Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:06:39.350Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:06:39.632Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:06:39.634Z · Emitting canonical facts…",
+    "2026-06-17T19:06:39.634Z · Canonical facts: 5",
+    "2026-06-17T19:06:39.635Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR467562",
+    "artist": "Jethro Tull",
+    "title": "Locomotive Breath",
+    "year": 1975,
+    "albumTitle": "Minstrel In The Gallery: 40th Anniversary: La Grande Edition",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL032794/RVAL032794__jethro-tull__minstrel-in-the-gallery-40th-anniversary-la-grande-edition.jpg",
+    "peakHot100": 62,
+    "chartWeeks": 8,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:39.348Z",
+      "excerpt": "Retroverse track identity: RVTR467562. \"Locomotive Breath\" by Jethro Tull. Album: Minstrel In The Gallery: 40th Anniversary: La Grande Edition (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL032794/RVAL032794__jethro-tull__minstrel-in-the-gallery-40th-anniversary-la-grande-edition.jpg",
+      "capturedAt": "2026-06-17T19:06:39.348Z",
+      "excerpt": "Canonical cover assignment for RVTR467562 (Locomotive Breath). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:39.348Z",
+      "excerpt": "Album: Minstrel In The Gallery: 40th Anniversary: La Grande Edition (1975). Billboard Hot 100 peak: #62. 8 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:39.348Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

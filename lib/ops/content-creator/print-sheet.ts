@@ -10,11 +10,11 @@ import {
 } from "@/lib/ops/creative-lab/pass-layout";
 import { assertWellFormedSvg } from "@/lib/ops/creative-lab/svg-validate";
 
-/** Landscape 11" × 14" cardstock — 14" wide × 11" tall at print. */
-export const PRINT_SHEET_WIDTH_IN = 14;
-export const PRINT_SHEET_HEIGHT_IN = 11;
-export const PRINT_SHEET_COLS = 4;
-export const PRINT_SHEET_ROWS = 3;
+/** Portrait 11" × 17" cardstock — 3 across × 4 down at print. */
+export const PRINT_SHEET_WIDTH_IN = 11;
+export const PRINT_SHEET_HEIGHT_IN = 17;
+export const PRINT_SHEET_COLS = 3;
+export const PRINT_SHEET_ROWS = 4;
 export const PASSES_PER_SHEET = PRINT_SHEET_COLS * PRINT_SHEET_ROWS;
 
 const SHEET_WIDTH_PX = Math.round(PRINT_SHEET_WIDTH_IN * PX_PER_IN);
@@ -90,7 +90,10 @@ function cropMarksSvg(layout: PrintSheetLayout): string {
 }
 
 /** 12-up sheet — passes at native 1024×1536, no scaling. Empty cells stay white. */
-export async function buildPrintSheetPng(passImages: Buffer[]): Promise<Buffer> {
+export async function buildPrintSheetPng(
+  passImages: Buffer[],
+  options?: { mirrorForDuplexLongEdge?: boolean },
+): Promise<Buffer> {
   const layout = printSheetLayout();
   const slots = PASSES_PER_SHEET;
   const composites: Array<{ input: Buffer; left: number; top: number }> = [];
@@ -98,7 +101,8 @@ export async function buildPrintSheetPng(passImages: Buffer[]): Promise<Buffer> 
   for (let i = 0; i < slots; i++) {
     const img = passImages[i];
     if (!img) continue;
-    const col = i % PRINT_SHEET_COLS;
+    const baseCol = i % PRINT_SHEET_COLS;
+    const col = options?.mirrorForDuplexLongEdge ? PRINT_SHEET_COLS - 1 - baseCol : baseCol;
     const row = Math.floor(i / PRINT_SHEET_COLS);
     composites.push({
       input: img,
@@ -144,10 +148,10 @@ export function printInstructionsText(args: {
     "",
     ...numberingLines,
     "PAPER",
-    "- 11\" × 14\" cardstock",
+    "- 11\" × 17\" cardstock",
     "",
     "PRINTER SETTINGS",
-    "- Orientation: Landscape",
+    "- Orientation: Portrait",
     "- Scale: 100%",
     "- Do NOT fit to page",
     "- Do NOT shrink to printable area",
@@ -155,14 +159,14 @@ export function printInstructionsText(args: {
     "PRINT ORDER",
     "1. Print front sheet(s) first (print-front-12up)",
     "2. Run a duplex alignment test on scrap if needed",
-    "3. Flip according to your printer (long-edge vs short-edge)",
-    "4. Print back sheet(s) (print-back-12up) — layout matches front for alignment",
+    "3. Flip on long edge",
+    "4. Print back sheet(s) (print-back-12up) — back layout is mirrored for long-edge duplex alignment",
     "5. Cut using light crop marks around the pass grid",
     "",
     "FINAL PASS SIZE",
     `- ${PASS_PRINT_WIDTH_IN}" wide × ${PASS_PRINT_HEIGHT_IN}" tall (portrait each pass)`,
     `- Grid on sheet: ${PRINT_SHEET_COLS} columns × ${PRINT_SHEET_ROWS} rows`,
-    `- Sheet size: ${PRINT_SHEET_WIDTH_IN}" × ${PRINT_SHEET_HEIGHT_IN}" landscape`,
+    `- Sheet size: ${PRINT_SHEET_WIDTH_IN}" × ${PRINT_SHEET_HEIGHT_IN}" portrait`,
     "",
     "QR",
     "- QR is production data composited at export — not in preview artwork",

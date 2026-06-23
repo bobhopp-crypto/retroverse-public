@@ -70,22 +70,13 @@ async function main() {
   if (!vdjResolved) {
     statusFail(
       "VDJ reachable",
-      `Network Control not responding on port ${config.vdjPort} (also tried 8088, 8080, 8888)`,
+      `OSC not responding on ${config.vdjHost}:${config.vdjPort} → listen ${config.vdjBackPort}`,
     );
-    printRemediation([
-      "Open VirtualDJ → enable Network Control plugin (Pro license)",
-      "Master panel → Master Effect → Auto-Start → Network Control",
-      "Note the port in plugin settings (often 8088, not 80)",
-      "Set in .env.local: VDJ_NETWORK_PORT=8088",
-      "Probe: VDJ_NETWORK_PORT=8088 npx tsx tools/sunday-nights/probe-vdj-network-control.ts",
-    ]);
-    process.exit(1);
-  }
-  vdjPort = vdjResolved.port;
-  if (vdjResolved.discovered) {
-    statusOk("VDJ reachable", `port ${vdjPort} (auto-discovered — add VDJ_NETWORK_PORT=${vdjPort} to .env.local)`);
+    console.log("Continuing startup; the bridge will verify deck data from OSC.");
+    vdjPort = config.vdjPort;
   } else {
-    statusOk("VDJ reachable", `port ${vdjPort}`);
+    vdjPort = vdjResolved.port;
+    statusOk("VDJ reachable", `OSC port ${vdjPort}`);
   }
 
   // --- Retroverse dev server ---
@@ -134,8 +125,9 @@ async function main() {
       cwd: projectRoot,
       env: {
         ...process.env,
-        VDJ_NETWORK_PORT: vdjPort,
-        VDJ_NETWORK_BEARER: config.vdjBearer,
+        VDJ_OSC_HOST: config.vdjHost,
+        VDJ_OSC_PORT: vdjPort,
+        VDJ_OSC_BACK_PORT: config.vdjBackPort,
         LIVE_NOW_PLAYING_URL: config.bridgeUrl,
         LIVE_NOW_PLAYING_SECRET: config.apiSecret,
         RETROVERSE_DATA_ROOT: config.dataRoot,

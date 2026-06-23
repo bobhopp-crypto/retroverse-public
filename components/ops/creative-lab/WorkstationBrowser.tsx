@@ -4,7 +4,8 @@ import { useMemo } from "react";
 
 import { backCompositionForKey } from "@/lib/ops/creative-lab/pass-back-prompt";
 import { compositionForKey } from "@/lib/ops/creative-lab/concept-compositions";
-import type { CreativeLabProjectFile, GeneratedPrompt } from "@/lib/ops/creative-lab/types";
+import { PASS_HEIGHT, PASS_WIDTH, resolveQrPlacement } from "@/lib/ops/creative-lab/pass-layout";
+import type { CreativeLabProjectFile, GeneratedPrompt, PassQrPlacement } from "@/lib/ops/creative-lab/types";
 import {
   assetForPrompt,
   assetUrl,
@@ -20,10 +21,26 @@ type Props = {
   project: CreativeLabProjectFile;
   busy?: boolean;
   selection: BrowserSelection;
+  qrPlacement?: PassQrPlacement;
   onSelect: (sel: BrowserSelection) => void;
   onSelectFront: (promptId: string) => void;
   onSelectBack: (promptId: string) => void;
 };
+
+function QrPreviewOverlay({ placement }: { placement: PassQrPlacement }) {
+  return (
+    <span
+      className="cl-qr-preview"
+      aria-hidden
+      style={{
+        left: `${(placement.left / PASS_WIDTH) * 100}%`,
+        top: `${(placement.top / PASS_HEIGHT) * 100}%`,
+        width: `${(placement.size / PASS_WIDTH) * 100}%`,
+        height: `${(placement.size / PASS_HEIGHT) * 100}%`,
+      }}
+    />
+  );
+}
 
 function Thumb(props: {
   project: CreativeLabProjectFile;
@@ -34,12 +51,14 @@ function Thumb(props: {
   isSelected: boolean;
   isApproved: boolean;
   isActiveInspect: boolean;
+  qrPlacement?: PassQrPlacement;
   onClick: () => void;
 }) {
-  const { project, prompt, side, label, busy, isSelected, isApproved, isActiveInspect, onClick } =
+  const { project, prompt, side, label, busy, isSelected, isApproved, isActiveInspect, qrPlacement, onClick } =
     props;
   const asset = assetForPrompt(project, prompt);
   const key = prompt.variationKey ?? "?";
+  const placement = qrPlacement ?? resolveQrPlacement(project);
 
   return (
     <button
@@ -53,7 +72,10 @@ function Thumb(props: {
       {isApproved ? <span className="cl-ws__thumb-badge">Approved</span> : null}
       {isSelected && !isApproved ? <span className="cl-ws__thumb-badge cl-ws__thumb-badge--draft">Draft</span> : null}
       {asset?.filePath?.endsWith(".png") && asset.id ? (
-        <img src={assetUrl(project, asset.id)} alt="" className="cl-ws__thumb-img" />
+        <span className="cl-ws__thumb-preview">
+          <img src={assetUrl(project, asset.id)} alt="" className="cl-ws__thumb-img" />
+          {side === "back" ? <QrPreviewOverlay placement={placement} /> : null}
+        </span>
       ) : (
         <span className="cl-ws__thumb-loading">{busy ? "…" : "—"}</span>
       )}
@@ -63,7 +85,7 @@ function Thumb(props: {
 }
 
 export function WorkstationBrowser(props: Props) {
-  const { project, busy, selection, onSelect, onSelectFront, onSelectBack } = props;
+  const { project, busy, selection, qrPlacement, onSelect, onSelectFront, onSelectBack } = props;
 
   const fronts = useMemo(() => frontPrompts(project), [project]);
   const backs = useMemo(() => backPrompts(project), [project]);
@@ -102,6 +124,7 @@ export function WorkstationBrowser(props: Props) {
                 isSelected={isSelected}
                 isApproved={isApproved}
                 isActiveInspect={isActiveInspect}
+                qrPlacement={qrPlacement}
                 onClick={() => {
                   onSelect({ kind: "prompt", prompt: p, side: "front" });
                   if (!frontLocked) onSelectFront(p.id);
@@ -145,6 +168,7 @@ export function WorkstationBrowser(props: Props) {
                   isSelected={isSelected}
                   isApproved={isApproved}
                   isActiveInspect={isActiveInspect}
+                  qrPlacement={qrPlacement}
                   onClick={() => {
                     onSelect({ kind: "prompt", prompt: p, side: "back" });
                     onSelectBack(p.id);

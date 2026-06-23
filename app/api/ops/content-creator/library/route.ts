@@ -29,6 +29,17 @@ export async function GET(req: Request) {
   const tags = tagsRaw ? tagsRaw.split(",").map((t) => t.trim().toLowerCase()).filter(Boolean) : undefined;
   const dateFrom = url.searchParams.get("from") ?? undefined;
   const dateTo = url.searchParams.get("to") ?? undefined;
+  const view = url.searchParams.get("view") ?? undefined;
+  const status = url.searchParams.get("status") ?? undefined;
+  const includeArchived = url.searchParams.get("includeArchived") === "1";
+  const exportedRaw = url.searchParams.get("exported");
+  const exported = exportedRaw === "1" ? true : exportedRaw === "0" ? false : undefined;
+  const variation = url.searchParams.get("variation") ?? undefined;
+  const templateOnly = url.searchParams.get("template") === "1";
+  const collection = url.searchParams.get("collection") ?? undefined;
+  const sort = url.searchParams.get("sort") ?? undefined;
+  const limitRaw = Number(url.searchParams.get("limit") ?? "");
+  const offsetRaw = Number(url.searchParams.get("offset") ?? "");
   const variationBatchId = url.searchParams.get("batch") ?? undefined;
   const backfill = url.searchParams.get("backfill") === "1";
   const statsOnly = url.searchParams.get("stats") === "1";
@@ -54,7 +65,20 @@ export async function GET(req: Request) {
     tags,
     dateFrom,
     dateTo,
+    view,
+    status:
+      status === "review" || status === "approved" || status === "production_ready" || status === "archived"
+        ? status
+        : undefined,
+    includeArchived,
+    exported,
+    variation: variation === "roots" || variation === "variations" || variation === "all" ? variation : undefined,
+    templateOnly,
+    collection,
+    sort,
     variationBatchId,
+    limit: Number.isFinite(limitRaw) && limitRaw > 0 ? Math.min(limitRaw, 1000) : undefined,
+    offset: Number.isFinite(offsetRaw) && offsetRaw >= 0 ? offsetRaw : undefined,
   });
 
   const stats = await computeLibraryStats();

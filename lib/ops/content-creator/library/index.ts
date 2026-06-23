@@ -27,6 +27,7 @@ import type {
   ContentCreatorGenerationManifest,
   ContentCreatorLibraryIndex,
   GenerationCuratorPatch,
+  GenerationStatus,
   GenerationQualitySnapshot,
   LibraryStats,
 } from "./types";
@@ -61,27 +62,19 @@ export async function loadLibraryIndex(): Promise<ContentCreatorLibraryIndex> {
   await ensureLibraryLayout();
   const path = contentCreatorIndexPath();
   if (!existsSync(path)) {
-    return { version: 2, updatedAt: new Date().toISOString(), generations: [] };
+    return { version: 3, updatedAt: new Date().toISOString(), generations: [] };
   }
   const raw = JSON.parse(await readFile(path, "utf8")) as ContentCreatorLibraryIndex;
   return {
-    version: 2,
+    version: 3,
     updatedAt: raw.updatedAt,
-    generations: (raw.generations ?? []).map((e) => ({
-      ...e,
-      rating: e.rating ?? null,
-      notes: e.notes ?? "",
-      tags: e.tags ?? [],
-      parentGenerationId: e.parentGenerationId ?? null,
-      variationBatchId: e.variationBatchId ?? null,
-      quality: e.quality ?? { promptCharCount: 0, variationScore: "medium", clicheRisk: "medium" },
-    })),
+    generations: (raw.generations ?? []).map((e) => indexEntryFromManifest(normalizeGenerationManifest(e))),
   };
 }
 
 async function saveLibraryIndex(index: ContentCreatorLibraryIndex): Promise<void> {
   index.updatedAt = new Date().toISOString();
-  index.version = 2;
+  index.version = 3;
   await writeFile(contentCreatorIndexPath(), `${JSON.stringify(index, null, 2)}\n`, "utf8");
 }
 
@@ -125,6 +118,20 @@ function qualityFromVNext(manifest: VNextManifest): GenerationQualitySnapshot {
   };
 }
 
+function statusFromVNext(
+  manifest: VNextManifest,
+  existing?: ContentCreatorGenerationManifest | null,
+): GenerationStatus {
+  if (existing?.status === "archived") return "archived";
+  if (!manifest.exportZipFilename) {
+    return existing?.status === "production_ready" ? "approved" : existing?.status ?? "review";
+  }
+  if (existing?.status === "approved" && manifest.qrStatus === "scan_verified") {
+    return "production_ready";
+  }
+  return existing?.status ?? "review";
+}
+
 /** Copy vnext artwork into library and write manifest + thumbnail. */
 export async function syncGenerationFromVNext(
   manifest: VNextManifest,
@@ -151,6 +158,8 @@ export async function syncGenerationFromVNext(
 
   const existing = await loadGenerationManifest(id);
   const creativeSettings = manifest.creativeSettings ?? DEFAULT_CREATIVE_DIRECTION_SETTINGS;
+  const nextStatus = statusFromVNext(manifest, existing);
+  const now = new Date().toISOString();
 
   let exportedCredentialPath = existing?.exportedCredentialPath ?? null;
   let exportZipPath = existing?.exportZipPath ?? null;
@@ -183,6 +192,14 @@ export async function syncGenerationFromVNext(
     runId: manifest.runId,
     timestamp,
     updatedAt: manifest.updatedAt,
+    status: nextStatus,
+    statusUpdatedAt: nextStatus === existing?.status ? existing.statusUpdatedAt : now,
+    approvedAt:
+      nextStatus === "approved" || nextStatus === "production_ready"
+        ? existing?.approvedAt ?? now
+        : existing?.approvedAt ?? null,
+    archivedAt: nextStatus === "archived" ? existing?.archivedAt ?? now : null,
+    archivedReason: nextStatus === "archived" ? existing?.archivedReason ?? "" : "",
     eraSlug: manifest.eraSlug,
     eraName: profile.name,
     artifact: manifest.artifact,
@@ -195,13 +212,40 @@ export async function syncGenerationFromVNext(
     secondaryLine: manifest.frontFields.secondaryLine,
     passTypeLabel: manifest.frontFields.passTypeLabel,
     qrUrl: manifest.backFields.qrUrl ?? "",
+    qrPlacement: manifest.qrPlacement,
     favorite: existing?.favorite ?? false,
     rating: existing?.rating ?? null,
     notes: existing?.notes ?? "",
     tags: existing?.tags ?? [],
+    collections: existing?.collections ?? [],
+    template: existing?.template,
     parentGenerationId: lineage?.parentGenerationId ?? existing?.parentGenerationId ?? null,
     variationBatchId: lineage?.variationBatchId ?? existing?.variationBatchId ?? null,
     quality: qualityFromVNext(manifest),
+    production: {
+      exportedAt: manifest.exportZipFilename ? manifest.updatedAt : null,
+      qrStatus: manifest.qrStatus ?? (manifest.exportZipFilename ? "composited" : "not_exported"),
+      qrVerified: manifest.qrStatus === "scan_verified",
+      quantity: manifest.quantity ?? null,
+      numberingMode: manifest.numbering
+        ? manifest.numbering.printSerialNumbers
+          ? manifest.numbering.numberFormat
+          : "write_in"
+        : null,
+      serialNumber: manifest.serialNumber ?? null,
+      printPackagePaths: manifest.printPackage ?? null,
+    },
+    source: {
+      provider: manifest.provider ?? null,
+      visualWorldId: manifest.visualWorldId ?? null,
+      compositionSeed: manifest.compositionSeed ?? null,
+      serialNumber: manifest.serialNumber ?? null,
+      resolvedArtifactArchetype: manifest.resolvedArtifactArchetype ?? null,
+    },
+    prompt: {
+      promptHash: promptHashFromManifest(manifest),
+      inspectorPath: manifest.promptInspector ? `${manifest.runDir}/manifest.json` : null,
+    },
     sourceArtworkPath: manifest.runDir,
     frontImagePath: relToLibrary(frontDest),
     backImagePath: relToLibrary(backDest),
@@ -221,13 +265,58 @@ export async function updateGenerationCurator(
 ): Promise<ContentCreatorGenerationManifest> {
   const manifest = await loadGenerationManifest(id);
   if (!manifest) throw new Error("Generation not found");
+  const now = new Date().toISOString();
 
   if (typeof patch.favorite === "boolean") manifest.favorite = patch.favorite;
   if (patch.rating !== undefined) manifest.rating = patch.rating;
   if (typeof patch.notes === "string") manifest.notes = patch.notes;
   if (Array.isArray(patch.tags)) manifest.tags = patch.tags.map((t) => t.trim().toLowerCase()).filter(Boolean);
+  if (Array.isArray(patch.collections)) {
+    manifest.collections = Array.from(
+      new Set(patch.collections.map((c) => c.trim()).filter(Boolean)),
+    );
+  }
+  if (patch.template) {
+    const wasTemplate = manifest.template.isTemplate;
+    manifest.template = {
+      ...manifest.template,
+      ...patch.template,
+      templateName:
+        typeof patch.template.templateName === "string"
+          ? patch.template.templateName.trim()
+          : manifest.template.templateName,
+      templateNotes:
+        typeof patch.template.templateNotes === "string"
+          ? patch.template.templateNotes.trim()
+          : manifest.template.templateNotes,
+      lastUsedAt: patch.template.lastUsedAt ?? manifest.template.lastUsedAt,
+    };
+    if (manifest.template.isTemplate && !wasTemplate) {
+      manifest.template.sourceGenerationId = manifest.template.sourceGenerationId ?? manifest.id;
+    }
+  }
+  const requestedStatus =
+    patch.status === "production_ready" && !manifest.exportedCredentialPath && !manifest.exportZipPath
+      ? "approved"
+      : patch.status;
+  if (requestedStatus && requestedStatus !== manifest.status) {
+    manifest.status = requestedStatus;
+    manifest.statusUpdatedAt = now;
+    if (requestedStatus === "approved" || requestedStatus === "production_ready") {
+      manifest.approvedAt = manifest.approvedAt ?? now;
+    }
+    if (requestedStatus === "archived") {
+      manifest.archivedAt = now;
+      manifest.archivedReason = patch.archivedReason ?? manifest.archivedReason;
+    } else {
+      manifest.archivedAt = null;
+      manifest.archivedReason = "";
+    }
+  } else if (patch.archivedReason !== undefined) {
+    manifest.archivedReason = patch.archivedReason;
+  }
 
-  manifest.updatedAt = new Date().toISOString();
+  manifest.updatedAt = now;
   await saveGenerationManifest(manifest);
   await upsertIndexEntry(manifest);
   return manifest;
@@ -246,8 +335,17 @@ export type ListGenerationsOptions = {
   tags?: string[];
   dateFrom?: string;
   dateTo?: string;
+  view?: string;
+  status?: GenerationStatus;
+  includeArchived?: boolean;
+  exported?: boolean;
+  variation?: "all" | "roots" | "variations";
+  templateOnly?: boolean;
+  collection?: string;
+  sort?: string;
   variationBatchId?: string;
   limit?: number;
+  offset?: number;
 };
 
 export async function listGenerations(
@@ -255,10 +353,28 @@ export async function listGenerations(
 ): Promise<ContentCreatorGenerationIndexEntry[]> {
   let items = (await loadLibraryIndex()).generations;
 
+  if (opts.view && opts.view !== "all") {
+    if (opts.view === "favorites") items = items.filter((g) => g.favorite);
+    if (opts.view === "rated") items = items.filter((g) => g.rating != null);
+    if (opts.view === "exported") items = items.filter((g) => g.hasExport);
+    if (opts.view === "variations") items = items.filter((g) => Boolean(g.parentGenerationId || g.variationBatchId));
+    if (opts.view === "templates") items = items.filter((g) => g.template.isTemplate);
+    if (opts.view === "approved") items = items.filter((g) => g.status === "approved" || g.status === "production_ready");
+    if (opts.view === "production_ready") items = items.filter((g) => g.status === "production_ready");
+    if (opts.view === "archived") items = items.filter((g) => g.status === "archived");
+    if (opts.view === "inbox") items = items.filter((g) => g.status === "review");
+  }
+  if (!opts.includeArchived && opts.view !== "archived") items = items.filter((g) => g.status !== "archived");
+  if (opts.status) items = items.filter((g) => g.status === opts.status);
   if (opts.favoriteOnly) items = items.filter((g) => g.favorite);
   if (opts.eraSlug) items = items.filter((g) => g.eraSlug === opts.eraSlug);
   if (opts.creativeDirection) items = items.filter((g) => g.creativeDirection === opts.creativeDirection);
-  if (opts.rating) items = items.filter((g) => g.rating === opts.rating);
+  if (opts.rating) items = items.filter((g) => (g.rating ?? 0) >= opts.rating!);
+  if (opts.exported !== undefined) items = items.filter((g) => g.hasExport === opts.exported);
+  if (opts.variation === "roots") items = items.filter((g) => !g.parentGenerationId);
+  if (opts.variation === "variations") items = items.filter((g) => Boolean(g.parentGenerationId));
+  if (opts.templateOnly) items = items.filter((g) => g.template.isTemplate);
+  if (opts.collection) items = items.filter((g) => g.collections.includes(opts.collection!));
 
   if (opts.tags?.length) {
     items = items.filter((g) => opts.tags!.every((t) => g.tags.includes(t.toLowerCase())));
@@ -287,6 +403,9 @@ export async function listGenerations(
         g.eraName,
         dir,
         g.notes,
+        ...g.collections,
+        g.template.templateName,
+        g.template.templateNotes,
         ...g.tags,
       ]
         .join(" ")
@@ -295,25 +414,57 @@ export async function listGenerations(
     });
   }
 
+  if (opts.sort === "rating") {
+    items = [...items].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0) || b.updatedAt.localeCompare(a.updatedAt));
+  } else if (opts.sort === "updated") {
+    items = [...items].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  } else if (opts.sort === "era") {
+    items = [...items].sort((a, b) => a.eraName.localeCompare(b.eraName) || b.timestamp.localeCompare(a.timestamp));
+  } else if (opts.sort === "event") {
+    items = [...items].sort((a, b) => a.event.localeCompare(b.event) || b.timestamp.localeCompare(a.timestamp));
+  } else if (opts.sort === "exported") {
+    items = [...items].sort((a, b) =>
+      (b.production.exportedAt ?? "").localeCompare(a.production.exportedAt ?? "") || b.timestamp.localeCompare(a.timestamp),
+    );
+  }
+
+  const offset = Math.max(0, opts.offset ?? 0);
   const limit = opts.limit ?? 300;
-  return items.slice(0, limit);
+  return items.slice(offset, offset + limit);
 }
 
 export async function computeLibraryStats(): Promise<LibraryStats> {
   const items = (await loadLibraryIndex()).generations;
   const byEra: Record<string, number> = {};
   const byCreativeDirection: Record<string, number> = {};
+  const byCollection: Record<string, number> = {};
+  const byStatus: Record<GenerationStatus, number> = {
+    review: 0,
+    approved: 0,
+    production_ready: 0,
+    archived: 0,
+  };
 
   for (const g of items) {
     byEra[g.eraName] = (byEra[g.eraName] ?? 0) + 1;
     const dir = CREATIVE_DIRECTIONS[g.creativeDirection]?.label ?? g.creativeDirection;
     byCreativeDirection[dir] = (byCreativeDirection[dir] ?? 0) + 1;
+    byStatus[g.status] += 1;
+    for (const collection of g.collections) {
+      byCollection[collection] = (byCollection[collection] ?? 0) + 1;
+    }
   }
 
   return {
     total: items.length,
     favorites: items.filter((g) => g.favorite).length,
     exports: items.filter((g) => g.hasExport).length,
+    archived: byStatus.archived,
+    approved: byStatus.approved + byStatus.production_ready,
+    productionReady: byStatus.production_ready,
+    templates: items.filter((g) => g.template.isTemplate).length,
+    byStatus,
+    byCollection,
     byEra,
     byCreativeDirection,
   };

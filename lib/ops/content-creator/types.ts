@@ -8,4 +8,4 @@ export type ContentCreatorEraOption = RvbrGlance & {
   promptFragments: RvbrPromptFragments;
 };
 
-export type ContentArtifactType = "pass" | "poster" | "bumper" | "slide" | "social";
+export type ContentArtifactType = "pass" | "collector-card" | "poster" | "bumper" | "slide" | "social";

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { listFinanceAccounts } from "@/lib/ops/finance/db/accounts";
 import { ensureFinanceSchema } from "@/lib/ops/finance/db/ensure-schema";
-import { queryLedger, updateLedgerTransactions } from "@/lib/ops/finance/db/transactions";
+import { queryLedger, updateLedgerTransactions, deleteLedgerTransactions } from "@/lib/ops/finance/db/transactions";
 import { categorizeTransactions } from "@/lib/ops/finance/db/transactions";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
@@ -71,4 +71,20 @@ export async function PATCH(request: Request) {
   }
 
   return NextResponse.json({ ok: true, updated: ids.length });
+}
+
+export async function DELETE(request: Request) {
+  if (!isOpsEnabled()) {
+    return NextResponse.json({ error: "Ops disabled" }, { status: 404 });
+  }
+  await ensureFinanceSchema();
+
+  const body = (await request.json()) as { transactionIds?: number[] };
+  const ids = body.transactionIds?.filter((id) => Number.isFinite(id)) ?? [];
+  if (!ids.length) {
+    return NextResponse.json({ error: "transactionIds required" }, { status: 400 });
+  }
+
+  const deleted = await deleteLedgerTransactions(ids);
+  return NextResponse.json({ ok: true, deleted });
 }

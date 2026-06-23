@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR749238",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:12:41.130Z",
+  "updatedAt": "2026-06-17T19:12:41.417Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:12:41.130Z · Processing Please Mr Please · Olivia Newton-john (Canon First)",
+    "2026-06-17T19:12:41.130Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:12:41.130Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:12:41.131Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:12:41.416Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:12:41.417Z · Emitting canonical facts…",
+    "2026-06-17T19:12:41.417Z · Canonical facts: 5",
+    "2026-06-17T19:12:41.417Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR749238",
+    "artist": "Olivia Newton-john",
+    "title": "Please Mr Please",
+    "year": 2001,
+    "albumTitle": "Magic: The Very Best Of Olivia Newton-John",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL428137/RVAL428137__olivia-newton-john__magic-the-very-best-of-olivia-newton-john.jpg",
+    "peakHot100": 3,
+    "chartWeeks": 15,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:41.130Z",
+      "excerpt": "Retroverse track identity: RVTR749238. \"Please Mr Please\" by Olivia Newton-john. Album: Magic: The Very Best Of Olivia Newton-John (2001).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL428137/RVAL428137__olivia-newton-john__magic-the-very-best-of-olivia-newton-john.jpg",
+      "capturedAt": "2026-06-17T19:12:41.130Z",
+      "excerpt": "Canonical cover assignment for RVTR749238 (Please Mr Please). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:41.130Z",
+      "excerpt": "Album: Magic: The Very Best Of Olivia Newton-John (2001). Billboard Hot 100 peak: #3. 15 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:41.130Z",
+      "excerpt": "Performance year context: 2001.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

@@ -1,6 +1,6 @@
 export type LiveResolution = "filepath" | "fallback" | "unresolved";
 
-export type LiveSource = "manual" | "bridge";
+export type LiveSource = "manual" | "bridge" | "channel";
 
 export type SundayNightsLiveSelection = {
   rvtr: string | null;

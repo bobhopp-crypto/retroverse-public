@@ -11,6 +11,10 @@ import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
 import type { ContentArtifactType } from "@/lib/ops/content-creator/types";
 import {
+  normalizeCollectorCardContent,
+  normalizeCollectorCardPresentation,
+} from "@/lib/ops/content-creator/collector-card";
+import {
   artworkErrorJson,
   extractProviderErrorDetail,
   formatProviderErrorSummary,
@@ -39,7 +43,7 @@ function parseFields(body: Record<string, unknown>, prefix?: "front" | "back"): 
         legacyYears: `${prefix}FeaturedYears`,
       })
     : parseSecondaryLineWithLegacy(body);
-  return {
+  const fields: ArtDirectorFields = {
     event: typeof eventVal === "string" ? eventVal : CONTENT_CREATOR_DEFAULTS.event,
     venue: typeof venueVal === "string" ? venueVal : CONTENT_CREATOR_DEFAULTS.venue,
     date: typeof dateVal === "string" ? dateVal : CONTENT_CREATOR_DEFAULTS.date,
@@ -47,6 +51,11 @@ function parseFields(body: Record<string, unknown>, prefix?: "front" | "back"): 
     passTypeLabel: normalizePassTypeLabel(String(passRaw)),
     qrUrl: typeof qrRaw === "string" ? qrRaw : CONTENT_CREATOR_DEFAULTS.qrUrl,
   };
+  if (body.artifact === "collector-card" && (!prefix || prefix === "front")) {
+    fields.collectorCardContent = normalizeCollectorCardContent(body.collectorCardContent);
+    fields.collectorCardPresentation = normalizeCollectorCardPresentation(body.collectorCardPresentation);
+  }
+  return fields;
 }
 
 async function acquireLock(): Promise<boolean> {
@@ -91,7 +100,11 @@ async function runGenerateJob(jobId: string, body: Record<string, unknown>): Pro
   await updateJob(jobId, {
     status: "running",
     startedAt: new Date().toISOString(),
-    progress: { current: 0, total: 2, step: "Generating front artwork" },
+    progress: {
+      current: 0,
+      total: artifact === "collector-card" ? 1 : 2,
+      step: "Generating front artwork",
+    },
   });
 
   const manifest = await runVNextGenerate({
@@ -105,7 +118,11 @@ async function runGenerateJob(jobId: string, body: Record<string, unknown>): Pro
   await updateJob(jobId, {
     status: "completed",
     completedAt: new Date().toISOString(),
-    progress: { current: 2, total: 2, step: "Complete" },
+    progress: {
+      current: artifact === "collector-card" ? 1 : 2,
+      total: artifact === "collector-card" ? 1 : 2,
+      step: "Complete",
+    },
     result: {
       runId: manifest.runId,
       frontUrl: vNextFileUrl(manifest.runId, manifest.frontFilename),

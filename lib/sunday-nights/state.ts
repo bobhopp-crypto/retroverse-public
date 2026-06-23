@@ -39,7 +39,10 @@ function normalizeLive(raw: unknown): SundayNightsLiveSelection | null {
   const songKey =
     typeof obj.songKey === "string" && obj.songKey.trim() ? obj.songKey.trim() : null;
 
-  const source = obj.source === "manual" || obj.source === "bridge" ? obj.source : null;
+  const source =
+    obj.source === "manual" || obj.source === "bridge" || obj.source === "channel"
+      ? obj.source
+      : null;
   const filepath =
     typeof obj.filepath === "string" && obj.filepath.trim() ? obj.filepath.trim() : null;
   const deck = typeof obj.deck === "number" && Number.isFinite(obj.deck) ? obj.deck : null;

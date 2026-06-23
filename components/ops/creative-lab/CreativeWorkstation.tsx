@@ -1,9 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { deriveWorkstationStatus } from "@/lib/ops/creative-lab/workstation-state";
-import type { CreativeLabProjectFile } from "@/lib/ops/creative-lab/types";
+import {
+  normalizeQrPlacement,
+  PASS_HEIGHT,
+  PASS_WIDTH,
+  resolveQrPlacement,
+} from "@/lib/ops/creative-lab/pass-layout";
+import type { CreativeLabProjectFile, PassQrPlacement } from "@/lib/ops/creative-lab/types";
 import { VISUAL_WORLDS, type VisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 
 import type { BrowserSelection } from "./WorkstationBrowser";
@@ -38,6 +44,7 @@ type Props = {
   onGenerateBacks: () => void;
   onSelectBack: (promptId: string) => void;
   onExportPackage: () => void;
+  onSaveQrPlacement: (placement: PassQrPlacement) => void;
   onOpenAdvanced: () => void;
 };
 
@@ -65,6 +72,7 @@ export function CreativeWorkstation(props: Props) {
     onGenerateBacks,
     onSelectBack,
     onExportPackage,
+    onSaveQrPlacement,
     onOpenAdvanced,
   } = props;
 
@@ -77,6 +85,12 @@ export function CreativeWorkstation(props: Props) {
   );
 
   const status = useMemo(() => deriveWorkstationStatus(project), [project]);
+  const savedQrPlacement = useMemo(() => resolveQrPlacement(project), [project]);
+  const [qrDraft, setQrDraft] = useState<PassQrPlacement>(savedQrPlacement);
+
+  useEffect(() => {
+    setQrDraft(savedQrPlacement);
+  }, [savedQrPlacement.left, savedQrPlacement.top, savedQrPlacement.size]);
 
   const eventReady = Boolean(event.trim() && venue.trim() && date.trim() && secondaryLine.trim());
   const worldReady = Boolean(selectedVisualWorldId);
@@ -87,6 +101,20 @@ export function CreativeWorkstation(props: Props) {
   const canLockFront = Boolean(project?.selectedConceptPromptId && !frontLocked);
   const canGenerateBacks = frontLocked && !hasBacks;
   const canExport = status.exportStatus === "Ready";
+  const qrPlacementDirty =
+    qrDraft.left !== savedQrPlacement.left ||
+    qrDraft.top !== savedQrPlacement.top ||
+    qrDraft.size !== savedQrPlacement.size;
+  const validQrDraft = normalizeQrPlacement(qrDraft);
+  const previewQrPlacement = validQrDraft ?? savedQrPlacement;
+
+  function updateQrDraft(key: keyof PassQrPlacement, value: string) {
+    const parsed = Number.parseInt(value, 10);
+    setQrDraft((current) => ({
+      ...current,
+      [key]: Number.isFinite(parsed) ? parsed : 0,
+    }));
+  }
 
   return (
     <div className="cl-ws">
@@ -130,10 +158,10 @@ export function CreativeWorkstation(props: Props) {
             <button
               type="button"
               className="cl-ws__action-btn cl-ws__action-btn--export"
-              disabled={busy || !canExport}
+              disabled={busy || !canExport || qrPlacementDirty}
               onClick={onExportPackage}
             >
-              Export
+              {qrPlacementDirty ? "Save QR First" : "Export"}
             </button>
             <button type="button" className="cl-ws__action-link" onClick={onOpenAdvanced}>
               Advanced →
@@ -180,6 +208,54 @@ export function CreativeWorkstation(props: Props) {
                   />
                 ))}
               </div>
+              {project ? (
+                <section className="cl-ws__qr-controls" aria-label="QR placement controls">
+                  <h3>QR Placement</h3>
+                  <div className="cl-ws__qr-grid">
+                    <label className="cl-desk__field">
+                      <span>QR Size</span>
+                      <input
+                        className="cl-desk__input"
+                        type="number"
+                        min={1}
+                        max={PASS_HEIGHT}
+                        value={qrDraft.size}
+                        onChange={(e) => updateQrDraft("size", e.target.value)}
+                      />
+                    </label>
+                    <label className="cl-desk__field">
+                      <span>QR X Position</span>
+                      <input
+                        className="cl-desk__input"
+                        type="number"
+                        min={0}
+                        max={PASS_WIDTH}
+                        value={qrDraft.left}
+                        onChange={(e) => updateQrDraft("left", e.target.value)}
+                      />
+                    </label>
+                    <label className="cl-desk__field">
+                      <span>QR Y Position</span>
+                      <input
+                        className="cl-desk__input"
+                        type="number"
+                        min={0}
+                        max={PASS_HEIGHT}
+                        value={qrDraft.top}
+                        onChange={(e) => updateQrDraft("top", e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <button
+                    type="button"
+                    className="ops-btn ops-btn--ok"
+                    disabled={busy || !qrPlacementDirty || !validQrDraft}
+                    onClick={() => validQrDraft && onSaveQrPlacement(validQrDraft)}
+                  >
+                    Save QR Placement
+                  </button>
+                </section>
+              ) : null}
             </div>
           </details>
 
@@ -188,6 +264,7 @@ export function CreativeWorkstation(props: Props) {
               project={project}
               busy={busy}
               selection={inspectTarget}
+              qrPlacement={previewQrPlacement}
               onSelect={setInspectTarget}
               onSelectFront={onSelectFront}
               onSelectBack={onSelectBack}
@@ -203,7 +280,7 @@ export function CreativeWorkstation(props: Props) {
           )}
         </div>
 
-        <WorkstationInspector project={project} target={inspectTarget} />
+        <WorkstationInspector project={project} target={inspectTarget} qrPlacement={previewQrPlacement} />
       </div>
     </div>
   );

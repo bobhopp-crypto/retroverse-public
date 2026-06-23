@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "rvtr": "RVTR744809",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:11:15.925Z",
+  "updatedAt": "2026-06-17T19:11:16.204Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:11:15.925Z · Processing I Do I Do I Do I Do I Do · Abba (Canon First)",
+    "2026-06-17T19:11:15.926Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:11:15.926Z · Canon vault: 3 Retroverse sources",
+    "2026-06-17T19:11:15.927Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:11:16.202Z · Research vault: 3 sources (0 external)",
+    "2026-06-17T19:11:16.203Z · Emitting canonical facts…",
+    "2026-06-17T19:11:16.203Z · Canonical facts: 4",
+    "2026-06-17T19:11:16.204Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR744809",
+    "artist": "Abba",
+    "title": "I Do I Do I Do I Do I Do",
+    "year": 2011,
+    "albumTitle": "The Best Of ABBA: 20th Century Masters The Millennium Collection",
+    "coverUrl": null,
+    "peakHot100": 15,
+    "chartWeeks": 15,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:11:15.926Z",
+      "excerpt": "Retroverse track identity: RVTR744809. \"I Do I Do I Do I Do I Do\" by Abba. Album: The Best Of ABBA: 20th Century Masters The Millennium Collection (2011).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:11:15.926Z",
+      "excerpt": "Album: The Best Of ABBA: 20th Century Masters The Millennium Collection (2011). Billboard Hot 100 peak: #15. 15 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:11:15.926Z",
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

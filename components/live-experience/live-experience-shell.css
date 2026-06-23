@@ -1,0 +1,188 @@
+.live-shell {
+  --live-paper: #f7f2e8;
+  --live-ink: #1f1f1f;
+  --live-teal: #167a7a;
+  --live-orange: #c64a1d;
+  --live-cream: #fff8e9;
+  --live-rule: #262626;
+
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 174, 75, 0.22), transparent 32rem),
+    var(--live-paper);
+  color: var(--live-ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 1rem;
+}
+
+.live-shell__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto 1rem;
+}
+
+.live-shell__brand {
+  display: inline-block;
+  color: var(--live-teal);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.live-shell__tagline {
+  margin: 0.25rem 0 0;
+  color: var(--live-orange);
+  font-size: clamp(1.25rem, 6vw, 2.4rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.live-shell__back,
+.live-shell__primary,
+.live-shell__tab {
+  border: 3px solid var(--live-rule);
+  box-shadow: 4px 4px 0 rgba(38, 38, 38, 0.14);
+  color: var(--live-ink);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.live-shell__back {
+  flex: 0 0 auto;
+  background: #fff;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.live-shell__hero {
+  display: grid;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  border: 4px solid var(--live-rule);
+  background: var(--live-cream);
+  box-shadow: 8px 8px 0 rgba(38, 38, 38, 0.12);
+}
+
+.live-shell__identity h1 {
+  margin: 0.3rem 0;
+  font-size: clamp(2rem, 10vw, 4.2rem);
+  line-height: 0.95;
+}
+
+.live-shell__artist {
+  margin: 0;
+  font-size: clamp(1.15rem, 5vw, 1.7rem);
+  font-weight: 800;
+}
+
+.live-shell__meta {
+  margin: 0.45rem 0 0;
+  color: #51483e;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.live-shell__status {
+  display: inline-block;
+  margin: 0;
+  padding: 0.35rem 0.55rem;
+  border: 2px solid var(--live-rule);
+  background: #fff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.live-shell__status--deck {
+  background: var(--live-teal);
+  color: #fff;
+}
+
+.live-shell__status--package {
+  background: #f2a03a;
+}
+
+.live-shell__status--track {
+  background: #fff;
+}
+
+.live-shell__status--fallback {
+  background: #f4d9d0;
+}
+
+.live-shell__primary {
+  display: block;
+  align-self: end;
+  justify-self: start;
+  background: var(--live-orange);
+  color: #fff;
+  padding: 0.9rem 1rem;
+  text-transform: uppercase;
+}
+
+.live-shell__tabs {
+  display: flex;
+  gap: 0.45rem;
+  max-width: 72rem;
+  margin: 0 auto 1rem;
+  overflow-x: auto;
+  padding: 0 0.25rem 0.5rem 0;
+}
+
+.live-shell__tab {
+  flex: 0 0 auto;
+  min-width: 5.5rem;
+  padding: 0.7rem 0.8rem;
+  background: #fff;
+  text-align: center;
+}
+
+.live-shell__tab--active {
+  background: var(--live-teal);
+  color: #fff;
+}
+
+.live-shell__tab--disabled {
+  flex: 0 0 auto;
+  min-width: 5.5rem;
+  padding: 0.7rem 0.8rem;
+  border: 3px dashed rgba(38, 38, 38, 0.35);
+  color: rgba(38, 38, 38, 0.45);
+  font-weight: 900;
+  text-align: center;
+}
+
+.live-shell__body {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.live-shell__body > .live-page,
+.live-shell__body > .sn-page,
+.live-shell__body > .track-exhibit,
+.live-shell__body > main,
+.live-shell__body > article {
+  min-height: auto;
+}
+
+@media (min-width: 720px) {
+  .live-shell {
+    padding: 1.5rem;
+  }
+
+  .live-shell__hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    padding: 1.25rem 1.5rem;
+  }
+}

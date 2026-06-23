@@ -35,8 +35,8 @@ export default function OpsSundayNightsPage() {
               ← Ops
             </Link>
             {" · "}
-            <Link className="ops-link" href="/ops/passes">
-              Pass generator
+            <Link className="ops-link" href="/ops/content-creator">
+              Content Creator
             </Link>
           </div>
         </header>

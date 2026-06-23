@@ -138,7 +138,7 @@ export async function loadOpsHomeData(): Promise<OpsHomeData> {
       id: job.id,
       label: job.title,
       status: job.status === "running" ? "running" : "queued",
-      href: "/ops/content-creator/create",
+      href: "/ops/content-creator",
     });
   }
 
@@ -255,10 +255,10 @@ export async function loadOpsHomeData(): Promise<OpsHomeData> {
         href: "/ops/finance/import",
       },
       {
-        id: "workshop",
-        label: "Workshop",
-        description: "Creative Lab — styles, passes, and print outputs",
-        href: "/ops/creative-lab",
+        id: "content-creator",
+        label: "Content Creator",
+        description: "Collectible Library, Pass Generation, Artwork Generation",
+        href: "/ops/content-creator",
       },
     ],
   };

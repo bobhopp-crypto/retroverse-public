@@ -1,33 +1,33 @@
 {
   "mode": "safe",
-  "generatedAt": "2026-06-16T15:59:35.694Z",
-  "uniqueAlbumsProcessed": 10850,
-  "uniqueSuccesses": 6955,
-  "uniqueFailures": 3895,
-  "successRate": 64.1,
-  "mainCursorBefore": 4186,
-  "mainCursorAfter": 33,
-  "retryQueueSize": 3676,
+  "generatedAt": "2026-06-17T13:33:55.530Z",
+  "uniqueAlbumsProcessed": 11423,
+  "uniqueSuccesses": 7170,
+  "uniqueFailures": 4253,
+  "successRate": 62.8,
+  "mainCursorBefore": 89,
+  "mainCursorAfter": 189,
+  "retryQueueSize": 4034,
   "topFailureReasons": [
     {
       "reason": "no_catalog_hit:low_album_similarity",
-      "count": 2775
-    },
-    {
-      "reason": "no_catalog_hit:artist_mismatch",
-      "count": 453
+      "count": 2814
     },
     {
       "reason": "no_catalog_hit:no_results",
-      "count": 412
+      "count": 483
+    },
+    {
+      "reason": "no_catalog_hit:artist_mismatch",
+      "count": 448
     },
     {
       "reason": "NOT_FOUND",
-      "count": 79
+      "count": 330
     },
     {
       "reason": "no_catalog_hit:score_below_threshold",
-      "count": 78
+      "count": 84
     },
     {
       "reason": "itunes_no_file_on_disk",
@@ -35,11 +35,11 @@
     },
     {
       "reason": "no_catalog_hit:remaster_noise",
-      "count": 22
+      "count": 21
     },
     {
       "reason": "no_catalog_hit:ambiguous_match",
-      "count": 17
+      "count": 14
     },
     {
       "reason": "The operation was aborted due to timeout",
@@ -49,16 +49,16 @@
   "topFailurePatterns": [
     {
       "pattern": "standard_studio_album",
-      "count": 2718,
+      "count": 2986,
       "examples": [
-        "david bowie — Blackstar (RVAL607895)",
-        "The 1975 — I Like It When You Sleep, For You Are So Beautiful Yet So Unaware Of It (RVAL659225)",
-        "pearl jam — Lightning Bolt (RVAL456831)"
+        "brockhampton — iridescence (RVAL267427)",
+        "justin timberlake — Man Of The Woods (RVAL266278)",
+        "foo fighters — Concrete And Gold (RVAL833095)"
       ]
     },
     {
       "pattern": "various_artists",
-      "count": 607,
+      "count": 666,
       "examples": [
         "various artists — NOW 49 (RVAL636480)",
         "various artists — NOW 50 (RVAL964082)",
@@ -67,16 +67,16 @@
     },
     {
       "pattern": "punctuation_only_title",
-      "count": 228,
+      "count": 221,
       "examples": [
-        "? — ? (RVAL906016)",
-        "? — ? (RVAL267427)",
-        "? — ? (RVAL266278)"
+        "xxxtentacion — ? (RVAL906016)",
+        "? — ? (RVAL863007)",
+        "ed sheeran — + (RVAL897227)"
       ]
     },
     {
       "pattern": "title_punctuation_heavy",
-      "count": 118,
+      "count": 131,
       "examples": [
         "queens of the stone age — ...Like Clockwork (RVAL384277)",
         "bruce springsteen — Devils & Dust (RVAL831070)",
@@ -85,7 +85,7 @@
     },
     {
       "pattern": "compilation_or_variant_title",
-      "count": 81,
+      "count": 95,
       "examples": [
         "jennifer lopez — J To Tha L-O! The Remixes (RVAL198540)",
         "funkmaster flex — Funkmaster Flex The Mix Tape Volume III: 60 Minutes Of Funk The Final Chapt (RVAL816448)",
@@ -94,16 +94,16 @@
     },
     {
       "pattern": "artist_name_special_chars",
-      "count": 79,
+      "count": 88,
       "examples": [
+        "jay-z — 4:44 (RVAL755654)",
         "beyonce — Beyonce (RVAL283541)",
-        "A$ap Rocky — Long.Live.A$AP (RVAL647901)",
-        "jay-z — The Dynasty Roc La Familia (2000 -- ) (RVAL199571)"
+        "A$ap Rocky — Long.Live.A$AP (RVAL647901)"
       ]
     },
     {
       "pattern": "title_with_year_noise",
-      "count": 40,
+      "count": 41,
       "examples": [
         "jack white — Acoustic Recordings: 1998-2016 (RVAL017491)",
         "dave matthews band — DMBLivetrax Vol. 6: Fenway Park, Boston, MA July 7 -- 8, 2006 (RVAL656416)",
@@ -121,7 +121,7 @@
     },
     {
       "pattern": "artist_name_live",
-      "count": 5,
+      "count": 6,
       "examples": [
         "live — Throwing Copper (RVAL605359)",
         "live — Songs From Black Mountain (RVAL762341)",
@@ -129,9 +129,9 @@
       ]
     }
   ],
-  "currentlyCovered": 17515,
-  "coversRemaining": 4242,
-  "projectedAdditionalCovers": 2719,
-  "projectedTotalCovered": 20234,
-  "projectedCoveragePct": 93
+  "currentlyCovered": 17730,
+  "coversRemaining": 4027,
+  "projectedAdditionalCovers": 2529,
+  "projectedTotalCovered": 20259,
+  "projectedCoveragePct": 93.1
 }

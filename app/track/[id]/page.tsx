@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import { isSundayEventModeEnabled } from "@/lib/sunday-nights/event-mode";
 import { loadTrackPage } from "@/lib/track/load-track-page";
+import { LiveExperienceShell } from "@/components/live-experience/LiveExperienceShell";
+import { buildLiveExperienceShellModel } from "@/lib/live-experience/shell-model";
 
 import { TrackPageView } from "./track-page-view";
 
@@ -28,5 +30,17 @@ export default async function TrackPage({ params }: Props) {
     isSundayEventModeEnabled(),
   ]);
   if (!data) notFound();
-  return <TrackPageView data={data} sundayEventActive={sundayEventActive} />;
+  const shell = await buildLiveExperienceShellModel({
+    rvtr: data.rvtr,
+    title: data.title,
+    artist: data.artistName,
+    year: data.releaseYear,
+    peakHot100: data.peakHot100,
+    activeTab: "Chart",
+  });
+  return (
+    <LiveExperienceShell {...shell}>
+      <TrackPageView data={data} sundayEventActive={sundayEventActive} />
+    </LiveExperienceShell>
+  );
 }

@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR389006",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:16:28.914Z",
+  "updatedAt": "2026-06-17T19:16:29.189Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:16:28.914Z · Processing The Twist · Chubby Checker (Canon First)",
+    "2026-06-17T19:16:28.915Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:16:28.915Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:16:28.915Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:16:29.188Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:16:29.188Z · Emitting canonical facts…",
+    "2026-06-17T19:16:29.188Z · Canonical facts: 5",
+    "2026-06-17T19:16:29.189Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR389006",
+    "artist": "Chubby Checker",
+    "title": "The Twist",
+    "year": 1972,
+    "albumTitle": "Chubby Checker's Greatest Hits",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL267749/RVAL267749__chubby-checker__chubby-checker-s-greatest-hits.jpg",
+    "peakHot100": 1,
+    "chartWeeks": 40,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:16:28.915Z",
+      "excerpt": "Retroverse track identity: RVTR389006. \"The Twist\" by Chubby Checker. Album: Chubby Checker's Greatest Hits (1972).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL267749/RVAL267749__chubby-checker__chubby-checker-s-greatest-hits.jpg",
+      "capturedAt": "2026-06-17T19:16:28.915Z",
+      "excerpt": "Canonical cover assignment for RVTR389006 (The Twist). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:16:28.915Z",
+      "excerpt": "Album: Chubby Checker's Greatest Hits (1972). Billboard Hot 100 peak: #1. 40 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:16:28.915Z",
+      "excerpt": "Performance year context: 1972.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

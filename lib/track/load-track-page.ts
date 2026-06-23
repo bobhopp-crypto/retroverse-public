@@ -48,12 +48,22 @@ export type TrackPageData = {
   rvYearHref: string | null;
 };
 
-function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
-  return resolveAlbumCoverUrlFromRow({
+function pickCoverUrl(
+  artworkUpdatedAt: string | null | undefined,
+  ...candidates: (string | null | undefined)[]
+): string | null {
+  const url = resolveAlbumCoverUrlFromRow({
     cover_path: candidates[0],
     artwork_path: candidates[1],
     r2_cover_key: candidates[2],
   });
+  if (!url) return null;
+  const stamp = artworkUpdatedAt?.trim();
+  if (!stamp) return url;
+  const rev = Date.parse(stamp);
+  if (!Number.isFinite(rev)) return url;
+  const sep = url.includes("?") ? "&" : "?";
+  return `${url}${sep}v=${rev}`;
 }
 
 function yearFromDate(value: string | null | undefined): number | null {
@@ -124,6 +134,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
       cover_path: string | null;
       artwork_path: string | null;
       r2_cover_key: string | null;
+      artwork_updated_at: string | null;
     }>(
       `
       SELECT al.title, al.release_year, aek.external_key AS rval,
@@ -131,15 +142,30 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
              (
                SELECT aal.canonical_cover_path FROM album_artwork_links aal
                WHERE aal.album_id = al.id
-               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
+               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC,
+                        aal.confidence_score DESC NULLS LAST,
+                        aal.updated_at DESC NULLS LAST,
+                        aal.id DESC
                LIMIT 1
              ) AS artwork_path,
              (
                SELECT aal.r2_cover_key FROM album_artwork_links aal
                WHERE aal.album_id = al.id
-               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC, aal.confidence_score DESC NULLS LAST
+               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC,
+                        aal.confidence_score DESC NULLS LAST,
+                        aal.updated_at DESC NULLS LAST,
+                        aal.id DESC
                LIMIT 1
-             ) AS r2_cover_key
+             ) AS r2_cover_key,
+             (
+               SELECT aal.updated_at::text FROM album_artwork_links aal
+               WHERE aal.album_id = al.id
+               ORDER BY (aal.review_flag IN ('curated', 'ok')) DESC,
+                        aal.confidence_score DESC NULLS LAST,
+                        aal.updated_at DESC NULLS LAST,
+                        aal.id DESC
+               LIMIT 1
+             ) AS artwork_updated_at
       FROM canonical_album_tracks cat
       JOIN albums al ON al.id = cat.album_id
       LEFT JOIN album_external_keys aek ON aek.album_id = al.id
@@ -220,7 +246,12 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
       title: row.title.trim(),
       releaseYear: row.release_year,
       rval,
-      coverUrl: pickCoverUrl(row.cover_path, row.artwork_path, row.r2_cover_key),
+      coverUrl: pickCoverUrl(
+        row.artwork_updated_at,
+        row.cover_path,
+        row.artwork_path,
+        row.r2_cover_key,
+      ),
       href: rval && RE_RVAL.test(rval) ? `/album/${rval}` : null,
     };
   });

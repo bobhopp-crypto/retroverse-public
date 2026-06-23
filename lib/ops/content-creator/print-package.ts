@@ -7,6 +7,7 @@ import {
   verifyQrInCompositeBuffer,
   type QrVerificationResult,
 } from "@/lib/ops/creative-lab/pass-export-composite";
+import type { PassQrPlacement } from "@/lib/ops/creative-lab/types";
 import { QrExportVerificationError } from "@/lib/ops/content-creator/qr-export-error";
 import { pngSheetToPdf } from "@/lib/ops/content-creator/print-pdf";
 import {
@@ -63,6 +64,7 @@ export async function buildVNextPrintPackage(args: {
   frontPng: Buffer;
   backPng: Buffer;
   qrUrl: string;
+  qrPlacement?: PassQrPlacement;
   event: string;
   runId: string;
   quantity?: number;
@@ -95,6 +97,7 @@ export async function buildVNextPrintPackage(args: {
     const sharedBack = await compositeVNextBackPng({
       backPng: args.backPng,
       qrUrl: args.qrUrl,
+      qrPlacement: args.qrPlacement,
       stamp,
     });
     for (let i = 0; i < quantity; i++) {
@@ -108,6 +111,7 @@ export async function buildVNextPrintPackage(args: {
       const backBuffer = await compositeVNextBackPng({
         backPng: args.backPng,
         qrUrl: args.qrUrl,
+        qrPlacement: args.qrPlacement,
         stamp,
       });
       numberedBackBuffers.push(backBuffer);
@@ -117,7 +121,7 @@ export async function buildVNextPrintPackage(args: {
   }
 
   const sampleBack = numberedBackBuffers[0]!;
-  const qrVerification = await verifyQrInCompositeBuffer(sampleBack, args.qrUrl);
+  const qrVerification = await verifyQrInCompositeBuffer(sampleBack, args.qrUrl, args.qrPlacement);
   if (!qrVerification.ok || !qrVerification.modulesPresent || !qrVerification.decodePass) {
     throw new QrExportVerificationError(qrVerification);
   }
@@ -158,7 +162,7 @@ export async function buildVNextPrintPackage(args: {
     const backPngPath = join(printDir, backPngName);
 
     const frontSheet = await buildPrintSheetPng(frontSlots);
-    const backSheet = await buildPrintSheetPng(backSlots);
+    const backSheet = await buildPrintSheetPng(backSlots, { mirrorForDuplexLongEdge: true });
     await writeFile(frontPngPath, frontSheet);
     await writeFile(backPngPath, backSheet);
 
@@ -183,6 +187,7 @@ export async function buildVNextPrintPackage(args: {
     exportedAt: new Date().toISOString(),
     event: args.event,
     qrUrl: args.qrUrl,
+    qrPlacement: args.qrPlacement,
     quantity,
     sheetCount,
     numbering,
@@ -202,7 +207,11 @@ export async function buildVNextPrintPackage(args: {
   await writeFile(metadataManifest, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
   await writeFile(
     qrScanReport,
-    `${JSON.stringify({ exportedAt: manifest.exportedAt, qrUrl: args.qrUrl, qrVerification, qrStatus }, null, 2)}\n`,
+    `${JSON.stringify(
+      { exportedAt: manifest.exportedAt, qrUrl: args.qrUrl, qrPlacement: args.qrPlacement, qrVerification, qrStatus },
+      null,
+      2,
+    )}\n`,
     "utf8",
   );
   await writeFile(

@@ -57,6 +57,11 @@ export type FinanceTransaction = {
   rulePattern: string | null;
 };
 
+export type FinanceTransactionWithStatement = FinanceTransaction & {
+  statementLabel: string | null;
+  statementImportId: number | null;
+};
+
 function mapTxn(row: FinanceTransactionRow): FinanceTransaction {
   const date =
     row.transaction_date instanceof Date
@@ -185,6 +190,67 @@ export async function queryMonthlySpend(
       params,
     );
     return rows.map((r) => ({ month: r.month, amount: Number(r.amount) }));
+  } catch (err) {
+    financeDbError(err);
+  }
+}
+
+export async function queryTopMerchants(
+  filters: FinanceFilters,
+  limit = 8,
+): Promise<{ merchant: string; amount: number; count: number }[]> {
+  const { sql, params } = buildFilterSql(filters);
+  try {
+    const rows = await inspectQuery<{
+      merchant: string;
+      amount: string;
+      count: string;
+    }>(
+      `SELECT COALESCE(NULLIF(TRIM(t.merchant), ''), 'Unknown') AS merchant,
+              SUM(ABS(t.amount))::text AS amount,
+              COUNT(*)::text AS count
+       ${TXN_FROM}
+       ${sql}
+       GROUP BY 1
+       ORDER BY SUM(ABS(t.amount)) DESC
+       LIMIT $${params.length + 1}`,
+      [...params, limit],
+    );
+    return rows.map((r) => ({
+      merchant: r.merchant,
+      amount: Number(r.amount),
+      count: Number(r.count),
+    }));
+  } catch (err) {
+    financeDbError(err);
+  }
+}
+
+export async function queryRecentSpendTransactions(
+  filters: FinanceFilters,
+  limit = 10,
+): Promise<{ transactionDate: string; merchant: string; description: string; amount: number }[]> {
+  const { sql, params } = buildFilterSql(filters);
+  try {
+    const rows = await inspectQuery<{
+      transaction_date: string;
+      merchant: string;
+      description: string;
+      amount: string;
+    }>(
+      `SELECT t.transaction_date::text, t.merchant, t.description, t.amount::text
+       ${TXN_FROM}
+       ${sql}
+       ORDER BY t.transaction_date DESC, t.id DESC
+       LIMIT $${params.length + 1}`,
+      [...params, limit],
+    );
+    return rows.map((r) => ({
+      transactionDate: r.transaction_date.slice(0, 10),
+      merchant: r.merchant,
+      description: r.description,
+      amount: Number(r.amount),
+    }));
   } catch (err) {
     financeDbError(err);
   }
@@ -394,7 +460,7 @@ export async function countFinanceTransactions(): Promise<number> {
   try {
     const rows = await inspectQuery<{ count: string }>(
       `SELECT COUNT(*)::text AS count FROM finance_transactions
-       WHERE COALESCE(flow_kind, 'expense') = 'expense' AND amount > 0`,
+       WHERE archived_at IS NULL AND COALESCE(flow_kind, 'expense') = 'expense' AND amount > 0`,
     );
     return Number(rows[0]?.count ?? 0);
   } catch (err) {
@@ -405,7 +471,7 @@ export async function countFinanceTransactions(): Promise<number> {
 export async function countIncomeTransactions(): Promise<number> {
   try {
     const rows = await inspectQuery<{ count: string }>(
-      `SELECT COUNT(*)::text AS count FROM finance_transactions WHERE flow_kind = 'income'`,
+      `SELECT COUNT(*)::text AS count FROM finance_transactions WHERE archived_at IS NULL AND flow_kind = 'income'`,
     );
     return Number(rows[0]?.count ?? 0);
   } catch (err) {
@@ -463,6 +529,7 @@ export async function insertFinanceTransactions(
   rows: ParsedFinanceRow[],
   importId: number,
   rules: FinanceRule[],
+  institutionAccountId?: number | null,
 ): Promise<{ inserted: number; skipped: number; updated: number; autoCategorized: number; pending: number }> {
   let inserted = 0;
   let skipped = 0;
@@ -510,7 +577,7 @@ export async function insertFinanceTransactions(
 
     try {
       const existing = await inspectQuery<{ id: number; account_id: number | null }>(
-        `SELECT id, account_id FROM finance_transactions WHERE dedupe_key = $1 LIMIT 1`,
+        `SELECT id, account_id FROM finance_transactions WHERE dedupe_key = $1 AND archived_at IS NULL LIMIT 1`,
         [row.dedupeKey],
       );
 
@@ -519,11 +586,20 @@ export async function insertFinanceTransactions(
           await inspectExecute(
             `UPDATE finance_transactions
              SET account_id = $1, subcategory = $2, review_status = 'approved',
-                 importance = $3, updated_at = now()
+                 importance = $3, institution_account_id = COALESCE(institution_account_id, $5),
+                 updated_at = now()
              WHERE id = $4`,
-            [accountId, subcategory, importance, existing[0].id],
+            [accountId, subcategory, importance, existing[0].id, institutionAccountId ?? null],
           );
           updated++;
+        } else if (institutionAccountId) {
+          await inspectExecute(
+            `UPDATE finance_transactions
+             SET institution_account_id = COALESCE(institution_account_id, $2), updated_at = now()
+             WHERE id = $1`,
+            [existing[0].id, institutionAccountId],
+          );
+          skipped++;
         } else {
           skipped++;
         }
@@ -533,8 +609,8 @@ export async function insertFinanceTransactions(
       const result = await inspectExecute(
         `INSERT INTO finance_transactions
            (source, transaction_date, merchant, description, amount, account_id, subcategory,
-            review_status, raw_import_id, dedupe_key, flow_kind, importance)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
+            review_status, raw_import_id, dedupe_key, flow_kind, importance, institution_account_id)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`,
         [
           row.source,
           row.transactionDate,
@@ -548,6 +624,7 @@ export async function insertFinanceTransactions(
           row.dedupeKey,
           flowKind,
           importance,
+          institutionAccountId ?? null,
         ],
       );
       if (result > 0) inserted++;
@@ -565,7 +642,7 @@ export async function listReviewQueue(limit = 100): Promise<FinanceTransaction[]
     const rows = await inspectQuery<FinanceTransactionRow>(
       `SELECT ${TXN_SELECT}
        ${TXN_FROM}
-       WHERE t.review_status = 'pending' AND t.account_id IS NULL
+       WHERE t.archived_at IS NULL AND t.review_status = 'pending' AND t.account_id IS NULL
          AND t.flow_kind = 'expense' AND t.amount > 0
        ORDER BY t.transaction_date DESC, t.amount DESC
        LIMIT $1`,
@@ -635,6 +712,8 @@ export type LedgerFilters = {
   year?: string;
   source?: string;
   accountId?: number;
+  institutionAccountId?: number;
+  rawImportId?: number;
   merchant?: string;
   search?: string;
   sort?: "date" | "merchant" | "amount" | "account";
@@ -644,7 +723,7 @@ export type LedgerFilters = {
 
 export async function queryLedger(filters: LedgerFilters = {}): Promise<FinanceTransaction[]> {
   const params: unknown[] = [];
-  const clauses: string[] = ["1=1"];
+  const clauses: string[] = ["t.archived_at IS NULL"];
 
   if (filters.year) {
     params.push(`${filters.year}-01-01`);
@@ -659,6 +738,14 @@ export async function queryLedger(filters: LedgerFilters = {}): Promise<FinanceT
   if (filters.accountId) {
     params.push(filters.accountId);
     clauses.push(`t.account_id = $${params.length}`);
+  }
+  if (filters.institutionAccountId) {
+    params.push(filters.institutionAccountId);
+    clauses.push(`t.institution_account_id = $${params.length}`);
+  }
+  if (filters.rawImportId) {
+    params.push(filters.rawImportId);
+    clauses.push(`t.raw_import_id = $${params.length}`);
   }
   if (filters.merchant) {
     params.push(`%${filters.merchant.toLowerCase()}%`);
@@ -692,6 +779,82 @@ export async function queryLedger(filters: LedgerFilters = {}): Promise<FinanceT
       params,
     );
     return rows.map(mapTxn);
+  } catch (err) {
+    financeDbError(err);
+  }
+}
+
+function statementPeriodLabel(statementEnd: string | null, statementStart: string | null): string | null {
+  const iso = statementEnd ?? statementStart;
+  if (!iso) return null;
+  return new Date(`${iso.slice(0, 10)}T12:00:00`).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+}
+
+export async function queryAccountTransactions(input: {
+  institutionAccountId: number;
+  ledgerSource?: string | null;
+  dateFrom?: string;
+  dateTo?: string;
+  dateAfter?: string;
+  limit?: number;
+  orderAsc?: boolean;
+}): Promise<FinanceTransactionWithStatement[]> {
+  const params: unknown[] = [input.institutionAccountId];
+  const clauses = ["t.archived_at IS NULL"];
+
+  if (input.ledgerSource) {
+    params.push(input.ledgerSource);
+    clauses.push(
+      `(t.institution_account_id = $1 OR (t.institution_account_id IS NULL AND t.source = $${params.length}))`,
+    );
+  } else {
+    clauses.push(`t.institution_account_id = $1`);
+  }
+
+  if (input.dateFrom) {
+    params.push(input.dateFrom);
+    clauses.push(`t.transaction_date >= $${params.length}::date`);
+  }
+  if (input.dateTo) {
+    params.push(input.dateTo);
+    clauses.push(`t.transaction_date <= $${params.length}::date`);
+  }
+  if (input.dateAfter) {
+    params.push(input.dateAfter);
+    clauses.push(`t.transaction_date > $${params.length}::date`);
+  }
+
+  params.push(input.limit ?? 300);
+  const limitParam = params.length;
+  const orderSql = input.orderAsc
+    ? "ORDER BY t.transaction_date ASC, t.id ASC"
+    : "ORDER BY t.transaction_date DESC, t.id DESC";
+
+  try {
+    const rows = await inspectQuery<
+      FinanceTransactionRow & {
+        statement_end: string | null;
+        statement_start: string | null;
+        stmt_import_id: number | null;
+      }
+    >(
+      `SELECT ${TXN_SELECT},
+              fi.statement_end::text, fi.statement_start::text, fi.id AS stmt_import_id
+       ${TXN_FROM}
+       LEFT JOIN finance_imports fi ON fi.id = t.raw_import_id
+       WHERE ${clauses.join(" AND ")}
+       ${orderSql}
+       LIMIT $${limitParam}`,
+      params,
+    );
+    return rows.map((row) => ({
+      ...mapTxn(row),
+      statementLabel: statementPeriodLabel(row.statement_end, row.statement_start),
+      statementImportId: row.stmt_import_id ? Number(row.stmt_import_id) : row.raw_import_id,
+    }));
   } catch (err) {
     financeDbError(err);
   }
@@ -745,6 +908,19 @@ export async function updateLedgerTransactions(
     params,
   );
   return result;
+}
+
+export async function deleteLedgerTransactions(ids: number[]): Promise<number> {
+  if (!ids.length) return 0;
+  try {
+    const result = await inspectExecute(
+      `DELETE FROM finance_transactions WHERE id = ANY($1::bigint[])`,
+      [ids],
+    );
+    return result;
+  } catch (err) {
+    financeDbError(err);
+  }
 }
 
 export async function listTransactionLedger(limit = 100): Promise<FinanceTransaction[]> {

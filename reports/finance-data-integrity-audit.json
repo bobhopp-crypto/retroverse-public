@@ -1,0 +1,106 @@
+{
+  "generatedAt": "2026-06-16T22:12:53.140Z",
+  "summary": {
+    "passCount": 12,
+    "failCount": 0,
+    "total": 12
+  },
+  "rows": [
+    {
+      "check": "Apple Card — statement balance",
+      "uiValue": 1005.14,
+      "calculatedValue": 1005.14,
+      "sourceStatementValue": 1005.14,
+      "verdict": "PASS",
+      "notes": "January 2026 end 2026-01-31 (imported)"
+    },
+    {
+      "check": "NEBAT — statement balance",
+      "uiValue": 1070.14,
+      "calculatedValue": 1070.14,
+      "sourceStatementValue": 1070.14,
+      "verdict": "PASS",
+      "notes": "finance_nebat_statements end 2026-05-19"
+    },
+    {
+      "check": "Spending — total last 12 months",
+      "uiValue": 20851.37,
+      "calculatedValue": 20851.37,
+      "sourceStatementValue": 20851.37,
+      "verdict": "PASS",
+      "notes": "Last 12 Months (2025-06-16 → 2026-06-16)"
+    },
+    {
+      "check": "Spending — total current month",
+      "uiValue": 452.5,
+      "calculatedValue": 452.5,
+      "sourceStatementValue": 452.5,
+      "verdict": "PASS",
+      "notes": "YTD match: PASS"
+    },
+    {
+      "check": "Spending — total YTD",
+      "uiValue": 20851.37,
+      "calculatedValue": 20851.37,
+      "sourceStatementValue": 20851.37,
+      "verdict": "PASS",
+      "notes": "Calendar year 2026"
+    },
+    {
+      "check": "Category — Groceries (12m)",
+      "uiValue": 1429.93,
+      "calculatedValue": 1429.93,
+      "sourceStatementValue": 1429.93,
+      "verdict": "PASS",
+      "notes": "category filters: grocery"
+    },
+    {
+      "check": "Category — Dining (12m)",
+      "uiValue": 723.65,
+      "calculatedValue": 723.65,
+      "sourceStatementValue": 723.65,
+      "verdict": "PASS",
+      "notes": "category filters: restaurants"
+    },
+    {
+      "check": "Category — Gas (12m)",
+      "uiValue": 112.5,
+      "calculatedValue": 112.5,
+      "sourceStatementValue": 112.5,
+      "verdict": "PASS",
+      "notes": "category filters: gas"
+    },
+    {
+      "check": "Category — Utilities (12m)",
+      "uiValue": 3345.32,
+      "calculatedValue": 3345.32,
+      "sourceStatementValue": 3345.32,
+      "verdict": "PASS",
+      "notes": "category filters: utilities"
+    },
+    {
+      "check": "Category — Insurance (12m)",
+      "uiValue": 153,
+      "calculatedValue": 153,
+      "sourceStatementValue": 153,
+      "verdict": "PASS",
+      "notes": "category filters: insurance"
+    },
+    {
+      "check": "Category — Home (12m)",
+      "uiValue": 0,
+      "calculatedValue": 0,
+      "sourceStatementValue": 0,
+      "verdict": "PASS",
+      "notes": "category filters: home"
+    },
+    {
+      "check": "Category — Subscriptions (12m)",
+      "uiValue": 247.82,
+      "calculatedValue": 247.82,
+      "sourceStatementValue": 247.82,
+      "verdict": "PASS",
+      "notes": "category filters: subscriptions"
+    }
+  ]
+}

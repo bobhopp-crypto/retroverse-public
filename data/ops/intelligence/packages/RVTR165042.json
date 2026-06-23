@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "rvtr": "RVTR165042",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:10:21.082Z",
+  "updatedAt": "2026-06-17T19:10:21.361Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:10:21.082Z · Processing S O S · Abba (Canon First)",
+    "2026-06-17T19:10:21.082Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:10:21.083Z · Canon vault: 3 Retroverse sources",
+    "2026-06-17T19:10:21.083Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:10:21.360Z · Research vault: 3 sources (0 external)",
+    "2026-06-17T19:10:21.361Z · Emitting canonical facts…",
+    "2026-06-17T19:10:21.361Z · Canonical facts: 4",
+    "2026-06-17T19:10:21.361Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR165042",
+    "artist": "Abba",
+    "title": "S O S",
+    "year": 2011,
+    "albumTitle": "The Best Of ABBA: 20th Century Masters The Millennium Collection",
+    "coverUrl": null,
+    "peakHot100": 15,
+    "chartWeeks": 17,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:10:21.083Z",
+      "excerpt": "Retroverse track identity: RVTR165042. \"S O S\" by Abba. Album: The Best Of ABBA: 20th Century Masters The Millennium Collection (2011).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:10:21.083Z",
+      "excerpt": "Album: The Best Of ABBA: 20th Century Masters The Millennium Collection (2011). Billboard Hot 100 peak: #15. 17 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:10:21.083Z",
+      "excerpt": "Performance year context: 2011.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

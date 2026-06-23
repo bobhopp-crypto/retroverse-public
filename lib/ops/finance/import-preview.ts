@@ -5,6 +5,7 @@ import { matchRule, type FinanceRule } from "@/lib/ops/finance/db/rules";
 import type { ParsedFinanceRow } from "@/lib/ops/finance/finance-model";
 
 export type FinanceImportPreviewRow = {
+  stagingId?: number;
   transactionDate: string;
   merchant: string;
   description: string;
@@ -12,6 +13,7 @@ export type FinanceImportPreviewRow = {
   proposedAccount: string | null;
   duplicateWarning: string | null;
   flowKind: string;
+  notes?: string | null;
 };
 
 async function resolveProposedAccount(
@@ -42,7 +44,7 @@ async function loadDuplicateHints(
   const rows = await inspectQuery<{ dedupe_key: string; has_account: boolean }>(
     `SELECT dedupe_key, (account_id IS NOT NULL) AS has_account
      FROM finance_transactions
-     WHERE dedupe_key = ANY($1::text[])`,
+     WHERE archived_at IS NULL AND dedupe_key = ANY($1::text[])`,
     [keys],
   );
   for (const row of rows) {

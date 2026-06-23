@@ -24,13 +24,13 @@ import {
   NO_FAKE_NETWORK_BRANDS_PROMPT,
   NO_MEASUREMENT_ON_ARTWORK_PROMPT,
 } from "@/lib/ops/creative-lab/pass-prompt-safety";
-import { QR_PRODUCTION_DATA_RULES } from "@/lib/ops/creative-lab/qr-production";
 import { artworkBackLayoutPrompt, PASS_HEIGHT, PASS_WIDTH } from "@/lib/ops/creative-lab/pass-layout";
 import {
   compressedTextGovernancePromptBlock,
   normalizePassTypeLabel,
   type PassTextFields,
 } from "@/lib/ops/creative-lab/pass-text-governance";
+import { COLLECTOR_CARD_SUIT_LABELS, COLLECTOR_CARD_TYPE_LABELS } from "@/lib/ops/content-creator/collector-card";
 import type { CollectiblePassFields } from "@/lib/ops/content-creator/collectible-pass-prompt";
 import type { ContentArtifactType } from "@/lib/ops/content-creator/types";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
@@ -77,6 +77,54 @@ const SUBJECT_AVOIDANCE_RULES = [
   `No photorealistic headshots, no famous-person resemblance, no audience silhouettes as focal subject`,
 ].join("\n");
 
+const BACK_PURPOSE_RULES = [
+  `BACK PURPOSE — RELATED TO FRONT, NOT A SECOND FRONT:`,
+  `Front = hero artwork and emotional collectible face.`,
+  `Back = authentication, collector information, production reserve, serial/stamp area, and supporting artwork.`,
+  `Use the front only as a family reference for palette, stock, border language, and era mood.`,
+  `Do not repeat the front hero composition, focal subject, or poster-style hierarchy on the back.`,
+  `Back layout order: supporting artwork at top, collector/authentication information in the middle, production QR reserve below, generous serial/stamp area at bottom.`,
+].join("\n");
+
+const COLLECTOR_CARD_VISUAL_RULES = [
+  `AVOID AI CONCERT POSTER SYNDROME:`,
+  `Do not generate singers, performers, microphones, crowds, stages, band portraits, celebrity likenesses, or live-performance scenes.`,
+  `Represent the memory of the song through objects, environments, symbols, materials, and atmosphere.`,
+  `Prefer empty rooms after the music, instruments as objects, street signs, radio dials, dance-floor traces, record sleeves, studio equipment, weather, cars, textiles, lights, and era-specific ephemera.`,
+  `Collector card first, not casino card; no mirrored corners, no playing-card border gimmick, no poker-table language.`,
+].join("\n");
+
+function collectorCardPromptBlock(fields: CollectiblePassFields): string {
+  const content = fields.collectorCardContent;
+  const presentation = fields.collectorCardPresentation;
+  if (!content || !presentation) return "";
+
+  const chartLine = content.chartPosition
+    ? `Retroverse Hot 100 year rank: #${content.chartPosition}`
+    : "Retroverse Pick: manual / face-card selection";
+  return [
+    `CARD IDENTITY`,
+    `Year: ${content.year}`,
+    `Song Title: ${content.song}`,
+    `Artist: ${content.artist}`,
+    chartLine,
+    `RVTR: ${content.rvtr || "manual resolution pending"}`,
+    `Fact, one sentence only: ${content.fact}`,
+    ``,
+    `PRESENTATION`,
+    `Card type: ${COLLECTOR_CARD_TYPE_LABELS[presentation.cardType]}`,
+    `Rank: ${presentation.rank}`,
+    `Suit: ${COLLECTOR_CARD_SUIT_LABELS[presentation.suit]}`,
+    ``,
+    `LAYOUT HIERARCHY`,
+    `1. Artwork dominates the portrait card.`,
+    `2. Song title below artwork as strong collector-card typography.`,
+    `3. Artist + year below title.`,
+    `4. One-line fact below artist/year; never a paragraph.`,
+    `5. Upper-right corner only contains rank and suit; no mirrored corner marks.`,
+  ].join("\n");
+}
+
 function scorePromptQuality(
   input: RvbrPromptEngineInput,
   eraProfile: ReturnType<typeof loadRvbrPromptProfile>,
@@ -106,6 +154,7 @@ function scorePromptQuality(
 export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPrompt {
   const eraProfile = loadRvbrPromptProfile(input.profile.slug);
   const dir = creativeDirectionById(input.settings.creativeDirection);
+  const isCollectorCard = input.artifactType === "collector-card";
 
   const archetypeId = resolveArtifactArchetype(
     input.settings.artifactArchetype,
@@ -123,9 +172,21 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
 
   const sideLabel = input.side === "front" ? "FRONT" : "BACK";
   const artifactLabel =
-    input.artifactType === "pass" ? "collectible pass" : `${input.artifactType} artifact`;
+    input.artifactType === "pass"
+      ? "collectible pass"
+      : input.artifactType === "collector-card"
+        ? "collector card"
+        : `${input.artifactType} artifact`;
 
-  const archetypeContent = artifactArchetypePromptBlock(archetype, input.compositionSeed);
+  const archetypeContent = isCollectorCard
+    ? [
+        `Retroverse Collector Card`,
+        `Primary: portrait collector card for a canonical music memory.`,
+        `Structure: artwork-first card with song title, artist + year, one-sentence fact, and upper-right rank/suit only.`,
+        `Never generate: concert poster, performer portrait, microphone hero, crowd scene, stage scene, casino card, mirrored playing-card corners.`,
+        `Feel: a tactile card pulled from a box of cultural memories.`,
+      ].join("\n")
+    : artifactArchetypePromptBlock(archetype, input.compositionSeed);
   const eraContent = compressedEraProfileBlock(eraProfile, input.profile, input.settings);
   const directionContent = creativeDirectionPromptBlock(
     input.settings,
@@ -134,7 +195,7 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     input.side === "back" ? input.frontSummary : undefined,
   );
   const brandContent = RETROVERSE_BRAND_RULES;
-  const governedText = compressedTextGovernancePromptBlock(textFields, input.fields.qrUrl);
+  const governedText = isCollectorCard ? collectorCardPromptBlock(input.fields) : compressedTextGovernancePromptBlock(textFields);
 
   const debugBreakdown: PromptDebugBreakdown = {
     artifactArchetype: { id: "archetype", label: "Artifact Archetype", content: archetypeContent },
@@ -168,8 +229,22 @@ export function composeRvbrPrompt(input: RvbrPromptEngineInput): ComposedRvbrPro
     `ARTWORK SAFETY`,
     NO_MEASUREMENT_ON_ARTWORK_PROMPT,
     NO_FAKE_NETWORK_BRANDS_PROMPT,
-    ...(input.side === "back"
-      ? [``, `QR PRODUCTION`, QR_PRODUCTION_DATA_RULES, ``, `BACK LAYOUT`, artworkBackLayoutPrompt()]
+    ...(isCollectorCard
+      ? [
+          ``,
+          `COLLECTOR CARD RULES`,
+          COLLECTOR_CARD_VISUAL_RULES,
+        ]
+      : []),
+    ...(input.side === "back" && !isCollectorCard
+      ? [
+          ``,
+          `BACK PURPOSE`,
+          BACK_PURPOSE_RULES,
+          ``,
+          `BACK LAYOUT`,
+          artworkBackLayoutPrompt(),
+        ]
       : []),
     ``,
     `GOVERNED TEXT`,

@@ -17,5 +17,5 @@
     "paths": { "@/*": ["./*"] }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "tools", "reports"]
+  "exclude": ["node_modules", "tools", "reports", "lib/healing/mb-ingest"]
 }

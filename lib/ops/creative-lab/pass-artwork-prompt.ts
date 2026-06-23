@@ -24,7 +24,7 @@ const ARTWORK_FORBIDDEN = [
   `FORBIDDEN IN ARTWORK:`,
   `- Any readable text, numerals, dates, years, venue names, event titles`,
   `- QR patterns, checkerboard modules, fake barcodes, scannable-looking pixels`,
-  `- Flat opaque blocks that cover illustration (except the intentional back-side white verification window)`,
+  `- Flat opaque blocks that cover illustration (except the intentional back-side hard-edged empty white verification square)`,
   `- Placeholder lorem ipsum, gibberish lettering, or decorative fake type`,
 ].join("\n");
 
@@ -44,11 +44,13 @@ function informationPanelsBlock(side: "front" | "back"): string {
     `Use borders, embossing, foil bands, laminate stripes, ornamental crests, and subtle interior washes.`,
     `Keep panel interiors translucent or lightly textured so hero illustration shows through.`,
     ...lines,
-    `- Serial stamp panel: ${SERIAL_PANEL.width}×${SERIAL_PANEL.height}px at bottom center — embossed empty footer frame only`,
+    `- Serial stamp panel: ${SERIAL_PANEL.width}×${SERIAL_PANEL.height}px at bottom center — generous empty authentication frame for hand-stamped numbers and collector codes`,
     side === "back"
-      ? `- Verification window: intentional flat white square in lower half — design element for export QR, not a fake code`
+      ? `- Production QR reserve: intentional square in lower-middle area — equal width and height, sharp corners, no text, no QR graphics, no checkerboard, not a fake code`
       : "",
-    `Illustration remains the hero between and around panels. Ornament may frame OUTSIDE zones.`,
+    side === "back"
+      ? `Supporting artwork fills top/background areas while authentication panels remain clear. Ornament may frame OUTSIDE zones.`
+      : `Illustration remains the hero between and around panels. Ornament may frame OUTSIDE zones.`,
   ]
     .filter(Boolean)
     .join("\n");
@@ -67,7 +69,7 @@ export function renderPassArtworkPrompt(input: {
   const sideLine =
     input.side === "back"
       ? [
-          `BACK / REVERSE SIDE — mirror front visual family (palette, border, laminate stock).`,
+          `BACK / REVERSE SIDE — relate to front visual family (palette, border, laminate stock) without copying the front hero layout.`,
           qrZonePromptBlock(),
         ]
       : [`FRONT SIDE — hero illustration with credential framing hierarchy.`];

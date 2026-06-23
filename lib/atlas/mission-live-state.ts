@@ -283,7 +283,7 @@ export async function loadMissionLiveScores(
   const [tagStore, albumStats, vdjMeta] = await Promise.all([
     loadRetroverseTagsStore(),
     loadAlbumStats(rvtr),
-    loadVdjMetaForPaths([auditRow.path]),
+    loadVdjMetaForPaths(auditRow.path ? [auditRow.path] : []),
   ]);
 
   const canonicalTags = tagsForRvtr(tagStore, rvtr);

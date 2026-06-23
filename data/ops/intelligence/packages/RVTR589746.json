@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR589746",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:08:53.966Z",
+  "updatedAt": "2026-06-17T19:08:54.239Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:08:53.966Z · Processing Calypso · John Denver (Canon First)",
+    "2026-06-17T19:08:53.967Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:08:53.967Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:08:53.968Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:08:54.237Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:08:54.238Z · Emitting canonical facts…",
+    "2026-06-17T19:08:54.238Z · Canonical facts: 5",
+    "2026-06-17T19:08:54.239Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR589746",
+    "artist": "John Denver",
+    "title": "Calypso",
+    "year": 1995,
+    "albumTitle": "Wildlife Concert",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL341895/RVAL341895__john-denver__wildlife-concert.jpg",
+    "peakHot100": null,
+    "chartWeeks": null,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:08:53.967Z",
+      "excerpt": "Retroverse track identity: RVTR589746. \"Calypso\" by John Denver. Album: Wildlife Concert (1995).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL341895/RVAL341895__john-denver__wildlife-concert.jpg",
+      "capturedAt": "2026-06-17T19:08:53.967Z",
+      "excerpt": "Canonical cover assignment for RVTR589746 (Calypso). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:08:53.967Z",
+      "excerpt": "Album: Wildlife Concert (1995)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:08:53.967Z",
+      "excerpt": "Performance year context: 1995.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

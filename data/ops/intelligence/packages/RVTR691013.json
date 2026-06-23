@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR691013",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:12:23.461Z",
+  "updatedAt": "2026-06-17T19:12:23.730Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:12:23.461Z · Processing Right Back Where We Started From · Maxine Nightingale (Canon First)",
+    "2026-06-17T19:12:23.462Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:12:23.462Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:12:23.463Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:12:23.728Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:12:23.729Z · Emitting canonical facts…",
+    "2026-06-17T19:12:23.729Z · Canonical facts: 5",
+    "2026-06-17T19:12:23.730Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR691013",
+    "artist": "Maxine Nightingale",
+    "title": "Right Back Where We Started From",
+    "year": 1976,
+    "albumTitle": "Right Back Where We Started From",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL526644/RVAL526644__maxine-nightingale__right-back-where-we-started-from.jpg",
+    "peakHot100": 2,
+    "chartWeeks": 20,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:23.462Z",
+      "excerpt": "Retroverse track identity: RVTR691013. \"Right Back Where We Started From\" by Maxine Nightingale. Album: Right Back Where We Started From (1976).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL526644/RVAL526644__maxine-nightingale__right-back-where-we-started-from.jpg",
+      "capturedAt": "2026-06-17T19:12:23.462Z",
+      "excerpt": "Canonical cover assignment for RVTR691013 (Right Back Where We Started From). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:23.462Z",
+      "excerpt": "Album: Right Back Where We Started From (1976). Billboard Hot 100 peak: #2. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:23.462Z",
+      "excerpt": "Performance year context: 1976.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

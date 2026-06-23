@@ -8,6 +8,7 @@ import {
   SUNDAY_NIGHTS_FEATURED_YEARS,
   SUNDAY_NIGHTS_MONOLOGUE,
 } from "@/lib/sunday-nights/article-copy";
+import type { LiveDestination } from "@/lib/sunday-nights/live-payload";
 import type { SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
@@ -22,6 +23,7 @@ const VIP_PASS_ALT =
 type Props = {
   initialTrack: TrackPageData | null;
   initialLive: SundayNightsLiveSelection | null;
+  initialDestination: LiveDestination;
   initialUpdatedAt: string;
   opsEnabled: boolean;
 };
@@ -29,6 +31,7 @@ type Props = {
 export function SundayNightsView({
   initialTrack,
   initialLive,
+  initialDestination,
   initialUpdatedAt,
   opsEnabled,
 }: Props) {
@@ -90,6 +93,7 @@ export function SundayNightsView({
         <SundayNightsLive
           initialTrack={initialTrack}
           initialLive={initialLive}
+          initialDestination={initialDestination}
           initialUpdatedAt={initialUpdatedAt}
         />
       </div>

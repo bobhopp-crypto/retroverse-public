@@ -3,321 +3,355 @@
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 
-import type {
-  FinanceImportHistoryRow,
-  FinanceImportStats,
-} from "@/lib/ops/finance/finance-canonical-model";
-import type { FinanceImportRecord } from "@/lib/ops/finance/db/imports";
+import type { FinanceImportHistoryRow } from "@/lib/ops/finance/finance-canonical-model";
 import type { FinanceImportPreviewRow } from "@/lib/ops/finance/import-preview";
+import type {
+  ImportBatchPreview,
+  ImportReconciliation,
+} from "@/lib/ops/finance/import-batch-service";
 import { readOpsJsonResponse } from "@/lib/ops/finance/fetch-ops-json";
 
 const SOURCE_LABELS: Record<string, string> = {
   apple_card: "Apple Card",
-  amazon: "Amazon",
+  amazon: "Amazon Orders",
   paypal: "PayPal",
-  nebat: "NEBAT",
+  nebat: "NEBAT Checking",
   unknown: "Unknown",
 };
 
-type UploadResult = {
-  fileName: string;
-  source: string;
-  importId: number;
-  inserted: number;
-  skipped: number;
-  updated: number;
-  autoCategorized: number;
-  pending: number;
-  status: string;
-  note?: string;
-};
-
-type PreviewBundle = {
-  file: File;
-  fileName: string;
-  source: string;
-  rows: FinanceImportPreviewRow[];
-  rowCount: number;
-  duplicateCount: number;
-  newCount: number;
-  status: string;
-  note?: string;
-};
-
 type Props = {
-  stats: FinanceImportStats;
   history: FinanceImportHistoryRow[];
-  recentImports: FinanceImportRecord[];
 };
 
-function fmtDate(iso: string | null): string {
-  if (!iso) return "—";
-  return new Date(iso).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-  });
-}
-
-function fmtMoney(n: number): string {
+function fmtMoney(n: number | null): string {
+  if (n == null) return "—";
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n);
 }
 
-export function FinanceImportClient({ stats, history, recentImports }: Props) {
+function fmtPeriod(reconciliation: ImportReconciliation | null): string {
+  if (!reconciliation?.statementEnd) return "—";
+  return new Date(`${reconciliation.statementEnd.slice(0, 10)}T12:00:00`).toLocaleDateString(
+    "en-US",
+    { month: "long", year: "numeric" },
+  );
+}
+
+function EditableGrid({
+  importId,
+  rows,
+  onRowsChange,
+}: {
+  importId: number;
+  rows: FinanceImportPreviewRow[];
+  onRowsChange: (rows: FinanceImportPreviewRow[]) => void;
+}) {
+  async function patchRow(index: number, patch: Partial<FinanceImportPreviewRow>) {
+    const row = rows[index];
+    if (!row?.stagingId) return;
+    const next = rows.map((r, i) => (i === index ? { ...r, ...patch } : r));
+    onRowsChange(next);
+    await fetch(`/api/ops/finance/import/${importId}/staging/${row.stagingId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        transactionDate: patch.transactionDate,
+        merchant: patch.merchant,
+        description: patch.description,
+        amount: patch.amount,
+        proposedAccount: patch.proposedAccount,
+      }),
+    });
+  }
+
+  if (!rows.length) {
+    return <p className="ops-finance-gt__note">No transactions in this statement.</p>;
+  }
+
+  return (
+    <div className="ops-finance-gt__table-wrap">
+      <table className="ops-finance-gt__table ops-finance-import__edit-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Merchant</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, idx) => (
+            <tr key={row.stagingId ?? `${row.transactionDate}-${idx}`}>
+              <td>
+                <input
+                  className="ops-finance-import__cell"
+                  defaultValue={row.transactionDate}
+                  onBlur={(e) => void patchRow(idx, { transactionDate: e.target.value })}
+                />
+              </td>
+              <td>
+                <input
+                  className="ops-finance-import__cell"
+                  defaultValue={row.merchant}
+                  onBlur={(e) => void patchRow(idx, { merchant: e.target.value })}
+                />
+              </td>
+              <td>
+                <input
+                  className="ops-finance-import__cell"
+                  defaultValue={row.description}
+                  onBlur={(e) => void patchRow(idx, { description: e.target.value })}
+                />
+              </td>
+              <td>
+                <input
+                  className="ops-finance-import__cell"
+                  type="number"
+                  step="0.01"
+                  defaultValue={row.amount}
+                  onBlur={(e) => void patchRow(idx, { amount: Number(e.target.value) })}
+                />
+              </td>
+              <td>
+                <input
+                  className="ops-finance-import__cell"
+                  defaultValue={row.proposedAccount ?? ""}
+                  onBlur={(e) =>
+                    void patchRow(idx, { proposedAccount: e.target.value || null })
+                  }
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export function FinanceImportClient({ history }: Props) {
   const router = useRouter();
   const [dragging, setDragging] = useState(false);
   const [busy, setBusy] = useState(false);
-  const [results, setResults] = useState<UploadResult[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [previews, setPreviews] = useState<PreviewBundle[]>([]);
+  const [batch, setBatch] = useState<ImportBatchPreview | null>(null);
+  const [rows, setRows] = useState<FinanceImportPreviewRow[]>([]);
+  const [workflowStatus, setWorkflowStatus] = useState("");
+  const [reconciliation, setReconciliation] = useState<ImportReconciliation | null>(null);
+  const [postResult, setPostResult] = useState<string | null>(null);
 
-  const previewFiles = useCallback(async (files: FileList | File[]) => {
-    const list = [...files];
-    if (!list.length) return;
+  const uploadFiles = useCallback(
+    async (files: FileList | File[]) => {
+      const list = [...files];
+      if (!list.length) return;
 
+      setBusy(true);
+      setError(null);
+      setPostResult(null);
+      const form = new FormData();
+      for (const file of list) {
+        form.append("files", file);
+      }
+
+      try {
+        const res = await fetch("/api/ops/finance/import/preview", { method: "POST", body: form });
+        const data = await readOpsJsonResponse<{ previews?: ImportBatchPreview[] }>(res);
+        const first = data.previews?.[0];
+        if (!first) throw new Error("Could not read that file");
+
+        setBatch(first);
+        setRows(first.rows);
+        setWorkflowStatus(first.workflowStatus);
+        setReconciliation(first.reconciliation);
+
+        if (first.kind !== "orders" && first.workflowStatus === "parsed") {
+          await fetch(`/api/ops/finance/import/${first.importId}/review`, { method: "POST" });
+          setWorkflowStatus("reviewed");
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Upload failed");
+        setBatch(null);
+        setRows([]);
+      } finally {
+        setBusy(false);
+      }
+    },
+    [],
+  );
+
+  async function runStep(path: string, onSuccess: (data: Record<string, unknown>) => void) {
+    if (!batch) return;
     setBusy(true);
     setError(null);
-    setResults([]);
-    const form = new FormData();
-    for (const file of list) {
-      form.append("files", file);
-    }
-
     try {
-      const res = await fetch("/api/ops/finance/import/preview", { method: "POST", body: form });
-      const data = await readOpsJsonResponse<{
-        previews?: Array<Omit<PreviewBundle, "file">>;
-      }>(res);
-      const bundles: PreviewBundle[] = (data.previews ?? []).map((p, i) => ({
-        ...p,
-        file: list[i]!,
-      }));
-      setPreviews(bundles);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Preview failed");
-      setPreviews([]);
-    } finally {
-      setBusy(false);
-    }
-  }, []);
-
-  const commitPreview = useCallback(async () => {
-    if (!previews.length) return;
-    setBusy(true);
-    setError(null);
-    const form = new FormData();
-    for (const bundle of previews) {
-      form.append("files", bundle.file);
-    }
-
-    try {
-      const res = await fetch("/api/ops/finance/import", { method: "POST", body: form });
-      const data = await readOpsJsonResponse<{ results?: UploadResult[] }>(res);
-      setResults(data.results ?? []);
-      setPreviews([]);
+      const res = await fetch(path, { method: "POST" });
+      const data = await readOpsJsonResponse<Record<string, unknown>>(res);
+      onSuccess(data);
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Import failed");
+      setError(err instanceof Error ? err.message : "Request failed");
     } finally {
       setBusy(false);
     }
-  }, [previews, router]);
+  }
 
-  const cancelPreview = useCallback(() => {
-    setPreviews([]);
-    setError(null);
-  }, []);
-
-  const displayHistory = history.length ? history : recentImports.map((imp) => ({
-    id: imp.id,
-    fileName: imp.fileName,
-    source: imp.source,
-    status: imp.status,
-    transactionsInserted: imp.transactionCount,
-    transactionsSkipped: 0,
-    transactionsUpdated: 0,
-    transactionsPending: 0,
-    createdAt: imp.createdAt,
-  }));
-
-  const totalNew = previews.reduce((s, p) => s + p.newCount, 0);
-  const totalDupes = previews.reduce((s, p) => s + p.duplicateCount, 0);
+  const isPosted = workflowStatus === "posted" || batch?.workflowStatus === "posted";
+  const isOrdersOnly = batch?.kind === "orders";
+  const accountLabel = batch ? (SOURCE_LABELS[batch.source] ?? batch.source) : "";
 
   return (
     <div className="ops-finance-import">
-      <div className="ops-finance-import__stats">
-        <div>
-          <span className="ops-finance__dim">Last import</span>
-          <strong>{fmtDate(stats.lastImportDate)}</strong>
-        </div>
-        <div>
-          <span className="ops-finance__dim">Transactions added</span>
-          <strong>{stats.transactionsAdded.toLocaleString()}</strong>
-        </div>
-        <div>
-          <span className="ops-finance__dim">Updated</span>
-          <strong>{stats.transactionsUpdated.toLocaleString()}</strong>
-        </div>
-        <div>
-          <span className="ops-finance__dim">Awaiting review (2026+)</span>
-          <strong>{stats.transactionsAwaitingReview.toLocaleString()}</strong>
-        </div>
+      <div
+        className={`ops-finance-import__drop ${dragging ? "ops-finance-import__drop--active" : ""}`}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDragging(true);
+        }}
+        onDragLeave={() => setDragging(false)}
+        onDrop={(e) => {
+          e.preventDefault();
+          setDragging(false);
+          void uploadFiles(e.dataTransfer.files);
+        }}
+      >
+        <p className="ops-finance-import__drop-title">Drop statement file here</p>
+        <p className="ops-finance-import__drop-sub">
+          Apple Card CSV · NEBAT PDF · PayPal CSV · Amazon order history CSV or PDF
+        </p>
+        <label className="ops-finance-import__browse">
+          <input
+            type="file"
+            multiple
+            accept=".csv,.pdf,text/csv,application/pdf"
+            hidden
+            onChange={(e) => {
+              if (e.target.files) void uploadFiles(e.target.files);
+            }}
+          />
+          Choose file
+        </label>
+        {busy ? <p className="ops-finance-import__status">Reading file…</p> : null}
       </div>
 
-      {previews.length === 0 ? (
-        <div
-          className={`ops-finance-import__drop ${dragging ? "ops-finance-import__drop--active" : ""}`}
-          onDragOver={(e) => {
-            e.preventDefault();
-            setDragging(true);
-          }}
-          onDragLeave={() => setDragging(false)}
-          onDrop={(e) => {
-            e.preventDefault();
-            setDragging(false);
-            void previewFiles(e.dataTransfer.files);
-          }}
-        >
-          <p className="ops-finance-import__drop-title">Drop CSV statements here</p>
-          <p className="ops-finance-import__drop-sub">
-            Apple Card · Amazon · PayPal · NEBAT CSV — preview before import
-          </p>
-          <p className="ops-finance-import__drop-sub">
-            Amazon order history → <a href="/ops/finance/import-amazon">Amazon Import</a> (CSV bulk) ·{" "}
-            <a href="/ops/finance/import/nebat">NEBAT PDF</a>
-          </p>
-          <label className="ops-finance-import__browse">
-            <input
-              type="file"
-              multiple
-              accept=".csv"
-              hidden
-              onChange={(e) => {
-                if (e.target.files) void previewFiles(e.target.files);
-              }}
-            />
-            Choose CSV files
-          </label>
-          {busy ? <p className="ops-finance-import__status">Parsing preview…</p> : null}
-          {error ? <p className="ops-finance-import__error">{error}</p> : null}
-        </div>
-      ) : (
-        <section className="ops-finance-import__results">
-          <h2 className="ops-finance__panel-title">Import preview</h2>
-          <p className="ops-finance-review__lead">
-            {previews.map((p) => p.fileName).join(", ")} · {totalNew} new · {totalDupes} duplicate
-            {totalDupes === 1 ? "" : "s"}
-          </p>
-          {previews.map((bundle) =>
-            bundle.status === "stored" || bundle.status === "empty" ? (
-              <p key={bundle.fileName} className="ops-finance-import__error">
-                {bundle.fileName}: {bundle.note ?? "No rows to import"}
-              </p>
-            ) : (
-              <div key={bundle.fileName}>
-                <p className="ops-finance__dim">
-                  {bundle.fileName} · {SOURCE_LABELS[bundle.source] ?? bundle.source}
-                </p>
-                <table className="ops-finance-import__table">
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Merchant</th>
-                      <th>Description</th>
-                      <th>Amount</th>
-                      <th>Proposed account</th>
-                      <th>Duplicate</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {bundle.rows.map((row, idx) => (
-                      <tr key={`${bundle.fileName}-${row.transactionDate}-${idx}`}>
-                        <td>{row.transactionDate}</td>
-                        <td>{row.merchant}</td>
-                        <td>{row.description}</td>
-                        <td>{fmtMoney(row.amount)}</td>
-                        <td>{row.proposedAccount ?? "—"}</td>
-                        <td>{row.duplicateWarning ?? "—"}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ),
-          )}
-          <div className="ops-finance-review__bulk">
-            <button
-              type="button"
-              className="ops-finance-review__btn ops-finance-review__btn--rule"
-              disabled={busy || previews.every((p) => p.rowCount === 0)}
-              onClick={() => void commitPreview()}
-            >
-              Import
-            </button>
-            <button
-              type="button"
-              className="ops-finance-review__btn"
-              disabled={busy}
-              onClick={cancelPreview}
-            >
-              Cancel
-            </button>
+      {batch ? (
+        <section className="ops-finance-gt__section">
+          <h2 className="ops-finance-gt__heading">Statement Preview</h2>
+          <div className="ops-finance-import__summary-grid">
+            <div>
+              <span className="ops-finance__dim">Account</span>
+              <strong>{accountLabel}</strong>
+            </div>
+            <div>
+              <span className="ops-finance__dim">Period</span>
+              <strong>{fmtPeriod(reconciliation)}</strong>
+            </div>
+            <div>
+              <span className="ops-finance__dim">Beginning Balance</span>
+              <strong>{fmtMoney(reconciliation?.beginningBalance ?? null)}</strong>
+            </div>
+            <div>
+              <span className="ops-finance__dim">Ending Balance</span>
+              <strong>{fmtMoney(reconciliation?.endingBalance ?? null)}</strong>
+            </div>
+            <div>
+              <span className="ops-finance__dim">Transactions</span>
+              <strong>{batch.rowCount}</strong>
+            </div>
+            <div>
+              <span className="ops-finance__dim">Difference</span>
+              <strong>{fmtMoney(reconciliation?.difference ?? null)}</strong>
+            </div>
           </div>
-          {error ? <p className="ops-finance-import__error">{error}</p> : null}
-        </section>
-      )}
 
-      {results.length > 0 ? (
-        <section className="ops-finance-import__results">
-          <h2 className="ops-finance__panel-title">Import results</h2>
-          <ul>
-            {results.map((r) => (
-              <li key={`import-result-${r.importId}`}>
-                <strong>{r.fileName}</strong>
-                <span>{SOURCE_LABELS[r.source] ?? r.source}</span>
-                <span>
-                  {r.inserted} new · {r.updated} updated · {r.autoCategorized} auto · {r.skipped}{" "}
-                  skipped · {r.pending} pending review
-                </span>
-                {r.note ? <em>{r.note}</em> : null}
-              </li>
-            ))}
-          </ul>
+          {isOrdersOnly ? (
+            <p className="ops-finance-gt__note">{batch.note ?? "Amazon orders saved for reporting."}</p>
+          ) : (
+            <EditableGrid importId={batch.importId} rows={rows} onRowsChange={setRows} />
+          )}
+
+          {!isPosted && !isOrdersOnly ? (
+            <div className="ops-finance-review__bulk">
+              <button
+                type="button"
+                className="ops-finance-account__btn"
+                disabled={busy || workflowStatus === "reconciled"}
+                onClick={() =>
+                  void runStep(`/api/ops/finance/import/${batch.importId}/reconcile`, (data) => {
+                    setWorkflowStatus("reconciled");
+                    if (data.reconciliation) {
+                      setReconciliation(data.reconciliation as ImportReconciliation);
+                    }
+                  })
+                }
+              >
+                Check Balance
+              </button>
+              <button
+                type="button"
+                className="ops-finance-account__btn ops-finance-account__btn--primary"
+                disabled={busy || workflowStatus !== "reconciled"}
+                onClick={() =>
+                  void runStep(`/api/ops/finance/import/${batch.importId}/post`, (data) => {
+                    setWorkflowStatus("posted");
+                    setPostResult(
+                      `${data.inserted ?? 0} posted · ${data.skipped ?? 0} skipped`,
+                    );
+                    setBatch(null);
+                    setRows([]);
+                  })
+                }
+              >
+                Post
+              </button>
+              <button
+                type="button"
+                className="ops-finance-account__btn"
+                disabled={busy}
+                onClick={() => {
+                  setBatch(null);
+                  setRows([]);
+                  setWorkflowStatus("");
+                  setReconciliation(null);
+                  setError(null);
+                }}
+              >
+                Start Over
+              </button>
+            </div>
+          ) : null}
+
+          {isPosted && postResult ? (
+            <p className="ops-finance-gt__note">Posted: {postResult}</p>
+          ) : null}
         </section>
       ) : null}
 
-      <section className="ops-finance-import__history">
-        <h2 className="ops-finance__panel-title">Import history</h2>
-        <table className="ops-finance-import__table">
-          <thead>
-            <tr>
-              <th>File</th>
-              <th>Source</th>
-              <th>Added</th>
-              <th>Updated</th>
-              <th>Skipped</th>
-              <th>Pending</th>
-              <th>Status</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {displayHistory.map((imp) => (
-              <tr key={`import-history-${imp.id}`}>
-                <td>{imp.fileName}</td>
-                <td>{SOURCE_LABELS[imp.source] ?? imp.source}</td>
-                <td>{imp.transactionsInserted}</td>
-                <td>{imp.transactionsUpdated}</td>
-                <td>{imp.transactionsSkipped}</td>
-                <td>{imp.transactionsPending}</td>
-                <td>{imp.status}</td>
-                <td>{fmtDate(imp.createdAt)}</td>
+      {error ? <p className="ops-finance-import__error">{error}</p> : null}
+
+      <section className="ops-finance-gt__section">
+        <h2 className="ops-finance-gt__heading">Import History</h2>
+        <div className="ops-finance-gt__table-wrap">
+          <table className="ops-finance-gt__table">
+            <thead>
+              <tr>
+                <th>Statement</th>
+                <th>Status</th>
+                <th>Detail</th>
+                <th>Difference</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {history.map((imp) => (
+                <tr key={`import-history-${imp.id}`}>
+                  <td>{imp.label}</td>
+                  <td>{imp.statusLabel}</td>
+                  <td>{imp.detail}</td>
+                  <td>{imp.difference != null ? fmtMoney(imp.difference) : "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   );

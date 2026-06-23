@@ -1,0 +1,44 @@
+[
+  {
+    "name": "live",
+    "url": "http://localhost:3000/live",
+    "status": 200,
+    "screenshot": "/Users/bobhopp/RETROVERSE_PUBLIC/reports/live-integration/live-mobile.png",
+    "topText": "RETROVERSE |  | Press Play for the Past |  | BACK TO LIVE |  | FALLBACK | "
+  },
+  {
+    "name": "sunday-nights",
+    "url": "http://localhost:3000/sunday-nights",
+    "status": 200,
+    "screenshot": "/Users/bobhopp/RETROVERSE_PUBLIC/reports/live-integration/sunday-nights-mobile.png",
+    "topText": "RETROVERSE |  | Press Play for the Past |  | BACK TO LIVE |  | FALLBACK | "
+  },
+  {
+    "name": "rvtr-only",
+    "url": "http://localhost:3000/track/RVTR512412",
+    "status": 200,
+    "screenshot": "/Users/bobhopp/RETROVERSE_PUBLIC/reports/live-integration/rvtr-only-mobile.png",
+    "topText": "404 | This page could not be found."
+  },
+  {
+    "name": "package-only",
+    "url": "http://localhost:3000/rvtr/RVTR419089/song-sheet",
+    "status": 200,
+    "screenshot": "/Users/bobhopp/RETROVERSE_PUBLIC/reports/live-integration/package-only-mobile.png",
+    "topText": "RETROVERSE |  | Press Play for the Past |  | BACK TO LIVE |  | PACKAGE | "
+  },
+  {
+    "name": "deck",
+    "url": "http://localhost:3000/rvtr/RVTR728658/deck",
+    "status": 200,
+    "screenshot": "/Users/bobhopp/RETROVERSE_PUBLIC/reports/live-integration/deck-mobile.png",
+    "topText": "RETROVERSE |  | Press Play for the Past |  | BACK TO LIVE |  | DECK | "
+  },
+  {
+    "name": "companion",
+    "url": "http://localhost:3000/ops/live-companion",
+    "status": 404,
+    "screenshot": "/Users/bobhopp/RETROVERSE_PUBLIC/reports/live-integration/companion-mobile.png",
+    "topText": "Not found"
+  }
+]

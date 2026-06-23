@@ -1,0 +1,226 @@
+{
+  "generatedAt": "2026-06-16T22:12:52.932Z",
+  "statementCount": 10,
+  "totalLedgerTransactions": 51,
+  "rows": [
+    {
+      "accountName": "NEBAT Checking",
+      "accountSlug": "nebat-checking",
+      "statementLabel": "May 2026",
+      "importId": 29,
+      "status": "In Progress",
+      "transactionCount": 9,
+      "ledgerTransactionCount": 9,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 2264.85,
+      "endingBalance": 1070.14,
+      "calculatedEnding": 1070.14,
+      "reportedDifference": 0,
+      "reconciled": false,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Statement balances — per-account only, no cross-institution matching"
+      ],
+      "recommendation": null
+    },
+    {
+      "accountName": "NEBAT Checking",
+      "accountSlug": "nebat-checking",
+      "statementLabel": "April 2026",
+      "importId": 30,
+      "status": "In Progress",
+      "transactionCount": 9,
+      "ledgerTransactionCount": 9,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 3745.76,
+      "endingBalance": 2264.85,
+      "calculatedEnding": 2264.85,
+      "reportedDifference": 0,
+      "reconciled": false,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Statement balances — per-account only, no cross-institution matching"
+      ],
+      "recommendation": null
+    },
+    {
+      "accountName": "NEBAT Checking",
+      "accountSlug": "nebat-checking",
+      "statementLabel": "March 2026",
+      "importId": 31,
+      "status": "In Progress",
+      "transactionCount": 11,
+      "ledgerTransactionCount": 11,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 1779.82,
+      "endingBalance": 3745.76,
+      "calculatedEnding": 3745.76,
+      "reportedDifference": 0,
+      "reconciled": false,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Statement balances — per-account only, no cross-institution matching"
+      ],
+      "recommendation": null
+    },
+    {
+      "accountName": "NEBAT Checking",
+      "accountSlug": "nebat-checking",
+      "statementLabel": "February 2026",
+      "importId": 26,
+      "status": "In Progress",
+      "transactionCount": 9,
+      "ledgerTransactionCount": 9,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 3693.12,
+      "endingBalance": 1779.82,
+      "calculatedEnding": 1779.82,
+      "reportedDifference": 0,
+      "reconciled": false,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Statement balances — per-account only, no cross-institution matching"
+      ],
+      "recommendation": null
+    },
+    {
+      "accountName": "NEBAT Checking",
+      "accountSlug": "nebat-checking",
+      "statementLabel": "January 2026",
+      "importId": 33,
+      "status": "In Progress",
+      "transactionCount": 12,
+      "ledgerTransactionCount": 12,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 2432.83,
+      "endingBalance": 3693.12,
+      "calculatedEnding": 3693.12,
+      "reportedDifference": 0,
+      "reconciled": false,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Statement balances — per-account only, no cross-institution matching"
+      ],
+      "recommendation": null
+    },
+    {
+      "accountName": "NEBAT Checking",
+      "accountSlug": "nebat-checking",
+      "statementLabel": "December 2025",
+      "importId": 34,
+      "status": "In Progress",
+      "transactionCount": 9,
+      "ledgerTransactionCount": 0,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 2634.15,
+      "endingBalance": 2432.83,
+      "calculatedEnding": 2432.83,
+      "reportedDifference": 0,
+      "reconciled": false,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Statement balances — per-account only, no cross-institution matching"
+      ],
+      "recommendation": null
+    },
+    {
+      "accountName": "Apple Card",
+      "accountSlug": "apple-card",
+      "statementLabel": "January 2026",
+      "importId": null,
+      "status": "imported",
+      "transactionCount": 37,
+      "ledgerTransactionCount": 0,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 1776.45,
+      "endingBalance": 1005.14,
+      "calculatedEnding": 745.23,
+      "reportedDifference": 259.91,
+      "reconciled": false,
+      "classification": "FAIL",
+      "issues": [
+        "Statement does not balance: previous 1776.45 − payments 3250.00 + charges 2218.78 ≠ ending 1005.14 (off by 259.91)"
+      ],
+      "notes": [
+        "Apple Card statement fields only — ledger not required to match"
+      ],
+      "recommendation": "Re-import or correct statement totals on the PDF — no cross-account matching required"
+    },
+    {
+      "accountName": "Apple Card",
+      "accountSlug": "apple-card",
+      "statementLabel": "December 2025",
+      "importId": null,
+      "status": "imported",
+      "transactionCount": 0,
+      "ledgerTransactionCount": 0,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 1776.45,
+      "endingBalance": 1776.45,
+      "calculatedEnding": 1776.45,
+      "reportedDifference": 0,
+      "reconciled": false,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Apple Card statement fields only — ledger not required to match"
+      ],
+      "recommendation": null
+    },
+    {
+      "accountName": "Mortgage",
+      "accountSlug": "mortgage",
+      "statementLabel": "May 2026",
+      "importId": 28,
+      "status": "Posted",
+      "transactionCount": 1,
+      "ledgerTransactionCount": 0,
+      "archivedTransactionCount": 0,
+      "beginningBalance": 53224.4,
+      "endingBalance": 52621.9,
+      "calculatedEnding": null,
+      "reportedDifference": 0,
+      "reconciled": true,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Mortgage: principal balance on statement — no activity roll-forward required"
+      ],
+      "recommendation": null
+    },
+    {
+      "accountName": "Mortgage",
+      "accountSlug": "mortgage",
+      "statementLabel": "December 2025",
+      "importId": 35,
+      "status": "Posted",
+      "transactionCount": 1,
+      "ledgerTransactionCount": 1,
+      "archivedTransactionCount": 0,
+      "beginningBalance": null,
+      "endingBalance": 53224.4,
+      "calculatedEnding": null,
+      "reportedDifference": 0,
+      "reconciled": true,
+      "classification": "PASS",
+      "issues": [],
+      "notes": [
+        "Mortgage: principal balance on statement — no activity roll-forward required"
+      ],
+      "recommendation": null
+    }
+  ],
+  "summary": {
+    "passCount": 9,
+    "warningCount": 0,
+    "failCount": 1,
+    "ok": 9,
+    "withIssues": 1
+  }
+}

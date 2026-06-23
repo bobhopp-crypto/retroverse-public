@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
+import { LiveExperienceShell } from "@/components/live-experience/LiveExperienceShell";
+import { buildLiveShellFromCurrent } from "@/lib/live-experience/shell-model";
 
 import { SundayNightsView } from "./sunday-nights-view";
 
@@ -19,14 +21,18 @@ export const metadata: Metadata = {
 export default async function SundayNightsPage() {
   const state = await loadSundayNightsState();
   const current = await buildSundayNightsCurrentPayload(state);
+  const shell = await buildLiveShellFromCurrent(current, "Live");
   const opsEnabled = isOpsEnabled();
 
   return (
-    <SundayNightsView
-      initialTrack={current.track}
-      initialLive={current.live}
-      initialUpdatedAt={current.updatedAt}
-      opsEnabled={opsEnabled}
-    />
+    <LiveExperienceShell {...shell}>
+      <SundayNightsView
+        initialTrack={current.track}
+        initialLive={current.live}
+        initialDestination={current.destination}
+        initialUpdatedAt={current.updatedAt}
+        opsEnabled={opsEnabled}
+      />
+    </LiveExperienceShell>
   );
 }

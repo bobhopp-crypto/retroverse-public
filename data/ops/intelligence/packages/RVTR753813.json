@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR753813",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:14:14.466Z",
+  "updatedAt": "2026-06-17T19:14:14.748Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:14:14.466Z · Processing I Only Have Eyes For You · Art Garfunkel (Canon First)",
+    "2026-06-17T19:14:14.467Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:14:14.467Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:14:14.468Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:14:14.747Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:14:14.748Z · Emitting canonical facts…",
+    "2026-06-17T19:14:14.748Z · Canonical facts: 5",
+    "2026-06-17T19:14:14.748Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR753813",
+    "artist": "Art Garfunkel",
+    "title": "I Only Have Eyes For You",
+    "year": 2012,
+    "albumTitle": "The Singer",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL744989/RVAL744989__art-garfunkel__the-singer.jpg",
+    "peakHot100": 18,
+    "chartWeeks": 18,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:14:14.467Z",
+      "excerpt": "Retroverse track identity: RVTR753813. \"I Only Have Eyes For You\" by Art Garfunkel. Album: The Singer (2012).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL744989/RVAL744989__art-garfunkel__the-singer.jpg",
+      "capturedAt": "2026-06-17T19:14:14.467Z",
+      "excerpt": "Canonical cover assignment for RVTR753813 (I Only Have Eyes For You). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:14:14.467Z",
+      "excerpt": "Album: The Singer (2012). Billboard Hot 100 peak: #18. 18 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:14:14.467Z",
+      "excerpt": "Performance year context: 2012.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

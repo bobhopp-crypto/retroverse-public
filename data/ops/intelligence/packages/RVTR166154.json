@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR166154",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:06:15.553Z",
+  "updatedAt": "2026-06-17T19:06:15.828Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:06:15.553Z · Processing Colour My World · Chicago (Canon First)",
+    "2026-06-17T19:06:15.554Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:06:15.554Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:06:15.555Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:06:15.826Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:06:15.827Z · Emitting canonical facts…",
+    "2026-06-17T19:06:15.827Z · Canonical facts: 5",
+    "2026-06-17T19:06:15.828Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR166154",
+    "artist": "Chicago",
+    "title": "Colour My World",
+    "year": 1975,
+    "albumTitle": "Chicago IX: Chicago's Greatest Hits",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL732077/RVAL732077__chicago__chicago-ix-chicago-s-greatest-hits.jpg",
+    "peakHot100": null,
+    "chartWeeks": null,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:15.554Z",
+      "excerpt": "Retroverse track identity: RVTR166154. \"Colour My World\" by Chicago. Album: Chicago IX: Chicago's Greatest Hits (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL732077/RVAL732077__chicago__chicago-ix-chicago-s-greatest-hits.jpg",
+      "capturedAt": "2026-06-17T19:06:15.554Z",
+      "excerpt": "Canonical cover assignment for RVTR166154 (Colour My World). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:15.554Z",
+      "excerpt": "Album: Chicago IX: Chicago's Greatest Hits (1975)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:06:15.554Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

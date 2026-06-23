@@ -1,0 +1,127 @@
+{
+  "version": 2,
+  "rvtr": "RVTR341888",
+  "status": "review",
+  "createdAt": "2026-06-17T02:11:54.368Z",
+  "updatedAt": "2026-06-17T02:11:54.491Z",
+  "processedAt": "2026-06-17T02:11:54.490Z",
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T02:11:54.368Z · Processing Wind Beneath My Wings From Beaches · Bette Midler (Phase 2)",
+    "2026-06-17T02:11:54.369Z · Capturing research sources…",
+    "2026-06-17T02:11:54.487Z · Research vault: 1 sources",
+    "2026-06-17T02:11:54.488Z · Emitting canonical facts…",
+    "2026-06-17T02:11:54.488Z · Canonical facts: 2",
+    "2026-06-17T02:11:54.489Z · Extracting candidate facts from research…",
+    "2026-06-17T02:11:54.489Z · Candidate facts: 2 (2 approved)",
+    "2026-06-17T02:11:54.490Z · Proposing candidate stories…",
+    "2026-06-17T02:11:54.490Z · Candidate stories: 1",
+    "2026-06-17T02:11:54.490Z · Ranking stories…",
+    "2026-06-17T02:11:54.490Z · Top story: \"Chart Peak: #1\"",
+    "2026-06-17T02:11:54.490Z · Package intel: 2 timeline events",
+    "2026-06-17T02:11:54.490Z · Ready for human review — build cards after approving facts/stories",
+    "2026-06-17T02:11:54.491Z · Promoted verified facts: 2 approved"
+  ],
+  "metadata": {
+    "rvtr": "RVTR341888",
+    "artist": "Bette Midler",
+    "title": "Wind Beneath My Wings From Beaches",
+    "year": 1989,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": 1,
+    "chartWeeks": 29,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T02:11:54.487Z",
+      "excerpt": "Billboard Hot 100 peak: #1. 29 weeks on chart",
+      "confidence": 0.95
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "c90f2420-d73a-4e78-95fc-7217c91dabd1",
+      "createdAt": "2026-06-17T02:11:54.488Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "Wind Beneath My Wings From Beaches is performed by Bette Midler.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR341888",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR341888",
+      "excerptAnchor": "Bette Midler",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    },
+    {
+      "id": "a6122c9f-8bce-47f4-8e68-2745e04f3c5a",
+      "createdAt": "2026-06-17T02:11:54.488Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "chart",
+      "factText": "The song peaked at #1 on the Billboard Hot 100 and spent 29 weeks on the chart.",
+      "sourceType": "canonical",
+      "sourceId": "meta-chart-RVTR341888",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #1. 29 weeks on chart.",
+      "excerptAnchor": "Billboard Hot 100 peak: #1.",
+      "confidence": 1,
+      "importance": 0.85,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "461939ef-5907-4121-9b9f-1d12981e2251",
+      "headline": "Chart Peak: #1",
+      "hookType": "chart",
+      "primaryFactId": "a6122c9f-8bce-47f4-8e68-2745e04f3c5a",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.7,
+      "createdAt": "2026-06-17T02:11:54.490Z"
+    }
+  ],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [
+      {
+        "chart": "Billboard Hot 100",
+        "peak": 1,
+        "weeks": 29,
+        "detail": "29 weeks on chart"
+      }
+    ],
+    "timelineEvents": [
+      {
+        "id": "bea63ea1-e0ea-4418-a326-82feb48528c2",
+        "year": 1989,
+        "title": "Release",
+        "description": "Wind Beneath My Wings From Beaches released."
+      },
+      {
+        "id": "b16ea5af-ae51-4f10-861f-a6b8edfdbd6f",
+        "year": 1990,
+        "title": "Chart Peak",
+        "description": "Peaked at #1 on Billboard Hot 100."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

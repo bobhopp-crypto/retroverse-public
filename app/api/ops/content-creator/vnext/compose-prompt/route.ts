@@ -7,6 +7,10 @@ import { parseSecondaryLineWithLegacy } from "@/lib/ops/content-creator/parse-fi
 import type { ContentArtifactType } from "@/lib/ops/content-creator/types";
 import { normalizePassTypeLabel } from "@/lib/ops/creative-lab/pass-text-governance";
 import type { ArtDirectorFields } from "@/lib/ops/content-creator/rvbr-art-director-prompt";
+import {
+  normalizeCollectorCardContent,
+  normalizeCollectorCardPresentation,
+} from "@/lib/ops/content-creator/collector-card";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 
@@ -14,7 +18,7 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 function parseFields(body: Record<string, unknown>): ArtDirectorFields {
-  return {
+  const fields: ArtDirectorFields = {
     event: typeof body.event === "string" ? body.event : CONTENT_CREATOR_DEFAULTS.event,
     venue: typeof body.venue === "string" ? body.venue : CONTENT_CREATOR_DEFAULTS.venue,
     date: typeof body.date === "string" ? body.date : CONTENT_CREATOR_DEFAULTS.date,
@@ -26,6 +30,11 @@ function parseFields(body: Record<string, unknown>): ArtDirectorFields {
     ),
     qrUrl: typeof body.qrUrl === "string" ? body.qrUrl : CONTENT_CREATOR_DEFAULTS.qrUrl,
   };
+  if (body.artifact === "collector-card") {
+    fields.collectorCardContent = normalizeCollectorCardContent(body.collectorCardContent);
+    fields.collectorCardPresentation = normalizeCollectorCardPresentation(body.collectorCardPresentation);
+  }
+  return fields;
 }
 
 export async function POST(req: Request) {

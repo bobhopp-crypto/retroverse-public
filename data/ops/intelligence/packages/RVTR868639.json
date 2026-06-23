@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "rvtr": "RVTR868639",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:12:17.461Z",
+  "updatedAt": "2026-06-17T19:12:17.747Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:12:17.461Z · Processing Free Bird · Lynyrd Skynyrd (Canon First)",
+    "2026-06-17T19:12:17.462Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:12:17.462Z · Canon vault: 3 Retroverse sources",
+    "2026-06-17T19:12:17.463Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:12:17.745Z · Research vault: 3 sources (0 external)",
+    "2026-06-17T19:12:17.746Z · Emitting canonical facts…",
+    "2026-06-17T19:12:17.746Z · Canonical facts: 4",
+    "2026-06-17T19:12:17.747Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR868639",
+    "artist": "Lynyrd Skynyrd",
+    "title": "Free Bird",
+    "year": 2013,
+    "albumTitle": "Family",
+    "coverUrl": null,
+    "peakHot100": 19,
+    "chartWeeks": 20,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:17.462Z",
+      "excerpt": "Retroverse track identity: RVTR868639. \"Free Bird\" by Lynyrd Skynyrd. Album: Family (2013).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:17.462Z",
+      "excerpt": "Album: Family (2013). Billboard Hot 100 peak: #19. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:17.462Z",
+      "excerpt": "Performance year context: 2013.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

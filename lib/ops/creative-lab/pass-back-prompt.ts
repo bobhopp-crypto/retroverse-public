@@ -24,33 +24,24 @@ const BACK_LAYOUTS: Record<ConceptVariationKey, { label: string; layout: string 
   A: {
     label: "Centered info panel",
     layout:
-      "Symmetric credential back — centered metadata panel with governed event text and empty QR placeholder. Border language mirrors the front laminate frame.",
+      "Authentication back — centered collector metadata panel with governed event text, production QR reserve, and generous serial/stamp area. Border language relates to the front without copying its hero layout.",
   },
   B: {
     label: "Split column metadata",
     layout:
-      "Two-column back layout — governed event block left, venue/date/years right, empty QR placeholder lower right. Same accents as front.",
+      "Two-column authentication layout — governed event block left, venue/date/years right, production QR reserve lower-middle, serial/stamp area bottom.",
   },
   C: {
     label: "Footer banner stack",
     layout:
-      "Upper ornamental band echoing front header graphics, stacked governed metadata bands mid-canvas, empty QR placeholder in footer banner above numbering panel.",
+      "Upper supporting-art band, stacked collector metadata mid-canvas, production QR reserve above a generous serial/stamp panel.",
   },
   D: {
     label: "Symmetric credential back",
     layout:
-      "Collector-style symmetric back — ornamental corners matching front, governed metadata rails, empty QR placeholder in balanced footer above numbering panel.",
+      "Collector authentication back — ornamental corners relate to front stock, governed metadata rails, production QR reserve separated from bottom serial/stamp panel.",
   },
 };
-
-function displayUrl(qrUrl?: string): string | null {
-  if (!qrUrl?.trim()) return null;
-  try {
-    return new URL(qrUrl.trim()).hostname.replace(/^www\./, "");
-  } catch {
-    return null;
-  }
-}
 
 export function backCompositionForKey(key: ConceptVariationKey): { label: string; layout: string } {
   return BACK_LAYOUTS[key];
@@ -60,14 +51,13 @@ export function backCompositionForKey(key: ConceptVariationKey): { label: string
 export function renderPassBackPrompt(input: PassBackPromptInput): string {
   const world = visualWorldById(input.worldId);
   const backComp = backCompositionForKey(input.conceptKey);
-  const urlLabel = displayUrl(input.qrUrl);
   const musicTv =
     input.worldId === "music-television-credential" || input.worldId === "concert-backstage-laminate";
 
   return [
     `Illustrate the BACK / REVERSE SIDE of a finished portrait VIP laminate credential.`,
-    `This is NOT an independent design — it is the reverse of an already-approved FRONT pass.`,
-    `Match the front's visual world, color palette, typography style, border language, and laminate stock exactly.`,
+    `This is NOT a second front — it is the authentication and collector-information side of an approved pass.`,
+    `Relate to the front's color palette, typography style, border language, and laminate stock without copying the front hero composition.`,
     ``,
     `CANVAS: ${PASS_WIDTH}×${PASS_HEIGHT} pixels, portrait orientation, full-bleed artwork edge to edge.`,
     ``,
@@ -91,7 +81,7 @@ export function renderPassBackPrompt(input: PassBackPromptInput): string {
           ``,
         ]
       : []),
-    `LOCKED FRONT CONTEXT (mirror this family — same stock, palette, and credential language):`,
+    `LOCKED FRONT CONTEXT (same family, different purpose):`,
     `- Front composition: ${input.frontCompositionLabel}`,
     `- Front direction: ${input.frontConceptSummary}`,
     `- Visual world: ${world.title}`,
@@ -113,17 +103,16 @@ export function renderPassBackPrompt(input: PassBackPromptInput): string {
     input.venue.trim() ? `- Venue: ${input.venue.trim()}` : "",
     input.date.trim() ? `- Date: ${input.date.trim()}` : "",
     input.secondaryLine.trim() ? `- Secondary line: ${input.secondaryLine.trim()}` : "",
-    urlLabel ? `- URL label (exact): ${urlLabel}` : "",
-    `- Verification window + serial: white QR window is intentional laminate design — NO QR modules, NO fake barcode, NO generated serial numbers`,
+    `- Production QR reserve + serial: square reserve is intentional laminate design — equal width and height, sharp 90-degree corners, NO rounded corners, NO text inside, NO QR graphics, NO checkerboard, NO fake barcode, NO generated serial numbers`,
     ``,
     `REVERSE-SIDE RULES:`,
-    `- Feels like flipping the approved front over — same laminate, same era, same print house`,
+    `- Feels related to the approved front, but organized for authentication and collector information`,
     `- Ornament and border motifs echo the front; layout optimized for governed metadata legibility`,
-    `- 90% designed credential back, 10% governed event metadata`,
+    `- Supporting artwork top, metadata middle, QR reserve lower-middle, generous serial/stamp area bottom`,
     `- Print-ready illustration — no wireframe, no UI mockup, no watermarks`,
     `- ${NO_GENERATED_NUMBERING_PROMPT.split("\n")[0]}`,
     ``,
-    `FINAL CHECK: White verification window + serial zones on back only. Real QR is export production data. Back matches front collectible family.`,
+    `FINAL CHECK: Production QR reserve + serial/stamp zones on back only. Production export renders the verification code. Back relates to front without duplicating the front hero layout.`,
   ]
     .filter(Boolean)
     .join("\n");

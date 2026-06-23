@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR662253",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:07:35.009Z",
+  "updatedAt": "2026-06-17T19:07:35.284Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:07:35.009Z · Processing Slow Ride · Foghat (Canon First)",
+    "2026-06-17T19:07:35.010Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:07:35.010Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:07:35.012Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:07:35.282Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:07:35.283Z · Emitting canonical facts…",
+    "2026-06-17T19:07:35.283Z · Canonical facts: 5",
+    "2026-06-17T19:07:35.284Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR662253",
+    "artist": "Foghat",
+    "title": "Slow Ride",
+    "year": 1975,
+    "albumTitle": "Fool For The City",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL080666/RVAL080666__foghat__fool-for-the-city.jpg",
+    "peakHot100": 20,
+    "chartWeeks": 17,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:07:35.010Z",
+      "excerpt": "Retroverse track identity: RVTR662253. \"Slow Ride\" by Foghat. Album: Fool For The City (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL080666/RVAL080666__foghat__fool-for-the-city.jpg",
+      "capturedAt": "2026-06-17T19:07:35.010Z",
+      "excerpt": "Canonical cover assignment for RVTR662253 (Slow Ride). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:07:35.010Z",
+      "excerpt": "Album: Fool For The City (1975). Billboard Hot 100 peak: #20. 17 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:07:35.010Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

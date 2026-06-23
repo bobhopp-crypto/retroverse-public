@@ -1,14 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { TrackPageEmbed } from "@/app/track/[id]/track-page-embed";
+import type { LiveDestination } from "@/lib/sunday-nights/live-payload";
 import type { SundayNightsLiveSelection } from "@/lib/sunday-nights/types";
 import type { TrackPageData } from "@/lib/track/load-track-page";
 
 type Props = {
   initialTrack: TrackPageData | null;
   initialLive: SundayNightsLiveSelection | null;
+  initialDestination: LiveDestination;
   initialUpdatedAt: string;
 };
 
@@ -17,6 +20,7 @@ type CurrentPayload = {
   live: SundayNightsLiveSelection | null;
   updatedAt: string;
   track: TrackPageData | null;
+  destination: LiveDestination;
 };
 
 const POLL_MS = 8000;
@@ -45,13 +49,35 @@ function FallbackExhibit({ live }: { live: SundayNightsLiveSelection }) {
   );
 }
 
+function DestinationCta({ destination }: { destination: LiveDestination }) {
+  if (!destination.href || destination.kind === "TRACK") return null;
+
+  const label = destination.kind === "DECK" ? "Open Deck" : "Open Package";
+  const detail =
+    destination.kind === "DECK"
+      ? "Performance deck is ready for this song."
+      : "Story package is ready for this song.";
+
+  return (
+    <div className="sn-live__destination">
+      <p className="sn-live__destination-label">Tonight&apos;s live asset</p>
+      <Link href={destination.href} className="sn-live__destination-btn">
+        {label}
+      </Link>
+      <p className="sn-live__destination-note">{detail}</p>
+    </div>
+  );
+}
+
 export function SundayNightsLive({
   initialTrack,
   initialLive,
+  initialDestination,
   initialUpdatedAt,
 }: Props) {
   const [track, setTrack] = useState<TrackPageData | null>(initialTrack);
   const [live, setLive] = useState<SundayNightsLiveSelection | null>(initialLive);
+  const [destination, setDestination] = useState<LiveDestination>(initialDestination);
   const updatedAtRef = useRef(initialUpdatedAt);
 
   useEffect(() => {
@@ -66,6 +92,7 @@ export function SundayNightsLive({
         updatedAtRef.current = data.updatedAt;
         setTrack(data.track);
         setLive(data.live);
+        setDestination(data.destination);
       } catch {
         /* ignore transient network errors */
       }
@@ -81,7 +108,10 @@ export function SundayNightsLive({
   return (
     <div className="sn-live" aria-live="polite" aria-atomic="true">
       {track ? (
-        <TrackPageEmbed data={track} />
+        <>
+          <DestinationCta destination={destination} />
+          <TrackPageEmbed data={track} />
+        </>
       ) : live ? (
         <FallbackExhibit live={live} />
       ) : (

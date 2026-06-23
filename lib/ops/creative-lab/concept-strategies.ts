@@ -137,7 +137,7 @@ export function renderStrategySections(
         "",
         "=== Visual Directives ===",
         `Illustration supports the credential frame — ${illust} accents inside the pass border, not a full-bleed poster behind small type.`,
-        `Negative space reserved for readable name plate and barcode / QR zone.`,
+        `Negative space reserved for readable name plate and export-owned verification area.`,
         "",
         "=== Print & Finish ===",
         `${density} metadata density — every field earns its place. Crisp vector rules, no muddy gradients on small type.`,

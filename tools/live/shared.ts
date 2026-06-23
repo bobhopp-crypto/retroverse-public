@@ -10,7 +10,8 @@ import {
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { probeVdj } from "../live-bridge/vdj";
+import { probeOscConnectivity } from "../live-bridge/osc-sensor";
+import { readVdjOscSettings } from "../live-bridge/osc-settings";
 
 const LIVE_DIR_NAME = "live";
 
@@ -33,7 +34,9 @@ export type LiveRuntimeConfig = {
   bridgeUrl: string;
   /** Public live state GET (readiness probe). */
   currentApiUrl: string;
+  vdjHost: string;
   vdjPort: string;
+  vdjBackPort: string;
   vdjBearer: string;
   apiSecret: string;
   dataRoot: string;
@@ -133,14 +136,19 @@ export function killPid(pid: number, label: string): boolean {
 }
 
 export function loadRuntimeConfig(projectRoot: string): LiveRuntimeConfig {
+  const oscSettings = readVdjOscSettings();
   const port = Number(process.env.PORT ?? process.env.LIVE_PORT ?? "3000") || 3000;
+  const explicitBridgeUrl = process.env.LIVE_NOW_PLAYING_URL?.trim();
   const baseUrl =
-    process.env.LIVE_BASE_URL?.trim() || `http://127.0.0.1:${port}`;
+    process.env.LIVE_BASE_URL?.trim() ||
+    (explicitBridgeUrl ? new URL(explicitBridgeUrl).origin : `http://127.0.0.1:${port}`);
   const normalizedBase = baseUrl.replace(/\/$/, "");
   const bridgeUrl =
-    process.env.LIVE_NOW_PLAYING_URL?.trim() ||
+    explicitBridgeUrl ||
     `${normalizedBase}/api/sunday-nights/bridge`;
-  const currentApiUrl = `${normalizedBase}/api/sunday-nights/current`;
+  const currentApiUrl =
+    process.env.LIVE_CURRENT_API_URL?.trim() ||
+    bridgeUrl.replace(/\/api\/sunday-nights\/bridge$/, "/api/sunday-nights/current");
 
   const siblingData = join(projectRoot, "..", "RETROVERSE_DATA");
   const dataRoot =
@@ -153,7 +161,9 @@ export function loadRuntimeConfig(projectRoot: string): LiveRuntimeConfig {
     baseUrl: normalizedBase,
     bridgeUrl,
     currentApiUrl,
-    vdjPort: process.env.VDJ_NETWORK_PORT?.trim() || "80",
+    vdjHost: process.env.VDJ_OSC_HOST?.trim() || "127.0.0.1",
+    vdjPort: process.env.VDJ_OSC_PORT?.trim() || String(oscSettings.oscPort),
+    vdjBackPort: process.env.VDJ_OSC_BACK_PORT?.trim() || String(oscSettings.oscPortBack),
     vdjBearer: process.env.VDJ_NETWORK_BEARER?.trim() || "",
     apiSecret: process.env.LIVE_NOW_PLAYING_SECRET?.trim() || "",
     dataRoot,
@@ -221,25 +231,22 @@ export async function probeApi(apiUrl: string): Promise<{ ok: boolean; status: n
 }
 
 export async function probeVdjPort(port: string, bearer: string): Promise<boolean> {
-  return probeVdj({ port, bearer: bearer || undefined });
+  void bearer;
+  const settings = readVdjOscSettings();
+  return probeOscConnectivity({
+    host: process.env.VDJ_OSC_HOST?.trim() || "127.0.0.1",
+    vdjPort: Number(port) || settings.oscPort,
+    listenPort: Number(process.env.VDJ_OSC_BACK_PORT ?? settings.oscPortBack) || settings.oscPortBack,
+  });
 }
 
-const VDJ_FALLBACK_PORTS = ["8088", "8080", "8888", "80"];
-
-/** Probe configured port, then common VDJ Network Control ports. */
+/** Probe configured VirtualDJ OSC port. */
 export async function resolveVdjPort(
   configured: string,
   bearer: string,
 ): Promise<{ port: string; discovered: boolean } | null> {
   if (await probeVdjPort(configured, bearer)) {
     return { port: configured, discovered: false };
-  }
-
-  for (const port of VDJ_FALLBACK_PORTS) {
-    if (port === configured) continue;
-    if (await probeVdjPort(port, bearer)) {
-      return { port, discovered: true };
-    }
   }
 
   return null;

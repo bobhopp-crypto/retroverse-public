@@ -37,7 +37,7 @@ const ACCOUNT_SELECT = `
          COUNT(t.id)::text AS txn_count,
          COALESCE(SUM(ABS(t.amount)) FILTER (WHERE t.flow_kind = 'expense' AND t.amount > 0), 0)::text AS total_spend
   FROM finance_accounts a
-  LEFT JOIN finance_transactions t ON t.account_id = a.id
+  LEFT JOIN finance_transactions t ON t.account_id = a.id AND t.archived_at IS NULL
 `;
 
 export async function listFinanceAccounts(): Promise<FinanceAccount[]> {

@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR691994",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:15:57.256Z",
+  "updatedAt": "2026-06-17T19:15:57.525Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:15:57.256Z · Processing Born To Run · Bruce Springsteen (Canon First)",
+    "2026-06-17T19:15:57.257Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:15:57.257Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:15:57.258Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:15:57.524Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:15:57.525Z · Emitting canonical facts…",
+    "2026-06-17T19:15:57.525Z · Canonical facts: 5",
+    "2026-06-17T19:15:57.525Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR691994",
+    "artist": "Bruce Springsteen",
+    "title": "Born To Run",
+    "year": 1995,
+    "albumTitle": "Greatest Hits",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL964303/RVAL964303__bruce-springsteen__greatest-hits.jpg",
+    "peakHot100": 23,
+    "chartWeeks": 11,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:57.257Z",
+      "excerpt": "Retroverse track identity: RVTR691994. \"Born To Run\" by Bruce Springsteen. Album: Greatest Hits (1995).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL964303/RVAL964303__bruce-springsteen__greatest-hits.jpg",
+      "capturedAt": "2026-06-17T19:15:57.257Z",
+      "excerpt": "Canonical cover assignment for RVTR691994 (Born To Run). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:57.257Z",
+      "excerpt": "Album: Greatest Hits (1995). Billboard Hot 100 peak: #23. 11 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:57.257Z",
+      "excerpt": "Performance year context: 1995.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

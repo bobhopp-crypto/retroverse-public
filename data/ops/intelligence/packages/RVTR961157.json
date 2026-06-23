@@ -1,0 +1,295 @@
+{
+  "version": 2,
+  "rvtr": "RVTR961157",
+  "status": "published",
+  "createdAt": "2026-06-17T02:11:54.912Z",
+  "updatedAt": "2026-06-17T02:17:19.403Z",
+  "processedAt": "2026-06-17T02:17:19.401Z",
+  "approvedAt": "2026-06-17T02:17:19.403Z",
+  "publishedAt": "2026-06-17T02:17:19.403Z",
+  "processLog": [
+    "2026-06-17T02:17:10.703Z · Processing Macarena Bayside Boys Mix · Los Del Rio (Phase 2)",
+    "2026-06-17T02:17:10.704Z · Capturing research sources…",
+    "2026-06-17T02:17:11.793Z · Research vault: 2 sources",
+    "2026-06-17T02:17:11.795Z · Emitting canonical facts…",
+    "2026-06-17T02:17:11.795Z · Canonical facts: 2",
+    "2026-06-17T02:17:11.797Z · Extracting candidate facts from research…",
+    "2026-06-17T02:17:19.398Z · Candidate facts: 6 (6 approved)",
+    "2026-06-17T02:17:19.400Z · Proposing candidate stories…",
+    "2026-06-17T02:17:19.400Z · Candidate stories: 3",
+    "2026-06-17T02:17:19.400Z · Ranking stories…",
+    "2026-06-17T02:17:19.400Z · Top story: \"Chart Peak: #1\"",
+    "2026-06-17T02:17:19.401Z · Package intel: 3 timeline events",
+    "2026-06-17T02:17:19.401Z · Ready for human review — build cards after approving facts/stories",
+    "2026-06-17T02:17:19.403Z · Promoted verified facts: 6 approved",
+    "2026-06-17T02:17:19.403Z · Story cards assembled: 4",
+    "2026-06-17T02:17:19.403Z · Song sheet published"
+  ],
+  "metadata": {
+    "rvtr": "RVTR961157",
+    "artist": "Los Del Rio",
+    "title": "Macarena Bayside Boys Mix",
+    "year": 1995,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": 1,
+    "chartWeeks": 60,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null
+  },
+  "researchVault": [
+    {
+      "id": "wiki-song-los-del-r-o",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Los_del_R%C3%ADo",
+      "capturedAt": "2026-06-17T02:17:11.793Z",
+      "excerpt": "Los del Río (Spanish pronunciation: [ˈlos ðel ˈri.o], \"those from the river\"), also known as the Del Rios, are a Spanish Latin pop and dance duo formed in Dos Hermanas, Andalusia, in 1962. Consisting of Antonio Romero Monge (born 17 February 1940) and Rafael Ruiz Perdigones (born 10 November 1938), they have released over 20 albums since their formation, beginning with Luces de Sevilla in 1967. The duo are best known for their hit 1993 dance single \"Macarena\", which went on to become a worldwide success after it was remixed by Bayside Boys in 1995.\n\n\nDiscography\n\n\nAlbums\n\n\nSingles\n\n\nAwards and nominations\n\n\nSee also\nList of best-selling Latin music artists\n\n\nReferences\n\n\nExternal links\nOfficial website\nLos del Río discography at MusicBrainz",
+      "confidence": 0.85
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T02:17:11.793Z",
+      "excerpt": "Billboard Hot 100 peak: #1. 60 weeks on chart",
+      "confidence": 0.95
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "36fd9d0c-cf06-4ad7-a5b1-5559c533af2c",
+      "createdAt": "2026-06-17T02:17:11.795Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "Macarena Bayside Boys Mix is performed by Los Del Rio.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR961157",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR961157",
+      "excerptAnchor": "Los Del Rio",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    },
+    {
+      "id": "d8526ad8-b0f8-44e1-a41c-bd5511972ac9",
+      "createdAt": "2026-06-17T02:17:11.795Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "chart",
+      "factText": "The song peaked at #1 on the Billboard Hot 100 and spent 60 weeks on the chart.",
+      "sourceType": "canonical",
+      "sourceId": "meta-chart-RVTR961157",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #1. 60 weeks on chart.",
+      "excerptAnchor": "Billboard Hot 100 peak: #1.",
+      "confidence": 1,
+      "importance": 0.85,
+      "locked": true
+    },
+    {
+      "id": "5b27b26e-1dcc-4848-916f-bc21438ad315",
+      "category": "artist",
+      "factText": "Los Del Río are a Spanish Latin pop and dance duo formed in Dos Hermanas, Andalusia, in 1962.",
+      "sourceType": "research_vault",
+      "sourceId": "wiki-song-los-del-r-o",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_del_R%C3%ADo",
+      "sourceExcerpt": "Los del Río (Spanish pronunciation: [ˈlos ðel ˈri.o], \"those from the river\"), also known as the Del Rios, are a Spanish Latin pop and dance duo formed in Dos Hermanas, Andalusia, in 1962. Consisting of Antonio Romero Monge (born 17 February 1940) and Rafael Ruiz Perdigones (born 10 November 1938), they have released over 20 albums since their formation, beginning with Luces de Sevilla in 1967. The duo are best known for their hit 1993 dance single \"Macarena\", which went on to become a worldwide success after it was remixed by Bayside Boys in 1995.\n\n\nDiscography\n\n\nAlbums\n\n\nSingles\n\n\nAwards and nominations\n\n\nSee also\nList of best-selling Latin music artists\n\n\nReferences\n\n\nExternal links\nOfficial website\nLos del Río discography at MusicBrainz",
+      "excerptAnchor": "Los del Río (Spanish pronunciation: [ˈlos ðel ˈri.o], \"those from the river\")",
+      "confidence": 0.85,
+      "importance": 1,
+      "locked": false,
+      "extractionMethod": "model_extract",
+      "reviewStatus": "approved",
+      "createdAt": "2026-06-17T02:17:19.398Z"
+    },
+    {
+      "id": "bd1b01c2-94b3-4f8f-a76b-9f0eca91846f",
+      "category": "artist",
+      "factText": "The duo consists of Antonio Romero Monge and Rafael Ruiz Perdigones.",
+      "sourceType": "research_vault",
+      "sourceId": "wiki-song-los-del-r-o",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_del_R%C3%ADo",
+      "sourceExcerpt": "Los del Río (Spanish pronunciation: [ˈlos ðel ˈri.o], \"those from the river\"), also known as the Del Rios, are a Spanish Latin pop and dance duo formed in Dos Hermanas, Andalusia, in 1962. Consisting of Antonio Romero Monge (born 17 February 1940) and Rafael Ruiz Perdigones (born 10 November 1938), they have released over 20 albums since their formation, beginning with Luces de Sevilla in 1967. The duo are best known for their hit 1993 dance single \"Macarena\", which went on to become a worldwide success after it was remixed by Bayside Boys in 1995.\n\n\nDiscography\n\n\nAlbums\n\n\nSingles\n\n\nAwards and nominations\n\n\nSee also\nList of best-selling Latin music artists\n\n\nReferences\n\n\nExternal links\nOfficial website\nLos del Río discography at MusicBrainz",
+      "excerptAnchor": "Consisting of Antonio Romero Monge (born 17 February 1940) and Rafael Ruiz Perdigones (born 10 November 1938)",
+      "confidence": 0.85,
+      "importance": 1,
+      "locked": false,
+      "extractionMethod": "model_extract",
+      "reviewStatus": "approved",
+      "createdAt": "2026-06-17T02:17:19.398Z"
+    },
+    {
+      "id": "b064d18b-7acf-45b6-8b20-cb100a87bccf",
+      "category": "album",
+      "factText": "Los Del Río have released over 20 albums since their formation.",
+      "sourceType": "research_vault",
+      "sourceId": "wiki-song-los-del-r-o",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_del_R%C3%ADo",
+      "sourceExcerpt": "Los del Río (Spanish pronunciation: [ˈlos ðel ˈri.o], \"those from the river\"), also known as the Del Rios, are a Spanish Latin pop and dance duo formed in Dos Hermanas, Andalusia, in 1962. Consisting of Antonio Romero Monge (born 17 February 1940) and Rafael Ruiz Perdigones (born 10 November 1938), they have released over 20 albums since their formation, beginning with Luces de Sevilla in 1967. The duo are best known for their hit 1993 dance single \"Macarena\", which went on to become a worldwide success after it was remixed by Bayside Boys in 1995.\n\n\nDiscography\n\n\nAlbums\n\n\nSingles\n\n\nAwards and nominations\n\n\nSee also\nList of best-selling Latin music artists\n\n\nReferences\n\n\nExternal links\nOfficial website\nLos del Río discography at MusicBrainz",
+      "excerptAnchor": "they have released over 20 albums since their formation",
+      "confidence": 0.85,
+      "importance": 1,
+      "locked": false,
+      "extractionMethod": "model_extract",
+      "reviewStatus": "approved",
+      "createdAt": "2026-06-17T02:17:19.398Z"
+    },
+    {
+      "id": "3fccc39c-6813-441b-b95d-256068df40fe",
+      "category": "recording",
+      "factText": "The single \"Macarena\" was remixed by Bayside Boys in 1995.",
+      "sourceType": "research_vault",
+      "sourceId": "wiki-song-los-del-r-o",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_del_R%C3%ADo",
+      "sourceExcerpt": "Los del Río (Spanish pronunciation: [ˈlos ðel ˈri.o], \"those from the river\"), also known as the Del Rios, are a Spanish Latin pop and dance duo formed in Dos Hermanas, Andalusia, in 1962. Consisting of Antonio Romero Monge (born 17 February 1940) and Rafael Ruiz Perdigones (born 10 November 1938), they have released over 20 albums since their formation, beginning with Luces de Sevilla in 1967. The duo are best known for their hit 1993 dance single \"Macarena\", which went on to become a worldwide success after it was remixed by Bayside Boys in 1995.\n\n\nDiscography\n\n\nAlbums\n\n\nSingles\n\n\nAwards and nominations\n\n\nSee also\nList of best-selling Latin music artists\n\n\nReferences\n\n\nExternal links\nOfficial website\nLos del Río discography at MusicBrainz",
+      "excerptAnchor": "which went on to become a worldwide success after it was remixed by Bayside Boys in 1995",
+      "confidence": 0.85,
+      "importance": 1,
+      "locked": false,
+      "extractionMethod": "model_extract",
+      "reviewStatus": "approved",
+      "createdAt": "2026-06-17T02:17:19.398Z"
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "886c7ce5-7228-4cb5-a4c8-effefeeb8352",
+      "headline": "Chart Peak: #1",
+      "hookType": "chart",
+      "primaryFactId": "d8526ad8-b0f8-44e1-a41c-bd5511972ac9",
+      "supportingFactIds": [
+        "b064d18b-7acf-45b6-8b20-cb100a87bccf"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.7,
+      "createdAt": "2026-06-17T02:17:19.400Z"
+    },
+    {
+      "id": "df956a1e-4195-4325-9374-47d9b45c5f2f",
+      "headline": "Album Context",
+      "hookType": "surprise",
+      "primaryFactId": "b064d18b-7acf-45b6-8b20-cb100a87bccf",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 2,
+      "rankScore": 0.695,
+      "createdAt": "2026-06-17T02:17:19.400Z"
+    },
+    {
+      "id": "c6e06965-d114-4e6a-9bbf-e1ffa3b93100",
+      "headline": "How They Recorded It",
+      "hookType": "recording",
+      "primaryFactId": "3fccc39c-6813-441b-b95d-256068df40fe",
+      "supportingFactIds": [
+        "b064d18b-7acf-45b6-8b20-cb100a87bccf",
+        "d8526ad8-b0f8-44e1-a41c-bd5511972ac9"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 3,
+      "rankScore": 0.695,
+      "createdAt": "2026-06-17T02:17:19.400Z"
+    }
+  ],
+  "storyCards": [
+    {
+      "id": "5ea6760a-698e-4eea-bc5b-fd21364240f2",
+      "storyId": "cover",
+      "rank": 0,
+      "headline": "Macarena Bayside Boys Mix",
+      "fact": "Macarena Bayside Boys Mix by Los Del Rio. Billboard Hot 100 peak: #1.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Canonical metadata for RVTR961157",
+      "confidence": 1,
+      "category": "artist"
+    },
+    {
+      "id": "7f6768bc-e7e3-491d-a57b-4c98b54718c0",
+      "storyId": "886c7ce5-7228-4cb5-a4c8-effefeeb8352",
+      "rank": 1,
+      "headline": "Chart Peak: #1",
+      "fact": "The song peaked at #1 on the Billboard Hot 100 and spent 60 weeks on the chart.",
+      "supportingContext": "Los Del Río have released over 20 albums since their formation.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #1. 60 weeks on chart.",
+      "confidence": 1,
+      "category": "chart"
+    },
+    {
+      "id": "6a424cd4-df24-485c-a110-b163bfdfe7ee",
+      "storyId": "df956a1e-4195-4325-9374-47d9b45c5f2f",
+      "rank": 2,
+      "headline": "Album Context",
+      "fact": "Los Del Río have released over 20 albums since their formation.",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_del_R%C3%ADo",
+      "sourceExcerpt": "Los del Río (Spanish pronunciation: [ˈlos ðel ˈri.o], \"those from the river\"), also known as the Del Rios, are a Spanish Latin pop and dance duo formed in Dos Hermanas, Andalusia, in 1962. Consisting of Antonio Romero Monge (born 17 February 1940) and Rafael Ruiz Perdigones (born 10 November 1938), they have released over 20 albums since their formation, beginning with Luces de Sevilla in 1967. The duo are best known for their hit 1993 dance single \"Macarena\", which went on to become a worldwide",
+      "confidence": 0.85,
+      "category": "album"
+    },
+    {
+      "id": "69953b92-c63e-4c9f-89fe-51dce399af98",
+      "storyId": "c6e06965-d114-4e6a-9bbf-e1ffa3b93100",
+      "rank": 3,
+      "headline": "How They Recorded It",
+      "fact": "The single \"Macarena\" was remixed by Bayside Boys in 1995.",
+      "supportingContext": "Los Del Río have released over 20 albums since their formation. · The song peaked at #1 on the Billboard Hot 100 and spent 60 weeks on the chart.",
+      "sourceLabel": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_del_R%C3%ADo",
+      "sourceExcerpt": "Los del Río (Spanish pronunciation: [ˈlos ðel ˈri.o], \"those from the river\"), also known as the Del Rios, are a Spanish Latin pop and dance duo formed in Dos Hermanas, Andalusia, in 1962. Consisting of Antonio Romero Monge (born 17 February 1940) and Rafael Ruiz Perdigones (born 10 November 1938), they have released over 20 albums since their formation, beginning with Luces de Sevilla in 1967. The duo are best known for their hit 1993 dance single \"Macarena\", which went on to become a worldwide",
+      "confidence": 0.85,
+      "category": "recording"
+    }
+  ],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [
+      {
+        "chart": "Billboard Hot 100",
+        "peak": 1,
+        "weeks": 60,
+        "detail": "60 weeks on chart"
+      }
+    ],
+    "timelineEvents": [
+      {
+        "id": "83360005-ccce-4c7d-a6df-8e360528b17e",
+        "year": 1995,
+        "title": "Release",
+        "description": "Macarena Bayside Boys Mix released."
+      },
+      {
+        "id": "771485f8-6bc3-4de4-9abb-8186a657c2d2",
+        "year": 1995,
+        "title": "Recording",
+        "description": "The single \"Macarena\" was remixed by Bayside Boys in 1995."
+      },
+      {
+        "id": "1ddaefad-52b9-4c3c-90de-ec5af33a5710",
+        "year": 1995,
+        "title": "How They Recorded It",
+        "description": "The single \"Macarena\" was remixed by Bayside Boys in 1995."
+      },
+      {
+        "id": "7ae738b0-8fbb-4d40-a178-e41df661a9d9",
+        "year": 1996,
+        "title": "Chart Peak",
+        "description": "Peaked at #1 on Billboard Hot 100."
+      }
+    ],
+    "recordingFacts": [
+      "The single \"Macarena\" was remixed by Bayside Boys in 1995."
+    ],
+    "videoFacts": []
+  }
+}

@@ -20,6 +20,9 @@ function coverProxyOrigin() {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  outputFileTracingIncludes: {
+    "/*": ["./data/ops/intelligence/**/*"],
+  },
   serverExternalPackages: ["pg"],
   // Ops video uploads hit /api/ops/* (middleware matcher). Default 10MB truncates
   // multipart bodies and breaks req.formData() for Media Lab transcripts.
@@ -32,6 +35,13 @@ const nextConfig = {
       { source: "/browse/albums", destination: "/", permanent: false },
       { source: "/browse/tracks", destination: "/", permanent: false },
       { source: "/browse/:path*", destination: "/", permanent: false },
+      { source: "/ops/finance/import-amazon", destination: "/ops/finance/import", permanent: false },
+      { source: "/ops/finance/import/amazon", destination: "/ops/finance/import", permanent: false },
+      { source: "/ops/finance/import/nebat", destination: "/ops/finance/import", permanent: false },
+      { source: "/ops/finance/ledger", destination: "/ops/finance/reports/ledger", permanent: false },
+      { source: "/ops/finance/review", destination: "/ops/finance/import", permanent: false },
+      { source: "/ops/finance/merchants", destination: "/ops/finance/reports/merchants", permanent: false },
+      { source: "/ops/finance/accounts", destination: "/ops/finance/reports/chart-of-accounts", permanent: false },
     ];
   },
   async rewrites() {

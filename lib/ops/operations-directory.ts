@@ -105,10 +105,10 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
       },
       {
         id: "pass-generator",
-        name: "Pass Generator",
-        href: "/ops/passes",
-        description: "Generate numbered collectible event passes.",
-        purpose: "Print vintage door passes for hand-numbering at the pub.",
+        name: "Content Creator",
+        href: "/ops/content-creator",
+        description: "Collectible library for pass generation and artwork generation.",
+        purpose: "Browse generated credentials, then start a new credential from the library.",
         status: "SUNDAY NIGHTS",
       },
       {
@@ -262,6 +262,14 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
     subtitle: "Prototypes and evaluation — not required for tonight.",
     entries: [
       {
+        id: "intelligence-workbench",
+        name: "Song Packages",
+        href: "/ops/intelligence",
+        description: "Find songs, generate packages, and review package status per RVTR.",
+        purpose: "Primary workflow for Song Packages without opening Year Workspace or terminal commands.",
+        status: "IN PROGRESS",
+      },
+      {
         id: "media-lab",
         name: "Media Lab",
         href: "/ops/media-lab",
@@ -284,14 +292,6 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         description: "Developer-only — classic workflow, v2 POC, RVBR validation.",
         purpose: "Archived comparison and pipeline diagnostics.",
         status: "ARCHIVE",
-      },
-      {
-        id: "creative-lab",
-        name: "Creative Lab",
-        href: "/ops/creative-lab",
-        description: "Reusable style system for passes, posters, cards, and print outputs.",
-        purpose: "Define weighted visual styles and project concepts before generation.",
-        status: "EXPERIMENTAL",
       },
       {
         id: "rvbr",
@@ -376,7 +376,7 @@ export const OPS_PUBLIC_QUICK_LINKS: OpsQuickLink[] = [
 export const OPS_CONSOLE_QUICK_LINKS: OpsQuickLink[] = [
   { label: "Operations Hub", href: "/ops/hub" },
   { label: "Sunday Nights", href: "/ops/sunday-nights" },
-  { label: "Pass Generator", href: "/ops/passes" },
+  { label: "Content Creator", href: "/ops/content-creator" },
   { label: "Pass Registrations", href: "/ops/pass-registrations" },
   { label: "Year Workspace 1967", href: "/ops/year/1967" },
   { label: "Year Workspace 1978", href: "/ops/year/1978" },
@@ -396,7 +396,7 @@ export const OPS_LIKELY_ABANDONED_ROUTES: string[] = [
 /** Recommended default top-level Ops tools (landing shortcuts). */
 export const OPS_DEFAULT_TOP_TOOLS: string[] = [
   "Sunday Nights",
-  "Pass Generator",
+  "Content Creator",
   "Year Match Console",
   "Year Workspace · 1967",
 ];

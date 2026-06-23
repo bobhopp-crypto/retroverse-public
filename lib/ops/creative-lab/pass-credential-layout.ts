@@ -332,23 +332,23 @@ export const ARTWORK_INFORMATION_PANELS: Record<"front" | "back", ArtworkInforma
       width: QR_ZONE.size,
       height: QR_ZONE.size,
       guidance:
-        "Large clear white square for export QR compositing. No labels, measurements, or fake modules. Ornament outside only.",
+        "Production-safe square reserve for export-owned verification compositing. Equal width and height, sharp corners, no labels, measurements, text, QR graphics, checkerboards, or fake modules. Ornament outside only.",
     },
     {
       zoneId: "URL_LABEL",
-      label: "retroverse.live band",
+      label: "collector spacer band",
       x: URL_ZONE.left,
       y: URL_ZONE.top,
       width: URL_ZONE.width,
       height: URL_ZONE.height,
-      guidance: "Small URL label band directly below QR — typeset retroverse.live, subordinate to QR.",
+      guidance: "Quiet spacer band separating the production QR reserve from the serial/stamp area. No text or URL artwork.",
     },
     {
       zoneId: "SERIAL_AREA",
       label: "serial stamp panel",
       y: STAMP_Y0,
       height: STAMP_HEIGHT_PX,
-      guidance: "Serial stamp footer — embossed empty panel matching front.",
+      guidance: "Generous serial/stamp authentication panel — empty interior for hand-stamped numbers, collector codes, and future markings.",
     },
   ],
 };

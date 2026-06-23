@@ -1,0 +1,61 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+> retroverse-public@0.1.0 intelligence:validation
+> npx --yes tsx tools/intelligence/validation-batch.ts
+
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+Intelligence Validation Batch (10 songs, spread across eras)
+
+Cohort:
+  1960s · #1 · Light My Fire — The Doors (RVTR261615)
+  1970s · #1 · A Fi Feat H Of Beethoven — walter murphy (RVTR189191)
+  1970s · #1 · How Deep Is Your Love — bee gees (RVTR148782)
+  1980s · #1 · Red Red Wine — ub40 (RVTR461411)
+  1990s · #1 · Macarena Bayside Boys Mix — los del rio (RVTR961157)
+  2000s · #1 · All I Want For Christmas Is You — mariah carey (RVTR037060)
+  2010s · #1 · Party Rock Anthem — lmfao (RVTR563439)
+  2010s · #1 · Somebody That I Used To Know — gotye (RVTR521711)
+  2020s · #1 · Lose Control — teddy swims (RVTR765818)
+  2020s · #1 · Lose Control — teddy swims (RVTR765818)
+
+[1/10] RVTR261615 — Light My Fire…
+  ✓ 42s · sources=4 facts=15 stories=6 conf=81% artifacts=OK
+[2/10] RVTR189191 — A Fi Feat H Of Beethoven…
+  ✓ 27s · sources=3 facts=12 stories=4 conf=84% artifacts=PARTIAL
+[3/10] RVTR148782 — How Deep Is Your Love…
+  ✓ 42s · sources=4 facts=14 stories=6 conf=81% artifacts=OK
+[4/10] RVTR461411 — Red Red Wine…
+  ✓ 28s · sources=3 facts=9 stories=4 conf=85% artifacts=PARTIAL
+[5/10] RVTR961157 — Macarena Bayside Boys Mix…
+  ✓ 9s · sources=2 facts=6 stories=3 conf=90% artifacts=PARTIAL
+[6/10] RVTR037060 — All I Want For Christmas Is You…
+  ✓ 42s · sources=4 facts=12 stories=4 conf=82% artifacts=PARTIAL
+[7/10] RVTR563439 — Party Rock Anthem…
+  ✓ 57s · sources=4 facts=15 stories=6 conf=83% artifacts=OK
+[8/10] RVTR521711 — Somebody That I Used To Know…
+  ✓ 50s · sources=4 facts=12 stories=6 conf=83% artifacts=OK
+[9/10] RVTR765818 — Lose Control…
+  ✓ 83s · sources=4 facts=12 stories=5 conf=78% artifacts=PARTIAL
+[10/10] RVTR765818 — Lose Control…
+  ✓ 50s · sources=4 facts=7 stories=5 conf=81% artifacts=PARTIAL
+
+Capturing screenshots…
+  screenshot ✓ RVTR261615
+  screenshot ✓ RVTR189191
+  screenshot ✓ RVTR148782
+  screenshot ✓ RVTR461411
+  screenshot ✓ RVTR961157
+  screenshot ✓ RVTR037060
+  screenshot ✓ RVTR563439
+  screenshot ✓ RVTR521711
+  screenshot ✓ RVTR765818
+  screenshot ✓ RVTR765818
+
+--- Summary ---
+Package completion: 100%
+Artifact success:   40%
+Avg runtime:        43s
+Overall:            FAIL
+
+Report: /Users/bobhopp/RETROVERSE_PUBLIC/reports/intelligence/validation-batch/VALIDATION-REPORT.md

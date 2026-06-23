@@ -1,0 +1,43 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+> retroverse-public@0.1.0 cover:audit
+> npx --yes tsx tools/run-cover-integrity-audit.ts
+
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+Cover integrity audit — read-only
+
+PG albums (RVAL):     21757
+With canonical path:  17730
+Missing path:         4027
+File missing on disk: 6
+Files hashed:         17724
+Orphan cover files:   30569
+Confidence:           HIGH 15431 · MEDIUM 16 · LOW 4033 · VERY_SUSPICIOUS 2277
+Assigned VERY_SUSP:  2277
+Missing assignment: 4027
+Norm drift flags:     448
+Same-artist hash dup: 1827
+Trust tiers:          TRUSTED 15431 · REVIEW 4043 · HIGH_RISK 2277 · BROKEN 6
+Repair queue:         2283
+
+Top reused hashes:
+  3bf6adc01062… → 29 albums (RVAL088703, RVAL089012, RVAL095875, RVAL148678, RVAL175940, RVAL179835)
+  1549afbc9f3c… → 22 albums (RVAL104152, RVAL147442, RVAL149029, RVAL165277, RVAL190849, RVAL252831)
+  148196d21708… → 18 albums (RVAL002442, RVAL134124, RVAL281759, RVAL481124, RVAL494551, RVAL523738)
+  26d6e09e5b73… → 16 albums (RVAL049785, RVAL052233, RVAL116049, RVAL119610, RVAL274137, RVAL314010)
+  6c9846de33d5… → 14 albums (RVAL097843, RVAL214156, RVAL320184, RVAL337706, RVAL339194, RVAL388185)
+
+Elton John spot check:
+  Too Low For Zero (RVAL823723): band=VERY_SUSPICIOUS score=56 hash=c6cfa2444301
+  Caribou (RVAL836560): band=HIGH score=100 hash=7b417a1b2a68
+  Shared image hash: no
+
+Wrote:
+  /Users/bobhopp/RETROVERSE_PUBLIC/reports/cover_integrity/cover_audit.csv
+  /Users/bobhopp/RETROVERSE_PUBLIC/reports/cover_integrity/high_risk_mismatches.csv
+  /Users/bobhopp/RETROVERSE_PUBLIC/reports/cover_integrity/reused_covers.csv
+  /Users/bobhopp/RETROVERSE_PUBLIC/reports/cover_integrity/repair_queue.csv
+  /Users/bobhopp/RETROVERSE_PUBLIC/reports/cover_integrity/trust_registry.json
+  /Users/bobhopp/RETROVERSE_PUBLIC/reports/cover_integrity/summary.json
+
+Audit rows: 21757

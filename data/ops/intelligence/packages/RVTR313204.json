@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR313204",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:17:53.872Z",
+  "updatedAt": "2026-06-17T19:17:54.156Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:17:53.872Z · Processing Blue Eyes Blue · Eric Clapton (Canon First)",
+    "2026-06-17T19:17:53.873Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:17:53.873Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:17:53.873Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:17:54.155Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:17:54.156Z · Emitting canonical facts…",
+    "2026-06-17T19:17:54.156Z · Canonical facts: 5",
+    "2026-06-17T19:17:54.156Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR313204",
+    "artist": "Eric Clapton",
+    "title": "Blue Eyes Blue",
+    "year": 1999,
+    "albumTitle": "Clapton Chronicles: The Best Of Eric Clapton",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL053557/RVAL053557__eric-clapton__clapton-chronicles-the-best-of-eric-clapton.jpg",
+    "peakHot100": null,
+    "chartWeeks": null,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:17:53.873Z",
+      "excerpt": "Retroverse track identity: RVTR313204. \"Blue Eyes Blue\" by Eric Clapton. Album: Clapton Chronicles: The Best Of Eric Clapton (1999).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL053557/RVAL053557__eric-clapton__clapton-chronicles-the-best-of-eric-clapton.jpg",
+      "capturedAt": "2026-06-17T19:17:53.873Z",
+      "excerpt": "Canonical cover assignment for RVTR313204 (Blue Eyes Blue). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:17:53.873Z",
+      "excerpt": "Album: Clapton Chronicles: The Best Of Eric Clapton (1999)",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:17:53.873Z",
+      "excerpt": "Performance year context: 1999.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

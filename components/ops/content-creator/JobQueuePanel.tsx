@@ -85,7 +85,7 @@ function JobCard({ job, onRetry }: { job: JobRow; onRetry?: (id: string) => void
 
 export function JobQueuePanel() {
   const [queue, setQueue] = useState<QueueState | null>(null);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const load = useCallback(async () => {
     try {

@@ -1,0 +1,220 @@
+.song-sheet {
+  --ss-paper: #fef9ef;
+  --ss-ink: #1a2e2a;
+  --ss-teal: #0d9488;
+  --ss-orange: #e85d04;
+  --ss-border: 3px solid var(--ss-ink);
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+  background: var(--ss-paper);
+  color: var(--ss-ink);
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.song-sheet__grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.song-sheet__hero {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: var(--ss-border);
+}
+
+.song-sheet__cover-wrap {
+  width: min(100%, 320px);
+  margin: 0 auto;
+  border: var(--ss-border);
+  box-shadow: 6px 6px 0 var(--ss-orange);
+}
+
+.song-sheet__cover,
+.song-sheet__cover-fallback {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.song-sheet__identity {
+  text-align: center;
+}
+
+.song-sheet__kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ss-teal);
+}
+
+.song-sheet__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.song-sheet__artist {
+  margin: 0.5rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.song-sheet__artist a {
+  color: var(--ss-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ss-orange);
+  text-underline-offset: 3px;
+}
+
+.song-sheet__meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.song-sheet__section {
+  margin-bottom: 2.5rem;
+}
+
+.song-sheet__section-title {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ss-teal);
+  border-left: 5px solid var(--ss-orange);
+  padding-left: 0.65rem;
+}
+
+.song-sheet__artifact,
+.song-sheet .intel-artifact-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: var(--ss-border);
+  box-shadow: 4px 4px 0 rgba(26, 46, 42, 0.15);
+}
+
+.song-sheet__facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.song-sheet__fact {
+  padding: 1rem;
+  border: var(--ss-border);
+  background: #fff;
+  box-shadow: 3px 3px 0 var(--ss-teal);
+}
+
+.song-sheet__fact-cat {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--ss-orange);
+  color: #fff;
+}
+
+.song-sheet__fact-text {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.song-sheet__album-card {
+  padding: 1.25rem;
+  border: var(--ss-border);
+  background: #fff;
+  box-shadow: 4px 4px 0 var(--ss-orange);
+}
+
+.song-sheet__album-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.song-sheet__album-label,
+.song-sheet__album-chart {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.song-sheet__related {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.song-sheet__related a {
+  display: block;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--ss-ink);
+  background: #fff;
+  color: var(--ss-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.song-sheet__related a:active {
+  transform: translate(2px, 2px);
+}
+
+.song-sheet__footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: var(--ss-border);
+  text-align: center;
+}
+
+.song-sheet__track-link {
+  font-weight: 800;
+  color: var(--ss-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 480px) {
+  .song-sheet {
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .song-sheet__hero {
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    text-align: left;
+  }
+
+  .song-sheet__cover-wrap {
+    margin: 0;
+  }
+
+  .song-sheet__identity {
+    text-align: left;
+  }
+}

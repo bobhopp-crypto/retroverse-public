@@ -4,19 +4,50 @@ import { findAuditMissionRow, loadMissionWorkspaceBundle } from "@/lib/atlas/loa
 import { applyHealingAlbumLink } from "@/lib/healing/apply-album-link";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { healingWritesEnabled } from "@/lib/track/album-link-recovery/guardrails";
+import {
+  type CandidateSourceKind,
+} from "@/lib/track/album-link-recovery/types";
 
 export const dynamic = "force-dynamic";
 
 type Params = { params: Promise<{ rvtr: string }> };
 
 type Body = {
-  albumId?: number;
-  position?: number | null;
-  sequenceTitle?: string;
-  confidence?: number;
-  reasons?: string[];
-  sourceKind?: string;
+  albumId?: unknown;
+  position?: unknown;
+  sequenceTitle?: unknown;
+  confidence?: unknown;
+  reasons?: unknown;
+  sourceKind?: unknown;
 };
+
+function parseOptionalTrackPosition(value: unknown): number | null | undefined {
+  if (value == null || value === "") return null;
+  if (typeof value === "number") return Number.isFinite(value) ? value : undefined;
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    if (!trimmed) return null;
+    const n = Number(trimmed);
+    return Number.isFinite(n) ? n : undefined;
+  }
+  return undefined;
+}
+
+const CANDIDATE_SOURCE_KINDS = [
+  "same_artist_album",
+  "tracklist_title_match",
+  "tracklist_title_unlinked",
+  "track_family_link",
+  "compilation_title_match",
+] as const satisfies readonly CandidateSourceKind[];
+
+function parseSourceKind(value: unknown): CandidateSourceKind | undefined {
+  if (typeof value !== "string") return undefined;
+  const trimmed = value.trim();
+  return (CANDIDATE_SOURCE_KINDS as readonly string[]).includes(trimmed)
+    ? (trimmed as CandidateSourceKind)
+    : undefined;
+}
 
 export async function POST(req: Request, { params }: Params) {
   if (!isOpsEnabled()) {
@@ -51,20 +82,23 @@ export async function POST(req: Request, { params }: Params) {
   if (!Number.isFinite(albumId) || albumId <= 0) {
     return NextResponse.json({ ok: false, error: "albumId required" }, { status: 400 });
   }
-  const position =
-    body.position == null || body.position === ""
-      ? null
-      : Number(body.position);
-  if (position != null && !Number.isFinite(position)) {
+  const position = parseOptionalTrackPosition(body.position);
+  if (position === undefined) {
     return NextResponse.json({ ok: false, error: "invalid position" }, { status: 400 });
   }
-  if (!body.sequenceTitle?.trim()) {
+  const sequenceTitle =
+    typeof body.sequenceTitle === "string" ? body.sequenceTitle.trim() : "";
+  if (!sequenceTitle) {
     return NextResponse.json({ ok: false, error: "sequenceTitle required" }, { status: 400 });
   }
-  if (!Array.isArray(body.reasons) || body.reasons.length === 0) {
+  const reasons = Array.isArray(body.reasons)
+    ? body.reasons.filter((r): r is string => typeof r === "string")
+    : [];
+  if (reasons.length === 0) {
     return NextResponse.json({ ok: false, error: "reasons required" }, { status: 400 });
   }
-  if (!body.sourceKind) {
+  const sourceKind = parseSourceKind(body.sourceKind);
+  if (!sourceKind) {
     return NextResponse.json({ ok: false, error: "sourceKind required" }, { status: 400 });
   }
 
@@ -72,11 +106,11 @@ export async function POST(req: Request, { params }: Params) {
     {
       rvtr,
       albumId,
-      position: position ?? null,
-      sequenceTitle: body.sequenceTitle.trim(),
+      position,
+      sequenceTitle,
       confidence: Number(body.confidence) || 0,
-      reasons: body.reasons,
-      sourceKind: body.sourceKind as never,
+      reasons,
+      sourceKind,
     },
     "ops/atlas/mission",
   );

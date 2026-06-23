@@ -1,0 +1,197 @@
+{
+  "version": 2,
+  "rvtr": "RVTR957415",
+  "status": "published",
+  "createdAt": "2026-06-17T02:11:55.479Z",
+  "updatedAt": "2026-06-17T02:11:55.597Z",
+  "processedAt": "2026-06-17T02:11:55.596Z",
+  "approvedAt": "2026-06-17T02:11:55.597Z",
+  "publishedAt": "2026-06-17T02:11:55.597Z",
+  "processLog": [
+    "2026-06-17T02:11:55.479Z · Processing I Gotta Feeling · The Black Eyed Peas (Phase 2)",
+    "2026-06-17T02:11:55.481Z · Capturing research sources…",
+    "2026-06-17T02:11:55.593Z · Research vault: 1 sources",
+    "2026-06-17T02:11:55.594Z · Emitting canonical facts…",
+    "2026-06-17T02:11:55.594Z · Canonical facts: 3",
+    "2026-06-17T02:11:55.595Z · Extracting candidate facts from research…",
+    "2026-06-17T02:11:55.595Z · Candidate facts: 3 (3 approved)",
+    "2026-06-17T02:11:55.595Z · Proposing candidate stories…",
+    "2026-06-17T02:11:55.595Z · Candidate stories: 2",
+    "2026-06-17T02:11:55.595Z · Ranking stories…",
+    "2026-06-17T02:11:55.595Z · Top story: \"Chart Peak: #1\"",
+    "2026-06-17T02:11:55.596Z · Package intel: 2 timeline events",
+    "2026-06-17T02:11:55.596Z · Ready for human review — build cards after approving facts/stories",
+    "2026-06-17T02:11:55.597Z · Promoted verified facts: 3 approved",
+    "2026-06-17T02:11:55.597Z · Story cards assembled: 3",
+    "2026-06-17T02:11:55.597Z · Song sheet published"
+  ],
+  "metadata": {
+    "rvtr": "RVTR957415",
+    "artist": "The Black Eyed Peas",
+    "title": "I Gotta Feeling",
+    "year": 2009,
+    "albumTitle": "The E.N.D.",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL194136/RVAL194136__the-black-eyed-peas__the-e-n-d.jpg",
+    "peakHot100": 1,
+    "chartWeeks": 56,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T02:11:55.593Z",
+      "excerpt": "Album: The E.N.D. (2009). Billboard Hot 100 peak: #1. 56 weeks on chart",
+      "confidence": 0.95
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "c2b3f133-93d3-40fd-b704-583bc78d0d22",
+      "createdAt": "2026-06-17T02:11:55.594Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "I Gotta Feeling is performed by The Black Eyed Peas.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR957415",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR957415",
+      "excerptAnchor": "The Black Eyed Peas",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    },
+    {
+      "id": "9b918a39-42d0-4be4-8aba-6385bd9903c4",
+      "createdAt": "2026-06-17T02:11:55.594Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "album",
+      "factText": "The song appears on the album \"The E.N.D.\" (2009).",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR957415",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR957415",
+      "excerptAnchor": "The E.N.D.",
+      "confidence": 1,
+      "importance": 0.8,
+      "locked": true
+    },
+    {
+      "id": "711177f1-7c73-4e03-8ac1-6451f8bf0c0e",
+      "createdAt": "2026-06-17T02:11:55.594Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "chart",
+      "factText": "The song peaked at #1 on the Billboard Hot 100 and spent 56 weeks on the chart.",
+      "sourceType": "canonical",
+      "sourceId": "meta-chart-RVTR957415",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #1. 56 weeks on chart.",
+      "excerptAnchor": "Billboard Hot 100 peak: #1.",
+      "confidence": 1,
+      "importance": 0.85,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "9ffc4759-5eb8-4cc2-90c3-50f456ed7f23",
+      "headline": "Chart Peak: #1",
+      "hookType": "chart",
+      "primaryFactId": "711177f1-7c73-4e03-8ac1-6451f8bf0c0e",
+      "supportingFactIds": [
+        "9b918a39-42d0-4be4-8aba-6385bd9903c4"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.7,
+      "createdAt": "2026-06-17T02:11:55.595Z"
+    },
+    {
+      "id": "c70b87ec-1f55-4bc9-8809-c89c7f0dbc2f",
+      "headline": "From the Album \"The E.N.D.\"",
+      "hookType": "surprise",
+      "primaryFactId": "9b918a39-42d0-4be4-8aba-6385bd9903c4",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 2,
+      "rankScore": 0.635,
+      "createdAt": "2026-06-17T02:11:55.595Z"
+    }
+  ],
+  "storyCards": [
+    {
+      "id": "0b70dd4c-2228-4177-8261-8b0c375395a3",
+      "storyId": "cover",
+      "rank": 0,
+      "headline": "I Gotta Feeling",
+      "fact": "I Gotta Feeling by The Black Eyed Peas. From The E.N.D. (2009). Billboard Hot 100 peak: #1.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Canonical metadata for RVTR957415",
+      "confidence": 1,
+      "category": "artist"
+    },
+    {
+      "id": "0f848aae-3514-4caa-84a1-7375b5129408",
+      "storyId": "9ffc4759-5eb8-4cc2-90c3-50f456ed7f23",
+      "rank": 1,
+      "headline": "Chart Peak: #1",
+      "fact": "The song peaked at #1 on the Billboard Hot 100 and spent 56 weeks on the chart.",
+      "supportingContext": "The song appears on the album \"The E.N.D.\" (2009).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #1. 56 weeks on chart.",
+      "confidence": 1,
+      "category": "chart"
+    },
+    {
+      "id": "4917f056-a81d-419a-ba74-bbe5e1332c62",
+      "storyId": "c70b87ec-1f55-4bc9-8809-c89c7f0dbc2f",
+      "rank": 2,
+      "headline": "From the Album \"The E.N.D.\"",
+      "fact": "The song appears on the album \"The E.N.D.\" (2009).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR957415",
+      "confidence": 1,
+      "category": "album"
+    }
+  ],
+  "intel": {
+    "label": null,
+    "catalogNumber": "2009-THEE.N",
+    "chartHistory": [
+      {
+        "chart": "Billboard Hot 100",
+        "peak": 1,
+        "weeks": 56,
+        "detail": "56 weeks on chart"
+      }
+    ],
+    "timelineEvents": [
+      {
+        "id": "4ea1ee4e-d20b-4643-8610-078dc92e1407",
+        "year": 2009,
+        "title": "Release",
+        "description": "I Gotta Feeling released on The E.N.D.."
+      },
+      {
+        "id": "7c37d765-6ce0-4dd8-bf40-a9ab1cb21353",
+        "year": 2010,
+        "title": "Chart Peak",
+        "description": "Peaked at #1 on Billboard Hot 100."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

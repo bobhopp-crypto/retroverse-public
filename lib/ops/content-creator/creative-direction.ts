@@ -53,7 +53,7 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     composition:
       "Admission credential layout — ornamental gate framing, event title as admission headline, venue and date as typographic metadata woven into border bands.",
     subjectMatter:
-      "Gate graphics, admission typography, festival branding, perforated stub energy — NOT buildings, facades, or crowd scenes.",
+      "Gate graphics, admission typography, festival branding, perforated stub energy — no venue illustration or crowd scenes.",
     typographyArrangement:
       "Bold admission headline, secondary venue/date band, years as accent strip along edge or banner.",
     references: "Fillmore hand-stamps, festival gate passes, venue admission plates, summer concert credentials.",
@@ -75,10 +75,10 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     composition:
       "Poster-first layout — hero illustration or typographic monument dominates, event text as display lettering integrated into poster hierarchy.",
     subjectMatter:
-      "Performance iconography, bill-headline composition, hand-screened print texture — illustration serves the poster concept, not era cliché filler. No building or marquee illustration.",
+      "Performance iconography, bill-headline composition, hand-screened print texture — illustration serves the poster concept, not era cliché filler. No venue exterior or marquee illustration.",
     typographyArrangement:
       "Oversized event title as poster headline, venue and date as secondary typographic lines, years as billing accent.",
-    references: "Concert hall bills, hand-screened show prints, promoter handbills, letterpress poster stock.",
+    references: "Concert bills, hand-screened show prints, promoter handbills, letterpress poster stock.",
   },
   "collector-card": {
     id: "collector-card",
@@ -141,7 +141,7 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     composition:
       "Tour book / program cover layout — itinerary elegance, tour crest, premium souvenir program framing.",
     subjectMatter:
-      "Tour map accents, program cover illustration, routing typography — refined keepsake, not road-worn cliché. No venue architecture.",
+      "Tour map accents, program cover illustration, routing typography — refined keepsake, not road-worn cliché. No venue-as-subject illustration.",
     typographyArrangement:
       "Tour/event title as program cover, venue and date as itinerary line, years as tour season accent.",
     references: "Arena tour programs, concert souvenir books, tour date sheets, VIP program covers.",
@@ -152,7 +152,7 @@ export const CREATIVE_DIRECTIONS: Record<CreativeDirectionId, CreativeDirectionD
     composition:
       "Admission stub layout — perforated tear edge, seat or admission block, stub tear as compositional anchor.",
     subjectMatter:
-      "Ticket stock typography, admission numbering area (back only for real serial), perforation and stub graphics — NOT crowd scenes or building illustration.",
+      "Ticket stock typography, admission numbering area (back only for real serial), perforation and stub graphics — NOT crowd scenes or venue illustration.",
     typographyArrangement:
       "Event as admission title, venue and date in stub metadata band, years as price-tier or series accent.",
     references: "Concert ticket stubs, venue admission tickets, box-office keepsakes, mailed ticket stock.",
@@ -251,10 +251,10 @@ export function parseCreativeDirectionSettings(
 }
 
 const BACK_LAYOUT_HINTS = [
-  "collector card back; dominant QR safe area in lower half · retroverse.live below QR · serial at bottom edge",
-  "keepsake reverse; large functional QR square (~70% card width) · shrink seal before QR",
-  "laminate back; artwork upper half · QR dominates lower half · thin ornament outside safe area only",
-  "binder card reverse; QR primary · URL band under QR · serial footer flush bottom",
+  "collector card back; supporting art top · collector/auth info middle · production QR reserve lower-middle · serial/stamp area bottom",
+  "keepsake reverse; authentication seal and metadata support the design · square QR reserve stays below info and above stamp area",
+  "laminate back; artwork echo upper third · production reserve lower-middle · generous stamp panel bottom",
+  "binder card reverse; production export will render verification code later · square reserve separated from serial/stamp footer",
 ] as const;
 
 /** Single composition/layout source — no duplication elsewhere. */
@@ -279,9 +279,9 @@ export function creativeDirectionPromptBlock(
     lines.push(`Layout: Full-bleed front, 100% artwork, no QR/serial zones, no generated numbers`);
   } else {
     lines.push(
-      `Layout: ${backHint} · large clear verification square lower half · retroverse.live below · serial bottom · ornament yields to QR`,
+      `Layout: ${backHint} · related to front palette and stock, but not a duplicate front composition · square QR reserve about 40–43% card height · generous serial/stamp area about 15–18% card height · no QR graphics/checkerboard/text inside · ornament stays outside reserve and stamp areas`,
     );
-    if (frontSummary) lines.push(`Mirror front: ${frontSummary}`);
+    if (frontSummary) lines.push(`Relate to front without copying its hero composition: ${frontSummary}`);
   }
 
   if (settings.maximizeVariation) {

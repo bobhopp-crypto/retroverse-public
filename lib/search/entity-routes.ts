@@ -5,6 +5,7 @@ import type { SearchSuggestionKind } from "./search-suggestion-types";
 const RE_RVAR = /^RVAR\d{6}$/i;
 const RE_RVAL = /^RVAL\d{6}$/i;
 const RE_RVTR = /^RVTR\d{6}$/i;
+const RE_RVTR_LABEL = /^(?:DK_|PK_)?(RVTR\d{6})$/i;
 const RE_HOT100_TRACK = /^hot100-/i;
 const RE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -224,7 +225,8 @@ export function albumSuggestionHref(
 export function trackPageHref(rvtrOrSlug: string): string {
   const raw = rvtrOrSlug.trim();
   if (!raw) return "/track/unknown";
-  if (RE_RVTR.test(raw)) return `/track/${raw.toUpperCase()}`;
+  const rvtr = raw.match(RE_RVTR_LABEL)?.[1];
+  if (rvtr) return `/track/${rvtr.toUpperCase()}`;
   const slug = slugFromEntityTitle(raw);
   return slug ? `/track/${slug}` : "/track/unknown";
 }

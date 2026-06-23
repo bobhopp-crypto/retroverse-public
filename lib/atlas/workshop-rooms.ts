@@ -42,7 +42,7 @@ export const WORKSHOP_ROOMS: WorkshopRoom[] = [
     tone: "event",
     tools: [
       { label: "Event Control", href: "/ops/event-control" },
-      { label: "Pass Generator", href: "/ops/passes" },
+      { label: "Content Creator", href: "/ops/content-creator" },
       { label: "Registrations", href: "/ops/pass-registrations" },
     ],
   },
@@ -53,7 +53,6 @@ export const WORKSHOP_ROOMS: WorkshopRoom[] = [
     tone: "create",
     tools: [
       { label: "Content Creator", href: "/ops/content-creator" },
-      { label: "Pass Art", href: "/ops/content-creator/create" },
     ],
   },
   {

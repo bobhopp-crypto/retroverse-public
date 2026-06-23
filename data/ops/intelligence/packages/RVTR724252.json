@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR724252",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:05:37.788Z",
+  "updatedAt": "2026-06-17T19:05:38.067Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:05:37.788Z · Processing Flowers On The Wall · The Statler Brothers (Canon First)",
+    "2026-06-17T19:05:37.789Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:05:37.789Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:05:37.791Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:05:38.065Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:05:38.066Z · Emitting canonical facts…",
+    "2026-06-17T19:05:38.066Z · Canonical facts: 5",
+    "2026-06-17T19:05:38.067Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR724252",
+    "artist": "The Statler Brothers",
+    "title": "Flowers On The Wall",
+    "year": 1966,
+    "albumTitle": "Flowers On The Wall",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL667681/RVAL667681__the-statler-brothers__flowers-on-the-wall.jpg",
+    "peakHot100": 4,
+    "chartWeeks": 13,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:05:37.789Z",
+      "excerpt": "Retroverse track identity: RVTR724252. \"Flowers On The Wall\" by The Statler Brothers. Album: Flowers On The Wall (1966).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL667681/RVAL667681__the-statler-brothers__flowers-on-the-wall.jpg",
+      "capturedAt": "2026-06-17T19:05:37.789Z",
+      "excerpt": "Canonical cover assignment for RVTR724252 (Flowers On The Wall). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:05:37.789Z",
+      "excerpt": "Album: Flowers On The Wall (1966). Billboard Hot 100 peak: #4. 13 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:05:37.789Z",
+      "excerpt": "Performance year context: 1966.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

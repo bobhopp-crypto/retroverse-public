@@ -8,8 +8,12 @@ export type FinanceCategoryFilter =
   | "utilities"
   | "grocery"
   | "restaurants"
+  | "gas"
+  | "insurance"
+  | "subscriptions"
   | "personal"
   | "shopping"
+  | "medical"
   | "entertainment"
   | "income"
   | "uncategorized";
@@ -38,7 +42,11 @@ export const FINANCE_CATEGORY_OPTIONS: { id: FinanceCategoryFilter; label: strin
   { id: "utilities", label: "Utilities" },
   { id: "grocery", label: "Grocery" },
   { id: "restaurants", label: "Restaurants" },
+  { id: "gas", label: "Gas" },
+  { id: "insurance", label: "Insurance" },
+  { id: "subscriptions", label: "Subscriptions" },
   { id: "personal", label: "Personal" },
+  { id: "medical", label: "Medical" },
   { id: "shopping", label: "Shopping" },
   { id: "entertainment", label: "Entertainment" },
   { id: "income", label: "Income" },
@@ -98,6 +106,9 @@ const VALID_CATEGORIES = new Set(FINANCE_CATEGORY_OPTIONS.map((c) => c.id));
 
 /** Bookkeeping active from 2026 onward; earlier years are historical reference. */
 export const FINANCE_ACTIVE_BOOKKEEPING_START = "2026-01-01";
+
+/** SQL fragment: only active (non-archived) ledger rows. */
+export const FINANCE_ACTIVE_TXN_SQL = "t.archived_at IS NULL";
 
 export function activeBookkeepingYear(): FinancePeriod {
   const y = Math.max(2026, new Date().getFullYear());
@@ -220,13 +231,21 @@ export function categoryFilterSql(cat: FinanceCategoryFilter): string {
     case "home":
       return "(a.name = 'Home' OR COALESCE(t.subcategory, '') = 'Home')";
     case "utilities":
-      return "(a.name IN ('Power and Light', 'Internet', 'Telephone', 'Water Utility', 'Gas', 'Helium', 'Utilities') OR COALESCE(t.subcategory, '') ILIKE ANY(ARRAY['%Power%', '%Internet%', '%Telephone%', '%Utility%', '%Gas%']))";
+      return "(a.name IN ('Power and Light', 'Internet', 'Telephone', 'Water Utility', 'Helium', 'Utilities') OR COALESCE(t.subcategory, '') ILIKE ANY(ARRAY['%Power%', '%Internet%', '%Telephone%', '%Utility%', '%Water%']))";
     case "grocery":
       return "(a.name = 'Grocery' OR COALESCE(t.subcategory, '') = 'Grocery')";
     case "restaurants":
       return "(a.name = 'Restaurants' OR COALESCE(t.subcategory, '') = 'Restaurants')";
+    case "gas":
+      return "(a.name = 'Gas' OR COALESCE(t.subcategory, '') = 'Gas')";
+    case "insurance":
+      return "(a.name ILIKE '%Insurance%' OR COALESCE(t.subcategory, '') ILIKE '%Insurance%')";
+    case "subscriptions":
+      return "(a.name ILIKE 'SUB -%' OR a.name ILIKE 'SUB _%' OR COALESCE(t.subcategory, '') ILIKE 'SUB -%' OR COALESCE(t.subcategory, '') ILIKE 'SUB _%')";
     case "personal":
       return "(a.name = 'Personal' OR COALESCE(t.subcategory, '') = 'Personal')";
+    case "medical":
+      return "(a.name IN ('Medical', 'SSM Health') OR COALESCE(t.subcategory, '') ILIKE '%Medical%')";
     case "shopping":
       return "(a.name IN ('Amazon', 'Shopping', 'Personal') OR COALESCE(t.subcategory, '') ILIKE '%Amazon%')";
     case "entertainment":
@@ -245,7 +264,7 @@ export function buildFilterSql(
   opts?: { groupName?: string; sourceOnly?: FinanceSourceFilter; incomeMode?: boolean },
 ): { sql: string; params: unknown[] } {
   const params: unknown[] = [];
-  const clauses: string[] = [];
+  const clauses: string[] = ["t.archived_at IS NULL"];
 
   const incomeOnly =
     opts?.incomeMode ?? (filters.categories.length === 1 && filters.categories[0] === "income");

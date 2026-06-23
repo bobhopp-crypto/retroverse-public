@@ -52,7 +52,7 @@ const merchantBaseCte = `
                AND t.flow_kind = 'expense' AND t.amount > 0
            )::bigint AS stale_unassigned_count
     FROM finance_transactions t
-    WHERE t.flow_kind IN ('expense', 'income', 'transfer')
+    WHERE t.archived_at IS NULL AND t.flow_kind IN ('expense', 'income', 'transfer')
     GROUP BY ${merchantKeySql}
   ),
   enriched AS (

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { previewFinanceUpload } from "@/lib/ops/finance/preview-finance-upload";
+import { parseAndStageUpload } from "@/lib/ops/finance/import-batch-service";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 export const dynamic = "force-dynamic";
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     if (file.size <= 0) continue;
     const buffer = Buffer.from(await file.arrayBuffer());
     previews.push(
-      await previewFinanceUpload({
+      await parseAndStageUpload({
         fileName: file.name,
         buffer,
         mimeType: file.type || "application/octet-stream",

@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR500906",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:04:58.952Z",
+  "updatedAt": "2026-06-17T19:04:59.249Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:04:58.952Z · Processing Tracks Of My Tears · Linda Ronstadt (Canon First)",
+    "2026-06-17T19:04:58.953Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:04:58.953Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:04:58.954Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:04:59.247Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:04:59.249Z · Emitting canonical facts…",
+    "2026-06-17T19:04:59.249Z · Canonical facts: 5",
+    "2026-06-17T19:04:59.249Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR500906",
+    "artist": "Linda Ronstadt",
+    "title": "Tracks Of My Tears",
+    "year": 1975,
+    "albumTitle": "Prisoner In Disguise",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL469071/RVAL469071__linda-ronstadt__prisoner-in-disguise.jpg",
+    "peakHot100": 25,
+    "chartWeeks": 13,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:04:58.953Z",
+      "excerpt": "Retroverse track identity: RVTR500906. \"Tracks Of My Tears\" by Linda Ronstadt. Album: Prisoner In Disguise (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL469071/RVAL469071__linda-ronstadt__prisoner-in-disguise.jpg",
+      "capturedAt": "2026-06-17T19:04:58.953Z",
+      "excerpt": "Canonical cover assignment for RVTR500906 (Tracks Of My Tears). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:04:58.953Z",
+      "excerpt": "Album: Prisoner In Disguise (1975). Billboard Hot 100 peak: #25. 13 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:04:58.953Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

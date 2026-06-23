@@ -1,4 +1,5 @@
 import { QR_PRODUCTION_DATA_RULES } from "./qr-production";
+import type { PassQrPlacement } from "./types";
 
 /** Shared pass canvas layout — prompts and export compositing must match. */
 
@@ -37,7 +38,7 @@ export const SERIAL_X0 = Math.round((PASS_WIDTH - SERIAL_WIDTH_PX) / 2);
 export const SERIAL_Y0 =
   PASS_HEIGHT - SERIAL_HEIGHT_PX - Math.round(SERIAL_BOTTOM_MARGIN_IN * PX_PER_IN);
 
-/** Back — retroverse.live label band below QR. */
+/** Back — spacer band between QR reserve and serial/stamp area. */
 export const URL_PRINT_H_IN = 0.2;
 export const URL_HEIGHT_PX = Math.round(URL_PRINT_H_IN * PX_PER_IN);
 export const URL_QR_GAP_IN = 0.08;
@@ -53,7 +54,7 @@ export const URL_ZONE = {
   height: URL_HEIGHT_PX,
 } as const;
 
-/** Back — large QR dominates lower half; composited at export. */
+/** Back — reserved verification area in lower half; code composited at export. */
 export const QR_ZONE = {
   left: Math.round((PASS_WIDTH - QR_SIZE_PX) / 2),
   top:
@@ -62,6 +63,36 @@ export const QR_ZONE = {
     QR_SIZE_PX,
   size: QR_SIZE_PX,
 } as const;
+
+function isFinitePlacementNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+export function normalizeQrPlacement(raw: unknown): PassQrPlacement | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const row = raw as Partial<PassQrPlacement>;
+  if (
+    !isFinitePlacementNumber(row.left) ||
+    !isFinitePlacementNumber(row.top) ||
+    !isFinitePlacementNumber(row.size)
+  ) {
+    return undefined;
+  }
+
+  const left = Math.round(row.left);
+  const top = Math.round(row.top);
+  const size = Math.round(row.size);
+  if (size <= 0 || left < 0 || top < 0 || left + size > PASS_WIDTH || top + size > PASS_HEIGHT) {
+    return undefined;
+  }
+  return { left, top, size };
+}
+
+export function resolveQrPlacement(
+  project?: { qrPlacement?: PassQrPlacement } | null,
+): PassQrPlacement {
+  return normalizeQrPlacement(project?.qrPlacement) ?? QR_ZONE;
+}
 
 /** @deprecated Serial zone on back only — aliases for legacy debug layout code. */
 export const STAMP_PRINT_W_IN = SERIAL_PRINT_W_IN;
@@ -115,11 +146,12 @@ export function fullBleedFrontPrompt(): string {
 /** Integrated serial zone on back — bottom edge, subordinate to QR. */
 export function integratedSerialZonePrompt(): string {
   return [
-    `SERIAL STAMP ZONE (BACK ONLY — BOTTOM EDGE):`,
-    `Reserve bottom-center zone for programmatic serial overlay at export.`,
-    `Flush to bottom edge — thin collector stamp plate, not a dominant panel.`,
+    `SERIAL / STAMP ZONE (BACK ONLY — BOTTOM AUTHENTICATION AREA):`,
+    `Reserve a generous bottom-center stamp area, visually about 15–18% of card height.`,
+    `This area must support hand-stamped numbers, collector codes, and future authentication markings.`,
     `- Interior stays clear for serial overlay — no numbers, no serial text`,
-    `- Reduce ornament before shrinking QR or URL band`,
+    `- Keep clear separation from the QR reserve; neither area should overlap or visually compete`,
+    `- Reduce supporting ornament before shrinking the QR reserve or serial/stamp area`,
     ``,
     NO_GENERATED_NUMBERING,
   ].join("\n");
@@ -130,34 +162,26 @@ export function integratedSerialStampPrompt(): string {
   return integratedSerialZonePrompt();
 }
 
-/** URL label band below QR — AI may paint retroverse.live here; export QR is above. */
+/** @deprecated URL label bands are no longer model-facing artwork instructions. */
 export function integratedUrlZonePrompt(): string {
-  return [
-    `URL LABEL BAND (BACK ONLY — BELOW QR):`,
-    `Reserve a narrow band directly below the verification square.`,
-    `Small typeset URL label — subordinate to QR, not competing for space.`,
-    `Do NOT draw fake QR modules or barcodes in this band.`,
-  ].join("\n");
+  return "";
 }
 
-/** QR reserve — intentional white window in artwork; scannable QR is export production data. */
+/** Verification reserve — intentional white window in artwork; code is export production data. */
 export function integratedQrZonePrompt(): string {
   return [
     QR_PRODUCTION_DATA_RULES,
     ``,
-    `QR RESERVE WINDOW (BACK ONLY — SQUARE ONLY):`,
-    `Paint one large, flat, clean WHITE SQUARE in the lower half of the back.`,
-    `The opening must be perfectly square — equal width and height. Never a rectangle or wide band.`,
-    `This is laminate stock reserved for verification — not a temporary placeholder.`,
-    `Do NOT print measurements, zone names, or editor labels on the artwork.`,
+    `PRODUCTION QR RESERVE (BACK ONLY — SQUARE ONLY):`,
+    `Paint one production-safe reserved square, visually about 40–43% of card height.`,
+    `The opening must be perfectly square — equal width and height. Never a rectangle, wide band, circle, badge, or rounded card.`,
+    `Edges must be hard and straight with sharp 90-degree corners.`,
+    `This is blank laminate stock reserved for production — not a temporary placeholder and not a decorative panel.`,
+    `Do NOT print measurements, zone names, editor labels, URL text, or any words inside the square.`,
     ``,
-    `LAYOUT PRIORITY (back, top to bottom):`,
-    `1. Upper area — collectible artwork + small authenticity seal`,
-    `2. White verification window — empty, flat white, no modules, no texture inside`,
-    `3. URL label band below the window`,
-    `4. Serial stamp at bottom edge`,
-    ``,
-    `Ornament may frame outside the white window only. Never draw QR patterns in artwork.`,
+    `The reserve is important for scanning but secondary to the full back layout; do not make it the primary design element.`,
+    `Place it below collector/authentication information and above the serial/stamp area, with clear gutter space.`,
+    `Ornament may frame outside the white square only. Never overlap the square and never draw code patterns in artwork.`,
   ].join("\n");
 }
 
@@ -166,22 +190,19 @@ export function artworkBackLayoutPrompt(): string {
   return [
     integratedQrZonePrompt(),
     ``,
-    integratedUrlZonePrompt(),
-    ``,
     integratedSerialZonePrompt(),
   ].join("\n");
 }
 
-/** Combined back functional zones — QR-first layout. */
+/** Combined back functional zones — verification reserve owned by export. */
 export function integratedBackFunctionalZonesPrompt(): string {
   return [
-    `BACK SIDE — FUNCTIONAL LAYOUT (COLLECTOR CARD):`,
-    `Front = collectible artwork. Back = collectible artwork + dominant QR + serial.`,
-    `QR is the primary functional element — not a small medallion or badge.`,
+    `BACK SIDE — COLLECTOR CARD LAYOUT:`,
+    `Front = hero artwork. Back = supporting artwork + collector/authentication information + production QR reserve + serial/stamp area.`,
+    `Top: supporting artwork and era texture. Middle: collector/authentication information. Lower-middle: square QR reserve. Bottom: generous serial/stamp area.`,
+    `The QR reserve is export-owned production space — not a medallion, badge, rounded panel, illustrated code, or text area.`,
     ``,
     integratedQrZonePrompt(),
-    ``,
-    integratedUrlZonePrompt(),
     ``,
     integratedSerialZonePrompt(),
   ].join("\n");

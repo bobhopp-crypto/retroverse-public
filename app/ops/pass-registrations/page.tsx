@@ -56,8 +56,8 @@ export default async function OpsPassRegistrationsPage() {
               ← Ops
             </Link>
             {" · "}
-            <Link className="ops-link" href="/ops/passes">
-              Pass Generator
+            <Link className="ops-link" href="/ops/content-creator">
+              Content Creator
             </Link>
             {" · "}
             <Link className="ops-link" href="/sunday-nights">

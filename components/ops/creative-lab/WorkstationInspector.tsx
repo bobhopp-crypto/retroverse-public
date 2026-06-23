@@ -1,6 +1,8 @@
 "use client";
 
 import type { CreativeLabAsset, CreativeLabProjectFile, GeneratedPrompt } from "@/lib/ops/creative-lab/types";
+import { PASS_HEIGHT, PASS_WIDTH, resolveQrPlacement } from "@/lib/ops/creative-lab/pass-layout";
+import type { PassQrPlacement } from "@/lib/ops/creative-lab/types";
 import {
   assetForPrompt,
   assetUrl,
@@ -16,7 +18,23 @@ type InspectorTarget =
 type Props = {
   project: CreativeLabProjectFile | null;
   target: InspectorTarget;
+  qrPlacement?: PassQrPlacement;
 };
+
+function QrPreviewOverlay({ placement }: { placement: PassQrPlacement }) {
+  return (
+    <span
+      className="cl-qr-preview"
+      aria-hidden
+      style={{
+        left: `${(placement.left / PASS_WIDTH) * 100}%`,
+        top: `${(placement.top / PASS_HEIGHT) * 100}%`,
+        width: `${(placement.size / PASS_WIDTH) * 100}%`,
+        height: `${(placement.size / PASS_HEIGHT) * 100}%`,
+      }}
+    />
+  );
+}
 
 function draftOrApproved(
   project: CreativeLabProjectFile,
@@ -33,7 +51,7 @@ function draftOrApproved(
 }
 
 export function WorkstationInspector(props: Props) {
-  const { project, target } = props;
+  const { project, target, qrPlacement } = props;
 
   if (!project || !target) {
     return (
@@ -54,16 +72,20 @@ export function WorkstationInspector(props: Props) {
   const side = target.side;
   const status = deriveWorkstationStatus(project);
   const world = visualWorldById(project.selectedArtDirectionId);
+  const placement = qrPlacement ?? resolveQrPlacement(project);
 
   return (
     <aside className="cl-ws__inspector" aria-label="Inspector">
       <h3>Inspector</h3>
       {asset?.id && asset.filePath?.endsWith(".png") ? (
-        <img
-          src={assetUrl(project, asset.id)}
-          alt=""
-          className="cl-ws__inspector-img"
-        />
+        <span className="cl-ws__inspector-preview">
+          <img
+            src={assetUrl(project, asset.id)}
+            alt=""
+            className="cl-ws__inspector-img"
+          />
+          {side === "back" ? <QrPreviewOverlay placement={placement} /> : null}
+        </span>
       ) : (
         <div className="cl-ws__inspector-placeholder">No preview</div>
       )}

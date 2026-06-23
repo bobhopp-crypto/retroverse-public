@@ -1,0 +1,319 @@
+{
+  "version": 2,
+  "rvtr": "RVTR664619",
+  "status": "cards_ready",
+  "createdAt": "2026-06-17T20:23:47.995Z",
+  "updatedAt": "2026-06-19T03:15:53.411Z",
+  "processedAt": "2026-06-17T20:23:48.282Z",
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T20:23:47.995Z · Processing Dixie Rock · Wet Willie (Canon First)",
+    "2026-06-17T20:23:47.995Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T20:23:47.995Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T20:23:47.996Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T20:23:48.278Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T20:23:48.279Z · Emitting canonical facts…",
+    "2026-06-17T20:23:48.279Z · Canonical facts: 5",
+    "2026-06-17T20:23:48.280Z · Extracting candidate facts from research…",
+    "2026-06-17T20:23:48.280Z · Candidate facts: 5 (5 approved)",
+    "2026-06-17T20:23:48.281Z · Proposing candidate stories…",
+    "2026-06-17T20:23:48.281Z · Candidate stories: 4",
+    "2026-06-17T20:23:48.281Z · Ranking stories…",
+    "2026-06-17T20:23:48.281Z · Top story: \"Where Did That Name Come From?\"",
+    "2026-06-17T20:23:48.282Z · Package intel: 3 timeline events",
+    "2026-06-17T20:23:48.282Z · Ready for human review — build cards after approving facts/stories",
+    "2026-06-19T03:15:53.411Z · Story cards assembled: 5"
+  ],
+  "metadata": {
+    "rvtr": "RVTR664619",
+    "artist": "Wet Willie",
+    "title": "Dixie Rock",
+    "year": 1975,
+    "albumTitle": "Dixie Rock",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL228782/RVAL228782__wet-willie__dixie-rock.jpg",
+    "peakHot100": 96,
+    "chartWeeks": 2,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T20:23:47.995Z",
+      "excerpt": "Retroverse track identity: RVTR664619. \"Dixie Rock\" by Wet Willie. Album: Dixie Rock (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL228782/RVAL228782__wet-willie__dixie-rock.jpg",
+      "capturedAt": "2026-06-17T20:23:47.995Z",
+      "excerpt": "Canonical cover assignment for RVTR664619 (Dixie Rock). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T20:23:47.995Z",
+      "excerpt": "Album: Dixie Rock (1975). Billboard Hot 100 peak: #96. 2 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T20:23:47.995Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "f35ac65c-85b5-43e5-8fb7-1086b8e439d2",
+      "createdAt": "2026-06-17T20:23:48.279Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "trivia",
+      "factText": "Retroverse track identity: RVTR664619.",
+      "sourceType": "canonical",
+      "sourceId": "meta-rvtr-RVTR664619",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR664619",
+      "excerptAnchor": "RVTR664619",
+      "confidence": 1,
+      "importance": 1,
+      "locked": true
+    },
+    {
+      "id": "11487392-4343-41ae-91fb-a5f485007532",
+      "createdAt": "2026-06-17T20:23:48.279Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "Dixie Rock is performed by Wet Willie.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR664619",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR664619",
+      "excerptAnchor": "Wet Willie",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    },
+    {
+      "id": "900754e4-c25c-4abb-9e46-bbccb91363bb",
+      "createdAt": "2026-06-17T20:23:48.279Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "album",
+      "factText": "The song appears on the album \"Dixie Rock\" (1975).",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR664619",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR664619",
+      "excerptAnchor": "Dixie Rock",
+      "confidence": 1,
+      "importance": 0.8,
+      "locked": true
+    },
+    {
+      "id": "24161d81-e373-415e-93a7-b6ca7cda0c2a",
+      "createdAt": "2026-06-17T20:23:48.279Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "album",
+      "factText": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR664619.",
+      "sourceType": "canonical",
+      "sourceId": "meta-cover-RVTR664619",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL228782/RVAL228782__wet-willie__dixie-rock.jpg",
+      "sourceExcerpt": "Retroverse canonical record for RVTR664619",
+      "excerptAnchor": "Cover Library",
+      "confidence": 1,
+      "importance": 0.9,
+      "locked": true
+    },
+    {
+      "id": "36920b6c-b409-4238-9820-0b4c6e0cd70c",
+      "createdAt": "2026-06-17T20:23:48.279Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "chart",
+      "factText": "The song peaked at #96 on the Billboard Hot 100 and spent 2 weeks on the chart.",
+      "sourceType": "canonical",
+      "sourceId": "meta-chart-RVTR664619",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #96. 2 weeks on chart.",
+      "excerptAnchor": "Billboard Hot 100 peak: #96.",
+      "confidence": 1,
+      "importance": 0.85,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "69365d9a-7682-4ea9-80a8-e32a5c0e0734",
+      "headline": "Where Did That Name Come From?",
+      "hookType": "question",
+      "primaryFactId": "f35ac65c-85b5-43e5-8fb7-1086b8e439d2",
+      "supportingFactIds": [
+        "900754e4-c25c-4abb-9e46-bbccb91363bb",
+        "36920b6c-b409-4238-9820-0b4c6e0cd70c"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.808,
+      "createdAt": "2026-06-17T20:23:48.281Z"
+    },
+    {
+      "id": "8ec1aa85-d354-4c8e-b9f2-2b573612edb8",
+      "headline": "Chart Peak: #96",
+      "hookType": "chart",
+      "primaryFactId": "36920b6c-b409-4238-9820-0b4c6e0cd70c",
+      "supportingFactIds": [
+        "900754e4-c25c-4abb-9e46-bbccb91363bb"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 2,
+      "rankScore": 0.7,
+      "createdAt": "2026-06-17T20:23:48.281Z"
+    },
+    {
+      "id": "ec4344fb-6c73-499e-a75a-849e1b0d6dcb",
+      "headline": "Album Context",
+      "hookType": "surprise",
+      "primaryFactId": "24161d81-e373-415e-93a7-b6ca7cda0c2a",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 3,
+      "rankScore": 0.665,
+      "createdAt": "2026-06-17T20:23:48.281Z"
+    },
+    {
+      "id": "496745a4-0e1c-44fb-afcd-41206d8bdca7",
+      "headline": "From the Album \"Dixie Rock\"",
+      "hookType": "surprise",
+      "primaryFactId": "900754e4-c25c-4abb-9e46-bbccb91363bb",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 4,
+      "rankScore": 0.635,
+      "createdAt": "2026-06-17T20:23:48.281Z"
+    }
+  ],
+  "storyCards": [
+    {
+      "id": "b4c2eff8-2233-45eb-8421-3f8e57e7c39f",
+      "storyId": "cover",
+      "rank": 0,
+      "headline": "Dixie Rock",
+      "fact": "Dixie Rock by Wet Willie. From Dixie Rock (1975). Billboard Hot 100 peak: #96.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Canonical metadata for RVTR664619",
+      "confidence": 1,
+      "category": "artist"
+    },
+    {
+      "id": "ce004d87-0d2e-4c0f-a75c-69a96c01ed94",
+      "storyId": "69365d9a-7682-4ea9-80a8-e32a5c0e0734",
+      "rank": 1,
+      "headline": "Where Did That Name Come From?",
+      "fact": "Retroverse track identity: RVTR664619.",
+      "supportingContext": "The song appears on the album \"Dixie Rock\" (1975). · The song peaked at #96 on the Billboard Hot 100 and spent 2 weeks on the chart.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR664619",
+      "confidence": 1,
+      "category": "trivia"
+    },
+    {
+      "id": "1b36d06f-9a53-4259-92aa-36ff2cba558c",
+      "storyId": "8ec1aa85-d354-4c8e-b9f2-2b573612edb8",
+      "rank": 2,
+      "headline": "Chart Peak: #96",
+      "fact": "The song peaked at #96 on the Billboard Hot 100 and spent 2 weeks on the chart.",
+      "supportingContext": "The song appears on the album \"Dixie Rock\" (1975).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #96. 2 weeks on chart.",
+      "confidence": 1,
+      "category": "chart"
+    },
+    {
+      "id": "a366730b-ada1-4e34-a052-ab27825e31d6",
+      "storyId": "ec4344fb-6c73-499e-a75a-849e1b0d6dcb",
+      "rank": 3,
+      "headline": "Album Context",
+      "fact": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR664619.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL228782/RVAL228782__wet-willie__dixie-rock.jpg",
+      "sourceExcerpt": "Retroverse canonical record for RVTR664619",
+      "confidence": 1,
+      "category": "album"
+    },
+    {
+      "id": "87fbc2c3-7612-42a8-95c2-6e6096bce641",
+      "storyId": "496745a4-0e1c-44fb-afcd-41206d8bdca7",
+      "rank": 4,
+      "headline": "From the Album \"Dixie Rock\"",
+      "fact": "The song appears on the album \"Dixie Rock\" (1975).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR664619",
+      "confidence": 1,
+      "category": "album"
+    }
+  ],
+  "intel": {
+    "label": null,
+    "catalogNumber": "1975-DIXIER",
+    "chartHistory": [
+      {
+        "chart": "Billboard Hot 100",
+        "peak": 96,
+        "weeks": 2,
+        "detail": "2 weeks on chart"
+      }
+    ],
+    "timelineEvents": [
+      {
+        "id": "0db0b394-1172-4feb-b778-22f20937c8ce",
+        "year": 1975,
+        "title": "Release",
+        "description": "Dixie Rock released on Dixie Rock."
+      },
+      {
+        "id": "ce0ac0fc-9acb-48fb-9a6f-627f0d1057e8",
+        "year": 1975,
+        "title": "Origin",
+        "description": "Retroverse track identity: RVTR664619."
+      },
+      {
+        "id": "469aff9f-545f-4169-8dd6-d58b8bed3ad8",
+        "year": 1975,
+        "title": "Where Did That Name Come From?",
+        "description": "Retroverse track identity: RVTR664619."
+      },
+      {
+        "id": "f46467d1-9bab-4078-a8a3-69875a0275fe",
+        "year": 1976,
+        "title": "Chart Peak",
+        "description": "Peaked at #96 on Billboard Hot 100."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  },
+  "issueFlags": []
+}

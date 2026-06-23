@@ -1,0 +1,319 @@
+{
+  "version": 2,
+  "rvtr": "RVTR230371",
+  "status": "cards_ready",
+  "createdAt": "2026-06-17T19:18:43.006Z",
+  "updatedAt": "2026-06-19T03:15:53.282Z",
+  "processedAt": "2026-06-17T19:18:43.296Z",
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:18:43.006Z · Processing Never Can Say Goodbye · Gloria Gaynor (Canon First)",
+    "2026-06-17T19:18:43.007Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:18:43.007Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:18:43.007Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:18:43.292Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:18:43.293Z · Emitting canonical facts…",
+    "2026-06-17T19:18:43.293Z · Canonical facts: 5",
+    "2026-06-17T19:18:43.294Z · Extracting candidate facts from research…",
+    "2026-06-17T19:18:43.294Z · Candidate facts: 5 (5 approved)",
+    "2026-06-17T19:18:43.295Z · Proposing candidate stories…",
+    "2026-06-17T19:18:43.295Z · Candidate stories: 4",
+    "2026-06-17T19:18:43.295Z · Ranking stories…",
+    "2026-06-17T19:18:43.295Z · Top story: \"Where Did That Name Come From?\"",
+    "2026-06-17T19:18:43.296Z · Package intel: 3 timeline events",
+    "2026-06-17T19:18:43.296Z · Ready for human review — build cards after approving facts/stories",
+    "2026-06-19T03:15:53.282Z · Story cards assembled: 5"
+  ],
+  "metadata": {
+    "rvtr": "RVTR230371",
+    "artist": "Gloria Gaynor",
+    "title": "Never Can Say Goodbye",
+    "year": 1977,
+    "albumTitle": "Glorious",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL666041/RVAL666041__gloria-gaynor__glorious.jpg",
+    "peakHot100": 9,
+    "chartWeeks": 17,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:43.007Z",
+      "excerpt": "Retroverse track identity: RVTR230371. \"Never Can Say Goodbye\" by Gloria Gaynor. Album: Glorious (1977).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL666041/RVAL666041__gloria-gaynor__glorious.jpg",
+      "capturedAt": "2026-06-17T19:18:43.007Z",
+      "excerpt": "Canonical cover assignment for RVTR230371 (Never Can Say Goodbye). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:43.007Z",
+      "excerpt": "Album: Glorious (1977). Billboard Hot 100 peak: #9. 17 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:43.007Z",
+      "excerpt": "Performance year context: 1977.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "18c3c4dc-e675-48e9-98ef-e601559addb6",
+      "createdAt": "2026-06-17T19:18:43.293Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "trivia",
+      "factText": "Retroverse track identity: RVTR230371.",
+      "sourceType": "canonical",
+      "sourceId": "meta-rvtr-RVTR230371",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR230371",
+      "excerptAnchor": "RVTR230371",
+      "confidence": 1,
+      "importance": 1,
+      "locked": true
+    },
+    {
+      "id": "3ccea39b-fab7-460f-9dee-9bf67519b77e",
+      "createdAt": "2026-06-17T19:18:43.293Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "Never Can Say Goodbye is performed by Gloria Gaynor.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR230371",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR230371",
+      "excerptAnchor": "Gloria Gaynor",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    },
+    {
+      "id": "7d9bbd43-70ba-42a4-aa0c-5f461fb36418",
+      "createdAt": "2026-06-17T19:18:43.293Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "album",
+      "factText": "The song appears on the album \"Glorious\" (1977).",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR230371",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR230371",
+      "excerptAnchor": "Glorious",
+      "confidence": 1,
+      "importance": 0.8,
+      "locked": true
+    },
+    {
+      "id": "c9689dda-1a2d-4b75-b39a-3ba9a660e28d",
+      "createdAt": "2026-06-17T19:18:43.293Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "album",
+      "factText": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR230371.",
+      "sourceType": "canonical",
+      "sourceId": "meta-cover-RVTR230371",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL666041/RVAL666041__gloria-gaynor__glorious.jpg",
+      "sourceExcerpt": "Retroverse canonical record for RVTR230371",
+      "excerptAnchor": "Cover Library",
+      "confidence": 1,
+      "importance": 0.9,
+      "locked": true
+    },
+    {
+      "id": "3c52d2ed-2cf8-4f3c-8444-c4af93b6b798",
+      "createdAt": "2026-06-17T19:18:43.293Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "chart",
+      "factText": "The song peaked at #9 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceType": "canonical",
+      "sourceId": "meta-chart-RVTR230371",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #9. 17 weeks on chart.",
+      "excerptAnchor": "Billboard Hot 100 peak: #9.",
+      "confidence": 1,
+      "importance": 0.85,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "2a56fb31-11a9-4c80-ba75-d73e3f47e231",
+      "headline": "Where Did That Name Come From?",
+      "hookType": "question",
+      "primaryFactId": "18c3c4dc-e675-48e9-98ef-e601559addb6",
+      "supportingFactIds": [
+        "7d9bbd43-70ba-42a4-aa0c-5f461fb36418",
+        "3c52d2ed-2cf8-4f3c-8444-c4af93b6b798"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.808,
+      "createdAt": "2026-06-17T19:18:43.295Z"
+    },
+    {
+      "id": "be7660b0-d92f-4a21-8a71-c0a7647340e3",
+      "headline": "Chart Peak: #9",
+      "hookType": "chart",
+      "primaryFactId": "3c52d2ed-2cf8-4f3c-8444-c4af93b6b798",
+      "supportingFactIds": [
+        "7d9bbd43-70ba-42a4-aa0c-5f461fb36418"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 2,
+      "rankScore": 0.7,
+      "createdAt": "2026-06-17T19:18:43.295Z"
+    },
+    {
+      "id": "174c8b9a-6b54-4541-9450-8689570cc760",
+      "headline": "Album Context",
+      "hookType": "surprise",
+      "primaryFactId": "c9689dda-1a2d-4b75-b39a-3ba9a660e28d",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 3,
+      "rankScore": 0.665,
+      "createdAt": "2026-06-17T19:18:43.295Z"
+    },
+    {
+      "id": "23e823e4-25f3-4df0-a4a1-c28dd4c14f20",
+      "headline": "From the Album \"Glorious\"",
+      "hookType": "surprise",
+      "primaryFactId": "7d9bbd43-70ba-42a4-aa0c-5f461fb36418",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 4,
+      "rankScore": 0.635,
+      "createdAt": "2026-06-17T19:18:43.295Z"
+    }
+  ],
+  "storyCards": [
+    {
+      "id": "21c303a7-772d-4bee-bf21-6c28447918b1",
+      "storyId": "cover",
+      "rank": 0,
+      "headline": "Never Can Say Goodbye",
+      "fact": "Never Can Say Goodbye by Gloria Gaynor. From Glorious (1977). Billboard Hot 100 peak: #9.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Canonical metadata for RVTR230371",
+      "confidence": 1,
+      "category": "artist"
+    },
+    {
+      "id": "e877f870-e6a0-4c83-88ff-5ddbc1ca334a",
+      "storyId": "2a56fb31-11a9-4c80-ba75-d73e3f47e231",
+      "rank": 1,
+      "headline": "Where Did That Name Come From?",
+      "fact": "Retroverse track identity: RVTR230371.",
+      "supportingContext": "The song appears on the album \"Glorious\" (1977). · The song peaked at #9 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR230371",
+      "confidence": 1,
+      "category": "trivia"
+    },
+    {
+      "id": "d8626b21-d641-48ee-821f-f05767cc5f76",
+      "storyId": "be7660b0-d92f-4a21-8a71-c0a7647340e3",
+      "rank": 2,
+      "headline": "Chart Peak: #9",
+      "fact": "The song peaked at #9 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "supportingContext": "The song appears on the album \"Glorious\" (1977).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #9. 17 weeks on chart.",
+      "confidence": 1,
+      "category": "chart"
+    },
+    {
+      "id": "8ae72d3e-fb65-475f-9574-cfbed021a277",
+      "storyId": "174c8b9a-6b54-4541-9450-8689570cc760",
+      "rank": 3,
+      "headline": "Album Context",
+      "fact": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR230371.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL666041/RVAL666041__gloria-gaynor__glorious.jpg",
+      "sourceExcerpt": "Retroverse canonical record for RVTR230371",
+      "confidence": 1,
+      "category": "album"
+    },
+    {
+      "id": "044d413c-e984-4bbf-b8b0-7ecf1b28212c",
+      "storyId": "23e823e4-25f3-4df0-a4a1-c28dd4c14f20",
+      "rank": 4,
+      "headline": "From the Album \"Glorious\"",
+      "fact": "The song appears on the album \"Glorious\" (1977).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR230371",
+      "confidence": 1,
+      "category": "album"
+    }
+  ],
+  "intel": {
+    "label": null,
+    "catalogNumber": "1977-GLORIO",
+    "chartHistory": [
+      {
+        "chart": "Billboard Hot 100",
+        "peak": 9,
+        "weeks": 17,
+        "detail": "17 weeks on chart"
+      }
+    ],
+    "timelineEvents": [
+      {
+        "id": "532f643a-c519-4dbb-b939-05b58407a6df",
+        "year": 1977,
+        "title": "Release",
+        "description": "Never Can Say Goodbye released on Glorious."
+      },
+      {
+        "id": "adce73fa-1ca0-4ed0-b964-56967ffe35f8",
+        "year": 1977,
+        "title": "Origin",
+        "description": "Retroverse track identity: RVTR230371."
+      },
+      {
+        "id": "4261c045-2967-4059-93c0-9a214c48a1f6",
+        "year": 1977,
+        "title": "Where Did That Name Come From?",
+        "description": "Retroverse track identity: RVTR230371."
+      },
+      {
+        "id": "1f7e1f56-a016-4cc8-8405-96dc578148f0",
+        "year": 1978,
+        "title": "Chart Peak",
+        "description": "Peaked at #9 on Billboard Hot 100."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  },
+  "issueFlags": []
+}

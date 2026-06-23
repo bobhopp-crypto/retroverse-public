@@ -5,6 +5,7 @@ import {
 import { QR_STATUS_LABELS } from "@/lib/ops/content-creator/qr-export-status";
 import { vNextFileUrl } from "@/lib/ops/content-creator/vnext-run";
 import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
+import type { CollectorCardExportPaths } from "@/lib/ops/content-creator/collector-card-export";
 import type { PrintPackagePaths } from "@/lib/ops/content-creator/print-package";
 import type { QrExportStatus } from "@/lib/ops/content-creator/qr-export-status";
 
@@ -17,12 +18,13 @@ export function buildExportApiResponse(result: {
   quantity?: number;
   numbering?: PassNumberingSettings;
   qrStatus: QrExportStatus;
-  qrVerification: QrVerificationResult;
-  printPackage: PrintPackagePaths;
+  qrVerification?: QrVerificationResult;
+  printPackage: PrintPackagePaths | CollectorCardExportPaths;
 }) {
   const pkg = result.printPackage;
   const numbering = result.numbering;
   const quantity = result.quantity ?? 12;
+  const isCollectorCard = "singleFrontPdf" in pkg;
   return {
     ok: true as const,
     quantity,
@@ -33,15 +35,15 @@ export function buildExportApiResponse(result: {
     qrVerification: result.qrVerification,
     exportZipUrl: urlFor(result.runId, pkg.fullZip),
     singleFrontUrl: urlFor(result.runId, pkg.singleFront),
-    singleBackUrl: urlFor(result.runId, pkg.singleBack),
-    singlePassZipUrl: urlFor(result.runId, pkg.singlePassZip),
-    printFrontPngUrls: pkg.printFrontPng.map((p) => urlFor(result.runId, p)),
-    printBackPngUrls: pkg.printBackPng.map((p) => urlFor(result.runId, p)),
-    printFrontPdfUrls: pkg.printFrontPdf.map((p) => urlFor(result.runId, p)),
-    printBackPdfUrls: pkg.printBackPdf.map((p) => urlFor(result.runId, p)),
-    printInstructionsUrl: urlFor(result.runId, pkg.printInstructions),
+    singleBackUrl: isCollectorCard ? undefined : urlFor(result.runId, pkg.singleBack),
+    singlePassZipUrl: isCollectorCard ? undefined : urlFor(result.runId, pkg.singlePassZip),
+    printFrontPngUrls: isCollectorCard ? [urlFor(result.runId, pkg.singleFront)] : pkg.printFrontPng.map((p) => urlFor(result.runId, p)),
+    printBackPngUrls: isCollectorCard ? [] : pkg.printBackPng.map((p) => urlFor(result.runId, p)),
+    printFrontPdfUrls: isCollectorCard ? [urlFor(result.runId, pkg.singleFrontPdf)] : pkg.printFrontPdf.map((p) => urlFor(result.runId, p)),
+    printBackPdfUrls: isCollectorCard ? [] : pkg.printBackPdf.map((p) => urlFor(result.runId, p)),
+    printInstructionsUrl: isCollectorCard ? undefined : urlFor(result.runId, pkg.printInstructions),
     metadataManifestUrl: urlFor(result.runId, pkg.metadataManifest),
-    qrScanReportUrl: urlFor(result.runId, pkg.qrScanReport),
+    qrScanReportUrl: isCollectorCard ? undefined : urlFor(result.runId, pkg.qrScanReport),
     printPackage: pkg,
   };
 }

@@ -1,0 +1,227 @@
+{
+  "version": 2,
+  "rvtr": "RVTR422909",
+  "status": "cards_ready",
+  "createdAt": "2026-06-17T19:18:48.878Z",
+  "updatedAt": "2026-06-19T03:15:53.338Z",
+  "processedAt": "2026-06-17T19:18:49.162Z",
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:18:48.878Z · Processing Rockin' Chair · Gwen Mccrae (Canon First)",
+    "2026-06-17T19:18:48.879Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:18:48.879Z · Canon vault: 3 Retroverse sources",
+    "2026-06-17T19:18:48.880Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:18:49.159Z · Research vault: 3 sources (0 external)",
+    "2026-06-17T19:18:49.160Z · Emitting canonical facts…",
+    "2026-06-17T19:18:49.160Z · Canonical facts: 3",
+    "2026-06-17T19:18:49.161Z · Extracting candidate facts from research…",
+    "2026-06-17T19:18:49.161Z · Candidate facts: 3 (3 approved)",
+    "2026-06-17T19:18:49.161Z · Proposing candidate stories…",
+    "2026-06-17T19:18:49.161Z · Candidate stories: 2",
+    "2026-06-17T19:18:49.161Z · Ranking stories…",
+    "2026-06-17T19:18:49.161Z · Top story: \"Where Did That Name Come From?\"",
+    "2026-06-17T19:18:49.162Z · Package intel: 3 timeline events",
+    "2026-06-17T19:18:49.162Z · Ready for human review — build cards after approving facts/stories",
+    "2026-06-19T03:15:53.338Z · Story cards assembled: 3"
+  ],
+  "metadata": {
+    "rvtr": "RVTR422909",
+    "artist": "Gwen Mccrae",
+    "title": "Rockin' Chair",
+    "year": 1975,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": 9,
+    "chartWeeks": 14,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:48.879Z",
+      "excerpt": "Retroverse track identity: RVTR422909. \"Rockin' Chair\" by Gwen Mccrae.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:48.879Z",
+      "excerpt": "Billboard Hot 100 peak: #9. 14 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:48.879Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "d7388652-b4be-40cf-99a5-236b27d7ccbe",
+      "createdAt": "2026-06-17T19:18:49.160Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "trivia",
+      "factText": "Retroverse track identity: RVTR422909.",
+      "sourceType": "canonical",
+      "sourceId": "meta-rvtr-RVTR422909",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR422909",
+      "excerptAnchor": "RVTR422909",
+      "confidence": 1,
+      "importance": 1,
+      "locked": true
+    },
+    {
+      "id": "dd055ca4-1026-46ca-bbf8-bcfe06040bc6",
+      "createdAt": "2026-06-17T19:18:49.160Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "Rockin' Chair is performed by Gwen Mccrae.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR422909",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR422909",
+      "excerptAnchor": "Gwen Mccrae",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    },
+    {
+      "id": "6d96c3bb-c97a-4a02-b3dd-8d8d2cf68001",
+      "createdAt": "2026-06-17T19:18:49.160Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "chart",
+      "factText": "The song peaked at #9 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceType": "canonical",
+      "sourceId": "meta-chart-RVTR422909",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #9. 14 weeks on chart.",
+      "excerptAnchor": "Billboard Hot 100 peak: #9.",
+      "confidence": 1,
+      "importance": 0.85,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "5a1ae291-1c1f-4c50-9bc8-e17c34e3c8a2",
+      "headline": "Where Did That Name Come From?",
+      "hookType": "question",
+      "primaryFactId": "d7388652-b4be-40cf-99a5-236b27d7ccbe",
+      "supportingFactIds": [
+        "6d96c3bb-c97a-4a02-b3dd-8d8d2cf68001"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.808,
+      "createdAt": "2026-06-17T19:18:49.161Z"
+    },
+    {
+      "id": "ce12195e-74a7-4577-9e50-d2c11034201a",
+      "headline": "Chart Peak: #9",
+      "hookType": "chart",
+      "primaryFactId": "6d96c3bb-c97a-4a02-b3dd-8d8d2cf68001",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 2,
+      "rankScore": 0.7,
+      "createdAt": "2026-06-17T19:18:49.161Z"
+    }
+  ],
+  "storyCards": [
+    {
+      "id": "f30330ae-2ee2-4ede-9c88-bfff71e453f4",
+      "storyId": "cover",
+      "rank": 0,
+      "headline": "Rockin' Chair",
+      "fact": "Rockin' Chair by Gwen Mccrae. Billboard Hot 100 peak: #9.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Canonical metadata for RVTR422909",
+      "confidence": 1,
+      "category": "artist"
+    },
+    {
+      "id": "c8e0c0b3-dd88-45de-ab35-d4d4230be26b",
+      "storyId": "5a1ae291-1c1f-4c50-9bc8-e17c34e3c8a2",
+      "rank": 1,
+      "headline": "Where Did That Name Come From?",
+      "fact": "Retroverse track identity: RVTR422909.",
+      "supportingContext": "The song peaked at #9 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR422909",
+      "confidence": 1,
+      "category": "trivia"
+    },
+    {
+      "id": "7ec3082e-7da9-4214-b167-cfe3c4442438",
+      "storyId": "ce12195e-74a7-4577-9e50-d2c11034201a",
+      "rank": 2,
+      "headline": "Chart Peak: #9",
+      "fact": "The song peaked at #9 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #9. 14 weeks on chart.",
+      "confidence": 1,
+      "category": "chart"
+    }
+  ],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [
+      {
+        "chart": "Billboard Hot 100",
+        "peak": 9,
+        "weeks": 14,
+        "detail": "14 weeks on chart"
+      }
+    ],
+    "timelineEvents": [
+      {
+        "id": "15e2c378-4e92-4fcd-aa1c-e3b4a8a1d15f",
+        "year": 1975,
+        "title": "Release",
+        "description": "Rockin' Chair released."
+      },
+      {
+        "id": "4b654c8c-24db-4793-95af-9c890bc0bbd8",
+        "year": 1975,
+        "title": "Origin",
+        "description": "Retroverse track identity: RVTR422909."
+      },
+      {
+        "id": "2149053d-5081-458a-b3ec-e3b9fbdd1d3d",
+        "year": 1975,
+        "title": "Where Did That Name Come From?",
+        "description": "Retroverse track identity: RVTR422909."
+      },
+      {
+        "id": "77d010e7-fd70-4a3b-8049-2520b85c3350",
+        "year": 1976,
+        "title": "Chart Peak",
+        "description": "Peaked at #9 on Billboard Hot 100."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  },
+  "issueFlags": []
+}

@@ -12,6 +12,8 @@ import {
 } from "@/lib/ops/content-creator/creative-direction";
 import { resolveArtifactArchetype } from "@/lib/creative/artifact-archetypes";
 import type { ComposedRvbrPrompt } from "@/lib/creative/rvbr-prompt-types";
+import { buildCollectorCardExportPackage, type CollectorCardExportPaths } from "@/lib/ops/content-creator/collector-card-export";
+import type { CollectorCardContent, CollectorCardPresentation } from "@/lib/ops/content-creator/collector-card";
 import {
   artDirectorPromptText,
   renderArtDirectorBackPrompt,
@@ -27,6 +29,8 @@ import {
 } from "@/lib/ops/content-creator/pass-numbering";
 import { syncGenerationFromVNext } from "@/lib/ops/content-creator/library";
 import type { QrVerificationResult } from "@/lib/ops/creative-lab/pass-export-composite";
+import { normalizeQrPlacement } from "@/lib/ops/creative-lab/pass-layout";
+import type { PassQrPlacement } from "@/lib/ops/creative-lab/types";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 
@@ -62,10 +66,13 @@ export type VNextManifest = {
     front: ComposedRvbrPrompt;
     back: ComposedRvbrPrompt;
   };
+  collectorCardContent?: CollectorCardContent;
+  collectorCardPresentation?: CollectorCardPresentation;
   exportZipFilename?: string;
   quantity?: number;
   numbering?: PassNumberingSettings;
-  printPackage?: PrintPackagePaths;
+  printPackage?: PrintPackagePaths | CollectorCardExportPaths;
+  qrPlacement?: PassQrPlacement;
   qrStatus?: QrExportStatus;
   qrVerification?: QrVerificationResult;
   startedAt: string;
@@ -139,26 +146,32 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
   const frontFilename = "front.png";
   await writePng(runDir, frontFilename, frontImage.buffer);
 
-  const backComposed = renderArtDirectorBackPrompt(
-    input.profile,
-    backFields,
-    compositionSeed,
-    creativeSettings,
-    input.artifact,
-  );
-  const backResult = await generateArtwork(
-    artworkContext(artDirectorPromptText(backComposed), backFields, input.profile),
-    {
-    count: 1,
-    quality: "medium",
-    size: "1024x1536",
-    referenceImage: frontImage.buffer,
-  });
-  const backImage = backResult.images[0];
-  if (!backImage) throw new Error("Back generation failed");
-
   const backFilename = "back.png";
-  await writePng(runDir, backFilename, backImage.buffer);
+  let backComposed: ComposedRvbrPrompt;
+  if (input.artifact === "collector-card") {
+    backComposed = frontComposed;
+    await writePng(runDir, backFilename, frontImage.buffer);
+  } else {
+    backComposed = renderArtDirectorBackPrompt(
+      input.profile,
+      backFields,
+      compositionSeed,
+      creativeSettings,
+      input.artifact,
+    );
+    const backResult = await generateArtwork(
+      artworkContext(artDirectorPromptText(backComposed), backFields, input.profile),
+      {
+        count: 1,
+        quality: "medium",
+        size: "1024x1536",
+        referenceImage: frontImage.buffer,
+      },
+    );
+    const backImage = backResult.images[0];
+    if (!backImage) throw new Error("Back generation failed");
+    await writePng(runDir, backFilename, backImage.buffer);
+  }
 
   const manifest: VNextManifest = {
     runId,
@@ -181,6 +194,8 @@ export async function runVNextGenerate(input: VNextInput): Promise<VNextManifest
     parentGenerationId: input.parentGenerationId,
     variationBatchId: input.variationBatchId,
     promptInspector: { front: frontComposed, back: backComposed },
+    collectorCardContent: input.frontFields.collectorCardContent,
+    collectorCardPresentation: input.frontFields.collectorCardPresentation,
     startedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   };
@@ -291,21 +306,56 @@ export async function runVNextRegenerateBack(args: {
 export async function runVNextExport(
   runId: string,
   profile: RvbrProfile,
-  options?: { quantity?: number; qrUrl?: string; numbering?: PassNumberingSettings },
+  options?: {
+    quantity?: number;
+    qrUrl?: string;
+    numbering?: PassNumberingSettings;
+    qrPlacement?: PassQrPlacement;
+  },
 ): Promise<
   VNextManifest & {
     exportZipPath: string;
-    qrVerification: QrVerificationResult;
-    printPackage: PrintPackagePaths;
+    qrVerification?: QrVerificationResult;
+    printPackage: PrintPackagePaths | CollectorCardExportPaths;
     qrStatus: QrExportStatus;
   }
 > {
   const manifest = await loadVNextManifest(runId);
   const exportDir = join(manifest.runDir, "export");
   const frontPng = await readFile(join(manifest.runDir, manifest.frontFilename));
+  if (manifest.artifact === "collector-card") {
+    const zipBasename = `${manifest.frontFields.event.replace(/\s+/g, "-")}-collector-card`;
+    const printPackage = await buildCollectorCardExportPackage({
+      exportDir,
+      frontPng,
+      runId,
+      zipBasename,
+      metadata: {
+        artifact: manifest.artifact,
+        collectorCardContent: manifest.collectorCardContent,
+        collectorCardPresentation: manifest.collectorCardPresentation,
+      },
+    });
+
+    manifest.exportZipFilename = `export/${printPackage.paths.fullZip}`;
+    manifest.printPackage = printPackage.paths;
+    manifest.qrStatus = "composited";
+    manifest.updatedAt = new Date().toISOString();
+    await writeManifest(manifest.runDir, manifest);
+    await syncGenerationFromVNext(manifest, profile);
+
+    return {
+      ...manifest,
+      exportZipPath: join(exportDir, printPackage.paths.fullZip),
+      qrVerification: manifest.qrVerification,
+      printPackage: printPackage.paths,
+      qrStatus: "composited",
+    };
+  }
   const backPng = await readFile(join(manifest.runDir, manifest.backFilename));
   const quantity = normalizePrintQuantity(options?.quantity ?? manifest.quantity, 12);
   const numbering = options?.numbering ?? manifest.numbering ?? DEFAULT_PASS_NUMBERING;
+  const qrPlacement = normalizeQrPlacement(options?.qrPlacement) ?? normalizeQrPlacement(manifest.qrPlacement);
   const qrUrl =
     options?.qrUrl?.trim() || manifest.backFields.qrUrl?.trim() || "https://retroverse.live";
   manifest.backFields = { ...manifest.backFields, qrUrl };
@@ -318,6 +368,7 @@ export async function runVNextExport(
     frontPng,
     backPng,
     qrUrl,
+    qrPlacement,
     event: manifest.frontFields.event,
     runId,
     quantity,
@@ -329,6 +380,7 @@ export async function runVNextExport(
   manifest.quantity = quantity;
   manifest.numbering = numbering;
   manifest.printPackage = printPackage.paths;
+  manifest.qrPlacement = qrPlacement;
   manifest.serialNumber =
     printPackage.serials[0] ?? printPackage.writeInLabel ?? serialForRun(runId);
   manifest.qrVerification = printPackage.qrVerification;
@@ -347,6 +399,29 @@ export async function runVNextExport(
     printPackage: printPackage.paths,
     qrStatus: printPackage.qrStatus,
   };
+}
+
+export async function saveVNextQrPlacement(
+  runId: string,
+  profile: RvbrProfile,
+  options: {
+    qrPlacement: PassQrPlacement;
+    qrUrl?: string;
+  },
+): Promise<VNextManifest> {
+  const manifest = await loadVNextManifest(runId);
+  manifest.qrPlacement = options.qrPlacement;
+  if (options.qrUrl?.trim()) {
+    manifest.backFields = { ...manifest.backFields, qrUrl: options.qrUrl.trim() };
+  }
+  manifest.exportZipFilename = undefined;
+  manifest.printPackage = undefined;
+  manifest.qrVerification = undefined;
+  manifest.qrStatus = undefined;
+  manifest.updatedAt = new Date().toISOString();
+  await writeManifest(manifest.runDir, manifest);
+  await syncGenerationFromVNext(manifest, profile);
+  return manifest;
 }
 
 export function vNextFileUrl(runId: string, filename: string): string {

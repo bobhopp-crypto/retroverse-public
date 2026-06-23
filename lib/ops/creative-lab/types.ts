@@ -165,6 +165,12 @@ export type GenerationProgress = {
   startedAt: string;
 };
 
+export type PassQrPlacement = {
+  left: number;
+  top: number;
+  size: number;
+};
+
 export type CreativeLabProjectFile = {
   version: 2;
   id: string;
@@ -183,6 +189,8 @@ export type CreativeLabProjectFile = {
   eraSlug?: string;
   /** Scannable QR target — composited at export, never AI-generated. */
   qrUrl?: string;
+  /** Optional project-specific QR placement override. Defaults to QR_ZONE. */
+  qrPlacement?: PassQrPlacement;
   /** Controlled pass type label — VIP PASS, PASS, or EVENT PASS. */
   passTypeLabel?: string;
   quantity?: number;

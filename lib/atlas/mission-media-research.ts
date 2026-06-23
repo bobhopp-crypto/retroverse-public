@@ -145,6 +145,7 @@ function toCandidate(
     detail,
     confidence,
     confidencePct,
+    rank: index + 1,
     recommended: index === 0 && tier === "high",
     researchNote:
       tier === "high"
@@ -182,6 +183,7 @@ export async function loadMediaAppearanceCandidates(input: {
         detail: path.split("/").pop() ?? path,
         confidence: 0.92,
         confidencePct: 92,
+        rank: 1,
         recommended: true,
         researchNote: "Your performance file path suggests this source",
         confidenceTier: "high",

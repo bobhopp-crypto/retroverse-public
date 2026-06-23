@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "rvtr": "RVTR898892",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:11:21.803Z",
+  "updatedAt": "2026-06-17T19:11:22.080Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:11:21.803Z · Processing More More More Pt 1 · Andrea True Connection (Canon First)",
+    "2026-06-17T19:11:21.803Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:11:21.803Z · Canon vault: 3 Retroverse sources",
+    "2026-06-17T19:11:21.804Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:11:22.079Z · Research vault: 3 sources (0 external)",
+    "2026-06-17T19:11:22.080Z · Emitting canonical facts…",
+    "2026-06-17T19:11:22.080Z · Canonical facts: 3",
+    "2026-06-17T19:11:22.080Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR898892",
+    "artist": "Andrea True Connection",
+    "title": "More More More Pt 1",
+    "year": 1976,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": 4,
+    "chartWeeks": 25,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:11:21.803Z",
+      "excerpt": "Retroverse track identity: RVTR898892. \"More More More Pt 1\" by Andrea True Connection.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:11:21.803Z",
+      "excerpt": "Billboard Hot 100 peak: #4. 25 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:11:21.803Z",
+      "excerpt": "Performance year context: 1976.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

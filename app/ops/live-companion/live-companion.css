@@ -1,0 +1,125 @@
+.live-companion {
+  min-height: 100vh;
+  background: #f7f2e8;
+  color: #202020;
+  padding: 1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.live-companion__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto 1rem;
+}
+
+.live-companion__kicker {
+  margin: 0;
+  color: #c64a1d;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.live-companion h1 {
+  margin: 0.25rem 0 0;
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 0.95;
+}
+
+.live-companion__button,
+.live-companion__public {
+  border: 3px solid #202020;
+  background: #167a7a;
+  color: #fff;
+  box-shadow: 4px 4px 0 rgba(32, 32, 32, 0.15);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.live-companion__button {
+  flex: 0 0 auto;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.live-companion__grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.live-companion__panel {
+  padding: 1rem;
+  border: 4px solid #202020;
+  background: #fff8e9;
+  box-shadow: 6px 6px 0 rgba(32, 32, 32, 0.12);
+}
+
+.live-companion__panel--accent {
+  max-width: 72rem;
+  margin: 0 auto 1rem;
+  background: #fff;
+}
+
+.live-companion__panel h2 {
+  margin: 0 0 0.75rem;
+  color: #167a7a;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.live-companion__big {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.4rem, 6vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.live-companion__public {
+  display: inline-block;
+  overflow-wrap: anywhere;
+  padding: 0.75rem 0.9rem;
+}
+
+.live-companion dl {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+}
+
+.live-companion dl div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.live-companion dt {
+  color: #6d5d4c;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.live-companion dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+@media (min-width: 820px) {
+  .live-companion {
+    padding: 1.5rem;
+  }
+
+  .live-companion__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

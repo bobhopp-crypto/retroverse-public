@@ -24,6 +24,7 @@ import {
   writePassExportReport,
   type PassExportReport,
 } from "./pass-export-composite";
+import { normalizeQrPlacement } from "./pass-layout";
 import { projectSecondaryLine } from "./project-secondary-line";
 import { normalizePassTypeLabel } from "./pass-text-governance";
 import { assertPassTextApproved, validatePassAssetText } from "./pass-text-validation";
@@ -216,6 +217,7 @@ function normalizeProject(raw: unknown, fallbackId: string): CreativeLabProjectF
     theme: typeof obj.theme === "string" ? obj.theme : "",
     eraSlug: typeof obj.eraSlug === "string" ? obj.eraSlug : undefined,
     qrUrl: typeof obj.qrUrl === "string" ? obj.qrUrl : undefined,
+    qrPlacement: normalizeQrPlacement(obj.qrPlacement),
     passTypeLabel:
       typeof obj.passTypeLabel === "string"
         ? normalizePassTypeLabel(obj.passTypeLabel)
@@ -413,6 +415,7 @@ export async function createProject(input: {
   theme?: string;
   eraSlug?: string;
   qrUrl?: string;
+  qrPlacement?: CreativeLabProjectFile["qrPlacement"];
   passTypeLabel?: string;
   quantity?: number;
   styleSelection?: StyleSelection;
@@ -434,6 +437,7 @@ export async function createProject(input: {
     theme: input.theme?.trim() ?? "",
     eraSlug: input.eraSlug?.trim() || undefined,
     qrUrl: input.qrUrl?.trim() || undefined,
+    qrPlacement: normalizeQrPlacement(input.qrPlacement),
     passTypeLabel: input.passTypeLabel
       ? normalizePassTypeLabel(input.passTypeLabel)
       : undefined,
@@ -473,6 +477,7 @@ export async function updateProject(
       | "theme"
       | "eraSlug"
       | "qrUrl"
+      | "qrPlacement"
       | "passTypeLabel"
       | "quantity"
       | "generationProgress"
@@ -515,6 +520,10 @@ export async function updateProject(
     conceptStrategies: patch.conceptStrategies
       ? normalizeConceptStrategyMap(patch.conceptStrategies)
       : existing.conceptStrategies,
+    qrPlacement:
+      patch.qrPlacement !== undefined
+        ? normalizeQrPlacement(patch.qrPlacement)
+        : existing.qrPlacement,
     artifactType:
       patch.artifactType !== undefined
         ? normalizeArtifactTypeId(patch.artifactType)

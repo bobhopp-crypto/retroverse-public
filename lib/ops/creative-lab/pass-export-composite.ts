@@ -10,10 +10,10 @@ import {
   QR_PRINT_MIN_IN,
   QR_PRINT_PREFERRED_MIN_IN,
   QR_ZONE,
+  resolveQrPlacement,
 } from "./pass-layout";
 import {
   auditExportedQrZone,
-  auditQrPngBufferWithModules,
   auditQrZonePixels,
   decodeQrFromPngBuffer,
   emptyQrZoneAudit,
@@ -72,15 +72,23 @@ function normalizeUrlForCompare(url: string): string {
 export async function compositeQrOntoBackBuffer(args: {
   backSrc: string | Buffer;
   qrUrl: string;
+  qrPlacement?: CreativeLabProjectFile["qrPlacement"];
 }): Promise<{ buffer: Buffer; zoneAudit: QrZoneAudit; quietModules: number }> {
-  const zoneSize = QR_ZONE.size;
+  const placement = resolveQrPlacement({ qrPlacement: args.qrPlacement });
+  const zoneSize = placement.size;
   const picked = await selectOptimalQuietModules(args.qrUrl, zoneSize);
   const base = typeof args.backSrc === "string" ? sharp(args.backSrc) : sharp(args.backSrc);
   const buffer = await base
-    .composite([{ input: picked.png, left: QR_ZONE.left, top: QR_ZONE.top }])
+    .composite([{ input: picked.png, left: placement.left, top: placement.top }])
     .png()
     .toBuffer();
-  const zoneAudit = await auditQrPngBufferWithModules(buffer, zoneSize, picked.moduleCount, picked.quietModules);
+  const zoneAudit = await auditExportedQrZoneFromBuffer(
+    buffer,
+    zoneSize,
+    placement.left,
+    placement.top,
+    picked.quietModules,
+  );
   return { buffer, zoneAudit, quietModules: picked.quietModules };
 }
 
@@ -88,13 +96,22 @@ export async function compositeQrOntoBackPng(args: {
   backSrc: string | Buffer;
   backPath: string;
   qrUrl: string;
+  qrPlacement?: CreativeLabProjectFile["qrPlacement"];
 }): Promise<{ zoneAudit: QrZoneAudit; quietModules: number }> {
   const { buffer, zoneAudit, quietModules } = await compositeQrOntoBackBuffer({
     backSrc: args.backSrc,
     qrUrl: args.qrUrl,
+    qrPlacement: args.qrPlacement,
   });
   await sharp(buffer).png().toFile(args.backPath);
-  const zoneAuditFile = await auditExportedQrZone(args.backPath, QR_ZONE.size, QR_ZONE.left, QR_ZONE.top, quietModules);
+  const placement = resolveQrPlacement({ qrPlacement: args.qrPlacement });
+  const zoneAuditFile = await auditExportedQrZone(
+    args.backPath,
+    placement.size,
+    placement.left,
+    placement.top,
+    quietModules,
+  );
   return { zoneAudit: zoneAuditFile, quietModules };
 }
 
@@ -102,18 +119,26 @@ export async function compositeQrOntoBackPng(args: {
 export async function verifyQrInComposite(
   backPngPath: string,
   expectedUrl: string,
+  qrPlacement?: CreativeLabProjectFile["qrPlacement"],
 ): Promise<QrVerificationResult> {
   const fileBuffer = await sharp(backPngPath).png().toBuffer();
-  return verifyQrInCompositeBuffer(fileBuffer, expectedUrl);
+  return verifyQrInCompositeBuffer(fileBuffer, expectedUrl, qrPlacement);
 }
 
 export async function verifyQrInCompositeBuffer(
   backPng: Buffer,
   expectedUrl: string,
+  qrPlacement?: CreativeLabProjectFile["qrPlacement"],
 ): Promise<QrVerificationResult> {
   const notes: string[] = [];
   const expected = normalizeUrlForCompare(expectedUrl);
-  const zoneAudit = await auditExportedQrZoneFromBuffer(backPng);
+  const placement = resolveQrPlacement({ qrPlacement });
+  const zoneAudit = await auditExportedQrZoneFromBuffer(
+    backPng,
+    placement.size,
+    placement.left,
+    placement.top,
+  );
   const modulesPresent = qrModulesPresent(zoneAudit);
 
   notes.push(...qrZoneAuditNotes(zoneAudit));
@@ -179,10 +204,10 @@ export async function verifyQrInCompositeBuffer(
     let decoded =
       (await decodeQrFromPngBuffer(backPng)) ??
       (await decodeQrFromPngBuffer(backPng, {
-        left: QR_ZONE.left,
-        top: QR_ZONE.top,
-        width: QR_ZONE.size,
-        height: QR_ZONE.size,
+        left: placement.left,
+        top: placement.top,
+        width: placement.size,
+        height: placement.size,
       }));
 
     if (!decoded) {
@@ -309,9 +334,14 @@ export async function compositePassExportPair(args: {
   const backPath = join(args.exportDir, args.backOutName);
 
   await copyFile(frontSrc, frontPath);
-  await compositeQrOntoBackPng({ backSrc, backPath, qrUrl: args.qrUrl });
+  await compositeQrOntoBackPng({
+    backSrc,
+    backPath,
+    qrUrl: args.qrUrl,
+    qrPlacement: args.project.qrPlacement,
+  });
 
-  const qrVerification = await verifyQrInComposite(backPath, args.qrUrl);
+  const qrVerification = await verifyQrInComposite(backPath, args.qrUrl, args.project.qrPlacement);
   if (!qrVerification.ok || !qrVerification.modulesPresent || !qrVerification.decodePass) {
     const { QrExportVerificationError } = await import("@/lib/ops/content-creator/qr-export-error");
     throw new QrExportVerificationError(qrVerification);

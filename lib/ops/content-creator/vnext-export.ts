@@ -16,6 +16,7 @@ import {
   SERIAL_X0,
   SERIAL_Y0,
 } from "@/lib/ops/creative-lab/pass-layout";
+import type { PassQrPlacement } from "@/lib/ops/creative-lab/types";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 import sharp from "sharp";
 
@@ -67,11 +68,13 @@ export async function compositeVNextFrontPng(frontPng: Buffer, outPath: string):
 export async function compositeVNextBackPng(args: {
   backPng: Buffer;
   qrUrl: string;
+  qrPlacement?: PassQrPlacement;
   stamp: SerialStampOverlay;
 }): Promise<Buffer> {
   const { buffer: withQr } = await compositeQrOntoBackBuffer({
     backSrc: args.backPng,
     qrUrl: args.qrUrl,
+    qrPlacement: args.qrPlacement,
   });
   const stamp = serialStampOverlaySvg(args.stamp);
   return sharp(withQr)
@@ -85,6 +88,7 @@ export async function compositeVNextExport(args: {
   frontPng: Buffer;
   backPng: Buffer;
   qrUrl: string;
+  qrPlacement?: PassQrPlacement;
   serialNumber: string;
   profile: RvbrProfile;
   exportDir: string;
@@ -102,11 +106,12 @@ export async function compositeVNextExport(args: {
   const backBuffer = await compositeVNextBackPng({
     backPng: args.backPng,
     qrUrl: args.qrUrl,
+    qrPlacement: args.qrPlacement,
     stamp: { mode: "printed", text: args.serialNumber },
   });
   await writeFile(backPath, backBuffer);
 
-  const qrVerification = await verifyQrInComposite(backPath, args.qrUrl);
+  const qrVerification = await verifyQrInComposite(backPath, args.qrUrl, args.qrPlacement);
   return { frontPath, backPath, qrVerification };
 }
 

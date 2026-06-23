@@ -1,0 +1,116 @@
+{
+  "version": 2,
+  "rvtr": "RVTR380706",
+  "status": "review",
+  "createdAt": "2026-06-17T19:18:37.153Z",
+  "updatedAt": "2026-06-17T19:18:37.440Z",
+  "processedAt": "2026-06-17T19:18:37.440Z",
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:18:37.153Z · Processing I'Ve Got To Use My Imagination · Gladys Knightl (Canon First)",
+    "2026-06-17T19:18:37.154Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:18:37.154Z · Canon vault: 1 Retroverse sources",
+    "2026-06-17T19:18:37.154Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:18:37.436Z · Research vault: 1 sources (0 external)",
+    "2026-06-17T19:18:37.436Z · Emitting canonical facts…",
+    "2026-06-17T19:18:37.436Z · Canonical facts: 2",
+    "2026-06-17T19:18:37.438Z · Extracting candidate facts from research…",
+    "2026-06-17T19:18:37.438Z · Candidate facts: 2 (2 approved)",
+    "2026-06-17T19:18:37.439Z · Proposing candidate stories…",
+    "2026-06-17T19:18:37.439Z · Candidate stories: 1",
+    "2026-06-17T19:18:37.439Z · Ranking stories…",
+    "2026-06-17T19:18:37.439Z · Top story: \"Where Did That Name Come From?\"",
+    "2026-06-17T19:18:37.440Z · Package intel: 1 timeline events",
+    "2026-06-17T19:18:37.440Z · Ready for human review — build cards after approving facts/stories"
+  ],
+  "metadata": {
+    "rvtr": "RVTR380706",
+    "artist": "Gladys Knightl",
+    "title": "I'Ve Got To Use My Imagination",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": null,
+    "chartWeeks": null,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:18:37.154Z",
+      "excerpt": "Retroverse track identity: RVTR380706. \"I'Ve Got To Use My Imagination\" by Gladys Knightl.",
+      "confidence": 1
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "59719385-91f2-471b-9af6-20120f5fc211",
+      "createdAt": "2026-06-17T19:18:37.436Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "trivia",
+      "factText": "Retroverse track identity: RVTR380706.",
+      "sourceType": "canonical",
+      "sourceId": "meta-rvtr-RVTR380706",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR380706",
+      "excerptAnchor": "RVTR380706",
+      "confidence": 1,
+      "importance": 1,
+      "locked": true
+    },
+    {
+      "id": "59ceaafc-a3a6-4e7c-8c5d-1c2f5f04d4f5",
+      "createdAt": "2026-06-17T19:18:37.436Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "I'Ve Got To Use My Imagination is performed by Gladys Knightl.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR380706",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR380706",
+      "excerptAnchor": "Gladys Knightl",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "607297f2-b157-4acd-800d-0f9b0b314ac4",
+      "headline": "Where Did That Name Come From?",
+      "hookType": "question",
+      "primaryFactId": "59719385-91f2-471b-9af6-20120f5fc211",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.808,
+      "createdAt": "2026-06-17T19:18:37.439Z"
+    }
+  ],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [
+      {
+        "id": "043baba6-c1bc-4e42-abc5-1f769a414b10",
+        "year": null,
+        "title": "Origin",
+        "description": "Retroverse track identity: RVTR380706."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

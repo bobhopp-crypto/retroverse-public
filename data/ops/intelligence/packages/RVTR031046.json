@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "rvtr": "RVTR031046",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:16:40.680Z",
+  "updatedAt": "2026-06-17T19:16:40.976Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:16:40.680Z · Processing Ease On Down The Road · Consumer Rapport (Canon First)",
+    "2026-06-17T19:16:40.681Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:16:40.681Z · Canon vault: 3 Retroverse sources",
+    "2026-06-17T19:16:40.681Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:16:40.974Z · Research vault: 3 sources (0 external)",
+    "2026-06-17T19:16:40.975Z · Emitting canonical facts…",
+    "2026-06-17T19:16:40.975Z · Canonical facts: 3",
+    "2026-06-17T19:16:40.976Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR031046",
+    "artist": "Consumer Rapport",
+    "title": "Ease On Down The Road",
+    "year": 1975,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": 42,
+    "chartWeeks": 12,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:16:40.681Z",
+      "excerpt": "Retroverse track identity: RVTR031046. \"Ease On Down The Road\" by Consumer Rapport.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:16:40.681Z",
+      "excerpt": "Billboard Hot 100 peak: #42. 12 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:16:40.681Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

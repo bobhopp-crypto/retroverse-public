@@ -44,6 +44,45 @@
   padding-bottom: 1rem;
 }
 
+.sn-live__destination {
+  margin: 0 0 1rem;
+  padding: 0.85rem;
+  border: 3px solid var(--sn-rule);
+  background: #fff3d8;
+}
+
+.sn-live__destination-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sn-accent);
+}
+
+.sn-live__destination-btn {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--sn-rule);
+  background: var(--sn-accent);
+  color: #fffaf0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.sn-live__destination-note {
+  margin: 0.55rem 0 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #4a4a4a;
+}
+
 .sn-live__waiting {
   padding: 0.65rem 0;
   border-bottom: 2px solid var(--sn-rule);

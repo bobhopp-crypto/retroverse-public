@@ -25,6 +25,7 @@ import { PassTextViolationError } from "@/lib/ops/creative-lab/pass-text-validat
 import { normalizeConceptStrategyMap } from "@/lib/ops/creative-lab/concept-strategies";
 import { normalizeVisualWorldId } from "@/lib/ops/creative-lab/visual-worlds";
 import { normalizeArtifactTypeId } from "@/lib/ops/creative-lab/artifact-types";
+import { normalizeQrPlacement } from "@/lib/ops/creative-lab/pass-layout";
 import { normalizeStyleSelection } from "@/lib/ops/creative-lab/style-catalog";
 import type { CreativeLabModuleId, FinalAssetSlot } from "@/lib/ops/creative-lab/types";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
@@ -212,7 +213,7 @@ export async function PUT(req: Request, ctx: Ctx) {
     return NextResponse.json({ ok: true, project });
   }
 
-  const project = await updateProject(id, {
+  const patch: Parameters<typeof updateProject>[1] = {
     name: typeof body.name === "string" ? body.name : undefined,
     event: typeof body.event === "string" ? body.event : undefined,
     venue: typeof body.venue === "string" ? body.venue : undefined,
@@ -222,6 +223,10 @@ export async function PUT(req: Request, ctx: Ctx) {
     qrUrl: typeof body.qrUrl === "string" ? body.qrUrl : undefined,
     passTypeLabel: typeof body.passTypeLabel === "string" ? body.passTypeLabel : undefined,
     quantity: typeof body.quantity === "number" ? body.quantity : undefined,
+    qrPlacement:
+      Object.prototype.hasOwnProperty.call(body, "qrPlacement")
+        ? normalizeQrPlacement(body.qrPlacement)
+        : undefined,
     secondaryLine:
       typeof body.secondaryLine === "string"
         ? body.secondaryLine
@@ -249,7 +254,9 @@ export async function PUT(req: Request, ctx: Ctx) {
       body.activeModule === "pass-lab"
         ? body.activeModule
         : undefined,
-  });
+  };
+
+  const project = await updateProject(id, patch);
 
   if (!project) return NextResponse.json({ error: "not_found" }, { status: 404 });
   return NextResponse.json({ ok: true, project });

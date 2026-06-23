@@ -20,12 +20,15 @@ import {
   textGovernancePromptBlock,
   type PassTextFields,
 } from "@/lib/ops/creative-lab/pass-text-governance";
+import type { CollectorCardContent, CollectorCardPresentation } from "@/lib/ops/content-creator/collector-card";
 import { visualWorldById } from "@/lib/ops/creative-lab/visual-worlds";
 import { resolveVisualWorldFromRvbr } from "@/lib/ops/content-creator/resolve-visual-world";
 import type { RvbrProfile } from "@/lib/ops/rvbr/types";
 
 export type CollectiblePassFields = PassTextFields & {
   qrUrl?: string;
+  collectorCardContent?: CollectorCardContent;
+  collectorCardPresentation?: CollectorCardPresentation;
 };
 
 const COLLECTIBLE_ARTIFACT_BRIEF = [
@@ -63,11 +66,11 @@ const TEXT_INTEGRATION = [
 ].join("\n");
 
 const BACK_COMPOSITIONS = [
-  "Souvenir back — metadata woven into ornamental border; QR medallion and serial stamp plate integrated in lower area.",
-  "Handbill reverse — illustration echo, event details in editorial band; QR seal frame above collector serial footer.",
-  "Ticket back — stub information layout; QR in embossed seal frame, serial in stub numbering plate below.",
-  "Poster reverse — complementary illustration strip, ribbon banner text; QR and serial as designed verification elements.",
-  "Memorabilia back — collage ephemera matching front; QR and serial embedded as souvenir stamp and seal plates.",
+  "Souvenir back — metadata woven into ornamental border; hard-edged empty white verification square and serial stamp plate integrated in lower area.",
+  "Handbill reverse — illustration echo, event details in editorial band; sharp-corner reserved white square above collector serial footer.",
+  "Ticket back — stub information layout; export-owned hard-edged white square in an outside frame, serial in stub numbering plate below.",
+  "Poster reverse — complementary illustration strip, ribbon banner text; empty white verification square and serial as designed production areas.",
+  "Memorabilia back — collage ephemera matching front; reserved white square and serial embedded as souvenir stamp and seal plates, with ornament outside the square only.",
 ] as const;
 
 function pickBackComposition(seed: number): string {
@@ -144,7 +147,7 @@ export function renderCollectibleBackPrompt(
 
   return [
     `Create a FINISHED BACK of a portrait collectible artifact.`,
-    `Reverse of front — same era, same direction, same print house.`,
+    `Back of the pass — related to the front's era and print house, but organized for authentication and collector information.`,
     `Canvas: ${PASS_WIDTH}×${PASS_HEIGHT}px, portrait, print-ready at 2.25" × 3.5".`,
     ``,
     `═══ ERA STYLE ═══`,
@@ -154,7 +157,7 @@ export function renderCollectibleBackPrompt(
     ``,
     `═══ CREATIVE DIRECTION ═══`,
     creativeDirectionPromptBlock(settings, compositionSeed),
-    `Front context: ${frontSummary}`,
+    `Front family context, do not copy hero layout: ${frontSummary}`,
     `Back layout: ${backLayout}`,
     ``,
     `═══ EVENT DATA ═══`,
@@ -168,7 +171,7 @@ export function renderCollectibleBackPrompt(
     avoidEraTropesPromptBlock(settings.avoidEraTropes),
     maximizeVariationPromptBlock(settings.maximizeVariation),
     ``,
-    `FINAL CHECK: Direction: ${dir.label}. Integrated QR + serial on back only.`,
+    `FINAL CHECK: Direction: ${dir.label}. Production QR reserve + generous serial/stamp area on back only; no rounded corners, QR graphics, checkerboard, or text inside the square; production export renders verification code.`,
   ]
     .filter(Boolean)
     .join("\n");

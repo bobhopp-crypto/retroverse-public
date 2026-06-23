@@ -1,0 +1,117 @@
+{
+  "version": 2,
+  "rvtr": "RVTR710996",
+  "status": "review",
+  "createdAt": "2026-06-19T00:01:18.233Z",
+  "updatedAt": "2026-06-19T01:29:26.613Z",
+  "processedAt": "2026-06-19T00:01:19.088Z",
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-19T00:01:18.233Z · Processing For What It's Worth Extended · Buffallo Springfield (Canon First)",
+    "2026-06-19T00:01:18.237Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-19T00:01:18.237Z · Canon vault: 1 Retroverse sources",
+    "2026-06-19T00:01:18.239Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-19T00:01:19.076Z · Research vault: 1 sources (0 external)",
+    "2026-06-19T00:01:19.080Z · Emitting canonical facts…",
+    "2026-06-19T00:01:19.080Z · Canonical facts: 2",
+    "2026-06-19T00:01:19.083Z · Extracting candidate facts from research…",
+    "2026-06-19T00:01:19.083Z · Candidate facts: 2 (2 approved)",
+    "2026-06-19T00:01:19.085Z · Proposing candidate stories…",
+    "2026-06-19T00:01:19.085Z · Candidate stories: 1",
+    "2026-06-19T00:01:19.085Z · Ranking stories…",
+    "2026-06-19T00:01:19.085Z · Top story: \"Where Did That Name Come From?\"",
+    "2026-06-19T00:01:19.088Z · Package intel: 1 timeline events",
+    "2026-06-19T00:01:19.088Z · Ready for human review — build cards after approving facts/stories"
+  ],
+  "metadata": {
+    "rvtr": "RVTR710996",
+    "artist": "Buffallo Springfield",
+    "title": "For What It's Worth Extended",
+    "year": null,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": null,
+    "chartWeeks": null,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-19T00:01:18.237Z",
+      "excerpt": "Retroverse track identity: RVTR710996. \"For What It's Worth Extended\" by Buffallo Springfield.",
+      "confidence": 1
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "207b0d6e-fa5e-48f2-a8c8-17933993025e",
+      "createdAt": "2026-06-19T00:01:19.080Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "trivia",
+      "factText": "Retroverse track identity: RVTR710996.",
+      "sourceType": "canonical",
+      "sourceId": "meta-rvtr-RVTR710996",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR710996",
+      "excerptAnchor": "RVTR710996",
+      "confidence": 1,
+      "importance": 1,
+      "locked": true
+    },
+    {
+      "id": "e210293b-5185-460b-93c2-9284d8177c84",
+      "createdAt": "2026-06-19T00:01:19.080Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "For What It's Worth Extended is performed by Buffallo Springfield.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR710996",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR710996",
+      "excerptAnchor": "Buffallo Springfield",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "9a6fce34-f165-4a78-8896-843b5591141c",
+      "headline": "Where Did That Name Come From?",
+      "hookType": "question",
+      "primaryFactId": "207b0d6e-fa5e-48f2-a8c8-17933993025e",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.808,
+      "createdAt": "2026-06-19T00:01:19.085Z"
+    }
+  ],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [
+      {
+        "id": "a0f23aa3-d1e9-41eb-b68f-8e4d930e5bb6",
+        "year": null,
+        "title": "Origin",
+        "description": "Retroverse track identity: RVTR710996."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  },
+  "issueFlags": []
+}

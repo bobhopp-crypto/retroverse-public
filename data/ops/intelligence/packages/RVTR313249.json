@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR313249",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:07:53.088Z",
+  "updatedAt": "2026-06-17T19:07:53.372Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:07:53.088Z · Processing How Sweet It Is To Be Loved By You · James Taylor (Canon First)",
+    "2026-06-17T19:07:53.089Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:07:53.089Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:07:53.090Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:07:53.370Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:07:53.372Z · Emitting canonical facts…",
+    "2026-06-17T19:07:53.372Z · Canonical facts: 5",
+    "2026-06-17T19:07:53.372Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR313249",
+    "artist": "James Taylor",
+    "title": "How Sweet It Is To Be Loved By You",
+    "year": 1975,
+    "albumTitle": "Gorilla",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL232250/RVAL232250__james-taylor__gorilla.jpg",
+    "peakHot100": 5,
+    "chartWeeks": 15,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:07:53.089Z",
+      "excerpt": "Retroverse track identity: RVTR313249. \"How Sweet It Is To Be Loved By You\" by James Taylor. Album: Gorilla (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL232250/RVAL232250__james-taylor__gorilla.jpg",
+      "capturedAt": "2026-06-17T19:07:53.089Z",
+      "excerpt": "Canonical cover assignment for RVTR313249 (How Sweet It Is To Be Loved By You). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:07:53.089Z",
+      "excerpt": "Album: Gorilla (1975). Billboard Hot 100 peak: #5. 15 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:07:53.089Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

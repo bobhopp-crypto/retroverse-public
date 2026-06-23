@@ -11,8 +11,14 @@ export const dynamic = "force-dynamic";
 /** Read alias — same payload as /api/sunday-nights/current. */
 export async function GET() {
   try {
-    const state = await loadSundayNightsState();
-    const payload = await buildSundayNightsCurrentPayload(state);
+    const { maybeAdvanceLiveChannel } = await import("@/lib/live-control/engine");
+    const { loadLiveControlState } = await import("@/lib/live-control/state");
+    await maybeAdvanceLiveChannel();
+    const [state, control] = await Promise.all([
+      loadSundayNightsState(),
+      loadLiveControlState(),
+    ]);
+    const payload = await buildSundayNightsCurrentPayload(state, control);
     return NextResponse.json(payload);
   } catch (err) {
     console.error("[live-now-playing GET]", err);

@@ -613,6 +613,7 @@ export function CreativeLabWorkspace() {
           onGenerateBacks={() => void projectOp({ op: "generateBackPasses" })}
           onSelectBack={(promptId) => void projectOp({ op: "setSelectedBack", promptId })}
           onExportPackage={() => void exportPassPairFromDesk()}
+          onSaveQrPlacement={(qrPlacement) => void saveProjectPatch({ qrPlacement })}
           onOpenAdvanced={() => navigate({ panel: "projects", project: projectId })}
         />
       </>

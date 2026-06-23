@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR848099",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:15:51.417Z",
+  "updatedAt": "2026-06-17T19:15:51.694Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:15:51.417Z · Processing Tangled Up In Blue · Bob Dylan (Canon First)",
+    "2026-06-17T19:15:51.417Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:15:51.417Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:15:51.418Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:15:51.693Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:15:51.694Z · Emitting canonical facts…",
+    "2026-06-17T19:15:51.694Z · Canonical facts: 5",
+    "2026-06-17T19:15:51.694Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR848099",
+    "artist": "Bob Dylan",
+    "title": "Tangled Up In Blue",
+    "year": 1975,
+    "albumTitle": "Blood On The Tracks",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL847799/RVAL847799__bob-dylan__blood-on-the-tracks.jpg",
+    "peakHot100": 31,
+    "chartWeeks": 7,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:51.417Z",
+      "excerpt": "Retroverse track identity: RVTR848099. \"Tangled Up In Blue\" by Bob Dylan. Album: Blood On The Tracks (1975).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL847799/RVAL847799__bob-dylan__blood-on-the-tracks.jpg",
+      "capturedAt": "2026-06-17T19:15:51.417Z",
+      "excerpt": "Canonical cover assignment for RVTR848099 (Tangled Up In Blue). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:51.417Z",
+      "excerpt": "Album: Blood On The Tracks (1975). Billboard Hot 100 peak: #31. 7 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:51.417Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

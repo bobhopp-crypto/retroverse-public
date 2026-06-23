@@ -20,6 +20,56 @@ type Props = {
   eras: ContentCreatorEraOption[];
 };
 
+type LibraryView =
+  | "inbox"
+  | "all"
+  | "favorites"
+  | "rated"
+  | "approved"
+  | "production_ready"
+  | "exported"
+  | "variations"
+  | "templates"
+  | "archived";
+
+type LibraryStats = {
+  total: number;
+  favorites: number;
+  exports: number;
+  archived: number;
+  approved: number;
+  productionReady: number;
+  templates: number;
+  byStatus: Record<string, number>;
+  byCollection: Record<string, number>;
+};
+
+const VIEW_LABELS: Record<LibraryView, string> = {
+  inbox: "Inbox",
+  all: "All",
+  favorites: "Favorites",
+  rated: "Rated",
+  approved: "Approved",
+  production_ready: "Production Ready",
+  exported: "Exported",
+  variations: "Variations",
+  templates: "Templates",
+  archived: "Archive",
+};
+
+const VIEWS: LibraryView[] = [
+  "inbox",
+  "all",
+  "favorites",
+  "rated",
+  "approved",
+  "production_ready",
+  "exported",
+  "variations",
+  "templates",
+  "archived",
+];
+
 function activeFilterCount(filters: {
   q: string;
   eraSlug: string;
@@ -27,6 +77,9 @@ function activeFilterCount(filters: {
   favoriteOnly: boolean;
   rating: string;
   tagFilter: string;
+  collectionFilter: string;
+  exportedFilter: string;
+  variationFilter: string;
   dateFrom: string;
   dateTo: string;
 }): number {
@@ -37,6 +90,9 @@ function activeFilterCount(filters: {
   if (filters.favoriteOnly) n += 1;
   if (filters.rating) n += 1;
   if (filters.tagFilter.trim()) n += 1;
+  if (filters.collectionFilter.trim()) n += 1;
+  if (filters.exportedFilter) n += 1;
+  if (filters.variationFilter && filters.variationFilter !== "all") n += 1;
   if (filters.dateFrom) n += 1;
   if (filters.dateTo) n += 1;
   return n;
@@ -46,22 +102,43 @@ export function MyGenerationsWorkspace({ eras }: Props) {
   const searchParams = useSearchParams();
   const batchParam = searchParams.get("batch");
   const [items, setItems] = useState<GenerationCardData[]>([]);
+  const [stats, setStats] = useState<LibraryStats | null>(null);
   const [batchItems, setBatchItems] = useState<GenerationCardData[]>([]);
   const [activeBatchId, setActiveBatchId] = useState<string | null>(batchParam);
+  const [view, setView] = useState<LibraryView>("inbox");
   const [q, setQ] = useState("");
   const [eraSlug, setEraSlug] = useState("");
   const [creativeDirection, setCreativeDirection] = useState("");
   const [favoriteOnly, setFavoriteOnly] = useState(false);
   const [rating, setRating] = useState("");
   const [tagFilter, setTagFilter] = useState("");
+  const [collectionFilter, setCollectionFilter] = useState("");
+  const [exportedFilter, setExportedFilter] = useState("");
+  const [variationFilter, setVariationFilter] = useState("all");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
+  const [sort, setSort] = useState("newest");
+  const [limit, setLimit] = useState(300);
+  const [density, setDensity] = useState<"cards" | "compact">("cards");
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState<string | null>(null);
 
-  const filterState = { q, eraSlug, creativeDirection, favoriteOnly, rating, tagFilter, dateFrom, dateTo };
+  const filterState = {
+    q,
+    eraSlug,
+    creativeDirection,
+    favoriteOnly,
+    rating,
+    tagFilter,
+    collectionFilter,
+    exportedFilter,
+    variationFilter,
+    dateFrom,
+    dateTo,
+  };
   const filterCount = activeFilterCount(filterState);
   const hasActiveFilters = filterCount > 0;
 
@@ -70,28 +147,52 @@ export function MyGenerationsWorkspace({ eras }: Props) {
     setError(null);
     try {
       const params = new URLSearchParams();
+      params.set("view", view);
+      params.set("limit", String(limit));
       if (q.trim()) params.set("q", q.trim());
       if (eraSlug) params.set("era", eraSlug);
       if (creativeDirection) params.set("direction", creativeDirection);
       if (favoriteOnly) params.set("favorite", "1");
       if (rating) params.set("rating", rating);
       if (tagFilter.trim()) params.set("tags", tagFilter.trim().toLowerCase());
+      if (collectionFilter.trim()) params.set("collection", collectionFilter.trim());
+      if (exportedFilter) params.set("exported", exportedFilter);
+      if (variationFilter !== "all") params.set("variation", variationFilter);
       if (dateFrom) params.set("from", dateFrom);
       if (dateTo) params.set("to", dateTo);
+      if (sort !== "newest") params.set("sort", sort);
       const res = await fetch(`/api/ops/content-creator/library?${params}`);
       const data = (await res.json()) as {
         ok?: boolean;
         generations?: GenerationCardData[];
+        stats?: LibraryStats;
         error?: string;
       };
       if (!res.ok || !data.ok) throw new Error(data.error ?? "load_failed");
       setItems(data.generations ?? []);
+      setStats(data.stats ?? null);
+      setSelectedIds([]);
     } catch (e) {
       setError(e instanceof Error ? e.message : "load_failed");
     } finally {
       setBusy(false);
     }
-  }, [q, eraSlug, creativeDirection, favoriteOnly, rating, tagFilter, dateFrom, dateTo]);
+  }, [
+    view,
+    limit,
+    q,
+    eraSlug,
+    creativeDirection,
+    favoriteOnly,
+    rating,
+    tagFilter,
+    collectionFilter,
+    exportedFilter,
+    variationFilter,
+    dateFrom,
+    dateTo,
+    sort,
+  ]);
 
   useEffect(() => {
     void load();
@@ -123,8 +224,25 @@ export function MyGenerationsWorkspace({ eras }: Props) {
     return items.find((i) => i.id === parentId) ?? null;
   }, [batchItems, items]);
 
-  const favorites = useMemo(() => items.filter((item) => item.favorite), [items]);
-  const recent = useMemo(() => items.filter((item) => !item.favorite), [items]);
+  const collectionOptions = useMemo(
+    () => Object.entries(stats?.byCollection ?? {}).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
+    [stats],
+  );
+  const viewCounts = useMemo(
+    () => ({
+      inbox: stats?.byStatus?.review ?? 0,
+      all: Math.max(0, (stats?.total ?? 0) - (stats?.archived ?? 0)),
+      favorites: stats?.favorites ?? 0,
+      rated: null,
+      approved: stats?.approved ?? 0,
+      production_ready: stats?.productionReady ?? 0,
+      exported: stats?.exports ?? 0,
+      variations: null,
+      templates: stats?.templates ?? 0,
+      archived: stats?.archived ?? 0,
+    }),
+    [stats],
+  );
 
   function clearFilters() {
     setQ("");
@@ -133,8 +251,12 @@ export function MyGenerationsWorkspace({ eras }: Props) {
     setFavoriteOnly(false);
     setRating("");
     setTagFilter("");
+    setCollectionFilter("");
+    setExportedFilter("");
+    setVariationFilter("all");
     setDateFrom("");
     setDateTo("");
+    setSort("newest");
   }
 
   async function backfill() {
@@ -151,6 +273,33 @@ export function MyGenerationsWorkspace({ eras }: Props) {
       body: JSON.stringify(patch),
     });
     await load();
+  }
+
+  async function bulkCuratorChange(patch: Record<string, unknown>) {
+    if (!selectedIds.length) return;
+    setStatus(`Updating ${selectedIds.length} credentials…`);
+    await Promise.all(
+      selectedIds.map((id) =>
+        fetch(`/api/ops/content-creator/library/${encodeURIComponent(id)}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(patch),
+        }),
+      ),
+    );
+    setStatus("Bulk update complete");
+    await load();
+  }
+
+  function selectItem(id: string, selected: boolean) {
+    setSelectedIds((prev) => {
+      if (selected) return prev.includes(id) ? prev : [...prev, id];
+      return prev.filter((x) => x !== id);
+    });
+  }
+
+  function selectAllVisible(selected: boolean) {
+    setSelectedIds(selected ? items.map((item) => item.id) : []);
   }
 
   async function exportAgain(id: string) {
@@ -208,6 +357,9 @@ export function MyGenerationsWorkspace({ eras }: Props) {
             onExport={exportAgain}
             onVariations={generateVariations}
             onViewBatch={openBatch}
+            selected={selectedIds.includes(item.id)}
+            onSelectedChange={selectItem}
+            density={density}
           />
         ))}
       </div>
@@ -237,6 +389,33 @@ export function MyGenerationsWorkspace({ eras }: Props) {
           + New Credential
         </Link>
       </header>
+
+      <nav className="cc-library__views" aria-label="Library views">
+        {VIEWS.map((v) => (
+          <button
+            key={v}
+            type="button"
+            className={`cc-library__view${view === v ? " is-on" : ""}`}
+            onClick={() => {
+              setView(v);
+              setLimit(300);
+            }}
+          >
+            <span>{VIEW_LABELS[v]}</span>
+            {viewCounts[v] != null ? <strong>{viewCounts[v]}</strong> : null}
+          </button>
+        ))}
+      </nav>
+
+      {stats ? (
+        <div className="cc-library__stats" aria-label="Library stats">
+          <span>{stats.total} total</span>
+          <span>{stats.favorites} favorites</span>
+          <span>{stats.approved} approved</span>
+          <span>{stats.productionReady} production ready</span>
+          <span>{stats.exports} exported</span>
+        </div>
+      ) : null}
 
       <div className="cc-library__toolbar">
         <label className="cc-library__search-wrap">
@@ -299,6 +478,47 @@ export function MyGenerationsWorkspace({ eras }: Props) {
             onChange={(e) => setTagFilter(e.target.value)}
             aria-label="Tag filter"
           />
+          <select
+            className="cc-library__control"
+            value={collectionFilter}
+            onChange={(e) => setCollectionFilter(e.target.value)}
+            aria-label="Collection"
+          >
+            <option value="">All collections</option>
+            {collectionOptions.map(([name, count]) => (
+              <option key={name} value={name}>
+                {name} ({count})
+              </option>
+            ))}
+          </select>
+          <select
+            className="cc-library__control"
+            value={exportedFilter}
+            onChange={(e) => setExportedFilter(e.target.value)}
+            aria-label="Export state"
+          >
+            <option value="">Any export state</option>
+            <option value="1">Exported</option>
+            <option value="0">Not exported</option>
+          </select>
+          <select
+            className="cc-library__control"
+            value={variationFilter}
+            onChange={(e) => setVariationFilter(e.target.value)}
+            aria-label="Variation state"
+          >
+            <option value="all">Roots and variations</option>
+            <option value="roots">Root credentials only</option>
+            <option value="variations">Variations only</option>
+          </select>
+          <select className="cc-library__control" value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort">
+            <option value="newest">Newest first</option>
+            <option value="updated">Recently updated</option>
+            <option value="rating">Highest rated</option>
+            <option value="era">Era</option>
+            <option value="event">Event</option>
+            <option value="exported">Export date</option>
+          </select>
           <input
             type="date"
             className="cc-library__control"
@@ -317,6 +537,14 @@ export function MyGenerationsWorkspace({ eras }: Props) {
             <input type="checkbox" checked={favoriteOnly} onChange={(e) => setFavoriteOnly(e.target.checked)} />
             Favorites only
           </label>
+          <label className="cc-library__checkbox">
+            <input
+              type="checkbox"
+              checked={density === "compact"}
+              onChange={(e) => setDensity(e.target.checked ? "compact" : "cards")}
+            />
+            Compact cards
+          </label>
           <div className="cc-library__drawer-actions">
             <button type="button" className="cc-library__drawer-btn" disabled={busy} onClick={() => void load()}>
               Refresh
@@ -332,6 +560,43 @@ export function MyGenerationsWorkspace({ eras }: Props) {
           </div>
         </div>
       </div>
+
+      {items.length ? (
+        <div className="cc-library__bulk">
+          <label className="cc-library__checkbox">
+            <input
+              type="checkbox"
+              checked={selectedIds.length > 0 && selectedIds.length === items.length}
+              onChange={(e) => selectAllVisible(e.target.checked)}
+            />
+            Select visible
+          </label>
+          <span>{selectedIds.length} selected</span>
+          <button type="button" disabled={!selectedIds.length} onClick={() => void bulkCuratorChange({ status: "approved" })}>
+            Approve
+          </button>
+          <button
+            type="button"
+            disabled={!selectedIds.length}
+            onClick={() => void bulkCuratorChange({ status: "production_ready" })}
+          >
+            Production ready
+          </button>
+          <button type="button" disabled={!selectedIds.length} onClick={() => void bulkCuratorChange({ status: "archived" })}>
+            Archive
+          </button>
+          <button type="button" disabled={!selectedIds.length} onClick={() => void bulkCuratorChange({ status: "review" })}>
+            Restore to review
+          </button>
+          <button
+            type="button"
+            disabled={!selectedIds.length}
+            onClick={() => void bulkCuratorChange({ template: { isTemplate: true } })}
+          >
+            Mark template
+          </button>
+        </div>
+      ) : null}
 
       {error ? <p className="cc-library__banner cc-library__banner--error">{error}</p> : null}
       {status ? <p className="cc-library__banner cc-library__banner--status">{status}</p> : null}
@@ -370,36 +635,18 @@ export function MyGenerationsWorkspace({ eras }: Props) {
 
       {items.length > 0 ? (
         <div className={`cc-library__sections${busy ? " is-busy" : ""}`}>
-          {hasActiveFilters ? (
-            <section className="cc-library__section" aria-label="Search results">
-              <header className="cc-library__section-head">
-                <h2>Results</h2>
-                <span>{items.length} credential{items.length === 1 ? "" : "s"}</span>
-              </header>
-              {renderGrid(items)}
-            </section>
-          ) : (
-            <>
-              {favorites.length > 0 ? (
-                <section className="cc-library__section" aria-label="Favorites">
-                  <header className="cc-library__section-head">
-                    <h2>★ Favorites</h2>
-                    <span>{favorites.length}</span>
-                  </header>
-                  {renderGrid(favorites)}
-                </section>
-              ) : null}
-              {recent.length > 0 ? (
-                <section className="cc-library__section" aria-label="Recent">
-                  <header className="cc-library__section-head">
-                    <h2>Recent</h2>
-                    <span>{recent.length}</span>
-                  </header>
-                  {renderGrid(recent)}
-                </section>
-              ) : null}
-            </>
-          )}
+          <section className="cc-library__section" aria-label={`${VIEW_LABELS[view]} credentials`}>
+            <header className="cc-library__section-head">
+              <h2>{hasActiveFilters ? `${VIEW_LABELS[view]} Results` : VIEW_LABELS[view]}</h2>
+              <span>{items.length} credential{items.length === 1 ? "" : "s"}</span>
+            </header>
+            {renderGrid(items)}
+            {items.length >= limit ? (
+              <button type="button" className="cc-library__load-more" onClick={() => setLimit((n) => n + 300)}>
+                Load 300 more
+              </button>
+            ) : null}
+          </section>
         </div>
       ) : null}
     </div>

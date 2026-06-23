@@ -53,9 +53,9 @@ export const ARTIFACT_ARCHETYPES: Record<ArtifactArchetypeId, ArtifactArchetypeD
     objectType:
       "Retroverse collectible credential — a commemorative admission pass saved like memorabilia, not disposable entry stock.",
     layoutStructure:
-      "Portrait collector card — front is full collectible artwork; back is artwork plus a dominant lower-half QR safe area, retroverse.live band, and bottom-edge serial stamp.",
+      "Portrait collector card — front is hero artwork; back is authentication, collector information, supporting artwork, production QR reserve, and generous serial/stamp area.",
     avoidGenericLayout:
-      "No BIG TITLE → BIG ART → DATE poster stack. No perforated stub, tear-off tab, or gate-admission ticket layout. No small decorative QR medallion.",
+      "No BIG TITLE → BIG ART → DATE poster stack. No perforated stub, tear-off tab, or gate-admission ticket layout. No decorative code medallion.",
     neverGenerate: [
       "concert poster",
       "ticket stub",
@@ -67,8 +67,8 @@ export const ARTIFACT_ARCHETYPES: Record<ArtifactArchetypeId, ArtifactArchetypeD
     printingMethod: "Letterpress and foil stamp on premium collector cardstock with era-appropriate ink.",
     paperStock: "Heavy linen or laid credential stock — binder-worthy, slight edge patina, keepsake not disposable.",
     shape: "Portrait collectible credential card — laminate-ready, rounded corners, no stub tear.",
-    embossing: "Subtle blind-embossed border — keep authenticity seal small; QR dominates the back.",
-    seals: "Small authenticity chop — subordinate to the QR safe area, not a competing medallion.",
+    embossing: "Subtle blind-embossed border — keep authenticity seal small; production QR reserve is important but not the primary design element.",
+    seals: "Small authenticity chop — not a competing medallion; ornament stays outside the QR reserve and serial/stamp area.",
     collectorMarks:
       "Edition crest, commemorative ribbon, binder-archive plate — something saved in a collector binder 20 years later.",
   },

@@ -1,0 +1,197 @@
+{
+  "version": 2,
+  "rvtr": "RVTR923939",
+  "status": "published",
+  "createdAt": "2026-06-17T02:11:54.603Z",
+  "updatedAt": "2026-06-17T02:11:54.721Z",
+  "processedAt": "2026-06-17T02:11:54.721Z",
+  "approvedAt": "2026-06-17T02:11:54.721Z",
+  "publishedAt": "2026-06-17T02:11:54.721Z",
+  "processLog": [
+    "2026-06-17T02:11:54.603Z · Processing The Sign · Ace Of Base (Phase 2)",
+    "2026-06-17T02:11:54.604Z · Capturing research sources…",
+    "2026-06-17T02:11:54.717Z · Research vault: 1 sources",
+    "2026-06-17T02:11:54.719Z · Emitting canonical facts…",
+    "2026-06-17T02:11:54.719Z · Canonical facts: 3",
+    "2026-06-17T02:11:54.720Z · Extracting candidate facts from research…",
+    "2026-06-17T02:11:54.720Z · Candidate facts: 3 (3 approved)",
+    "2026-06-17T02:11:54.720Z · Proposing candidate stories…",
+    "2026-06-17T02:11:54.720Z · Candidate stories: 2",
+    "2026-06-17T02:11:54.720Z · Ranking stories…",
+    "2026-06-17T02:11:54.720Z · Top story: \"Chart Peak: #1\"",
+    "2026-06-17T02:11:54.721Z · Package intel: 2 timeline events",
+    "2026-06-17T02:11:54.721Z · Ready for human review — build cards after approving facts/stories",
+    "2026-06-17T02:11:54.721Z · Promoted verified facts: 3 approved",
+    "2026-06-17T02:11:54.721Z · Story cards assembled: 3",
+    "2026-06-17T02:11:54.721Z · Song sheet published"
+  ],
+  "metadata": {
+    "rvtr": "RVTR923939",
+    "artist": "Ace Of Base",
+    "title": "The Sign",
+    "year": 1993,
+    "albumTitle": "The Sign",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL723554/RVAL723554__ace-of-base__the-sign.jpg",
+    "peakHot100": 1,
+    "chartWeeks": 41,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T02:11:54.717Z",
+      "excerpt": "Album: The Sign (1993). Billboard Hot 100 peak: #1. 41 weeks on chart",
+      "confidence": 0.95
+    }
+  ],
+  "candidateFacts": [
+    {
+      "id": "f9464359-1ae2-4e35-9330-cdffdf089c79",
+      "createdAt": "2026-06-17T02:11:54.719Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "artist",
+      "factText": "The Sign is performed by Ace Of Base.",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR923939",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR923939",
+      "excerptAnchor": "Ace Of Base",
+      "confidence": 1,
+      "importance": 0.6,
+      "locked": true
+    },
+    {
+      "id": "762ff7c8-9fb0-473c-a00c-d82763918020",
+      "createdAt": "2026-06-17T02:11:54.719Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "album",
+      "factText": "The song appears on the album \"The Sign\" (1993).",
+      "sourceType": "canonical",
+      "sourceId": "meta-RVTR923939",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR923939",
+      "excerptAnchor": "The Sign",
+      "confidence": 1,
+      "importance": 0.8,
+      "locked": true
+    },
+    {
+      "id": "0564730e-10ae-4764-9c0a-0cdceefee586",
+      "createdAt": "2026-06-17T02:11:54.719Z",
+      "reviewStatus": "approved",
+      "extractionMethod": "deterministic",
+      "category": "chart",
+      "factText": "The song peaked at #1 on the Billboard Hot 100 and spent 41 weeks on the chart.",
+      "sourceType": "canonical",
+      "sourceId": "meta-chart-RVTR923939",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #1. 41 weeks on chart.",
+      "excerptAnchor": "Billboard Hot 100 peak: #1.",
+      "confidence": 1,
+      "importance": 0.85,
+      "locked": true
+    }
+  ],
+  "candidateStories": [
+    {
+      "id": "5d450399-8f43-468f-b511-ff02ebb2ad5b",
+      "headline": "Chart Peak: #1",
+      "hookType": "chart",
+      "primaryFactId": "0564730e-10ae-4764-9c0a-0cdceefee586",
+      "supportingFactIds": [
+        "762ff7c8-9fb0-473c-a00c-d82763918020"
+      ],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 1,
+      "rankScore": 0.7,
+      "createdAt": "2026-06-17T02:11:54.720Z"
+    },
+    {
+      "id": "21ad4098-1cff-453b-be49-1e714c651b8d",
+      "headline": "From the Album \"The Sign\"",
+      "hookType": "surprise",
+      "primaryFactId": "762ff7c8-9fb0-473c-a00c-d82763918020",
+      "supportingFactIds": [],
+      "headlineMethod": "template",
+      "reviewStatus": "approved",
+      "rank": 2,
+      "rankScore": 0.635,
+      "createdAt": "2026-06-17T02:11:54.720Z"
+    }
+  ],
+  "storyCards": [
+    {
+      "id": "76bdf330-6852-49e0-8671-0fad0b99f79d",
+      "storyId": "cover",
+      "rank": 0,
+      "headline": "The Sign",
+      "fact": "The Sign by Ace Of Base. From The Sign (1993). Billboard Hot 100 peak: #1.",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Canonical metadata for RVTR923939",
+      "confidence": 1,
+      "category": "artist"
+    },
+    {
+      "id": "287de18a-f3c3-4ef7-ba8c-4a3b159a97b8",
+      "storyId": "5d450399-8f43-468f-b511-ff02ebb2ad5b",
+      "rank": 1,
+      "headline": "Chart Peak: #1",
+      "fact": "The song peaked at #1 on the Billboard Hot 100 and spent 41 weeks on the chart.",
+      "supportingContext": "The song appears on the album \"The Sign\" (1993).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Billboard Hot 100 peak: #1. 41 weeks on chart.",
+      "confidence": 1,
+      "category": "chart"
+    },
+    {
+      "id": "2842c1a7-b33d-4b9b-abc3-10a1721679f3",
+      "storyId": "21ad4098-1cff-453b-be49-1e714c651b8d",
+      "rank": 2,
+      "headline": "From the Album \"The Sign\"",
+      "fact": "The song appears on the album \"The Sign\" (1993).",
+      "sourceLabel": "Retroverse",
+      "sourceUrl": null,
+      "sourceExcerpt": "Retroverse canonical record for RVTR923939",
+      "confidence": 1,
+      "category": "album"
+    }
+  ],
+  "intel": {
+    "label": null,
+    "catalogNumber": "1993-THESIG",
+    "chartHistory": [
+      {
+        "chart": "Billboard Hot 100",
+        "peak": 1,
+        "weeks": 41,
+        "detail": "41 weeks on chart"
+      }
+    ],
+    "timelineEvents": [
+      {
+        "id": "fe239ba7-381a-4854-a518-8ab695b427df",
+        "year": 1993,
+        "title": "Release",
+        "description": "The Sign released on The Sign."
+      },
+      {
+        "id": "658190a9-5748-4b67-a498-0d1a573d2188",
+        "year": 1994,
+        "title": "Chart Peak",
+        "description": "Peaked at #1 on Billboard Hot 100."
+      }
+    ],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

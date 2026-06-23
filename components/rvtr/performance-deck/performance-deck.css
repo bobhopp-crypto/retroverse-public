@@ -1,0 +1,467 @@
+.performance-deck {
+  --deck-paper: #f7ead0;
+  --deck-ink: #172923;
+  --deck-teal: #087f7a;
+  --deck-orange: #e45b32;
+  --deck-red: #b8372f;
+  --deck-purple: #7251a3;
+  --deck-cream: #fff9ec;
+  --deck-border: 3px solid var(--deck-ink);
+
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(228, 91, 50, 0.2), transparent 28%),
+    radial-gradient(circle at 90% 18%, rgba(8, 127, 122, 0.22), transparent 30%),
+    linear-gradient(135deg, rgba(255, 249, 236, 0.75), rgba(247, 234, 208, 0.1)),
+    var(--deck-paper);
+  color: var(--deck-ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.performance-deck__topbar {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: max(0.5rem, env(safe-area-inset-top)) 0.55rem 0.45rem;
+  pointer-events: none;
+}
+
+.performance-deck__back-link,
+.performance-deck__counter {
+  pointer-events: auto;
+  margin: 0;
+  padding: 0.35rem 0.55rem;
+  border: 2px solid var(--deck-ink);
+  background: var(--deck-cream);
+  color: var(--deck-ink);
+  box-shadow: 2px 2px 0 rgba(23, 41, 35, 0.18);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.performance-deck__viewport {
+  display: flex;
+  width: 100vw;
+  min-height: 100svh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.performance-deck__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.performance-deck__slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 3.25rem 0.5rem 4.45rem;
+  scroll-snap-align: start;
+}
+
+.performance-card {
+  width: min(100%, 28rem);
+  height: calc(100svh - 7.7rem);
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.9rem, 3.8vw, 1.25rem);
+  border: var(--deck-border);
+  border-radius: 1.05rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0)),
+    var(--deck-cream);
+  box-shadow: 8px 8px 0 rgba(23, 41, 35, 0.18);
+}
+
+.performance-card--hero {
+  background-color: #fff0c8;
+}
+
+.performance-card--story {
+  background-color: #fff9ec;
+}
+
+.performance-card--host,
+.performance-card--artist {
+  background-color: #e8f6ef;
+}
+
+.performance-card--chart {
+  background-color: #ffe1d2;
+}
+
+.performance-card--connection,
+.performance-card--your-story {
+  background-color: #f4ebff;
+}
+
+.performance-card__hero-grid,
+.performance-card__content {
+  min-height: 0;
+}
+
+.performance-card__content {
+  display: grid;
+  align-content: center;
+  gap: clamp(0.75rem, 3vw, 1rem);
+  flex: 1;
+}
+
+.performance-card__content--hero {
+  align-content: start;
+}
+
+.performance-card__hero-grid {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  flex: 1;
+}
+
+.performance-card__eyebrow {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.28rem 0.55rem;
+  background: var(--deck-teal);
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.performance-card__cover-wrap {
+  position: relative;
+  display: block;
+  width: min(58vw, 12.75rem);
+  margin: 0 auto;
+  border: 3px solid var(--deck-ink);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 5px 5px 0 var(--deck-orange);
+}
+
+.performance-card__cover-wrap--link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.performance-card__cover-wrap--link::after {
+  content: "tap";
+  position: absolute;
+  right: 0.45rem;
+  bottom: 0.45rem;
+  padding: 0.22rem 0.4rem;
+  border: 2px solid var(--deck-ink);
+  border-radius: 999px;
+  background: var(--deck-orange);
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.performance-card__cover-wrap--link > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.performance-card__cover,
+.performance-card__cover-fallback {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.performance-card__title,
+.performance-card__headline {
+  margin: 0;
+  font-size: clamp(2.2rem, 10.5vw, 3.5rem);
+  line-height: 0.94;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
+.performance-card__artist {
+  margin: 0;
+  font-size: clamp(1.25rem, 5.7vw, 1.85rem);
+  line-height: 1.05;
+  font-weight: 800;
+  color: var(--deck-red);
+}
+
+.performance-card__artist a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.16em;
+}
+
+.performance-card__body {
+  margin: 0;
+  max-width: 19rem;
+  font-size: clamp(1.08rem, 4.9vw, 1.4rem);
+  line-height: 1.22;
+  font-weight: 750;
+}
+
+.performance-card__chips,
+.performance-card__mini-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.performance-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.performance-card__chip {
+  padding: 0.34rem 0.55rem;
+  border: 2px solid rgba(23, 41, 35, 0.45);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: rgba(23, 41, 35, 0.78);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.performance-card__chip--link {
+  padding: 0;
+  border-color: var(--deck-ink);
+  background: #fff;
+  box-shadow: 3px 3px 0 rgba(23, 41, 35, 0.15);
+}
+
+.performance-card__chip--link a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-height: 2.25rem;
+  justify-content: center;
+  padding: 0.38rem 0.62rem;
+  border-radius: 999px;
+  color: var(--deck-ink);
+  text-decoration: none;
+}
+
+.performance-card__chip--link span {
+  color: var(--deck-orange);
+  font-size: 0.55rem;
+  letter-spacing: 0.11em;
+}
+
+.performance-card__mini-list,
+.performance-card__song-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.performance-card__mini-list a,
+.performance-card__song-links a {
+  display: block;
+  padding: 0.65rem 0.75rem;
+  border: 2px solid var(--deck-ink);
+  border-radius: 0.75rem;
+  background: #fff;
+  color: var(--deck-ink);
+  box-shadow: 3px 3px 0 rgba(23, 41, 35, 0.13);
+  font-size: clamp(0.95rem, 4.3vw, 1.15rem);
+  font-weight: 900;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.performance-card__mini-list a span,
+.performance-card__song-links a span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--deck-teal);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.performance-card__primary-link {
+  justify-self: start;
+  display: inline-flex;
+  min-height: 2.8rem;
+  align-items: center;
+  padding: 0 1rem;
+  border: 3px solid var(--deck-ink);
+  border-radius: 999px;
+  background: var(--deck-orange);
+  color: #fff;
+  box-shadow: 4px 4px 0 rgba(23, 41, 35, 0.18);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+.performance-card__share {
+  justify-self: start;
+  min-height: 2.8rem;
+  padding: 0 1rem;
+  border: 3px solid var(--deck-ink);
+  border-radius: 999px;
+  background: var(--deck-orange);
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 rgba(23, 41, 35, 0.2);
+}
+
+.performance-card__footer {
+  margin: 0;
+  color: rgba(23, 41, 35, 0.58);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.performance-deck__controls {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 5.4rem 1fr 5.4rem;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.55rem 0.65rem max(0.65rem, env(safe-area-inset-bottom));
+  pointer-events: none;
+}
+
+.performance-deck__controls button {
+  pointer-events: auto;
+  min-height: 3.15rem;
+  border: 3px solid var(--deck-ink);
+  border-radius: 999px;
+  background: var(--deck-cream);
+  color: var(--deck-ink);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 rgba(23, 41, 35, 0.16);
+}
+
+.performance-deck__controls button:disabled {
+  opacity: 0.35;
+}
+
+.performance-deck__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.performance-deck__dots span {
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 2px solid var(--deck-ink);
+  border-radius: 999px;
+  background: var(--deck-cream);
+}
+
+.performance-deck__dots .is-active {
+  background: var(--deck-orange);
+}
+
+@media (max-height: 700px) {
+  .performance-deck__slide {
+    padding-top: 3rem;
+    padding-bottom: 4.15rem;
+  }
+
+  .performance-card {
+    height: calc(100svh - 7.15rem);
+    padding: 0.82rem;
+  }
+
+  .performance-card__cover-wrap {
+    width: min(42vw, 9rem);
+  }
+
+  .performance-card__title,
+  .performance-card__headline {
+    font-size: clamp(1.85rem, 9vw, 2.75rem);
+  }
+
+  .performance-card__body {
+    font-size: clamp(0.98rem, 4.3vw, 1.16rem);
+  }
+}
+
+@media (min-width: 720px) {
+  .performance-deck__topbar {
+    padding: max(0.85rem, env(safe-area-inset-top)) 1rem 0.75rem;
+  }
+
+  .performance-deck__slide {
+    padding: 4.1rem 1rem 5.25rem;
+  }
+
+  .performance-card {
+    width: min(100%, 25rem);
+    height: min(42rem, calc(100svh - 9.7rem));
+    min-height: 31rem;
+    padding: clamp(1rem, 4.5vw, 1.35rem);
+  }
+
+  .performance-deck__controls {
+    grid-template-columns: 4.25rem 1fr 4.25rem;
+    padding: 0.75rem 1rem max(0.85rem, env(safe-area-inset-bottom));
+  }
+
+  .performance-deck__controls button {
+    min-height: 2.6rem;
+    font-size: 0.74rem;
+  }
+}

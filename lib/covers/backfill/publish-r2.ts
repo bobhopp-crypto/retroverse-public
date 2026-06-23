@@ -4,7 +4,29 @@ import { join } from "node:path";
 
 import { coverFsRoot, welcomeRoot } from "@/lib/covers/backfill/paths";
 
-type S3Module = typeof import("@aws-sdk/client-s3");
+type S3ClientConfig = {
+  region: string;
+  endpoint: string;
+  credentials: { accessKeyId: string; secretAccessKey: string };
+};
+
+type S3Command = { input: unknown };
+
+type S3Client = {
+  send(command: S3Command): Promise<unknown>;
+};
+
+type S3Module = {
+  S3Client: new (config: S3ClientConfig) => S3Client;
+  PutObjectCommand: new (input: {
+    Bucket: string;
+    Key: string;
+    Body: Buffer;
+    ContentType: string;
+    CacheControl: string;
+  }) => S3Command;
+  HeadObjectCommand: new (input: { Bucket: string; Key: string }) => S3Command;
+};
 
 export type R2Env = {
   accountId: string;

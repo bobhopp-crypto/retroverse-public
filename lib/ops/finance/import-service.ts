@@ -73,7 +73,7 @@ export async function processFinanceUpload(input: {
       autoCategorized: 0,
       pending: 0,
       status: "stored",
-      note: "PDF/image/XLSX stored. Use /ops/finance/import-amazon for Amazon Order History CSV or Apple Card for charges.",
+      note: "PDF/image/XLSX stored. Use Import for Amazon Order History CSV or Apple Card for charges.",
     };
   }
 

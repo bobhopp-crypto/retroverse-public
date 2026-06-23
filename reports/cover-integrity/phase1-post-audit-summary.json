@@ -1,0 +1,277 @@
+{
+  "auditedAt": "2026-06-17T14:36:55.692Z",
+  "coverFsRoot": "/Users/bobhopp/RETROVERSE_v2/apps/retroverse-welcome/public",
+  "totalPgAlbumsWithRval": 21757,
+  "totalWithCanonicalPath": 17730,
+  "totalMissingPath": 4027,
+  "totalFileMissingOnDisk": 6,
+  "totalFilesHashed": 17724,
+  "totalOrphanCoverFiles": 30569,
+  "confidenceDistribution": {
+    "HIGH": 15431,
+    "MEDIUM": 16,
+    "LOW": 4033,
+    "VERY_SUSPICIOUS": 2277
+  },
+  "suspiciousCount": 2277,
+  "missingAssignmentCount": 4027,
+  "normalizationDriftCount": 448,
+  "topReusedHashes": [
+    {
+      "hash": "3bf6adc01062ea25ca2a9ef046a51da3",
+      "albumCount": 29,
+      "sampleRvals": [
+        "RVAL088703",
+        "RVAL089012",
+        "RVAL095875",
+        "RVAL148678",
+        "RVAL175940",
+        "RVAL179835"
+      ]
+    },
+    {
+      "hash": "1549afbc9f3cabb66b3092fc0b44856c",
+      "albumCount": 22,
+      "sampleRvals": [
+        "RVAL104152",
+        "RVAL147442",
+        "RVAL149029",
+        "RVAL165277",
+        "RVAL190849",
+        "RVAL252831"
+      ]
+    },
+    {
+      "hash": "148196d21708541a9f29c6048b91fc9d",
+      "albumCount": 18,
+      "sampleRvals": [
+        "RVAL002442",
+        "RVAL134124",
+        "RVAL281759",
+        "RVAL481124",
+        "RVAL494551",
+        "RVAL523738"
+      ]
+    },
+    {
+      "hash": "26d6e09e5b73149a43bc50c814f682e9",
+      "albumCount": 16,
+      "sampleRvals": [
+        "RVAL049785",
+        "RVAL052233",
+        "RVAL116049",
+        "RVAL119610",
+        "RVAL274137",
+        "RVAL314010"
+      ]
+    },
+    {
+      "hash": "6c9846de33d5c5c1cae91d6b4a8062f1",
+      "albumCount": 14,
+      "sampleRvals": [
+        "RVAL097843",
+        "RVAL214156",
+        "RVAL320184",
+        "RVAL337706",
+        "RVAL339194",
+        "RVAL388185"
+      ]
+    },
+    {
+      "hash": "d34d42f15536a6f7c100563715df99a4",
+      "albumCount": 14,
+      "sampleRvals": [
+        "RVAL197280",
+        "RVAL220176",
+        "RVAL301663",
+        "RVAL332379",
+        "RVAL396112",
+        "RVAL478729"
+      ]
+    },
+    {
+      "hash": "a20791b50c54d115fec884e9e2209930",
+      "albumCount": 13,
+      "sampleRvals": [
+        "RVAL034639",
+        "RVAL062697",
+        "RVAL079957",
+        "RVAL210492",
+        "RVAL234802",
+        "RVAL548891"
+      ]
+    },
+    {
+      "hash": "d2405083a9182222da35dc1f2f2db3a4",
+      "albumCount": 13,
+      "sampleRvals": [
+        "RVAL089442",
+        "RVAL121577",
+        "RVAL239414",
+        "RVAL284123",
+        "RVAL441482",
+        "RVAL470620"
+      ]
+    },
+    {
+      "hash": "50f1b98225e39f6ba695ed54c9070e75",
+      "albumCount": 9,
+      "sampleRvals": [
+        "RVAL319347",
+        "RVAL406545",
+        "RVAL412966",
+        "RVAL421887",
+        "RVAL527093",
+        "RVAL580597"
+      ]
+    },
+    {
+      "hash": "bfdd6b9e87b1c7480c7ba2f2e80f23c2",
+      "albumCount": 8,
+      "sampleRvals": [
+        "RVAL013271",
+        "RVAL287096",
+        "RVAL305696",
+        "RVAL332355",
+        "RVAL574958",
+        "RVAL708479"
+      ]
+    },
+    {
+      "hash": "845bc8011a3bab8a7f05ea256675b009",
+      "albumCount": 7,
+      "sampleRvals": [
+        "RVAL020927",
+        "RVAL190388",
+        "RVAL426744",
+        "RVAL484145",
+        "RVAL493256",
+        "RVAL701723"
+      ]
+    },
+    {
+      "hash": "c5822ceb1503ca7190d9b9139c14de17",
+      "albumCount": 7,
+      "sampleRvals": [
+        "RVAL112363",
+        "RVAL560311",
+        "RVAL645919",
+        "RVAL664031",
+        "RVAL711421",
+        "RVAL908928"
+      ]
+    },
+    {
+      "hash": "3798c4d4a6f2dd6cf7f11ab00c801e35",
+      "albumCount": 6,
+      "sampleRvals": [
+        "RVAL026066",
+        "RVAL179758",
+        "RVAL295524",
+        "RVAL351873",
+        "RVAL525120",
+        "RVAL740807"
+      ]
+    },
+    {
+      "hash": "5136bdb3dc857b4e97e8ee54d5a7336c",
+      "albumCount": 6,
+      "sampleRvals": [
+        "RVAL054141",
+        "RVAL320021",
+        "RVAL320110",
+        "RVAL348584",
+        "RVAL854175",
+        "RVAL879269"
+      ]
+    },
+    {
+      "hash": "e7f321bdfb071912d0d2b4ebffdd4aa8",
+      "albumCount": 6,
+      "sampleRvals": [
+        "RVAL055183",
+        "RVAL560111",
+        "RVAL680617",
+        "RVAL788768",
+        "RVAL791094",
+        "RVAL807433"
+      ]
+    }
+  ],
+  "sameArtistSubstitutionCount": 1827,
+  "trustTierCounts": {
+    "TRUSTED": 15431,
+    "REVIEW": 4043,
+    "HIGH_RISK": 2277,
+    "BROKEN": 6
+  },
+  "repairQueueCount": 2283,
+  "spotChecks": {
+    "eltonTooLowForZero": {
+      "rval": "RVAL823723",
+      "albumId": "37648",
+      "artist": "elton john",
+      "album": "Too Low For Zero",
+      "releaseYear": 1983,
+      "canonicalPath": "retroverse/covers/RVAL823723/RVAL823723__elton-john__too-low-for-zero.jpg",
+      "coverFilename": "RVAL823723__elton-john__too-low-for-zero.jpg",
+      "artworkSource": "dossier",
+      "linkConfidence": 85,
+      "reviewFlag": "ok",
+      "b200Peak": 25,
+      "fileExists": true,
+      "fileHash": "c6cfa2444301874ede5ee5acb25aa32b",
+      "fileBytes": 185898,
+      "filenameArtistSlug": "elton-john",
+      "filenameAlbumSlug": "too-low-for-zero",
+      "titleKeyAlbum": "too low for zero",
+      "titleKeyFilename": "too low for zero",
+      "artistKey": "elton john",
+      "artistKeyFilename": "elton john",
+      "confidenceScore": 56,
+      "confidenceBand": "VERY_SUSPICIOUS",
+      "suspicionReasons": [
+        "image_hash_reused_2_albums",
+        "same_artist_different_album_shared_image"
+      ],
+      "duplicateHashCount": 2,
+      "normalizationDrift": false,
+      "titleExactMatch": true,
+      "titlePartialMatch": false,
+      "artistExactMatch": true,
+      "trustTier": "HIGH_RISK"
+    },
+    "eltonCaribou": {
+      "rval": "RVAL836560",
+      "albumId": "37612",
+      "artist": "elton john",
+      "album": "Caribou",
+      "releaseYear": 1974,
+      "canonicalPath": "retroverse/covers/RVAL836560/RVAL836560__elton-john__caribou.jpg",
+      "coverFilename": "RVAL836560__elton-john__caribou.jpg",
+      "artworkSource": "dossier",
+      "linkConfidence": 85,
+      "reviewFlag": "ok",
+      "b200Peak": 1,
+      "fileExists": true,
+      "fileHash": "7b417a1b2a6861003897eff585bbf52c",
+      "fileBytes": 128005,
+      "filenameArtistSlug": "elton-john",
+      "filenameAlbumSlug": "caribou",
+      "titleKeyAlbum": "caribou",
+      "titleKeyFilename": "caribou",
+      "artistKey": "elton john",
+      "artistKeyFilename": "elton john",
+      "confidenceScore": 100,
+      "confidenceBand": "HIGH",
+      "suspicionReasons": [],
+      "duplicateHashCount": 1,
+      "normalizationDrift": false,
+      "titleExactMatch": true,
+      "titlePartialMatch": false,
+      "artistExactMatch": true,
+      "trustTier": "TRUSTED"
+    },
+    "eltonSharedHash": false
+  }
+}

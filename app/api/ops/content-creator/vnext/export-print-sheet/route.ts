@@ -4,6 +4,7 @@ import { buildExportApiResponse } from "@/lib/ops/content-creator/export-api-res
 import { isQrExportVerificationError } from "@/lib/ops/content-creator/qr-export-error";
 import { normalizePrintQuantity, parsePassNumberingSettings } from "@/lib/ops/content-creator/pass-numbering";
 import { runVNextExport } from "@/lib/ops/content-creator/vnext-run";
+import { normalizeQrPlacement } from "@/lib/ops/creative-lab/pass-layout";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
 
@@ -22,6 +23,7 @@ export async function POST(req: Request) {
   const eraSlug = typeof body.eraSlug === "string" ? body.eraSlug : "";
   const quantity = normalizePrintQuantity(body.quantity);
   const qrUrl = typeof body.qrUrl === "string" ? body.qrUrl : undefined;
+  const qrPlacement = normalizeQrPlacement(body.qrPlacement);
 
   if (!runId) return NextResponse.json({ error: "runId required" }, { status: 400 });
 
@@ -31,7 +33,7 @@ export async function POST(req: Request) {
 
   try {
     const numbering = parsePassNumberingSettings(body);
-    const result = await runVNextExport(runId, profile, { quantity, qrUrl, numbering });
+    const result = await runVNextExport(runId, profile, { quantity, qrUrl, numbering, qrPlacement });
     return NextResponse.json(buildExportApiResponse(result));
   } catch (e) {
     if (isQrExportVerificationError(e)) {

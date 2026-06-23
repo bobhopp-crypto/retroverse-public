@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "rvtr": "RVTR184545",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:15:21.829Z",
+  "updatedAt": "2026-06-17T19:15:22.104Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:15:21.829Z · Processing Brown Eyed Woman · Bill Medley (Canon First)",
+    "2026-06-17T19:15:21.830Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:15:21.830Z · Canon vault: 3 Retroverse sources",
+    "2026-06-17T19:15:21.830Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:15:22.102Z · Research vault: 3 sources (0 external)",
+    "2026-06-17T19:15:22.103Z · Emitting canonical facts…",
+    "2026-06-17T19:15:22.103Z · Canonical facts: 3",
+    "2026-06-17T19:15:22.104Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR184545",
+    "artist": "Bill Medley",
+    "title": "Brown Eyed Woman",
+    "year": 1968,
+    "albumTitle": null,
+    "coverUrl": null,
+    "peakHot100": 43,
+    "chartWeeks": 11,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": false,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:21.830Z",
+      "excerpt": "Retroverse track identity: RVTR184545. \"Brown Eyed Woman\" by Bill Medley.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:21.830Z",
+      "excerpt": "Billboard Hot 100 peak: #43. 11 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:15:21.830Z",
+      "excerpt": "Performance year context: 1968.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "rvtr": "RVTR716085",
+  "status": "draft",
+  "createdAt": "2026-06-17T19:12:35.217Z",
+  "updatedAt": "2026-06-17T19:12:35.495Z",
+  "processedAt": null,
+  "approvedAt": null,
+  "publishedAt": null,
+  "processLog": [
+    "2026-06-17T19:12:35.217Z · Processing Laughter In The Rain · Neil Sedaka (Canon First)",
+    "2026-06-17T19:12:35.218Z · Loading Retroverse canon (graph, cover, chart, VDJ, tags)…",
+    "2026-06-17T19:12:35.218Z · Canon vault: 4 Retroverse sources",
+    "2026-06-17T19:12:35.219Z · Capturing external enrichment (Wikipedia)…",
+    "2026-06-17T19:12:35.494Z · Research vault: 4 sources (0 external)",
+    "2026-06-17T19:12:35.495Z · Emitting canonical facts…",
+    "2026-06-17T19:12:35.495Z · Canonical facts: 5",
+    "2026-06-17T19:12:35.495Z · ERROR: Ollama not available at localhost:11434 — start with: ollama serve"
+  ],
+  "metadata": {
+    "rvtr": "RVTR716085",
+    "artist": "Neil Sedaka",
+    "title": "Laughter In The Rain",
+    "year": 1974,
+    "albumTitle": "Sedaka's Back",
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL068068/RVAL068068__neil-sedaka__sedaka-s-back.jpg",
+    "peakHot100": 1,
+    "chartWeeks": 20,
+    "playCount": null,
+    "tags": [],
+    "hasVdjMedia": true,
+    "videoInfo": null,
+    "relatedArtists": []
+  },
+  "researchVault": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:35.218Z",
+      "excerpt": "Retroverse track identity: RVTR716085. \"Laughter In The Rain\" by Neil Sedaka. Album: Sedaka's Back (1974).",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL068068/RVAL068068__neil-sedaka__sedaka-s-back.jpg",
+      "capturedAt": "2026-06-17T19:12:35.218Z",
+      "excerpt": "Canonical cover assignment for RVTR716085 (Laughter In The Rain). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:35.218Z",
+      "excerpt": "Album: Sedaka's Back (1974). Billboard Hot 100 peak: #1. 20 weeks on chart",
+      "confidence": 0.95
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": "",
+      "capturedAt": "2026-06-17T19:12:35.218Z",
+      "excerpt": "Performance year context: 1974.",
+      "confidence": 0.98
+    }
+  ],
+  "candidateFacts": [],
+  "candidateStories": [],
+  "storyCards": [],
+  "intel": {
+    "label": null,
+    "catalogNumber": null,
+    "chartHistory": [],
+    "timelineEvents": [],
+    "recordingFacts": [],
+    "videoFacts": []
+  }
+}

@@ -11,6 +11,10 @@ import { CONTENT_CREATOR_DEFAULTS } from "@/lib/ops/content-creator/defaults";
 import { artworkErrorJson } from "@/lib/ops/creative-lab/artwork/provider-error";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 import { listRvbrProfiles } from "@/lib/ops/rvbr/profiles";
+import {
+  normalizeCollectorCardContent,
+  normalizeCollectorCardPresentation,
+} from "@/lib/ops/content-creator/collector-card";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -35,7 +39,7 @@ function parseFields(body: Record<string, unknown>, prefix?: "front" | "back"): 
         legacyYears: `${prefix}FeaturedYears`,
       })
     : parseSecondaryLineWithLegacy(body);
-  return {
+  const fields: ArtDirectorFields = {
     event: typeof eventVal === "string" ? eventVal : CONTENT_CREATOR_DEFAULTS.event,
     venue: typeof venueVal === "string" ? venueVal : CONTENT_CREATOR_DEFAULTS.venue,
     date: typeof dateVal === "string" ? dateVal : CONTENT_CREATOR_DEFAULTS.date,
@@ -43,6 +47,11 @@ function parseFields(body: Record<string, unknown>, prefix?: "front" | "back"): 
     passTypeLabel: normalizePassTypeLabel(String(passRaw)),
     qrUrl: typeof qrRaw === "string" ? qrRaw : CONTENT_CREATOR_DEFAULTS.qrUrl,
   };
+  if (body.artifact === "collector-card" && (!prefix || prefix === "front")) {
+    fields.collectorCardContent = normalizeCollectorCardContent(body.collectorCardContent);
+    fields.collectorCardPresentation = normalizeCollectorCardPresentation(body.collectorCardPresentation);
+  }
+  return fields;
 }
 
 export async function POST(req: Request) {
@@ -54,8 +63,8 @@ export async function POST(req: Request) {
   const eraSlug = typeof body.eraSlug === "string" ? body.eraSlug : "1982-1985";
   const artifact = (body.artifact as ContentArtifactType) ?? "pass";
 
-  if (artifact !== "pass") {
-    return NextResponse.json({ error: "Only Pass is available" }, { status: 400 });
+  if (artifact !== "pass" && artifact !== "collector-card") {
+    return NextResponse.json({ error: "Only Event Pass and Collector Card are available" }, { status: 400 });
   }
 
   const profiles = await listRvbrProfiles();
@@ -70,7 +79,7 @@ export async function POST(req: Request) {
   if (body.background === true) {
     const job = await enqueueContentCreatorJob({
       type: "generate",
-      title: top.event || "New credential",
+      title: artifact === "collector-card" ? top.collectorCardContent?.song || "New collector card" : top.event || "New credential",
       payload: body as Record<string, unknown>,
     });
     return NextResponse.json({ ok: true, background: true, jobId: job.id });
