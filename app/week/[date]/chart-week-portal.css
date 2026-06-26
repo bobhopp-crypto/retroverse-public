@@ -1,109 +1,106 @@
-/* Chart week portal — neighborhood discovery (mobile-first) */
+/* Chart week — RV2 shell skin (mobile-first, geometry unchanged) */
 
-.chart-week-portal-world {
-  --paper-warm: #f4e9d3;
-  --paper-tan: #e6d6b8;
-  --teal-deep: #1f5e63;
-  --orange-dusty: #e07a4f;
-  --charcoal: #2d3e46;
-  --purple-band: #ddd0ff;
-  --ink: var(--charcoal);
-  --frame: 3px solid var(--charcoal);
+.rv2-chart-week {
+  padding-bottom: 1.5rem;
+}
 
-  min-height: 100vh;
-  background: var(--paper-warm);
-  color: var(--ink);
-  font-family: "Avenir Next", "Trebuchet MS", "Gill Sans", system-ui, sans-serif;
+.rv2-chart-week .rv2-live__search-panel {
+  margin-bottom: 0.45rem;
+}
+
+.chart-week-portal {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  box-sizing: border-box;
   overflow-x: hidden;
-  padding-bottom: 2rem;
 }
 
-.chart-week-portal-world__grain {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
-  z-index: 0;
-}
-
-.chart-week-portal-topbar {
-  position: relative;
-  z-index: 2;
+.chart-week-portal__crumb {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0.75rem 1rem 0;
-}
-
-.chart-week-portal-logo {
-  font-family: "Brush Script MT", "Segoe Script", cursive;
-  font-size: 1.85rem;
-  color: var(--orange-dusty);
-  text-decoration: none;
-  line-height: 1;
-}
-
-.chart-week-portal-tag {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.55rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--rv2-line);
+  border-radius: 0.55rem;
+  background: rgba(9, 27, 57, 0.55);
   font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-weight: 850;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.35rem 0.55rem;
-  background: var(--purple-band);
-  border: var(--frame);
-  border-radius: 2px;
+}
+
+.chart-week-portal__crumb-link {
+  color: var(--rv2-cyan);
+  text-decoration: none;
+}
+
+.chart-week-portal__crumb-link:active {
+  opacity: 0.85;
+}
+
+.chart-week-portal__crumb-current {
+  color: var(--rv2-ink);
+}
+
+.chart-week-portal__crumb-sep {
+  color: var(--rv2-muted);
+  opacity: 0.55;
 }
 
 .chart-week-portal-hero {
-  position: relative;
-  z-index: 1;
-  margin: 0.85rem 1rem 1rem;
-  padding: 0.85rem 0.95rem;
-  border: var(--frame);
-  border-radius: 4px;
-  background: #fff8ee;
-  box-shadow: 4px 4px 0 rgba(45, 62, 70, 0.18);
+  margin-bottom: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--rv2-line);
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
+    var(--rv2-panel);
+  box-shadow:
+    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    0 18px 44px rgba(0, 0, 0, 0.28);
 }
 
 .chart-week-portal-hero__eyebrow {
   margin: 0 0 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  color: var(--rv2-cyan);
+  font-size: 0.62rem;
+  font-weight: 950;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--teal-deep);
 }
 
 .chart-week-portal-hero__title {
   margin: 0;
+  color: var(--rv2-ink);
   font-size: clamp(1.35rem, 6vw, 1.85rem);
-  font-weight: 900;
+  font-weight: 950;
   line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 .chart-week-portal-hero__lead {
   margin: 0.45rem 0 0;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: rgba(45, 62, 70, 0.78);
+  color: var(--rv2-muted);
+  font-size: 0.82rem;
+  font-weight: 750;
 }
 
 .chart-week-portal-hero__rv-link {
   display: inline-block;
   margin-top: 0.65rem;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  color: var(--rv2-gold);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-decoration: none;
   text-transform: uppercase;
-  color: var(--teal-deep);
 }
 
 .chart-week-portal-stack {
-  position: relative;
-  z-index: 1;
-  margin: 0 1rem;
+  box-sizing: border-box;
 }
 
 .chart-week-portal-expand {
@@ -111,15 +108,15 @@
   width: 100%;
   margin: 0.35rem 0;
   padding: 0.55rem 0.75rem;
+  border: 1px dashed rgba(87, 146, 255, 0.45);
+  border-radius: 0.45rem;
+  background: rgba(9, 27, 57, 0.45);
+  color: var(--rv2-cyan);
   font: inherit;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--teal-deep);
-  background: var(--paper-tan);
-  border: 2px dashed rgba(31, 94, 99, 0.45);
-  border-radius: 4px;
   cursor: pointer;
   touch-action: manipulation;
 }
@@ -151,20 +148,18 @@
   width: 100%;
   padding: 0.55rem 0.65rem;
   margin: 0;
+  border: 1px solid rgba(87, 146, 255, 0.35);
+  border-radius: 0.55rem;
+  background: rgba(9, 27, 57, 0.55);
+  color: inherit;
   font: inherit;
   text-align: left;
-  color: inherit;
-  background: #fff8ee;
-  border: 2px solid rgba(45, 62, 70, 0.18);
-  border-radius: 4px;
-  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.08);
   cursor: pointer;
   touch-action: manipulation;
 }
 
 .chart-week-portal-row-btn:active {
-  transform: translateY(1px);
-  box-shadow: 1px 1px 0 rgba(45, 62, 70, 0.12);
+  background: rgba(13, 36, 80, 0.72);
 }
 
 .chart-week-portal__row {
@@ -173,20 +168,19 @@
   gap: 0.55rem;
   align-items: center;
   padding: 0.55rem 0.65rem;
-  border: 2px solid rgba(45, 62, 70, 0.22);
-  border-radius: 4px;
-  background: #fff8ee;
-  box-shadow: 2px 2px 0 rgba(45, 62, 70, 0.1);
+  border: 1px solid rgba(87, 146, 255, 0.35);
+  border-radius: 0.55rem;
+  background: rgba(9, 27, 57, 0.55);
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .chart-week-portal__row--focus {
-  border-color: var(--teal-deep);
-  background: #fff8ee;
+  border-color: var(--rv2-line-hot);
+  background: rgba(13, 36, 80, 0.88);
   box-shadow:
-    4px 4px 0 rgba(31, 94, 99, 0.35),
-    inset 0 0 0 3px var(--orange-dusty);
-  transform: scale(1.02);
-  margin: 0.35rem 0;
+    0 0 0 1px rgba(79, 213, 255, 0.12) inset,
+    0 0 18px rgba(44, 117, 255, 0.22);
 }
 
 .chart-week-portal__rank-col {
@@ -194,138 +188,141 @@
   flex-direction: column;
   align-items: center;
   gap: 0.08rem;
+  min-width: 0;
 }
 
 .chart-week-portal__rank {
-  font-size: 0.95rem;
-  font-weight: 900;
-  color: var(--teal-deep);
+  color: var(--rv2-cyan);
+  font-size: 0.92rem;
+  font-weight: 950;
   text-align: center;
 }
 
 .chart-week-portal__rank-prev {
-  font-size: 0.58rem;
+  color: var(--rv2-muted);
+  font-size: 0.56rem;
   font-weight: 800;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: rgba(45, 62, 70, 0.55);
-  text-align: center;
   line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .chart-week-portal__stats {
   margin: 0.2rem 0 0;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  color: var(--rv2-green);
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--orange-dusty);
 }
 
 .chart-week-portal__cover {
   width: 3.25rem;
   height: 3.25rem;
-  border: 2px solid rgba(45, 62, 70, 0.65);
-  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid rgba(87, 146, 255, 0.45);
+  border-radius: 0.35rem;
   overflow: hidden;
 }
 
 .chart-week-portal__cover-img,
 .chart-week-portal__cover-fallback {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .chart-week-portal__cover-fallback {
-  background: #524a42;
+  background: rgba(13, 36, 80, 0.9);
+}
+
+.chart-week-portal__body {
+  min-width: 0;
 }
 
 .chart-week-portal__title-link,
 .chart-week-portal__title-text {
   display: block;
-  font-size: 0.95rem;
+  overflow: hidden;
+  color: var(--rv2-ink);
+  font-size: 0.92rem;
   font-weight: 900;
   line-height: 1.15;
-  color: var(--ink);
   text-decoration: none;
+  text-overflow: ellipsis;
 }
 
 .chart-week-portal__title-link {
   text-decoration: underline;
-  text-decoration-color: rgba(31, 94, 99, 0.4);
+  text-decoration-color: rgba(79, 213, 255, 0.35);
   text-underline-offset: 2px;
 }
 
 .chart-week-portal__artist-link {
   display: inline-block;
   margin-top: 0.15rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: rgba(45, 62, 70, 0.82);
-}
-
-.chart-week-portal__album-link {
-  display: inline-block;
-  margin-left: 0.45rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--orange-dusty);
+  overflow: hidden;
+  color: var(--rv2-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 .chart-week-portal__focus-badge {
   display: block;
   margin-top: 0.28rem;
-  font-size: 0.68rem;
-  font-weight: 800;
+  color: var(--rv2-gold);
+  font-size: 0.62rem;
+  font-weight: 850;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--orange-dusty);
 }
 
 .chart-week-portal__peek-hint {
   display: block;
   margin-top: 0.2rem;
-  font-size: 0.65rem;
-  font-weight: 700;
+  color: rgba(157, 180, 223, 0.65);
+  font-size: 0.6rem;
+  font-weight: 750;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(45, 62, 70, 0.48);
 }
 
 .chart-week-portal-footer {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem 1.25rem;
-  margin: 1.5rem 1rem 0;
-  padding-top: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 800;
+  margin-top: 1.25rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(87, 146, 255, 0.25);
+  font-size: 0.78rem;
+  font-weight: 850;
 }
 
 .chart-week-portal-footer a {
-  color: var(--teal-deep);
+  color: var(--rv2-gold);
   text-decoration: none;
 }
 
 .chart-week-portal-footer a:active {
-  opacity: 0.82;
+  opacity: 0.85;
 }
 
 @media (min-width: 520px) {
-  .chart-week-portal-stack {
+  .chart-week-portal-stack,
+  .chart-week-portal-hero {
     max-width: 28rem;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .chart-week-portal-hero {
+  .chart-week-portal__crumb {
     max-width: 28rem;
     margin-left: auto;
     margin-right: auto;

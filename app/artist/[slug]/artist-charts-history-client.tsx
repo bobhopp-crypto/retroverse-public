@@ -38,6 +38,7 @@ import {
 import { slugFromArtistName } from "@/lib/artist/slug";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 import { trackHrefFromToken, albumHrefFromToken } from "@/lib/public/canonical-public-hrefs";
+import { chartWeekPortalHref } from "@/lib/charts/chart-week-portal-href";
 import {
   matchRvChronologyPath,
   parseRvWeekParam,
@@ -52,6 +53,10 @@ import type {
 } from "@/lib/artist/chart-history-types";
 
 import { SongActions } from "@/app/components/song-actions";
+import { TrackCoverageBadge } from "@/app/components/track-coverage-badge";
+import "@/app/components/track-coverage.css";
+import { coverageFromMap } from "@/lib/charts/track-coverage";
+import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
 import { ArtistCover } from "./artist-cover";
 import "./artist-charts-history.css";
 
@@ -73,6 +78,8 @@ type Props = {
   rvChronologyLeaders?: boolean;
   /** Month comes from the URL — hide month pill grid. */
   lockMonthNavigation?: boolean;
+  /** RVTR → coverage map from server (month/week drill). */
+  coverageByRvtr?: Record<string, TrackCoverageStatus>;
 };
 
 function asPillNumber(value: unknown): number | null {
@@ -107,6 +114,7 @@ export function ArtistChartsHistoryClient({
   hideYearStep = false,
   rvChronologyLeaders = false,
   lockMonthNavigation = false,
+  coverageByRvtr,
 }: Props) {
   const safeHistory = useMemo(
     () => normalizeArtistChartHistory(historyProp, artistName),
@@ -421,6 +429,26 @@ export function ArtistChartsHistoryClient({
     });
   };
 
+  /** RV drill: month → week route, then week route → chart week page. */
+  const openChronologyWeek = (chartDate: string | undefined) => {
+    if (!syncRvChronologyUrl) return;
+    const key = chartDate?.trim().slice(0, 10) ?? "";
+    if (!parseRvWeekParam(key)) return;
+    const year = asPillNumber(selectedYear);
+    const month = asPillNumber(selectedMonth);
+    if (year == null || month == null) return;
+    const rvHref = rvWeekHref(year, month, key);
+    if (pathname === rvHref) {
+      applyingUrlRef.current = true;
+      router.push(chartWeekPortalHref(key), { scroll: false });
+      queueMicrotask(() => {
+        applyingUrlRef.current = false;
+      });
+      return;
+    }
+    pickWeek(chartDate);
+  };
+
   const renderSnapshotCard = (snapshot: RvChartSnapshot) => {
     if (!snapshot?.id) return null;
     const weekKey = snapshot.chartDate?.trim().slice(0, 10) ?? "";
@@ -436,7 +464,7 @@ export function ArtistChartsHistoryClient({
     const year = asPillNumber(selectedYear);
     const month = asPillNumber(selectedMonth);
     const rvWeekNavHref =
-      syncRvChronologyUrl && !summaryMode && year != null && month != null && parseRvWeekParam(weekKey)
+      syncRvChronologyUrl && year != null && month != null && parseRvWeekParam(weekKey)
         ? rvWeekHref(year, month, weekKey)
         : null;
 
@@ -445,6 +473,11 @@ export function ArtistChartsHistoryClient({
       ? formatRvYearArtist(snapshot.artist || artistName)
       : snapshot.artist || artistName;
     const timingLabel = leaderMode ? formatNumberOneTiming(snapshot) : formatChartDateLabel(snapshot.chartDate ?? "");
+    const onRvWeekRoute =
+      rvWeekNavHref != null && pathname === rvWeekNavHref;
+    const chronologyCardLabel = onRvWeekRoute
+      ? `Open chart for ${displayTitle}`
+      : `Open week of ${formatChartDateLabel(snapshot.chartDate ?? weekKey)}`;
 
     const actionTarget = songActionTargetFromParts({
       title: snapshot.title,
@@ -457,15 +490,39 @@ export function ArtistChartsHistoryClient({
       chartsHref: chartsContextHref,
     });
     const showSongActions =
-      !isAlbum && (leaderMode ? Boolean(entityHref || rvtrFromToken(snapshot.trackId)) : true);
+      !syncRvChronologyUrl &&
+      !isAlbum &&
+      (leaderMode ? Boolean(entityHref || rvtrFromToken(snapshot.trackId)) : true);
+    const rowCoverage =
+      !isAlbum && coverageByRvtr
+        ? coverageFromMap(coverageByRvtr, snapshot.trackId)
+        : null;
 
     if (summaryMode) {
-      const titleNode = entityHref ? (
-        <Link href={entityHref} prefetch className="charts-summary-card__title-link">
-          {displayTitle}
-        </Link>
-      ) : (
-        displayTitle
+      const titleNode = displayTitle;
+
+      const summaryRow = (
+        <>
+          <div className="charts-summary-card__cover">
+            <ArtistCover
+              src={snapshot.coverUrl}
+              alt=""
+              className="charts-summary-card__cover-img"
+              fallbackClassName="charts-summary-card__cover-fallback"
+              fallbackVariant="vinyl"
+            />
+          </div>
+          <div className="charts-summary-card__text">
+            <h4 className="charts-summary-card__title">
+              <span className="charts-summary-card__title-row">
+                <span>{titleNode}</span>
+                <TrackCoverageBadge status={rowCoverage} />
+              </span>
+            </h4>
+            <p className="charts-summary-card__artist">{displayArtist}</p>
+            <p className="charts-summary-card__timing">{timingLabel}</p>
+          </div>
+        </>
       );
 
       return (
@@ -473,36 +530,33 @@ export function ArtistChartsHistoryClient({
           key={snapshot.id}
           className={`charts-summary-card${active ? " charts-summary-card--active" : ""}`}
         >
-          <div className="charts-summary-card__row">
-            <div className="charts-summary-card__cover">
-              <ArtistCover
-                src={snapshot.coverUrl}
-                alt=""
-                className="charts-summary-card__cover-img"
-                fallbackClassName="charts-summary-card__cover-fallback"
-                fallbackVariant="vinyl"
-              />
-            </div>
-            <div className="charts-summary-card__text">
-              <h4 className="charts-summary-card__title">{titleNode}</h4>
-              <p className="charts-summary-card__artist">{displayArtist}</p>
-              <p className="charts-summary-card__timing">{timingLabel}</p>
-            </div>
-            {showSongActions ? (
-              <SongActions
-                layout="inline"
-                omitUnavailable
-                className="charts-summary-card__actions"
-                target={actionTarget}
-              />
-            ) : null}
-          </div>
+          {rvWeekNavHref ? (
+            <button
+              type="button"
+              className="charts-summary-card__row charts-summary-card__hitbox"
+              aria-label={chronologyCardLabel}
+              aria-current={active ? "true" : undefined}
+              onClick={() => openChronologyWeek(snapshot.chartDate)}
+            >
+              {summaryRow}
+            </button>
+          ) : (
+            <div className="charts-summary-card__row">{summaryRow}</div>
+          )}
+          {showSongActions ? (
+            <SongActions
+              layout="inline"
+              omitUnavailable
+              className="charts-summary-card__actions"
+              target={actionTarget}
+            />
+          ) : null}
         </li>
       );
     }
 
     const titleNode =
-      entityHref && (syncRvChronologyUrl || leaderMode) ? (
+      entityHref && leaderMode && !syncRvChronologyUrl ? (
         <Link
           href={entityHref}
           prefetch
@@ -544,7 +598,12 @@ export function ArtistChartsHistoryClient({
           />
         </div>
         <div className="charts-history-card__body">
-          <h4 className="charts-history-card__title">{titleNode}</h4>
+          <h4 className="charts-history-card__title">
+            <span className="charts-history-card__title-row">
+              <span>{titleNode}</span>
+              {rowCoverage ? <TrackCoverageBadge status={rowCoverage} /> : null}
+            </span>
+          </h4>
           <p className="charts-history-card__artist">{displayArtist}</p>
           {leaderMode ? (
             <p className="charts-history-card__chart-line">{snapshot.chartDisplayName}</p>
@@ -573,9 +632,9 @@ export function ArtistChartsHistoryClient({
           <button
             type="button"
             className="charts-history-card__hitbox"
-            aria-label={`#1 leader ${displayTitle}`}
+            aria-label={chronologyCardLabel}
             aria-current={active ? "true" : undefined}
-            onClick={() => pickWeek(snapshot.chartDate)}
+            onClick={() => openChronologyWeek(snapshot.chartDate)}
           >
             {cardMain}
           </button>

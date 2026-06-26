@@ -68,9 +68,13 @@ html:has(.rv2-live) body::-webkit-scrollbar {
 .rv2-live__topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0.5rem;
   margin-bottom: 0.45rem;
+}
+
+.rv2-live__nav--local {
+  flex: 1;
 }
 
 .rv2-live__brand {
@@ -101,6 +105,12 @@ html:has(.rv2-live) body::-webkit-scrollbar {
   letter-spacing: 0.12em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.rv2-live__nav-link--active {
+  border-color: var(--rv2-line-hot);
+  color: var(--rv2-ink);
+  background: rgba(44, 117, 255, 0.18);
 }
 
 .rv2-live__search-panel {

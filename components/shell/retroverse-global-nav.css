@@ -1,0 +1,162 @@
+/* Retroverse global application shell — zone navigation rail */
+
+.rv-global-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  border-bottom: 1px solid rgba(120, 170, 255, 0.28);
+  background:
+    linear-gradient(180deg, rgba(8, 22, 48, 0.97), rgba(6, 18, 38, 0.94));
+  backdrop-filter: blur(10px);
+  color: #f3f7ff;
+  font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+}
+
+.rv-global-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0.45rem 0.75rem;
+  padding-top: calc(0.45rem + env(safe-area-inset-top, 0px));
+}
+
+.rv-global-nav__home {
+  flex-shrink: 0;
+  color: #f3f7ff;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.rv-global-nav__zones {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.rv-global-nav__zone {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(120, 170, 255, 0.22);
+  border-radius: 999px;
+  color: #c9dcff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rv-global-nav__zone--active {
+  border-color: rgba(107, 200, 255, 0.65);
+  background: rgba(107, 200, 255, 0.16);
+  color: #ffffff;
+}
+
+.rv-global-nav__gear-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.rv-global-nav__gear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(120, 170, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #c9dcff;
+  cursor: pointer;
+}
+
+.rv-global-nav__gear--authed {
+  border-color: rgba(125, 255, 178, 0.45);
+  background: rgba(125, 255, 178, 0.12);
+  color: #9dffd0;
+}
+
+.rv-global-nav__gear-icon {
+  display: block;
+}
+
+.rv-global-nav__gear-menu {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  width: min(18rem, calc(100vw - 1.5rem));
+  padding: 0.55rem;
+  border: 1px solid rgba(120, 170, 255, 0.32);
+  border-radius: 14px;
+  background: rgba(8, 22, 48, 0.98);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+.rv-global-nav__gear-kicker {
+  margin: 0 0 0.45rem;
+  padding: 0 0.35rem;
+  color: #9db4df;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.rv-global-nav__gear-item {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rv-global-nav__gear-item strong {
+  color: #f3f7ff;
+  font-size: 0.82rem;
+}
+
+.rv-global-nav__gear-item span {
+  color: #9db4df;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.rv-global-nav__gear-item:hover,
+.rv-global-nav__gear-item--active {
+  background: rgba(107, 200, 255, 0.12);
+}
+
+.rv-global-nav__gear-pin {
+  display: block;
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.6rem;
+  border-top: 1px solid rgba(120, 170, 255, 0.18);
+  color: #8bd3ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .rv-global-nav__inner {
+    gap: 0.45rem;
+  }
+
+  .rv-global-nav__zones {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .rv-global-nav__zones::-webkit-scrollbar {
+    display: none;
+  }
+}

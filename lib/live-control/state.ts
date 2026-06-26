@@ -82,7 +82,9 @@ function normalizeState(raw: unknown): LiveControlState {
     playlistYear,
     readyOnly: obj.readyOnly !== false,
     hasCover: obj.hasCover === true,
-    hasDeck: obj.hasDeck === true,
+    hasExperience:
+      obj.hasExperience === true ||
+      (obj as { hasDeck?: boolean }).hasDeck === true,
     hasSongSheet: obj.hasSongSheet === true,
     order: parseOrder(obj.order),
     durationSeconds: parseDuration(obj.durationSeconds),

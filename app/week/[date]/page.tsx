@@ -45,11 +45,13 @@ export default async function ChartWeekPortalPage({ params, searchParams }: Prop
   const focus = firstParam(sp.focus) ?? null;
   const rank = parseRank(firstParam(sp.rank));
 
+  const hasFocus = Boolean(focus?.trim()) || rank != null;
+
   const context = await loadChartWeekContext({
     chartDate,
     focusTrackId: focus,
     rankHint: rank,
-    radius: 3,
+    ...(hasFocus ? { radius: 3 } : {}),
   });
 
   if (!context) notFound();

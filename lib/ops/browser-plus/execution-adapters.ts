@@ -38,7 +38,7 @@ export const BROWSER_PLUS_EXECUTION_ACTIONS: BrowserPlusExecutionAction[] = [
   },
   {
     id: "generate-package",
-    label: "Generate Package",
+    label: "Generate Research",
     supportsSingle: true,
     supportsBatch: true,
     requiresApproval: false,
@@ -47,12 +47,12 @@ export const BROWSER_PLUS_EXECUTION_ACTIONS: BrowserPlusExecutionAction[] = [
   },
   {
     id: "generate-deck",
-    label: "Generate Deck",
-    supportsSingle: true,
-    supportsBatch: true,
+    label: "Generate Deck (Retired)",
+    supportsSingle: false,
+    supportsBatch: false,
     requiresApproval: true,
-    writeOperation: true,
-    implementationStatus: "adapter-only",
+    writeOperation: false,
+    implementationStatus: "blocked",
   },
   {
     id: "run-full-pipeline",

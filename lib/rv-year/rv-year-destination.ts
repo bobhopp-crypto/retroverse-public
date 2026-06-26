@@ -13,6 +13,7 @@ import {
   weeklyCoverScanOrder,
 } from "@/lib/rv-year/hero-cover-fill";
 import { formatRvYearArtist, formatRvYearTitle } from "@/lib/rv-year/display-format";
+import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
 
 export type YearEssentialAlbum = {
   title: string;
@@ -35,11 +36,24 @@ export type YearDefiningArtist = {
   href: string | null;
 };
 
+/** Chart-ranked #1 leader for year page emphasis (weeks at #1). */
+export type YearChartLeader = {
+  title: string;
+  artist: string;
+  coverUrl: string | null;
+  href: string | null;
+  weeksAtOne: number;
+  rvtr: string | null;
+  coverageStatus?: TrackCoverageStatus | null;
+};
+
 export type RvYearDestination = {
   essentialAlbums: YearEssentialAlbum[];
   heroCovers: YearHeroCover[];
   definingArtists: YearDefiningArtist[];
   definingSongs: YearDefiningSong[];
+  topSingles: YearChartLeader[];
+  topAlbums: YearChartLeader[];
 };
 
 export type RvYearDestinationDraft = RvYearDestination & {
@@ -237,5 +251,31 @@ export function buildRvYearDestination(
   );
   const heroCovers: YearHeroCover[] = heroCoverCandidates.slice(0, HERO_COVER_SLOT_COUNT);
 
-  return { essentialAlbums, heroCovers, heroCoverCandidates, definingArtists, definingSongs };
+  const topSingles: YearChartLeader[] = songRank.slice(0, 5).map((row) => ({
+    title: formatRvYearTitle(row.title),
+    artist: formatRvYearArtist(row.artist),
+    coverUrl: resolveSongCover(row, pools),
+    href: entryHref(row, false),
+    weeksAtOne: row.weeksAtOne,
+    rvtr: row.trackId?.match(/RVTR\d{6}/i)?.[0]?.toUpperCase() ?? null,
+  }));
+
+  const topAlbums: YearChartLeader[] = albumRank.slice(0, 5).map((row) => ({
+    title: formatRvYearTitle(row.title),
+    artist: formatRvYearArtist(row.artist),
+    coverUrl: isUsableCover(row.coverUrl) ? row.coverUrl : null,
+    href: entryHref(row, true),
+    weeksAtOne: row.weeksAtOne,
+    rvtr: null,
+  }));
+
+  return {
+    essentialAlbums,
+    heroCovers,
+    heroCoverCandidates,
+    definingArtists,
+    definingSongs,
+    topSingles,
+    topAlbums,
+  };
 }

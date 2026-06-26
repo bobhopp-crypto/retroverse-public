@@ -8,16 +8,26 @@ import { promisify } from "util";
 
 import { isOpsPlayableVideoPath } from "@/lib/ops/ops-video-media";
 import { normVdjPath, vdjDatabasePath } from "@/lib/ops/intelligence/vdj-database";
+import { isSongExperienceRenderable } from "@/lib/ops/intelligence/song-experience-renderability";
 import { backfillQueuePath, songPackagesDir } from "@/lib/ops/intelligence/paths";
 
 import type {
   BrowserPlusColumn,
   BrowserPlusFolderNode,
+  BrowserPlusMode,
   BrowserPlusModel,
   BrowserPlusRow,
   BrowserPlusStats,
   BrowserPlusWorkStatus,
 } from "./types";
+
+const EMPTY_CHART_COVERAGE = {
+  hot100RvtrCount: 0,
+  videoHot100Count: 0,
+  gapCount: 0,
+  myVideoRows: 0,
+  myVideoRvtrs: 0,
+};
 
 const execFileAsync = promisify(execFile);
 const RVTR_RE = /RVTR\d{6}/i;
@@ -54,23 +64,27 @@ export function clearBrowserPlusModelCache() {
   cache = null;
 }
 
+const MODE_LIBRARY: BrowserPlusMode[] = ["my-videos"];
+const MODE_RETRO: BrowserPlusMode[] = ["retroverse", "missing"];
+const MODE_ALL: BrowserPlusMode[] = ["my-videos", "retroverse", "missing"];
+
 export const BROWSER_PLUS_COLUMNS: BrowserPlusColumn[] = [
-  { id: "icon", label: "", width: 34, minWidth: 30, sortable: false, source: "vdj", align: "center", modes: ["library", "retroverse", "work"] },
-  { id: "artist", label: "Artist", width: 190, minWidth: 120, sortable: true, source: "vdj", modes: ["library", "retroverse", "work"] },
-  { id: "title", label: "Title", width: 230, minWidth: 140, sortable: true, source: "vdj", modes: ["library", "retroverse", "work"] },
-  { id: "genre", label: "Genre", width: 105, minWidth: 80, sortable: true, source: "vdj", modes: ["library"] },
-  { id: "year", label: "Year", width: 72, minWidth: 58, sortable: true, source: "vdj", align: "right", modes: ["library"] },
-  { id: "playCount", label: "Plays", width: 72, minWidth: 58, sortable: true, source: "vdj", align: "right", modes: ["library", "work"] },
-  { id: "label", label: "Label", width: 140, minWidth: 90, sortable: true, source: "vdj", modes: ["library", "retroverse"] },
-  { id: "grouping", label: "Grouping", width: 140, minWidth: 100, sortable: true, source: "vdj", modes: ["library"] },
-  { id: "rvTags", label: "RV Tags", width: 150, minWidth: 100, sortable: true, source: "vdj", modes: ["library", "work"] },
-  { id: "rvtr", label: "RVTR", width: 112, minWidth: 92, sortable: true, source: "retroverse", modes: ["library", "retroverse", "work"] },
-  { id: "packageStatus", label: "Package", width: 118, minWidth: 92, sortable: true, source: "retroverse", modes: ["library", "retroverse"] },
-  { id: "deckStatus", label: "Deck", width: 110, minWidth: 88, sortable: true, source: "retroverse", modes: ["library", "retroverse"] },
-  { id: "coverStatus", label: "Cover", width: 108, minWidth: 84, sortable: true, source: "derived", modes: ["library", "retroverse", "work"] },
-  { id: "thumbnailStatus", label: "Thumbnail", width: 116, minWidth: 92, sortable: true, source: "derived", modes: ["library", "work"] },
-  { id: "thumbnailSource", label: "Thumb Source", width: 126, minWidth: 100, sortable: true, source: "derived", modes: ["library"] },
-  { id: "workStatus", label: "Work Status", width: 150, minWidth: 120, sortable: true, source: "derived", modes: ["library", "retroverse", "work"] },
+  { id: "icon", label: "", width: 34, minWidth: 30, sortable: false, source: "vdj", align: "center", modes: MODE_ALL },
+  { id: "artist", label: "Artist", width: 190, minWidth: 120, sortable: true, source: "vdj", modes: MODE_ALL },
+  { id: "title", label: "Title", width: 230, minWidth: 140, sortable: true, source: "vdj", modes: MODE_ALL },
+  { id: "genre", label: "Genre", width: 105, minWidth: 80, sortable: true, source: "vdj", modes: MODE_LIBRARY },
+  { id: "year", label: "Year", width: 72, minWidth: 58, sortable: true, source: "vdj", align: "right", modes: MODE_LIBRARY },
+  { id: "playCount", label: "Plays", width: 72, minWidth: 58, sortable: true, source: "vdj", align: "right", modes: MODE_LIBRARY },
+  { id: "label", label: "Label", width: 140, minWidth: 90, sortable: true, source: "vdj", modes: ["my-videos", "retroverse"] },
+  { id: "grouping", label: "Grouping", width: 140, minWidth: 100, sortable: true, source: "vdj", modes: MODE_LIBRARY },
+  { id: "rvTags", label: "RV Tags", width: 150, minWidth: 100, sortable: true, source: "vdj", modes: MODE_LIBRARY },
+  { id: "rvtr", label: "RVTR", width: 112, minWidth: 92, sortable: true, source: "retroverse", modes: MODE_ALL },
+  { id: "packageStatus", label: "Package", width: 118, minWidth: 92, sortable: true, source: "retroverse", modes: ["my-videos", "retroverse"] },
+  { id: "deckStatus", label: "Experience", width: 110, minWidth: 88, sortable: true, source: "retroverse", modes: ["my-videos", "retroverse"] },
+  { id: "coverStatus", label: "Cover", width: 108, minWidth: 84, sortable: true, source: "derived", modes: ["my-videos", "retroverse"] },
+  { id: "thumbnailStatus", label: "Thumbnail", width: 116, minWidth: 92, sortable: true, source: "derived", modes: MODE_LIBRARY },
+  { id: "thumbnailSource", label: "Thumb Source", width: 126, minWidth: 100, sortable: true, source: "derived", modes: MODE_LIBRARY },
+  { id: "workStatus", label: "Work Status", width: 150, minWidth: 120, sortable: true, source: "derived", modes: MODE_ALL },
   { id: "album", label: "Album", width: 180, minWidth: 120, sortable: true, source: "vdj", modes: [] },
   { id: "bpm", label: "BPM", width: 74, minWidth: 58, sortable: true, source: "vdj", align: "right", modes: [] },
   { id: "key", label: "Key", width: 70, minWidth: 54, sortable: true, source: "vdj", modes: [] },
@@ -81,10 +95,10 @@ export const BROWSER_PLUS_COLUMNS: BrowserPlusColumn[] = [
   { id: "user2", label: "User2", width: 150, minWidth: 90, sortable: true, source: "vdj", modes: [] },
   { id: "filePath", label: "File Path", width: 280, minWidth: 180, sortable: true, source: "vdj", modes: [] },
   { id: "thumbnailPath", label: "Thumbnail Path", width: 280, minWidth: 180, sortable: true, source: "derived", modes: [] },
-  { id: "matchMethod", label: "Match Method", width: 118, minWidth: 96, sortable: true, source: "derived", modes: ["retroverse", "work"] },
-  { id: "coverageScore", label: "Coverage", width: 96, minWidth: 74, sortable: true, source: "derived", align: "right", modes: ["retroverse", "work"] },
-  { id: "canonicalArtist", label: "Canonical Artist", width: 170, minWidth: 120, sortable: true, source: "retroverse", modes: ["retroverse"] },
-  { id: "canonicalTrack", label: "Canonical Track", width: 190, minWidth: 130, sortable: true, source: "retroverse", modes: ["retroverse"] },
+  { id: "matchMethod", label: "Match Method", width: 118, minWidth: 96, sortable: true, source: "derived", modes: MODE_RETRO },
+  { id: "coverageScore", label: "Coverage", width: 96, minWidth: 74, sortable: true, source: "derived", align: "right", modes: MODE_RETRO },
+  { id: "canonicalArtist", label: "Canonical Artist", width: 170, minWidth: 120, sortable: true, source: "retroverse", modes: MODE_RETRO },
+  { id: "canonicalTrack", label: "Canonical Track", width: 190, minWidth: 130, sortable: true, source: "retroverse", modes: MODE_RETRO },
   { id: "lastGenerated", label: "Last Generated", width: 128, minWidth: 104, sortable: true, source: "retroverse", modes: [] },
   { id: "lastPublished", label: "Last Published", width: 128, minWidth: 104, sortable: true, source: "retroverse", modes: [] },
   { id: "coverageFlags", label: "Coverage Flags", width: 170, minWidth: 120, sortable: true, source: "derived", modes: [] },
@@ -238,27 +252,28 @@ function prettyStatus(status: string | null | undefined): string {
   return labels[status] ?? status;
 }
 
-function coverageScore(rvtr: string | null, hasCover: boolean, pkg: PackageSummary | null, deckReady: boolean): 0 | 1 | 2 | 3 | 4 | 5 {
+function coverageScore(rvtr: string | null, hasCover: boolean, pkg: PackageSummary | null, experienceReady: boolean): 0 | 1 | 2 | 3 | 4 | 5 {
   if (!rvtr) return 0;
-  if (pkg?.status === "published") return 5;
-  if (deckReady) return 4;
+  if (pkg?.status === "published" && experienceReady) return 5;
+  if (experienceReady) return 4;
   if (pkg) return 3;
   if (hasCover) return 2;
   return 1;
 }
 
-function workStatus(rvtr: string | null, hasCover: boolean, pkg: PackageSummary | null, deckReady: boolean): {
+function workStatus(rvtr: string | null, hasCover: boolean, pkg: PackageSummary | null, experienceReady: boolean): {
   status: BrowserPlusWorkStatus;
   reason: string;
 } {
   if (!rvtr) return { status: "Missing RVTR", reason: "No RVTR found in the VirtualDJ Label field." };
   if (!hasCover) return { status: "Missing Cover", reason: "No VDJ or Retroverse cover is available." };
   if (!pkg) return { status: "Missing Package", reason: "RVTR is mapped but no package exists yet." };
-  if (pkg.status === "draft" || pkg.status === "review") return { status: "Needs Review", reason: "Package exists but is not approved or published." };
+  if (pkg.status === "draft") return { status: "Needs Review", reason: "Package exists but is still in draft." };
+  if (pkg.status === "review") return { status: "Needs Review", reason: "Package exists and is patron-renderable in review." };
   if (pkg.status === "cards_ready") return { status: "Cards Ready", reason: "Cards are ready for operator review." };
   if (pkg.status === "approved") return { status: "Ready To Publish", reason: "Package is approved and ready for publishing." };
-  if (pkg.status === "published" && deckReady) return { status: "Complete", reason: "Published package and DK label are both present." };
-  if (pkg.status === "published") return { status: "Published", reason: "Package is published; deck readiness is not confirmed." };
+  if (pkg.status === "published" && experienceReady) return { status: "Complete", reason: "Published package is Song Experience renderable." };
+  if (pkg.status === "published") return { status: "Published", reason: "Package is published." };
   return { status: "Needs Review", reason: "Package status requires operator attention." };
 }
 
@@ -387,6 +402,14 @@ function finalizeFolder(draft: FolderDraft): BrowserPlusFolderNode {
   };
 }
 
+function isMyVideoCoverageRow(row: BrowserPlusRow): boolean {
+  const path = row.filePath.replace(/\\/g, "/");
+  if (!row.isVideo) return false;
+  if (/\/MUSIC\//i.test(path)) return false;
+  if (/\/VIDEO VAULT\//i.test(path)) return false;
+  return /\/VIDEO\//i.test(path);
+}
+
 function buildStats(
   rows: BrowserPlusRow[],
   folders: BrowserPlusFolderNode[],
@@ -424,6 +447,11 @@ function buildStats(
   const needsRvtr = rows.filter((row) => !row.rvtr).length;
   const coverFirst = queueStats.coverFirst || rows.filter((row) => row.rvtr && row.coverStatus === "Missing Cover").length;
   const outOfScope = Math.max(0, missingPackage - queueStats.packageCandidates - needsRvtr - coverFirst);
+  const myVideoRows = rows.filter(isMyVideoCoverageRow);
+  const matchedMyVideo = myVideoRows.filter((row) => row.rvtr);
+  const unmatchedMyVideo = myVideoRows.length - matchedMyVideo.length;
+  const coveragePct =
+    myVideoRows.length > 0 ? Math.round((matchedMyVideo.length / myVideoRows.length) * 100) : 0;
   return {
     totalTracks: rows.length,
     videoTracks: videoRows.length,
@@ -455,7 +483,7 @@ function buildStats(
       coverFirst,
       outOfScope,
       needsReview,
-      missingDeck: rows.filter((row) => row.rvtr && row.deckStatus === "Deck Missing").length,
+      missingDeck: rows.filter((row) => row.rvtr && row.deckStatus === "Not Renderable").length,
     },
     thumbnailFolderHotspots: [...thumbnailFolderStats.entries()]
       .map(([folder, stats]) => ({
@@ -467,6 +495,12 @@ function buildStats(
       .filter((stats) => stats.videos >= 10 && stats.missing >= 5)
       .sort((a, b) => b.missingRate - a.missingRate || b.missing - a.missing)
       .slice(0, 8),
+    videoCoverage: {
+      total: myVideoRows.length,
+      matched: matchedMyVideo.length,
+      unmatched: unmatchedMyVideo,
+      coveragePct,
+    },
   };
 }
 
@@ -482,8 +516,11 @@ export async function loadBrowserPlusModel(): Promise<BrowserPlusModel> {
       virtualDjRunning: await virtualDjRunning(),
       readOnly: true,
       rows: [],
+      gapRows: [],
       folders: [],
       columns: BROWSER_PLUS_COLUMNS,
+      chartCoverage: EMPTY_CHART_COVERAGE,
+      collectionCoverage: null,
       stats: {
         totalTracks: 0,
         videoTracks: 0,
@@ -518,6 +555,7 @@ export async function loadBrowserPlusModel(): Promise<BrowserPlusModel> {
           missingDeck: 0,
         },
         thumbnailFolderHotspots: [],
+        videoCoverage: { total: 0, matched: 0, unmatched: 0, coveragePct: 0 },
       },
     };
   }
@@ -551,12 +589,12 @@ export async function loadBrowserPlusModel(): Promise<BrowserPlusModel> {
     const hasVdjCover = Boolean(readAttr(infosAttrs, "Cover")) || /<Link\b[^>]*\sCover="/.test(inner);
     const retroverseCoverUrl = pkg?.coverUrl ?? null;
     const hasCover = hasVdjCover || Boolean(pkg?.coverUrl);
-    const deckReady = label.startsWith("DK_");
+    const experienceReady = pkg ? isSongExperienceRenderable(pkg.status) : false;
     const packageStatus = prettyStatus(pkg?.status);
-    const deckStatus = deckReady ? "Deck Ready" : pkg ? "Deck Missing" : "No Package";
+    const deckStatus = !pkg ? "No Package" : experienceReady ? "Experience Ready" : "Not Renderable";
     const coverStatus = hasCover ? "Cover Present" : "Missing Cover";
-    const work = workStatus(rvtr, hasCover, pkg, deckReady);
-    const score = coverageScore(rvtr, hasCover, pkg, deckReady);
+    const work = workStatus(rvtr, hasCover, pkg, experienceReady);
+    const score = coverageScore(rvtr, hasCover, pkg, experienceReady);
     const folderPath = folderParts(filePath);
     const fileName = basename(filePath);
     const kind = mediaKind(filePath);
@@ -613,7 +651,7 @@ export async function loadBrowserPlusModel(): Promise<BrowserPlusModel> {
         rvtr ? "RVTR" : "NO_RVTR",
         hasCover ? "COVER" : "NO_COVER",
         pkg ? "PACKAGE" : "NO_PACKAGE",
-        deckReady ? "DK" : "NO_DK",
+        experienceReady ? "EXPERIENCE" : "NO_EXPERIENCE",
       ],
       poiCount,
       linkCount,
@@ -643,8 +681,11 @@ export async function loadBrowserPlusModel(): Promise<BrowserPlusModel> {
     virtualDjRunning: await virtualDjRunning(),
     readOnly: true,
     rows,
+    gapRows: [],
     folders,
     columns: BROWSER_PLUS_COLUMNS,
+    chartCoverage: EMPTY_CHART_COVERAGE,
+    collectionCoverage: null,
     stats: buildStats(rows, folders, parseMs, queueStats),
   };
 

@@ -24,6 +24,7 @@ type Props = {
   /** Songs page — Date / Performance toggle. Exhibit embed leaves this off. */
   showSortControls?: boolean;
   defaultSortMode?: ArtistSongSortMode;
+  showCoverageBadges?: boolean;
 };
 
 export function ChartHistorySongList({
@@ -36,6 +37,7 @@ export function ChartHistorySongList({
   moreLabel = "All songs →",
   showSortControls = false,
   defaultSortMode = "date",
+  showCoverageBadges = false,
 }: Props) {
   const isEmbed = mode === "embed";
   const [sortMode, setSortMode] = useState<ArtistSongSortMode>(defaultSortMode);
@@ -105,6 +107,7 @@ export function ChartHistorySongList({
               song={song}
               artistName={artistName}
               artistSlug={artistSlug}
+              showCoverageBadge={showCoverageBadges}
             />
           ))}
         </ol>

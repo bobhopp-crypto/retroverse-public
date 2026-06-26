@@ -1,0 +1,211 @@
+/**
+ * Retroverse Shell — layout and universe strip (D-004)
+ *
+ * Foundation only. Opt-in via <RetroverseShell /> — no global ops layout change.
+ */
+
+@import "./retroverse-universe-tokens.css";
+@import "./browser-product-tokens.css";
+@import "./studio-product-tokens.css";
+@import "./knowledge-product-tokens.css";
+
+.rs-shell {
+  min-height: 100%;
+  color: var(--rs-universe-ink);
+}
+
+.rs-shell__universe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding: 0.65rem 1rem;
+  background: var(--rs-universe-bg);
+  border-bottom: 1px solid var(--rs-universe-border);
+}
+
+.rs-shell__universe-start {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.rs-shell__wordmark {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--rs-universe-ink);
+}
+
+.rs-shell__wordmark:hover {
+  color: #fff;
+}
+
+.rs-shell__hub-label {
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--rs-universe-ink-muted);
+}
+
+.rs-shell__switcher {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.rs-shell__switcher-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rs-shell__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: var(--rs-universe-pill-bg);
+  color: var(--rs-universe-ink-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.2;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.rs-shell__pill:hover {
+  background: var(--rs-universe-pill-hover-bg);
+  color: var(--rs-universe-ink);
+}
+
+.rs-shell__pill--active {
+  color: var(--rs-shell-pill-accent, var(--rs-universe-ink));
+  background: color-mix(in srgb, var(--rs-shell-pill-accent, #e8ecf4) 18%, transparent);
+  border-color: color-mix(in srgb, var(--rs-shell-pill-accent, #e8ecf4) 35%, transparent);
+  font-weight: 700;
+}
+
+.rs-shell__pill--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rs-shell__pill-icon {
+  flex-shrink: 0;
+}
+
+.rs-shell__pill-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--rs-shell-pill-accent, currentColor);
+}
+
+.rs-shell__product {
+  border-bottom: 1px solid var(--rs-product-border, var(--rs-universe-border));
+  background: var(--rs-product-bg-base, var(--rs-universe-bg));
+  color: var(--rs-product-ink, var(--rs-universe-ink));
+}
+
+.rs-shell__main {
+  background: var(--rs-product-bg-base, transparent);
+  color: var(--rs-product-ink, inherit);
+}
+
+.rs-shell--viewport {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.rs-shell--viewport .rs-shell__main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.rs-shell__product-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding: 0.75rem 1rem;
+}
+
+.rs-shell__product-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.rs-shell__product-icon {
+  flex-shrink: 0;
+  color: var(--rs-product-accent, #e7bd67);
+}
+
+.rs-shell__product-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--rs-product-ink, var(--rs-universe-ink));
+}
+
+.rs-shell__product-mission {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--rs-product-ink-muted, var(--rs-universe-ink-muted));
+}
+
+.rs-shell__product-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.rs-shell__product-nav-link {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--rs-product-ink-muted, var(--rs-universe-ink-muted));
+  font-size: 0.82rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.rs-shell__product-nav-link:hover {
+  color: var(--rs-product-ink, var(--rs-universe-ink));
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.rs-shell__product-nav-link--active {
+  color: var(--rs-product-accent, #e7bd67);
+  background: color-mix(in srgb, var(--rs-product-accent, #e7bd67) 14%, transparent);
+  border-color: color-mix(in srgb, var(--rs-product-accent, #e7bd67) 32%, transparent);
+  font-weight: 750;
+}
+
+@media (max-width: 640px) {
+  .rs-shell__universe {
+    align-items: flex-start;
+  }
+
+  .rs-shell__switcher-list {
+    justify-content: flex-start;
+  }
+}

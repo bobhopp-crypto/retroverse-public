@@ -1,0 +1,134 @@
+/**
+ * Retroverse Studio — Design Tokens (D-001)
+ *
+ * Canonical visual language for all Studio surfaces:
+ * Browser+ 2, department pages, mission control, queues.
+ *
+ * Rules:
+ * - One dark environment. No cream/beige/light section backgrounds.
+ * - Color encodes meaning only (healthy / working / info / problem / inactive).
+ * - Large type, numbers first, labels second.
+ * - Simple cards, generous spacing, minimal nesting.
+ *
+ * Scope: apply via .rs-studio on any Studio page root, or use the aliases
+ * on .ops-page--bp2 / .ops-studio-page / .ops-command (see bottom of file).
+ */
+
+.rs-studio,
+.ops-page--bp2,
+.ops-studio-page,
+.ops-command {
+  /* ── Background ── */
+  --rs-studio-bg-base: #061326;
+  --rs-studio-bg-mid: #071a36;
+  --rs-studio-bg-command: #07142f;
+  --rs-studio-bg-panel: rgba(9, 27, 57, 0.92);
+  --rs-studio-bg-panel-strong: #0d2450;
+  --rs-studio-bg-elevated: rgba(255, 255, 255, 0.04);
+  --rs-studio-bg-live: rgba(231, 189, 103, 0.08);
+  --rs-studio-bg-attention: rgba(255, 176, 32, 0.1);
+  --rs-studio-bg-healthy: rgba(66, 241, 135, 0.08);
+
+  /* Page backdrop gradients (mission control) */
+  --rs-studio-bg-gradient:
+    radial-gradient(circle at 85% 10%, rgba(50, 116, 255, 0.38), transparent 18rem),
+    radial-gradient(circle at 8% 28%, rgba(58, 214, 255, 0.16), transparent 14rem),
+    linear-gradient(180deg, var(--rs-studio-bg-base) 0%, var(--rs-studio-bg-mid) 56%, var(--rs-studio-bg-base) 100%);
+
+  /* ── Ink (text) ── */
+  --rs-studio-ink: #f3f7ff;
+  --rs-studio-ink-muted: #9db4df;
+  --rs-studio-ink-label: #9ec7ef;
+
+  /* ── Semantic colors (meaning only) ── */
+  --rs-studio-color-healthy: #42f187;
+  --rs-studio-color-working: #e7bd67;
+  --rs-studio-color-info: #4fd5ff;
+  --rs-studio-color-attention: #ffb020;
+  --rs-studio-color-problem: #ff6b6b;
+  --rs-studio-color-inactive: #9db4df;
+
+  /* Semantic borders (outline badges, status chips) */
+  --rs-studio-border-healthy: rgba(66, 241, 135, 0.45);
+  --rs-studio-border-working: rgba(231, 189, 103, 0.45);
+  --rs-studio-border-info: rgba(79, 213, 255, 0.45);
+  --rs-studio-border-attention: rgba(255, 176, 32, 0.45);
+  --rs-studio-border-problem: rgba(255, 107, 107, 0.45);
+  --rs-studio-border-inactive: rgba(157, 180, 223, 0.35);
+
+  /* ── Structure ── */
+  --rs-studio-line: rgba(87, 146, 255, 0.42);
+  --rs-studio-line-subtle: rgba(87, 146, 255, 0.22);
+  --rs-studio-focus-ring: rgba(66, 241, 135, 0.55);
+
+  /* ── Typography ── */
+  --rs-studio-font: "Avenir Next", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  --rs-studio-font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --rs-studio-text-display: clamp(2rem, 3.5vw, 2.85rem);
+  --rs-studio-text-stat: clamp(2rem, 3vw, 2.85rem);
+  --rs-studio-text-heading-lg: clamp(1.5rem, 2.5vw, 2.1rem);
+  --rs-studio-text-heading-md: clamp(1.35rem, 2.2vw, 1.85rem);
+  --rs-studio-text-body: clamp(1.05rem, 1.15vw, 1.2rem);
+  --rs-studio-text-body-sm: 0.95rem;
+  --rs-studio-text-label: 0.85rem;
+  --rs-studio-text-caption: 0.78rem;
+
+  --rs-studio-weight-regular: 500;
+  --rs-studio-weight-medium: 650;
+  --rs-studio-weight-bold: 700;
+  --rs-studio-weight-heavy: 800;
+  --rs-studio-weight-display: 950;
+
+  --rs-studio-tracking-label: 0.1em;
+  --rs-studio-tracking-section: 0.12em;
+
+  /* ── Spacing ── */
+  --rs-studio-space-1: 0.25rem;
+  --rs-studio-space-2: 0.45rem;
+  --rs-studio-space-3: 0.65rem;
+  --rs-studio-space-4: 0.85rem;
+  --rs-studio-space-5: 1.1rem;
+  --rs-studio-space-6: 1.35rem;
+  --rs-studio-space-7: 1.75rem;
+  --rs-studio-space-section: 1.75rem;
+  --rs-studio-space-card: 1.1rem 1.25rem;
+
+  /* ── Radius ── */
+  --rs-studio-radius-sm: 0.35rem;
+  --rs-studio-radius-md: 0.5rem;
+  --rs-studio-radius-lg: 0.65rem;
+  --rs-studio-radius-pill: 999px;
+
+  /* ── Shadows & glow ── */
+  --rs-studio-shadow-panel: 0 0 0 1px rgba(79, 213, 255, 0.08) inset;
+  --rs-studio-shadow-lamp: 0 0 1rem currentColor;
+  --rs-studio-shadow-focus: 0 0 0 3px rgba(66, 241, 135, 0.12);
+
+  /* ── Interaction ── */
+  --rs-studio-touch-min: 2.85rem;
+  --rs-studio-btn-padding: 0.7rem 1.35rem;
+  --rs-studio-btn-font: 1.05rem;
+
+  /* ── Status aliases (use in components) ── */
+  --rs-studio-status-ready-fg: var(--rs-studio-color-healthy);
+  --rs-studio-status-ready-bg: var(--rs-studio-bg-healthy);
+  --rs-studio-status-ready-border: var(--rs-studio-border-healthy);
+
+  --rs-studio-status-working-fg: var(--rs-studio-color-working);
+  --rs-studio-status-working-bg: var(--rs-studio-bg-live);
+  --rs-studio-status-working-border: var(--rs-studio-border-working);
+
+  --rs-studio-status-info-fg: var(--rs-studio-color-info);
+  --rs-studio-status-info-border: var(--rs-studio-border-info);
+
+  --rs-studio-status-attention-fg: var(--rs-studio-color-attention);
+  --rs-studio-status-attention-bg: var(--rs-studio-bg-attention);
+  --rs-studio-status-attention-border: var(--rs-studio-border-attention);
+
+  --rs-studio-status-problem-fg: var(--rs-studio-color-problem);
+  --rs-studio-status-problem-border: var(--rs-studio-border-problem);
+
+  --rs-studio-status-inactive-fg: var(--rs-studio-color-inactive);
+  --rs-studio-status-inactive-border: var(--rs-studio-border-inactive);
+}

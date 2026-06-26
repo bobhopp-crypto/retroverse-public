@@ -1,0 +1,23 @@
+/**
+ * Retroverse Shell — Browser product tokens (D-004)
+ * VirtualDJ Red / Black
+ */
+
+.rs-shell[data-product="browser"],
+.rs-product--browser {
+  --rs-browser-bg-base: #0a0a0a;
+  --rs-browser-bg-panel: #141414;
+  --rs-browser-accent: #c41e3a;
+  --rs-browser-accent-hot: #e8293f;
+  --rs-browser-ink: #f5f5f5;
+  --rs-browser-ink-muted: #9a9a9a;
+  --rs-browser-border: #2a2a2a;
+
+  --rs-product-bg-base: var(--rs-browser-bg-base);
+  --rs-product-bg-panel: var(--rs-browser-bg-panel);
+  --rs-product-accent: var(--rs-browser-accent);
+  --rs-product-accent-hot: var(--rs-browser-accent-hot);
+  --rs-product-ink: var(--rs-browser-ink);
+  --rs-product-ink-muted: var(--rs-browser-ink-muted);
+  --rs-product-border: var(--rs-browser-border);
+}

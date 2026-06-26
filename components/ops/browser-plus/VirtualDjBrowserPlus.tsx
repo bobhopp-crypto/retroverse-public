@@ -14,6 +14,16 @@ import type {
 } from "@/lib/ops/browser-plus/types";
 import type { BrowserPlusExecutionActionId } from "@/lib/ops/browser-plus/execution-adapters";
 
+import { BrowserPlusMatchQueue } from "./BrowserPlusMatchQueue";
+import { BrowserPlusCoverageDashboard } from "./BrowserPlusCoverageDashboard";
+import { researchStatusLabel } from "@/lib/ops/song-intelligence-labels";
+
+function experienceColumnLabel(deckStatus: string): string {
+  if (deckStatus === "No Package") return "No research";
+  if (deckStatus === "Not Renderable") return "Not experience-ready";
+  return deckStatus;
+}
+
 type Props = {
   model: BrowserPlusModel;
   onReload: () => Promise<void>;
@@ -91,6 +101,7 @@ const GRID_HEIGHT = 610;
 const OVERSCAN = 12;
 
 const SAVED_FILTERS: Array<{ id: BrowserPlusSavedFilterId; label: string }> = [
+  { id: "unmatched", label: "Unmatched" },
   { id: "missing-rvtr", label: "Missing RVTR" },
   { id: "missing-cover", label: "Missing Cover" },
   { id: "missing-file", label: "Missing File" },
@@ -99,14 +110,14 @@ const SAVED_FILTERS: Array<{ id: BrowserPlusSavedFilterId; label: string }> = [
   { id: "thumbnail-only", label: "Thumbnail Only" },
   { id: "thumbnail-cover", label: "Thumbnail + Cover" },
   { id: "patron-ready", label: "Visual Patron Ready" },
-  { id: "missing-package", label: "Raw Missing Package" },
-  { id: "missing-deck", label: "Missing Deck" },
+  { id: "missing-package", label: "No Research" },
+  { id: "missing-deck", label: "Missing Experience" },
   { id: "needs-review", label: "Needs Review" },
   { id: "cards-ready", label: "Cards Ready" },
   { id: "published", label: "Published" },
   { id: "complete", label: "Complete" },
-  { id: "pk", label: "PK" },
-  { id: "dk", label: "DK" },
+  { id: "pk", label: "Processed" },
+  { id: "dk", label: "Legacy" },
   { id: "video-only", label: "Video Only" },
   { id: "high-play-count", label: "High Play Count" },
 ];
@@ -118,6 +129,36 @@ const WORK_ACTIONS: PlannedWorkAction[] = [
   "Generate Deck",
   "Publish",
 ];
+
+const BROWSER_PLUS_MODES: BrowserPlusMode[] = ["my-videos", "retroverse", "missing"];
+
+const BROWSER_PLUS_MODE_LABELS: Record<BrowserPlusMode, string> = {
+  "my-videos": "My Videos",
+  retroverse: "Retroverse",
+  missing: "Missing",
+};
+
+function normalizeBrowserPlusMode(mode: string | undefined): BrowserPlusMode {
+  if (mode === "retroverse" || mode === "missing" || mode === "my-videos") return mode;
+  if (mode === "gaps") return "missing";
+  if (mode === "library" || mode === "work") return "my-videos";
+  return "my-videos";
+}
+
+function isMyVideoLibraryPath(filePath: string): boolean {
+  return /\/DJ MEDIA\/VIDEO\//i.test(filePath) && !/\/DJ MEDIA\/VIDEO VAULT\//i.test(filePath);
+}
+
+function modeSourceRows(model: BrowserPlusModel, mode: BrowserPlusMode): BrowserPlusRow[] {
+  if (mode === "missing") return model.gapRows ?? [];
+  return model.rows;
+}
+
+function rowMatchesMode(row: BrowserPlusRow, mode: BrowserPlusMode): boolean {
+  if (mode === "my-videos") return isMyVideoLibraryPath(row.filePath);
+  if (mode === "retroverse") return Boolean(row.rvtr && row.coverageFlags.includes("HOT100"));
+  return true;
+}
 
 const ACTIVE_LOCATION_KEY = "browser-plus-active-location";
 const CONTEXT_STATE_KEY = "browser-plus-context-state";
@@ -182,9 +223,9 @@ function valueForColumn(row: BrowserPlusRow, columnId: BrowserPlusColumnId): str
     case "rvtr":
       return row.rvtr ?? "—";
     case "packageStatus":
-      return row.packageStatus;
+      return researchStatusLabel(row.packageStatus);
     case "deckStatus":
-      return row.deckStatus;
+      return experienceColumnLabel(row.deckStatus);
     case "coverStatus":
       return row.coverStatus;
     case "thumbnailStatus":
@@ -245,6 +286,8 @@ function sortValue(row: BrowserPlusRow, columnId: BrowserPlusColumnId): string |
 function filterRow(row: BrowserPlusRow, filter: BrowserPlusSavedFilterId | null): boolean {
   if (!filter) return true;
   switch (filter) {
+    case "unmatched":
+      return !row.rvtr && isMyVideoLibraryPath(row.filePath) && row.isVideo;
     case "missing-rvtr":
       return !row.rvtr;
     case "missing-cover":
@@ -264,7 +307,7 @@ function filterRow(row: BrowserPlusRow, filter: BrowserPlusSavedFilterId | null)
     case "missing-package":
       return row.packageStatus === "Missing Package";
     case "missing-deck":
-      return Boolean(row.rvtr && row.deckStatus === "Deck Missing");
+      return Boolean(row.rvtr && row.deckStatus === "Not Renderable");
     case "needs-review":
       return row.workStatus === "Needs Review";
     case "cards-ready":
@@ -455,7 +498,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
       ) as Record<BrowserPlusColumnId, number>,
     [model.columns],
   );
-  const [mode, setMode] = useState<BrowserPlusMode>("library");
+  const [mode, setMode] = useState<BrowserPlusMode>("my-videos");
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebouncedValue(query.trim().toLowerCase(), 120);
   const [activeFolder, setActiveFolder] = useState<string | null>(null);
@@ -478,6 +521,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
   const [executionJob, setExecutionJob] = useState<BrowserPlusExecutionJob | null>(null);
   const [executionMessage, setExecutionMessage] = useState<string | null>(null);
   const [storageReady, setStorageReady] = useState(false);
+  const [queueView, setQueueView] = useState(false);
   const gridRef = useRef<HTMLDivElement | null>(null);
   const didRestoreLocation = useRef(false);
   const applyingContext = useRef(false);
@@ -529,7 +573,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
     if (!storageReady || !didRestoreLocation.current) return;
     applyingContext.current = true;
     const persisted = readContextMap()[contextKey];
-    if (persisted?.mode) setMode(persisted.mode);
+    if (persisted?.mode) setMode(normalizeBrowserPlusMode(persisted.mode));
     setQuery(persisted?.query ?? "");
     if (persisted?.sortColumn) setSortColumn(persisted.sortColumn);
     if (persisted?.sortDirection) setSortDirection(persisted.sortDirection);
@@ -595,9 +639,14 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
     [columnOrder, columnVisibility, columnWidths, mode, model.columns],
   );
 
+  const sourceRows = useMemo(() => modeSourceRows(model, mode), [model, mode]);
+
   const filteredRows = useMemo(() => {
-    const scoped = model.rows.filter((row) => {
-      if (activeFolder && row.folderKey !== activeFolder && !row.folderKey.startsWith(`${activeFolder}/`)) return false;
+    const scoped = sourceRows.filter((row) => {
+      if (mode !== "missing" && !rowMatchesMode(row, mode)) return false;
+      if (mode !== "missing" && activeFolder && row.folderKey !== activeFolder && !row.folderKey.startsWith(`${activeFolder}/`)) {
+        return false;
+      }
       if (!filterRow(row, activeFilter)) return false;
       if (debouncedQuery && !row.searchText.includes(debouncedQuery)) return false;
       return true;
@@ -609,7 +658,15 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
       if (typeof av === "number" && typeof bv === "number") return (av - bv) * dir;
       return String(av).localeCompare(String(bv)) * dir;
     });
-  }, [activeFilter, activeFolder, debouncedQuery, model.rows, sortColumn, sortDirection]);
+  }, [activeFilter, activeFolder, debouncedQuery, mode, sortColumn, sortDirection, sourceRows]);
+
+  const unmatchedQueueRows = useMemo(
+    () =>
+      model.rows.filter(
+        (row) => !row.rvtr && row.isVideo && isMyVideoLibraryPath(row.filePath),
+      ),
+    [model.rows],
+  );
 
   const selectedRows = useMemo(
     () => filteredRows.filter((row) => selected.has(row.id)),
@@ -681,6 +738,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
 
   function selectFilter(id: BrowserPlusSavedFilterId) {
     setActiveFilter((current) => (current === id ? null : id));
+    if (id === "unmatched") setQueueView(true);
     setActiveFolder(null);
     setSelected(new Set());
     setScrollTop(0);
@@ -689,6 +747,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
 
   function applyHealthFilter(id: BrowserPlusSavedFilterId | null) {
     setActiveFilter(id);
+    if (id === "unmatched") setQueueView(true);
     setActiveFolder(null);
     setSelected(new Set());
     setScrollTop(0);
@@ -839,15 +898,23 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
     <div className="browser-plus">
       <header className="browser-plus__status-strip">
         <div>
-          <p className="browser-plus__kicker">VirtualDJ Browser+ · Phase 1</p>
+          <p className="browser-plus__kicker">VirtualDJ Browser+ · Collection Manager</p>
           <h1>Browser Grid</h1>
         </div>
         <div className="browser-plus__status-meta">
+          <StatPill
+            label="Unmatched Videos"
+            value={formatNumber(model.stats.videoCoverage.unmatched)}
+            active={activeFilter === "unmatched"}
+            onClick={() => applyHealthFilter("unmatched")}
+          />
+          <StatPill label="Matched Videos" value={formatNumber(model.stats.videoCoverage.matched)} />
+          <StatPill label="Coverage %" value={`${model.stats.videoCoverage.coveragePct}%`} />
           <StatPill label="VDJ Rows" value={formatNumber(model.stats.totalTracks)} active={!activeFilter && !activeFolder} onClick={() => applyHealthFilter(null)} />
           <StatPill label="Active Videos" value={formatNumber(model.stats.videoTracks)} active={activeFilter === "video-only"} onClick={() => applyHealthFilter("video-only")} />
           <StatPill label="Label RVTR" value={formatNumber(model.stats.rvtrMapped)} />
-          <StatPill label="PK" value={formatNumber(model.stats.pkCount)} active={activeFilter === "pk"} onClick={() => applyHealthFilter("pk")} />
-          <StatPill label="DK" value={formatNumber(model.stats.dkCount)} active={activeFilter === "dk"} onClick={() => applyHealthFilter("dk")} />
+          <StatPill label="Processed" value={formatNumber(model.stats.pkCount)} active={activeFilter === "pk"} onClick={() => applyHealthFilter("pk")} />
+          <StatPill label="Legacy" value={formatNumber(model.stats.dkCount)} active={activeFilter === "dk"} onClick={() => applyHealthFilter("dk")} />
           <StatPill label="Missing Label RVTR" value={formatNumber(model.stats.noRvtr)} active={activeFilter === "missing-rvtr"} onClick={() => applyHealthFilter("missing-rvtr")} />
           <StatPill label="Active Missing" value={formatNumber(model.stats.missingThumbnails)} active={activeFilter === "missing-thumbnail"} onClick={() => applyHealthFilter("missing-thumbnail")} />
           <StatPill label="Missing Active File" value={formatNumber(model.stats.missingFiles)} active={activeFilter === "missing-file"} onClick={() => applyHealthFilter("missing-file")} />
@@ -859,6 +926,8 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
         </div>
       </header>
 
+      <BrowserPlusCoverageDashboard model={model} />
+
       <section className="browser-plus__toolbar" aria-label="Browser controls">
         <input
           value={query}
@@ -866,23 +935,47 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
           placeholder="Search artist, title, label, RVTR, path..."
           className="browser-plus__search"
         />
-        <div className="browser-plus__modes" aria-label="Layout modes">
-          {(["library", "retroverse", "work"] as BrowserPlusMode[]).map((nextMode) => (
+        <div className="browser-plus__modes" aria-label="Collection modes">
+          {BROWSER_PLUS_MODES.map((nextMode) => (
             <button
               key={nextMode}
               type="button"
               className={mode === nextMode ? "browser-plus__mode browser-plus__mode--active" : "browser-plus__mode"}
-              onClick={() => setMode(nextMode)}
+              onClick={() => {
+                setMode(nextMode);
+                if (nextMode === "missing") {
+                  setActiveFolder(null);
+                  setActiveFilter(null);
+                }
+              }}
             >
-              {nextMode}
+              {BROWSER_PLUS_MODE_LABELS[nextMode]}
             </button>
           ))}
           <Link href="/ops/automation-factory" prefetch={false} className="browser-plus__mode">
             factory
           </Link>
-          <button type="button" className="browser-plus__mode" onClick={() => selectFolder(null)}>
-            All Database
+          <button
+            type="button"
+            className={queueView ? "browser-plus__mode browser-plus__mode--active" : "browser-plus__mode"}
+            onClick={() => {
+              setMode("my-videos");
+              applyHealthFilter("unmatched");
+              setQueueView(true);
+            }}
+          >
+            Match Queue
           </button>
+          {mode === "my-videos" ? (
+            <button type="button" className="browser-plus__mode" onClick={() => selectFolder("VIDEO")}>
+              Video Library
+            </button>
+          ) : null}
+          {mode === "missing" ? (
+            <span className="browser-plus__mode browser-plus__mode--meta">
+              {(model.chartCoverage?.gapCount ?? model.gapRows?.length ?? 0).toLocaleString()} chart songs without owned VIDEO
+            </span>
+          ) : null}
         </div>
         <button type="button" className="browser-plus__ghost" onClick={() => setShowColumnChooser((current) => !current)}>
           Columns
@@ -921,7 +1014,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
         </section>
       ) : null}
 
-      <div className="browser-plus__workspace">
+      <div className={queueView ? "browser-plus__workspace browser-plus__workspace--queue" : "browser-plus__workspace"}>
         <aside className="browser-plus__folders" aria-label="Folder tree">
           <div className="browser-plus-panel__head">
             <h2>Browser Folders</h2>
@@ -1004,7 +1097,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
               <h2>Retroverse Health</h2>
             </div>
             <button type="button">
-              <span>Package Candidates</span>
+              <span>Research Candidates</span>
               <strong>{model.stats.retroverseHealth.packageCandidates.toLocaleString()}</strong>
             </button>
             <button type="button" onClick={() => applyHealthFilter("missing-rvtr")}>
@@ -1024,7 +1117,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
               <strong>{model.stats.retroverseHealth.needsReview.toLocaleString()}</strong>
             </button>
             <button type="button" onClick={() => applyHealthFilter("missing-deck")}>
-              <span>Missing Deck</span>
+              <span>Not Experience-Ready</span>
               <strong>{model.stats.retroverseHealth.missingDeck.toLocaleString()}</strong>
             </button>
             <button type="button" onClick={() => applyHealthFilter("patron-ready")}>
@@ -1034,11 +1127,19 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
           </div>
         </aside>
 
-        <section className="browser-plus__grid-panel" aria-label="Browser grid">
+        <section className="browser-plus__grid-panel" aria-label={queueView ? "Match queue" : "Browser grid"}>
+          {queueView ? (
+            <BrowserPlusMatchQueue
+              unmatchedRows={unmatchedQueueRows}
+              onReload={onReload}
+              onExitQueue={() => setQueueView(false)}
+            />
+          ) : (
+            <>
           <div className="browser-plus-grid__summary">
             <span>Visible Rows {filteredRows.length.toLocaleString()}</span>
-            <span>PK {model.stats.pkCount.toLocaleString()}</span>
-            <span>DK {model.stats.dkCount.toLocaleString()}</span>
+            <span>Processed {model.stats.pkCount.toLocaleString()}</span>
+            <span>Legacy {model.stats.dkCount.toLocaleString()}</span>
             <span>Missing Label RVTR {model.stats.noRvtr.toLocaleString()}</span>
             <span>Thumbs {model.stats.thumbnailsPresent.toLocaleString()}</span>
             <span>VDJ Covers {model.stats.vdjCovers.toLocaleString()}</span>
@@ -1134,8 +1235,11 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
               </div>
             </div>
           </div>
+            </>
+          )}
         </section>
 
+        {!queueView ? (
         <aside className="browser-plus__inspector" aria-label="Inspector">
           <div className="browser-plus-panel__head">
             <h2>Inspector</h2>
@@ -1199,8 +1303,8 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
                 <p className="browser-plus-inspector__line"><span>Coverage Score</span><strong>{focusedRow.coverageScore}</strong></p>
                 <p className="browser-plus-inspector__line"><span>Canonical Artist</span><strong>{focusedRow.canonicalArtist ?? "—"}</strong></p>
                 <p className="browser-plus-inspector__line"><span>Canonical Track</span><strong>{focusedRow.canonicalTrack ?? "—"}</strong></p>
-                <p className="browser-plus-inspector__line"><span>Package</span><strong>{focusedRow.packageStatus}</strong></p>
-                <p className="browser-plus-inspector__line"><span>Deck</span><strong>{focusedRow.deckStatus}</strong></p>
+                <p className="browser-plus-inspector__line"><span>Research status</span><strong>{researchStatusLabel(focusedRow.packageStatus)}</strong></p>
+                <p className="browser-plus-inspector__line"><span>Experience</span><strong>{experienceColumnLabel(focusedRow.deckStatus)}</strong></p>
               </section>
               <section className="browser-plus-inspector__section">
                 <h3>Thumbnail Health</h3>
@@ -1242,8 +1346,8 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
             <div className="browser-plus-actions">
               {focusedRow?.rvtr ? (
                 <>
-                  <Link href={`/ops/intelligence/package/${focusedRow.rvtr}`} prefetch={false}>View Package</Link>
-                  <Link href={`/rvtr/${focusedRow.rvtr}/deck`} prefetch={false}>View Deck</Link>
+                  <Link href={`/ops/intelligence/package/${focusedRow.rvtr}`} prefetch={false}>Open Research</Link>
+                  <Link href={`/retroverse-2/song/${focusedRow.rvtr}`} prefetch={false}>Open Song</Link>
                 </>
               ) : null}
               {executionActions.map((action) => {
@@ -1301,6 +1405,7 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
             </div>
           </section>
         </aside>
+        ) : null}
       </div>
 
       {contextMenu && contextRow ? (
@@ -1313,16 +1418,16 @@ function BrowserPlusWorkspace({ model, onReload }: Props) {
           {contextRow.rvtr ? (
             <>
               <Link href={`/ops/intelligence/package/${contextRow.rvtr}/artifacts`} prefetch={false}>View Assets</Link>
-              <Link href={`/ops/intelligence/package/${contextRow.rvtr}`} prefetch={false}>View Package</Link>
-              <Link href={`/rvtr/${contextRow.rvtr}/deck`} prefetch={false}>View Deck</Link>
+              <Link href={`/ops/intelligence/package/${contextRow.rvtr}`} prefetch={false}>Open Research</Link>
+              <Link href={`/retroverse-2/song/${contextRow.rvtr}`} prefetch={false}>Open Song</Link>
               <Link href={`/rvtr/${contextRow.rvtr}/song-sheet`} prefetch={false}>View Song Sheet</Link>
               <button type="button" onClick={() => copyText(contextRow.rvtr)}>Copy RVTR</button>
             </>
           ) : (
             <>
               <button type="button" disabled>View Assets</button>
-              <button type="button" disabled>View Package</button>
-              <button type="button" disabled>View Deck</button>
+              <button type="button" disabled>Open Research</button>
+              <button type="button" disabled>Open Song</button>
               <button type="button" disabled>View Song Sheet</button>
               <button type="button" disabled>Copy RVTR</button>
             </>

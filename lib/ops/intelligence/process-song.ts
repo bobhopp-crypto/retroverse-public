@@ -37,6 +37,29 @@ function logStep(pkg: SongPackage, message: string, options?: ProcessSongOptions
   options?.onStep?.(message);
 }
 
+async function refreshExperienceCache(
+  rvtr: string,
+  options?: ProcessSongOptions,
+): Promise<void> {
+  try {
+    const { refreshSongExperienceByRvtr } = await import(
+      "@/lib/retroverse/experience/refresh-song-experience"
+    );
+    const { loadTrackPage } = await import("@/lib/track/load-track-page");
+    const { loadSongControlPackage } = await import("@/lib/retroverse-2/song-control");
+
+    await refreshSongExperienceByRvtr(
+      rvtr,
+      loadTrackPage,
+      async (track) => loadSongControlPackage(track),
+    );
+    options?.onStep?.("Experience exhibit plan refreshed");
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    options?.onStep?.(`Experience cache refresh skipped: ${message}`);
+  }
+}
+
 function toResearchVault(
   captures: Array<{
     id: string;
@@ -167,6 +190,7 @@ export async function processSong(rvtrParam: string, options: ProcessSongOptions
     logStep(pkg, `Package intel: ${pkg.intel.timelineEvents.length} timeline events`, options);
     logStep(pkg, "Ready for human review — build cards after approving facts/stories", options);
     const saved = await saveSongPackage(pkg);
+    await refreshExperienceCache(saved.rvtr, options);
     return { ok: true, rvtr, package: saved };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
@@ -198,6 +222,7 @@ export async function buildCardsFromReview(rvtrParam: string): Promise<{
   pkg.status = "cards_ready";
   logStep(pkg, `Story cards assembled: ${pkg.storyCards.length}`);
   const saved = await saveSongPackage(pkg);
+  await refreshExperienceCache(saved.rvtr);
   return { ok: true, package: saved };
 }
 

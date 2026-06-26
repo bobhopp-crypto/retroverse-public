@@ -9,6 +9,10 @@ export type Rv2PublicShellProps = {
   className?: string;
   /** Years nav destination. */
   yearsHref?: string;
+  /** Charts nav destination. */
+  chartsHref?: string;
+  /** When set, marks the matching nav item as current page. */
+  activeNav?: "live" | "search" | "years" | "charts";
   /** Renders inside `<main>` before chrome (e.g. live channel follower). */
   lead?: ReactNode;
   /** Controlled search field — used on `/search` (preserves live ?q= sync). */
@@ -21,6 +25,8 @@ export function Rv2PublicShell({
   children,
   className,
   yearsHref = "/rv/1974",
+  chartsHref = "/retroverse-2/charts",
+  activeNav,
   lead,
   searchQuery,
   onSearchQueryChange,
@@ -34,13 +40,35 @@ export function Rv2PublicShell({
       {lead}
       <div className="rv2-live__grid-glow" aria-hidden />
       <header className="rv2-live__topbar">
-        <Link href="/" className="rv2-live__brand" aria-label="Retroverse home">
-          Retroverse
-        </Link>
-        <nav className="rv2-live__nav" aria-label="Retroverse sections">
-          <Link href="/retroverse-2/live">Live</Link>
-          <Link href="/search">Search</Link>
-          <Link href={yearsHref}>Years</Link>
+        <nav className="rv2-live__nav rv2-live__nav--local" aria-label="Live experience">
+          <Link
+            href="/retroverse-2/live"
+            aria-current={activeNav === "live" ? "page" : undefined}
+            className={activeNav === "live" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
+          >
+            Live
+          </Link>
+          <Link
+            href="/search"
+            aria-current={activeNav === "search" ? "page" : undefined}
+            className={activeNav === "search" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
+          >
+            Search
+          </Link>
+          <Link
+            href={yearsHref}
+            aria-current={activeNav === "years" ? "page" : undefined}
+            className={activeNav === "years" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
+          >
+            Years
+          </Link>
+          <Link
+            href={chartsHref}
+            aria-current={activeNav === "charts" ? "page" : undefined}
+            className={activeNav === "charts" ? "rv2-live__nav-link rv2-live__nav-link--active" : "rv2-live__nav-link"}
+          >
+            Charts
+          </Link>
         </nav>
       </header>
 

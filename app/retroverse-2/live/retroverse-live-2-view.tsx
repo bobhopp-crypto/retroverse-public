@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { AttractTourKickoff } from "@/components/retroverse/experience/AttractTourKickoff";
 import { Rv2PublicShell } from "@/components/retroverse-2/Rv2PublicShell";
 import { slugFromArtistName } from "@/lib/artist/slug";
 import type { SundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
@@ -175,6 +176,7 @@ export function RetroverseLive2View({ initial, exploringTrack }: Props) {
 
   return (
     <Rv2PublicShell yearsHref={display.yearHref ?? "/rv/1974"}>
+      <AttractTourKickoff enabled={!isLiveNow} />
       <section className="rv2-live__hero" aria-label={isLiveNow ? "Live now" : "Now exploring"}>
         <div className="rv2-live__status-row">
           <p className={isLiveNow ? "rv2-live__status rv2-live__status--live" : "rv2-live__status"}>

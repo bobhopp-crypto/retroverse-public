@@ -79,7 +79,7 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
   return (
     <div className="intel-package">
       <Link className="intel-review__back" href="/ops/intelligence" prefetch={false}>
-        ← Package Center
+        ← Research Center
       </Link>
 
       <header className="intel-package-hero">
@@ -96,7 +96,7 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
           <div className="intel-package-hero__cover intel-package-hero__cover--empty" aria-hidden />
         )}
         <div className="intel-package-hero__body">
-          <p className="intel-package-hero__kicker">Song Package</p>
+          <p className="intel-package-hero__kicker">Song Research</p>
           <h1 className="intel-package-hero__title">{meta.title}</h1>
           <p className="intel-package-hero__artist">{meta.artist}</p>
           <p className="intel-package-hero__rvtr">{pkg.rvtr}</p>
@@ -109,7 +109,7 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
         </div>
       </header>
 
-      <section className="intel-stat-grid" aria-label="Package statistics">
+      <section className="intel-stat-grid" aria-label="Research statistics">
         <StatCard label="Sources" value={stats.sources} />
         <StatCard label="Facts" value={stats.facts} />
         <StatCard label="Stories" value={stats.stories} />
@@ -122,16 +122,16 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
       <IntelligencePackageMaintenance rvtr={pkg.rvtr} diagnostics={diagnostics} />
 
       <section className="intel-package-section intel-package-section--review">
-        <h2 id="package-review" className="intel-package-section__title">Package Review</h2>
+        <h2 id="package-review" className="intel-package-section__title">Research Review</h2>
         <p className="intel-package-section__lead">
-          Approve facts and stories, build cards, and approve the package from this detail page.
+          Approve facts and stories, build experience content, and approve research from this detail page.
         </p>
         <IntelligenceReviewClient rvtr={pkg.rvtr} />
       </section>
 
       <section className="intel-package-section">
-        <h2 className="intel-package-section__title">Research Vault</h2>
-        <p className="intel-package-section__lead">Everything Retroverse collected about this song.</p>
+        <h2 className="intel-package-section__title">Sources</h2>
+        <p className="intel-package-section__lead">Background research collected for this song.</p>
         {pkg.researchVault.length === 0 ? (
           <p className="intel-dim">No sources captured yet.</p>
         ) : (
@@ -144,7 +144,7 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
       </section>
 
       <section className="intel-package-section">
-        <h2 className="intel-package-section__title">Fact Library</h2>
+        <h2 className="intel-package-section__title">Facts</h2>
         <p className="intel-package-section__lead">Verified discoveries grouped by topic.</p>
         {factGroupEntries.length === 0 ? (
           <p className="intel-dim">No facts extracted yet.</p>
@@ -163,7 +163,7 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
       </section>
 
       <section className="intel-package-section">
-        <h2 className="intel-package-section__title">Story Library</h2>
+        <h2 className="intel-package-section__title">Story</h2>
         <p className="intel-package-section__lead">The stories worth telling about this song.</p>
         {stories.length === 0 ? (
           <p className="intel-dim">No stories discovered yet.</p>
@@ -245,9 +245,9 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
       </section>
 
       <section className="intel-package-section intel-package-section--artifacts">
-        <h2 className="intel-package-section__title">Generate Artifacts</h2>
+        <h2 className="intel-package-section__title">Artifacts</h2>
         <p className="intel-package-section__lead">
-          Visual outputs rendered from this package — record labels, timelines, story maps, and song DNA.
+          Visual outputs rendered from this research — record labels, timelines, story maps, and song DNA.
         </p>
         <div className="intel-generate-row">
           <Link
@@ -294,7 +294,7 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
 
       <section className="intel-package-section">
         <h2 className="intel-package-section__title">Artifact Readiness</h2>
-        <p className="intel-package-section__lead">Possible outputs from this package.</p>
+        <p className="intel-package-section__lead">Possible outputs from this research.</p>
         <ul className="intel-artifact-grid">
           {artifacts.map((artifact) => (
             <li
@@ -310,7 +310,7 @@ export function IntelligencePackageViewer({ view, diagnostics }: Props) {
       </section>
 
       <section className="intel-package-section">
-        <h2 className="intel-package-section__title">Package Health</h2>
+        <h2 className="intel-package-section__title">Coverage</h2>
         <div className="intel-health-grid">
           <div className="intel-health">
             <p className="intel-health__value">{health.sourceCoverage}%</p>

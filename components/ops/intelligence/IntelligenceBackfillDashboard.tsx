@@ -109,7 +109,7 @@ export function IntelligenceBackfillDashboard({ coverage, topPlayed, coverRecove
     <div className="intel-backfill">
       <header className="intel-backfill__hero">
         <p className="intel-backfill__kicker">Top Played · VIDEO / Only</p>
-        <h1 className="intel-backfill__title">Song Package Backfill</h1>
+        <h1 className="intel-backfill__title">Research Backfill</h1>
         <p className="intel-backfill__lead">
           Top 100 cover {topPlayed.top100.coverPct}% · package {topPlayed.top100.packagePct}% · artifacts{" "}
           {topPlayed.top100.artifactPct}%

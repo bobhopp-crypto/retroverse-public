@@ -1,0 +1,243 @@
+/* Chart Journey 2.0 — Retroverse signature chart fingerprint */
+
+.chart-journey {
+  --cj-paper: #f7f2e8;
+  --cj-ink: #1a1a1a;
+  --cj-line: #2a2a2a;
+  --cj-muted: #5c5348;
+  --cj-teal: #1a7a7a;
+
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 0.85rem 1.1rem;
+  border: 3px solid var(--cj-line);
+  border-radius: 0.35rem;
+  background: var(--cj-paper);
+  color: var(--cj-ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.chart-journey--rv2 {
+  --cj-paper: rgba(8, 22, 46, 0.94);
+  --cj-ink: #f4f8ff;
+  --cj-line: rgba(87, 146, 255, 0.35);
+  --cj-muted: rgba(196, 214, 255, 0.72);
+  --cj-teal: #4fd5ff;
+  border-width: 1px;
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
+    rgba(6, 19, 38, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.chart-journey__head {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+
+.chart-journey__eyebrow {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cj-teal);
+}
+
+.chart-journey h2 {
+  margin: 0.15rem 0 0;
+  font-size: clamp(1.35rem, 5vw, 1.85rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.chart-journey__hint {
+  margin: 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--cj-muted);
+}
+
+.chart-journey__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem 0.65rem;
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.7rem;
+  border: 2px solid var(--cj-line);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.chart-journey--rv2 .chart-journey__metrics {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.chart-journey__metrics div {
+  min-width: 0;
+}
+
+.chart-journey__metrics dt {
+  margin: 0;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cj-muted);
+}
+
+.chart-journey__metrics dd {
+  margin: 0.12rem 0 0;
+  font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.chart-journey__fingerprint {
+  max-height: min(70vh, 36rem);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 0.15rem;
+}
+
+.chart-journey__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.38rem;
+}
+
+.chart-journey__row-item {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.chart-journey__row,
+a.chart-journey__row {
+  display: grid;
+  grid-template-columns: minmax(5.8rem, 6.8rem) minmax(0, 1fr) minmax(2.4rem, auto);
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.28rem 0.15rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 0.2rem;
+}
+
+a.chart-journey__row:hover,
+a.chart-journey__row:focus-visible {
+  outline: 2px solid var(--cj-teal);
+  outline-offset: 2px;
+}
+
+.chart-journey__row--reentry {
+  border-top: 1px dashed rgba(42, 42, 42, 0.25);
+  padding-top: 0.45rem;
+}
+
+.chart-journey__row--number-one .chart-journey__rank {
+  color: #c0392b;
+}
+
+.chart-journey--rv2 .chart-journey__row--number-one .chart-journey__rank {
+  color: #ff8a65;
+}
+
+.chart-journey__date {
+  font-size: clamp(0.72rem, 2.8vw, 0.82rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.chart-journey__bar-wrap {
+  display: block;
+  height: 1.15rem;
+  border: 2px solid rgba(42, 42, 42, 0.18);
+  background: rgba(255, 255, 255, 0.65);
+  overflow: hidden;
+}
+
+.chart-journey--rv2 .chart-journey__bar-wrap {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.chart-journey__bar {
+  display: block;
+  height: 100%;
+  min-width: 0.35rem;
+  border-radius: 0 1px 1px 0;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.chart-journey__rank {
+  font-size: clamp(0.95rem, 3.6vw, 1.15rem);
+  font-weight: 900;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-journey__gap {
+  display: grid;
+  place-items: center;
+  padding: 0.45rem 0.35rem;
+  border-block: 2px solid var(--cj-line);
+  background: rgba(26, 122, 122, 0.08);
+  text-align: center;
+}
+
+.chart-journey--rv2 .chart-journey__gap {
+  background: rgba(79, 213, 255, 0.08);
+}
+
+.chart-journey__gap span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cj-teal);
+}
+
+.chart-journey__milestone {
+  margin-inline: 0.15rem;
+  padding: 0.28rem 0.45rem;
+  border-left: 4px solid var(--cj-teal);
+  background: rgba(26, 122, 122, 0.1);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.chart-journey--rv2 .chart-journey__milestone {
+  background: rgba(79, 213, 255, 0.1);
+}
+
+@media (min-width: 640px) {
+  .chart-journey {
+    padding: 1.15rem 1rem 1.25rem;
+  }
+
+  .chart-journey__metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .chart-journey__row,
+  a.chart-journey__row {
+    grid-template-columns: 7.5rem minmax(0, 1fr) 3.5rem;
+    gap: 0.65rem;
+  }
+
+  .chart-journey__bar-wrap {
+    height: 1.35rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .chart-journey__metrics {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}

@@ -24,6 +24,29 @@ function logStep(pkg: SongPackage, message: string, options?: ProductionPipeline
   options?.onStep?.(message);
 }
 
+async function refreshExperienceCache(
+  rvtr: string,
+  options?: ProductionPipelineOptions,
+): Promise<void> {
+  try {
+    const { refreshSongExperienceByRvtr } = await import(
+      "@/lib/retroverse/experience/refresh-song-experience"
+    );
+    const { loadTrackPage } = await import("@/lib/track/load-track-page");
+    const { loadSongControlPackage } = await import("@/lib/retroverse-2/song-control");
+
+    await refreshSongExperienceByRvtr(
+      rvtr,
+      loadTrackPage,
+      async (track) => loadSongControlPackage(track),
+    );
+    options?.onStep?.("Experience exhibit plan refreshed");
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    options?.onStep?.(`Experience cache refresh skipped: ${message}`);
+  }
+}
+
 function backfillFactsFromStoryCards(pkg: SongPackage): CandidateFact[] {
   if (pkg.candidateFacts.length > 0) return pkg.candidateFacts;
   const now = pkg.processedAt ?? pkg.updatedAt;
@@ -99,6 +122,7 @@ async function finalizeAndPublish(
   };
   logStep(pkg, "Song sheet published", options);
   const saved = await saveSongPackage(pkg);
+  await refreshExperienceCache(saved.rvtr, options);
 
   return {
     ok: true,

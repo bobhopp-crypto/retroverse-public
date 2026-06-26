@@ -1,4 +1,7 @@
 import { resolveArtistFromSlug, artistPagePath } from "@/lib/artist/resolve-artist";
+import { coverageFromMap } from "@/lib/charts/track-coverage";
+import { loadTrackCoverageByRvtr } from "@/lib/charts/load-track-coverage-batch";
+import { rvtrsFromChartLeaders } from "@/lib/charts/rvtrs-from-chart-history";
 import { fillHeroCoverGrid } from "@/lib/rv-year/hero-cover-fill";
 import {
   buildRvYearDestination,
@@ -36,11 +39,19 @@ export async function enrichRvYearDestination(
     }),
   );
 
+  const coverageMap = await loadTrackCoverageByRvtr(rvtrsFromChartLeaders(destination.topSingles));
+  const topSingles = destination.topSingles.map((leader) => ({
+    ...leader,
+    coverageStatus: leader.rvtr ? coverageFromMap(coverageMap, leader.rvtr) : null,
+  }));
+
   return {
     essentialAlbums: destination.essentialAlbums,
     heroCovers: fill.covers,
     definingArtists,
     definingSongs: destination.definingSongs,
+    topSingles,
+    topAlbums: destination.topAlbums,
   };
 }
 

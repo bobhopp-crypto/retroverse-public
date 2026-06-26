@@ -53,15 +53,13 @@ function displayFromTrack(
 
 function destinationLabel(kind: LiveDestinationKind): string {
   if (kind === "EXPERIENCE") return "Open Song Experience";
-  if (kind === "DECK") return "Open Deck";
-  if (kind === "PACKAGE") return "Open Package";
+  if (kind === "PACKAGE") return "Open Research";
   return "Explore Song";
 }
 
 function statusFromDestination(kind: LiveDestinationKind, hasDisplay: boolean): LiveExperienceStatus {
   if (!hasDisplay) return "Fallback";
-  if (kind === "EXPERIENCE") return "Package";
-  if (kind === "DECK") return "Deck";
+  if (kind === "EXPERIENCE") return "Experience";
   if (kind === "PACKAGE") return "Package";
   return "Track";
 }
@@ -71,7 +69,7 @@ function shellActions(payload: SundayNightsCurrentPayload, display: ReturnType<t
   const experienceHref = rvtr ? liveSongExperienceHref(rvtr) : null;
   return [
     { label: "Story", href: experienceHref },
-    { label: "Deck", href: experienceHref },
+    { label: "Song", href: experienceHref },
     { label: "Chart", href: rvtr ? trackPageHref(rvtr) : null },
     { label: "Artist", href: display?.artistHref ?? null },
     { label: "Live", href: "/live" },

@@ -5,6 +5,7 @@ import {
   normalizeArtistChartHistory,
 } from "@/lib/artist/chart-history";
 import type { ArtistChartHistory } from "@/lib/artist/chart-history-types";
+import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
 
 import { ArtistChartsHistoryClient } from "./artist-charts-history-client";
 
@@ -15,6 +16,7 @@ type Props = {
   history: ArtistChartHistory;
   highlightTrackIds?: string[];
   viewAllHref?: string;
+  coverageByRvtr?: Record<string, TrackCoverageStatus>;
 };
 
 /** Server wrapper — passes serialized chart history to the interactive client. */
@@ -42,6 +44,7 @@ export function ArtistChartsHistory(props: Props) {
         history={safe}
         highlightTrackIds={highlightTrackIds}
         viewAllHref={props.viewAllHref}
+        coverageByRvtr={props.coverageByRvtr}
       />
     </Suspense>
   );

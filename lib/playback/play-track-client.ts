@@ -13,6 +13,20 @@ function logPlayback(stage: string, payload: Record<string, unknown>) {
   console.info(`[playback] ${stage}`, payload);
 }
 
+function launchUrl(target: PlaybackResolveResult["target"]): string | null {
+  if (!target) return null;
+  if (target.streamUrl) {
+    if (target.streamUrl.startsWith("http")) return target.streamUrl;
+    if (typeof window !== "undefined") {
+      return new URL(target.streamUrl, window.location.origin).toString();
+    }
+    return target.streamUrl;
+  }
+  if (target.youtubeId) return `https://www.youtube.com/watch?v=${target.youtubeId}`;
+  if (target.embedUrl) return target.embedUrl;
+  return null;
+}
+
 export async function playTrackByRvtr(input: PlayTrackInput): Promise<{
   ok: boolean;
   result?: PlaybackResolveResult;
@@ -39,8 +53,8 @@ export async function playTrackByRvtr(input: PlayTrackInput): Promise<{
     logPlayback("lookup", {
       rvtr,
       status: res.status,
-      source: payload.target?.source ?? null,
-      url: payload.target?.url ?? null,
+      provider: payload.target?.provider ?? null,
+      canPlay: payload.canPlay ?? null,
       hasVdjMedia: payload.hasVdjMedia ?? null,
     });
   } catch (err) {
@@ -49,15 +63,20 @@ export async function playTrackByRvtr(input: PlayTrackInput): Promise<{
     return { ok: false, error: message };
   }
 
-  if (!payload.ok || !payload.target?.url) {
+  if (!payload.ok || !payload.canPlay || !payload.target) {
     logPlayback("launch", { ok: false, rvtr, error: payload.error ?? "no_target" });
     return { ok: false, error: payload.error ?? "no_target" };
   }
 
-  const url = payload.target.url;
+  const url = launchUrl(payload.target);
+  if (!url) {
+    logPlayback("launch", { ok: false, rvtr, error: "no_launch_url" });
+    return { ok: false, error: "no_launch_url" };
+  }
+
   try {
     window.open(url, "_blank", "noopener,noreferrer");
-    logPlayback("launch", { ok: true, rvtr, source: payload.target.source, url });
+    logPlayback("launch", { ok: true, rvtr, provider: payload.target.provider, url });
     return { ok: true, result: payload as PlaybackResolveResult };
   } catch (err) {
     const message = err instanceof Error ? err.message : "open_failed";

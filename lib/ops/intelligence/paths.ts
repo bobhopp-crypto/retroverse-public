@@ -34,6 +34,22 @@ export function songPackagePath(rvtr: string): string {
   return join(songPackagesDir(), `${rvtr.trim().toUpperCase()}.json`);
 }
 
+export function songPackageDir(rvtr: string): string {
+  return join(songPackagesDir(), rvtr.trim().toUpperCase());
+}
+
+export function publicExhibitPath(rvtr: string): string {
+  return join(songPackageDir(rvtr), "experience.json");
+}
+
+export function bundledSongPackageDir(rvtr: string): string {
+  return join(bundledSongPackagesDir(), rvtr.trim().toUpperCase());
+}
+
+export function bundledPublicExhibitPath(rvtr: string): string {
+  return join(bundledSongPackageDir(rvtr), "experience.json");
+}
+
 export function songPackageIndexPath(): string {
   return join(intelligenceRoot(), "package-index.json");
 }

@@ -9,6 +9,7 @@ import {
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 
 import { RvYearView } from "./rv-year-view";
+import { Rv2ChronologyFrame } from "../components/rv2-chronology-frame";
 
 import "./rv-year.css";
 
@@ -34,5 +35,9 @@ export default async function RvYearPage({ params }: Props) {
 
   const destination = await enrichRvYearDestination(buildRvYearDestination(history, rvYear));
 
-  return <RvYearView rvYear={rvYear} history={history} destination={destination} />;
+  return (
+    <Rv2ChronologyFrame rvYear={rvYear}>
+      <RvYearView rvYear={rvYear} history={history} destination={destination} shellMode="rv2" />
+    </Rv2ChronologyFrame>
+  );
 }

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg = await loadSongPackage(rvtr);
   const title = pkg?.metadata.title ?? rvtr;
   return {
-    title: `${title} — Song Package`,
+    title: `${title} — Song Research`,
     robots: { index: false, follow: false },
   };
 }

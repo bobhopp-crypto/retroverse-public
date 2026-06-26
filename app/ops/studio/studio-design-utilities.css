@@ -1,0 +1,163 @@
+/**
+ * Retroverse Studio — Design Utilities (D-001)
+ *
+ * Primitive classes built on studio-design-tokens.css.
+ * Use for new Studio UI; existing pages migrate incrementally.
+ */
+
+/* ── Section rhythm ── */
+.rs-studio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rs-studio-space-section);
+}
+
+/* ── Card ── */
+.rs-studio-card {
+  background: var(--rs-studio-bg-elevated);
+  border: 1px solid var(--rs-studio-line-subtle);
+  border-radius: var(--rs-studio-radius-lg);
+  padding: var(--rs-studio-space-card);
+}
+
+.rs-studio-card--live {
+  border-color: var(--rs-studio-border-working);
+  background: var(--rs-studio-bg-live);
+}
+
+.rs-studio-card--attention {
+  border-color: var(--rs-studio-border-attention);
+  background: var(--rs-studio-bg-attention);
+}
+
+.rs-studio-card--strong {
+  background: var(--rs-studio-bg-panel-strong);
+  border: 2px solid var(--rs-studio-line);
+  box-shadow: var(--rs-studio-shadow-panel);
+}
+
+/* ── Status badge (outline — dark theme) ── */
+.rs-studio-badge {
+  font-size: var(--rs-studio-text-label);
+  font-weight: var(--rs-studio-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--rs-studio-tracking-label);
+  padding: 0.22rem 0.5rem;
+  border-radius: var(--rs-studio-radius-sm);
+  border: 1px solid var(--rs-studio-line);
+  white-space: nowrap;
+}
+
+.rs-studio-badge--ready {
+  color: var(--rs-studio-status-ready-fg);
+  border-color: var(--rs-studio-status-ready-border);
+  background: var(--rs-studio-status-ready-bg);
+}
+
+.rs-studio-badge--working {
+  color: var(--rs-studio-status-working-fg);
+  border-color: var(--rs-studio-status-working-border);
+  background: var(--rs-studio-status-working-bg);
+}
+
+.rs-studio-badge--info {
+  color: var(--rs-studio-status-info-fg);
+  border-color: var(--rs-studio-status-info-border);
+  background: rgba(79, 213, 255, 0.08);
+}
+
+.rs-studio-badge--attention {
+  color: var(--rs-studio-status-attention-fg);
+  border-color: var(--rs-studio-status-attention-border);
+  background: var(--rs-studio-status-attention-bg);
+}
+
+.rs-studio-badge--problem {
+  color: var(--rs-studio-status-problem-fg);
+  border-color: var(--rs-studio-status-problem-border);
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.rs-studio-badge--inactive {
+  color: var(--rs-studio-status-inactive-fg);
+  border-color: var(--rs-studio-status-inactive-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Buttons ── */
+.rs-studio-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--rs-studio-touch-min);
+  padding: var(--rs-studio-btn-padding);
+  border-radius: var(--rs-studio-radius-sm);
+  border: 1px solid rgba(44, 117, 255, 0.65);
+  background: rgba(44, 117, 255, 0.28);
+  color: var(--rs-studio-ink);
+  font-family: inherit;
+  font-size: var(--rs-studio-btn-font);
+  font-weight: var(--rs-studio-weight-bold);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.rs-studio-btn:hover:not(:disabled) {
+  background: rgba(44, 117, 255, 0.42);
+}
+
+.rs-studio-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rs-studio-btn--ghost {
+  background: rgba(6, 19, 38, 0.65);
+  border-color: var(--rs-studio-line);
+  color: var(--rs-studio-ink);
+}
+
+.rs-studio-btn--ready {
+  border-color: var(--rs-studio-border-healthy);
+  background: rgba(66, 241, 135, 0.14);
+  color: var(--rs-studio-color-healthy);
+}
+
+/* ── Typography helpers ── */
+.rs-studio-display {
+  margin: 0;
+  font-size: var(--rs-studio-text-display);
+  font-weight: var(--rs-studio-weight-heavy);
+  line-height: 1.05;
+  color: var(--rs-studio-ink);
+}
+
+.rs-studio-stat {
+  font-size: var(--rs-studio-text-stat);
+  font-weight: var(--rs-studio-weight-heavy);
+  line-height: 1.05;
+  color: var(--rs-studio-ink);
+}
+
+.rs-studio-section-title {
+  margin: 0 0 var(--rs-studio-space-3);
+  font-size: var(--rs-studio-text-caption);
+  font-weight: var(--rs-studio-weight-heavy);
+  text-transform: uppercase;
+  letter-spacing: var(--rs-studio-tracking-section);
+  color: var(--rs-studio-color-info);
+}
+
+.rs-studio-body {
+  font-size: var(--rs-studio-text-body);
+  line-height: 1.45;
+  color: var(--rs-studio-ink-muted);
+}
+
+.rs-studio-label {
+  font-size: var(--rs-studio-text-label);
+  font-weight: var(--rs-studio-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--rs-studio-tracking-label);
+  color: var(--rs-studio-ink-muted);
+}

@@ -1,10 +1,9 @@
 import Link from "next/link";
 
+import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { TrackPageData } from "@/lib/track/load-track-page";
-
-import { TrackChartRunRail } from "./track-chart-run-rail";
 
 type SectionProps = {
   data: TrackPageData;
@@ -66,24 +65,17 @@ export function TrackAlbumsSection({ data }: SectionProps) {
 }
 
 export function TrackChartSection({ data }: SectionProps) {
-  const yearLabel = formatSongYear(data.releaseYear);
   if (data.trajectoryWeeks.length === 0) return null;
 
   return (
-    <section className="track-journey" aria-labelledby="track-chart-journey">
-      <div className="track-section-head track-section-head--journey">
-        <h2 id="track-chart-journey">Chart history</h2>
-        {data.rvYearHref ? (
-          <Link href={data.rvYearHref} prefetch className="track-section-link">
-            {yearLabel}
-          </Link>
-        ) : null}
-      </div>
-      <TrackChartRunRail
+    <section className="track-journey" aria-label="Chart journey">
+      <ChartJourney
         weeks={data.trajectoryWeeks}
         peak={data.peakHot100}
         chartLabel={data.chartRunLabel}
-        portalFocusTrackId={data.rvtr}
+        focusTrackId={data.rvtr}
+        releaseYear={data.releaseYear}
+        variant="exhibit"
       />
     </section>
   );

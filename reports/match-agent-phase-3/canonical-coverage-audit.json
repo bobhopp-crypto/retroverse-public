@@ -1,0 +1,108 @@
+{
+  "scannedAt": "2026-06-24T04:32:53.007Z",
+  "matchedVideoCount": 8476,
+  "conflictCount": 250,
+  "conflictsApplied": 9,
+  "identityBefore": {
+    "hot100": 1482,
+    "hot100_vdj": 3485,
+    "vdj": 3509,
+    "other": 0,
+    "missing": 0,
+    "total": 8476
+  },
+  "identityAfter": {
+    "hot100": 1490,
+    "hot100_vdj": 3486,
+    "vdj": 3500,
+    "other": 0,
+    "missing": 0,
+    "total": 8476
+  },
+  "chartCoverage": {
+    "hot100Universe": 32187,
+    "labelOwnedBefore": 4597,
+    "labelOwnedAfter": 4606,
+    "labelOwnedPctBefore": 14.3,
+    "labelOwnedPctAfter": 14.3,
+    "labelGain": 9
+  },
+  "artistCoverage": {
+    "hot100Artists": 7985,
+    "artistsWithVideoBefore": 1926,
+    "artistsWithVideoAfter": 1930,
+    "artistsWithCanonicalVideoBefore": 1926,
+    "artistsWithCanonicalVideoAfter": 1930,
+    "artistGain": 4,
+    "canonicalArtistGain": 4
+  },
+  "packageCoverage": {
+    "withIntelligencePackageBefore": 212,
+    "withIntelligencePackageAfter": 212,
+    "withAnyPackageBefore": 1264,
+    "withAnyPackageAfter": 1264,
+    "withHot100Before": 4967,
+    "withHot100After": 4976,
+    "intelligencePackageGain": 0,
+    "anyPackageGain": 0,
+    "hot100Gain": 9
+  },
+  "reassignmentSample": [
+    {
+      "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/'NSYNC - It's Gonna Be Me.mp4",
+      "beforeRvtr": "RVTR392640",
+      "afterRvtr": "RVTR668403",
+      "beforeSource": "vdj",
+      "afterSource": "hot100"
+    },
+    {
+      "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/'NSYNC - God Must Have Spent A Little More Time On You.mp4",
+      "beforeRvtr": "RVTR289987",
+      "afterRvtr": "RVTR163787",
+      "beforeSource": "vdj",
+      "afterSource": "hot100"
+    },
+    {
+      "filePath": "(by rvtr RVTR015056)",
+      "beforeRvtr": "RVTR015056",
+      "afterRvtr": "RVTR057442",
+      "beforeSource": "vdj",
+      "afterSource": "hot100_vdj"
+    },
+    {
+      "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/3 Doors Down - When I m Gone.mp4",
+      "beforeRvtr": "RVTR533227",
+      "afterRvtr": "RVTR694462",
+      "beforeSource": "vdj",
+      "afterSource": "hot100"
+    },
+    {
+      "filePath": "(by rvtr RVTR179376)",
+      "beforeRvtr": "RVTR179376",
+      "afterRvtr": "RVTR828046",
+      "beforeSource": "vdj",
+      "afterSource": "hot100_vdj"
+    },
+    {
+      "filePath": "(by rvtr RVTR693931)",
+      "beforeRvtr": "RVTR693931",
+      "afterRvtr": "RVTR698984",
+      "beforeSource": "vdj",
+      "afterSource": "hot100_vdj"
+    },
+    {
+      "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/All American Rejects - Move Along.mp4",
+      "beforeRvtr": "RVTR700052",
+      "afterRvtr": "RVTR929815",
+      "beforeSource": "vdj",
+      "afterSource": "hot100_vdj"
+    },
+    {
+      "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/All American Rejects - Gives You Hell.mp4",
+      "beforeRvtr": "RVTR695293",
+      "afterRvtr": "RVTR939314",
+      "beforeSource": "vdj",
+      "afterSource": "hot100_vdj"
+    }
+  ]
+}

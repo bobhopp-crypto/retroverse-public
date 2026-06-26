@@ -8,27 +8,16 @@
 
 export { COLLECTOR_PACKAGE_VERSION } from "@/lib/studio/package";
 
-export type EditorHandoffDomain =
-  | "identity"
-  | "song"
-  | "recording"
-  | "performance"
-  | "culture"
-  | "visual_assets"
-  | "relationships";
-
-export type EditorHandoffStatus = "Ready" | "Partial" | "Missing";
-
-export type EditorHandoffItem = {
-  id: EditorHandoffDomain;
-  label: string;
-  status: EditorHandoffStatus;
-};
-
-export type EditorHandoffView = {
-  title: string;
-  items: EditorHandoffItem[];
-};
+export type {
+  CollectorEditorHandoffDomain,
+  CollectorEditorHandoffStatus,
+  CollectorEditorHandoffItem,
+  CollectorEditorHandoffView,
+  EditorHandoffDomain,
+  EditorHandoffStatus,
+  EditorHandoffItem,
+  EditorHandoffView,
+} from "@/lib/studio/contract";
 
 /** Re-export the frozen package contract for downstream departments. */
 export type {

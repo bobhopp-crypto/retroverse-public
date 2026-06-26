@@ -10,7 +10,7 @@ export default function IntelligenceBackfillLoading() {
     >
       <div className="intel-app__body">
         <Link className="intel-review__back" href="/ops/intelligence" prefetch={false}>
-          ← Package Center
+          ← Research Center
         </Link>
         <Top100ValidationLivePanel />
         <p className="intel-backfill__actions-lead">Loading backfill coverage…</p>

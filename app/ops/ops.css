@@ -1,5 +1,25 @@
 /* Internal Ops Console (dense, broadcast-console vibe) */
 
+/* Command Center + ops zone — paint html/body so cream public theme never bleeds through */
+html:has(.ops-page) {
+  min-height: 100%;
+  color-scheme: dark;
+}
+
+html:has(.ops-command) {
+  background: #07142f;
+}
+
+html:has(.ops-command) body {
+  min-height: 100%;
+  margin: 0;
+  background:
+    radial-gradient(900px 520px at 15% -10%, rgba(80, 167, 255, 0.5), transparent 65%),
+    linear-gradient(180deg, #06122d 0%, #0b1f49 55%, #07142f 100%);
+  background-attachment: fixed;
+  color: #f5fbff;
+}
+
 .ops-page {
   --bg: #0b1012;
   --panel: #0f171a;
@@ -12709,6 +12729,24 @@
   .ops-command__system-list,
   .ops-command__top-actions {
     grid-template-columns: 1fr;
+  }
+
+  .ops-command__top-link {
+    min-height: 52px;
+    font-size: 1rem;
+  }
+
+  .ops-command .ops-page__inner {
+    padding-inline: 0.65rem;
+  }
+
+  .ops-command__hero {
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .ops-command__title {
+    font-size: clamp(1.85rem, 10vw, 2.75rem);
   }
 }
 

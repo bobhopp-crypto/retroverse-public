@@ -1,10 +1,9 @@
 import { readFile } from "fs/promises";
 import Link from "next/link";
 
-import { loadDeckIndex } from "@/lib/ops/intelligence/deck-index";
 import { loadSongPackageIndex, normalizePackageRvtr } from "@/lib/ops/intelligence/song-package-store";
 import { normVdjPath, vdjDatabasePath } from "@/lib/ops/intelligence/vdj-database";
-import { buildSundayNightsCurrentPayload } from "@/lib/sunday-nights/live-payload";
+import { buildSundayNightsCurrentPayload, hasSongExperience } from "@/lib/sunday-nights/live-payload";
 import { loadSundayNightsState } from "@/lib/sunday-nights/state";
 
 import "./live-companion.css";
@@ -47,17 +46,16 @@ function yesNo(value: boolean): string {
 }
 
 export default async function LiveCompanionPage() {
-  const [state, packageIndex, deckIndex] = await Promise.all([
+  const [state, packageIndex] = await Promise.all([
     loadSundayNightsState(),
     loadSongPackageIndex(),
-    loadDeckIndex(),
   ]);
   const current = await buildSundayNightsCurrentPayload(state);
   const live = state.live;
   const rvtr = normalizePackageRvtr(current.currentTrackId ?? live?.rvtr ?? "");
   const vdjLabel = await loadVdjLabelForPath(live?.filepath);
   const hasPackage = Boolean(rvtr && packageIndex.packages.some((entry) => normalizePackageRvtr(entry.rvtr) === rvtr));
-  const hasDeck = Boolean(rvtr && deckIndex.decks.some((entry) => normalizePackageRvtr(entry.rvtr) === rvtr));
+  const experienceReady = rvtr ? await hasSongExperience(rvtr) : false;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://retroverse.live";
   const publicHref = current.destination.href ? `${siteUrl}${current.destination.href}` : `${siteUrl}/live`;
   const patronSee =
@@ -108,7 +106,7 @@ export default async function LiveCompanionPage() {
             <div><dt>Year</dt><dd>{current.track?.releaseYear ?? live?.year ?? "unknown"}</dd></div>
             <div><dt>VDJ Label</dt><dd>{vdjLabel ?? "not available"}</dd></div>
             <div><dt>Package</dt><dd>{yesNo(hasPackage)}</dd></div>
-            <div><dt>Deck</dt><dd>{yesNo(hasDeck)}</dd></div>
+            <div><dt>Song Experience</dt><dd>{yesNo(experienceReady)}</dd></div>
           </dl>
         </article>
 

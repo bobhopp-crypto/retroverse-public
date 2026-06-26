@@ -9,7 +9,7 @@ import { isOpsEnabled } from "@/lib/ops/ops-gate";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Overnight Song Package Run — Retroverse Ops",
+  title: "Overnight Research Build — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 
@@ -25,12 +25,12 @@ export default async function IntelligenceRunCurrentPage() {
     >
       <div className="intel-app__body">
         <Link className="intel-review__back" href="/ops/intelligence" prefetch={false}>
-          ← Package Center
+          ← Research Center
         </Link>
 
         <header className="intel-backfill__hero">
           <p className="intel-backfill__kicker">Top 500 VIDEO · Play Count DESC</p>
-          <h1 className="intel-backfill__title">Overnight Song Package Build</h1>
+          <h1 className="intel-backfill__title">Overnight Research Build</h1>
           <p className="intel-backfill__lead">
             RVTR + cover required · full pipeline · failures skipped · progress saved after every
             song

@@ -1,6 +1,11 @@
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 
+import {
+  baseTitleForMatch,
+  compactTitleKey,
+  compareMatchCandidates,
+} from "./match-identity-rank";
 import { normalizeMatchText } from "./normalize-match-key";
 import type { SundayMatchCandidate } from "./playlist-types";
 
@@ -14,6 +19,7 @@ type DisplayRow = {
   first_chart_date: string | null;
   chart_weeks: number | null;
   has_hot100: boolean;
+  identity_source: string | null;
   cover_path: string | null;
   artwork_path: string | null;
   r2_cover_key: string | null;
@@ -94,6 +100,7 @@ function mapRow(row: DisplayRow, tier: TierSpec): SundayMatchCandidate | null {
     firstChartDate,
     chartSource: row.has_hot100 ? "Billboard Hot 100" : null,
     isCharted,
+    identitySource: row.identity_source?.trim() || null,
     coverUrl: resolveAlbumCoverUrlFromRow({
       cover_path: row.cover_path,
       artwork_path: row.artwork_path,
@@ -137,6 +144,7 @@ const SELECT_DISPLAY = `
     ctd.first_chart_date::text AS first_chart_date,
     ctd.chart_weeks,
     ctd.has_hot100,
+    ctd.identity_source,
     (
       SELECT al.canonical_cover_path
       FROM canonical_album_tracks cat
@@ -166,12 +174,43 @@ const SELECT_DISPLAY = `
 
 const ORDER_DISPLAY = `
   ORDER BY
+    CASE ctd.identity_source
+      WHEN 'hot100' THEN 1
+      WHEN 'hot100_vdj' THEN 1
+      WHEN 'vdj' THEN 3
+      ELSE 2
+    END ASC,
     ctd.has_hot100 DESC,
     ctd.peak_hot100_position ASC NULLS LAST,
     ctd.chart_weeks DESC,
+    length(trim(ctd.canonical_title)) ASC,
     ctd.canonical_title ASC
   LIMIT $LIMIT
 `;
+
+async function tierCanonicalBaseTitle(
+  artist: string,
+  title: string,
+  limit: number,
+): Promise<DisplayRow[]> {
+  const compactTitle = compactTitleKey(title);
+  if (!compactTitle || compactTitle.length < 4) return [];
+
+  return queryDisplay(
+    `
+    ${SELECT_DISPLAY}
+    WHERE ctd.identity_source IN ('hot100', 'hot100_vdj')
+      AND ctd.canonical_artist_name ILIKE $1
+      AND regexp_replace(
+        regexp_replace(lower(trim(ctd.canonical_title)), '\\s*\\([^)]*\\)', '', 'g'),
+        '[^a-z0-9]', '', 'g'
+      ) = $2
+    ${ORDER_DISPLAY.replace("$LIMIT", "$3")}
+    `,
+    [`%${artist.trim()}%`, compactTitle],
+    limit,
+  );
+}
 
 async function tierExactNormalized(
   artist: string,
@@ -367,6 +406,10 @@ export async function loadMatchCandidates(
     run: () => Promise<DisplayRow[]>;
   }> = [
     {
+      tier: { id: "A", reason: "Canonical base title + artist (Hot 100)" },
+      run: () => tierCanonicalBaseTitle(artistNeedle, titleNeedle, limit),
+    },
+    {
       tier: { id: "A", reason: "Exact normalized title + artist" },
       run: () => tierExactNormalized(artistNeedle, titleNeedle, limit),
     },
@@ -394,5 +437,12 @@ export async function loadMatchCandidates(
     pushCandidates(rows, step.tier, seen, out, limit);
   }
 
-  return out;
+  out.sort((a, b) =>
+    compareMatchCandidates(
+      { identitySource: a.identitySource, tier: a.tier },
+      { identitySource: b.identitySource, tier: b.tier },
+    ),
+  );
+
+  return out.slice(0, limit);
 }

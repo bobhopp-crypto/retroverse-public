@@ -25,7 +25,7 @@ export function IntelligencePackageMaintenance({ rvtr, diagnostics }: Props) {
   const [message, setMessage] = useState<string | null>(null);
 
   async function deletePackage() {
-    const confirmed = window.confirm(`Delete Song Package ${rvtr}? This removes the package JSON and index entry.`);
+    const confirmed = window.confirm(`Delete research for ${rvtr}? This removes the research JSON and index entry.`);
     if (!confirmed) return;
 
     setBusy("delete");
@@ -43,7 +43,7 @@ export function IntelligencePackageMaintenance({ rvtr, diagnostics }: Props) {
   }
 
   async function rebuildPackage() {
-    const confirmed = window.confirm(`Rebuild Song Package ${rvtr}? This deletes the current package and runs processSong().`);
+    const confirmed = window.confirm(`Rebuild research for ${rvtr}? This deletes the current research and runs processSong().`);
     if (!confirmed) return;
 
     setBusy("rebuild");
@@ -65,9 +65,9 @@ export function IntelligencePackageMaintenance({ rvtr, diagnostics }: Props) {
     <section className="intel-package-section intel-package-section--maintenance">
       <div className="intel-maintenance-head">
         <div>
-          <h2 className="intel-package-section__title">Package Maintenance</h2>
+          <h2 className="intel-package-section__title">Maintenance</h2>
           <p className="intel-package-section__lead">
-            Diagnose, rebuild, or remove this existing Song Package.
+            Diagnose, rebuild, or remove research for this song.
           </p>
         </div>
         <div className="intel-maintenance-actions">
@@ -77,7 +77,7 @@ export function IntelligencePackageMaintenance({ rvtr, diagnostics }: Props) {
             disabled={busy !== null}
             onClick={rebuildPackage}
           >
-            {busy === "rebuild" ? "Rebuilding…" : "Rebuild Package"}
+            {busy === "rebuild" ? "Rebuilding…" : "Rebuild Research"}
           </button>
           <button
             type="button"
@@ -85,7 +85,7 @@ export function IntelligencePackageMaintenance({ rvtr, diagnostics }: Props) {
             disabled={busy !== null}
             onClick={deletePackage}
           >
-            {busy === "delete" ? "Deleting…" : "Delete Package"}
+            {busy === "delete" ? "Deleting…" : "Delete Research"}
           </button>
         </div>
       </div>

@@ -1,0 +1,17 @@
+/**
+ * Retroverse Shell — Studio product hooks (D-004)
+ * Aliases to D-001 values; full --rs-studio-* set lives in studio-design-tokens.css.
+ */
+
+.rs-shell[data-product="studio"],
+.rs-product--studio {
+  --rs-product-bg-base: #061326;
+  --rs-product-bg-panel: rgba(9, 27, 57, 0.92);
+  --rs-product-accent: #e7bd67;
+  --rs-product-accent-hot: #f0cf85;
+  --rs-product-ink: #f3f7ff;
+  --rs-product-ink-muted: #9db4df;
+  --rs-product-border: rgba(255, 255, 255, 0.1);
+  --rs-product-info: #4fd5ff;
+  --rs-product-healthy: #42f187;
+}

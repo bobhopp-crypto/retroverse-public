@@ -31,7 +31,6 @@ export function HomepageLivePreview({ draft, preserved }: Props) {
         className={`home-directory home-directory--embedded home-directory--mode-${modeClass}${heroClass}`}
       >
         <HomeDirectory
-          opsEnabled={false}
           yearCovers={[]}
           featuredYears={preview.featuredYears}
           hero={preview.hero}

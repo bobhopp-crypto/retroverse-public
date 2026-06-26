@@ -252,7 +252,7 @@ export function formatStatus(status: SongPackage["status"]): string {
     draft: "Draft",
     processing: "Processing",
     review: "Research Complete",
-    cards_ready: "Cards Ready",
+    cards_ready: "Story ready",
     approved: "Approved",
     published: "Published",
   };

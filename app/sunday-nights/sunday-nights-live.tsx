@@ -52,10 +52,10 @@ function FallbackExhibit({ live }: { live: SundayNightsLiveSelection }) {
 function DestinationCta({ destination }: { destination: LiveDestination }) {
   if (!destination.href || destination.kind === "TRACK") return null;
 
-  const label = destination.kind === "DECK" ? "Open Deck" : "Open Package";
+  const label = destination.kind === "EXPERIENCE" ? "Open Song" : "Open Research";
   const detail =
-    destination.kind === "DECK"
-      ? "Performance deck is ready for this song."
+    destination.kind === "EXPERIENCE"
+      ? "Song Experience is ready for this track."
       : "Story package is ready for this song.";
 
   return (

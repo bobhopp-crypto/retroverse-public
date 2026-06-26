@@ -10,7 +10,7 @@ export default function IntelligenceRunCurrentLoading() {
     >
       <div className="intel-app__body">
         <Link className="intel-review__back" href="/ops/intelligence" prefetch={false}>
-          ← Package Center
+          ← Research Center
         </Link>
         <IntelligenceRunLivePanel />
         <p className="intel-backfill__actions-lead">Loading run dashboard…</p>

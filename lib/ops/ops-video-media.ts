@@ -8,16 +8,16 @@ export function opsVideoExtensionSqlList(): string {
 
 /**
  * SQL `AND …` predicates for `media_assets` rows used by /ops matching.
- * Requires `/VIDEO/` in path and a video extension (not audio).
+ * Requires `/VIDEO/` in path, video extension, and excludes MUSIC + VIDEO VAULT.
  */
 export function opsVideoMediaAndClause(alias = "ma"): string {
   const extList = opsVideoExtensionSqlList();
   const a = alias;
+  const path = `coalesce(${a}.source_path, ${a}.directory_path, '')`;
   return `
-    AND (
-      coalesce(${a}.source_path, '') ILIKE '%/VIDEO/%'
-      OR coalesce(${a}.directory_path, '') ILIKE '%/VIDEO/%'
-    )
+    AND ${path} ILIKE '%/VIDEO/%'
+    AND ${path} NOT ILIKE '%/MUSIC/%'
+    AND ${path} NOT ILIKE '%/VIDEO VAULT/%'
     AND (
       lower(coalesce(${a}.file_extension, '')) IN (${extList})
       OR lower(coalesce(${a}.filename, '')) ~ '\\.(mp4|mkv|mov|avi|m4v)$'
@@ -29,6 +29,8 @@ export function isOpsPlayableVideoPath(path: string | null | undefined): boolean
   if (!path?.trim()) return false;
   const p = path.trim();
   if (!/\/VIDEO\//i.test(p)) return false;
+  if (/\/MUSIC\//i.test(p)) return false;
+  if (/\/VIDEO VAULT\//i.test(p)) return false;
   return /\.(mp4|mkv|mov|avi|m4v)$/i.test(p);
 }
 

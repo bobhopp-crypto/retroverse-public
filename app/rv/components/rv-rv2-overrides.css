@@ -1,0 +1,497 @@
+/* RV chronology content under RV2 shell — token migration, geometry unchanged */
+
+.rv2-charts .rv2-live__search-panel {
+  margin-bottom: 0.45rem;
+}
+
+.rv2-charts .rv2-chronology {
+  margin-top: 0.15rem;
+}
+
+.rv2-charts .rv-year-world {
+  background: transparent;
+  color: var(--rv2-ink);
+  padding-bottom: 0.5rem;
+}
+
+.rv2-charts .rv-year-world__grain {
+  display: none;
+}
+
+/* —— Hero —— */
+
+.rv2-charts .rv-year-hero {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.85rem 0.9rem 1rem;
+  text-align: center;
+  border: 1px solid var(--rv2-line);
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
+    var(--rv2-panel);
+  box-shadow:
+    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.rv2-charts .rv-year-hero__label,
+.rv2-charts .rv-chronology-crumb__link,
+.rv2-charts .rv-year-section__kicker,
+.rv2-charts .rv-year-chronicle__title,
+.rv2-charts .artist-charts-history__title,
+.rv2-charts .artist-charts-history__group-title,
+.rv2-charts .charts-history__summary-subtitle {
+  color: var(--rv2-cyan);
+}
+
+.rv2-charts .rv-year-hero__year,
+.rv2-charts .rv-year-hero__headline,
+.rv2-charts .artist-charts-history__year,
+.rv2-charts .artist-charts-history__banner-title,
+.rv2-charts .charts-history__summary-title {
+  color: var(--rv2-ink);
+  text-shadow: none;
+}
+
+.rv2-charts .rv-year-hero__headline {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.rv2-charts .rv-year-hero__lead,
+.rv2-charts .artist-charts-history__banner-copy,
+.rv2-charts .rv-month-card__meta,
+.rv2-charts .artist-charts-history__meta,
+.rv2-charts .charts-history__summary-meta,
+.rv2-charts .rv-year-chronicle__hint {
+  color: var(--rv2-muted);
+  font-family: inherit;
+  font-style: normal;
+}
+
+.rv2-charts .rv-year-hero__cover {
+  border-color: rgba(87, 146, 255, 0.45);
+  border-radius: 0.35rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.rv2-charts .rv-year-hero__cover-link:hover .rv-year-hero__cover {
+  box-shadow: 0 0 0 1px rgba(79, 213, 255, 0.35), 0 10px 28px rgba(44, 117, 255, 0.22);
+}
+
+/* —— Year nav band —— */
+
+.rv2-charts .rv-year-nav,
+.rv2-charts .rv-year-nav-band {
+  margin-left: 0;
+  margin-right: 0;
+  border: 1px solid var(--rv2-line);
+  border-radius: 0.55rem;
+  background: rgba(9, 27, 57, 0.55);
+  box-shadow: none;
+}
+
+.rv2-charts .rv-year-nav__link {
+  color: var(--rv2-cyan);
+  border-color: transparent;
+}
+
+.rv2-charts .rv-year-nav__link:hover {
+  border-color: rgba(87, 146, 255, 0.35);
+  background: rgba(44, 117, 255, 0.12);
+}
+
+.rv2-charts .rv-year-nav__link--explore,
+.rv2-charts .rv-year-nav__link--year {
+  color: var(--rv2-ink);
+  border-color: rgba(87, 146, 255, 0.35);
+  background: rgba(13, 36, 80, 0.55);
+  box-shadow: none;
+}
+
+.rv2-charts .rv-year-nav--secondary {
+  border-color: rgba(87, 146, 255, 0.25);
+  background: rgba(6, 19, 38, 0.45);
+}
+
+/* —— Chart-primary sections (Top Singles / Top Albums) —— */
+
+.rv2-charts .rv-year-section {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.75rem 0.7rem 0.85rem;
+  border: 1px solid var(--rv2-line);
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(180deg, rgba(13, 36, 80, 0.92), rgba(6, 19, 38, 0.9)),
+    var(--rv2-panel);
+  box-shadow:
+    0 0 0 1px rgba(79, 213, 255, 0.07) inset,
+    0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+.rv2-charts .rv-year-section--chart-primary {
+  border-color: var(--rv2-line-hot);
+  box-shadow:
+    0 0 0 1px rgba(79, 213, 255, 0.12) inset,
+    0 0 22px rgba(44, 117, 255, 0.18),
+    0 14px 36px rgba(0, 0, 0, 0.24);
+}
+
+.rv2-charts .rv-year-section--editorial {
+  opacity: 0.96;
+}
+
+.rv2-charts .rv-year-section__title {
+  color: var(--rv2-ink);
+  letter-spacing: 0.08em;
+}
+
+.rv2-charts .rv-year-section__kicker {
+  margin: 0 0 0.25rem;
+  font-size: 0.62rem;
+  font-weight: 950;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.rv2-charts .rv-year-editorial {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.65rem;
+}
+
+.rv2-charts .rv-year-chart-leaders {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.42rem;
+}
+
+.rv2-charts .rv-year-chart-leaders > li {
+  display: grid;
+  grid-template-columns: 1.65rem minmax(0, 1fr);
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.rv2-charts .rv-year-chart-leaders__rank {
+  color: var(--rv2-cyan);
+  font-size: 0.92rem;
+  font-weight: 950;
+  text-align: center;
+}
+
+.rv2-charts .rv-year-chart-leaders__link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid rgba(87, 146, 255, 0.35);
+  border-radius: 0.55rem;
+  background: rgba(9, 27, 57, 0.55);
+  color: inherit;
+  text-decoration: none;
+}
+
+.rv2-charts .rv-year-chart-leaders__link--static {
+  pointer-events: none;
+}
+
+.rv2-charts .rv-year-chart-leaders__link:active {
+  background: rgba(13, 36, 80, 0.72);
+}
+
+.rv2-charts .rv-year-chart-leaders__cover {
+  flex: 0 0 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: cover;
+  border: 1px solid rgba(87, 146, 255, 0.45);
+  border-radius: 0.35rem;
+}
+
+.rv2-charts .rv-year-chart-leaders__cover--empty {
+  display: block;
+  background: rgba(13, 36, 80, 0.9);
+}
+
+.rv2-charts .rv-year-chart-leaders__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.06rem;
+  min-width: 0;
+}
+
+.rv2-charts .rv-year-chart-leaders__title {
+  color: var(--rv2-ink);
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1.15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rv2-charts .rv-year-chart-leaders__artist {
+  color: var(--rv2-muted);
+  font-size: 0.76rem;
+  font-weight: 750;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rv2-charts .rv-year-chart-leaders__meta {
+  color: var(--rv2-green);
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* —— Editorial cards —— */
+
+.rv2-charts .rv-year-artist-card {
+  color: var(--rv2-cyan);
+  background: rgba(9, 27, 57, 0.55);
+  border-color: rgba(87, 146, 255, 0.35);
+  box-shadow: none;
+}
+
+.rv2-charts .rv-year-artist-card:hover {
+  background: rgba(44, 117, 255, 0.14);
+}
+
+.rv2-charts .rv-year-album-card__art {
+  border-color: rgba(87, 146, 255, 0.45);
+  border-radius: 0.35rem;
+  background: rgba(13, 36, 80, 0.55);
+  box-shadow: none;
+}
+
+.rv2-charts .rv-year-album-card__title {
+  color: var(--rv2-ink);
+}
+
+.rv2-charts .rv-year-album-card:hover .rv-year-album-card__title {
+  color: var(--rv2-cyan);
+}
+
+.rv2-charts .rv-year-album-card__caption {
+  color: var(--rv2-muted);
+}
+
+.rv2-charts .rv-year-song-row {
+  border-color: rgba(87, 146, 255, 0.28);
+  border-radius: 0.55rem;
+  background: rgba(9, 27, 57, 0.45);
+}
+
+.rv2-charts .rv-year-song-row:hover {
+  border-color: rgba(87, 146, 255, 0.45);
+  background: rgba(13, 36, 80, 0.55);
+}
+
+.rv2-charts .rv-year-song-row__thumb {
+  border-color: rgba(87, 146, 255, 0.45);
+  border-radius: 0.35rem;
+}
+
+.rv2-charts .rv-year-song-row__title {
+  color: var(--rv2-ink);
+}
+
+.rv2-charts .rv-year-song-row__artist {
+  color: var(--rv2-muted);
+}
+
+/* —— Month chronicle (primary) —— */
+
+.rv2-charts .rv-year-chronicle--primary {
+  margin-top: 0.15rem;
+}
+
+.rv2-charts .rv-year-chronicle__head {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--rv2-line-hot);
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(180deg, rgba(44, 117, 255, 0.22), rgba(9, 27, 57, 0.88)),
+    var(--rv2-panel);
+  box-shadow: 0 0 18px rgba(44, 117, 255, 0.16);
+}
+
+.rv2-charts .rv-month-stack {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.rv2-charts .rv-year-nav-band,
+.rv2-charts .rv-month-card,
+.rv2-charts .artist-charts-history__panel,
+.rv2-charts .artist-charts-history__leader-card,
+.rv2-charts .chart-history-song-row {
+  border-color: rgba(87, 146, 255, 0.35);
+  background: rgba(9, 27, 57, 0.55);
+  box-shadow: none;
+}
+
+.rv2-charts .rv-month-card {
+  border-radius: 0.55rem;
+}
+
+.rv2-charts .rv-month-card--tappable:hover {
+  border-color: var(--rv2-line-hot);
+  background: rgba(13, 36, 80, 0.72);
+  box-shadow: 0 0 14px rgba(44, 117, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.rv2-charts .rv-month-card__month,
+.rv2-charts .rv-month-card__value {
+  color: var(--rv2-ink);
+}
+
+.rv2-charts .rv-month-card__label,
+.rv2-charts .rv-month-card__chevron {
+  color: var(--rv2-cyan);
+}
+
+.rv2-charts .rv-month-card__notable a,
+.rv2-charts .rv-month-card__week {
+  color: var(--rv2-muted);
+}
+
+.rv2-charts .rv-month-card__notable a:hover {
+  color: var(--rv2-gold);
+}
+
+.rv2-charts .rv-month-card__open {
+  color: var(--rv2-gold);
+  border-color: rgba(231, 189, 103, 0.45);
+  background: rgba(231, 189, 103, 0.08);
+}
+
+.rv2-charts .rv-month-card__open:hover {
+  background: rgba(231, 189, 103, 0.14);
+}
+
+/* —— Month drill (artist-charts-history) —— */
+
+.rv2-charts .rv-chronology-crumb {
+  margin-left: 0;
+  margin-right: 0;
+  border: 1px solid var(--rv2-line);
+  border-radius: 0.55rem;
+  background: rgba(9, 27, 57, 0.55);
+  box-shadow: none;
+}
+
+.rv2-charts .rv-chronology-crumb__link--current {
+  color: var(--rv2-ink);
+}
+
+.rv2-charts .rv-chronology-crumb__sep {
+  color: var(--rv2-muted);
+}
+
+.rv2-charts .charts-history--rv-chronology,
+.rv2-charts .charts-history--rv-summary {
+  margin-left: 0;
+  margin-right: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.rv2-charts .charts-history__summary-head {
+  border-bottom-color: rgba(87, 146, 255, 0.25);
+}
+
+.rv2-charts .charts-summary-card {
+  border-color: rgba(87, 146, 255, 0.35);
+  border-radius: 0.55rem;
+  background: rgba(9, 27, 57, 0.55);
+  box-shadow: none;
+}
+
+.rv2-charts .charts-summary-card--active {
+  border-color: var(--rv2-line-hot);
+  box-shadow: 0 0 12px rgba(44, 117, 255, 0.18);
+}
+
+.rv2-charts .charts-summary-card__cover {
+  border-color: rgba(87, 146, 255, 0.45);
+  background: rgba(13, 36, 80, 0.9);
+}
+
+.rv2-charts .charts-summary-card__title,
+.rv2-charts .charts-history-card__title {
+  color: var(--rv2-ink);
+}
+
+.rv2-charts .charts-summary-card__artist,
+.rv2-charts .charts-history-card__artist {
+  color: var(--rv2-muted);
+}
+
+.rv2-charts .charts-summary-card__timing,
+.rv2-charts .charts-history-card__facts {
+  color: var(--rv2-green);
+}
+
+.rv2-charts .charts-history-card {
+  border-color: rgba(87, 146, 255, 0.35);
+  background: rgba(9, 27, 57, 0.55);
+}
+
+.rv2-charts .charts-history-card--active,
+.rv2-charts .charts-history-card--leader.charts-history-card--active {
+  border-color: var(--rv2-line-hot);
+}
+
+.rv2-charts .charts-history__pill {
+  border-color: rgba(87, 146, 255, 0.35);
+  background: rgba(9, 27, 57, 0.55);
+  color: var(--rv2-muted);
+}
+
+.rv2-charts .charts-history__pill--filter {
+  border-color: var(--rv2-line-hot);
+  background: rgba(44, 117, 255, 0.18);
+  color: var(--rv2-ink);
+}
+
+.rv2-charts .charts-history__empty {
+  color: var(--rv2-muted);
+}
+
+.rv2-charts .rv-year-footer {
+  border-top: 1px solid rgba(87, 146, 255, 0.25);
+}
+
+.rv2-charts .rv-year-footer a,
+.rv2-charts .rv-month-card__open,
+.rv2-charts .artist-charts-history__jump {
+  color: var(--rv2-gold);
+}
+
+.rv2-charts .rv2-live__nav-link--active {
+  border-color: var(--rv2-line-hot);
+  color: var(--rv2-ink);
+  background: rgba(44, 117, 255, 0.18);
+}
+
+@media (max-width: 767px) {
+  .rv2-charts .charts-history--rv-summary {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

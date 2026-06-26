@@ -94,7 +94,7 @@ export function TrackPageView({ data, sundayEventActive = false }: TrackPageView
         <Link href="/search" prefetch>
           Artists
         </Link>
-        <Link href="/charts" prefetch>
+        <Link href="/retroverse-2/charts" prefetch>
           Years
         </Link>
       </nav>

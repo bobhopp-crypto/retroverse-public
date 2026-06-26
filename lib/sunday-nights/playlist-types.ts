@@ -58,6 +58,7 @@ export type SundayMatchCandidate = {
   chartSource: string | null;
   isCharted: boolean;
   coverUrl: string | null;
+  identitySource?: string | null;
   reason?: string | null;
   tier?: string | null;
 };

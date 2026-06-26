@@ -6,6 +6,8 @@
 
 export { EDITOR_STORY_VERSION, DIRECTOR_EDITORIAL_VERSION } from "@/lib/studio/package";
 
+export type { StudioContractDepartmentId, DepartmentContract } from "@/lib/studio/contract";
+
 export type {
   ApprovedCard,
   ApprovedFact,

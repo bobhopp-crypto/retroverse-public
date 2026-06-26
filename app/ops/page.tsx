@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import "./ops.css";
-
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -17,6 +15,21 @@ const mainThings: Array<{
   links: Array<{ label: string; href: string }>;
 }> = [
   {
+    title: "All-Star Baseball",
+    plain: "Living archive, player intelligence, and Cadaco research.",
+    links: [
+      { label: "Living Archive", href: "/ops/allstar" },
+      { label: "Scorebook", href: "/ops/allstar/scorebook" },
+      { label: "Seasons", href: "/ops/allstar/seasons" },
+      { label: "Stats", href: "/ops/allstar/stats" },
+      { label: "Preserve", href: "/ops/allstar/preserve" },
+      { label: "Review", href: "/ops/allstar/review" },
+      { label: "Audit", href: "/ops/allstar/audit" },
+      { label: "Research", href: "/ops/allstar/research" },
+      { label: "Disc Library", href: "/ops/allstar/library" },
+    ],
+  },
+  {
     title: "Run A Show",
     plain: "Sunday Nights, live pages, and show controls.",
     links: [
@@ -29,10 +42,15 @@ const mainThings: Array<{
     ],
   },
   {
-    title: "Packages",
-    plain: "One center for package dashboard, gallery, queue, and maintenance.",
+    title: "Studio",
+    plain: "The creative engine — AI departments and publishing workflows.",
+    links: [{ label: "Studio Dashboard", href: "/ops/studio" }],
+  },
+  {
+    title: "Research",
+    plain: "Research Center — dashboard, gallery, queue, and maintenance.",
     links: [
-      { label: "Package Center", href: "/ops/intelligence" },
+      { label: "Research Center", href: "/ops/intelligence" },
     ],
   },
   {
@@ -46,6 +64,7 @@ const mainThings: Array<{
     title: "Manage My Library",
     plain: "Keep the music collection organized and connected.",
     links: [
+      { label: "Browser+ 2.0 — Studio Ops", href: "/ops/browser-plus-2" },
       { label: "VirtualDJ Browser+", href: "/ops/browser-plus" },
       { label: "Automation Factory", href: "/ops/automation-factory" },
       { label: "Library Atlas", href: "/ops/atlas" },
@@ -67,6 +86,8 @@ const mainThings: Array<{
 ];
 
 const topActions = [
+  { label: "Studio", href: "/ops/studio" },
+  { label: "All-Star Baseball", href: "/ops/allstar" },
   { label: "Live Control", href: "/ops/live-control" },
   { label: "Sunday Nights", href: "/ops/sunday-nights" },
   { label: "Live Companion", href: "/ops/live-companion" },
@@ -91,12 +112,15 @@ const otherTools = [
   { label: "Media Collections", href: "/ops/media-collections" },
   { label: "Media Lab", href: "/ops/media-lab" },
   { label: "Pass Registrations", href: "/ops/pass-registrations" },
+  { label: "All-Star Baseball", href: "/ops/allstar" },
   { label: "Retroverse Map", href: "/ops/map" },
   { label: "Show Builder", href: "/ops/show-builder" },
   { label: "Statement Validation", href: "/ops/finance/statement-validation" },
 ];
 
 const systemNotes = [
+  ["Studio", "AI departments and publishing workflows"],
+  ["All-Star Baseball", "Living archive — disc preservation and discovery"],
   ["Run A Show", "Live events"],
   ["Packages", "Research and storytelling"],
   ["Create Stuff", "Posters, passes, artwork"],

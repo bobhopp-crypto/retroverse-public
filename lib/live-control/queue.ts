@@ -1,14 +1,13 @@
+import type { LiveControlState } from "@/lib/live-control/types";
 import { loadSundayEventSongs } from "@/lib/sunday-nights/load-playlist";
-import { loadDeckIndex } from "@/lib/ops/intelligence/deck-index";
 import {
   loadSongPackage,
   loadSongPackageIndex,
   normalizePackageRvtr,
 } from "@/lib/ops/intelligence/song-package-store";
+import { isSongExperienceRenderable } from "@/lib/ops/intelligence/song-experience-renderability";
 import type { SongPackageStatus } from "@/lib/ops/intelligence/song-package-types";
 import { loadTrackPage } from "@/lib/track/load-track-page";
-
-import type { LiveControlState } from "./types";
 
 const READY_STATUSES = new Set<SongPackageStatus>([
   "cards_ready",
@@ -23,7 +22,7 @@ type QueueCandidate = {
   artist: string;
   title: string;
   hasCover: boolean;
-  hasDeck: boolean;
+  hasExperience: boolean;
   hasSongSheet: boolean;
 };
 
@@ -51,10 +50,7 @@ async function loadSundayNightRvtrs(year: number | null): Promise<string[]> {
   return [...new Set(rvtrs)];
 }
 
-async function enrichCandidate(
-  rvtr: string,
-  deckSet: Set<string>,
-): Promise<QueueCandidate | null> {
+async function enrichCandidate(rvtr: string): Promise<QueueCandidate | null> {
   const normalized = normalizePackageRvtr(rvtr);
   if (!normalized) return null;
 
@@ -73,7 +69,7 @@ async function enrichCandidate(
     artist: pkg?.metadata.artist ?? track?.artistName ?? "",
     title: pkg?.metadata.title ?? track?.title ?? normalized,
     hasCover: Boolean(coverUrl?.trim()),
-    hasDeck: deckSet.has(normalized),
+    hasExperience: Boolean(pkg && isSongExperienceRenderable(pkg.status)),
     hasSongSheet: Boolean(pkg),
   };
 }
@@ -84,7 +80,7 @@ function applyQualityFilters(
 ): QueueCandidate[] {
   return candidates.filter((candidate) => {
     if (state.hasCover && !candidate.hasCover) return false;
-    if (state.hasDeck && !candidate.hasDeck) return false;
+    if (state.hasExperience && !candidate.hasExperience) return false;
     if (state.hasSongSheet && !candidate.hasSongSheet) return false;
     return true;
   });
@@ -146,15 +142,7 @@ function applyOrdering(candidates: QueueCandidate[], state: LiveControlState): s
 }
 
 export async function buildLiveQueue(state: LiveControlState): Promise<string[]> {
-  const [packageIndex, deckIndex] = await Promise.all([
-    loadSongPackageIndex(),
-    loadDeckIndex(),
-  ]);
-  const deckSet = new Set(
-    deckIndex.decks
-      .map((entry) => normalizePackageRvtr(entry.rvtr))
-      .filter(Boolean) as string[],
-  );
+  const packageIndex = await loadSongPackageIndex();
 
   let seedRvtrs: string[] = [];
 
@@ -182,7 +170,7 @@ export async function buildLiveQueue(state: LiveControlState): Promise<string[]>
   seedRvtrs = [...new Set(seedRvtrs.map((rvtr) => normalizePackageRvtr(rvtr) ?? "").filter(Boolean))];
 
   const enriched = (
-    await Promise.all(seedRvtrs.map((rvtr) => enrichCandidate(rvtr, deckSet)))
+    await Promise.all(seedRvtrs.map((rvtr) => enrichCandidate(rvtr)))
   ).filter((candidate): candidate is QueueCandidate => candidate != null);
 
   const filtered = applySourceFilters(applyQualityFilters(enriched, state), state);

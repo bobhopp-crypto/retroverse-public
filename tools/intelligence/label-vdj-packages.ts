@@ -2,7 +2,7 @@
 import { copyFile, mkdir, readFile, readdir, writeFile } from "fs/promises";
 import { basename, join } from "path";
 
-import { loadDeckIndex } from "../../lib/ops/intelligence/deck-index.ts";
+import { isSongExperienceRenderable } from "../../lib/ops/intelligence/song-experience-renderability.ts";
 import { normVdjPath, scanVdjDatabase, vdjDatabasePath } from "../../lib/ops/intelligence/vdj-database.ts";
 import { loadVdjIdentityCoverage } from "../../lib/ops/intelligence/vdj-identity-coverage.ts";
 import { songPackageIndexPath, songPackagesDir } from "../../lib/ops/intelligence/paths.ts";
@@ -12,7 +12,7 @@ const RETROVERSE_LABEL_RE = /^(RV_PACKAGE|PK_|DK_|RVTR\d{6}$)/;
 
 type RetroverseLabel = {
   rvtr: string;
-  kind: "RVTR" | "PK" | "DK";
+  kind: "RVTR" | "PK";
   label: string;
 };
 
@@ -65,13 +65,8 @@ async function loadPackageRvtrs(): Promise<Set<string>> {
   return rvtrs;
 }
 
-async function loadDeckRvtrs(): Promise<Set<string>> {
-  const index = await loadDeckIndex();
-  return new Set(index.decks.map((entry) => entry.rvtr));
-}
-
 async function loadRetroverseLabels(identityRvtrs: Set<string>): Promise<Map<string, RetroverseLabel>> {
-  const [packageRvtrs, deckRvtrs] = await Promise.all([loadPackageRvtrs(), loadDeckRvtrs()]);
+  const packageRvtrs = await loadPackageRvtrs();
   const out = new Map<string, RetroverseLabel>();
 
   for (const rvtr of identityRvtrs) {
@@ -84,11 +79,10 @@ async function loadRetroverseLabels(identityRvtrs: Set<string>): Promise<Map<str
       continue;
     }
 
-    const kind = deckRvtrs.has(rvtr) ? "DK" : "PK";
     out.set(rvtr, {
       rvtr,
-      kind,
-      label: `${kind}_${rvtr}`,
+      kind: "PK",
+      label: `PK_${rvtr}`,
     });
   }
 
@@ -177,7 +171,7 @@ async function main() {
   const matchedVdjTracks: Array<{
     rvtr: string;
     label: string;
-    kind: "RVTR" | "PK" | "DK";
+    kind: "RVTR" | "PK";
     artist: string;
     title: string;
     filePath: string;
@@ -226,7 +220,6 @@ async function main() {
     if (nextLabel && !updated.skipped) {
       totalRetroverseLabelsWritten += 1;
       if (nextLabel.startsWith("PK_")) pkCount += 1;
-      if (nextLabel.startsWith("DK_")) dkCount += 1;
       if (RVTR_RE.test(nextLabel)) rvtrOnlyCount += 1;
     }
     return updated.next;
@@ -243,10 +236,10 @@ async function main() {
   }
 
   const packageRvtrs = [...retroverseLabels.values()]
-    .filter((entry) => entry.kind === "PK" || entry.kind === "DK")
+    .filter((entry) => entry.kind === "PK")
     .map((entry) => entry.rvtr);
   const matchedPackageRvtrs = new Set(
-    matchedVdjTracks.filter((track) => track.kind === "PK" || track.kind === "DK").map((track) => track.rvtr),
+    matchedVdjTracks.filter((track) => track.kind === "PK").map((track) => track.rvtr),
   );
   const packageCount = packageRvtrs.length;
   const unmatchedRvtrs = packageRvtrs.filter((rvtr) => !matchedRvtrs.has(rvtr)).sort();
@@ -280,7 +273,7 @@ async function main() {
     filterExpressions: {
       allRetroverseEnabledTracks: "label contains \"RVTR\"",
       packageExists: "label starts with \"PK_\"",
-      polishedDeckExists: "label starts with \"DK_\"",
+      experienceRenderable: "package status published or review",
     },
     topRvtrsByFileCount: coverage.topRvtrsByFileCount,
     unmatchedRvtrs,

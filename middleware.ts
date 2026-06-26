@@ -35,6 +35,8 @@ export const config = {
   matcher: [
     "/ops",
     "/ops/:path*",
+    "/diagnostics",
+    "/diagnostics/:path*",
     "/internal/ops-pin",
     "/api/internal/ops-auth",
     "/api/ops/:path*",

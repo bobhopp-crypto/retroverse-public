@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 
 import "./live-experience-shell.css";
 
-export type LiveExperienceStatus = "Deck" | "Package" | "Track" | "Fallback";
-export type LiveExperienceTab = "Story" | "Deck" | "Chart" | "Artist" | "Live";
+export type LiveExperienceStatus = "Experience" | "Package" | "Track" | "Fallback";
+export type LiveExperienceTab = "Story" | "Song" | "Chart" | "Artist" | "Live";
 
 export type LiveExperienceAction = {
   label: LiveExperienceTab;

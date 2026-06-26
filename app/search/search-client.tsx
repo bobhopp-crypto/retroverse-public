@@ -254,6 +254,7 @@ export default function SearchClient() {
     <Rv2PublicShell
       className="rv2-search"
       yearsHref={yearsHref}
+      activeNav="search"
       searchQuery={query}
       onSearchQueryChange={setQuery}
       onSearchCommit={commitQuery}

@@ -1,0 +1,69 @@
+---
+description: Retroverse Studio workflow — phases, scope, execution states, and agent discipline
+alwaysApply: true
+---
+
+# Retroverse Studio Workflow
+
+Applies to all Retroverse work, with mandatory discipline for Studio infrastructure (`lib/studio/`, `lib/ops/studio/`, `docs/studio/`).
+
+## Before Studio infrastructure work
+
+1. Read `docs/studio/STUDIO_BRAIN.md`.
+2. Confirm the **currently approved phase** and milestone in that file.
+3. Read the active phase prompt if one was supplied.
+
+## Scope and phases
+
+- **Respect the currently approved phase.** Touch only files and subsystems in scope.
+- **Never expand scope** without explicit user approval.
+- **Never begin the next phase automatically.** Stop after each milestone; wait for review.
+- **Preserve behavior** unless the user explicitly instructs otherwise.
+- **Prefer extraction over rewriting.** Consolidate into the Studio Kernel; use thin adapters.
+- **Do not begin the next unapproved milestone** (see `docs/studio/STUDIO_BRAIN.md` Current Roadmap) unless explicitly told.
+
+## Verification
+
+- Run `tsc --noEmit` when practical after code changes.
+- Runtime-test when possible; if not, say why in the report.
+
+## Standard implementation report
+
+End every Studio milestone or infrastructure task with:
+
+| Section | Content |
+|---------|---------|
+| Files Created | list |
+| Files Modified | list |
+| Behavior Changes | expected **None**; explain if not |
+| Runtime Verification | what was tested, or why not |
+| Typecheck | Pass / Fail |
+| Technical Debt Removed | what duplication was eliminated |
+| Ready for Next Phase | Yes / No (+ blocker if No) |
+
+For non-milestone tasks, a shorter report is fine — but still include **Execution State** (below).
+
+## Execution state (required)
+
+Every task **must** terminate in exactly one state:
+
+### COMPLETE
+
+Task finished and ready for review. All in-scope deliverables done; verification reported.
+
+### WAITING
+
+Blocked and requires user input. State what is needed to proceed.
+
+### FAILED
+
+Unable to complete. Explain why and what was attempted.
+
+**Never stop after an analysis step without reporting one of these three states.**
+
+## Quick reference
+
+- Studio Brain: `docs/studio/STUDIO_BRAIN.md`
+- Studio Kernel: `lib/studio/`
+- Department logic: `lib/ops/studio/`
+- Operations Center: Browser+ 2 (`/ops/browser-plus-2`)

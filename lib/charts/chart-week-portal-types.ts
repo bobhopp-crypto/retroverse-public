@@ -1,3 +1,5 @@
+import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
+
 export type ChartWeekPortalRow = {
   position: number;
   trackId: string;
@@ -13,12 +15,14 @@ export type ChartWeekPortalRow = {
   prevPosition: number | null;
   peakHot100: number | null;
   weeksOnChart: number;
+  coverageStatus: TrackCoverageStatus;
 };
 
 export type ChartWeekPortalContext = {
   chartDate: string;
   chartLabel: string;
-  focusPosition: number;
+  /** Null when viewing the full chart (no focus query). */
+  focusPosition: number | null;
   focusTrackId: string | null;
   focusTitle: string | null;
   focusArtist: string | null;

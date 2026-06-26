@@ -1,5 +1,6 @@
 import { cache } from "react";
 
+import { loadTrackCoverageByRvtr } from "@/lib/charts/load-track-coverage-batch";
 import { resolveAlbumCoverUrlFromRow } from "@/lib/artwork/resolve-album-cover-url";
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
 import { displayArtistName, slugFromArtistName } from "@/lib/artist/slug";
@@ -80,7 +81,6 @@ type TrackRow = {
   peak_hot100_position: number | null;
   chart_weeks: number;
   has_hot100: boolean;
-  has_vdj_media: boolean;
 };
 
 async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null> {
@@ -95,7 +95,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
     ? await inspectQuery<TrackRow>(
         `
         SELECT track_id, canonical_title, canonical_artist_name, first_chart_date::text AS first_chart_date,
-               peak_hot100_position, chart_weeks, has_hot100, has_vdj_media
+               peak_hot100_position, chart_weeks, has_hot100
         FROM canonical_track_display
         WHERE upper(trim(track_id)) = upper(trim($1))
            OR upper(trim(coalesce(retroverse_track_id, ''))) = upper(trim($1))
@@ -106,7 +106,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
     : await inspectQuery<TrackRow>(
         `
         SELECT track_id, canonical_title, canonical_artist_name, first_chart_date::text AS first_chart_date,
-               peak_hot100_position, chart_weeks, has_hot100, has_vdj_media
+               peak_hot100_position, chart_weeks, has_hot100
         FROM canonical_track_display
         WHERE lower(regexp_replace(regexp_replace(trim(canonical_title), '[^a-zA-Z0-9]+', '-', 'g'), '(^-+|-+$)', '', 'g'))
               = lower(regexp_replace(regexp_replace(trim($1), '[^a-zA-Z0-9]+', '-', 'g'), '(^-+|-+$)', '', 'g'))
@@ -126,7 +126,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
   const artistSlug = slugFromArtistName(artistName);
   const releaseYear = yearFromDate(track.first_chart_date);
 
-  const [albumRows, chartRows, relatedRows] = await Promise.all([
+  const [albumRows, chartRows, relatedRows, coverageMap] = await Promise.all([
     inspectQuery<{
       title: string;
       release_year: number | null;
@@ -212,6 +212,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
       `,
       [artistName, rvtr],
     ),
+    loadTrackCoverageByRvtr([rvtr]),
   ]);
 
   let resolvedChartRows = chartRows;
@@ -305,7 +306,7 @@ async function loadTrackPageImpl(idParam: string): Promise<TrackPageData | null>
     firstChartDate: track.first_chart_date?.slice(0, 10) ?? null,
     coverUrl,
     hasHot100: track.has_hot100,
-    hasVdjMedia: track.has_vdj_media,
+    hasVdjMedia: coverageMap.get(rvtr) === "owned",
     albums,
     trajectoryWeeks,
     chartRunLabel,

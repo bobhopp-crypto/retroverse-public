@@ -1,0 +1,123 @@
+/* Experience 4.0 — Living Song presentation */
+
+.rv-living {
+  position: relative;
+}
+
+.rv-living__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 1.25rem 0 0.5rem;
+  padding: 0 0.85rem;
+  min-width: 0;
+}
+
+.rv-living__sync-badge {
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(108, 165, 255, 0.92);
+}
+
+.rv-living__return-hint {
+  margin: 0.35rem 0.85rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ff8a65;
+}
+
+.rv-living__opening-eyebrow {
+  margin: 0 0 0.65rem;
+  padding: 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4fd5ff;
+}
+
+.rv-living-chapter--opening.rv-living-chapter--revealed {
+  filter: drop-shadow(0 0 18px rgba(79, 213, 255, 0.12));
+}
+
+.rv-living-chapter {
+  opacity: 0;
+  transform: translateY(14px);
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s ease,
+    max-height 0.85s ease;
+}
+
+.rv-living-chapter--revealed {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: none;
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.rv-living--browse .rv-living-chapter--revealed {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.rv-living--playing .rv-living-chapter--revealed {
+  animation: rv-living-soft-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes rv-living-soft-glow {
+  from {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  to {
+    filter: drop-shadow(0 0 12px rgba(79, 213, 255, 0.08));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-living-chapter,
+  .rv-living-chapter--revealed,
+  .rv-living--playing .rv-living-chapter--revealed {
+    transition: none;
+    animation: none;
+    transform: none;
+  }
+}
+
+.rv-learn-more {
+  margin: 1.5rem 0.85rem 0;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.rv-learn-more__toggle {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #4fd5ff;
+}
+
+.rv-learn-more__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.rv-learn-more__body {
+  padding: 0 0.35rem 1rem;
+}
+
+.rv-learn-more__chapter + .rv-learn-more__chapter {
+  margin-top: 1.25rem;
+}

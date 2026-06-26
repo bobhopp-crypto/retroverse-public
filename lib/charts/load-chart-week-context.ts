@@ -25,9 +25,13 @@ type SliceRow = {
   prev_position: number | null;
   peak_hot100_position: number | null;
   weeks_on_chart: number;
+  has_owned_video: boolean;
+  has_youtube: boolean;
 };
 
 import { movementLabel } from "@/lib/charts/chart-week-movement";
+import { coverageOwnedVideoByGraphTrackIdSql } from "@/lib/charts/coverage-owned-video-sql";
+import { classifyTrackCoverage, type TrackCoverageStatus } from "@/lib/charts/track-coverage";
 
 function pickCoverUrl(...candidates: (string | null | undefined)[]): string | null {
   for (const c of candidates) {
@@ -70,6 +74,7 @@ function mapSliceRow(row: SliceRow): ChartWeekPortalRow {
     prevPosition: row.prev_position,
     peakHot100: row.peak_hot100_position,
     weeksOnChart: row.weeks_on_chart,
+    coverageStatus: classifyTrackCoverage(row.has_owned_video === true, row.has_youtube === true),
   };
 }
 
@@ -103,7 +108,15 @@ const SLICE_SQL = `
     al.title AS album_title,
     prev.prev_position,
     ctd.peak_hot100_position,
-    COALESCE(ca.weeks_on_chart, 0)::int AS weeks_on_chart
+    COALESCE(ca.weeks_on_chart, 0)::int AS weeks_on_chart,
+    ${coverageOwnedVideoByGraphTrackIdSql("t.id", { mtlAlias: "mtl_v", maAlias: "ma_v" })} AS has_owned_video,
+    EXISTS (
+      SELECT 1
+      FROM youtube_video_tracks yvt
+      WHERE upper(trim(yvt.rvtr)) = upper(trim(coalesce(nullif(trim(ct.retroverse_track_id::text), ''), t.id::text)))
+        AND yvt.review_flag IN ('approved', 'pending')
+        AND yvt.confidence IN ('exact', 'high')
+    ) AS has_youtube
   FROM chart_appearances ca
   JOIN tracks t ON t.id = ca.track_id
   JOIN artists ar ON ar.id = t.artist_id
@@ -222,28 +235,45 @@ export async function loadChartWeekContext(params: {
   const chartMin = Math.max(1, bounds.min_pos ?? 1);
   const chartMax = Math.min(100, bounds.max_pos);
 
-  const focus = await resolveFocusPosition(
-    chartDate,
-    params.focusTrackId ?? null,
-    params.rankHint ?? null,
-  );
-  const focusPosition = focus?.chart_position ?? params.rankHint ?? null;
-  if (focusPosition == null || focusPosition < chartMin || focusPosition > chartMax) {
-    return null;
+  const hasFocusHint =
+    Boolean(params.focusTrackId?.trim()) ||
+    (params.rankHint != null && params.rankHint >= 1 && params.rankHint <= 100);
+
+  const focus = hasFocusHint
+    ? await resolveFocusPosition(chartDate, params.focusTrackId ?? null, params.rankHint ?? null)
+    : null;
+
+  let focusPosition: number | null = null;
+  if (hasFocusHint) {
+    focusPosition = focus?.chart_position ?? params.rankHint ?? null;
+    if (focusPosition == null || focusPosition < chartMin || focusPosition > chartMax) {
+      return null;
+    }
   }
 
-  let rangeFrom =
-    params.rangeFrom != null
-      ? Math.max(chartMin, params.rangeFrom)
-      : Math.max(chartMin, focusPosition - radius);
-  let rangeTo =
-    params.rangeTo != null
-      ? Math.min(chartMax, params.rangeTo)
-      : Math.min(chartMax, focusPosition + radius);
+  let rangeFrom: number;
+  let rangeTo: number;
+
+  if (params.rangeFrom != null || params.rangeTo != null) {
+    rangeFrom =
+      params.rangeFrom != null ? Math.max(chartMin, params.rangeFrom) : chartMin;
+    rangeTo = params.rangeTo != null ? Math.min(chartMax, params.rangeTo) : chartMax;
+  } else if (!hasFocusHint) {
+    rangeFrom = chartMin;
+    rangeTo = chartMax;
+  } else {
+    rangeFrom = Math.max(chartMin, focusPosition! - radius);
+    rangeTo = Math.min(chartMax, focusPosition! + radius);
+  }
 
   if (rangeFrom > rangeTo) {
-    rangeFrom = Math.max(chartMin, focusPosition - radius);
-    rangeTo = Math.min(chartMax, focusPosition + radius);
+    if (hasFocusHint && focusPosition != null) {
+      rangeFrom = Math.max(chartMin, focusPosition - radius);
+      rangeTo = Math.min(chartMax, focusPosition + radius);
+    } else {
+      rangeFrom = chartMin;
+      rangeTo = chartMax;
+    }
   }
 
   const slice = await inspectQuery<SliceRow>(SLICE_SQL, [chartDate, rangeFrom, rangeTo]);

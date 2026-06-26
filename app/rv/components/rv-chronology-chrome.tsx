@@ -21,9 +21,10 @@ import "../[year]/rv-year.css";
 type Props = {
   rvYear: number;
   children: React.ReactNode;
+  shellMode?: "legacy" | "rv2";
 };
 
-export function RvChronologyChrome({ rvYear, children }: Props) {
+export function RvChronologyChrome({ rvYear, children, shellMode = "legacy" }: Props) {
   const pathname = usePathname();
   const pathState = useMemo(() => matchRvChronologyPath(pathname), [pathname]);
   const pathMonth = pathState?.month ?? null;
@@ -32,11 +33,11 @@ export function RvChronologyChrome({ rvYear, children }: Props) {
   const searchHref = rvYearHref(rvYear);
 
   return (
-    <div className="rv-year-world">
+    <div className={`rv-year-world${shellMode === "rv2" ? " rv-year-world--rv2" : ""}`}>
       <RvChronologyScrollRestore />
       <div className="rv-year-world__grain" aria-hidden />
 
-      <RvPublicMasthead searchQuery={String(rvYear)} />
+      {shellMode === "legacy" ? <RvPublicMasthead searchQuery={String(rvYear)} /> : null}
 
       {pathMonth != null ? (
         <nav className="rv-chronology-crumb" aria-label="Where you are">
@@ -75,10 +76,12 @@ export function RvChronologyChrome({ rvYear, children }: Props) {
 
       <RvYearNavBand rvYear={rvYear} showYearHome />
 
-      <footer className="rv-year-footer">
-        <Link href="/">← Home</Link>
-        <Link href={searchHref}>Search music</Link>
-      </footer>
+      {shellMode === "legacy" ? (
+        <footer className="rv-year-footer">
+          <Link href="/">← Home</Link>
+          <Link href={searchHref}>Search music</Link>
+        </footer>
+      ) : null}
     </div>
   );
 }

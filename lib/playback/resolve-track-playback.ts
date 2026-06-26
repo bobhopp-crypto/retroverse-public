@@ -1,18 +1,22 @@
+import { existsSync } from "node:fs";
 import { cache } from "react";
 
 import { inspectPing, inspectQuery } from "@/lib/inspect/pg";
+import { isOpsPlayableVideoPath, opsVideoMediaAndClause } from "@/lib/ops/ops-video-media";
 
-import type { PlaybackResolveResult, PlaybackTarget } from "./types";
-
-function youtubeWatchUrl(youtubeId: string): string {
-  return `https://www.youtube.com/watch?v=${youtubeId}`;
-}
+import {
+  buildLocalStreamUrl,
+  mediaKeyToStreamUrl,
+  youtubeEmbedUrl,
+} from "./media-delivery";
+import type { PlaybackProvider, PlaybackResolveResult, PlaybackTarget } from "./types";
 
 const RE_RVTR = /^RVTR\d{6}$/i;
 
-function youtubeSearchUrl(artist: string, title: string): string {
-  const q = `${artist} ${title}`.trim() || title.trim() || "music";
-  return `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
+function performanceLabel(provider: PlaybackProvider): "Play" | "Watch Performance" {
+  return provider === "youtube" || provider === "vimeo" || provider === "archive"
+    ? "Watch Performance"
+    : "Play";
 }
 
 async function resolveTrackPlaybackImpl(
@@ -29,10 +33,9 @@ async function resolveTrackPlaybackImpl(
     inspectQuery<{
       canonical_title: string;
       canonical_artist_name: string;
-      has_vdj_media: boolean;
     }>(
       `
-      SELECT canonical_title, canonical_artist_name, has_vdj_media
+      SELECT canonical_title, canonical_artist_name
       FROM canonical_track_display
       WHERE upper(trim(track_id)) = upper(trim($1))
          OR upper(trim(coalesce(retroverse_track_id, ''))) = upper(trim($1))
@@ -57,13 +60,18 @@ async function resolveTrackPlaybackImpl(
       `,
       [rvtr],
     ).catch(() => [] as { youtube_id: string; title: string | null }[]),
-    inspectQuery<{ media_asset_id: number; r2_media_key: string | null; source_path: string | null }>(
+    inspectQuery<{
+      media_asset_id: number;
+      r2_media_key: string | null;
+      source_path: string | null;
+    }>(
       `
       SELECT ma.id AS media_asset_id, ma.r2_media_key, ma.source_path
       FROM media_track_links mtl
       JOIN media_assets ma ON ma.id = mtl.media_asset_id
       JOIN canonical_track_display ctd ON ctd.track_id::text = mtl.track_id::text
       WHERE upper(trim(coalesce(ctd.retroverse_track_id, ctd.track_id))) = upper(trim($1))
+      ${opsVideoMediaAndClause("ma")}
       ORDER BY mtl.confidence_score DESC NULLS LAST, ma.id ASC
       LIMIT 1
       `,
@@ -74,36 +82,44 @@ async function resolveTrackPlaybackImpl(
   const track = trackRows[0];
   const title = track?.canonical_title?.trim() || fallback?.title?.trim() || rvtr;
   const artist = track?.canonical_artist_name?.trim() || fallback?.artist?.trim() || "";
-  const hasVdjMedia = track?.has_vdj_media === true || mediaRows.length > 0;
+  const hasVdjMedia = mediaRows.length > 0;
 
   let target: PlaybackTarget | null = null;
 
+  const media = mediaRows[0];
+  if (media) {
+    const localPath = media.source_path?.trim();
+    if (localPath && isOpsPlayableVideoPath(localPath) && existsSync(localPath)) {
+      target = {
+        provider: "vdj_local",
+        streamUrl: buildLocalStreamUrl(rvtr, media.media_asset_id),
+        mediaAssetId: media.media_asset_id,
+      };
+    } else {
+      const hosted = mediaKeyToStreamUrl(media.r2_media_key);
+      if (hosted) {
+        target = {
+          provider: "mp4",
+          streamUrl: hosted,
+          mediaAssetId: media.media_asset_id,
+        };
+      }
+    }
+  }
+
   const yt = youtubeRows[0];
-  if (yt?.youtube_id) {
+  if (!target && yt?.youtube_id) {
     target = {
-      source: "youtube",
-      url: youtubeWatchUrl(yt.youtube_id),
+      provider: "youtube",
+      embedUrl: youtubeEmbedUrl(yt.youtube_id),
       youtubeId: yt.youtube_id,
     };
   }
 
-  const media = mediaRows[0];
-  if (!target && media?.r2_media_key?.trim()) {
-    target = {
-      source: "media_asset",
-      url: media.r2_media_key.trim(),
-      mediaAssetId: media.media_asset_id,
-    };
-  }
+  const canPlay = Boolean(target);
+  const playLabel = target ? performanceLabel(target.provider) : "Play";
 
-  if (!target) {
-    target = {
-      source: "search",
-      url: youtubeSearchUrl(artist, title),
-    };
-  }
-
-  return { rvtr, title, artist, target, hasVdjMedia };
+  return { rvtr, title, artist, target, hasVdjMedia, canPlay, playLabel };
 }
 
 export const resolveTrackPlayback = cache(resolveTrackPlaybackImpl);

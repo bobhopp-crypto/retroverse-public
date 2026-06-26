@@ -33,7 +33,7 @@ type Props = {
 
 export function IntelligenceRunLivePanel({
   initialProgress,
-  title = "Overnight Song Package Build",
+  title = "Overnight Research Build",
   idleCommand = "npm run intelligence:overnight-build",
   apiPath = "/api/ops/intelligence/runs/current/progress",
   recentLimit = 25,

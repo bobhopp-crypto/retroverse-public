@@ -1,5 +1,7 @@
 .rv2-song {
   padding-bottom: 1.5rem;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 .rv2-song .rv2-live__search-panel {
@@ -28,6 +30,16 @@
   font-size: 0.58rem;
 }
 
+.rv2-song__chart-journey {
+  width: 100%;
+  max-width: 72rem;
+  margin: 2.25rem auto 0;
+  padding-inline: 0.85rem;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-x: clip;
+}
+
 .rv2-song__hero,
 .rv2-song__section,
 .rv2-song__explore,
@@ -48,15 +60,17 @@
 
 .rv2-song__hero {
   display: grid;
-  gap: 0.48rem;
+  gap: 0.55rem;
   min-height: auto;
   align-content: start;
-  padding: 0.6rem;
+  padding: 0.75rem 0.85rem 0;
+  overflow-x: clip;
 }
 
 .rv2-song__hero-top {
   display: grid;
-  gap: 0.42rem;
+  gap: 0.35rem;
+  min-width: 0;
 }
 
 .rv2-song__hero-copy {
@@ -68,26 +82,59 @@
 }
 
 .rv2-song__hero h1 {
-  margin: 0.28rem 0 0;
-  max-width: 10ch;
+  margin: 0;
+  max-width: none;
   color: var(--rv2-ink);
-  font-size: clamp(2.55rem, 15vw, 5.35rem);
-  line-height: 0.88;
-  letter-spacing: -0.07em;
+  font-size: clamp(3rem, 12vw, 5.35rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .rv2-song__artist {
-  margin: 0.38rem 0 0;
+  margin: 0.2rem 0 0;
   color: #d7e6ff;
-  font-size: clamp(1.12rem, 5.4vw, 1.6rem);
+  font-size: clamp(1.05rem, 4.8vw, 1.6rem);
   font-weight: 850;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .rv2-song__year {
-  margin: 0.14rem 0 0;
+  margin: 0.08rem 0 0;
   color: #6ca5ff;
-  font-size: clamp(1.35rem, 7vw, 2rem);
+  font-size: clamp(1.15rem, 5.5vw, 2rem);
   font-weight: 950;
+  line-height: 1.1;
+}
+
+/* RVBR exhibit content — Retroverse blue UI unchanged */
+.rv2-song__exhibit-kicker {
+  margin: 0 0 0.2rem;
+  color: var(--rv2-cyan);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.rv2-song__exhibit-atmosphere {
+  margin: 0.35rem 0 0;
+  max-width: 36rem;
+  color: var(--rv2-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.rv2-song__exhibit-artifact {
+  margin: 0.25rem 0 0;
+  color: var(--rv2-muted);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .rv2-song__hero-flags {
@@ -111,12 +158,23 @@
 }
 
 .rv2-song__badge {
-  border: 1px solid rgba(231, 189, 103, 0.6);
-  background: linear-gradient(180deg, rgba(231, 189, 103, 0.34), rgba(97, 70, 26, 0.58));
-  color: #ffe7a8;
+  display: none;
+}
+
+.rv2-song__hero-stage,
+.rv2-song__hero-side,
+.rv2-song__about-card,
+.rv2-song__hero-stats,
+.rv2-song__moments,
+.rv2-song__experience {
+  display: none;
 }
 
 .rv2-song__data-button {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
   border: 1px solid rgba(92, 149, 255, 0.52);
   background: rgba(2, 10, 24, 0.54);
   color: var(--rv2-cyan);
@@ -130,28 +188,14 @@
 
 .rv2-song__hero-art-col {
   display: grid;
-  gap: 0.48rem;
+  gap: 0;
+  width: 100%;
 }
 
-.rv2-song__youtube-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.rv2-song__video-player {
   width: 100%;
-  min-height: 3.4rem;
-  padding: 0.9rem 1.1rem;
-  border: 2px solid rgba(255, 88, 88, 0.82);
-  border-radius: 0.55rem;
-  background: linear-gradient(180deg, rgba(255, 52, 52, 0.94), rgba(168, 18, 18, 0.96));
-  box-shadow: 0 10px 28px rgba(168, 18, 18, 0.38);
-  color: #fff;
-  font-size: clamp(1rem, 4.2vw, 1.15rem);
-  font-weight: 950;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
+  max-width: min(100%, 18rem);
+  margin-inline: auto;
 }
 
 .rv2-song__art-wrap {
@@ -453,52 +497,36 @@
   }
 
   .rv2-song__hero {
-    padding: 0.75rem;
-    gap: 0.65rem;
+    padding: 0.65rem 0.85rem 0;
+    gap: 0.45rem;
   }
 
   .rv2-song__hero-top {
-    gap: 0.55rem;
-  }
-
-  .rv2-song__hero-copy .rv2-live__kicker {
-    display: block;
-    margin: 0;
-    font-size: 0.72rem;
+    gap: 0.25rem;
   }
 
   .rv2-song__hero h1 {
-    max-width: none;
-    font-size: clamp(2.1rem, 10vw, 3.4rem);
+    font-size: clamp(3rem, 11vw, 3.4rem);
     line-height: 0.92;
   }
 
   .rv2-song__artist {
-    font-size: clamp(1.35rem, 5.8vw, 1.75rem);
+    margin-top: 0.15rem;
+    font-size: clamp(1.05rem, 4.8vw, 1.35rem);
   }
 
   .rv2-song__year {
-    font-size: clamp(1.5rem, 7.5vw, 2.1rem);
+    margin-top: 0.05rem;
+    font-size: clamp(1.1rem, 5vw, 1.45rem);
   }
 
   .rv2-song__hero-flags {
     display: none;
   }
 
-  .rv2-song__hero-stage,
-  .rv2-song__hero-art-col {
-    gap: 0.65rem;
-  }
-
-  .rv2-song__art-wrap {
-    max-width: min(100%, 22rem);
-    margin-inline: auto;
-    border-radius: 0.65rem;
-  }
-
-  .rv2-song__youtube-cta {
-    min-height: 3.65rem;
-    font-size: clamp(1.05rem, 4.8vw, 1.22rem);
+  .rv2-song__video-player {
+    max-width: min(100%, 16.5rem);
+    margin-top: 0.15rem;
   }
 
   .rv2-song__about-card {
@@ -592,11 +620,6 @@
 
   .rv2-song__hero-stage {
     grid-template-columns: minmax(15rem, 42%) minmax(0, 1fr);
-  }
-
-  .rv2-song__youtube-cta {
-    min-height: 2.75rem;
-    font-size: 0.82rem;
   }
 
   .rv2-song__hero-stats {

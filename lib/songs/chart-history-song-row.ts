@@ -1,3 +1,5 @@
+import type { TrackCoverageStatus } from "@/lib/charts/track-coverage";
+
 /** Shared song-row props — chart-history list contexts across Retroverse. */
 export type ChartHistorySongRowData = {
   rvtr: string;
@@ -8,6 +10,7 @@ export type ChartHistorySongRowData = {
   firstChartYear: number | null;
   firstChartDate?: string | null;
   inLibrary?: boolean;
+  coverageStatus?: TrackCoverageStatus;
   /** Optional override for album or neighborhood contexts. */
   metaLine?: string;
 };

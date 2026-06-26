@@ -1,4 +1,21 @@
-export type BrowserPlusMode = "library" | "retroverse" | "work";
+export type BrowserPlusMatchRow = {
+  rvtr: string;
+  title: string;
+  artistName: string;
+  chartYear: number | null;
+  chartStatus: string;
+  packageStatus: string;
+  matchScore: number | null;
+};
+
+export type BrowserPlusMatchPanelData = {
+  artist: string;
+  title: string;
+  artistMatches: BrowserPlusMatchRow[];
+  suggestedMatches: BrowserPlusMatchRow[];
+};
+
+export type BrowserPlusMode = "my-videos" | "retroverse" | "missing";
 
 export type BrowserPlusColumnId =
   | "icon"
@@ -59,6 +76,7 @@ export type BrowserPlusWorkStatus =
   | "Complete";
 
 export type BrowserPlusSavedFilterId =
+  | "unmatched"
   | "missing-rvtr"
   | "missing-cover"
   | "missing-file"
@@ -190,6 +208,13 @@ export type BrowserPlusStats = {
     missing: number;
     missingRate: number;
   }>;
+  /** DJ MEDIA/VIDEO rows only (excludes MUSIC + VIDEO VAULT). */
+  videoCoverage: {
+    total: number;
+    matched: number;
+    unmatched: number;
+    coveragePct: number;
+  };
 };
 
 export type BrowserPlusModel = {
@@ -200,7 +225,41 @@ export type BrowserPlusModel = {
   virtualDjRunning: boolean;
   readOnly: true;
   rows: BrowserPlusRow[];
+  gapRows: BrowserPlusRow[];
   folders: BrowserPlusFolderNode[];
   columns: BrowserPlusColumn[];
   stats: BrowserPlusStats;
+  chartCoverage: {
+    hot100RvtrCount: number;
+    videoHot100Count: number;
+    gapCount: number;
+    myVideoRows: number;
+    myVideoRvtrs: number;
+  };
+  collectionCoverage: {
+    library: {
+      owned: number;
+      youtube: number;
+      missing: number;
+      total: number;
+      coveragePct: number;
+    };
+    byYear: Array<{
+      year: number;
+      owned: number;
+      youtube: number;
+      missing: number;
+      total: number;
+      coveragePct: number;
+    }>;
+    byArtist: Array<{
+      artistName: string;
+      slug: string;
+      owned: number;
+      youtube: number;
+      missing: number;
+      total: number;
+      coveragePct: number;
+    }>;
+  } | null;
 };

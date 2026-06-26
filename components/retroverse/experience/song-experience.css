@@ -1,0 +1,452 @@
+/* Experience 2.4 — Mobile typography & layout polish */
+
+.rv2-song,
+.rv2-song__experience-flow {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.rv-exp-chapter {
+  width: 100%;
+  max-width: 72rem;
+  margin: 2.75rem auto 0;
+  padding: 0 0.85rem;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.rv-exp-chapter__head {
+  margin-bottom: 1.35rem;
+  min-width: 0;
+}
+
+.rv-exp-chapter h2 {
+  margin: 0;
+  font-size: clamp(2.125rem, 6.5vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* The Story */
+.rv-exp-story__cards {
+  display: grid;
+  gap: 1.75rem;
+  min-width: 0;
+}
+
+.rv-exp-story__card {
+  min-width: 0;
+  padding: 0 0.15rem 1.75rem;
+  border-bottom: 1px solid rgba(92, 149, 255, 0.22);
+  max-width: 42rem;
+}
+
+.rv-exp-story__card:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.rv-exp-story__card h3 {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.5rem, 4.2vw, 1.75rem);
+  font-weight: 850;
+  line-height: 1.2;
+  color: #e8f0ff;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-story__body {
+  margin: 0;
+  font-size: clamp(1.125rem, 3.8vw, 1.28rem);
+  font-weight: 600;
+  line-height: 1.55;
+  color: #dbe8ff;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-story__context {
+  margin: 0.85rem 0 0;
+  font-size: clamp(0.95rem, 3.2vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgba(196, 214, 255, 0.78);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-story__media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 0 0 1rem;
+}
+
+.rv-exp-story__figure {
+  margin: 0;
+  max-width: min(100%, 12rem);
+}
+
+.rv-exp-story__media-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid rgba(92, 149, 255, 0.35);
+  border-radius: 0.35rem;
+}
+
+.rv-exp-story__figure figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: rgba(196, 214, 255, 0.75);
+}
+
+.rv-exp-story__label-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(92, 149, 255, 0.45);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9ec4ff;
+}
+
+/* Beyond the Charts */
+.rv-exp-beyond__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+  min-width: 0;
+}
+
+.rv-exp-beyond__item {
+  display: grid;
+  grid-template-columns: 3.25rem 0.85rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.rv-exp-beyond__year {
+  flex-shrink: 0;
+  min-width: 3.25rem;
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  font-weight: 900;
+  text-align: right;
+  color: #6ca5ff;
+  font-variant-numeric: tabular-nums;
+}
+
+.rv-exp-beyond__dot {
+  flex-shrink: 0;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-top: 0.35rem;
+  border: 2px solid rgba(92, 149, 255, 0.45);
+  border-radius: 50%;
+  background: rgba(79, 213, 255, 0.55);
+}
+
+.rv-exp-beyond__copy {
+  min-width: 0;
+}
+
+.rv-exp-beyond__copy strong {
+  display: block;
+  font-size: clamp(1rem, 3.8vw, 1.15rem);
+  font-weight: 850;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-beyond__copy p {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1rem, 3.4vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgba(219, 232, 255, 0.88);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Discover More */
+.rv-exp-discover__shelves {
+  display: grid;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.rv-exp-discover__shelf {
+  min-width: 0;
+}
+
+.rv-exp-discover__shelf h3 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1rem, 3.8vw, 1.2rem);
+  font-weight: 850;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-discover__rail {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.35rem;
+  display: flex;
+  gap: 0.65rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  min-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.rv-exp-discover__rail::-webkit-scrollbar {
+  display: none;
+}
+
+.rv-exp-discover__rail > li {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.rv-exp-discover__card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(6.5rem, 28vw, 8.5rem);
+  min-height: 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.rv-exp-discover__cover-wrap {
+  display: block;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(92, 149, 255, 0.35);
+  border-radius: 0.4rem;
+  background: linear-gradient(145deg, #112a5d, #07142c);
+}
+
+.rv-exp-discover__cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rv-exp-discover__cover--empty {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(79, 213, 255, 0.15), transparent 50%),
+    linear-gradient(145deg, #112a5d, #07142c);
+}
+
+.rv-exp-discover__title {
+  display: -webkit-box;
+  flex: 1 1 auto;
+  margin-top: 0;
+  min-height: 2.5em;
+  font-size: clamp(0.72rem, 3vw, 0.82rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #e8f0ff;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-discover__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.45rem;
+  min-width: 0;
+}
+
+.rv-exp-discover__reason,
+.rv-exp-discover__card-reason {
+  font-size: clamp(0.65rem, 2.6vw, 0.72rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: rgba(108, 165, 255, 0.9);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-discover__reason {
+  margin: 0.35rem 0 0;
+}
+
+.rv-exp-discover__card-reason {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: rgba(156, 196, 255, 0.78);
+}
+
+/* Behind the Story */
+.rv-exp-behind__details {
+  min-width: 0;
+  border: 1px solid rgba(92, 149, 255, 0.28);
+  border-radius: 0.55rem;
+  background: rgba(2, 10, 24, 0.35);
+}
+
+.rv-exp-behind__summary {
+  display: grid;
+  gap: 0.15rem;
+  min-height: 2.75rem;
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+  min-width: 0;
+}
+
+.rv-exp-behind__summary::-webkit-details-marker {
+  display: none;
+}
+
+.rv-exp-behind__summary h2 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-behind__hint {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(196, 214, 255, 0.65);
+}
+
+.rv-exp-behind__body {
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid rgba(92, 149, 255, 0.2);
+  min-width: 0;
+}
+
+.rv-exp-behind__group + .rv-exp-behind__group {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(92, 149, 255, 0.15);
+}
+
+.rv-exp-behind__group h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-behind__group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.rv-exp-behind__entry {
+  min-width: 0;
+}
+
+.rv-exp-behind__entry summary {
+  min-height: 2.75rem;
+  padding: 0.35rem 0;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: rgba(219, 232, 255, 0.9);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.rv-exp-behind__entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-top: 0.45rem;
+  padding-left: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(196, 214, 255, 0.75);
+  min-width: 0;
+}
+
+.rv-exp-behind__entry-meta a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--rv2-cyan, #4fd5ff);
+}
+
+.rv2-song__experience-flow {
+  display: grid;
+  gap: 0;
+  padding-bottom: 2rem;
+  min-width: 0;
+}
+
+.rv2-song__chart-journey {
+  margin-top: 2.25rem;
+}
+
+@media (min-width: 720px) {
+  .rv-exp-chapter {
+    padding: 0 1.25rem;
+  }
+
+  .rv-exp-story__cards {
+    gap: 2.25rem;
+  }
+
+  .rv-exp-story__card {
+    padding-inline: 0.25rem;
+  }
+}
+
+@media (max-width: 719px) {
+  .rv-exp-chapter {
+    margin-top: 2.25rem;
+  }
+
+  .rv-exp-beyond__item {
+    grid-template-columns: 3rem 0.75rem minmax(0, 1fr);
+  }
+
+  .rv-exp-beyond__year {
+    min-width: 3rem;
+    font-size: 0.95rem;
+  }
+}

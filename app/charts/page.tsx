@@ -16,14 +16,20 @@ function firstParam(value: string | string[] | undefined): string | undefined {
   return value;
 }
 
-/** Legacy chart explorer — redirect into canonical `/rv` chronology routes. */
+/** Legacy chart explorer — hub or redirect into canonical `/rv` chronology routes. */
 export default async function ChartsPage({ searchParams }: Props) {
   const sp = await searchParams;
+  const year = firstParam(sp.year);
+  const month = firstParam(sp.month);
+  const week = firstParam(sp.week);
+  if (!year && !month && !week) {
+    redirect("/retroverse-2/charts");
+  }
   redirect(
     chartsQueryToRvPath({
-      year: firstParam(sp.year),
-      month: firstParam(sp.month),
-      week: firstParam(sp.week),
+      year,
+      month,
+      week,
     }),
   );
 }

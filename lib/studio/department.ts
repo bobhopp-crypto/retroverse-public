@@ -11,7 +11,12 @@ export type StudioDepartmentId =
   | "quality-control";
 
 /** Kernel infrastructure departments (not all have Studio UI pages yet). */
-export type StudioKernelDepartmentId = StudioDepartmentId | "ai" | "scheduler";
+export type StudioKernelDepartmentId =
+  | StudioDepartmentId
+  | "ai"
+  | "scheduler"
+  | "research"
+  | "archive";
 
 export type DepartmentBoundary = {
   /** Short rule enforced by architecture — not runtime-enforced in Phase 0. */
@@ -50,6 +55,10 @@ export const DEPARTMENT_BOUNDARIES: Record<StudioKernelDepartmentId, DepartmentB
   "quality-control": { never: ["create content", "publish"] },
   ai: { never: ["business logic", "direct queue drain without Scheduler"] },
   scheduler: { never: ["business logic", "package mutation"] },
+  research: {
+    never: ["replace Studio Alpha packages without approved migration", "publish"],
+  },
+  archive: { never: ["mutate canonical graph", "bypass department contracts"] },
 };
 
 const DEFAULT_PLACEHOLDERS: StudioDepartmentPlaceholders = {

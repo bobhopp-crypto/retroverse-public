@@ -176,7 +176,7 @@ export function IntelligenceReviewClient({ rvtr }: Props) {
         setTab("cards");
         setCardIndex(0);
       }
-      setMessage(data.ok ? "Cards built." : data.error ?? "Failed.");
+      setMessage(data.ok ? "Experience content built." : data.error ?? "Failed.");
     } finally {
       setBusy(false);
     }
@@ -187,7 +187,7 @@ export function IntelligenceReviewClient({ rvtr }: Props) {
     setMessage(null);
     try {
       const data = await apiPatch({ action: "approve" });
-      setMessage(data.ok ? "Package approved." : data.error ?? "Failed.");
+      setMessage(data.ok ? "Research approved." : data.error ?? "Failed.");
     } finally {
       setBusy(false);
     }
@@ -235,7 +235,7 @@ export function IntelligenceReviewClient({ rvtr }: Props) {
     setMessage(null);
     try {
       const data = await apiPatch({ storyCards: song.storyCards });
-      setMessage(data.ok ? "Cards saved." : data.error ?? "Failed.");
+      setMessage(data.ok ? "Story saved." : data.error ?? "Failed.");
     } finally {
       setBusy(false);
     }
@@ -281,7 +281,7 @@ export function IntelligenceReviewClient({ rvtr }: Props) {
             className={`intel-tabs__btn${tab === t ? " intel-tabs__btn--active" : ""}`}
             onClick={() => setTab(t)}
           >
-            {t === "facts" ? "Facts" : t === "stories" ? "Stories" : "Cards"}
+            {t === "facts" ? "Facts" : t === "stories" ? "Stories" : "Story"}
           </button>
         ))}
       </nav>
@@ -452,16 +452,16 @@ export function IntelligenceReviewClient({ rvtr }: Props) {
           Save Review
         </button>
         <button type="button" className="intel-review__btn" disabled={busy} onClick={buildCards}>
-          Build Cards
+          Build Experience
         </button>
         {cards.length > 0 ? (
           <button type="button" className="intel-review__btn" disabled={busy} onClick={saveCards}>
-            Save Cards
+            Save Story
           </button>
         ) : null}
         {pkg.status === "cards_ready" || pkg.status === "review" ? (
           <button type="button" className="intel-review__btn" disabled={busy} onClick={approvePackage}>
-            Approve Package
+            Approve Research
           </button>
         ) : null}
         <button type="button" className="intel-review__btn" disabled={busy} onClick={runProcess}>

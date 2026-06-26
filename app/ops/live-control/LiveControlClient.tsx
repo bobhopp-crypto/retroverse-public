@@ -367,10 +367,10 @@ export function LiveControlClient({ initial }: { initial: StatusResponse }) {
             <label>
               <input
                 type="checkbox"
-                checked={config.hasDeck}
-                onChange={(event) => setConfig((current) => ({ ...current, hasDeck: event.currentTarget.checked }))}
+                checked={config.hasExperience}
+                onChange={(event) => setConfig((current) => ({ ...current, hasExperience: event.currentTarget.checked }))}
               />
-              Has Song Deck
+              Song Experience Ready
             </label>
             <label>
               <input

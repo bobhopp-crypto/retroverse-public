@@ -1,8 +1,12 @@
 /**
  * Director 0.2 — frozen contract.
+ *
+ * Reads `DirectorEditorialPackage` via director-handoff artifact only — never Collector.
  */
 
-export { DIRECTOR_PLAN_VERSION } from "@/lib/studio/package";
+export { DIRECTOR_PLAN_VERSION, DIRECTOR_RENDER_SPEC_VERSION } from "@/lib/studio/package";
+
+export type { StudioContractDepartmentId, DepartmentContract } from "@/lib/studio/contract";
 
 export type {
   DirectorPackage,

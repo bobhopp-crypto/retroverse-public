@@ -1,6 +1,11 @@
 import { slugFromArtistName } from "@/lib/artist/slug";
-import { loadDeckIndex } from "@/lib/ops/intelligence/deck-index";
-import { loadSongPackageIndex, normalizePackageRvtr } from "@/lib/ops/intelligence/song-package-store";
+import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
+import {
+  loadSongPackage,
+  loadSongPackageIndex,
+  normalizePackageRvtr,
+} from "@/lib/ops/intelligence/song-package-store";
+import { isSongExperienceRenderable } from "@/lib/ops/intelligence/song-experience-renderability";
 import { trackPageHref } from "@/lib/search/entity-routes";
 import type {
   LiveExperienceAction,
@@ -20,18 +25,28 @@ export type LiveExperienceShellModel = {
   primaryLabel: string;
 };
 
-function actionSet(rvtr: string | null, artist: string, hasPackage: boolean, hasDeck: boolean): LiveExperienceAction[] {
+function actionSet(
+  rvtr: string | null,
+  artist: string,
+  hasPackage: boolean,
+  experienceReady: boolean,
+): LiveExperienceAction[] {
+  const experienceHref = rvtr && experienceReady ? liveSongExperienceHref(rvtr) : null;
   return [
     { label: "Story", href: rvtr && hasPackage ? `/rvtr/${rvtr}/song-sheet` : null },
-    { label: "Deck", href: rvtr && hasDeck ? `/rvtr/${rvtr}/deck` : null },
+    { label: "Song", href: experienceHref },
     { label: "Chart", href: rvtr ? trackPageHref(rvtr) : null },
     { label: "Artist", href: artist.trim() ? `/artist/${slugFromArtistName(artist)}` : null },
     { label: "Live", href: "/live" },
   ];
 }
 
-function statusFor(rvtr: string | null, hasPackage: boolean, hasDeck: boolean): LiveExperienceStatus {
-  if (hasDeck && hasPackage) return "Deck";
+function statusFor(
+  rvtr: string | null,
+  hasPackage: boolean,
+  experienceReady: boolean,
+): LiveExperienceStatus {
+  if (experienceReady && hasPackage) return "Experience";
   if (hasPackage) return "Package";
   if (rvtr) return "Track";
   return "Fallback";
@@ -39,19 +54,22 @@ function statusFor(rvtr: string | null, hasPackage: boolean, hasDeck: boolean): 
 
 function primaryFor(status: LiveExperienceStatus, rvtr: string | null): { href: string | null; label: string } {
   if (!rvtr) return { href: null, label: "Now Playing" };
-  if (status === "Deck") return { href: `/rvtr/${rvtr}/deck`, label: "Open Deck" };
+  if (status === "Experience") return { href: liveSongExperienceHref(rvtr), label: "Open Song Experience" };
   if (status === "Package") return { href: `/rvtr/${rvtr}/song-sheet`, label: "Open Story" };
   return { href: trackPageHref(rvtr), label: "Open Chart" };
 }
 
-async function availability(rvtr: string | null): Promise<{ hasPackage: boolean; hasDeck: boolean }> {
+async function availability(rvtr: string | null): Promise<{ hasPackage: boolean; experienceReady: boolean }> {
   const normalized = rvtr ? normalizePackageRvtr(rvtr) : null;
-  if (!normalized) return { hasPackage: false, hasDeck: false };
+  if (!normalized) return { hasPackage: false, experienceReady: false };
 
-  const [packageIndex, deckIndex] = await Promise.all([loadSongPackageIndex(), loadDeckIndex()]);
+  const [packageIndex, pkg] = await Promise.all([
+    loadSongPackageIndex(),
+    loadSongPackage(normalized).catch(() => null),
+  ]);
   return {
     hasPackage: packageIndex.packages.some((entry) => normalizePackageRvtr(entry.rvtr) === normalized),
-    hasDeck: deckIndex.decks.some((entry) => normalizePackageRvtr(entry.rvtr) === normalized),
+    experienceReady: Boolean(pkg && isSongExperienceRenderable(pkg.status)),
   };
 }
 
@@ -64,8 +82,8 @@ export async function buildLiveExperienceShellModel(input: {
   activeTab: LiveExperienceTab;
 }): Promise<LiveExperienceShellModel> {
   const rvtr = input.rvtr ? normalizePackageRvtr(input.rvtr) : null;
-  const { hasPackage, hasDeck } = await availability(rvtr);
-  const status = statusFor(rvtr, hasPackage, hasDeck);
+  const { hasPackage, experienceReady } = await availability(rvtr);
+  const status = statusFor(rvtr, hasPackage, experienceReady);
   const primary = primaryFor(status, rvtr);
 
   return {
@@ -78,7 +96,7 @@ export async function buildLiveExperienceShellModel(input: {
     },
     status,
     activeTab: input.activeTab,
-    actions: actionSet(rvtr, input.artist, hasPackage, hasDeck),
+    actions: actionSet(rvtr, input.artist, hasPackage, experienceReady),
     primaryHref: primary.href,
     primaryLabel: primary.label,
   };

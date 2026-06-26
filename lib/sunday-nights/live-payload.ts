@@ -1,15 +1,15 @@
 import type { LiveControlState } from "@/lib/live-control/types";
 import { liveSongExperienceHref } from "@/lib/live-control/experience-route";
 import { loadTrackPage, type TrackPageData } from "@/lib/track/load-track-page";
-import { loadDeckIndex } from "@/lib/ops/intelligence/deck-index";
 import {
   loadSongPackageIndex,
   normalizePackageRvtr,
 } from "@/lib/ops/intelligence/song-package-store";
+import { isSongExperienceRenderable } from "@/lib/ops/intelligence/song-experience-renderability";
 
 import type { SundayNightsLiveSelection, SundayNightsState } from "./types";
 
-export type LiveDestinationKind = "EXPERIENCE" | "DECK" | "PACKAGE" | "TRACK";
+export type LiveDestinationKind = "EXPERIENCE" | "PACKAGE" | "TRACK";
 
 export type LiveDestination = {
   kind: LiveDestinationKind;
@@ -48,20 +48,8 @@ export async function resolveLiveDestination(
     return destination;
   }
 
-  const [packageIndex, deckIndex] = await Promise.all([
-    loadSongPackageIndex(),
-    loadDeckIndex(),
-  ]);
-  const pkg = packageIndex.packages.find((entry) => normalizePackageRvtr(entry.rvtr) === rvtr) ?? null;
-  const hasDeck = deckIndex.decks.some((entry) => normalizePackageRvtr(entry.rvtr) === rvtr);
-
   const experienceHref = liveSongExperienceHref(rvtr);
-  const destination =
-    hasDeck && pkg
-      ? ({ kind: "EXPERIENCE", href: experienceHref } satisfies LiveDestination)
-      : pkg
-        ? ({ kind: "EXPERIENCE", href: experienceHref } satisfies LiveDestination)
-        : ({ kind: "EXPERIENCE", href: experienceHref } satisfies LiveDestination);
+  const destination = { kind: "EXPERIENCE", href: experienceHref } satisfies LiveDestination;
 
   logDestination(rvtr, destination);
   return destination;
@@ -95,4 +83,13 @@ export async function buildSundayNightsCurrentPayload(
         }
       : null,
   };
+}
+
+/** Whether the RVTR has a patron-renderable Song Experience (package published or in review). */
+export async function hasSongExperience(rvtrParam: string): Promise<boolean> {
+  const rvtr = normalizePackageRvtr(rvtrParam);
+  if (!rvtr) return false;
+  const packageIndex = await loadSongPackageIndex();
+  const entry = packageIndex.packages.find((pkg) => normalizePackageRvtr(pkg.rvtr) === rvtr);
+  return Boolean(entry && isSongExperienceRenderable(entry.status));
 }

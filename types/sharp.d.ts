@@ -1,8 +1,38 @@
 declare module "sharp" {
+  interface SharpChannelStats {
+    min: number;
+    max: number;
+    sum: number;
+    squaresSum: number;
+    mean: number;
+    stdev: number;
+    minX: number;
+    minY: number;
+    maxX: number;
+    maxY: number;
+  }
+
+  interface SharpStats {
+    channels: SharpChannelStats[];
+    isOpaque: boolean;
+    entropy: number;
+    sharpness: number;
+    dominant: { r: number; g: number; b: number };
+  }
+
+  interface SharpMetadata {
+    width?: number;
+    height?: number;
+    format?: string;
+  }
+
   interface SharpInstance {
     extract(region: { left: number; top: number; width: number; height: number }): SharpInstance;
     ensureAlpha(): SharpInstance;
     raw(): SharpInstance;
+    grayscale(): SharpInstance;
+    metadata(): Promise<SharpMetadata>;
+    stats(): Promise<SharpStats>;
     resize(
       width: number,
       height: number,

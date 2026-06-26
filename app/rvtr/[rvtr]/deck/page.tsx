@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { rvtr } = await params;
   const deck = await loadPerformanceDeck(rvtr);
   if (!deck) {
-    return { title: "Performance Deck - RetroVerse" };
+    return { title: "Song Experience - RetroVerse" };
   }
 
   return {
-    title: `${deck.title} - ${deck.artist} - Performance Deck`,
+    title: `${deck.title} - ${deck.artist} - Song Experience`,
     description: `Swipe through the live Retroverse deck for ${deck.title} by ${deck.artist}.`,
   };
 }

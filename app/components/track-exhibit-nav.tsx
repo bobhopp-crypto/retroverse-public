@@ -46,7 +46,7 @@ export function TrackExhibitNav({ sundayEventActive = false }: Props) {
         <span className="track-exhibit-nav__sep" aria-hidden>
           ·
         </span>
-        <Link href="/charts" prefetch className="track-exhibit-nav__secondary-link">
+        <Link href="/retroverse-2/charts" prefetch className="track-exhibit-nav__secondary-link">
           Years
         </Link>
       </div>

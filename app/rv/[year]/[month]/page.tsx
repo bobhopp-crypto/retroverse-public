@@ -3,10 +3,13 @@ import { notFound } from "next/navigation";
 import { isUsableChartHistory } from "@/lib/artist/chart-history";
 import { loadRvYearChartHistory } from "@/lib/artist/load-chart-history";
 import { monthLabel } from "@/lib/artist/chart-history-display";
+import { loadTrackCoverageRecord } from "@/lib/charts/load-track-coverage-batch";
+import { rvtrsForChartMonth } from "@/lib/charts/rvtrs-from-chart-history";
 import { normalizeRVYear } from "@/lib/search/normalize-rv-year";
 import { parseRvMonthParam } from "@/lib/rv/rv-chronology-paths";
 
 import { RvChronologyDrill } from "../../components/rv-chronology-drill";
+import { Rv2ChronologyFrame } from "../../components/rv2-chronology-frame";
 
 import "../rv-year.css";
 
@@ -36,11 +39,19 @@ export default async function RvMonthPage({ params }: Props) {
   const history = await loadRvYearChartHistory(rvYear);
   if (!history || !isUsableChartHistory(history)) notFound();
 
+  const coverageByRvtr = await loadTrackCoverageRecord(
+    rvtrsForChartMonth(history, rvYear, month),
+  );
+
   return (
-    <RvChronologyDrill
-      rvYear={rvYear}
-      history={history}
-      initialMonth={month}
-    />
+    <Rv2ChronologyFrame rvYear={rvYear}>
+      <RvChronologyDrill
+        rvYear={rvYear}
+        history={history}
+        initialMonth={month}
+        shellMode="rv2"
+        coverageByRvtr={coverageByRvtr}
+      />
+    </Rv2ChronologyFrame>
   );
 }

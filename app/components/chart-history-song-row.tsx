@@ -10,6 +10,9 @@ import {
 import type { ChartHistorySongRowData } from "@/lib/songs/chart-history-song-row";
 import { songActionTargetFromParts } from "@/lib/songs/song-actions";
 
+import { TrackCoverageBadge } from "@/app/components/track-coverage-badge";
+import "@/app/components/track-coverage.css";
+
 import { ChartHistoryJourneyBar } from "./chart-history-journey-bar";
 
 import "./chart-history-song-row.css";
@@ -18,17 +21,24 @@ type Props = {
   song: ChartHistorySongRowData;
   artistName: string;
   artistSlug: string;
+  showCoverageBadge?: boolean;
 };
 
 function defaultMetaLine(song: ChartHistorySongRowData): string {
   const year = formatSongYear(song.firstChartYear);
   const weeks = formatSongWeeksLabel(song.chartWeeks);
   const library =
-    song.inLibrary === true ? "In Library" : song.inLibrary === false ? "—" : null;
+    song.coverageStatus != null
+      ? null
+      : song.inLibrary === true
+        ? "In Library"
+        : song.inLibrary === false
+          ? "—"
+          : null;
   return [year !== "—" ? year : null, weeks || null, library].filter(Boolean).join(" • ");
 }
 
-export function ChartHistorySongRow({ song, artistName, artistSlug }: Props) {
+export function ChartHistorySongRow({ song, artistName, artistSlug, showCoverageBadge = false }: Props) {
   const meta = song.metaLine ?? defaultMetaLine(song);
 
   return (
@@ -39,6 +49,9 @@ export function ChartHistorySongRow({ song, artistName, artistSlug }: Props) {
         </Link>
         <ChartHistoryJourneyBar peak={song.peakHot100} />
         <p className="chart-history-song-row__meta">{meta}</p>
+        {showCoverageBadge && song.coverageStatus ? (
+          <TrackCoverageBadge status={song.coverageStatus} />
+        ) : null}
       </div>
       <SongActions
         layout="inline"

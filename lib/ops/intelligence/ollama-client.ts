@@ -1,9 +1,14 @@
-/** Local Ollama client — Qwen3 8B default, no cloud dependency. */
+/** Local Ollama client — Qwen3 8B default, no cloud dependency.
+ *
+ * Intelligence pipeline entry point. New Studio worker code should prefer
+ * `requestStudioAi()` from `@/lib/ops/studio/workers/ai-request`.
+ */
 
 export type OllamaGenerateOptions = {
   model?: string;
   temperature?: number;
   format?: "json";
+  numPredict?: number;
 };
 
 const DEFAULT_MODEL = process.env.INTELLIGENCE_OLLAMA_MODEL?.trim() || "qwen3:8b";
@@ -42,7 +47,7 @@ export async function ollamaGenerate(
       format: options.format,
       options: {
         temperature: options.temperature ?? 0.4,
-        num_predict: 4096,
+        num_predict: options.numPredict ?? 4096,
       },
     }),
     signal: AbortSignal.timeout(180000),

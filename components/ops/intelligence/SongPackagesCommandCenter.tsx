@@ -27,9 +27,9 @@ type QuickFilter =
   | null;
 
 const PACKAGE_OPTIONS: Array<{ value: "all" | SongPackageManagementStatus; label: string }> = [
-  { value: "all", label: "All Package Statuses" },
-  { value: "missing_package", label: "Missing Package" },
-  { value: "package_exists", label: "Package Exists" },
+  { value: "all", label: "All Research Statuses" },
+  { value: "missing_package", label: "No Research" },
+  { value: "package_exists", label: "Has Research" },
   { value: "needs_review", label: "Needs Review" },
 ];
 
@@ -340,10 +340,10 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
 
   return (
     <div className="song-packages">
-      <section id="dashboard" className="package-center__section" aria-label="Package dashboard">
+      <section id="dashboard" className="package-center__section" aria-label="Research dashboard">
         <div className="package-center__section-head">
           <p className="package-center__eyebrow">1. Dashboard</p>
-          <h2>Package health at a glance</h2>
+          <h2>Research coverage at a glance</h2>
         </div>
         <div className="song-packages__stats">
           <div className="song-packages__stat">
@@ -352,7 +352,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
           </div>
           <div className="song-packages__stat">
             <p>{view.stats.packageExists}</p>
-            <span>Package Exists</span>
+            <span>Has Research</span>
           </div>
           <div className="song-packages__stat">
             <p>{view.stats.needsReview}</p>
@@ -360,7 +360,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
           </div>
           <div className="song-packages__stat">
             <p>{view.stats.missingPackage}</p>
-            <span>Missing Package</span>
+            <span>No Research</span>
           </div>
           <div className="song-packages__stat">
             <p>{view.stats.missingCover}</p>
@@ -376,7 +376,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
         </div>
       </section>
 
-      <section id="gallery" className="package-center__section" aria-label="Package gallery">
+      <section id="gallery" className="package-center__section" aria-label="Research gallery">
         <div className="package-center__section-head">
           <p className="package-center__eyebrow">2. Gallery</p>
           <h2>Swipe card previews</h2>
@@ -450,7 +450,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
                   disabled={actionBusy || !row.packageRawStatus}
                   onClick={() => toggleIssue(row.rvtr, "bad_research")}
                 >
-                  Flag Package Issue
+                  Flag Research Issue
                 </button>
               </div>
             </article>
@@ -458,7 +458,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
         </div>
       </section>
 
-      <section id="queue" className="package-center__section" aria-label="Package queue">
+      <section id="queue" className="package-center__section" aria-label="Research queue">
         <div className="package-center__section-head">
           <p className="package-center__eyebrow">3. Queue</p>
           <h2>Find, filter, and generate</h2>
@@ -495,7 +495,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
             </select>
           </label>
           <label>
-            <span>Package Status</span>
+            <span>Research Status</span>
             <select
               value={packageStatus}
               onChange={(event) => setPackageStatus(event.target.value as typeof packageStatus)}
@@ -533,30 +533,30 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
 
         <section className="song-packages__quick" aria-label="Quick filters">
           <button type="button" onClick={() => applyQuickFilter("missing")}>
-            Missing Packages
+            No Research
           </button>
           <button type="button" onClick={() => applyQuickFilter("ready")}>
-            Package Ready
+            Research Ready
           </button>
           <button type="button" onClick={() => applyQuickFilter("review")}>
             Needs Review
           </button>
           <button type="button" onClick={() => applyQuickFilter("most_played_missing")}>
-            Most Played Missing Packages
+            Most Played · No Research
           </button>
           <button type="button" onClick={() => applyQuickFilter("recent")}>
             Recently Generated
           </button>
         </section>
 
-        <section className="song-packages__actions" aria-label="Package generation actions">
+        <section className="song-packages__actions" aria-label="Research generation actions">
           <button
             type="button"
             className="intel-btn intel-btn--primary"
             disabled={generating || selectedCount === 0}
             onClick={() => generatePackages([...selected])}
           >
-            Generate Packages
+            Generate Research
           </button>
           <button
             type="button"
@@ -564,7 +564,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
             disabled={generating || visibleMissingRvtrs.length === 0}
             onClick={() => generatePackages(visibleMissingRvtrs)}
           >
-            Generate Missing Packages
+            Generate Missing Research
           </button>
           <button type="button" className="intel-btn" disabled={generating} onClick={resetSelection}>
             Clear Selection
@@ -584,7 +584,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
                 <th>Year</th>
                 <th>Play Count</th>
                 <th>RVTR</th>
-                <th>Package Status</th>
+                <th>Research Status</th>
                 <th>Cover Status</th>
               </tr>
             </thead>
@@ -632,7 +632,7 @@ export function SongPackagesCommandCenter({ view, initialRvtr }: Props) {
         </div>
       </section>
 
-      <section id="maintenance" className="package-center__section" aria-label="Package maintenance">
+      <section id="maintenance" className="package-center__section" aria-label="Research maintenance">
         <div className="package-center__section-head">
           <p className="package-center__eyebrow">4. Maintenance</p>
           <h2>Fix the issues that block Sunday night testing</h2>

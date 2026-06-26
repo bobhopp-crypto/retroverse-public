@@ -5,7 +5,7 @@ export function parseChartWeekDateParam(raw: string): string | null {
   return RE_DATE.test(key) ? key : null;
 }
 
-/** Portal into a Hot 100 chart week neighborhood (not full chart). */
+/** Canonical chart week page — full Hot 100, or focused neighborhood when params set. */
 export function chartWeekPortalHref(
   chartDate: string,
   params?: { focus?: string | null; rank?: number | null },

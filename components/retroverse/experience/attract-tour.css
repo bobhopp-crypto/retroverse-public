@@ -1,0 +1,250 @@
+/* Experience 4.1 — Attract Mode / Auto Tour */
+
+.rv-attract-root {
+  width: 100%;
+}
+
+.rv-attract-root[data-tour-mode="attract"] .rv2-song__hero {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rv-attract {
+  width: 100%;
+  max-width: 72rem;
+  margin: 1.5rem auto 0;
+  padding: 0 0.85rem 2rem;
+  box-sizing: border-box;
+  min-height: clamp(18rem, 52vh, 28rem);
+}
+
+.rv-attract__theme {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(92, 149, 255, 0.35);
+  border-radius: 0.65rem;
+  background: rgba(8, 22, 46, 0.72);
+}
+
+.rv-attract__theme-eyebrow {
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(108, 165, 255, 0.85);
+}
+
+.rv-attract__theme-title {
+  margin: 0.2rem 0 0;
+  font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+  line-height: 1.1;
+  color: #f4f8ff;
+}
+
+.rv-attract__theme-desc {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  color: rgba(196, 214, 255, 0.78);
+}
+
+.rv-attract__opening {
+  margin: 0.55rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4fd5ff;
+}
+
+.rv-attract__artifact {
+  margin: 0.35rem 0 0;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rv2-muted);
+}
+
+.rv-attract__stage {
+  position: relative;
+  min-height: clamp(16rem, 48vh, 24rem);
+  overflow: hidden;
+}
+
+.rv-attract__panel {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
+  transition:
+    opacity 1.4s ease,
+    transform 1.4s ease;
+}
+
+.rv-attract__panel--active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.rv-attract__hero {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.rv-attract__hero-copy h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 10vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.rv-attract__artist {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.35rem, 5vw, 2rem);
+  font-weight: 850;
+  color: #dbe8ff;
+}
+
+.rv-attract__year {
+  margin: 0.15rem 0 0;
+  font-size: clamp(1.15rem, 4.5vw, 1.75rem);
+  font-weight: 900;
+  color: #6ca5ff;
+}
+
+.rv-attract__art-wrap {
+  width: min(100%, 16rem);
+  margin-top: 0.5rem;
+}
+
+.rv-attract__art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid rgba(92, 149, 255, 0.35);
+  border-radius: 0.45rem;
+}
+
+.rv-attract__art--empty {
+  background: linear-gradient(145deg, #112a5d, #07142c);
+}
+
+.rv-attract__eyebrow {
+  margin: 0 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(108, 165, 255, 0.92);
+}
+
+.rv-attract__chart .rv-exp-cj__story {
+  margin: 0;
+  max-width: 38rem;
+  font-size: clamp(1.15rem, 4vw, 1.45rem);
+  line-height: 1.45;
+}
+
+.rv-attract__fallback,
+.rv-attract__story-body {
+  margin: 0;
+  max-width: 36rem;
+  font-size: clamp(1.2rem, 4.2vw, 1.55rem);
+  font-weight: 650;
+  line-height: 1.45;
+  color: #dbe8ff;
+}
+
+.rv-attract__discover-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.65rem;
+  overflow: hidden;
+}
+
+.rv-attract__discover-card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(5.5rem, 24vw, 7rem);
+  text-decoration: none;
+  color: inherit;
+}
+
+.rv-attract__discover-cover-wrap {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(92, 149, 255, 0.35);
+  border-radius: 0.35rem;
+}
+
+.rv-attract__discover-cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rv-attract__discover-cover--empty {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #112a5d, #07142c);
+}
+
+.rv-attract__discover-title {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.25;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.rv-attract__discover-reason {
+  margin-top: 0.15rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: rgba(156, 196, 255, 0.78);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.rv-attract__hint {
+  margin: 1rem 0 0;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(156, 196, 255, 0.55);
+}
+
+.rv-living--hidden {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-attract__panel {
+    transition: none;
+    transform: none;
+  }
+}

@@ -1,0 +1,114 @@
+/* RV2 coverage badges + chart filters (mobile-first) */
+
+.rv2-coverage-badge {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 0.14rem 0.38rem;
+  border-radius: 999px;
+  font-size: 0.58rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.rv2-coverage-badge--owned {
+  border: 1px solid rgba(66, 241, 135, 0.55);
+  background: rgba(66, 241, 135, 0.12);
+  color: #8fffb8;
+}
+
+.rv2-coverage-badge--youtube {
+  border: 1px solid rgba(79, 213, 255, 0.55);
+  background: rgba(79, 213, 255, 0.1);
+  color: #9deaff;
+}
+
+.rv2-coverage-badge--missing {
+  border: 1px solid rgba(157, 180, 223, 0.35);
+  background: rgba(157, 180, 223, 0.08);
+  color: rgba(157, 180, 223, 0.85);
+}
+
+.rv2-coverage-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.55rem;
+}
+
+.rv2-coverage-filter__btn {
+  padding: 0.32rem 0.55rem;
+  border: 1px solid rgba(87, 146, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(9, 27, 57, 0.55);
+  color: var(--rv2-muted, #9db4df);
+  font: inherit;
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.rv2-coverage-filter__btn--active {
+  border-color: var(--rv2-line-hot, #2c75ff);
+  background: rgba(44, 117, 255, 0.2);
+  color: var(--rv2-ink, #f3f7ff);
+}
+
+.rv2-coverage-filter__btn:active {
+  opacity: 0.88;
+}
+
+.chart-week-portal__empty {
+  padding: 0.75rem;
+  color: var(--rv2-muted, #9db4df);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-align: center;
+}
+
+.chart-week-portal__body-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.chart-week-portal__body-head .chart-week-portal__title-link,
+.chart-week-portal__body-head .chart-week-portal__title-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.rv-year-chart-leaders__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.rv-year-chart-leaders__title-row .rv-year-chart-leaders__title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.charts-summary-card__title-row,
+.charts-history-card__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.charts-summary-card__title-row .charts-summary-card__title,
+.charts-history-card__title-row .charts-history-card__title {
+  flex: 1 1 auto;
+  min-width: 0;
+}

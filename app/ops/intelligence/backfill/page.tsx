@@ -12,7 +12,7 @@ import { isOpsEnabled } from "@/lib/ops/ops-gate";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Song Package Backfill — Retroverse Ops",
+  title: "Research Backfill — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 
@@ -28,7 +28,7 @@ export default async function IntelligenceBackfillPage() {
     >
       <div className="intel-app__body">
         <Link className="intel-review__back" href="/ops/intelligence" prefetch={false}>
-          ← Package Center
+          ← Research Center
         </Link>
         <Top100ValidationLivePanel initialProgress={initialProgress} />
         <Suspense fallback={<IntelligenceBackfillDashboardSkeleton />}>

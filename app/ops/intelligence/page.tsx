@@ -9,7 +9,7 @@ import { isOpsEnabled } from "@/lib/ops/ops-gate";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Packages — Retroverse Ops",
+  title: "Research Center — Retroverse Ops",
   robots: { index: false, follow: false },
 };
 
@@ -35,11 +35,11 @@ export default async function IntelligenceHomePage({ searchParams }: Props) {
         </Link>
 
         <section className="intel-home__hero">
-          <h1 className="intel-title">Package Center</h1>
+          <h1 className="intel-title">Research Center</h1>
           <p className="intel-home__lead">
-            Dashboard, gallery, queue, and maintenance for song and performance packages.
+            Dashboard, gallery, queue, and maintenance for song research and experience readiness.
           </p>
-          <nav className="package-center__nav" aria-label="Package center sections">
+          <nav className="package-center__nav" aria-label="Research center sections">
             <a href="#dashboard">Dashboard</a>
             <a href="#gallery">Gallery</a>
             <a href="#queue">Queue</a>

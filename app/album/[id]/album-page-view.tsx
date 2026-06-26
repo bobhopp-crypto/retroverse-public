@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { TrackChartRunRail } from "@/app/track/[id]/track-chart-run-rail";
+import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
 import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { AlbumPageData } from "@/lib/album/load-album-page";
 
@@ -65,6 +65,18 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
         </div>
       </section>
 
+      {hasTrajectory ? (
+        <ChartJourney
+          weeks={data.trajectoryWeeks}
+          peak={data.b200Peak}
+          chartLabel={data.chartRunLabel}
+          maxRank={200}
+          releaseYear={data.releaseYear}
+          variant="exhibit"
+          className="album-chart-journey"
+        />
+      ) : null}
+
       {data.tracks.length > 0 ? (
         <section className="album-tracklist" aria-labelledby="album-tracks">
           <div className="track-section-head track-section-head--dark">
@@ -73,29 +85,6 @@ export function AlbumPageView({ data }: AlbumPageViewProps) {
           <AlbumTracklist tracks={data.tracks} artistName={data.artistName} />
         </section>
       ) : null}
-
-      {hasTrajectory ? (
-        <section className="track-journey" aria-labelledby="album-chart-journey">
-          <div className="track-section-head track-section-head--journey">
-            <h2 id="album-chart-journey">Chart history</h2>
-            {data.rvYearHref ? (
-              <Link href={data.rvYearHref} prefetch className="track-section-link">
-                {yearLabel}
-              </Link>
-            ) : null}
-          </div>
-          <TrackChartRunRail
-            weeks={data.trajectoryWeeks}
-            peak={data.b200Peak}
-            chartLabel={data.chartRunLabel}
-            scaleFloorLabel="#200"
-            maxRank={200}
-            ariaLabel="Chart history"
-            panelClassName="album-trajectory-panel"
-          />
-        </section>
-      ) : null}
-
 
       <nav className="exhibit-footer-nav" aria-label="Site">
         <Link href="/" prefetch>

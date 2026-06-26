@@ -7,8 +7,6 @@ import type { HomeFeaturedYear, YearCoverStrip } from "@/lib/home/home-featured-
 import type { HomepageHero } from "@/lib/ops/event-control/types";
 import type { HomeSearchScope } from "@/lib/search/home-search-scope";
 
-import { OpsEntryLink } from "@/components/OpsEntryLink";
-
 import { HomeSearchInput } from "./home-search-input";
 
 /** Display count on year cards — pipeline may verify more; we show the first four. */
@@ -24,11 +22,10 @@ const ARCHIVE_CARDS: {
   { label: "Artists", subtitle: "People behind the music", tone: "teal", scope: "artists" },
   { label: "Albums", subtitle: "Complete records", tone: "gold", scope: "albums" },
   { label: "Tracks", subtitle: "Individual songs", tone: "orange", scope: "songs" },
-  { label: "Charts", subtitle: "Music history", tone: "red", href: "/rv/1978" },
+  { label: "Charts", subtitle: "Music history", tone: "red", href: "/retroverse-2/charts" },
 ];
 
 type Props = {
-  opsEnabled: boolean;
   yearCovers?: YearCoverStrip[];
   featuredYears: HomeFeaturedYear[];
   hero?: HomepageHero | null;
@@ -36,7 +33,6 @@ type Props = {
 };
 
 export function HomeDirectory({
-  opsEnabled,
   yearCovers = [],
   featuredYears,
   hero = null,
@@ -265,25 +261,8 @@ export function HomeDirectory({
           >
             Send feedback
           </a>
-          {opsEnabled ? (
-            <>
-              {" · "}
-              <OpsEntryLink className="home-directory__ops-link" next="/ops/sunday-nights" />
-            </>
-          ) : null}
         </p>
       </footer>
-
-      {opsEnabled ? (
-        <Link
-          href="/internal/ops-pin?next=/ops"
-          prefetch={false}
-          className="home-directory__ops-utility"
-          aria-label="Archive operations"
-        >
-          Archive Ops
-        </Link>
-      ) : null}
     </div>
   );
 }

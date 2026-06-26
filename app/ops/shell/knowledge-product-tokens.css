@@ -1,0 +1,25 @@
+/**
+ * Retroverse Shell — Knowledge product tokens (D-004)
+ * Slate Archive
+ */
+
+.rs-shell[data-product="knowledge"],
+.rs-product--knowledge {
+  --rs-knowledge-bg-base: #1a1d24;
+  --rs-knowledge-bg-panel: #232830;
+  --rs-knowledge-accent: #d4a853;
+  --rs-knowledge-accent-soft: #8b7355;
+  --rs-knowledge-ink: #ece6dc;
+  --rs-knowledge-ink-muted: #9a958c;
+  --rs-knowledge-link: #7eb8da;
+  --rs-knowledge-border: #3d424d;
+
+  --rs-product-bg-base: var(--rs-knowledge-bg-base);
+  --rs-product-bg-panel: var(--rs-knowledge-bg-panel);
+  --rs-product-accent: var(--rs-knowledge-accent);
+  --rs-product-accent-hot: #e0bc6a;
+  --rs-product-ink: var(--rs-knowledge-ink);
+  --rs-product-ink-muted: var(--rs-knowledge-ink-muted);
+  --rs-product-border: var(--rs-knowledge-border);
+  --rs-product-link: var(--rs-knowledge-link);
+}

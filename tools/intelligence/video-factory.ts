@@ -5,21 +5,20 @@ import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { basename, dirname, extname, join } from "node:path";
 import { promisify } from "node:util";
 
-import { loadDeckIndex, saveDeckIndex, type DeckIndex } from "../../lib/ops/intelligence/deck-index.ts";
 import { backfillQueuePath, coverRecoveryQueuePath, intelligenceRoot, songPackagesDir } from "../../lib/ops/intelligence/paths.ts";
+import { isSongExperienceRenderable } from "../../lib/ops/intelligence/song-experience-renderability.ts";
 import { normVdjPath, scanVdjDatabase, vdjDatabasePath } from "../../lib/ops/intelligence/vdj-database.ts";
 import { loadAutoRecoveredCovers, saveCoverRecoveryQueue } from "../../lib/ops/intelligence/cover-recovery-store.ts";
 import { buildRecoverySummary, recoverCoverForTrack, type CoverRecoveryEntry } from "../../lib/ops/intelligence/cover-recovery-queue.ts";
 import type { TopPlayedTrack } from "../../lib/ops/intelligence/top-played-backfill.ts";
 import { loadVdjIdentityCoverage } from "../../lib/ops/intelligence/vdj-identity-coverage.ts";
 import { runProductionPipeline } from "../../lib/ops/intelligence/production-pipeline.ts";
-import { loadPerformanceDeck } from "../../lib/ops/intelligence/load-performance-deck.ts";
 
 const execFileAsync = promisify(execFile);
 const VIDEO_EXTENSIONS = new Set([".mp4", ".m4v", ".mov", ".avi", ".mkv", ".mpg", ".mpeg", ".vob", ".wmv"]);
 const LOOP_SLEEP_MS = Number(process.env.VIDEO_FACTORY_LOOP_SLEEP_MS ?? "30000") || 30000;
 const PACKAGE_BATCH_SIZE = Number(process.env.VIDEO_FACTORY_PACKAGE_BATCH_SIZE ?? "1") || 1;
-const DECK_BATCH_SIZE = Number(process.env.VIDEO_FACTORY_DECK_BATCH_SIZE ?? "25") || 25;
+const DECK_WORKER_RETIRED = true;
 
 type VideoFactoryState = {
   matched: boolean;
@@ -190,14 +189,13 @@ function nextWorkerFor(state: VideoFactoryState): VideoFactoryWorker {
   if (!state.matched) return "rvtr-label-matcher";
   if (!state.cover) return "cover-recovery";
   if (!state.package) return "package-backfill";
-  if (!state.deck) return "deck-generation";
   if (!state.thumbnail) return "thumbnail-generation";
   return "complete";
 }
 
 function countsFor(items: VideoFactoryItem[], unmatchedVideoRows: number, matchableUnmatchedVideoRows: number, videoRows: number) {
   return {
-    complete: items.filter((item) => item.state.package && item.state.deck && item.state.cover && item.state.thumbnail).length,
+    complete: items.filter((item) => item.state.package && item.state.cover && item.state.thumbnail).length,
     missingPackage: items.filter((item) => !item.state.package).length,
     missingDeck: items.filter((item) => item.state.package && !item.state.deck).length,
     missingCover: items.filter((item) => !item.state.cover).length,
@@ -211,15 +209,13 @@ function countsFor(items: VideoFactoryItem[], unmatchedVideoRows: number, matcha
 
 export async function refreshVideoFactoryQueue(): Promise<VideoFactoryQueue> {
   const now = new Date().toISOString();
-  const [scan, packages, deckIndex, xmlMetaByPath, coverage, recoveredCovers] = await Promise.all([
+  const [scan, packages, xmlMetaByPath, coverage, recoveredCovers] = await Promise.all([
     scanVdjDatabase({ force: true }),
     loadPackageSummaries(),
-    loadDeckIndex(),
     loadXmlSongMetaByPath(),
     loadVdjIdentityCoverage({ force: true }),
     loadAutoRecoveredCovers(),
   ]);
-  const deckRvtrs = new Set(deckIndex.decks.map((entry) => entry.rvtr));
   const identityByPath = new Map(coverage.matches.map((match) => [match.entry.filePathNorm, match.rvtr]));
   const byRvtr = new Map<
     string,
@@ -229,7 +225,6 @@ export async function refreshVideoFactoryQueue(): Promise<VideoFactoryQueue> {
       videoFiles: string[];
       hasCover: boolean;
       hasAllThumbnails: boolean;
-      hasDkLabel: boolean;
     }
   >();
   const unmatchedVideoRows: VideoFactoryQueue["unmatchedVideoRows"] = [];
@@ -261,13 +256,11 @@ export async function refreshVideoFactoryQueue(): Promise<VideoFactoryQueue> {
       videoFiles: [],
       hasCover: false,
       hasAllThumbnails: true,
-      hasDkLabel: false,
     };
 
     current.videoFiles.push(entry.filePath);
     current.hasCover ||= xmlMeta.hasVdjCover;
     current.hasAllThumbnails &&= Boolean(findSidecarThumbnail(entry.filePath));
-    current.hasDkLabel ||= label.startsWith("DK_");
     byRvtr.set(rvtr, current);
   }
 
@@ -277,7 +270,7 @@ export async function refreshVideoFactoryQueue(): Promise<VideoFactoryQueue> {
       const state: VideoFactoryState = {
         matched: true,
         package: Boolean(pkg),
-        deck: deckRvtrs.has(rvtr) || row.hasDkLabel,
+        deck: Boolean(pkg && isSongExperienceRenderable(pkg.status)),
         cover: row.hasCover || Boolean(pkg?.coverUrl) || recoveredCovers.has(rvtr),
         thumbnail: row.hasAllThumbnails,
       };
@@ -321,7 +314,7 @@ function printCounts(queue: VideoFactoryQueue, label: string): void {
   console.log(`\n${label}`);
   console.log(`Complete:           ${queue.counts.complete}`);
   console.log(`Missing package:    ${queue.counts.missingPackage}`);
-  console.log(`Missing deck:       ${queue.counts.missingDeck}`);
+  console.log(`Missing experience: ${queue.counts.missingDeck}`);
   console.log(`Missing cover:      ${queue.counts.missingCover}`);
   console.log(`Missing thumbnail:  ${queue.counts.missingThumbnail}`);
   console.log(`Unmatched VIDEO:    ${queue.counts.unmatchedVideoRows}`);
@@ -469,7 +462,7 @@ async function runVideoPackageBatch(queue: VideoFactoryQueue): Promise<{
   return summary;
 }
 
-async function runVideoDeckBatch(queue: VideoFactoryQueue): Promise<{
+async function runVideoDeckBatch(_queue: VideoFactoryQueue): Promise<{
   attempted: number;
   promoted: number;
   generated: number;
@@ -478,51 +471,16 @@ async function runVideoDeckBatch(queue: VideoFactoryQueue): Promise<{
   runtimeMs: number;
   batchSize: number;
 }> {
-  const batch = queue.items
-    .filter((item) => item.state.matched && item.state.package && !item.state.deck)
-    .slice(0, Math.max(1, DECK_BATCH_SIZE));
-  const startedAt = Date.now();
-  const summary = {
-    attempted: batch.length,
+  console.log("deck-worker retired — no new deck-index promotions");
+  return {
+    attempted: 0,
     promoted: 0,
     generated: 0,
     skipped_existing: 0,
     failed: 0,
     runtimeMs: 0,
-    batchSize: Math.max(1, DECK_BATCH_SIZE),
+    batchSize: 0,
   };
-  const index = await loadDeckIndex();
-  const existing = new Set(index.decks.map((entry) => entry.rvtr));
-  const promoted = new Set<string>();
-
-  for (const item of batch) {
-    if (existing.has(item.rvtr)) {
-      summary.skipped_existing += 1;
-      continue;
-    }
-
-    const deck = await loadPerformanceDeck(item.rvtr);
-    if (deck) {
-      promoted.add(item.rvtr);
-      summary.promoted += 1;
-      continue;
-    }
-
-    // No standalone deck generator exists yet; only promote renderable package assets.
-    summary.failed += 1;
-  }
-
-  if (promoted.size > 0) {
-    const next: DeckIndex = {
-      version: 1,
-      updatedAt: new Date().toISOString(),
-      decks: [...index.decks, ...[...promoted].map((rvtr) => ({ rvtr }))],
-    };
-    await saveDeckIndex(next);
-  }
-
-  summary.runtimeMs = Date.now() - startedAt;
-  return summary;
 }
 
 async function runOnce(): Promise<void> {
@@ -557,18 +515,20 @@ async function runOnce(): Promise<void> {
     );
   }
 
-  if (current.counts.missingDeck > 0) {
+  if (current.counts.missingDeck > 0 && !DECK_WORKER_RETIRED) {
     const beforeMissingDeck = current.counts.missingDeck;
     const decks = await runVideoDeckBatch(current);
     current = await refreshVideoFactoryQueue();
     details.push(
       `deck-worker: attempted=${decks.attempted}, promoted=${decks.promoted}, generated=${decks.generated}, skipped_existing=${decks.skipped_existing}, failed=${decks.failed}, runtime=${Math.round(decks.runtimeMs / 1000)}s, batch_size=${decks.batchSize}. Missing deck before=${beforeMissingDeck}, after=${current.counts.missingDeck}. Touched: ${join(process.cwd(), "data", "ops", "intelligence", "deck-index.json")}.`,
     );
+  } else if (current.counts.missingDeck > 0) {
+    skipped.push(`deck-worker retired: ${current.counts.missingDeck} RVTR(s) have package but are not Song Experience renderable yet`);
   }
 
-  if (current.counts.missingDeck === 0 && current.counts.missingThumbnail > 0) {
+  if (current.counts.missingThumbnail > 0) {
     skipped.push("thumbnail worker not implemented");
-  } else if (current.counts.missingDeck === 0 && current.counts.missingThumbnail === 0 && current.counts.missingPackage === 0 && current.counts.missingCover === 0) {
+  } else if (current.counts.missingThumbnail === 0 && current.counts.missingPackage === 0 && current.counts.missingCover === 0) {
     details.push("complete: No VIDEO work remains.");
   }
 

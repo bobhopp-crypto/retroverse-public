@@ -23,7 +23,7 @@ export type LiveControlConfig = {
   playlistYear: number | null;
   readyOnly: boolean;
   hasCover: boolean;
-  hasDeck: boolean;
+  hasExperience: boolean;
   hasSongSheet: boolean;
   order: LiveOrder;
   durationSeconds: LiveDurationSeconds;
@@ -48,7 +48,7 @@ export const DEFAULT_LIVE_CONTROL_CONFIG: LiveControlConfig = {
   playlistYear: 1967,
   readyOnly: true,
   hasCover: false,
-  hasDeck: false,
+  hasExperience: false,
   hasSongSheet: false,
   order: "random",
   durationSeconds: 60,
