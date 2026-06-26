@@ -38,6 +38,15 @@ export type StudioStage = "not_started" | "collector" | "editor" | "director" | 
 
 export type StudioStoryStatus = "Ready" | "Needs Review" | "Weak" | "None";
 
+export type StudioConfidenceLabel = "Early" | "Strong" | "Good" | "Developing";
+
+export type StudioNeedFlags = {
+  needsCollector: boolean;
+  needsEditor: boolean;
+  needsDirector: boolean;
+  readyToPublish: boolean;
+};
+
 /** Structured process log entry (kernel shape). */
 export type StudioLogEntry = {
   at: IsoTimestamp;

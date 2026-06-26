@@ -10,6 +10,8 @@ export type {
   IntelligencePackageStatus,
   StudioStage,
   StudioStoryStatus,
+  StudioConfidenceLabel,
+  StudioNeedFlags,
   StudioLogEntry,
 } from "./types";
 
@@ -19,6 +21,19 @@ export {
   deriveStudioStage,
   studioStageLabel,
   normalizeJobStatus,
+  studioConfidenceLabel,
+  storyStatusFromEditorial,
+  isStudioRenderReady,
+  deriveStudioNeedFlags,
+  buildStudioMissingItems,
+  defaultStudioNeedFlags,
+  defaultStudioMissingItems,
+} from "./status";
+
+export type {
+  StudioEditorialStatusInput,
+  StudioNeedFlagsInput,
+  StudioMissingItemsInput,
 } from "./status";
 
 export type {
