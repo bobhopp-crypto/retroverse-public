@@ -6,7 +6,7 @@ import { ChartJourneyWorkspace } from "@/components/experiences/chart-journey/Ch
 import { loadChartJourneyWorkspace } from "@/lib/experiences/chart-journey";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
-import "./chart-journey-workspace.css";
+import "../chart-journey-workspace.css";
 
 export const dynamic = "force-dynamic";
 

@@ -6,7 +6,7 @@ import { SongDnaWorkspace } from "@/components/experiences/song-dna/SongDnaWorks
 import { loadSongDnaWorkspace } from "@/lib/experiences/song-dna";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
-import "./song-dna-workspace.css";
+import "../song-dna-workspace.css";
 
 export const dynamic = "force-dynamic";
 
