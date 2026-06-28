@@ -1,6 +1,15 @@
 # dependencies
 /node_modules
 
+# python / ML local environments and downloaded weights
+.venv/
+.venv-*/
+**/.easyocr/
+*.pth
+__pycache__/
+*.py[cod]
+.Python
+
 # next.js
 /.next/
 /.retroverse-dev-active
@@ -8,6 +17,11 @@
 
 # production
 /build
+
+# caches / local artifacts
+.cache/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # misc
 .DS_Store
