@@ -82,9 +82,17 @@ async function run(input: DepartmentWorkerRunInput): Promise<DepartmentWorkerRun
       return { rvtr: normalized, action, status: "complete", message: "Editor package saved" };
     }
 
-    const { story } = await loadOrDraftEditorStory(normalized, collector);
-    await saveEditorStory(story);
-    return { rvtr: normalized, action, status: "complete", message: "Editor draft ready" };
+    const { story: drafted } = await loadOrDraftEditorStory(normalized, collector);
+    await saveEditorStory(drafted);
+
+    const { runEditorPassThrough } = await import("./pass-through");
+    const pass = await runEditorPassThrough({ collector, story: drafted });
+    await saveEditorStory(pass.story);
+
+    const message = pass.submitted
+      ? "Editor submitted — Director handoff ready"
+      : "Editor draft ready — handoff exists";
+    return { rvtr: normalized, action, status: "complete", message };
   } catch (err) {
     return failedWorkerResult(normalized, action, err);
   }

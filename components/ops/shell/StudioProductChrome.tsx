@@ -5,8 +5,8 @@ import { getRetroverseProduct } from "@/lib/ops/products";
 import { ProductIcon } from "./ProductIcons";
 
 export type StudioProductNavKey =
-  | "dashboard"
   | "mission-control"
+  | "library-queue"
   | "collector"
   | "editor"
   | "director"
@@ -19,8 +19,8 @@ type NavItem = {
 };
 
 const NAV: NavItem[] = [
-  { key: "dashboard", label: "Dashboard", href: "/ops/studio" },
-  { key: "mission-control", label: "Mission Control", href: "/ops/browser-plus-2" },
+  { key: "mission-control", label: "Mission Control", href: "/ops/studio" },
+  { key: "library-queue", label: "Library & Queue", href: "/ops/browser-plus-2" },
   { key: "collector", label: "Collector", href: "/ops/studio/collector" },
   { key: "editor", label: "Editor", href: "/ops/studio/editor" },
   { key: "director", label: "Director", href: "/ops/studio/director" },

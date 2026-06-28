@@ -1,0 +1,457 @@
+/* Sprint 3.33 — Creative Review Department */
+
+.rs-cr {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.rs-cr__hero {
+  padding: 1.1rem 1.2rem;
+  border: 2px solid rgba(180, 160, 255, 0.42);
+  border-radius: 0.55rem;
+  background: linear-gradient(145deg, rgba(36, 24, 56, 0.92), rgba(24, 16, 40, 0.88));
+}
+
+.rs-cr__back,
+.rs-cr__link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(210, 190, 255, 0.95);
+  text-decoration: none;
+}
+
+.rs-cr__back {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+}
+
+.rs-cr__kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(210, 190, 255, 0.78);
+}
+
+.rs-cr__mission {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: rgba(255, 244, 250, 0.72);
+}
+
+.rs-cr__song {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.rs-cr__art {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.45rem;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+}
+
+.rs-cr__art--fallback {
+  display: grid;
+  place-items: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: rgba(180, 160, 255, 0.15);
+}
+
+.rs-cr__title {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 800;
+}
+
+.rs-cr__artist {
+  margin: 0.15rem 0 0;
+  color: rgba(255, 244, 250, 0.72);
+}
+
+.rs-cr__rvtr {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(210, 190, 255, 0.85);
+}
+
+.rs-cr__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+.rs-cr__link {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(180, 160, 255, 0.35);
+  border-radius: 0.35rem;
+}
+
+.rs-cr__section {
+  padding: 0.95rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.rs-cr__section--executive {
+  border-color: rgba(180, 160, 255, 0.35);
+}
+
+.rs-cr__section--gate,
+.rs-cr__section--feedback {
+  border-color: rgba(255, 176, 96, 0.35);
+}
+
+.rs-cr__section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.rs-cr__section-head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.rs-cr__section-head p {
+  margin: 0.25rem 0 0;
+  width: 100%;
+  font-size: 0.82rem;
+  color: rgba(245, 251, 255, 0.58);
+}
+
+.rs-cr__overall-score {
+  margin: 0.75rem 0 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(210, 190, 255, 0.98);
+  line-height: 1;
+}
+
+.rs-cr__narrative {
+  margin: 0.65rem 0 0;
+  max-width: 52rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 244, 250, 0.88);
+}
+
+.rs-cr__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin-top: 0.85rem;
+}
+
+.rs-cr__columns h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.rs-cr__columns ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.rs-cr__gate {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.25rem;
+}
+
+.rs-cr__gate--ready {
+  color: rgba(120, 240, 180, 0.95);
+  background: rgba(72, 180, 120, 0.18);
+}
+
+.rs-cr__gate--ready-with-changes {
+  color: rgba(255, 220, 140, 0.95);
+  background: rgba(255, 176, 96, 0.15);
+}
+
+.rs-cr__gate--needs-revision {
+  color: rgba(255, 180, 120, 0.95);
+  background: rgba(255, 120, 80, 0.12);
+}
+
+.rs-cr__gate--blocked {
+  color: rgba(255, 140, 120, 0.95);
+  background: rgba(255, 80, 80, 0.12);
+}
+
+.rs-cr__flow-list {
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 44rem;
+}
+
+.rs-cr__flow-beat {
+  position: relative;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rs-cr__flow-beat-head {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.rs-cr__flow-num {
+  flex-shrink: 0;
+  width: 1.65rem;
+  font-weight: 800;
+  color: rgba(210, 190, 255, 0.95);
+}
+
+.rs-cr__flow-beat strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.rs-cr__flow-beat p {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: rgba(245, 251, 255, 0.58);
+}
+
+.rs-cr__beat-scores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.45rem 0 0 2.4rem;
+}
+
+.rs-cr__beat-scores dt {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(245, 251, 255, 0.48);
+}
+
+.rs-cr__beat-scores dd {
+  margin: 0.06rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.rs-cr__flow-arrow {
+  display: block;
+  margin: 0.25rem 0 0 0.5rem;
+  color: rgba(210, 190, 255, 0.65);
+  font-size: 0.9rem;
+}
+
+.rs-cr__stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.rs-cr__stat-grid dt {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(245, 251, 255, 0.52);
+}
+
+.rs-cr__stat-grid dd {
+  margin: 0.1rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.rs-cr__issues,
+.rs-cr__rep-list,
+.rs-cr__recs,
+.rs-cr__missing,
+.rs-cr__gate-reasons,
+.rs-cr__blockers,
+.rs-cr__feedback {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.rs-cr__issues li,
+.rs-cr__rep-list li {
+  margin-bottom: 0.55rem;
+}
+
+.rs-cr__issues span,
+.rs-cr__rep-list span {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.78rem;
+  color: rgba(245, 251, 255, 0.58);
+}
+
+.rs-cr__variety-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rs-cr__slot {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.3rem 0.55rem;
+  border-radius: 0.3rem;
+}
+
+.rs-cr__slot--yes {
+  background: rgba(72, 180, 120, 0.15);
+  border: 1px solid rgba(72, 180, 120, 0.3);
+}
+
+.rs-cr__slot--no {
+  background: rgba(255, 255, 255, 0.04);
+  opacity: 0.55;
+}
+
+.rs-cr__arc-phases {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rs-cr__arc {
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rs-cr__arc--yes {
+  border-color: rgba(180, 160, 255, 0.25);
+}
+
+.rs-cr__arc strong {
+  display: inline;
+  margin-right: 0.45rem;
+}
+
+.rs-cr__arc-beat {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.76rem;
+  color: rgba(210, 190, 255, 0.85);
+}
+
+.rs-cr__arc p {
+  margin: 0.25rem 0 0;
+  font-size: 0.78rem;
+  color: rgba(255, 190, 120, 0.9);
+}
+
+.rs-cr__persona-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.rs-cr__persona {
+  padding: 0.75rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.rs-cr__persona h3 {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.rs-cr__persona-overall {
+  margin: 0.2rem 0 0.55rem;
+  font-weight: 800;
+  color: rgba(210, 190, 255, 0.9);
+}
+
+.rs-cr__score-bar {
+  margin-top: 0.35rem;
+}
+
+.rs-cr__score-bar-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+}
+
+.rs-cr__score-track {
+  height: 0.35rem;
+  margin-top: 0.15rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.rs-cr__score-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(180, 160, 255, 0.95), rgba(255, 176, 96, 0.9));
+}
+
+.rs-cr__blockers {
+  color: rgba(255, 140, 120, 0.95);
+}
+
+.rs-cr__note {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.rs-cr__note-priority {
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(210, 190, 255, 0.78);
+}
+
+.rs-cr__note p {
+  margin: 0.25rem 0 0;
+}
+
+.rs-cr__note-refs {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.76rem;
+  color: rgba(245, 251, 255, 0.52);
+}
+
+.rs-cr__empty {
+  margin: 0.75rem 0 0;
+  font-size: 0.84rem;
+  color: rgba(245, 251, 255, 0.52);
+}

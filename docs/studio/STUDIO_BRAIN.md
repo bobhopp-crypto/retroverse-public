@@ -12,7 +12,8 @@ Read this before touching Studio infrastructure. Do not restate this philosophy 
 2. `.cursor/rules/retroverse-design.mdc`
 3. `.cursor/rules/retroverse-data.mdc`
 4. `docs/studio/STUDIO_BRAIN.md`
-5. Current approved phase prompt
+5. `docs/studio/RETROGRAPH.md`
+6. Current approved phase prompt
 
 ---
 
@@ -64,11 +65,11 @@ Ownership only. Implementation lives under `lib/ops/studio/` and related ops pat
 
 | Department | Mission | Must never |
 |------------|---------|------------|
-| **Collector** | Gather source material, import assets, external research, metadata acquisition for Studio Alpha packages | Edit story packages, approve, publish |
+| **Collector** | Expand the Retrograph — collect facts, sources, media, relationships; never delete information | Design pages, remove duplicates, decide patron presentation, publish |
 | **Research** | Legacy intelligence pipeline — fact extraction, story proposals, `SongPackage` under `data/ops/intelligence/packages/` | Replace Studio Alpha packages without approved migration |
-| **Editor** | Build song packages, timelines, cards, narratives; validate package completeness | Perform external research, publish |
-| **Director** | Quality control, approval workflow, confidence scoring, package readiness, experience planning | Create content, publish |
-| **Publisher** | Mobile, Browser+, live experience, printing, export to public surfaces | Edit packages |
+| **Editor** | Refine the Retrograph — normalize, dedupe, score confidence, resolve conflicts; never reduce for presentation | External research, create experiences, decide layouts, publish |
+| **Director** | Read the Retrograph and design experiences from it — never edit or destroy knowledge | Gather raw metadata, publish, mutate the Retrograph |
+| **Publisher** | Publish experiences generated from the Retrograph — presentation profiles gate display, not knowledge | Edit the Retrograph, filter facts, reorganize knowledge |
 | **Archive** | Long-term artifact storage, version history, research-department on-disk layout under `research-department/` | Mutate canonical graph or bypass department contracts |
 | **Workers** | Local AI (Ollama), model management, prompt templates, worker assignment — infrastructure only | Own business logic or drain queues directly |
 | **Scheduler** | Job queues, priorities, retries, progress, metrics — routes work between departments | Execute department business logic |
@@ -178,9 +179,10 @@ Stable decisions — do not undo accidentally.
 7. **Status and readiness live in `lib/studio/status.ts`.** Stage, confidence, need flags, missing items, render-ready checks. BP2 types alias kernel types (`Bp2StudioStage` = `StudioStage`).
 8. **Health metrics live in `lib/studio/metrics.ts`.** BP2 `Bp2StudioHealth` aliases `StudioHealthCounts`.
 9. **Disk layout for Studio Alpha:** `{bundledIntelligenceRoot}/research-department/{RVTR}/` — use kernel path helpers only.
-10. **Department workers live in `lib/ops/studio/*/worker.ts`.** Each wraps existing runners; exposes `run`, `validate`, `status`, `capabilities`.
-11. **Scheduler executes through `StudioExecutionEngine`.** Register → discover → select → validate → run. Do not call department runners directly from queue drain code.
-12. **AI Workers department** manages workers, not workflows. Ollama/MCP backends attach to worker interfaces later — not yet wired.
+10. **The Retrograph** is the single authoritative internal knowledge model per entity (`retrograph.json`). See `docs/studio/RETROGRAPH.md`. Collector expands it; Editor refines it; Director and Publisher read it only.
+11. **Department workers live in `lib/ops/studio/*/worker.ts`.** Each wraps existing runners; exposes `run`, `validate`, `status`, `capabilities`.
+12. **Scheduler executes through `StudioExecutionEngine`.** Register → discover → select → validate → run. Do not call department runners directly from queue drain code.
+13. **AI Workers department** manages workers, not workflows. Ollama/MCP backends attach to worker interfaces later — not yet wired.
 
 ---
 

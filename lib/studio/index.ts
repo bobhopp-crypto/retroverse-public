@@ -87,6 +87,8 @@ export {
   collectorTempDir,
   collectorVisualAssetsDir,
   collectorProgressPath,
+  studioPipelineEventsPath,
+  departmentRuntimeProgressPath,
   editorOutputPath,
   editorV1BackupPath,
   directorHandoffPath,

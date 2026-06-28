@@ -1,0 +1,623 @@
+/* Experience 2.0 — Song DNA flagship workspace */
+
+.sdna-workspace {
+  --sdna-lab: #4fd5ff;
+  --sdna-violet: #7c4dff;
+  --sdna-ink: #0a1628;
+  --sdna-paper: #0d1f3c;
+  --sdna-glow: rgba(79, 213, 255, 0.25);
+
+  color: #e8f4ff;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.sdna-workspace__hero {
+  margin-bottom: 1rem;
+  padding: 1.25rem 1.35rem;
+  border: 2px solid rgba(79, 213, 255, 0.35);
+  border-radius: 0.5rem;
+  background: linear-gradient(145deg, rgba(13, 31, 60, 0.95), rgba(8, 16, 28, 0.98));
+}
+
+.sdna-workspace__badge {
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sdna-lab);
+}
+
+.sdna-workspace__hero h1 {
+  margin: 0.2rem 0 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--sdna-lab), var(--sdna-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sdna-workspace__song {
+  margin: 0.35rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.sdna-workspace__tagline {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+  color: rgba(232, 244, 255, 0.65);
+  max-width: 36rem;
+}
+
+.sdna-workspace__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.sdna-workspace__nav button {
+  padding: 0.4rem 0.65rem;
+  border: 1px solid rgba(79, 213, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(8, 16, 28, 0.6);
+  color: inherit;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sdna-workspace__nav button.is-active {
+  border-color: var(--sdna-lab);
+  background: rgba(79, 213, 255, 0.12);
+  color: var(--sdna-lab);
+}
+
+.sdna-panel {
+  padding: 1rem 1.1rem;
+  border: 2px solid rgba(79, 213, 255, 0.2);
+  border-radius: 0.5rem;
+  background: rgba(8, 16, 28, 0.75);
+}
+
+.sdna-panel h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sdna-lab);
+}
+
+.sdna-panel__headline {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.sdna-panel__personality {
+  margin: 0.5rem 0;
+  color: var(--sdna-violet);
+  font-weight: 700;
+}
+
+.sdna-panel__mega {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--sdna-lab);
+}
+
+.sdna-panel__strengths,
+.sdna-panel__traits {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  line-height: 1.45;
+}
+
+.sdna-signals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+}
+
+.sdna-signals dt {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  color: rgba(232, 244, 255, 0.5);
+}
+
+.sdna-signals dd {
+  margin: 0.05rem 0 0;
+  font-weight: 800;
+}
+
+.sdna-enrichment {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+}
+
+.sdna-enrichment li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sdna-enrichment .is-pending span {
+  color: rgba(232, 244, 255, 0.45);
+  font-style: italic;
+}
+
+.sdna-workspace__chapters-layout {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .sdna-workspace__chapters-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sdna-chapter-nav {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.sdna-chapter-nav button {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgba(79, 213, 255, 0.2);
+  border-radius: 0.35rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.82rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sdna-chapter-nav button.is-active {
+  border-color: var(--sdna-lab);
+  background: rgba(79, 213, 255, 0.1);
+}
+
+.sdna-chapter-nav span {
+  font-weight: 900;
+  color: var(--sdna-lab);
+}
+
+.sdna-chapter-stage {
+  padding: 1rem;
+  border: 2px solid rgba(124, 77, 255, 0.35);
+  border-radius: 0.5rem;
+  background: rgba(13, 31, 60, 0.6);
+  min-height: 16rem;
+}
+
+/* Beat previews */
+
+.sdna-beat {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.sdna-beat__hook {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 32rem;
+}
+
+.sdna-beat__stat {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--sdna-lab);
+}
+
+.sdna-beat__mega {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--sdna-violet);
+}
+
+.sdna-beat__eyebrow {
+  margin: 0;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sdna-lab);
+}
+
+.sdna-beat__title {
+  margin: 0.2rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.sdna-beat__fingerprint {
+  position: relative;
+  padding: 1.5rem;
+  border: 2px solid;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.sdna-beat__helix {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    rgba(79, 213, 255, 0.08) 8px,
+    rgba(79, 213, 255, 0.08) 10px
+  );
+  animation: sdnaHelixDrift 6s linear infinite;
+}
+
+.sdna-beat__traits {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.sdna-beat__wave {
+  height: 4rem;
+  background: linear-gradient(90deg, var(--sdna-lab), var(--sdna-violet), var(--sdna-lab));
+  background-size: 200% 100%;
+  border-radius: 0.35rem;
+  animation: sdnaWaveFlow 3s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.sdna-beat__pulse-rings {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.sdna-beat__pulse-rings span {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--sdna-lab);
+  border-radius: 50%;
+  animation: sdnaPulseRing 1.8s ease-out infinite;
+}
+
+.sdna-beat__pulse-rings span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.sdna-beat__pulse-rings span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.sdna-beat__color-field {
+  height: 5rem;
+  border-radius: 0.5rem;
+  animation: sdnaColorBloom 4s ease-in-out infinite;
+}
+
+.sdna-beat__orbit {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto;
+}
+
+.sdna-beat__orbit-core {
+  position: absolute;
+  inset: 35%;
+  border-radius: 50%;
+  background: var(--sdna-violet);
+  box-shadow: 0 0 20px var(--sdna-glow);
+}
+
+.sdna-beat__orbit-node {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--sdna-lab);
+  animation: sdnaOrbit 5s linear infinite;
+}
+
+.sdna-beat__orbit-node--1 {
+  top: 0;
+  left: 50%;
+  margin-left: -0.5rem;
+}
+
+.sdna-beat__orbit-node--2 {
+  animation-delay: -1.6s;
+  bottom: 10%;
+  right: 10%;
+}
+
+.sdna-beat__orbit-node--3 {
+  animation-delay: -3.2s;
+  bottom: 10%;
+  left: 10%;
+}
+
+.sdna-beat__vocal-ribbon {
+  height: 3rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24'%3E%3Cpath d='M0 12 Q15 0 30 12 T60 12 T90 12 T120 12' fill='none' stroke='%234fd5ff' stroke-width='2'/%3E%3C/svg%3E")
+    center / contain repeat-x;
+  animation: sdnaWaveFlow 2.5s linear infinite;
+}
+
+.sdna-beat__constellation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.sdna-beat__constellation li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgba(79, 213, 255, 0.25);
+  border-radius: 0.25rem;
+  animation: sdnaNeighborFloat 3s ease-in-out infinite;
+}
+
+.sdna-beat__legacy-threads {
+  margin: 0;
+  padding-left: 1.1rem;
+  line-height: 1.5;
+}
+
+.sdna-concepts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sdna-concepts__meta {
+  font-size: 0.78rem;
+  color: rgba(232, 244, 255, 0.55);
+}
+
+.sdna-concepts__swatch {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+}
+
+.sdna-concepts__swatch span {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sdna-art-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.sdna-art-grid dt {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  color: rgba(232, 244, 255, 0.5);
+}
+
+.sdna-art-swatches {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0.75rem 0;
+}
+
+.sdna-art-swatches span {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sdna-panel blockquote {
+  margin: 0.65rem 0 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--sdna-violet);
+  font-style: italic;
+  color: rgba(232, 244, 255, 0.8);
+}
+
+.sdna-sequence {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sdna-sequence li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.65rem;
+}
+
+.sdna-sequence__order {
+  font-weight: 900;
+  color: var(--sdna-lab);
+}
+
+.sdna-preview-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.65rem;
+}
+
+.sdna-preview-card {
+  padding: 0.75rem;
+  border: 2px solid rgba(79, 213, 255, 0.25);
+  border-radius: 0.35rem;
+  background: rgba(13, 31, 60, 0.8);
+}
+
+.sdna-preview-card--hero {
+  border-color: var(--sdna-lab);
+  grid-column: span 2;
+}
+
+.sdna-preview-card__mood {
+  margin: 0;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  color: var(--sdna-lab);
+}
+
+.sdna-preview-card__motion {
+  font-size: 0.72rem;
+  color: rgba(232, 244, 255, 0.55);
+}
+
+.sdna-preview-card__palette {
+  display: flex;
+  gap: 0.2rem;
+  margin-top: 0.35rem;
+}
+
+.sdna-preview-card__palette span {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+}
+
+.sdna-review-score {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--sdna-lab);
+  margin: 0;
+}
+
+.sdna-review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.sdna-review-grid dt {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  color: rgba(232, 244, 255, 0.5);
+}
+
+.sdna-review-grid dd {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.sdna-checks {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.sdna-checks .is-pass strong {
+  color: #6ee7a0;
+}
+
+.sdna-checks .is-fail strong {
+  color: #ff8a65;
+}
+
+.sdna-publisher-notes {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(232, 244, 255, 0.7);
+}
+
+@keyframes sdnaHelixDrift {
+  to {
+    background-position: 40px 0;
+  }
+}
+
+@keyframes sdnaWaveFlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes sdnaPulseRing {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes sdnaColorBloom {
+  0%,
+  100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% {
+    filter: hue-rotate(15deg) brightness(1.15);
+  }
+}
+
+@keyframes sdnaOrbit {
+  from {
+    transform: rotate(0deg) translateX(3.5rem) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(3.5rem) rotate(-360deg);
+  }
+}
+
+@keyframes sdnaNeighborFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sdna-beat__helix,
+  .sdna-beat__wave,
+  .sdna-beat__pulse-rings span,
+  .sdna-beat__color-field,
+  .sdna-beat__orbit-node,
+  .sdna-beat__vocal-ribbon,
+  .sdna-beat__constellation li {
+    animation: none !important;
+  }
+}

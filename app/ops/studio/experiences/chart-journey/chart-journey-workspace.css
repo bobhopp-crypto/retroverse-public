@@ -1,0 +1,73 @@
+.cj-landing__hero {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.35rem;
+  border: 3px solid #2a2a2a;
+  border-radius: 0.35rem;
+  background: #f7f2e8;
+}
+
+.cj-landing__badge {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a7a7a;
+}
+
+.cj-landing__hero h1 {
+  margin: 0.2rem 0 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+}
+
+.cj-landing__lead {
+  margin: 0.5rem 0 0;
+  max-width: 36rem;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.cj-landing__note {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  color: #5c5348;
+}
+
+.cj-landing__showcase ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.cj-landing__showcase a {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.75rem 0.85rem;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.35rem;
+  background: rgba(8, 16, 28, 0.55);
+  text-decoration: none;
+  color: inherit;
+}
+
+.cj-landing__showcase a:hover {
+  border-color: #1a7a7a;
+}
+
+.cj-landing__showcase strong {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: #4fd5ff;
+}
+
+.cj-landing__back {
+  margin: 1rem 0 0.75rem;
+  font-size: 0.88rem;
+}
+
+.cj-landing__back a {
+  color: #4fd5ff;
+}

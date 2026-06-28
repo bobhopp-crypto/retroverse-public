@@ -43,8 +43,11 @@ const mainThings: Array<{
   },
   {
     title: "Studio",
-    plain: "The creative engine — AI departments and publishing workflows.",
-    links: [{ label: "Studio Dashboard", href: "/ops/studio" }],
+    plain: "Mission Control, departments, and the production pipeline.",
+    links: [
+      { label: "Mission Control", href: "/ops/studio" },
+      { label: "Library & Queue", href: "/ops/browser-plus-2" },
+    ],
   },
   {
     title: "Research",

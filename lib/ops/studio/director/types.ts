@@ -149,6 +149,8 @@ export type DirectorPackage = {
   generatedAt: string;
   handoffVersion: number;
   experiencePlan: ExperiencePlan;
+  /** Sprint 3.31 — documentary story plan (stories → exhibits → pages → storyboard) */
+  storyPlan?: import("./storytelling/types").DirectorStoryPlan;
   review: DirectorReview;
   /** Director 0.3 — canonical machine-readable render output */
   renderSpec?: DirectorRenderSpec;
