@@ -123,7 +123,6 @@ function countSkippedResults(results: ProductionSongResult[] | undefined): numbe
       s.collector === "skipped" &&
       s.editor === "skipped" &&
       s.director === "skipped" &&
-      s.creativeReview === "skipped" &&
       (s.publisher === "skipped" || s.publisher === "approved")
     );
   }).length;
