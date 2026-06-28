@@ -20,8 +20,23 @@ function coverProxyOrigin() {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  // Trace only small ops metadata — not per-RVTR package trees (45k+ files OOM Vercel builds).
   outputFileTracingIncludes: {
-    "/*": ["./data/ops/intelligence/**/*"],
+    "/api/ops/**": [
+      "./data/ops/intelligence/research-department/*.json",
+      "./data/ops/studio/**",
+    ],
+    "/ops/**": [
+      "./data/ops/intelligence/research-department/*.json",
+      "./data/ops/studio/**",
+    ],
+  },
+  outputFileTracingExcludes: {
+    "*": [
+      "./data/ops/intelligence/research-department/RVTR*/**",
+      "./.venv-allstar/**",
+      "./tools/allstar-disc-extractor/**",
+    ],
   },
   serverExternalPackages: ["pg"],
   // Ops video uploads hit /api/ops/* (middleware matcher). Default 10MB truncates
