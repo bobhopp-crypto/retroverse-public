@@ -194,8 +194,9 @@ export async function buildAttractTourPool(sessionSeed: number): Promise<{
     loadBundledPublishedPool(),
   ]);
 
+  const bundledEntries = buildFromBundledPool(bundledPool);
   const source =
-    dynamicEntries.length > 0 ? dynamicEntries : buildFromBundledPool(bundledPool);
+    dynamicEntries.length > bundledEntries.length ? dynamicEntries : bundledEntries;
 
   const byEra: Record<StudioEraAnchor, AttractTourEntry[]> = {
     1980: [],
