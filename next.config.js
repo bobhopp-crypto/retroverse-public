@@ -26,6 +26,7 @@ const nextConfig = {
       "./data/ops/intelligence/research-department/*.json",
       "./data/ops/studio/**",
     ],
+    "/api/retroverse-2/attract-tour": ["./data/ops/studio/**"],
     "/ops/**": [
       "./data/ops/intelligence/research-department/*.json",
       "./data/ops/studio/**",

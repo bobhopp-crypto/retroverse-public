@@ -12,6 +12,9 @@ import {
   isPublisherApproved,
   loadPublisherStore,
 } from "@/lib/ops/studio/publisher/store";
+import { readJsonFileSafe } from "@/lib/ops/studio/safe-io";
+
+const ATTRACT_ERA_YEARS_PATH = `${process.cwd()}/data/ops/studio/attract-tour-era-years.json`;
 
 export type AttractTourEntry = {
   rvtr: string;
@@ -42,6 +45,19 @@ function seededShuffle<T>(items: T[], seed: number): T[] {
   return next;
 }
 
+async function loadAttractTourEraYears(): Promise<Map<string, number>> {
+  const parsed = await readJsonFileSafe<{ years?: Record<string, number> } | null>(
+    ATTRACT_ERA_YEARS_PATH,
+    null,
+  );
+  const years = parsed?.years ?? {};
+  return new Map(
+    Object.entries(years).flatMap(([rvtr, year]) =>
+      typeof year === "number" && year >= 1960 && year <= 2030 ? [[rvtr, year] as const] : [],
+    ),
+  );
+}
+
 async function readCollectorYear(rvtr: string): Promise<number | null> {
   const path = collectorOutputPath(rvtr);
   if (!existsSync(path)) return null;
@@ -59,6 +75,15 @@ async function readCollectorYear(rvtr: string): Promise<number | null> {
   } catch {
     return null;
   }
+}
+
+async function resolveSongYear(
+  rvtr: string,
+  bundledYears: Map<string, number>,
+): Promise<number | null> {
+  const fromCollector = await readCollectorYear(rvtr);
+  if (fromCollector != null) return fromCollector;
+  return bundledYears.get(rvtr) ?? null;
 }
 
 function interleaveEraPools(
@@ -92,7 +117,10 @@ export async function buildAttractTourPool(sessionSeed: number): Promise<{
   seed: number;
   entries: AttractTourEntry[];
 }> {
-  const store = await loadPublisherStore();
+  const [store, bundledYears] = await Promise.all([
+    loadPublisherStore(),
+    loadAttractTourEraYears(),
+  ]);
   const byEra: Record<StudioEraAnchor, AttractTourEntry[]> = {
     1980: [],
     1990: [],
@@ -103,7 +131,7 @@ export async function buildAttractTourPool(sessionSeed: number): Promise<{
   const resolved = await Promise.all(
     approved.map(async (record) => ({
       record,
-      year: await readCollectorYear(record.rvtr),
+      year: await resolveSongYear(record.rvtr, bundledYears),
     })),
   );
 
