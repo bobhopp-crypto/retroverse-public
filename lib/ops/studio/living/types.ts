@@ -3,6 +3,7 @@
 /** Sprint 3.6 — Living Studio presentation types (read-only aggregates). */
 
 import type { IdentifiedText } from "@/lib/ops/studio/model-identity";
+import type { MissionControlDashboard } from "@/lib/ops/studio/production/load-mission-control-dashboard";
 import type { PipelineHealthSnapshot } from "@/lib/ops/studio/pipeline-snapshot-types";
 
 export type LivingPipelineStage = "collector" | "editor" | "director" | "publisher" | "published";
@@ -15,6 +16,8 @@ export type LivingProductionCard = {
   stage: LivingPipelineStage;
   href: string;
   subtitle?: string;
+  year?: number | null;
+  stageLabel?: string;
 };
 
 export type LivingActivityEvent = {
@@ -63,6 +66,7 @@ export type LivingStudioSnapshot = {
   todayAccomplishments: IdentifiedText[];
   recentCompletions: LivingProductionCard[];
   pipelineHealth?: PipelineHealthSnapshot;
+  dashboard?: MissionControlDashboard;
 };
 
 export type DirectorProductionStep = {

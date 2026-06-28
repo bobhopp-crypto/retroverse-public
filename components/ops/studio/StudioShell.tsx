@@ -10,6 +10,8 @@ type NavKey = "dashboard" | StudioDepartmentId | "creative-review";
 type Props = {
   active: NavKey;
   guidePage?: StudioGuidePageId;
+  /** Dashboard hides operator-guide chrome to avoid duplicate local nav. */
+  showGuideChrome?: boolean;
   /** Dashboard-only hero title */
   title?: string;
   /** Department mission or dashboard subtitle */
@@ -25,7 +27,14 @@ const DEPARTMENTS: Array<{ key: NavKey; label: string; href: string }> = [
   { key: "publisher", label: "Publisher", href: "/ops/studio/publisher" },
 ];
 
-export function StudioShell({ active, guidePage, title, lead, children }: Props) {
+export function StudioShell({
+  active,
+  guidePage,
+  showGuideChrome = true,
+  title,
+  lead,
+  children,
+}: Props) {
   const showDashboardHero = active === "dashboard";
   const resolvedGuidePage: StudioGuidePageId = guidePage ?? (
     active === "dashboard" ? "dashboard" : active === "collector" || active === "editor" || active === "director" || active === "publisher"
@@ -83,7 +92,7 @@ export function StudioShell({ active, guidePage, title, lead, children }: Props)
         </Link>
       </header>
 
-      <StudioGuideChrome pageId={resolvedGuidePage} />
+      {showGuideChrome ? <StudioGuideChrome pageId={resolvedGuidePage} /> : null}
 
       {showDashboardHero && title ? (
         <div className="ops-studio__intro">

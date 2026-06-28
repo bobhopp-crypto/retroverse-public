@@ -99,8 +99,8 @@ export const MISSION_CONTROL_ACTIONS: MissionControlAction[] = [
   },
   {
     id: "latest",
-    title: "Browse Published Packages",
-    description: "See recently published experiences with full artwork.",
-    href: "/ops/studio/publisher/museum",
+    title: "Open Experience Gallery",
+    description: "Browse published songs and launch Chart Journey, Song DNA, and more.",
+    href: "/retroverse/experiences",
   },
 ];

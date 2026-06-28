@@ -2,11 +2,10 @@ import "server-only";
 
 import { cache } from "react";
 
-import { completedTodayCount, loadCollectorProgress } from "@/lib/ops/studio/collector/store";
+import { completedTodayCount, loadCollectorProgress, loadCollectorPackage } from "@/lib/ops/studio/collector/store";
 import { safeMetricCount } from "@/lib/ops/studio/living/mission-control-format";
 import {
   getAllDepartmentLiveStatusesCached,
-  getDepartmentQueueIndexCached,
   getMissionControlPayloadCached,
   loadStudioActivityFeed,
 } from "@/lib/ops/studio/department-status";
@@ -20,6 +19,8 @@ import { loadDirectorPackage } from "@/lib/ops/studio/director/store";
 import { identifyStrings } from "@/lib/ops/studio/model-identity";
 import { getPublisherStoreCached } from "@/lib/ops/studio/studio-cached-loaders";
 import { isPublisherApproved } from "@/lib/ops/studio/publisher/store";
+import { getMissionControlDashboardCached } from "@/lib/ops/studio/production/load-mission-control-dashboard";
+import { chartJourneyPath } from "@/lib/retroverse/published-launch-paths";
 
 import {
   DEPARTMENT_PERSONALITIES,
@@ -50,14 +51,14 @@ function cardHref(stage: LivingPipelineStage, rvtr: string): string {
     case "publisher":
       return `/ops/studio/publisher/${rvtr}`;
     case "published":
-      return `/experience/${rvtr}`;
+      return chartJourneyPath(rvtr);
   }
 }
 
 function toProductionCard(
   song: DepartmentLiveSong,
   stage: LivingPipelineStage,
-  subtitle?: string,
+  extras?: { year?: number | null; stageLabel?: string },
 ): LivingProductionCard {
   return {
     rvtr: song.rvtr,
@@ -66,7 +67,9 @@ function toProductionCard(
     coverUrl: song.coverUrl ?? null,
     stage,
     href: cardHref(stage, song.rvtr),
-    subtitle: subtitle ?? song.subtitle,
+    subtitle: song.subtitle,
+    year: extras?.year,
+    stageLabel: extras?.stageLabel,
   };
 }
 
@@ -124,15 +127,19 @@ function mapActivityEvents(
 
 async function loadRecentPublications(): Promise<LivingProductionCard[]> {
   const store = await getPublisherStoreCached();
-  return store.records
+  const approved = store.records
     .filter((r) => isPublisherApproved(r))
     .sort((a, b) => {
       const ta = a.publishedAt ?? a.approvedAt ?? "";
       const tb = b.publishedAt ?? b.approvedAt ?? "";
       return tb.localeCompare(ta);
     })
-    .slice(0, 8)
-    .map((r) =>
+    .slice(0, 8);
+
+  const cards: LivingProductionCard[] = [];
+  for (const r of approved) {
+    const collector = await loadCollectorPackage(r.rvtr).catch(() => null);
+    cards.push(
       toProductionCard(
         {
           rvtr: r.rvtr,
@@ -142,15 +149,22 @@ async function loadRecentPublications(): Promise<LivingProductionCard[]> {
           subtitle: r.approvedClass?.replace("_", " "),
         },
         "published",
+        {
+          year: collector?.identity.year ?? null,
+          stageLabel: "Published",
+        },
       ),
     );
+  }
+  return cards;
 }
 
 export async function loadLivingStudioSnapshot(): Promise<LivingStudioSnapshot> {
-  const [payload, collectorProgress, recentPublications] = await Promise.all([
+  const [payload, collectorProgress, recentPublications, dashboard] = await Promise.all([
     getMissionControlPayloadCached(),
     loadCollectorProgress().catch(() => null),
     loadRecentPublications(),
+    getMissionControlDashboardCached(),
   ]);
 
   const seed = Math.floor(Date.now() / 15000);
@@ -167,7 +181,7 @@ export async function loadLivingStudioSnapshot(): Promise<LivingStudioSnapshot> 
       stage: "collector",
       label: "Collector",
       processingLabel: "Research…",
-      count: safeMetricCount(payload.departments.collector.queueRemaining),
+      count: dashboard.counts.collectorComplete,
       isActive: payload.departments.collector.status === "running",
       href: "/ops/studio/collector",
     },
@@ -175,7 +189,7 @@ export async function loadLivingStudioSnapshot(): Promise<LivingStudioSnapshot> 
       stage: "editor",
       label: "Editor",
       processingLabel: "Writing…",
-      count: safeMetricCount(payload.departments.editor.queueRemaining),
+      count: dashboard.counts.needsEditor,
       isActive: payload.departments.editor.status === "running",
       href: "/ops/studio/editor",
     },
@@ -183,7 +197,7 @@ export async function loadLivingStudioSnapshot(): Promise<LivingStudioSnapshot> 
       stage: "director",
       label: "Director",
       processingLabel: "Designing…",
-      count: safeMetricCount(payload.departments.director.queueRemaining),
+      count: dashboard.counts.needsDirector,
       isActive: payload.departments.director.status === "running",
       href: "/ops/studio/director",
     },
@@ -191,7 +205,7 @@ export async function loadLivingStudioSnapshot(): Promise<LivingStudioSnapshot> 
       stage: "publisher",
       label: "Publisher",
       processingLabel: "Reviewing…",
-      count: safeMetricCount(payload.departments.publisher.queueRemaining),
+      count: dashboard.counts.needsPublisher,
       isActive: payload.departments.publisher.status === "running",
       href: "/ops/studio/publisher",
     },
@@ -199,9 +213,9 @@ export async function loadLivingStudioSnapshot(): Promise<LivingStudioSnapshot> 
       stage: "published",
       label: "Published",
       processingLabel: "Published",
-      count: safeMetricCount(payload.queueIndex?.publishedTotal),
+      count: dashboard.counts.published,
       isActive: false,
-      href: "/ops/studio/publisher/museum",
+      href: "/retroverse/experiences",
     },
   ];
 
@@ -222,7 +236,7 @@ export async function loadLivingStudioSnapshot(): Promise<LivingStudioSnapshot> 
   }
   if (payload.queueIndex.publishedTotal > 0) {
     todayAccomplishmentTexts.push(
-      `${payload.queueIndex.publishedTotal} experiences live for patrons`,
+      `${dashboard.counts.published} experiences live for patrons`,
     );
   }
 
@@ -237,6 +251,7 @@ export async function loadLivingStudioSnapshot(): Promise<LivingStudioSnapshot> 
     todayAccomplishments,
     recentCompletions: recentPublications.slice(0, 6),
     pipelineHealth: undefined,
+    dashboard,
   };
 }
 

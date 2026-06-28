@@ -111,6 +111,8 @@
     "research:training:overnight": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/overnight-training-run.ts",
     "research:studio:snapshot": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/studio-pipeline-snapshot.ts",
     "research:studio:production": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/studio-production-run.ts",
+    "research:studio:collector-backlog": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/studio-collector-backlog-run.ts",
+    "research:studio:mission-control-audit": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/mission-control-audit.ts",
     "research:studio:year-batch": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/studio-year-batch.ts",
     "research:song-dna-visual-synth": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/song-dna-visual-synth-proof.ts",
     "research:song-dna-proof": "NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/song-dna-proof.ts",

@@ -22,7 +22,7 @@ export default async function StudioDashboardPage() {
     <main className="ops-page ops-command ops-studio-page">
       <div className="ops-page__grain" aria-hidden />
       <div className="ops-page__inner">
-        <StudioShell active="dashboard">
+        <StudioShell active="dashboard" showGuideChrome={false}>
           <LivingStudioHome initialSnapshot={snapshot} />
         </StudioShell>
       </div>

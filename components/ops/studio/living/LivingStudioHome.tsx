@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { chartJourneyPath } from "@/lib/retroverse/published-launch-paths";
 import type { LivingStudioSnapshot } from "@/lib/ops/studio/living/types";
 import type { StudioMissionControlPayload } from "@/lib/ops/studio/department-status/types";
 import { safeMetricCount } from "@/lib/ops/studio/living/mission-control-format";
@@ -23,7 +24,7 @@ function cardHref(stage: string, rvtr: string): string {
     case "publisher":
       return `/ops/studio/publisher/${rvtr}`;
     default:
-      return `/experience/${rvtr}`;
+      return chartJourneyPath(rvtr);
   }
 }
 
@@ -119,7 +120,7 @@ function payloadToSnapshot(
       processingLabel: "Published",
       count: safeMetricCount(payload.queueIndex?.publishedTotal),
       isActive: false,
-      href: "/ops/studio/publisher/museum",
+      href: "/retroverse/experiences",
     },
   ];
 
@@ -136,6 +137,7 @@ function payloadToSnapshot(
     recentPublications: previous.recentPublications,
     todayAccomplishments: previous.todayAccomplishments,
     recentCompletions: previous.recentCompletions,
+    dashboard: previous.dashboard,
   };
 }
 

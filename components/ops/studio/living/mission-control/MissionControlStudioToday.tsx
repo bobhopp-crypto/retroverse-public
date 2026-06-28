@@ -2,37 +2,45 @@ import {
   formatMetricCount,
   formatMetricText,
 } from "@/lib/ops/studio/living/mission-control-format";
+import type { MissionControlDashboard } from "@/lib/ops/studio/production/load-mission-control-dashboard";
 
 type Props = {
-  packagesPublished?: number | null;
-  packagesInProgress?: number | null;
-  songsWaiting?: number | null;
-  currentQueue?: number | null;
-  estimatedCompletion?: string | null;
+  dashboard: MissionControlDashboard;
 };
 
-export function MissionControlStudioToday({
-  packagesPublished,
-  packagesInProgress,
-  songsWaiting,
-  currentQueue,
-  estimatedCompletion,
-}: Props) {
+export function MissionControlStudioToday({ dashboard }: Props) {
+  const { counts, backlogRun } = dashboard;
+
   const metrics = [
-    { label: "Packages Published", value: formatMetricCount(packagesPublished) },
-    { label: "Packages In Progress", value: formatMetricCount(packagesInProgress) },
-    { label: "Songs Waiting", value: formatMetricCount(songsWaiting) },
-    { label: "Current Queue", value: formatMetricCount(currentQueue) },
+    { label: "Published", value: formatMetricCount(counts.published) },
+    { label: "Needs Editor", value: formatMetricCount(counts.needsEditor) },
+    { label: "Needs Director", value: formatMetricCount(counts.needsDirector) },
+    { label: "Needs Creative Review", value: formatMetricCount(counts.needsCreativeReview) },
+    { label: "Needs Publisher", value: formatMetricCount(counts.needsPublisher) },
+    { label: "Entered Pipeline", value: formatMetricCount(backlogRun.enteredPipeline) },
+    { label: "Failed", value: formatMetricCount(counts.failed) },
     {
-      label: "Estimated Completion",
-      value: formatMetricText(estimatedCompletion, "—"),
+      label: "Est. Completion",
+      value: formatMetricText(
+        backlogRun.estimatedCompletionAt
+          ? new Date(backlogRun.estimatedCompletionAt).toLocaleString(undefined, {
+              month: "short",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+            })
+          : backlogRun.estimatedCompletionAt === "Complete"
+            ? "Complete"
+            : null,
+        "—",
+      ),
       text: true,
     },
   ];
 
   return (
-    <section className="rs-mc-today" aria-label="Studio today">
-      <h2 className="rs-mc-section-title">Studio Today</h2>
+    <section className="rs-mc-today" aria-label="Pipeline counts">
+      <h2 className="rs-mc-section-title">Pipeline Counts</h2>
       <dl className="rs-mc-today__grid">
         {metrics.map((metric) => (
           <div

@@ -6,29 +6,30 @@ import {
   safeMetricCount,
 } from "@/lib/ops/studio/living/mission-control-format";
 import { productionTrackerPath } from "@/lib/ops/studio/production-tracker/paths";
+import type { MissionControlDashboard } from "@/lib/ops/studio/production/load-mission-control-dashboard";
 import type { LivingDepartmentSnapshot, LivingProductionCard } from "@/lib/ops/studio/living/types";
 
 type Props = {
+  dashboard: MissionControlDashboard;
   activeSong: LivingProductionCard | null;
   activeDepartment: LivingDepartmentSnapshot | null;
-  queueTotal?: number | null;
 };
 
-export function MissionControlHero({ activeSong, activeDepartment, queueTotal }: Props) {
-  const safeQueueTotal = safeMetricCount(queueTotal);
-  const isProducing = activeDepartment?.mood === "working" && activeSong;
-  const hasQueue = safeQueueTotal > 0;
+export function MissionControlHero({ dashboard, activeSong, activeDepartment }: Props) {
+  const { counts, backlogRun, live } = dashboard;
+  const isProducing = counts.currentlyProcessing > 0 && live.currentlyProcessing;
+  const remaining = safeMetricCount(counts.backlogRemaining);
 
-  let statusHeadline = "Studio Operating Normally";
-  let statusDetail = "No song is in production right now. Start batch processing or open a department to begin.";
+  let statusHeadline = "Factory Dashboard";
+  let statusDetail = `${formatMetricCount(counts.published)} of ${formatMetricCount(counts.collectorComplete)} published · ${formatMetricCount(remaining)} remaining in backlog.`;
 
   if (isProducing && activeDepartment && activeSong) {
-    statusHeadline = "Currently Producing";
+    statusHeadline = "Assembly Line Active";
     const verb = DEPARTMENT_ROOM_COPY[activeDepartment.id].workingVerb;
-    statusDetail = `${activeDepartment.name} is ${verb} this song.`;
-  } else if (hasQueue) {
-    statusHeadline = "Work Waiting in Queue";
-    statusDetail = `${formatMetricCount(safeQueueTotal)} songs are ready for the pipeline. Start batch processing to begin.`;
+    statusDetail = `${activeDepartment.name} is ${verb} · ${backlogRun.throughputPerHour ?? "—"} songs/hr · ${formatMetricCount(counts.published)} / ${formatMetricCount(counts.collectorComplete)} published.`;
+  } else if (remaining > 0 && backlogRun.enteredPipeline > 0) {
+    statusHeadline = "Backlog Draining";
+    statusDetail = `${formatMetricCount(backlogRun.enteredPipeline)} songs entered the pipeline · ${formatMetricCount(remaining)} still to publish.`;
   }
 
   return (
@@ -36,7 +37,7 @@ export function MissionControlHero({ activeSong, activeDepartment, queueTotal }:
       <div className="rs-mc-hero__top">
         <p className="rs-mc-hero__kicker">Retroverse Studio</p>
         <h1 className="rs-mc-hero__title">Mission Control</h1>
-        <p className={`rs-mc-hero__status rs-mc-hero__status--${isProducing ? "live" : hasQueue ? "queue" : "idle"}`}>
+        <p className={`rs-mc-hero__status rs-mc-hero__status--${isProducing ? "live" : remaining > 0 ? "queue" : "idle"}`}>
           {statusHeadline}
         </p>
         <p className="rs-mc-hero__detail">{statusDetail}</p>
@@ -44,7 +45,7 @@ export function MissionControlHero({ activeSong, activeDepartment, queueTotal }:
 
       {isProducing && activeSong ? (
         <div className="rs-mc-hero__production">
-          <p className="rs-mc-hero__production-label">Currently working on</p>
+          <p className="rs-mc-hero__production-label">Currently processing</p>
           <Link href={productionTrackerPath(activeSong.rvtr)} className="rs-mc-hero__song-card">
             {activeSong.coverUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
