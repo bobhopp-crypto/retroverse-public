@@ -1,14 +1,17 @@
 import "server-only";
 
-import { readFile } from "fs/promises";
+import { existsSync } from "fs";
+import { open } from "fs/promises";
 
-import { isSongExperienceRenderable } from "@/lib/ops/intelligence/song-experience-renderability";
+import { collectorOutputPath } from "@/lib/ops/studio/collector/paths";
 import {
-  loadSongPackageIndex,
-  normalizePackageRvtr,
-} from "@/lib/ops/intelligence/song-package-store";
-import { backfillQueuePath } from "@/lib/ops/intelligence/paths";
-import type { SongPackageStatus } from "@/lib/ops/intelligence/song-package-types";
+  eraAnchorForYear,
+  type StudioEraAnchor,
+} from "@/lib/ops/studio/production/filter-by-era";
+import {
+  isPublisherApproved,
+  loadPublisherStore,
+} from "@/lib/ops/studio/publisher/store";
 
 export type AttractTourEntry = {
   rvtr: string;
@@ -23,19 +26,7 @@ export type AttractTourEntry = {
   score: number;
 };
 
-function guessReleaseYear(title: string): number | null {
-  const match = title.match(/\b(19[5-9]\d|20[0-2]\d)\b/);
-  if (!match) return null;
-  const year = Number(match[1]);
-  return year >= 1950 && year <= 2029 ? year : null;
-}
-
-const RESEARCH_STATUSES = new Set<SongPackageStatus>([
-  "review",
-  "cards_ready",
-  "approved",
-  "published",
-]);
+const ATTRACT_ERA_ANCHORS: StudioEraAnchor[] = [1980, 1990, 2005];
 
 function seededShuffle<T>(items: T[], seed: number): T[] {
   const next = [...items];
@@ -51,120 +42,91 @@ function seededShuffle<T>(items: T[], seed: number): T[] {
   return next;
 }
 
-function storyScoreFromStatus(status: SongPackageStatus): number {
-  if (status === "published") return 8;
-  if (status === "approved" || status === "cards_ready") return 5;
-  if (status === "review") return 2;
-  return 0;
-}
-
-function computeScore(entry: Omit<AttractTourEntry, "score">): number {
-  let score = entry.playCount * 1000;
-  if (entry.experienceReady) score += 800;
-  if (entry.researchComplete) score += 400;
-  if (entry.hasCover) score += 120;
-  score += Math.min(entry.storyScore, 12) * 35;
-  return score;
-}
-
-async function loadVdjPlayCounts(): Promise<
-  Map<string, { playCount: number; title: string; artist: string }>
-> {
-  const counts = new Map<string, { playCount: number; title: string; artist: string }>();
+async function readCollectorYear(rvtr: string): Promise<number | null> {
+  const path = collectorOutputPath(rvtr);
+  if (!existsSync(path)) return null;
   try {
-    const raw = await readFile(backfillQueuePath(), "utf8");
-    const parsed = JSON.parse(raw) as {
-      entries?: Array<{ rvtr?: string; playCount?: number; title?: string; artist?: string }>;
-    };
-    for (const entry of parsed.entries ?? []) {
-      const rvtr = normalizePackageRvtr(entry.rvtr ?? "");
-      if (!rvtr) continue;
-      const playCount = entry.playCount ?? 0;
-      const existing = counts.get(rvtr);
-      if (!existing || playCount > existing.playCount) {
-        counts.set(rvtr, {
-          playCount,
-          title: entry.title?.trim() || rvtr,
-          artist: entry.artist?.trim() || "",
-        });
+    const fd = await open(path, "r");
+    const buf = Buffer.alloc(2048);
+    await fd.read(buf, 0, 2048, 0);
+    await fd.close();
+    const match = buf
+      .toString("utf8")
+      .match(/"identity"\s*:\s*\{\s*"rvtr"[\s\S]*?"year"\s*:\s*(\d{4})/);
+    if (!match) return null;
+    const year = Number.parseInt(match[1]!, 10);
+    return year >= 1960 && year <= 2030 ? year : null;
+  } catch {
+    return null;
+  }
+}
+
+function interleaveEraPools(
+  byEra: Record<StudioEraAnchor, AttractTourEntry[]>,
+  seed: number,
+): AttractTourEntry[] {
+  const buckets = ATTRACT_ERA_ANCHORS.map((era) => ({
+    era,
+    items: seededShuffle(byEra[era], seed + era),
+  })).filter((bucket) => bucket.items.length > 0);
+
+  const entries: AttractTourEntry[] = [];
+  let index = 0;
+  while (true) {
+    let added = false;
+    for (const bucket of buckets) {
+      const entry = bucket.items[index];
+      if (entry) {
+        entries.push(entry);
+        added = true;
       }
     }
-  } catch {
-    /* queue optional */
+    if (!added) break;
+    index += 1;
   }
-  return counts;
+  return entries;
 }
 
-/** Large rotating attract pool — VDJ play count first, then experience richness. */
+/** Rotating attract pool — published experiences from 1980, 1990, and 2005 eras. */
 export async function buildAttractTourPool(sessionSeed: number): Promise<{
   seed: number;
   entries: AttractTourEntry[];
 }> {
-  const [packageIndex, vdjPlays] = await Promise.all([
-    loadSongPackageIndex(),
-    loadVdjPlayCounts(),
-  ]);
+  const store = await loadPublisherStore();
+  const byEra: Record<StudioEraAnchor, AttractTourEntry[]> = {
+    1980: [],
+    1990: [],
+    2005: [],
+  };
 
-  const indexByRvtr = new Map(
-    packageIndex.packages
-      .map((entry) => {
-        const rvtr = normalizePackageRvtr(entry.rvtr);
-        return rvtr ? ([rvtr, entry] as const) : null;
-      })
-      .filter((row): row is [string, (typeof packageIndex.packages)[number]] => row != null),
+  const approved = store.records.filter((record) => isPublisherApproved(record));
+  const resolved = await Promise.all(
+    approved.map(async (record) => ({
+      record,
+      year: await readCollectorYear(record.rvtr),
+    })),
   );
 
-  const byRvtr = new Map<string, AttractTourEntry>();
+  for (const { record, year } of resolved) {
+    const era = eraAnchorForYear(year);
+    if (!era || !ATTRACT_ERA_ANCHORS.includes(era)) continue;
 
-  for (const [rvtr, vdj] of vdjPlays) {
-    const pkgEntry = indexByRvtr.get(rvtr);
-    const status = (pkgEntry?.status ?? "draft") as SongPackageStatus;
-    const storyScore = storyScoreFromStatus(status);
-    const base = {
-      rvtr,
-      title: pkgEntry?.title ?? vdj.title,
-      artist: pkgEntry?.artist ?? vdj.artist,
-      playCount: vdj.playCount,
-      experienceReady: Boolean(pkgEntry && isSongExperienceRenderable(status)),
-      researchComplete: RESEARCH_STATUSES.has(status),
-      hasCover: status === "published" || status === "approved",
-      storyScore,
-      releaseYear: guessReleaseYear(pkgEntry?.title ?? vdj.title),
-    };
-    byRvtr.set(rvtr, { ...base, score: computeScore(base) });
-  }
-
-  for (const pkgEntry of packageIndex.packages) {
-    const rvtr = normalizePackageRvtr(pkgEntry.rvtr);
-    if (!rvtr || byRvtr.has(rvtr)) continue;
-    const status = pkgEntry.status;
-    const storyScore = storyScoreFromStatus(status);
-    const base = {
-      rvtr,
-      title: pkgEntry.title,
-      artist: pkgEntry.artist,
+    byEra[era].push({
+      rvtr: record.rvtr,
+      title: record.title,
+      artist: record.artist,
       playCount: 0,
-      experienceReady: isSongExperienceRenderable(status),
-      researchComplete: RESEARCH_STATUSES.has(status),
-      hasCover: status === "published" || status === "approved",
-      storyScore,
-      releaseYear: guessReleaseYear(pkgEntry.title),
-    };
-    byRvtr.set(rvtr, { ...base, score: computeScore(base) });
+      experienceReady: true,
+      researchComplete: true,
+      hasCover: Boolean(record.coverUrl),
+      storyScore: 8,
+      releaseYear: year,
+      score: 1000,
+    });
   }
-
-  const sorted = [...byRvtr.values()].sort((a, b) => b.score - a.score || a.title.localeCompare(b.title));
-
-  const topTier = sorted.filter((e) => e.playCount > 0 || e.experienceReady);
-  const rest = sorted.filter((e) => e.playCount === 0 && !e.experienceReady);
-  const pool = [...topTier, ...rest].slice(0, 2000);
-
-  const shuffleBand = pool.slice(0, Math.min(400, pool.length));
-  const tail = pool.slice(shuffleBand.length);
-  const shuffledHead = seededShuffle(shuffleBand, sessionSeed);
 
   return {
     seed: sessionSeed,
-    entries: [...shuffledHead, ...tail],
+    entries: interleaveEraPools(byEra, sessionSeed),
   };
 }
