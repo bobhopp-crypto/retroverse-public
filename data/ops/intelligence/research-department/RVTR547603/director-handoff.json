@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR547603",
+  "artist": "Lynyrd Skynyrd",
+  "title": "Tuesday's Gone",
+  "story": {
+    "headline": "Tuesday's Gone: A Cultural Moment Captured on Record",
+    "subtitle": "Lynyrd Skynyrd · Cultural Moment",
+    "hook": "Tuesday's Gone is performed by Lynyrd Skynyrd.",
+    "summary": "Lynyrd Skynyrd's \"Tuesday's Gone\" — original release 1973.",
+    "fullStory": "Lynyrd Skynyrd's \"Tuesday's Gone\" — original release 1973.\n\nSong release — original 1973 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "e44edcc1-6af2-47cf-ab00-846f82d1e4b4",
+      "text": "VirtualDJ library play count: 10.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "a308f21fd22a",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547603&file=hero.jpg",
+      "performanceId": "perf-wbpfc2"
+    },
+    {
+      "assetId": "ae0a68a999f0",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547603&file=performance.jpg",
+      "performanceId": "perf-wbpfc2"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-wbpfc2",
+    "title": "Official Video · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "a308f21fd22a",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547603&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "ae0a68a999f0",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR547603&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Tuesday's Gone is performed by Lynyrd Skynyrd.",
+    "closing": "Lynyrd Skynyrd's \"Tuesday's Gone\" — original release 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-f9c8cf65c0",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Tuesday's Gone\" — original release 1973. Lynyrd Skynyrd — \"Tuesday's Gone\" · Original release 1973",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a308f21fd22a",
+          "ae0a68a999f0"
+        ],
+        "relatedPerformanceId": "perf-wbpfc2",
+        "priority": 1
+      },
+      {
+        "id": "beat-4644df4d5f",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a308f21fd22a",
+          "ae0a68a999f0"
+        ],
+        "relatedPerformanceId": "perf-wbpfc2",
+        "priority": 2
+      },
+      {
+        "id": "beat-3def733641",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a308f21fd22a",
+          "ae0a68a999f0"
+        ],
+        "relatedPerformanceId": "perf-wbpfc2",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-6ca72aaeb2",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a308f21fd22a"
+        ]
+      },
+      {
+        "id": "moment-6ca72aaeb2",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a308f21fd22a"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-wbpfc2",
+      "title": "Official Video · 1973",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Tuesday's Gone is performed by Lynyrd Skynyrd.\""
+    },
+    "generatedAt": "2026-06-27T04:42:44.166Z"
+  },
+  "submittedAt": "2026-06-27T04:42:44.166Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

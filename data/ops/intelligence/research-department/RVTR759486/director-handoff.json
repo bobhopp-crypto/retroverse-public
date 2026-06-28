@@ -1,0 +1,193 @@
+{
+  "version": 2,
+  "rvtr": "RVTR759486",
+  "artist": "Michael Jackson",
+  "title": "The Way You Make Me Feel",
+  "story": {
+    "headline": "The Way You Make Me Feel: The Breakthrough Moment",
+    "subtitle": "Michael Jackson · Breakthrough · 1987",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "summary": "Michael Jackson's \"The Way You Make Me Feel\" reached #1 on the Billboard Hot 100. The Way You Make Me Feel was released in 1987.",
+    "fullStory": "Michael Jackson's \"The Way You Make Me Feel\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 18 weeks on the chart.\n\nThe Way You Make Me Feel was released in 1987.\n\n\"The Way You Make Me Feel\" by Michael Jackson.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "ad0aeedb-17a8-428e-a3ff-44be59aa4b4f",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "57d49436-ea7f-4fc8-b7d1-e490d201f019",
+      "text": "The Way You Make Me Feel was released in 1987.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "83722716-31f3-4f33-b215-c79781ec174f",
+      "text": "The song appears on the album \"Bad\" (1987).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "43246730-a83e-4953-8771-fe6ac1c43fdc",
+      "text": "VirtualDJ library play count: 15.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b5633a00-4d73-4839-9c04-240d48678d16",
+      "text": "\"The Way You Make Me Feel\" by Michael Jackson.",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "9cd8d511-c93c-4414-ba6e-ad04240bb3b6",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c169bf0374de",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR759486&file=performance.jpg",
+      "performanceId": "perf-bsrbsl"
+    },
+    {
+      "assetId": "d77af9a19937",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR759486&file=hero.jpg",
+      "performanceId": "perf-bsrbsl"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-bsrbsl",
+    "title": "Official Video · 1987",
+    "venue": "Official Video",
+    "year": 1987,
+    "notes": "Recommended cut — Recommended: Official Video. venue context (Official Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "c169bf0374de",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR759486&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "d77af9a19937",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR759486&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "closing": "Michael Jackson's \"The Way You Make Me Feel\" reached #1 on the Billboard Hot 100. The Way You Make Me Feel was released in 1987.",
+    "storyBeats": [
+      {
+        "id": "beat-143e630470",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"The Way You Make Me Feel\" — original release 1987. Michael Jackson — \"The Way You Make Me Feel\" · Original release 1987 · Album: Bad · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c169bf0374de",
+          "d77af9a19937"
+        ],
+        "relatedPerformanceId": "perf-bsrbsl",
+        "priority": 1
+      },
+      {
+        "id": "beat-0ba0f2002d",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Bad · Release 1987",
+        "supportingFactIds": [
+          "83722716-31f3-4f33-b215-c79781ec174f"
+        ],
+        "relatedImageAssetIds": [
+          "c169bf0374de",
+          "d77af9a19937"
+        ],
+        "relatedPerformanceId": "perf-bsrbsl",
+        "priority": 2
+      },
+      {
+        "id": "beat-926c659b5e",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 18 weeks on chart.",
+        "supportingFactIds": [
+          "ad0aeedb-17a8-428e-a3ff-44be59aa4b4f"
+        ],
+        "relatedImageAssetIds": [
+          "c169bf0374de",
+          "d77af9a19937"
+        ],
+        "relatedPerformanceId": "perf-bsrbsl",
+        "priority": 3
+      },
+      {
+        "id": "beat-40a7ed8116",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c169bf0374de",
+          "d77af9a19937"
+        ],
+        "relatedPerformanceId": "perf-bsrbsl",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-6683bc6b06",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1987,
+        "supportingFactIds": [
+          "ad0aeedb-17a8-428e-a3ff-44be59aa4b4f"
+        ],
+        "relatedImageAssetIds": [
+          "c169bf0374de"
+        ]
+      },
+      {
+        "id": "moment-669e109b6b",
+        "title": "Official Video",
+        "description": "Official Video at Official Video.",
+        "kind": "music_video",
+        "year": 1987,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c169bf0374de"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-bsrbsl",
+      "title": "Official Video · 1987",
+      "reason": "Recommended: Official Video. venue context (Official Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T01:06:48.405Z"
+  },
+  "submittedAt": "2026-06-27T04:20:14.935Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

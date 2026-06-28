@@ -131,8 +131,20 @@ function AdminGearMenu({
 
 export function RetroverseGlobalNav({ opsEnabled, opsAuthenticated }: Props) {
   const pathname = usePathname() ?? "/";
+  const onGalleryRoute = pathname.startsWith("/retroverse/experiences");
   const activeZone = detectAppZone(pathname);
   const navZones = visibleNavZones({ opsEnabled, opsAuthenticated });
+
+  useEffect(() => {
+    if (!onGalleryRoute) return;
+    console.log("[gallery-instrument] Mounted: RetroverseGlobalNav");
+    return () => console.log("[gallery-instrument] Unmounted: RetroverseGlobalNav");
+  }, [onGalleryRoute]);
+
+  useEffect(() => {
+    if (!onGalleryRoute) return;
+    console.log("[gallery-instrument] Effect: RetroverseGlobalNav", { pathname });
+  });
 
   return (
     <header className="rv-global-nav" aria-label="Retroverse application">

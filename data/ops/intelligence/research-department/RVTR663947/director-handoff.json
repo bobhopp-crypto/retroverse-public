@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR663947",
+  "artist": "Beck",
+  "title": "Loser",
+  "story": {
+    "headline": "Loser: The Breakthrough Moment",
+    "subtitle": "Beck · Breakthrough · 1994",
+    "hook": "The song peaked at #10 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+    "summary": "Beck's \"Loser\" reached #10 on the Billboard Hot 100. Loser was released in 1994.",
+    "fullStory": "Beck's \"Loser\" reached #10 on the Billboard Hot 100.\n\nThe song peaked at #10 on the Billboard Hot 100 and spent 24 weeks on the chart.\n\nLoser was released in 1994.\n\nChart story — peaked at #10 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "419cd91f-06ea-49a6-8937-e7cbad533417",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d8551e1c-4379-42c7-a09a-fe027bfd93c7",
+      "text": "Loser was released in 1994.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "33e34c38-9324-4e06-a783-391074074ce5",
+      "text": "The song appears on the album \"Mellow Gold\" (1994).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "74ef7138-abb2-4e7a-b19f-53d59ab094dc",
+      "text": "VirtualDJ library play count: 9.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "2b4b15040f59",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR663947&file=hero.jpg",
+      "performanceId": "perf-94pdmc"
+    },
+    {
+      "assetId": "92e924611a11",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR663947&file=performance.jpg",
+      "performanceId": "perf-94pdmc"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-94pdmc",
+    "title": "Official Video · 1994",
+    "venue": "",
+    "year": 1994,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1994 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "2b4b15040f59",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR663947&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "92e924611a11",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR663947&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #10 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+    "closing": "Beck's \"Loser\" reached #10 on the Billboard Hot 100. Loser was released in 1994.",
+    "storyBeats": [
+      {
+        "id": "beat-d5457700cc",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Loser\" — original release 1994. Beck — \"Loser\" · Original release 1994 · Album: Mellow Gold · Hot 100 peak #10",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2b4b15040f59",
+          "92e924611a11"
+        ],
+        "relatedPerformanceId": "perf-94pdmc",
+        "priority": 1
+      },
+      {
+        "id": "beat-18257b7609",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Mellow Gold · Release 1994",
+        "supportingFactIds": [
+          "33e34c38-9324-4e06-a783-391074074ce5"
+        ],
+        "relatedImageAssetIds": [
+          "2b4b15040f59",
+          "92e924611a11"
+        ],
+        "relatedPerformanceId": "perf-94pdmc",
+        "priority": 2
+      },
+      {
+        "id": "beat-afce5659eb",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #10 · 24 weeks on chart.",
+        "supportingFactIds": [
+          "419cd91f-06ea-49a6-8937-e7cbad533417"
+        ],
+        "relatedImageAssetIds": [
+          "2b4b15040f59",
+          "92e924611a11"
+        ],
+        "relatedPerformanceId": "perf-94pdmc",
+        "priority": 3
+      },
+      {
+        "id": "beat-993a5306a0",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2b4b15040f59",
+          "92e924611a11"
+        ],
+        "relatedPerformanceId": "perf-94pdmc",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-dd01e1a9fa",
+        "title": "Chart milestone",
+        "description": "Peaked at #10 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1994,
+        "supportingFactIds": [
+          "419cd91f-06ea-49a6-8937-e7cbad533417"
+        ],
+        "relatedImageAssetIds": [
+          "2b4b15040f59"
+        ]
+      },
+      {
+        "id": "moment-108b4f6b7f",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1994,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2b4b15040f59"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-94pdmc",
+      "title": "Official Video · 1994",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1994 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #10 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:44:50.777Z"
+  },
+  "submittedAt": "2026-06-27T04:44:50.778Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

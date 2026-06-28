@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR860383",
+  "artist": "Cher",
+  "title": "Half Breed",
+  "story": {
+    "headline": "Half Breed: The Breakthrough Moment",
+    "subtitle": "Cher · Breakthrough · 1973",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Cher's \"Half Breed\" reached #1 on the Billboard Hot 100. Half Breed was released in 1973.",
+    "fullStory": "Cher's \"Half Breed\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nHalf Breed was released in 1973.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "cbf40d98-6d13-4a94-846d-7f5573e52770",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a7d1da21-8615-401b-9b0e-dc9a4d2ddb78",
+      "text": "Half Breed was released in 1973.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c8673a28-3d03-4264-a86d-3540aa3cc240",
+      "text": "The song appears on the album \"Half-Breed\" (1973).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "734319dd-07a8-466a-b290-1d8e002260a3",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b24e26cc-b17d-4fd9-86f1-057df69dbd6b",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "5a765a0f9d15",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860383&file=hero.jpg",
+      "performanceId": "perf-v3jtyf"
+    },
+    {
+      "assetId": "24275a0a7de0",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860383&file=performance.jpg",
+      "performanceId": "perf-v3jtyf"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-v3jtyf",
+    "title": "Official Video · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "5a765a0f9d15",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860383&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "24275a0a7de0",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR860383&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Cher's \"Half Breed\" reached #1 on the Billboard Hot 100. Half Breed was released in 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-51a6903f17",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Half Breed\" — original release 1973. Cher — \"Half Breed\" · Original release 1973 · Album: Half-Breed · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5a765a0f9d15",
+          "24275a0a7de0"
+        ],
+        "relatedPerformanceId": "perf-v3jtyf",
+        "priority": 1
+      },
+      {
+        "id": "beat-7c05b76df3",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Half-Breed · Release 1973",
+        "supportingFactIds": [
+          "c8673a28-3d03-4264-a86d-3540aa3cc240"
+        ],
+        "relatedImageAssetIds": [
+          "5a765a0f9d15",
+          "24275a0a7de0"
+        ],
+        "relatedPerformanceId": "perf-v3jtyf",
+        "priority": 2
+      },
+      {
+        "id": "beat-c1cfe9e301",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "cbf40d98-6d13-4a94-846d-7f5573e52770"
+        ],
+        "relatedImageAssetIds": [
+          "5a765a0f9d15",
+          "24275a0a7de0"
+        ],
+        "relatedPerformanceId": "perf-v3jtyf",
+        "priority": 3
+      },
+      {
+        "id": "beat-a83ca94b3e",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5a765a0f9d15",
+          "24275a0a7de0"
+        ],
+        "relatedPerformanceId": "perf-v3jtyf",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-b6e7be0116",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1973,
+        "supportingFactIds": [
+          "cbf40d98-6d13-4a94-846d-7f5573e52770"
+        ],
+        "relatedImageAssetIds": [
+          "5a765a0f9d15"
+        ]
+      },
+      {
+        "id": "moment-857d338ce0",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5a765a0f9d15"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-v3jtyf",
+      "title": "Official Video · 1973",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:52:29.549Z"
+  },
+  "submittedAt": "2026-06-27T04:52:29.550Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR113069",
+  "artist": "Billy Joel",
+  "title": "Piano Man",
+  "story": {
+    "headline": "Piano Man: A Cultural Moment Captured on Record",
+    "subtitle": "Billy Joel · Cultural Moment · 2001",
+    "hook": "The song peaked at #25 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "summary": "Billy Joel's \"Piano Man\" reached #25 on the Billboard Hot 100. Piano Man was released in 2001.",
+    "fullStory": "Billy Joel's \"Piano Man\" reached #25 on the Billboard Hot 100.\n\nThe song peaked at #25 on the Billboard Hot 100 and spent 14 weeks on the chart.\n\nPiano Man was released in 2001.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #25 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "055c3d85-5c68-4173-afda-b32343c1b8db",
+      "text": "The song peaked at #25 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "19eaa5dc-191a-4cf1-a2d6-a9629607e841",
+      "text": "Piano Man was released in 2001.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "202426b2-27e6-4a6c-9f48-98ef97c6231a",
+      "text": "The song appears on the album \"The Essential Billy Joel\" (2001).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "24e4e036-558f-4502-9019-52e3bb23c12f",
+      "text": "VirtualDJ library play count: 31.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "531fe97e-5657-4542-b394-9eae70785edb",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "16bb8bf32e9f",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR113069&file=performance.jpg",
+      "performanceId": "perf-4eo25d"
+    },
+    {
+      "assetId": "ee9019531b6d",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR113069&file=hero.jpg",
+      "performanceId": "perf-4eo25d"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-4eo25d",
+    "title": "Official Video · 1974",
+    "venue": "",
+    "year": 1974,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1974 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "16bb8bf32e9f",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR113069&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "ee9019531b6d",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR113069&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #25 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "closing": "Billy Joel's \"Piano Man\" reached #25 on the Billboard Hot 100. Piano Man was released in 2001.",
+    "storyBeats": [
+      {
+        "id": "beat-765ba35b9a",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Piano Man\" — original release 2001. Billy Joel — \"Piano Man\" · Original release 2001 · Album: The Essential Billy Joel · Hot 100 peak #25",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "16bb8bf32e9f",
+          "ee9019531b6d"
+        ],
+        "relatedPerformanceId": "perf-4eo25d",
+        "priority": 1
+      },
+      {
+        "id": "beat-80c75b0c48",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Essential Billy Joel · Release 2001",
+        "supportingFactIds": [
+          "202426b2-27e6-4a6c-9f48-98ef97c6231a"
+        ],
+        "relatedImageAssetIds": [
+          "16bb8bf32e9f",
+          "ee9019531b6d"
+        ],
+        "relatedPerformanceId": "perf-4eo25d",
+        "priority": 2
+      },
+      {
+        "id": "beat-05a970cd3b",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #25 · 14 weeks on chart.",
+        "supportingFactIds": [
+          "055c3d85-5c68-4173-afda-b32343c1b8db"
+        ],
+        "relatedImageAssetIds": [
+          "16bb8bf32e9f",
+          "ee9019531b6d"
+        ],
+        "relatedPerformanceId": "perf-4eo25d",
+        "priority": 3
+      },
+      {
+        "id": "beat-de98827dfb",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "16bb8bf32e9f",
+          "ee9019531b6d"
+        ],
+        "relatedPerformanceId": "perf-4eo25d",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-a638559b9d",
+        "title": "Chart milestone",
+        "description": "Peaked at #25 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2001,
+        "supportingFactIds": [
+          "055c3d85-5c68-4173-afda-b32343c1b8db"
+        ],
+        "relatedImageAssetIds": [
+          "16bb8bf32e9f"
+        ]
+      },
+      {
+        "id": "moment-954697e76e",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1974,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "16bb8bf32e9f"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-4eo25d",
+      "title": "Official Video · 1974",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1974 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #25 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:09.096Z"
+  },
+  "submittedAt": "2026-06-27T04:20:09.096Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "version": 2,
+  "rvtr": "RVTR725569",
+  "artist": "Backstreet Boys",
+  "title": "Everybody Backstreet's Back",
+  "story": {
+    "headline": "Everybody Backstreet's Back: The Breakthrough Moment",
+    "subtitle": "Backstreet Boys · Breakthrough · 2001",
+    "hook": "The song peaked at #4 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "summary": "Backstreet Boys's \"Everybody Backstreet's Back\" reached #4 on the Billboard Hot 100. Everybody Backstreet's Back was released in 2001.",
+    "fullStory": "Backstreet Boys's \"Everybody Backstreet's Back\" reached #4 on the Billboard Hot 100.\n\nThe song peaked at #4 on the Billboard Hot 100 and spent 22 weeks on the chart.\n\nEverybody Backstreet's Back was released in 2001.\n\n\"Everybody Backstreet's Back\" by Backstreet Boys.\n\nChart story — peaked at #4 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "4afa914d-7a54-47a9-bb40-7da20cf88372",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2fd9e29b-9852-4471-9416-e5868ec39993",
+      "text": "Everybody Backstreet's Back was released in 2001.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d1007817-9fb5-4d7d-a947-bf4c8e41dca5",
+      "text": "The song appears on the album \"The Hits -- Chapter One\" (2001).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a4992faf-f1fb-4839-ac35-e0755f65a2d9",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bcdf5186-8180-4083-bc18-4f0fe19f65bd",
+      "text": "\"Everybody Backstreet's Back\" by Backstreet Boys.",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "012e9be0-5c9f-4a53-b5a2-229a84ec2ea7",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "8a5426acf900",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725569&file=hero.jpg",
+      "performanceId": "perf-fyvbbu"
+    },
+    {
+      "assetId": "19d84c80a34e",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725569&file=performance.jpg",
+      "performanceId": "perf-fyvbbu"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-fyvbbu",
+    "title": "Backstreet's Back · 1998",
+    "venue": "Backstreet's Back",
+    "year": 1998,
+    "notes": "Recommended cut — Recommended: Backstreet's Back. venue context (Backstreet's Back) adds place and moment. 5 curated visual frames for cards and hero art. dated 1998 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "8a5426acf900",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725569&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "19d84c80a34e",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR725569&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #4 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "closing": "Backstreet Boys's \"Everybody Backstreet's Back\" reached #4 on the Billboard Hot 100. Everybody Backstreet's Back was released in 2001.",
+    "storyBeats": [
+      {
+        "id": "beat-580beefef5",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Everybody Backstreet's Back\" — original release 2001. Backstreet Boys — \"Everybody Backstreet's Back\" · Original release 2001 · Album: The Hits -- Chapter One · Hot 100 peak #4",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8a5426acf900",
+          "19d84c80a34e"
+        ],
+        "relatedPerformanceId": "perf-fyvbbu",
+        "priority": 1
+      },
+      {
+        "id": "beat-36ab920ac9",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Hits -- Chapter One · Release 2001",
+        "supportingFactIds": [
+          "d1007817-9fb5-4d7d-a947-bf4c8e41dca5"
+        ],
+        "relatedImageAssetIds": [
+          "8a5426acf900",
+          "19d84c80a34e"
+        ],
+        "relatedPerformanceId": "perf-fyvbbu",
+        "priority": 2
+      },
+      {
+        "id": "beat-3155ea18a3",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #4 · 22 weeks on chart.",
+        "supportingFactIds": [
+          "4afa914d-7a54-47a9-bb40-7da20cf88372"
+        ],
+        "relatedImageAssetIds": [
+          "8a5426acf900",
+          "19d84c80a34e"
+        ],
+        "relatedPerformanceId": "perf-fyvbbu",
+        "priority": 3
+      },
+      {
+        "id": "beat-0c5af5de57",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8a5426acf900",
+          "19d84c80a34e"
+        ],
+        "relatedPerformanceId": "perf-fyvbbu",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-97f556d435",
+        "title": "Chart milestone",
+        "description": "Peaked at #4 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2001,
+        "supportingFactIds": [
+          "4afa914d-7a54-47a9-bb40-7da20cf88372"
+        ],
+        "relatedImageAssetIds": [
+          "8a5426acf900"
+        ]
+      },
+      {
+        "id": "moment-4c4144fea0",
+        "title": "Backstreet's Back",
+        "description": "Recommended: Backstreet's Back. venue context (Backstreet's Back) adds place and moment. 5 curated visual frames for cards and hero art. dated 1998 performance ",
+        "kind": "featured_performance",
+        "year": 1998,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8a5426acf900"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-fyvbbu",
+      "title": "Backstreet's Back · 1998",
+      "reason": "Recommended: Backstreet's Back. venue context (Backstreet's Back) adds place and moment. 5 curated visual frames for cards and hero art. dated 1998 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #4 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:31:49.336Z"
+  },
+  "submittedAt": "2026-06-27T05:31:49.336Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

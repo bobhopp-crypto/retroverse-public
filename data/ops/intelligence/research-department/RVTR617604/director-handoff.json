@@ -1,0 +1,156 @@
+{
+  "version": 2,
+  "rvtr": "RVTR617604",
+  "artist": "A Goofy Movie",
+  "title": "Eye To Eye",
+  "story": {
+    "headline": "Eye To Eye: A Cultural Moment Captured on Record",
+    "subtitle": "A Goofy Movie · Cultural Moment",
+    "hook": "Eye To Eye is performed by A Goofy Movie.",
+    "summary": "A Goofy Movie's \"Eye To Eye\" — original release 2000. Artist: A Goofy Movie · Title: Eye to Eye · Album: Crash!.",
+    "fullStory": "A Goofy Movie's \"Eye To Eye\" — original release 2000.\n\nArtist: A Goofy Movie · Title: Eye to Eye · Album: Crash!.\n\nSong release — original 2000 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "129d6fad-7a7b-4b04-9a74-68298c45001e",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a66d9165-59f5-49ac-a6ac-3c7a4f646df3",
+      "text": "Artist: A Goofy Movie · Title: Eye to Eye · Album: Crash!",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "441560011cdf",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR617604&file=performance.jpg",
+      "performanceId": "perf-1a8lrv"
+    },
+    {
+      "assetId": "9c7293d539a0",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR617604&file=hero.jpg",
+      "performanceId": "perf-1a8lrv"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-1a8lrv",
+    "title": "Official Video · 2000",
+    "venue": "",
+    "year": 2000,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2000 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "441560011cdf",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR617604&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "9c7293d539a0",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR617604&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Eye To Eye is performed by A Goofy Movie.",
+    "closing": "A Goofy Movie's \"Eye To Eye\" — original release 2000. Artist: A Goofy Movie · Title: Eye to Eye · Album: Crash!.",
+    "storyBeats": [
+      {
+        "id": "beat-cce0648879",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Eye To Eye\" — original release 2000. A Goofy Movie — \"Eye To Eye\" · Original release 2000",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "441560011cdf",
+          "9c7293d539a0"
+        ],
+        "relatedPerformanceId": "perf-1a8lrv",
+        "priority": 1
+      },
+      {
+        "id": "beat-e21805c26d",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [
+          "a66d9165-59f5-49ac-a6ac-3c7a4f646df3"
+        ],
+        "relatedImageAssetIds": [
+          "441560011cdf",
+          "9c7293d539a0"
+        ],
+        "relatedPerformanceId": "perf-1a8lrv",
+        "priority": 2
+      },
+      {
+        "id": "beat-c7942f8e63",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "441560011cdf",
+          "9c7293d539a0"
+        ],
+        "relatedPerformanceId": "perf-1a8lrv",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-a7c9ae1c05",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2000,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "441560011cdf"
+        ]
+      },
+      {
+        "id": "moment-a7c9ae1c05",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2000 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 2000,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "441560011cdf"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-1a8lrv",
+      "title": "Official Video · 2000",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2000 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Eye To Eye is performed by A Goofy Movie.\""
+    },
+    "generatedAt": "2026-06-27T05:58:26.267Z"
+  },
+  "submittedAt": "2026-06-27T05:58:26.268Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 2.3,
+    "storyQuality": "Poor"
+  }
+}

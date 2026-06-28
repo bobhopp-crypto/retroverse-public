@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR139295",
+  "artist": "Bob Marley",
+  "title": "Three Little Birds",
+  "story": {
+    "headline": "Three Little Birds: A Cultural Moment Captured on Record",
+    "subtitle": "Bob Marley · Cultural Moment",
+    "hook": "Three Little Birds is performed by Bob Marley.",
+    "summary": "Bob Marley's \"Three Little Birds\" — captured in performance footage from 1977.",
+    "fullStory": "Bob Marley's \"Three Little Birds\" — captured in performance footage from 1977.\n\nPerformance angle — Official Video (1977)."
+  },
+  "approvedFacts": [
+    {
+      "id": "3bef355e-b196-4e40-abbb-3b4e2787907e",
+      "text": "VirtualDJ library play count: 9.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "bbbd02957ab8",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR139295&file=hero.jpg",
+      "performanceId": "perf-k7syv"
+    },
+    {
+      "assetId": "790e4be051f9",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR139295&file=performance.jpg",
+      "performanceId": "perf-k7syv"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-k7syv",
+    "title": "Official Video · 1977",
+    "venue": "",
+    "year": 1977,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1977 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "bbbd02957ab8",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR139295&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "790e4be051f9",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR139295&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Three Little Birds is performed by Bob Marley.",
+    "closing": "Bob Marley's \"Three Little Birds\" — captured in performance footage from 1977.",
+    "storyBeats": [
+      {
+        "id": "beat-c5b2588ef3",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Three Little Birds\" by Bob Marley — Bob Marley — \"Three Little Birds\".",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "bbbd02957ab8",
+          "790e4be051f9"
+        ],
+        "relatedPerformanceId": "perf-k7syv",
+        "priority": 1
+      },
+      {
+        "id": "beat-468dbb61a5",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "bbbd02957ab8",
+          "790e4be051f9"
+        ],
+        "relatedPerformanceId": "perf-k7syv",
+        "priority": 2
+      },
+      {
+        "id": "beat-b8fe4903a4",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "bbbd02957ab8",
+          "790e4be051f9"
+        ],
+        "relatedPerformanceId": "perf-k7syv",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-52216e1079",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1977,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "bbbd02957ab8"
+        ]
+      },
+      {
+        "id": "moment-52216e1079",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1977 performance helps anchor the narrative. 1 alternate cut(s) on file — thi",
+        "kind": "featured_performance",
+        "year": 1977,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "bbbd02957ab8"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-k7syv",
+      "title": "Official Video · 1977",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1977 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Three Little Birds is performed by Bob Marley.\""
+    },
+    "generatedAt": "2026-06-27T04:51:39.628Z"
+  },
+  "submittedAt": "2026-06-27T04:51:39.628Z",
+  "editorNotesForDirector": "Collector confidence: Developing (48%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

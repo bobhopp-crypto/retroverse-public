@@ -1,0 +1,201 @@
+{
+  "version": 2,
+  "rvtr": "RVTR924295",
+  "artist": "John Denver",
+  "title": "Take Me Home Country Roads",
+  "story": {
+    "headline": "Take Me Home Country Roads: The Breakthrough Moment",
+    "subtitle": "John Denver · Breakthrough · 1973",
+    "hook": "The song peaked at #2 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+    "summary": "John Denver's \"Take Me Home Country Roads\" reached #2 on the Billboard Hot 100.",
+    "fullStory": "John Denver's \"Take Me Home Country Roads\" reached #2 on the Billboard Hot 100.\n\nThe song peaked at #2 on the Billboard Hot 100 and spent 23 weeks on the chart.\n\nGraph compilation anchor: \"John Denver's Greatest Hits\" (1973) — not the song's original release year.\n\n\"Take Me Home Country Roads\" by John Denver.\n\nChart story — peaked at #2 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "8cbd8d18-410e-4917-ad6f-fd17aa1ea642",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "aa51e7d3-d941-4882-9eff-73d17a7b1d18",
+      "text": "The song appears on the album \"John Denver's Greatest Hits\" (1973).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "4b4b2d29-5c50-43e6-9ffa-37ee07e1f8fc",
+      "text": "Graph compilation anchor: \"John Denver's Greatest Hits\" (1973) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c820977b-3172-42d3-8e6e-b311a7f11c1d",
+      "text": "VirtualDJ library play count: 12.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "4558af73-0876-4514-a6a7-81a221b38179",
+      "text": "\"Take Me Home Country Roads\" by John Denver.",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "e35ac349-8455-4738-85c6-b3a0e9c20434",
+      "text": "Album: John Denver's Greatest Hits (1973).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "a8fde816-8dd7-44d8-ab6c-0f1c5fe9f24e",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "8a8d33811988",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924295&file=performance.jpg",
+      "performanceId": "perf-64jyk0"
+    },
+    {
+      "assetId": "633d83f15885",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924295&file=hero.jpg",
+      "performanceId": "perf-64jyk0"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-64jyk0",
+    "title": "Take Me Home, Country Roads · 1972",
+    "venue": "",
+    "year": 1972,
+    "notes": "Recommended cut — Recommended: Take Me Home, Country Roads. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "8a8d33811988",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924295&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "633d83f15885",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR924295&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #2 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+    "closing": "John Denver's \"Take Me Home Country Roads\" reached #2 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-17f5a6a56f",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Take Me Home Country Roads\" — original release 1973. John Denver — \"Take Me Home Country Roads\" · Hot 100 peak #2",
+        "supportingFactIds": [
+          "4b4b2d29-5c50-43e6-9ffa-37ee07e1f8fc"
+        ],
+        "relatedImageAssetIds": [
+          "8a8d33811988",
+          "633d83f15885"
+        ],
+        "relatedPerformanceId": "perf-64jyk0",
+        "priority": 1
+      },
+      {
+        "id": "beat-9211675044",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "John Denver's Greatest Hits · Release 1973 · Compilation edition",
+        "supportingFactIds": [
+          "aa51e7d3-d941-4882-9eff-73d17a7b1d18",
+          "e35ac349-8455-4738-85c6-b3a0e9c20434"
+        ],
+        "relatedImageAssetIds": [
+          "8a8d33811988",
+          "633d83f15885"
+        ],
+        "relatedPerformanceId": "perf-64jyk0",
+        "priority": 2
+      },
+      {
+        "id": "beat-61abe9414c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #2 · 23 weeks on chart.",
+        "supportingFactIds": [
+          "8cbd8d18-410e-4917-ad6f-fd17aa1ea642"
+        ],
+        "relatedImageAssetIds": [
+          "8a8d33811988",
+          "633d83f15885"
+        ],
+        "relatedPerformanceId": "perf-64jyk0",
+        "priority": 3
+      },
+      {
+        "id": "beat-440660bd7b",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8a8d33811988",
+          "633d83f15885"
+        ],
+        "relatedPerformanceId": "perf-64jyk0",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-2594c33676",
+        "title": "Chart milestone",
+        "description": "Peaked at #2 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1973,
+        "supportingFactIds": [
+          "8cbd8d18-410e-4917-ad6f-fd17aa1ea642"
+        ],
+        "relatedImageAssetIds": [
+          "8a8d33811988"
+        ]
+      },
+      {
+        "id": "moment-5a6782d249",
+        "title": "Take Me Home, Country Roads",
+        "description": "Recommended: Take Me Home, Country Roads. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative. 2 alternate cut(s) ",
+        "kind": "featured_performance",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8a8d33811988"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-64jyk0",
+      "title": "Take Me Home, Country Roads · 1972",
+      "reason": "Recommended: Take Me Home, Country Roads. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #2 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:31:38.857Z"
+  },
+  "submittedAt": "2026-06-27T04:31:38.857Z",
+  "editorNotesForDirector": "Collector confidence: Good (66%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

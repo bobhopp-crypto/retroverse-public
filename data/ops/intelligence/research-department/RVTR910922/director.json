@@ -1,0 +1,804 @@
+{
+  "version": "0.3",
+  "rvtr": "RVTR910922",
+  "artist": "Split Enz",
+  "title": "I Got You",
+  "generatedAt": "2026-06-27T04:21:05.800Z",
+  "handoffVersion": 2,
+  "experiencePlan": {
+    "version": "0.3",
+    "opening": "",
+    "closing": "",
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "sceneType": "hero",
+        "title": "Cover",
+        "headline": "I Got You",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1980",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "7f36d6783aa0"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 6,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout. Final: Hero → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "hero",
+          "displayName": "Hero",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Hero → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 2,
+        "sceneType": "chart",
+        "title": "Chart Journey",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "linkedFactIds": [
+          "9c4d6ae6-dd38-410c-bbf0-4b8da2a55f3d"
+        ],
+        "linkedImageAssetIds": [
+          "7f36d6783aa0"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 9,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 72,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 72,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 3,
+        "sceneType": "image",
+        "title": "Iconic Moment",
+        "headline": "A Cultural Moment Captured on Record",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "788753b9c452"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 4,
+        "sceneType": "image",
+        "title": "Song DNA",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 7,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 5,
+        "sceneType": "performance",
+        "title": "Performance",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-gg330k",
+        "estimatedDurationSec": 8,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 78,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 78,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 6,
+        "sceneType": "image",
+        "title": "Extended — Chart milestone",
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "linkedFactIds": [
+          "fb33dbe4-79e6-412f-b0b0-b5b9e0f896db"
+        ],
+        "linkedImageAssetIds": [
+          "7f36d6783aa0"
+        ],
+        "linkedPerformanceId": "perf-gg330k",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 7,
+        "sceneType": "image",
+        "title": "Extended — Official Video",
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "788753b9c452"
+        ],
+        "linkedPerformanceId": "perf-gg330k",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 73,
+          "reason": "Variety: Gallery run broken with Story"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null,
+        "varietyAdjusted": true
+      },
+      {
+        "sceneNumber": 8,
+        "sceneType": "image",
+        "title": "Extended — It was released as a single on 21 January 1980 by Mushroom R",
+        "headline": "It was released as a single on 21 January 1980 by Mushroom R",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:cultural_highlight",
+        "linkedFactIds": [
+          "ff727a27-782c-4afc-a481-4135ff71dd9c"
+        ],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-gg330k",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      }
+    ],
+    "estimatedRuntimeSec": 59,
+    "targetRuntimeSec": {
+      "min": 30,
+      "max": 55
+    },
+    "primaryPerformance": {
+      "performanceId": "perf-gg330k",
+      "title": "Official Video · 1980",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "visualRhythm": "moderate",
+    "presentationStyle": "documentary",
+    "templateLibraryVersion": "0.2"
+  },
+  "review": {
+    "readiness": "ready_for_production",
+    "readinessLabel": "Ready for Production",
+    "sceneCount": 8,
+    "estimatedRuntimeSec": 59,
+    "storyCoveragePct": 63,
+    "imageCoveragePct": 63,
+    "factCoveragePct": 43,
+    "recommendedPerformance": "Official Video · 1980",
+    "missingAssets": [
+      "Scene 1 (Cover): Needs Supporting Copy",
+      "Scene 7 (Extended — Official Video): Ready"
+    ],
+    "warnings": [
+      "Runtime 59s exceeds 55s target"
+    ],
+    "summary": "8 exhibits · 59s · museum arc · Render Ready with Optional Gaps · Confidence 55% · Image diversity 40% · Layout ready 75% · 63% exhibit coverage · 63% image · 43% fact coverage · Gaps: 2",
+    "templateCoveragePct": 100,
+    "layoutReadinessPct": 75,
+    "assetCoveragePct": 75,
+    "visualVarietyScore": 40,
+    "templateUsage": [
+      {
+        "templateId": "gallery",
+        "displayName": "Gallery",
+        "count": 4,
+        "pct": 50
+      },
+      {
+        "templateId": "story",
+        "displayName": "Story",
+        "count": 2,
+        "pct": 25
+      },
+      {
+        "templateId": "chart",
+        "displayName": "Chart",
+        "count": 1,
+        "pct": 13
+      },
+      {
+        "templateId": "performance",
+        "displayName": "Performance",
+        "count": 1,
+        "pct": 13
+      }
+    ],
+    "duplicateTemplateWarnings": [],
+    "varietyRecommendations": [
+      "Exhibit image diversity 40% — Publisher scoring target"
+    ],
+    "templateDiversityScore": 50,
+    "visualDiversityScore": 38,
+    "pacingDiversityScore": 9,
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 1,
+    "renderReadiness": "missing_optional_assets",
+    "renderReadinessLabel": "Ready with Optional Gaps",
+    "estimatedRenderingConfidence": 55,
+    "downgradeReport": [
+      "Scene 1: Hero → Story — Hero → Story: minimum viable layout"
+    ],
+    "varietyReport": [
+      "Scene 7: gallery → story — 3 consecutive Gallery scenes — alternate layout"
+    ]
+  },
+  "renderSpec": {
+    "version": "0.3",
+    "metadata": {
+      "rvtr": "RVTR910922",
+      "artist": "Split Enz",
+      "title": "I Got You",
+      "version": "0.3",
+      "generatedAt": "2026-06-27T04:21:05.800Z",
+      "estimatedRuntimeSec": 59,
+      "presentationStyle": "documentary",
+      "primaryPerformance": {
+        "performanceId": "perf-gg330k",
+        "title": "Official Video · 1980"
+      },
+      "patronValue": 9.5,
+      "storyQuality": "Strong"
+    },
+    "globalPresentation": {
+      "backgroundTreatment": "warm_paper_documentary",
+      "typographyProfile": "retroverse_display",
+      "colorTheme": "retroverse_teal_cream",
+      "pacingProfile": "moderate",
+      "imageTreatment": "poster_card_framed",
+      "orientation": "both"
+    },
+    "sceneTimeline": [
+      {
+        "sceneNumber": 1,
+        "templateId": "story",
+        "preferredTemplateId": "hero",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Hero → Story: minimum viable layout",
+        "durationSec": 6,
+        "headline": "I Got You",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1980",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "7f36d6783aa0"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=hero.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 2,
+        "templateId": "chart",
+        "preferredTemplateId": "chart",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 9,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "7f36d6783aa0"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=hero.jpg"
+          ],
+          "factIds": [
+            "9c4d6ae6-dd38-410c-bbf0-4b8da2a55f3d"
+          ],
+          "factTexts": [
+            "\"I Got You\" is a song by New Zealand rock band Split Enz."
+          ],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 3,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "A Cultural Moment Captured on Record",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "788753b9c452"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 4,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 5,
+        "templateId": "performance",
+        "preferredTemplateId": "performance",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-gg330k",
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "zoom",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 6,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "7f36d6783aa0"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=hero.jpg"
+          ],
+          "factIds": [
+            "fb33dbe4-79e6-412f-b0b0-b5b9e0f896db"
+          ],
+          "factTexts": [
+            "Written by co-lead singer Neil Finn, who did not initially believe it to be a hit, it became the band's most commercially successful song, topping the charts in Australasia (spending eight weeks at number-one in Australia) and placing in the top 20 of the British and top 10 of the Canadian charts."
+          ],
+          "performanceId": "perf-gg330k",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 7,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": true,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "788753b9c452"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-gg330k",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 8,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "It was released as a single on 21 January 1980 by Mushroom R",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:cultural_highlight",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [
+            "ff727a27-782c-4afc-a481-4135ff71dd9c"
+          ],
+          "factTexts": [
+            "It was released as a single on 21 January 1980 by Mushroom Records in Australia and New Zealand, and August 1980 by A&M internationally, as the first single from their breakthrough album True Colours."
+          ],
+          "performanceId": "perf-gg330k",
+          "timelineEvents": [
+            {
+              "year": 1980,
+              "label": "It was released as a single on 21 January 1980 by Mushroom R"
+            }
+          ]
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      }
+    ],
+    "assetManifest": {
+      "hero": [],
+      "supportingImages": [
+        {
+          "id": "7f36d6783aa0",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "788753b9c452",
+          "role": "supporting_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            3
+          ]
+        }
+      ],
+      "performanceImages": [
+        {
+          "id": "7f36d6783aa0",
+          "role": "performance_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": "perf-gg330k",
+          "sceneNumbers": [
+            6,
+            5,
+            7,
+            8
+          ]
+        },
+        {
+          "id": "788753b9c452",
+          "role": "performance_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR910922&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": "perf-gg330k",
+          "sceneNumbers": [
+            7,
+            5,
+            6,
+            8
+          ]
+        }
+      ],
+      "galleryImages": [],
+      "timelineData": [],
+      "charts": [
+        {
+          "id": "chart-scene-2",
+          "role": "chart_data",
+          "required": true,
+          "priority": 80,
+          "url": null,
+          "caption": "",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "quotes": [],
+      "facts": [
+        {
+          "id": "9c4d6ae6-dd38-410c-bbf0-4b8da2a55f3d",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "\"I Got You\" is a song by New Zealand rock band Split Enz.",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        },
+        {
+          "id": "fb33dbe4-79e6-412f-b0b0-b5b9e0f896db",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "Written by co-lead singer Neil Finn, who did not initially believe it to be a hit, it became the band's most commercially successful song, topping the charts in Australasia (spending eight weeks at number-one in Australia) and placing in the top 20 of the British and top 10 of the Canadian charts.",
+          "performanceId": null,
+          "sceneNumbers": [
+            6
+          ]
+        },
+        {
+          "id": "ff727a27-782c-4afc-a481-4135ff71dd9c",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "It was released as a single on 21 January 1980 by Mushroom Records in Australia and New Zealand, and August 1980 by A&M internationally, as the first single from their breakthrough album True Colours.",
+          "performanceId": null,
+          "sceneNumbers": [
+            8
+          ]
+        }
+      ],
+      "logos": []
+    },
+    "renderingInstructions": {
+      "sceneOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "autoAdvance": true,
+      "loopPresentation": false,
+      "respectDurationHints": true,
+      "notes": [
+        "Execute scenes in sceneOrder — no creative decisions required",
+        "Transition hints are labels only; renderer chooses motion",
+        "Template downgrades are final; do not revert to preferredTemplateId",
+        "8 exhibits · 59s · museum arc · Render Ready with Optional Gaps · Confidence 55% · Image diversity 40% · Layout ready 75% · 63% exhibit coverage · 63% image · 43% fact coverage · Gaps: 2"
+      ]
+    },
+    "fallbackRules": [
+      {
+        "id": "quote-to-story",
+        "when": "quote template lacks pull-quote length",
+        "fallbackTemplate": "story",
+        "description": "Quote without quote text becomes Story layout"
+      },
+      {
+        "id": "gallery-to-hero",
+        "when": "gallery template has fewer than two images",
+        "fallbackTemplate": "hero",
+        "description": "Gallery with one image becomes Hero layout"
+      },
+      {
+        "id": "fact-stack-to-story",
+        "when": "fact stack has fewer than two facts",
+        "fallbackTemplate": "story",
+        "description": "Insufficient facts collapse to Story"
+      },
+      {
+        "id": "timeline-to-story",
+        "when": "timeline lacks dated events",
+        "fallbackTemplate": "story",
+        "description": "Timeline without dates becomes Story"
+      },
+      {
+        "id": "performance-to-story",
+        "when": "performance reference or image missing",
+        "fallbackTemplate": "story",
+        "description": "Performance without footage falls back to Story"
+      },
+      {
+        "id": "chart-to-story",
+        "when": "chart data missing",
+        "fallbackTemplate": "story",
+        "description": "Chart without peak data becomes Story"
+      },
+      {
+        "id": "comparison-to-story",
+        "when": "comparison copy missing",
+        "fallbackTemplate": "story",
+        "description": "Comparison without dual timeline copy becomes Story"
+      }
+    ],
+    "renderReadiness": "missing_required_assets",
+    "renderReadinessLabel": "Missing Required Assets — renderer should not publish",
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 1,
+    "estimatedRenderingConfidence": 52
+  }
+}

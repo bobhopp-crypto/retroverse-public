@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { SongWorkspaceTabs } from "@/components/ops/studio/SongWorkspaceTabs";
 import {
@@ -59,6 +59,14 @@ export function EditorOfficeView({ initialContext }: Props) {
   const [busy, setBusy] = useState(false);
   const [rewriteConfirm, setRewriteConfirm] = useState(false);
   const rvtr = initialContext.rvtr;
+
+  useEffect(() => {
+    setStory(initialContext.story);
+    setOffice(initialContext.office);
+    setTab("overview");
+    setBusy(false);
+    setRewriteConfirm(false);
+  }, [initialContext.rvtr, initialContext.story, initialContext.office]);
 
   const apply = useCallback((nextStory: EditorStoryPackage, nextOffice?: EditorOfficeView) => {
     setStory(nextStory);
@@ -178,7 +186,7 @@ export function EditorOfficeView({ initialContext }: Props) {
           )}
         </div>
         <div>
-          <p className="ops-editor-office__eyebrow">Editorial Office</p>
+          <p className="ops-editor-office__eyebrow">Features Desk</p>
           <h1 className="ops-editor-office__title">{office.artist}</h1>
           <p className="ops-editor-office__song">{office.title}</p>
           <p className="ops-editor-office__hook">{d.hookPreview}</p>
@@ -202,81 +210,134 @@ export function EditorOfficeView({ initialContext }: Props) {
         ))}
       </nav>
 
-      <div className="ops-editor-office__panel">
+      <div className="ops-editor-office__panel rs-studio-panel">
         {tab === "overview" ? (
           <section className="ops-editor-office__overview">
-            <h2 className="ops-editor-office__section-title">Editorial Dashboard</h2>
+            {office.editorialBrain ? (
+              <>
+                <div className="ops-editor-brain__brief rs-studio-review-panel rs-studio-review-panel--info">
+                  <h2 className="ops-editor-brain__headline">{office.editorialBrain.brief.primaryTheme}</h2>
+                  <p className="ops-editor-brain__hook">{office.editorialBrain.brief.emotionalHook}</p>
+                  <dl className="ops-editor-brain__brief-grid">
+                    <div>
+                      <dt>Why it matters</dt>
+                      <dd>{office.editorialBrain.brief.culturalSignificance}</dd>
+                    </div>
+                    <div>
+                      <dt>Why people remember</dt>
+                      <dd>{office.editorialBrain.brief.whyPeopleRemember}</dd>
+                    </div>
+                    <div>
+                      <dt>Most surprising</dt>
+                      <dd>{office.editorialBrain.brief.mostSurprising}</dd>
+                    </div>
+                    <div className="ops-editor-brain__takeaway">
+                      <dt>Visitor takeaway</dt>
+                      <dd>{office.editorialBrain.brief.visitorTakeaway}</dd>
+                    </div>
+                  </dl>
+                </div>
 
-            {d.editorialReview ? (
-              <div className="ops-editor-office__review">
-                <h3 className="ops-editor-office__review-title">Editorial Review</h3>
-                <p className="ops-editor-office__review-rec">
-                  {d.editorialReview.recommendation === "ready_for_director" ? "✅" : "⚠"}{" "}
-                  {d.editorialReview.recommendationLabel}
-                </p>
-                <p className="ops-editor-office__review-expl">{d.editorialReview.explanation}</p>
-                <dl className="ops-editor-office__review-grid">
-                  <div>
-                    <dt>Patron Value</dt>
-                    <dd>{d.editorialReview.patronValue}/10</dd>
+                <div className="ops-editor-brain__section">
+                  <h3 className="ops-editor-office__section-title">Evidence Board</h3>
+                  <div className="ops-editor-brain__board">
+                    {office.editorialBrain.evidenceBoard.map((section) => (
+                      <article key={section.id} className="ops-editor-brain__board-section">
+                        <h4>{section.title}</h4>
+                        <p className="ops-editor-brain__board-lead">{section.lead}</p>
+                        <ul>
+                          {section.items.map((item) => (
+                            <li
+                              key={item.id}
+                              className={
+                                item.emphasis === "primary"
+                                  ? "ops-editor-brain__evidence--primary"
+                                  : undefined
+                              }
+                            >
+                              {item.text}
+                            </li>
+                          ))}
+                        </ul>
+                      </article>
+                    ))}
                   </div>
-                  <div>
-                    <dt>Story Quality</dt>
-                    <dd>{d.editorialReview.storyQuality}</dd>
-                  </div>
-                  <div>
-                    <dt>Visual Quality</dt>
-                    <dd>{d.editorialReview.visualQuality}/10</dd>
-                  </div>
-                  <div>
-                    <dt>Performance Quality</dt>
-                    <dd>{d.editorialReview.performanceQuality}/10</dd>
-                  </div>
-                </dl>
-                {d.editorialReview.weaknesses.length > 0 ? (
-                  <ul className="ops-editor-office__weaknesses">
-                    {d.editorialReview.weaknesses.map((w) => (
-                      <li key={w.id}>
-                        <strong>{w.issue}</strong> — {w.suggestion}
+                </div>
+
+                <div className="ops-editor-brain__section">
+                  <h3 className="ops-editor-office__section-title">Museum Recommendation</h3>
+                  <p className="ops-editor-brain__museum-lead">{office.editorialBrain.museumRecommendation.headline}</p>
+                  <ol className="ops-editor-brain__exhibit-flow">
+                    {office.editorialBrain.museumRecommendation.exhibitFlow.map((step) => (
+                      <li key={step.id} className={`ops-editor-brain__exhibit ops-editor-brain__exhibit--${step.role}`}>
+                        <strong>{step.label}</strong>
+                        <span>{step.rationale}</span>
                       </li>
                     ))}
-                  </ul>
-                ) : null}
-                {d.editorialReview.angleSuggestion ? (
-                  <p className="ops-editor-office__angle-suggest">
-                    <strong>Angle suggestion:</strong>{" "}
-                    {STORY_ANGLES.find((a) => a.id === d.editorialReview!.angleSuggestion!.currentAngle)?.label}{" "}
-                    →{" "}
-                    {STORY_ANGLES.find((a) => a.id === d.editorialReview!.angleSuggestion!.suggestedAngle)?.label}.{" "}
-                    {d.editorialReview.angleSuggestion.reason}
-                  </p>
-                ) : null}
-                <p className="ops-editor-office__perf-rationale">{d.editorialReview.performanceRationale}</p>
-              </div>
-            ) : null}
+                  </ol>
+                </div>
 
-            <dl className="ops-editor-office__dash-grid">
-              <div><dt>Story Status</dt><dd>{d.storyStatus}</dd></div>
-              <div><dt>Story Angle</dt><dd>{d.storyAngle}</dd></div>
-              <div><dt>Approved Facts</dt><dd>{d.approvedFactsCount}</dd></div>
-              <div><dt>Pending Facts</dt><dd>{d.pendingFactsCount}</dd></div>
-              <div><dt>Accepted Images</dt><dd>{d.acceptedImagesCount}</dd></div>
-              <div><dt>Recommended Performance</dt><dd>{d.recommendedPerformance ?? "—"}</dd></div>
-              <div><dt>Cards Planned</dt><dd>{d.cardsPlanned}</dd></div>
-              <div><dt>Confidence</dt><dd>{d.confidence}</dd></div>
-              <div className="ops-editor-office__dash-wide">
-                <dt>Ready for Director</dt>
-                <dd className={d.readyForDirector ? "ops-editor-office__ready" : ""}>
-                  {d.readyForDirector ? "Yes" : "Not yet"}
-                </dd>
-              </div>
-            </dl>
+                <div className="ops-editor-brain__section">
+                  <h3 className="ops-editor-office__section-title">Director Brief</h3>
+                  <div className="ops-editor-brain__director rs-studio-review-panel">
+                    <p><strong>Theme:</strong> {office.editorialBrain.directorBrief.theme}</p>
+                    <p><strong>Opening:</strong> {office.editorialBrain.directorBrief.openingHook}</p>
+                    <p><strong>Closing:</strong> {office.editorialBrain.directorBrief.closingTakeaway}</p>
+                    <p><strong>Exhibit order:</strong> {office.editorialBrain.directorBrief.recommendedExhibitOrder.join(" → ")}</p>
+                    {office.editorialBrain.directorBrief.retroverseMoments.length > 0 ? (
+                      <ul className="ops-editor-brain__rv-moments">
+                        {office.editorialBrain.directorBrief.retroverseMoments.map((moment) => (
+                          <li key={moment.id}>{moment.text}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </div>
+
+                {office.editorialBrain.discarded.length > 0 ? (
+                  <details className="ops-editor-brain__noise">
+                    <summary>Filtered noise ({office.editorialBrain.discarded.length})</summary>
+                    <ul>
+                      {office.editorialBrain.discarded.slice(0, 8).map((d) => (
+                        <li key={d.id}>
+                          <span>{d.text}</span> — <em>{d.reason}</em>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                ) : null}
+              </>
+            ) : (
+              <p className="ops-editor-office__lead">Editorial Brain is building from Collector research…</p>
+            )}
+
+            <details className="ops-editor-brain__support">
+              <summary>Editorial scores &amp; checklist</summary>
+              {d.editorialReview ? (
+                <div className="rs-studio-review-panel ops-editor-office__review">
+                  <p className="rs-studio-review-panel__lead ops-editor-office__review-rec">
+                    {d.editorialReview.recommendation === "ready_for_director" ? "✅" : "⚠"}{" "}
+                    {d.editorialReview.recommendationLabel}
+                  </p>
+                  <dl className="ops-editor-office__review-grid">
+                    <div><dt>Patron Value</dt><dd>{d.editorialReview.patronValue}/10</dd></div>
+                    <div><dt>Story Quality</dt><dd>{d.editorialReview.storyQuality}</dd></div>
+                  </dl>
+                </div>
+              ) : null}
+              <dl className="ops-editor-office__dash-grid">
+                <div><dt>Status</dt><dd>{d.storyStatus}</dd></div>
+                <div><dt>Promoted facts</dt><dd>{office.editorialBrain?.promotedFactIds.length ?? d.approvedFactsCount}</dd></div>
+                <div><dt>Ready for Director</dt><dd>{d.readyForDirector ? "Yes" : "Not yet"}</dd></div>
+              </dl>
+            </details>
+
             <div className="ops-editor-office__quick-actions">
               <button type="button" className="ops-editor-office__btn" onClick={() => setTab("facts")}>
-                Review Facts
+                Supporting facts
               </button>
               <button type="button" className="ops-editor-office__btn ops-editor-office__btn--primary" onClick={() => setTab("story")}>
-                Edit Story
+                Edit story
               </button>
             </div>
           </section>
@@ -396,8 +457,8 @@ export function EditorOfficeView({ initialContext }: Props) {
           <section>
             <h2 className="ops-editor-office__section-title">Timeline</h2>
             <ol className="ops-editor-office__timeline">
-              {story.workspace.evidence.timeline.map((event, i) => (
-                <li key={`${event.date}-${i}`}>
+              {story.workspace.evidence.timeline.map((event) => (
+                <li key={event.id!}>
                   <time>{event.date}</time>
                   <span>{event.label}</span>
                 </li>
@@ -415,7 +476,7 @@ export function EditorOfficeView({ initialContext }: Props) {
                 .sort((a, b) => a.order - b.order)
                 .map((card, index) => (
                   <li
-                    key={card.id}
+                    key={`${rvtr}-card-${card.id}`}
                     className="ops-editor-office__card"
                     draggable
                     onDragStart={() => {
@@ -517,7 +578,7 @@ export function EditorOfficeView({ initialContext }: Props) {
                 .sort((a, b) => a.order - b.order)
                 .map((img, index) => (
                   <article
-                    key={img.assetId}
+                    key={`${rvtr}-img-${img.assetId}-${img.imageUrl}`}
                     className="ops-editor-office__image-card"
                     draggable
                     onDragStart={() => {
@@ -584,7 +645,7 @@ export function EditorOfficeView({ initialContext }: Props) {
             <div className="ops-editor-office__perf-grid">
               {office.performances.map((perf) => (
                 <article
-                  key={perf.id}
+                  key={`${rvtr}-perf-${perf.id}`}
                   className={
                     office.selectedPerformanceId === perf.id
                       ? "ops-editor-office__perf ops-editor-office__perf--selected"
@@ -606,7 +667,7 @@ export function EditorOfficeView({ initialContext }: Props) {
                     <div className="ops-editor-office__perf-shots">
                       {perf.screenshots.slice(0, 3).map((s) => (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img key={s.assetId} src={s.imageUrl} alt="" />
+                        <img key={`${rvtr}-shot-${s.assetId}-${s.imageUrl}`} src={s.imageUrl} alt="" />
                       ))}
                     </div>
                   ) : null}

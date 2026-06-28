@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR615895",
+  "artist": "Jimmy Buffet",
+  "title": "Margaritaville",
+  "story": {
+    "headline": "Margaritaville: A Cultural Moment Captured on Record",
+    "subtitle": "Jimmy Buffet · Cultural Moment",
+    "hook": "Margaritaville is performed by Jimmy Buffet.",
+    "summary": "Jimmy Buffet's \"Margaritaville\" — original release 1990.",
+    "fullStory": "Jimmy Buffet's \"Margaritaville\" — original release 1990.\n\nSong release — original 1990 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "08a66996-9a90-4bf6-9a77-01de6b9b6a27",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "a92354347cdc",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR615895&file=hero.jpg",
+      "performanceId": "perf-ui8j9s"
+    },
+    {
+      "assetId": "c2ae95610693",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR615895&file=performance.jpg",
+      "performanceId": "perf-ui8j9s"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ui8j9s",
+    "title": "Official Video · 1990",
+    "venue": "",
+    "year": 1990,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1990 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "a92354347cdc",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR615895&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "c2ae95610693",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR615895&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Margaritaville is performed by Jimmy Buffet.",
+    "closing": "Jimmy Buffet's \"Margaritaville\" — original release 1990.",
+    "storyBeats": [
+      {
+        "id": "beat-00a5ec8f48",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Margaritaville\" — original release 1990. Jimmy Buffet — \"Margaritaville\" · Original release 1990",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a92354347cdc",
+          "c2ae95610693"
+        ],
+        "relatedPerformanceId": "perf-ui8j9s",
+        "priority": 1
+      },
+      {
+        "id": "beat-68ca203b17",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a92354347cdc",
+          "c2ae95610693"
+        ],
+        "relatedPerformanceId": "perf-ui8j9s",
+        "priority": 2
+      },
+      {
+        "id": "beat-e72c1b8b9e",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a92354347cdc",
+          "c2ae95610693"
+        ],
+        "relatedPerformanceId": "perf-ui8j9s",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-a7da724db8",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1990,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a92354347cdc"
+        ]
+      },
+      {
+        "id": "moment-a7da724db8",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1990 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1990,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a92354347cdc"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-ui8j9s",
+      "title": "Official Video · 1990",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1990 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Margaritaville is performed by Jimmy Buffet.\""
+    },
+    "generatedAt": "2026-06-27T04:57:55.121Z"
+  },
+  "submittedAt": "2026-06-27T04:57:55.122Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

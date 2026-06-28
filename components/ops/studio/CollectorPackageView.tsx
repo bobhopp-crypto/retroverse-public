@@ -62,6 +62,18 @@ export function CollectorPackageView({ initialContext }: Props) {
   const rvtr = initialContext.rvtr;
 
   useEffect(() => {
+    setStats(initialContext.stats);
+    setInvestigation(coalesceInvestigationView(initialContext.investigation));
+    setPkgSnapshot(initialContext.package);
+    setSelectedPerformanceId(initialContext.investigation?.selectedPerformanceId ?? null);
+  }, [
+    initialContext.rvtr,
+    initialContext.stats,
+    initialContext.investigation,
+    initialContext.package,
+  ]);
+
+  useEffect(() => {
     let cancelled = false;
 
     async function poll() {
@@ -193,7 +205,7 @@ export function CollectorPackageView({ initialContext }: Props) {
             <p className="ops-collector__still-label">Still looking for</p>
             <ul className="ops-collector__list">
               {view.stillLookingFor.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item.id}>{item.text}</li>
               ))}
             </ul>
           </div>
@@ -233,9 +245,9 @@ export function CollectorPackageView({ initialContext }: Props) {
         </h2>
         {view.discoveries.length > 0 ? (
           <ul className="ops-collector__discoveries">
-            {view.discoveries.map((item) => (
-              <li key={item}>✓ {item}</li>
-            ))}
+              {view.discoveries.map((item) => (
+                <li key={item.id}>✓ {item.text}</li>
+              ))}
           </ul>
         ) : (
           <p className="ops-collector__empty-copy">
@@ -252,7 +264,7 @@ export function CollectorPackageView({ initialContext }: Props) {
         </h2>
         <div className="ops-collector__package-grid">
           {view.packageCards.map((card) => (
-            <article key={card.label} className="ops-collector__package-card">
+            <article key={card.id} className="ops-collector__package-card">
               <h3>{card.label}</h3>
               <p className={`ops-collector__card-status ${cardStatusClass(card.status)}`}>
                 {card.status}
@@ -312,7 +324,7 @@ export function CollectorPackageView({ initialContext }: Props) {
           </h2>
           <ul className="ops-collector__discoveries">
             {(view.performanceFacts ?? []).map((item) => (
-              <li key={item}>✓ {item}</li>
+              <li key={item.id}>✓ {item.text}</li>
             ))}
           </ul>
         </section>
@@ -326,7 +338,7 @@ export function CollectorPackageView({ initialContext }: Props) {
         <div className="ops-collector__visual-grid">
           {view.visualAssets.map((slot) => (
             <article
-              key={slot.label}
+              key={slot.category}
               className={
                 slot.status === "ready"
                   ? "ops-collector__visual-slot ops-collector__visual-slot--ready"
@@ -371,7 +383,7 @@ export function CollectorPackageView({ initialContext }: Props) {
         {view.recentDiscoveries.length > 0 ? (
           <ol className="ops-collector__recent">
             {view.recentDiscoveries.map((entry) => (
-              <li key={`${entry.at}-${entry.message}`}>
+              <li key={entry.id}>
                 <time dateTime={entry.at}>{entry.time}</time>
                 <span>{entry.message}</span>
               </li>
@@ -387,8 +399,8 @@ export function CollectorPackageView({ initialContext }: Props) {
           Collector Notes
         </h2>
         <div className="ops-collector__notes">
-          {(view.collectorNotes ?? "").split("\n\n").map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+          {view.collectorNoteParagraphs.map((paragraph) => (
+            <p key={paragraph.id}>{paragraph.text}</p>
           ))}
         </div>
       </section>
@@ -398,12 +410,12 @@ export function CollectorPackageView({ initialContext }: Props) {
           Future Analysis
         </h2>
         <div className="ops-collector__future-grid">
-          {FUTURE_ANALYSIS_HOOKS.map((label) => (
-            <article key={label} className="ops-collector__future-card">
+          {FUTURE_ANALYSIS_HOOKS.map((hook) => (
+            <article key={hook.id} className="ops-collector__future-card">
               <span className="ops-collector__future-icon" aria-hidden>
                 ◫
               </span>
-              <h3>{label}</h3>
+              <h3>{hook.label}</h3>
               <p>Future department</p>
             </article>
           ))}

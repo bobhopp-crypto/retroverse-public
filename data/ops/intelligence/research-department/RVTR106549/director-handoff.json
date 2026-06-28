@@ -1,0 +1,196 @@
+{
+  "version": 2,
+  "rvtr": "RVTR106549",
+  "artist": "Michael Jackson",
+  "title": "Will You Be There",
+  "story": {
+    "headline": "Will You Be There: The Breakthrough Moment",
+    "subtitle": "Michael Jackson · Breakthrough · 2001",
+    "hook": "The song peaked at #7 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Michael Jackson's \"Will You Be There\" reached #7 on the Billboard Hot 100.",
+    "fullStory": "Michael Jackson's \"Will You Be There\" reached #7 on the Billboard Hot 100.\n\nThe song peaked at #7 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nGraph compilation anchor: \"Greatest Hits: HIStory -- Volume 1\" (2001) — not the song's original release year.\n\nAlbum: Greatest Hits: HIStory -- Volume 1 (2001).\n\nChart story — peaked at #7 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "4a1eaa0a-467e-4452-b70e-4dc921b4107e",
+      "text": "The song peaked at #7 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0384e51c-f223-44a4-968e-7b8ab99ae650",
+      "text": "The song appears on the album \"Greatest Hits: HIStory -- Volume 1\" (2001).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d2e9b201-be8d-4a3a-8861-855193a028a2",
+      "text": "Graph compilation anchor: \"Greatest Hits: HIStory -- Volume 1\" (2001) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "750c878d-5059-4268-9f52-36e929ad611e",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "6766c95c-c330-4659-9396-03de568c7453",
+      "text": "Album: Greatest Hits: HIStory -- Volume 1 (2001).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "eb3ae38b-a504-4fe2-84a8-f788d11e1359",
+      "text": "Album: Greatest Hits: HIStory -- Volume 1 (2001).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "500b873947bf",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR106549&file=hero.jpg",
+      "performanceId": "perf-1rmato"
+    },
+    {
+      "assetId": "73e42c65009b",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR106549&file=performance.jpg",
+      "performanceId": "perf-1rmato"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-1rmato",
+    "title": "Official Video · 1992",
+    "venue": "",
+    "year": 1992,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1992 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "500b873947bf",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR106549&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "73e42c65009b",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR106549&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #7 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Michael Jackson's \"Will You Be There\" reached #7 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-4f01c20835",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Will You Be There\" — original release 1992. Michael Jackson — \"Will You Be There\" · Original release 1992 · Hot 100 peak #7",
+        "supportingFactIds": [
+          "d2e9b201-be8d-4a3a-8861-855193a028a2"
+        ],
+        "relatedImageAssetIds": [
+          "500b873947bf",
+          "73e42c65009b"
+        ],
+        "relatedPerformanceId": "perf-1rmato",
+        "priority": 1
+      },
+      {
+        "id": "beat-68fc3ab408",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Greatest Hits: HIStory -- Volume 1 · Release 2001 · Compilation edition",
+        "supportingFactIds": [
+          "0384e51c-f223-44a4-968e-7b8ab99ae650",
+          "6766c95c-c330-4659-9396-03de568c7453"
+        ],
+        "relatedImageAssetIds": [
+          "500b873947bf",
+          "73e42c65009b"
+        ],
+        "relatedPerformanceId": "perf-1rmato",
+        "priority": 2
+      },
+      {
+        "id": "beat-571933d691",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #7 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "4a1eaa0a-467e-4452-b70e-4dc921b4107e"
+        ],
+        "relatedImageAssetIds": [
+          "500b873947bf",
+          "73e42c65009b"
+        ],
+        "relatedPerformanceId": "perf-1rmato",
+        "priority": 3
+      },
+      {
+        "id": "beat-45375155ee",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "500b873947bf",
+          "73e42c65009b"
+        ],
+        "relatedPerformanceId": "perf-1rmato",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-25e1dc16af",
+        "title": "Chart milestone",
+        "description": "Peaked at #7 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1992,
+        "supportingFactIds": [
+          "4a1eaa0a-467e-4452-b70e-4dc921b4107e"
+        ],
+        "relatedImageAssetIds": [
+          "500b873947bf"
+        ]
+      },
+      {
+        "id": "moment-ed32acd4cf",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1992,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "500b873947bf"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-1rmato",
+      "title": "Official Video · 1992",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1992 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #7 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:27:19.204Z"
+  },
+  "submittedAt": "2026-06-27T05:27:19.204Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

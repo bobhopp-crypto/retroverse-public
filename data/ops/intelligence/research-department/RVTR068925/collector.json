@@ -1,0 +1,939 @@
+{
+  "version": 4,
+  "rvtr": "RVTR068925",
+  "artist": "Hot Chocolate",
+  "title": "Disco Queen",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T03:16:59.862Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Hot Chocolate — Disco Queen (RVTR068925)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #28 · 11 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "1 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "1 curated frames · 3 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "11 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR068925",
+    "artist": "Hot Chocolate",
+    "title": "Disco Queen",
+    "year": 1975,
+    "albumTitle": "Cicero Park"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+    "playCount": 1,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+        "artist": "Hot Chocolate",
+        "title": "Disco Queen",
+        "isVideo": true,
+        "playCount": 1,
+        "year": 1974,
+        "genre": "Funk / Soul",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 28,
+    "chartWeeks": 11,
+    "albumTitle": "Cicero Park",
+    "summary": "Hot 100 peak #28 · 11 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+        "artist": "Hot Chocolate",
+        "title": "Disco Queen",
+        "isVideo": true,
+        "playCount": 1,
+        "year": 1974,
+        "genre": "Funk / Soul",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+      "close-up.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 1,
+      "assets": [
+        {
+          "id": "f507c5edc01a",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 0,
+          "width": 640,
+          "height": 360,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T03:16:59.859Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Hot Chocolate"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "fe409170-d13d-4c22-bf27-9d21997f47c8",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR068925.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "82102e58-da58-409b-a747-41508aaa5ec0",
+      "category": "artist",
+      "text": "Disco Queen is performed by Hot Chocolate.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "ab9f63fc-309c-4136-9c3a-0b618e22fe73",
+      "category": "album",
+      "text": "The song appears on the album \"Cicero Park\" (1975).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-blo5dx"
+    },
+    {
+      "id": "0e89e855-d354-4d73-82f7-633c1f7faf00",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR068925.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-blo5dx"
+    },
+    {
+      "id": "f4eb1014-281a-4927-82c0-fc72a34490cd",
+      "category": "chart",
+      "text": "The song peaked at #28 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "0b57fc11-b566-447e-9b11-e9dcc4156c7f",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-2p9fdh"
+    },
+    {
+      "id": "08bfcc42-ea61-4396-9098-91ac4594d62b",
+      "category": "recording",
+      "text": "Disco Queen was released in 1975.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "56c35629-8553-4ac0-9f20-45655912bc71",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR068925 (Disco Queen).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "32e89ddc-2a01-4a9c-8e34-c79edbf4354d",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "118bf27d-39c1-4953-83a1-5eea617d9ca6",
+      "category": "trivia",
+      "text": "Artist: Hot Chocolate · Title: Disco Queen · Album: Disco Queen · Year: 1974 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1764572605 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-2p9fdh"
+    },
+    {
+      "id": "7d2c3369-c1ff-4273-9f23-c94dbdfc684a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-2p9fdh"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T03:16:58.835Z",
+      "excerpt": "Retroverse track identity: RVTR068925. \"Disco Queen\" by Hot Chocolate. Album: Cicero Park (1975).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+      "capturedAt": "2026-06-28T03:16:58.835Z",
+      "excerpt": "Canonical cover assignment for RVTR068925 (Disco Queen). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T03:16:58.835Z",
+      "excerpt": "Album: Cicero Park (1975). Billboard Hot 100 peak: #28. 11 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T03:16:58.835Z",
+      "excerpt": "Artist: Hot Chocolate · Title: Disco Queen · Album: Disco Queen · Year: 1974 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1764572605 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T03:16:58.835Z",
+      "excerpt": "Performance year context: 1975.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-2ed3ebe7",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T03:16:58.835Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4 · Plays: 1",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Hot Chocolate — Disco Queen · Hot 100 peak #28 · 11 weeks · 1 performance videos · 11 candidate facts · 3 gaps · 1 performance(s) · 8/11 facts approved · confidence 63% · song 1975 / recording 1975",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR068925",
+      "artist": "Hot Chocolate",
+      "title": "Disco Queen",
+      "year": 1975,
+      "albumTitle": "Cicero Park"
+    },
+    "charts": {
+      "peakHot100": 28,
+      "chartWeeks": 11,
+      "albumTitle": "Cicero Park",
+      "summary": "Hot 100 peak #28 · 11 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Hot Chocolate"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T03:16:58.835Z",
+          "excerpt": "Retroverse track identity: RVTR068925. \"Disco Queen\" by Hot Chocolate. Album: Cicero Park (1975).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+          "capturedAt": "2026-06-28T03:16:58.835Z",
+          "excerpt": "Canonical cover assignment for RVTR068925 (Disco Queen). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T03:16:58.835Z",
+          "excerpt": "Album: Cicero Park (1975). Billboard Hot 100 peak: #28. 11 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T03:16:58.835Z",
+          "excerpt": "Artist: Hot Chocolate · Title: Disco Queen · Album: Disco Queen · Year: 1974 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1764572605 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T03:16:58.835Z",
+          "excerpt": "Performance year context: 1975.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-2ed3ebe7",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T03:16:58.835Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4 · Plays: 1",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Hot Chocolate — Disco Queen · Hot 100 peak #28 · 11 weeks · 1 performance videos · 11 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "fe409170-d13d-4c22-bf27-9d21997f47c8",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR068925.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "82102e58-da58-409b-a747-41508aaa5ec0",
+        "category": "artist",
+        "text": "Disco Queen is performed by Hot Chocolate.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "ab9f63fc-309c-4136-9c3a-0b618e22fe73",
+        "category": "album",
+        "text": "The song appears on the album \"Cicero Park\" (1975).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-blo5dx"
+      },
+      {
+        "id": "0e89e855-d354-4d73-82f7-633c1f7faf00",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR068925.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-blo5dx"
+      },
+      {
+        "id": "f4eb1014-281a-4927-82c0-fc72a34490cd",
+        "category": "chart",
+        "text": "The song peaked at #28 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "0b57fc11-b566-447e-9b11-e9dcc4156c7f",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 1.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-2p9fdh"
+      },
+      {
+        "id": "08bfcc42-ea61-4396-9098-91ac4594d62b",
+        "category": "recording",
+        "text": "Disco Queen was released in 1975.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "56c35629-8553-4ac0-9f20-45655912bc71",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR068925 (Disco Queen).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "32e89ddc-2a01-4a9c-8e34-c79edbf4354d",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "118bf27d-39c1-4953-83a1-5eea617d9ca6",
+        "category": "trivia",
+        "text": "Artist: Hot Chocolate · Title: Disco Queen · Album: Disco Queen · Year: 1974 · Genre: Funk / Soul · PlayCount: 1 · LastPlayed: 1764572605 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-2p9fdh"
+      },
+      {
+        "id": "7d2c3369-c1ff-4273-9f23-c94dbdfc684a",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4 · Plays: 1",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-2p9fdh"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL879792/RVAL879792__hot-chocolate__cicero-park.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-2p9fdh",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+      "durationSec": 215.481933,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 1,
+          "assets": [
+            {
+              "id": "f507c5edc01a",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 0,
+              "width": 640,
+              "height": 360,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T03:16:59.859Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1974. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1974,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1974",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Hot Chocolate's \"Disco Queen\" reached #28 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Disco Queen is performed by Hot Chocolate.",
+      "The song appears on the album \"Cicero Park\" (1975).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR068925."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #28 on the Hot 100",
+      "Song release — original 1975 chapter",
+      "Performance angle — Official Video (1974)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR068925",
+    "artist": "Hot Chocolate",
+    "title": "Disco Queen",
+    "writers": [],
+    "originalReleaseYear": 1975,
+    "originalAlbum": "Cicero Park",
+    "peakHot100": 28,
+    "chartWeeks": 11,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Hot Chocolate"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-blo5dx",
+      "kind": "studio_album",
+      "title": "Cicero Park",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Cicero Park",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1975,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-2p9fdh",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1974,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 215.481933,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1974. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1974",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-r7dcl4",
+        "domain": "song",
+        "kind": "release",
+        "year": 1975,
+        "label": "Disco Queen — original release",
+        "detail": "Original album: Cicero Park",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3gs",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1975,
+        "label": "Billboard Hot 100 peak #28",
+        "detail": "11 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-p0qey7",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1975,
+        "label": "Cicero Park",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-blo5dx"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1974,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-2p9fdh"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1975,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1975,
+      "label": "Album: Cicero Park",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1974,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR068925",
+      "artist": "Hot Chocolate",
+      "title": "Disco Queen",
+      "writers": [],
+      "originalReleaseYear": 1975,
+      "originalAlbum": "Cicero Park",
+      "peakHot100": 28,
+      "chartWeeks": 11,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Hot Chocolate"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-blo5dx",
+        "kind": "studio_album",
+        "title": "Cicero Park",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Cicero Park",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1975,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-2p9fdh",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Chocolate - Disco Queen.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1974,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 215.481933,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1974. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1974",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-r7dcl4",
+          "domain": "song",
+          "kind": "release",
+          "year": 1975,
+          "label": "Disco Queen — original release",
+          "detail": "Original album: Cicero Park",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3gs",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1975,
+          "label": "Billboard Hot 100 peak #28",
+          "detail": "11 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-p0qey7",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1975,
+          "label": "Cicero Park",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-blo5dx"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1974,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-2p9fdh"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1975,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1975,
+        "label": "Album: Cicero Park",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1974,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

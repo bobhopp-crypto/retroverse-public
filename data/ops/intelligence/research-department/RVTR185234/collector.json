@@ -1,0 +1,954 @@
+{
+  "version": 4,
+  "rvtr": "RVTR185234",
+  "artist": "The Beatles",
+  "title": "Another Girl",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "partial",
+  "completedAt": "2026-06-28T08:30:51.936Z",
+  "researchQuality": 71,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "The Beatles — Another Girl (RVTR185234)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "partial",
+      "summary": "No chart history in graph"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "9 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "4 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR185234",
+    "artist": "The Beatles",
+    "title": "Another Girl",
+    "year": 1965,
+    "albumTitle": "Help! (Soundtrack)"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+        "artist": "The Beatles",
+        "title": "Another Girl",
+        "isVideo": true,
+        "playCount": null,
+        "year": 1965,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": "Help! (Soundtrack)",
+    "summary": "No chart history in graph"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+        "artist": "The Beatles",
+        "title": "Another Girl",
+        "isVideo": true,
+        "playCount": null,
+        "year": 1965,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+      "alternate.jpg",
+      "hero.jpg",
+      "crowd.jpg",
+      "close-up.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "f751cc452bc3",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 0,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T08:30:51.931Z"
+        },
+        {
+          "id": "f6bd388100bb",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 20,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T08:30:51.931Z"
+        },
+        {
+          "id": "5f3c3abbd3f3",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 60,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T08:30:51.931Z"
+        },
+        {
+          "id": "cae2a1544045",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 100,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T08:30:51.931Z"
+        },
+        {
+          "id": "613e394c7b6b",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 120,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T08:30:51.931Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "The Beatles"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "dfa7a515-00c1-448f-80de-4b535950b453",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR185234.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "41fd70fc-ecb2-46c7-a4e3-8f37566c38f2",
+      "category": "artist",
+      "text": "Another Girl is performed by The Beatles.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "874d1309-6e7b-4e41-b56d-7166d83f0502",
+      "category": "album",
+      "text": "The song appears on the album \"Help! (Soundtrack)\" (1965).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-6omeyk"
+    },
+    {
+      "id": "20a390bc-f538-4c26-8564-efd041852583",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR185234.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-6omeyk"
+    },
+    {
+      "id": "42af72d9-828f-4b98-976d-2abf404eb85b",
+      "category": "recording",
+      "text": "Another Girl was released in 1965.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "6a7d61bb-e4c7-4627-b0f2-ab0fd296f96b",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR185234 (Another Girl).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "6e03c387-728a-4755-b606-7c40fa50b99f",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "bde32571-4c95-4204-adf3-aef69611b5bf",
+      "category": "trivia",
+      "text": "Artist: The Beatles · Title: Another Girl · Album: The Night Before / Another Girl · Year: 1965 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-9dxvzf"
+    },
+    {
+      "id": "f36c3085-3c3c-47b1-bd52-dd9071ae5e0d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-9dxvzf"
+    }
+  ],
+  "missingAreas": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T08:30:51.005Z",
+      "excerpt": "Retroverse track identity: RVTR185234. \"Another Girl\" by The Beatles. Album: Help! (Soundtrack) (1965).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+      "capturedAt": "2026-06-28T08:30:51.005Z",
+      "excerpt": "Canonical cover assignment for RVTR185234 (Another Girl). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T08:30:51.005Z",
+      "excerpt": "Album: Help! (Soundtrack) (1965)",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T08:30:51.005Z",
+      "excerpt": "Artist: The Beatles · Title: Another Girl · Album: The Night Before / Another Girl · Year: 1965 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T08:30:51.005Z",
+      "excerpt": "Performance year context: 1965.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-ca9f22f6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T08:30:51.005Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "The Beatles — Another Girl · No chart history in graph · 1 performance videos · 9 candidate facts · 4 gaps · 1 performance(s) · 7/9 facts approved · confidence 53% · song 1965 / recording 1965",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR185234",
+      "artist": "The Beatles",
+      "title": "Another Girl",
+      "year": 1965,
+      "albumTitle": "Help! (Soundtrack)"
+    },
+    "charts": {
+      "peakHot100": null,
+      "chartWeeks": null,
+      "albumTitle": "Help! (Soundtrack)",
+      "summary": "No chart history in graph"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "The Beatles"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T08:30:51.005Z",
+          "excerpt": "Retroverse track identity: RVTR185234. \"Another Girl\" by The Beatles. Album: Help! (Soundtrack) (1965).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+          "capturedAt": "2026-06-28T08:30:51.005Z",
+          "excerpt": "Canonical cover assignment for RVTR185234 (Another Girl). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T08:30:51.005Z",
+          "excerpt": "Album: Help! (Soundtrack) (1965)",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T08:30:51.005Z",
+          "excerpt": "Artist: The Beatles · Title: Another Girl · Album: The Night Before / Another Girl · Year: 1965 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T08:30:51.005Z",
+          "excerpt": "Performance year context: 1965.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-ca9f22f6",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T08:30:51.005Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "The Beatles — Another Girl · No chart history in graph · 1 performance videos · 9 candidate facts · 4 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "dfa7a515-00c1-448f-80de-4b535950b453",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR185234.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "41fd70fc-ecb2-46c7-a4e3-8f37566c38f2",
+        "category": "artist",
+        "text": "Another Girl is performed by The Beatles.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "874d1309-6e7b-4e41-b56d-7166d83f0502",
+        "category": "album",
+        "text": "The song appears on the album \"Help! (Soundtrack)\" (1965).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-6omeyk"
+      },
+      {
+        "id": "20a390bc-f538-4c26-8564-efd041852583",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR185234.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-6omeyk"
+      },
+      {
+        "id": "42af72d9-828f-4b98-976d-2abf404eb85b",
+        "category": "recording",
+        "text": "Another Girl was released in 1965.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "6a7d61bb-e4c7-4627-b0f2-ab0fd296f96b",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR185234 (Another Girl).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "6e03c387-728a-4755-b606-7c40fa50b99f",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "bde32571-4c95-4204-adf3-aef69611b5bf",
+        "category": "trivia",
+        "text": "Artist: The Beatles · Title: Another Girl · Album: The Night Before / Another Girl · Year: 1965 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-9dxvzf"
+      },
+      {
+        "id": "f36c3085-3c3c-47b1-bd52-dd9071ae5e0d",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-9dxvzf"
+      }
+    ],
+    "missingAreas": [
+      "Billboard chart history",
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL816329/RVAL816329__the-beatles__help-soundtrack.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-9dxvzf",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "durationSec": 124.657867,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "f751cc452bc3",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 0,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T08:30:51.931Z"
+            },
+            {
+              "id": "f6bd388100bb",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 20,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T08:30:51.931Z"
+            },
+            {
+              "id": "5f3c3abbd3f3",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 60,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T08:30:51.931Z"
+            },
+            {
+              "id": "cae2a1544045",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 100,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T08:30:51.931Z"
+            },
+            {
+              "id": "613e394c7b6b",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 120,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T08:30:51.931Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1965. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1965,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1965",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 53
+  },
+  "storySeed": {
+    "whyItMatters": "The Beatles's \"Another Girl\" — original release 1965.",
+    "strongestFacts": [
+      "Another Girl is performed by The Beatles.",
+      "The song appears on the album \"Help! (Soundtrack)\" (1965).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR185234."
+    ],
+    "storyIdeas": [
+      "Song release — original 1965 chapter",
+      "Performance angle — Official Video (1965)"
+    ],
+    "suggestedAngle": "personal_story"
+  },
+  "songEntity": {
+    "rvtr": "RVTR185234",
+    "artist": "The Beatles",
+    "title": "Another Girl",
+    "writers": [],
+    "originalReleaseYear": 1965,
+    "originalAlbum": "Help! (Soundtrack)",
+    "peakHot100": null,
+    "chartWeeks": null,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "The Beatles"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-6omeyk",
+      "kind": "studio_album",
+      "title": "Help! (Soundtrack)",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Help! (Soundtrack)",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1965,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-9dxvzf",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1965,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 124.657867,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 1965. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1965",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-ba5dyl",
+        "domain": "song",
+        "kind": "release",
+        "year": 1965,
+        "label": "Another Girl — original release",
+        "detail": "Original album: Help! (Soundtrack)",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-bue5ax",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1965,
+        "label": "Help! (Soundtrack)",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-6omeyk"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1965,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-9dxvzf"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1965,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1965,
+      "label": "Album: Help! (Soundtrack)",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1965,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR185234",
+      "artist": "The Beatles",
+      "title": "Another Girl",
+      "writers": [],
+      "originalReleaseYear": 1965,
+      "originalAlbum": "Help! (Soundtrack)",
+      "peakHot100": null,
+      "chartWeeks": null,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "The Beatles"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-6omeyk",
+        "kind": "studio_album",
+        "title": "Help! (Soundtrack)",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Help! (Soundtrack)",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1965,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-9dxvzf",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/The Beatles - Another Girl.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1965,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 124.657867,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 1965. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1965",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-ba5dyl",
+          "domain": "song",
+          "kind": "release",
+          "year": 1965,
+          "label": "Another Girl — original release",
+          "detail": "Original album: Help! (Soundtrack)",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-bue5ax",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1965,
+          "label": "Help! (Soundtrack)",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-6omeyk"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1965,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-9dxvzf"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1965,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1965,
+        "label": "Album: Help! (Soundtrack)",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1965,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

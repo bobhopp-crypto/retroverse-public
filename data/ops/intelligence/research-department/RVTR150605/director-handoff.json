@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR150605",
+  "artist": "Pink Floyd",
+  "title": "Run Like Hell",
+  "story": {
+    "headline": "Run Like Hell: A Cultural Moment Captured on Record",
+    "subtitle": "Pink Floyd · Cultural Moment · 1980",
+    "hook": "The song peaked at #53 on the Billboard Hot 100 and spent 6 weeks on the chart.",
+    "summary": "Pink Floyd's \"Run Like Hell\" reached #53 on the Billboard Hot 100. Run Like Hell was released in 1980.",
+    "fullStory": "Pink Floyd's \"Run Like Hell\" reached #53 on the Billboard Hot 100.\n\nThe song peaked at #53 on the Billboard Hot 100 and spent 6 weeks on the chart.\n\nRun Like Hell was released in 1980.\n\nChart story — peaked at #53 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "2c7ac4b7-b1a7-4085-875a-2e78fe1e1202",
+      "text": "The song peaked at #53 on the Billboard Hot 100 and spent 6 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0aa06f03-403d-4e6c-a7fc-f915143464c2",
+      "text": "Run Like Hell was released in 1980.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "dc3ce561-85d2-4d64-a5d3-1dff1d28adec",
+      "text": "VirtualDJ library play count: 7.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "2d0f764f4a40",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150605&file=performance.jpg",
+      "performanceId": "perf-8x4u5e"
+    },
+    {
+      "assetId": "8c1879bcdc76",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150605&file=hero.jpg",
+      "performanceId": "perf-8x4u5e"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-8x4u5e",
+    "title": "Official Video · 1980",
+    "venue": "",
+    "year": 1980,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "2d0f764f4a40",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150605&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "8c1879bcdc76",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR150605&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #53 on the Billboard Hot 100 and spent 6 weeks on the chart.",
+    "closing": "Pink Floyd's \"Run Like Hell\" reached #53 on the Billboard Hot 100. Run Like Hell was released in 1980.",
+    "storyBeats": [
+      {
+        "id": "beat-c787958124",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Run Like Hell\" — original release 1980. Pink Floyd — \"Run Like Hell\" · Original release 1980 · Hot 100 peak #53",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2d0f764f4a40",
+          "8c1879bcdc76"
+        ],
+        "relatedPerformanceId": "perf-8x4u5e",
+        "priority": 1
+      },
+      {
+        "id": "beat-0be6e9de89",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Run Like Hell — graph recording · Release 1980",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2d0f764f4a40",
+          "8c1879bcdc76"
+        ],
+        "relatedPerformanceId": "perf-8x4u5e",
+        "priority": 2
+      },
+      {
+        "id": "beat-e30d171d5c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #53 · 6 weeks on chart.",
+        "supportingFactIds": [
+          "2c7ac4b7-b1a7-4085-875a-2e78fe1e1202"
+        ],
+        "relatedImageAssetIds": [
+          "2d0f764f4a40",
+          "8c1879bcdc76"
+        ],
+        "relatedPerformanceId": "perf-8x4u5e",
+        "priority": 3
+      },
+      {
+        "id": "beat-15160e7b6b",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2d0f764f4a40",
+          "8c1879bcdc76"
+        ],
+        "relatedPerformanceId": "perf-8x4u5e",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-edbe94753d",
+        "title": "Chart milestone",
+        "description": "Peaked at #53 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1980,
+        "supportingFactIds": [
+          "2c7ac4b7-b1a7-4085-875a-2e78fe1e1202"
+        ],
+        "relatedImageAssetIds": [
+          "2d0f764f4a40"
+        ]
+      },
+      {
+        "id": "moment-b628c676b2",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1980,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2d0f764f4a40"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-8x4u5e",
+      "title": "Official Video · 1980",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #53 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:06:56.560Z"
+  },
+  "submittedAt": "2026-06-27T05:06:56.560Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

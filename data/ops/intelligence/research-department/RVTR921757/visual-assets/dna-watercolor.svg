@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" role="img" aria-hidden="true">
+  <defs>
+    <filter id="wc-blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.0100" numOctaves="3" seed="50" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="39" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="21.0"/>
+    </filter>
+    <linearGradient id="wc-base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#834E40" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#57324F" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#0F181C" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#wc-base)"/>
+  
+      <ellipse cx="581" cy="559" rx="300" ry="245"
+        fill="#834E40" opacity="0.39" transform="rotate(45.0 581 559)"
+        filter="url(#wc-blur)" />
+
+      <ellipse cx="366" cy="460" rx="300" ry="245"
+        fill="#57324F" opacity="0.39" transform="rotate(62.5 366 460)"
+        filter="url(#wc-blur)" />
+
+      <ellipse cx="253" cy="552" rx="300" ry="245"
+        fill="#121B21" opacity="0.39" transform="rotate(80.0 253 552)"
+        filter="url(#wc-blur)" />
+
+      <ellipse cx="308" cy="799" rx="300" ry="245"
+        fill="#161D24" opacity="0.39" transform="rotate(97.5 308 799)"
+        filter="url(#wc-blur)" />
+
+      <ellipse cx="499" cy="1108" rx="300" ry="245"
+        fill="#AC887C" opacity="0.39" transform="rotate(115.0 499 1108)"
+        filter="url(#wc-blur)" />
+
+      <ellipse cx="714" cy="1361" rx="300" ry="245"
+        fill="#0F181C" opacity="0.39" transform="rotate(132.5 714 1361)"
+        filter="url(#wc-blur)" />
+
+      <ellipse cx="827" cy="1460" rx="440" ry="365"
+        fill="#834E40" opacity="0.60" transform="rotate(150.0 827 1460)"
+        filter="url(#wc-blur)" />
+
+      <ellipse cx="772" cy="1368" rx="300" ry="245"
+        fill="#57324F" opacity="0.39" transform="rotate(167.5 772 1368)"
+        filter="url(#wc-blur)" />
+
+      <ellipse cx="581" cy="1121" rx="314" ry="257"
+        fill="#121B21" opacity="0.41" transform="rotate(185.0 581 1121)"
+        filter="url(#wc-blur)" />
+  <rect width="1080" height="1920" fill="#0F181C" opacity="0.08" filter="url(#wc-blur)"/>
+</svg>

@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR140412",
+  "artist": "38 Special",
+  "title": "Hold On Loosely",
+  "story": {
+    "headline": "Hold On Loosely: A Cultural Moment Captured on Record",
+    "subtitle": "38 Special · Cultural Moment · 1981",
+    "hook": "The song peaked at #27 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "summary": "38 Special's \"Hold On Loosely\" reached #27 on the Billboard Hot 100. Hold On Loosely was released in 1981.",
+    "fullStory": "38 Special's \"Hold On Loosely\" reached #27 on the Billboard Hot 100.\n\nThe song peaked at #27 on the Billboard Hot 100 and spent 17 weeks on the chart.\n\nHold On Loosely was released in 1981.\n\nChart story — peaked at #27 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "f805c537-e356-470b-9d3f-976fe4c90ec2",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "59174ceb-4f9c-4d57-a4fc-f7144a40261d",
+      "text": "Hold On Loosely was released in 1981.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0341767b-a25b-41b2-a42c-53c4a31c4944",
+      "text": "The song appears on the album \"Wild-Eyed Southern Boys\" (1981).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bd021525-9453-4b41-bf6e-1331b9233be8",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "1ceb081412b2",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR140412&file=hero.jpg",
+      "performanceId": "perf-5kiyes"
+    },
+    {
+      "assetId": "af5aafd7f41d",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR140412&file=performance.jpg",
+      "performanceId": "perf-5kiyes"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-5kiyes",
+    "title": "Official Video · 1981",
+    "venue": "",
+    "year": 1981,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "1ceb081412b2",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR140412&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "af5aafd7f41d",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR140412&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #27 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "closing": "38 Special's \"Hold On Loosely\" reached #27 on the Billboard Hot 100. Hold On Loosely was released in 1981.",
+    "storyBeats": [
+      {
+        "id": "beat-bc37ebce8d",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Hold On Loosely\" — original release 1981. 38 Special — \"Hold On Loosely\" · Original release 1981 · Album: Wild-Eyed Southern Boys · Hot 100 peak #27",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1ceb081412b2",
+          "af5aafd7f41d"
+        ],
+        "relatedPerformanceId": "perf-5kiyes",
+        "priority": 1
+      },
+      {
+        "id": "beat-e9ac6dd2f6",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Wild-Eyed Southern Boys · Release 1981",
+        "supportingFactIds": [
+          "0341767b-a25b-41b2-a42c-53c4a31c4944"
+        ],
+        "relatedImageAssetIds": [
+          "1ceb081412b2",
+          "af5aafd7f41d"
+        ],
+        "relatedPerformanceId": "perf-5kiyes",
+        "priority": 2
+      },
+      {
+        "id": "beat-0a476eda27",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #27 · 17 weeks on chart.",
+        "supportingFactIds": [
+          "f805c537-e356-470b-9d3f-976fe4c90ec2"
+        ],
+        "relatedImageAssetIds": [
+          "1ceb081412b2",
+          "af5aafd7f41d"
+        ],
+        "relatedPerformanceId": "perf-5kiyes",
+        "priority": 3
+      },
+      {
+        "id": "beat-c26451392c",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1ceb081412b2",
+          "af5aafd7f41d"
+        ],
+        "relatedPerformanceId": "perf-5kiyes",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-2f1e06f0f0",
+        "title": "Chart milestone",
+        "description": "Peaked at #27 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1981,
+        "supportingFactIds": [
+          "f805c537-e356-470b-9d3f-976fe4c90ec2"
+        ],
+        "relatedImageAssetIds": [
+          "1ceb081412b2"
+        ]
+      },
+      {
+        "id": "moment-a6f5eaa696",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1981,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1ceb081412b2"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-5kiyes",
+      "title": "Official Video · 1981",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #27 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:56:45.213Z"
+  },
+  "submittedAt": "2026-06-27T04:56:45.213Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR633955",
+  "artist": "Hot Chocolate",
+  "title": "You Sexy Thing",
+  "story": {
+    "headline": "You Sexy Thing: The Breakthrough Moment",
+    "subtitle": "Hot Chocolate · Breakthrough · 1975",
+    "hook": "The song peaked at #3 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "summary": "Hot Chocolate's \"You Sexy Thing\" reached #3 on the Billboard Hot 100. You Sexy Thing was released in 1975.",
+    "fullStory": "Hot Chocolate's \"You Sexy Thing\" reached #3 on the Billboard Hot 100.\n\nThe song peaked at #3 on the Billboard Hot 100 and spent 21 weeks on the chart.\n\nYou Sexy Thing was released in 1975.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #3 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "6c56d863-9a5d-4b3b-b795-27c7f85701a0",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "66f160a9-f2d8-4603-b8d5-55233b2bf996",
+      "text": "You Sexy Thing was released in 1975.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7c4277ea-d907-4ced-a54a-6697f5a6efbd",
+      "text": "The song appears on the album \"Hot Chocolate\" (1975).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8e1b7421-c5de-498e-8d31-7894e9e030a7",
+      "text": "VirtualDJ library play count: 9.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c63fdb44-3d77-4dc9-ad78-7d1d7815bc21",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "ac5ac643cf41",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR633955&file=performance.jpg",
+      "performanceId": "perf-kjcept"
+    },
+    {
+      "assetId": "a2a07692bf45",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR633955&file=hero.jpg",
+      "performanceId": "perf-kjcept"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-kjcept",
+    "title": "Official Video · 1976",
+    "venue": "",
+    "year": 1976,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1976 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "ac5ac643cf41",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR633955&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "a2a07692bf45",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR633955&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #3 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "closing": "Hot Chocolate's \"You Sexy Thing\" reached #3 on the Billboard Hot 100. You Sexy Thing was released in 1975.",
+    "storyBeats": [
+      {
+        "id": "beat-1666258013",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"You Sexy Thing\" — original release 1975. Hot Chocolate — \"You Sexy Thing\" · Original release 1975 · Album: Hot Chocolate · Hot 100 peak #3",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ac5ac643cf41",
+          "a2a07692bf45"
+        ],
+        "relatedPerformanceId": "perf-kjcept",
+        "priority": 1
+      },
+      {
+        "id": "beat-87fb9a57c8",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Hot Chocolate · Release 1975",
+        "supportingFactIds": [
+          "7c4277ea-d907-4ced-a54a-6697f5a6efbd"
+        ],
+        "relatedImageAssetIds": [
+          "ac5ac643cf41",
+          "a2a07692bf45"
+        ],
+        "relatedPerformanceId": "perf-kjcept",
+        "priority": 2
+      },
+      {
+        "id": "beat-3c5348ddc4",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #3 · 21 weeks on chart.",
+        "supportingFactIds": [
+          "6c56d863-9a5d-4b3b-b795-27c7f85701a0"
+        ],
+        "relatedImageAssetIds": [
+          "ac5ac643cf41",
+          "a2a07692bf45"
+        ],
+        "relatedPerformanceId": "perf-kjcept",
+        "priority": 3
+      },
+      {
+        "id": "beat-8a3eb014b1",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ac5ac643cf41",
+          "a2a07692bf45"
+        ],
+        "relatedPerformanceId": "perf-kjcept",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-7a4c9404bd",
+        "title": "Chart milestone",
+        "description": "Peaked at #3 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1975,
+        "supportingFactIds": [
+          "6c56d863-9a5d-4b3b-b795-27c7f85701a0"
+        ],
+        "relatedImageAssetIds": [
+          "ac5ac643cf41"
+        ]
+      },
+      {
+        "id": "moment-39af3f5c1b",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1976,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ac5ac643cf41"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-kjcept",
+      "title": "Official Video · 1976",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1976 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #3 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:48:54.855Z"
+  },
+  "submittedAt": "2026-06-27T04:48:54.856Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

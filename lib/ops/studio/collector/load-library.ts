@@ -1,5 +1,8 @@
-import { readdir } from "node:fs/promises";
-
+import {
+  listRvtrDirectories,
+  mapInBatches,
+  STUDIO_LIBRARY_CARD_LIMIT,
+} from "@/lib/ops/studio/list-rvtrs";
 import {
   buildDiscoveries,
   buildPackageInvestigationView,
@@ -8,7 +11,6 @@ import {
   type CollectorInvestigationView,
 } from "./presentation";
 import { performanceCount, performanceTitles } from "./package-archive";
-import { researchDepartmentRoot } from "./paths";
 import { loadCollectorDashboardStats } from "./load-dashboard";
 import { loadCollectorPackage } from "./store";
 import type { CollectorPackage } from "./types";
@@ -33,8 +35,6 @@ export type CollectorPackagePageContext = {
   prev: CollectorLibraryCard | null;
   next: CollectorLibraryCard | null;
 };
-
-const RVTR_DIR = /^RVTR\d+$/i;
 
 function packageToCard(pkg: CollectorPackage): CollectorLibraryCard {
   const normalized = normalizeCollectorPackage(pkg);
@@ -78,38 +78,37 @@ function buildStats(packages: CollectorLibraryCard[]): CollectorLibraryStats {
 }
 
 export async function loadCollectorLibraryIndex(): Promise<CollectorLibraryIndex> {
-  const root = researchDepartmentRoot();
-  let entries: string[] = [];
+  const { rvtrs, total, truncated } = await listRvtrDirectories({
+    limit: STUDIO_LIBRARY_CARD_LIMIT,
+    recentFirst: true,
+  });
 
-  try {
-    const dirEntries = await readdir(root, { withFileTypes: true });
-    entries = dirEntries.filter((e) => e.isDirectory() && RVTR_DIR.test(e.name)).map((e) => e.name);
-  } catch {
-    entries = [];
-  }
-
-  const packages: CollectorLibraryCard[] = [];
-
-  for (const dir of entries) {
-    const rvtr = dir.toUpperCase();
-    try {
-      const pkg = await loadCollectorPackage(rvtr);
-      if (pkg) packages.push(packageToCard(pkg));
-    } catch {
-      /* skip unreadable packages */
-    }
-  }
+  const packages = (
+    await mapInBatches(rvtrs, 12, async (rvtr) => {
+      try {
+        const pkg = await loadCollectorPackage(rvtr);
+        return pkg ? packageToCard(pkg) : null;
+      } catch {
+        return null;
+      }
+    })
+  ).filter((p): p is CollectorLibraryCard => p != null);
 
   const alphabetical = [...packages].sort(compareArtist);
   const recent = [...packages].sort(
     (a, b) => new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime(),
   );
 
+  const stats = buildStats(packages);
+  if (truncated && total > packages.length) {
+    stats.packageCount = total;
+  }
+
   return {
     packages,
     recent,
     alphabetical,
-    stats: buildStats(packages),
+    stats,
   };
 }
 

@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR501659",
+  "artist": "Seals",
+  "title": "Diamond Girl",
+  "story": {
+    "headline": "Diamond Girl: The Breakthrough Moment",
+    "subtitle": "Seals · Breakthrough · 1973",
+    "hook": "The song peaked at #6 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "summary": "Seals's \"Diamond Girl\" reached #6 on the Billboard Hot 100. Diamond Girl was released in 1973.",
+    "fullStory": "Seals's \"Diamond Girl\" reached #6 on the Billboard Hot 100.\n\nThe song peaked at #6 on the Billboard Hot 100 and spent 18 weeks on the chart.\n\nDiamond Girl was released in 1973.\n\nChart story — peaked at #6 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "6740dd02-07a5-4289-9828-64754320b324",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ab358a9f-9024-4ff2-9b0f-ca52695825c5",
+      "text": "Diamond Girl was released in 1973.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a768e4f0-c66a-4654-9a92-b686e08012c7",
+      "text": "VirtualDJ library play count: 22.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "ad9ec6638d86",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR501659&file=performance.jpg",
+      "performanceId": "perf-ady8ot"
+    },
+    {
+      "assetId": "badabbc37767",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR501659&file=hero.jpg",
+      "performanceId": "perf-ady8ot"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ady8ot",
+    "title": "Official Video · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "ad9ec6638d86",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR501659&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "badabbc37767",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR501659&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #6 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "closing": "Seals's \"Diamond Girl\" reached #6 on the Billboard Hot 100. Diamond Girl was released in 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-7ab94d83eb",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Diamond Girl\" — original release 1973. Seals — \"Diamond Girl\" · Original release 1973 · Hot 100 peak #6",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ad9ec6638d86",
+          "badabbc37767"
+        ],
+        "relatedPerformanceId": "perf-ady8ot",
+        "priority": 1
+      },
+      {
+        "id": "beat-2505aaa48a",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Diamond Girl — graph recording · Release 1973",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ad9ec6638d86",
+          "badabbc37767"
+        ],
+        "relatedPerformanceId": "perf-ady8ot",
+        "priority": 2
+      },
+      {
+        "id": "beat-fa96f3de27",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #6 · 18 weeks on chart.",
+        "supportingFactIds": [
+          "6740dd02-07a5-4289-9828-64754320b324"
+        ],
+        "relatedImageAssetIds": [
+          "ad9ec6638d86",
+          "badabbc37767"
+        ],
+        "relatedPerformanceId": "perf-ady8ot",
+        "priority": 3
+      },
+      {
+        "id": "beat-c5d38b67b9",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ad9ec6638d86",
+          "badabbc37767"
+        ],
+        "relatedPerformanceId": "perf-ady8ot",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-e987ce1235",
+        "title": "Chart milestone",
+        "description": "Peaked at #6 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1973,
+        "supportingFactIds": [
+          "6740dd02-07a5-4289-9828-64754320b324"
+        ],
+        "relatedImageAssetIds": [
+          "ad9ec6638d86"
+        ]
+      },
+      {
+        "id": "moment-e1affdd4a7",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ad9ec6638d86"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-ady8ot",
+      "title": "Official Video · 1973",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #6 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:10.647Z"
+  },
+  "submittedAt": "2026-06-27T04:20:10.647Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

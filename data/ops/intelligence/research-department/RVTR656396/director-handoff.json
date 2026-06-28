@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR656396",
+  "artist": "Snow",
+  "title": "Informer",
+  "story": {
+    "headline": "Informer: The Breakthrough Moment",
+    "subtitle": "Snow · Breakthrough · 1993",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+    "summary": "Snow's \"Informer\" reached #1 on the Billboard Hot 100. Informer was released in 1993.",
+    "fullStory": "Snow's \"Informer\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.\n\nInformer was released in 1993.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "a24ed14e-8cef-43fa-bdf9-6c010785b6d0",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f26bc842-1dab-4f3a-a66e-56d0df38572a",
+      "text": "Informer was released in 1993.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "12634eed-679a-4986-bfb9-f07ab9e0fe4e",
+      "text": "The song appears on the album \"12 Inches Of Snow\" (1993).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "6a7ea30f-046a-4594-a1aa-4986d2fac060",
+      "text": "VirtualDJ library play count: 23.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "efae6954-3f5f-4003-9f21-b9b0f3a638b5",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "acb0ac868ca1",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR656396&file=hero.jpg",
+      "performanceId": "perf-7oi3cl"
+    },
+    {
+      "assetId": "88a7a0b2592b",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR656396&file=performance.jpg",
+      "performanceId": "perf-7oi3cl"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-7oi3cl",
+    "title": "Official Video · 1992",
+    "venue": "",
+    "year": 1992,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1992 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "acb0ac868ca1",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR656396&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "88a7a0b2592b",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR656396&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+    "closing": "Snow's \"Informer\" reached #1 on the Billboard Hot 100. Informer was released in 1993.",
+    "storyBeats": [
+      {
+        "id": "beat-1b26d4a7c5",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Informer\" — original release 1993. Snow — \"Informer\" · Original release 1993 · Album: 12 Inches Of Snow · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "acb0ac868ca1",
+          "88a7a0b2592b"
+        ],
+        "relatedPerformanceId": "perf-7oi3cl",
+        "priority": 1
+      },
+      {
+        "id": "beat-b402e90531",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "12 Inches Of Snow · Release 1993",
+        "supportingFactIds": [
+          "12634eed-679a-4986-bfb9-f07ab9e0fe4e"
+        ],
+        "relatedImageAssetIds": [
+          "acb0ac868ca1",
+          "88a7a0b2592b"
+        ],
+        "relatedPerformanceId": "perf-7oi3cl",
+        "priority": 2
+      },
+      {
+        "id": "beat-1d8628ef36",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 25 weeks on chart.",
+        "supportingFactIds": [
+          "a24ed14e-8cef-43fa-bdf9-6c010785b6d0"
+        ],
+        "relatedImageAssetIds": [
+          "acb0ac868ca1",
+          "88a7a0b2592b"
+        ],
+        "relatedPerformanceId": "perf-7oi3cl",
+        "priority": 3
+      },
+      {
+        "id": "beat-213ecf89c1",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "acb0ac868ca1",
+          "88a7a0b2592b"
+        ],
+        "relatedPerformanceId": "perf-7oi3cl",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-b80384f260",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1993,
+        "supportingFactIds": [
+          "a24ed14e-8cef-43fa-bdf9-6c010785b6d0"
+        ],
+        "relatedImageAssetIds": [
+          "acb0ac868ca1"
+        ]
+      },
+      {
+        "id": "moment-b118353f76",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1992,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "acb0ac868ca1"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-7oi3cl",
+      "title": "Official Video · 1992",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1992 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:10.298Z"
+  },
+  "submittedAt": "2026-06-27T04:20:10.299Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

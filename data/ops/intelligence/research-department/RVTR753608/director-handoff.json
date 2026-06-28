@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR753608",
+  "artist": "Billy Idol",
+  "title": "Mony Mony Live",
+  "story": {
+    "headline": "Mony Mony Live: The Breakthrough Moment",
+    "subtitle": "Billy Idol · Breakthrough · 1987",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "summary": "Billy Idol's \"Mony Mony Live\" reached #1 on the Billboard Hot 100. Mony Mony Live was released in 1987.",
+    "fullStory": "Billy Idol's \"Mony Mony Live\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 22 weeks on the chart.\n\nMony Mony Live was released in 1987.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "edaed905-e4d8-408a-8a00-dcbc235bce93",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "05824ee0-9651-4770-a96f-4701060ebcc6",
+      "text": "Mony Mony Live was released in 1987.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "50f366fa-e965-4a2e-8cd7-ac91a0834892",
+      "text": "VirtualDJ library play count: 9.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "319ea83e8275",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753608&file=hero.jpg",
+      "performanceId": "perf-1dx149"
+    },
+    {
+      "assetId": "0e589b161c6c",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753608&file=performance.jpg",
+      "performanceId": "perf-1dx149"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-1dx149",
+    "title": "Mony Mony · 1981",
+    "venue": "",
+    "year": 1981,
+    "notes": "Recommended cut — Recommended: Mony Mony. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "319ea83e8275",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753608&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "0e589b161c6c",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR753608&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "closing": "Billy Idol's \"Mony Mony Live\" reached #1 on the Billboard Hot 100. Mony Mony Live was released in 1987.",
+    "storyBeats": [
+      {
+        "id": "beat-be0fbc7e38",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Mony Mony Live\" — original release 1987. Billy Idol — \"Mony Mony Live\" · Original release 1987 · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "319ea83e8275",
+          "0e589b161c6c"
+        ],
+        "relatedPerformanceId": "perf-1dx149",
+        "priority": 1
+      },
+      {
+        "id": "beat-acb89b0c1c",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Mony Mony Live — graph recording · Release 1987",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "319ea83e8275",
+          "0e589b161c6c"
+        ],
+        "relatedPerformanceId": "perf-1dx149",
+        "priority": 2
+      },
+      {
+        "id": "beat-b8278d87c0",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 22 weeks on chart.",
+        "supportingFactIds": [
+          "edaed905-e4d8-408a-8a00-dcbc235bce93"
+        ],
+        "relatedImageAssetIds": [
+          "319ea83e8275",
+          "0e589b161c6c"
+        ],
+        "relatedPerformanceId": "perf-1dx149",
+        "priority": 3
+      },
+      {
+        "id": "beat-afe0c20beb",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "319ea83e8275",
+          "0e589b161c6c"
+        ],
+        "relatedPerformanceId": "perf-1dx149",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-2a6863aacf",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1987,
+        "supportingFactIds": [
+          "edaed905-e4d8-408a-8a00-dcbc235bce93"
+        ],
+        "relatedImageAssetIds": [
+          "319ea83e8275"
+        ]
+      },
+      {
+        "id": "moment-e7364f90c1",
+        "title": "Mony Mony",
+        "description": "Recommended: Mony Mony. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1981,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "319ea83e8275"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-1dx149",
+      "title": "Mony Mony · 1981",
+      "reason": "Recommended: Mony Mony. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:46:19.581Z"
+  },
+  "submittedAt": "2026-06-27T04:46:19.582Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

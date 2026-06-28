@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR589832",
+  "artist": "Culture Beat",
+  "title": "Mr Vain",
+  "story": {
+    "headline": "Mr Vain: A Cultural Moment Captured on Record",
+    "subtitle": "Culture Beat · Cultural Moment · 1993",
+    "hook": "The song peaked at #17 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Culture Beat's \"Mr Vain\" reached #17 on the Billboard Hot 100. Mr Vain was released in 1993.",
+    "fullStory": "Culture Beat's \"Mr Vain\" reached #17 on the Billboard Hot 100.\n\nThe song peaked at #17 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nMr Vain was released in 1993.\n\nArtist: Culture Beat · Title: Mr Vain · Album: Mr.\n\nChart story — peaked at #17 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "aefe3014-0f4b-42d8-b4ed-95881d5f11ce",
+      "text": "The song peaked at #17 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "21626eea-f645-47cc-afed-bd946f46acbd",
+      "text": "Mr Vain was released in 1993.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "08650de8-4efe-4dff-8b38-ef5f741e6675",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b65ec06a-7951-42bd-9281-3519ab200ab7",
+      "text": "Artist: Culture Beat · Title: Mr Vain · Album: Mr.",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "4cac990d9a59",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR589832&file=performance.jpg",
+      "performanceId": "perf-pj5v5j"
+    },
+    {
+      "assetId": "4fdc94e95da2",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR589832&file=hero.jpg",
+      "performanceId": "perf-pj5v5j"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-pj5v5j",
+    "title": "Official Video · 1993",
+    "venue": "",
+    "year": 1993,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1993 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "4cac990d9a59",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR589832&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "4fdc94e95da2",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR589832&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #17 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Culture Beat's \"Mr Vain\" reached #17 on the Billboard Hot 100. Mr Vain was released in 1993.",
+    "storyBeats": [
+      {
+        "id": "beat-818a70a33c",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Mr Vain\" — original release 1993. Culture Beat — \"Mr Vain\" · Original release 1993 · Hot 100 peak #17",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4cac990d9a59",
+          "4fdc94e95da2"
+        ],
+        "relatedPerformanceId": "perf-pj5v5j",
+        "priority": 1
+      },
+      {
+        "id": "beat-5877bea9ee",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Mr Vain — graph recording · Release 1993",
+        "supportingFactIds": [
+          "b65ec06a-7951-42bd-9281-3519ab200ab7"
+        ],
+        "relatedImageAssetIds": [
+          "4cac990d9a59",
+          "4fdc94e95da2"
+        ],
+        "relatedPerformanceId": "perf-pj5v5j",
+        "priority": 2
+      },
+      {
+        "id": "beat-a347963181",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #17 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "aefe3014-0f4b-42d8-b4ed-95881d5f11ce"
+        ],
+        "relatedImageAssetIds": [
+          "4cac990d9a59",
+          "4fdc94e95da2"
+        ],
+        "relatedPerformanceId": "perf-pj5v5j",
+        "priority": 3
+      },
+      {
+        "id": "beat-20f6593305",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4cac990d9a59",
+          "4fdc94e95da2"
+        ],
+        "relatedPerformanceId": "perf-pj5v5j",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-713efef21f",
+        "title": "Chart milestone",
+        "description": "Peaked at #17 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1993,
+        "supportingFactIds": [
+          "aefe3014-0f4b-42d8-b4ed-95881d5f11ce"
+        ],
+        "relatedImageAssetIds": [
+          "4cac990d9a59"
+        ]
+      },
+      {
+        "id": "moment-d5e632e589",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1993,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4cac990d9a59"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-pj5v5j",
+      "title": "Official Video · 1993",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1993 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #17 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:54:43.579Z"
+  },
+  "submittedAt": "2026-06-27T05:54:43.579Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

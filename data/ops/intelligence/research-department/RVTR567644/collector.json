@@ -1,0 +1,961 @@
+{
+  "version": 4,
+  "rvtr": "RVTR567644",
+  "artist": "David Bowie",
+  "title": "Let's Dance",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-27T22:10:53.802Z",
+  "researchQuality": 77,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "David Bowie — Let's Dance (RVTR567644)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "2 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #1 · 20 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "8 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR567644",
+    "artist": "David Bowie",
+    "title": "Let's Dance",
+    "year": 1983,
+    "albumTitle": null
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+    "playCount": 20,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+        "artist": "David Bowie",
+        "title": "Let's Dance",
+        "isVideo": true,
+        "playCount": 20,
+        "year": 1983,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/David Bowie - Let's Dance.mp3",
+        "artist": "David Bowie",
+        "title": "Let's Dance",
+        "isVideo": false,
+        "playCount": null,
+        "year": null,
+        "genre": "Rock/Pop",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 20 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+        "artist": "David Bowie",
+        "title": "Let's Dance",
+        "isVideo": true,
+        "playCount": 20,
+        "year": 1983,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "close-up.jpg",
+      "alternate.jpg",
+      "hero.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "eb8226c50569",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 20,
+          "width": 768,
+          "height": 576,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-27T22:10:53.799Z"
+        },
+        {
+          "id": "a36a6ff18626",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 80,
+          "width": 768,
+          "height": 576,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-27T22:10:53.799Z"
+        },
+        {
+          "id": "5664d786a1f4",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 140,
+          "width": 768,
+          "height": 576,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-27T22:10:53.799Z"
+        },
+        {
+          "id": "8326511ee3aa",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 180,
+          "width": 768,
+          "height": 576,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-27T22:10:53.799Z"
+        },
+        {
+          "id": "d2eee70c3cdb",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 240,
+          "width": 768,
+          "height": 576,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-27T22:10:53.799Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "David Bowie"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "f95216d9-d4af-4590-90f7-822c16d430bd",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR567644.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "62160196-6a28-4a4e-8397-4fdd5ca97c41",
+      "category": "artist",
+      "text": "Let's Dance is performed by David Bowie.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "f09bc0d7-f959-4d30-abed-b147f32580bc",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "10015864-2ee6-4b7d-97d3-809437db03c5",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 20.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-d2ayep"
+    },
+    {
+      "id": "4fb02aa3-6207-49dd-80bb-2942a1d46a38",
+      "category": "recording",
+      "text": "Let's Dance was released in 1983.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "63ad83e6-8ae5-4246-97e9-b2c363cde1f2",
+      "category": "trivia",
+      "text": "Artist: David Bowie · Title: Let's Dance · Album: Loving The Alien [ 1983–1988 ] · Year: 1983 · Genre: Rock · PlayCount: 20 · LastPlayed: 1775342117 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-d2ayep"
+    },
+    {
+      "id": "3eacd899-a7a5-4d41-a421-c5045628fe54",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4 · Plays: 20",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-d2ayep"
+    },
+    {
+      "id": "452c511d-d5f6-4d28-8e94-c5fe70abf46e",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/David Bowie - Let's Dance.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-d2ayep"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-27T22:10:52.676Z",
+      "excerpt": "Retroverse track identity: RVTR567644. \"Let's Dance\" by David Bowie.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-27T22:10:52.676Z",
+      "excerpt": "Billboard Hot 100 peak: #1. 20 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-27T22:10:52.676Z",
+      "excerpt": "Artist: David Bowie · Title: Let's Dance · Album: Loving The Alien [ 1983–1988 ] · Year: 1983 · Genre: Rock · PlayCount: 20 · LastPlayed: 1775342117 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-27T22:10:52.676Z",
+      "excerpt": "Performance year context: 1983.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-8a9627d8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-27T22:10:52.676Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4 · Plays: 20",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-62f24b4e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-27T22:10:52.676Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/David Bowie - Let's Dance.mp3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "David Bowie — Let's Dance · Hot 100 peak #1 · 20 weeks · 1 performance videos · 8 candidate facts · 3 gaps · 1 performance(s) · 5/8 facts approved · confidence 59% · song 1983 / recording 1983",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR567644",
+      "artist": "David Bowie",
+      "title": "Let's Dance",
+      "year": 1983,
+      "albumTitle": null
+    },
+    "charts": {
+      "peakHot100": 1,
+      "chartWeeks": 20,
+      "albumTitle": null,
+      "summary": "Hot 100 peak #1 · 20 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "David Bowie"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-27T22:10:52.676Z",
+          "excerpt": "Retroverse track identity: RVTR567644. \"Let's Dance\" by David Bowie.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-27T22:10:52.676Z",
+          "excerpt": "Billboard Hot 100 peak: #1. 20 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-27T22:10:52.676Z",
+          "excerpt": "Artist: David Bowie · Title: Let's Dance · Album: Loving The Alien [ 1983–1988 ] · Year: 1983 · Genre: Rock · PlayCount: 20 · LastPlayed: 1775342117 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-27T22:10:52.676Z",
+          "excerpt": "Performance year context: 1983.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-8a9627d8",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-27T22:10:52.676Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4 · Plays: 20",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-62f24b4e",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-27T22:10:52.676Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/David Bowie - Let's Dance.mp3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "David Bowie — Let's Dance · Hot 100 peak #1 · 20 weeks · 1 performance videos · 8 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "f95216d9-d4af-4590-90f7-822c16d430bd",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR567644.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "62160196-6a28-4a4e-8397-4fdd5ca97c41",
+        "category": "artist",
+        "text": "Let's Dance is performed by David Bowie.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "f09bc0d7-f959-4d30-abed-b147f32580bc",
+        "category": "chart",
+        "text": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "10015864-2ee6-4b7d-97d3-809437db03c5",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 20.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-d2ayep"
+      },
+      {
+        "id": "4fb02aa3-6207-49dd-80bb-2942a1d46a38",
+        "category": "recording",
+        "text": "Let's Dance was released in 1983.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "63ad83e6-8ae5-4246-97e9-b2c363cde1f2",
+        "category": "trivia",
+        "text": "Artist: David Bowie · Title: Let's Dance · Album: Loving The Alien [ 1983–1988 ] · Year: 1983 · Genre: Rock · PlayCount: 20 · LastPlayed: 1775342117 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-d2ayep"
+      },
+      {
+        "id": "3eacd899-a7a5-4d41-a421-c5045628fe54",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4 · Plays: 20",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-d2ayep"
+      },
+      {
+        "id": "452c511d-d5f6-4d28-8e94-c5fe70abf46e",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1980/Fill/David Bowie - Let's Dance.mp3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-d2ayep"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-d2ayep",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+      "durationSec": 246.108299,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "eb8226c50569",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 20,
+              "width": 768,
+              "height": 576,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-27T22:10:53.799Z"
+            },
+            {
+              "id": "a36a6ff18626",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 80,
+              "width": 768,
+              "height": 576,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-27T22:10:53.799Z"
+            },
+            {
+              "id": "5664d786a1f4",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 140,
+              "width": 768,
+              "height": 576,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-27T22:10:53.799Z"
+            },
+            {
+              "id": "8326511ee3aa",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 180,
+              "width": 768,
+              "height": 576,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-27T22:10:53.799Z"
+            },
+            {
+              "id": "d2eee70c3cdb",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 240,
+              "width": 768,
+              "height": 576,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-27T22:10:53.799Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1983. VirtualDJ play count: 20. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1983,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1983",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "storySeed": {
+    "whyItMatters": "David Bowie's \"Let's Dance\" reached #1 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Let's Dance is performed by David Bowie.",
+      "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "Let's Dance was released in 1983."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #1 on the Hot 100",
+      "Song release — original 1983 chapter",
+      "Performance angle — Official Video (1983)"
+    ],
+    "suggestedAngle": "breakthrough"
+  },
+  "songEntity": {
+    "rvtr": "RVTR567644",
+    "artist": "David Bowie",
+    "title": "Let's Dance",
+    "writers": [],
+    "originalReleaseYear": 1983,
+    "originalAlbum": null,
+    "peakHot100": 1,
+    "chartWeeks": 20,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "David Bowie"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-zqo77",
+      "kind": "unknown",
+      "title": "Let's Dance — graph recording",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": null,
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1983,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-d2ayep",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1983,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 246.108299,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1983. VirtualDJ play count: 20. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1983",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-de5tgi",
+        "domain": "song",
+        "kind": "release",
+        "year": 1983,
+        "label": "Let's Dance — original release",
+        "detail": null,
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-l47p2j",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1983,
+        "label": "Billboard Hot 100 peak #1",
+        "detail": "20 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-iseiex",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1983,
+        "label": "Let's Dance — graph recording",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-zqo77"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1983,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-d2ayep"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1983,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1983,
+      "label": "Graph recording release",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1983,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR567644",
+      "artist": "David Bowie",
+      "title": "Let's Dance",
+      "writers": [],
+      "originalReleaseYear": 1983,
+      "originalAlbum": null,
+      "peakHot100": 1,
+      "chartWeeks": 20,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "David Bowie"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-zqo77",
+        "kind": "unknown",
+        "title": "Let's Dance — graph recording",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": null,
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1983,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-d2ayep",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/David Bowie - Let's Dance.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1983,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 246.108299,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1983. VirtualDJ play count: 20. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1983",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-de5tgi",
+          "domain": "song",
+          "kind": "release",
+          "year": 1983,
+          "label": "Let's Dance — original release",
+          "detail": null,
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-l47p2j",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1983,
+          "label": "Billboard Hot 100 peak #1",
+          "detail": "20 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-iseiex",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1983,
+          "label": "Let's Dance — graph recording",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-zqo77"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1983,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-d2ayep"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1983,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1983,
+        "label": "Graph recording release",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1983,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

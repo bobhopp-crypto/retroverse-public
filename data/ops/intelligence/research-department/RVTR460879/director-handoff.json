@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR460879",
+  "artist": "Dave Edmunds",
+  "title": "I Hear You Knocking",
+  "story": {
+    "headline": "I Hear You Knocking: The Breakthrough Moment",
+    "subtitle": "Dave Edmunds · Breakthrough · 1970",
+    "hook": "The song peaked at #4 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "summary": "Dave Edmunds's \"I Hear You Knocking\" reached #4 on the Billboard Hot 100. I Hear You Knocking was released in 1970.",
+    "fullStory": "Dave Edmunds's \"I Hear You Knocking\" reached #4 on the Billboard Hot 100.\n\nThe song peaked at #4 on the Billboard Hot 100 and spent 12 weeks on the chart.\n\nI Hear You Knocking was released in 1970.\n\nChart story — peaked at #4 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "ac1351a3-1026-4044-ad10-c4cc695f3da4",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c07a993c-1c28-44c1-bcbe-a65f6ef3ab20",
+      "text": "I Hear You Knocking was released in 1970.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "868b061c-0605-44cb-b199-28f297725f93",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "01e880d5979a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR460879&file=performance.jpg",
+      "performanceId": "perf-1n2gwi"
+    },
+    {
+      "assetId": "fab772bba96a",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR460879&file=hero.jpg",
+      "performanceId": "perf-1n2gwi"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-1n2gwi",
+    "title": "Official Video · 1972",
+    "venue": "",
+    "year": 1972,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "01e880d5979a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR460879&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "fab772bba96a",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR460879&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #4 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "closing": "Dave Edmunds's \"I Hear You Knocking\" reached #4 on the Billboard Hot 100. I Hear You Knocking was released in 1970.",
+    "storyBeats": [
+      {
+        "id": "beat-accd19f676",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"I Hear You Knocking\" — original release 1970. Dave Edmunds — \"I Hear You Knocking\" · Original release 1970 · Hot 100 peak #4",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "01e880d5979a",
+          "fab772bba96a"
+        ],
+        "relatedPerformanceId": "perf-1n2gwi",
+        "priority": 1
+      },
+      {
+        "id": "beat-3a93d4c13a",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "I Hear You Knocking — graph recording · Release 1970",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "01e880d5979a",
+          "fab772bba96a"
+        ],
+        "relatedPerformanceId": "perf-1n2gwi",
+        "priority": 2
+      },
+      {
+        "id": "beat-e62fad9963",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #4 · 12 weeks on chart.",
+        "supportingFactIds": [
+          "ac1351a3-1026-4044-ad10-c4cc695f3da4"
+        ],
+        "relatedImageAssetIds": [
+          "01e880d5979a",
+          "fab772bba96a"
+        ],
+        "relatedPerformanceId": "perf-1n2gwi",
+        "priority": 3
+      },
+      {
+        "id": "beat-1dfa978f3e",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "01e880d5979a",
+          "fab772bba96a"
+        ],
+        "relatedPerformanceId": "perf-1n2gwi",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-2c9f9cd2f0",
+        "title": "Chart milestone",
+        "description": "Peaked at #4 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1970,
+        "supportingFactIds": [
+          "ac1351a3-1026-4044-ad10-c4cc695f3da4"
+        ],
+        "relatedImageAssetIds": [
+          "01e880d5979a"
+        ]
+      },
+      {
+        "id": "moment-a1459f2a59",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "01e880d5979a"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-1n2gwi",
+      "title": "Official Video · 1972",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #4 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:26:32.663Z"
+  },
+  "submittedAt": "2026-06-27T05:26:32.664Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

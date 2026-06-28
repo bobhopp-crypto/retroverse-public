@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR528167",
+  "artist": "Madonna",
+  "title": "Music",
+  "story": {
+    "headline": "Music: The Breakthrough Moment",
+    "subtitle": "Madonna · Breakthrough · 2000",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+    "summary": "Madonna's \"Music\" reached #1 on the Billboard Hot 100. Music was released in 2000.",
+    "fullStory": "Madonna's \"Music\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.\n\nMusic was released in 2000.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "273a5976-823d-4ecc-a819-3cd29bb84609",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e93fbb1c-334e-4694-bd94-6b46e5a58dc1",
+      "text": "Music was released in 2000.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b48644b2-6b05-4b12-b96b-81037674c37b",
+      "text": "The song appears on the album \"Music\" (2000).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "79a4cc53-faa3-4bf6-8194-48925e67b2b8",
+      "text": "VirtualDJ library play count: 25.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "64d75eb9-6d2f-4554-b806-80d71d987ee5",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "dc72a194f081",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR528167&file=performance.jpg",
+      "performanceId": "perf-p78tvu"
+    },
+    {
+      "assetId": "8dfed70b48be",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR528167&file=hero.jpg",
+      "performanceId": "perf-p78tvu"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-p78tvu",
+    "title": ": Disco Inferno · 2006",
+    "venue": "",
+    "year": 2006,
+    "notes": "Recommended cut — Recommended: : Disco Inferno. 5 curated visual frames for cards and hero art. dated 2006 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "dc72a194f081",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR528167&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "8dfed70b48be",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR528167&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+    "closing": "Madonna's \"Music\" reached #1 on the Billboard Hot 100. Music was released in 2000.",
+    "storyBeats": [
+      {
+        "id": "beat-661551b119",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Music\" — original release 2000. Madonna — \"Music\" · Original release 2000 · Album: Music · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dc72a194f081",
+          "8dfed70b48be"
+        ],
+        "relatedPerformanceId": "perf-p78tvu",
+        "priority": 1
+      },
+      {
+        "id": "beat-d4fe641775",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Music · Release 2000",
+        "supportingFactIds": [
+          "b48644b2-6b05-4b12-b96b-81037674c37b"
+        ],
+        "relatedImageAssetIds": [
+          "dc72a194f081",
+          "8dfed70b48be"
+        ],
+        "relatedPerformanceId": "perf-p78tvu",
+        "priority": 2
+      },
+      {
+        "id": "beat-d061c61fd2",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 24 weeks on chart.",
+        "supportingFactIds": [
+          "273a5976-823d-4ecc-a819-3cd29bb84609"
+        ],
+        "relatedImageAssetIds": [
+          "dc72a194f081",
+          "8dfed70b48be"
+        ],
+        "relatedPerformanceId": "perf-p78tvu",
+        "priority": 3
+      },
+      {
+        "id": "beat-3c4dd7fab4",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dc72a194f081",
+          "8dfed70b48be"
+        ],
+        "relatedPerformanceId": "perf-p78tvu",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-edd6ca47c5",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2000,
+        "supportingFactIds": [
+          "273a5976-823d-4ecc-a819-3cd29bb84609"
+        ],
+        "relatedImageAssetIds": [
+          "dc72a194f081"
+        ]
+      },
+      {
+        "id": "moment-6afa4bb76e",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1990,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dc72a194f081"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-p78tvu",
+      "title": ": Disco Inferno · 2006",
+      "reason": "Recommended: : Disco Inferno. 5 curated visual frames for cards and hero art. dated 2006 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:09.934Z"
+  },
+  "submittedAt": "2026-06-27T04:20:09.935Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR977215",
+  "artist": "Giorgio Moroder",
+  "title": "Chase",
+  "story": {
+    "headline": "Chase: A Cultural Moment Captured on Record",
+    "subtitle": "Giorgio Moroder · Cultural Moment · 1979",
+    "hook": "The song peaked at #33 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "summary": "Giorgio Moroder's \"Chase\" reached #33 on the Billboard Hot 100. Chase was released in 1979.",
+    "fullStory": "Giorgio Moroder's \"Chase\" reached #33 on the Billboard Hot 100.\n\nThe song peaked at #33 on the Billboard Hot 100 and spent 12 weeks on the chart.\n\nChase was released in 1979.\n\nChart story — peaked at #33 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "2820ed87-dcf1-4415-a5b6-6adc20f2b404",
+      "text": "The song peaked at #33 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "56801691-479a-4816-b387-c39ef8e7dc53",
+      "text": "Chase was released in 1979.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bfb630d0-0979-4fd6-a0a8-2fb541078a1e",
+      "text": "VirtualDJ library play count: 7.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "e70ebd0b48fe",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977215&file=performance.jpg",
+      "performanceId": "perf-471hly"
+    },
+    {
+      "assetId": "18b9de114d22",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977215&file=hero.jpg",
+      "performanceId": "perf-471hly"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-471hly",
+    "title": "Official Video · 1978",
+    "venue": "",
+    "year": 1978,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1978 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "e70ebd0b48fe",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977215&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "18b9de114d22",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR977215&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #33 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "closing": "Giorgio Moroder's \"Chase\" reached #33 on the Billboard Hot 100. Chase was released in 1979.",
+    "storyBeats": [
+      {
+        "id": "beat-f01b806aa3",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Chase\" — original release 1979. Giorgio Moroder — \"Chase\" · Original release 1979 · Hot 100 peak #33",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e70ebd0b48fe",
+          "18b9de114d22"
+        ],
+        "relatedPerformanceId": "perf-471hly",
+        "priority": 1
+      },
+      {
+        "id": "beat-4135e95c83",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Chase — graph recording · Release 1979",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e70ebd0b48fe",
+          "18b9de114d22"
+        ],
+        "relatedPerformanceId": "perf-471hly",
+        "priority": 2
+      },
+      {
+        "id": "beat-9849f92ab2",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #33 · 12 weeks on chart.",
+        "supportingFactIds": [
+          "2820ed87-dcf1-4415-a5b6-6adc20f2b404"
+        ],
+        "relatedImageAssetIds": [
+          "e70ebd0b48fe",
+          "18b9de114d22"
+        ],
+        "relatedPerformanceId": "perf-471hly",
+        "priority": 3
+      },
+      {
+        "id": "beat-096b87cc3d",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e70ebd0b48fe",
+          "18b9de114d22"
+        ],
+        "relatedPerformanceId": "perf-471hly",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-4a973b173e",
+        "title": "Chart milestone",
+        "description": "Peaked at #33 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1979,
+        "supportingFactIds": [
+          "2820ed87-dcf1-4415-a5b6-6adc20f2b404"
+        ],
+        "relatedImageAssetIds": [
+          "e70ebd0b48fe"
+        ]
+      },
+      {
+        "id": "moment-f9469f5b03",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1978,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e70ebd0b48fe"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-471hly",
+      "title": "Official Video · 1978",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1978 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #33 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:05:45.941Z"
+  },
+  "submittedAt": "2026-06-27T05:05:45.941Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

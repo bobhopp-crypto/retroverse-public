@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR412783",
+  "artist": "Joe Walsh",
+  "title": "Funk 49",
+  "story": {
+    "headline": "Funk 49: A Cultural Moment Captured on Record",
+    "subtitle": "Joe Walsh · Cultural Moment",
+    "hook": "Funk 49 is performed by Joe Walsh.",
+    "summary": "Joe Walsh's \"Funk 49\" — original release 1973.",
+    "fullStory": "Joe Walsh's \"Funk 49\" — original release 1973.\n\nSong release — original 1973 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "db61a9d8-8b04-4146-b951-aa1e490fc008",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "137983cdaf47",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412783&file=performance.jpg",
+      "performanceId": "perf-c59182"
+    },
+    {
+      "assetId": "fadb2525bca5",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412783&file=hero.jpg",
+      "performanceId": "perf-c59182"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-c59182",
+    "title": "Official Video · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "137983cdaf47",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412783&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "fadb2525bca5",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR412783&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Funk 49 is performed by Joe Walsh.",
+    "closing": "Joe Walsh's \"Funk 49\" — original release 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-3239c1332c",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Funk 49\" — original release 1973. Joe Walsh — \"Funk 49\" · Original release 1973",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "137983cdaf47",
+          "fadb2525bca5"
+        ],
+        "relatedPerformanceId": "perf-c59182",
+        "priority": 1
+      },
+      {
+        "id": "beat-e5650c553b",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "137983cdaf47",
+          "fadb2525bca5"
+        ],
+        "relatedPerformanceId": "perf-c59182",
+        "priority": 2
+      },
+      {
+        "id": "beat-98ded412f7",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "137983cdaf47",
+          "fadb2525bca5"
+        ],
+        "relatedPerformanceId": "perf-c59182",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-96750320d8",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "137983cdaf47"
+        ]
+      },
+      {
+        "id": "moment-96750320d8",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "137983cdaf47"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-c59182",
+      "title": "Official Video · 1973",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Funk 49 is performed by Joe Walsh.\""
+    },
+    "generatedAt": "2026-06-27T05:16:21.779Z"
+  },
+  "submittedAt": "2026-06-27T05:16:21.779Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

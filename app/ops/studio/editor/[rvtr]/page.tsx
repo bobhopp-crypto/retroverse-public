@@ -45,7 +45,7 @@ export default async function EditorStoryPage({ params }: Props) {
       <div className="ops-page__inner">
         <StudioShell active="editor" lead={dept.mission}>
           {context.collector && context.story && context.office ? (
-            <EditorOfficeView initialContext={context} />
+            <EditorOfficeView key={context.rvtr} initialContext={context} />
           ) : (
             <EditorStoryMissing rvtr={context.rvtr} />
           )}

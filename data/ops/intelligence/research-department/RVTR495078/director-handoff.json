@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR495078",
+  "artist": "Paperboy",
+  "title": "Ditty",
+  "story": {
+    "headline": "Ditty: The Breakthrough Moment",
+    "subtitle": "Paperboy · Breakthrough · 1993",
+    "hook": "The song peaked at #10 on the Billboard Hot 100 and spent 30 weeks on the chart.",
+    "summary": "Paperboy's \"Ditty\" reached #10 on the Billboard Hot 100. Ditty was released in 1993.",
+    "fullStory": "Paperboy's \"Ditty\" reached #10 on the Billboard Hot 100.\n\nThe song peaked at #10 on the Billboard Hot 100 and spent 30 weeks on the chart.\n\nDitty was released in 1993.\n\nChart story — peaked at #10 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "937a918a-b221-4724-9f03-c9a1deee9f54",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 30 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "1480f95b-b005-480c-a005-df0d24600e8b",
+      "text": "Ditty was released in 1993.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0975f691-39a2-4511-8ad1-a4295eada4ca",
+      "text": "The song appears on the album \"Nine Yards\" (1993).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "32133d95-ecd5-4455-9a58-68e6bbd140a3",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "a935916fe085",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR495078&file=hero.jpg",
+      "performanceId": "perf-vz5jpk"
+    },
+    {
+      "assetId": "19f5df469e1c",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR495078&file=performance.jpg",
+      "performanceId": "perf-vz5jpk"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-vz5jpk",
+    "title": "Official Video · 1992",
+    "venue": "",
+    "year": 1992,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1992 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "a935916fe085",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR495078&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "19f5df469e1c",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR495078&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #10 on the Billboard Hot 100 and spent 30 weeks on the chart.",
+    "closing": "Paperboy's \"Ditty\" reached #10 on the Billboard Hot 100. Ditty was released in 1993.",
+    "storyBeats": [
+      {
+        "id": "beat-873c30a747",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Ditty\" — original release 1993. Paperboy — \"Ditty\" · Original release 1993 · Album: Nine Yards · Hot 100 peak #10",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a935916fe085",
+          "19f5df469e1c"
+        ],
+        "relatedPerformanceId": "perf-vz5jpk",
+        "priority": 1
+      },
+      {
+        "id": "beat-181ada213d",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Nine Yards · Release 1993",
+        "supportingFactIds": [
+          "0975f691-39a2-4511-8ad1-a4295eada4ca"
+        ],
+        "relatedImageAssetIds": [
+          "a935916fe085",
+          "19f5df469e1c"
+        ],
+        "relatedPerformanceId": "perf-vz5jpk",
+        "priority": 2
+      },
+      {
+        "id": "beat-50816f6664",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #10 · 30 weeks on chart.",
+        "supportingFactIds": [
+          "937a918a-b221-4724-9f03-c9a1deee9f54"
+        ],
+        "relatedImageAssetIds": [
+          "a935916fe085",
+          "19f5df469e1c"
+        ],
+        "relatedPerformanceId": "perf-vz5jpk",
+        "priority": 3
+      },
+      {
+        "id": "beat-c9846fd4e1",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a935916fe085",
+          "19f5df469e1c"
+        ],
+        "relatedPerformanceId": "perf-vz5jpk",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-463aa17eb7",
+        "title": "Chart milestone",
+        "description": "Peaked at #10 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1993,
+        "supportingFactIds": [
+          "937a918a-b221-4724-9f03-c9a1deee9f54"
+        ],
+        "relatedImageAssetIds": [
+          "a935916fe085"
+        ]
+      },
+      {
+        "id": "moment-f295bfdeb8",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1992,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a935916fe085"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-vz5jpk",
+      "title": "Official Video · 1992",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1992 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #10 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:50:44.598Z"
+  },
+  "submittedAt": "2026-06-27T05:50:44.598Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

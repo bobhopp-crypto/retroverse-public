@@ -1,14 +1,14 @@
 {
-  "version": 3,
+  "version": 4,
   "rvtr": "RVTR964817",
   "artist": "Erasure",
   "title": "Chains Of Love",
   "graphLinked": true,
   "identityNotes": [
-    "Studio Alpha batch-001-a2"
+    "Overnight Collector queue"
   ],
   "status": "complete",
-  "completedAt": "2026-06-26T04:28:28.777Z",
+  "completedAt": "2026-06-27T22:40:28.807Z",
   "researchQuality": 91,
   "stages": {
     "identity": {
@@ -121,10 +121,10 @@
     "inventory": [
       "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
       "hero.jpg",
-      "performance.jpg",
-      "close-up.jpg",
       "alternate.jpg",
       "crowd.jpg",
+      "close-up.jpg",
+      "performance.jpg",
       "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4"
     ],
     "extraction": {
@@ -142,47 +142,47 @@
           "width": 692,
           "height": 460,
           "selectionReason": "Opening representative moment",
-          "capturedAt": "2026-06-26T04:28:28.774Z"
-        },
-        {
-          "id": "fe7af45bd872",
-          "category": "Performance",
-          "filename": "performance.jpg",
-          "timestampSec": 60,
-          "width": 692,
-          "height": 460,
-          "selectionReason": "Strong performance moment",
-          "capturedAt": "2026-06-26T04:28:28.774Z"
-        },
-        {
-          "id": "293bd12b2af7",
-          "category": "Close-up",
-          "filename": "close-up.jpg",
-          "timestampSec": 100,
-          "width": 692,
-          "height": 460,
-          "selectionReason": "Sharpest close-up in sequence",
-          "capturedAt": "2026-06-26T04:28:28.774Z"
+          "capturedAt": "2026-06-27T22:40:28.804Z"
         },
         {
           "id": "d5271f1a1332",
           "category": "Alternate",
           "filename": "alternate.jpg",
-          "timestampSec": 140,
+          "timestampSec": 60,
           "width": 692,
           "height": 460,
           "selectionReason": "Visually distinct alternate angle",
-          "capturedAt": "2026-06-26T04:28:28.774Z"
+          "capturedAt": "2026-06-27T22:40:28.804Z"
         },
         {
           "id": "cf571f539305",
           "category": "Crowd",
           "filename": "crowd.jpg",
-          "timestampSec": 200,
+          "timestampSec": 100,
           "width": 692,
           "height": 460,
           "selectionReason": "Audience or wide-stage context",
-          "capturedAt": "2026-06-26T04:28:28.774Z"
+          "capturedAt": "2026-06-27T22:40:28.804Z"
+        },
+        {
+          "id": "293bd12b2af7",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 140,
+          "width": 692,
+          "height": 460,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-27T22:40:28.804Z"
+        },
+        {
+          "id": "fe7af45bd872",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 200,
+          "width": 692,
+          "height": 460,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-27T22:40:28.804Z"
         }
       ]
     }
@@ -195,114 +195,136 @@
   },
   "candidateFacts": [
     {
-      "id": "61f35152-43d5-492b-a005-32110e18da6e",
+      "id": "1689c62f-4c9b-458c-a19a-36a929932442",
       "category": "trivia",
       "text": "Retroverse track identity: RVTR964817.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "71b5bbd1-ee02-4219-928b-80e34e06e61d",
+      "id": "db549e01-40c8-4ba4-b20d-1fc97c3e0ca7",
       "category": "artist",
       "text": "Chains Of Love is performed by Erasure.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "17329958-7ea4-4ad3-a5b6-2701a062b449",
+      "id": "d9f162f8-46ef-4b1f-b683-42bfa613be4d",
       "category": "album",
       "text": "The song appears on the album \"The Innocents\" (1988).",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-s1xmdw"
     },
     {
-      "id": "47c7f4c3-43e0-48ae-a531-d6209dc673d7",
+      "id": "ecbd177e-e09a-4712-8b49-a51601de61a3",
       "category": "album",
       "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR964817.",
       "source": "Retroverse Graph",
       "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-s1xmdw"
     },
     {
-      "id": "f1ac1d12-34d2-4f04-b5a6-9f9f73988d65",
+      "id": "13bb858b-52bd-443b-bd9b-b134cd7d50e3",
       "category": "chart",
       "text": "The song peaked at #12 on the Billboard Hot 100 and spent 20 weeks on the chart.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "116a8293-3fcb-4b53-9fa4-67e667bbf24e",
+      "id": "efb54b72-3c44-430b-8310-ea7ff480e4ef",
       "category": "trivia",
       "text": "VirtualDJ library play count: 10.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-jdm0h9"
     },
     {
-      "id": "d81bdec3-bbca-46df-b684-e0afab018110",
+      "id": "44f812ae-397c-4be6-b558-48ed3717e798",
       "category": "recording",
       "text": "Chains Of Love was released in 1988.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "bcc16679-cac1-45e7-bf5c-ad6130cf07ac",
+      "id": "6cb29806-73e9-4314-86e6-2ef922989036",
       "category": "trivia",
       "text": "Canonical cover assignment for RVTR964817 (Chains Of Love).",
       "source": "Retroverse Cover Library",
       "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
       "confidence": 0.82,
       "internalNotes": null,
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "da04baff-f195-47aa-8ef7-5ebf979ea856",
+      "id": "7171611d-cf75-4e2c-ad65-724e24095331",
       "category": "trivia",
       "text": "Cover URL is graph-owned and must not be replaced by external research.",
       "source": "Retroverse Cover Library",
       "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
       "confidence": 0.82,
       "internalNotes": null,
-      "approvalStatus": "pending"
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "e5f4e76e-9e29-4c4d-bbd3-9d171fca71e4",
+      "id": "97a65219-4a4c-4e6e-8501-52927aac6152",
       "category": "trivia",
       "text": "Artist: Erasure · Title: Chains Of Love · Album: Chains Of Love · Year: 1988 · Genre: Synth-pop · PlayCount: 10 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4",
       "source": "VirtualDJ database.xml",
       "sourceUrl": null,
       "confidence": 0.82,
       "internalNotes": null,
-      "approvalStatus": "pending"
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-jdm0h9"
     },
     {
-      "id": "97348780-d2d2-401e-ac1a-5eb5f122ce61",
+      "id": "c89cc773-ea72-4f6a-b329-773d9dd7ea71",
       "category": "trivia",
       "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4 · Plays: 10",
       "source": "VirtualDJ Library",
       "sourceUrl": null,
       "confidence": 0.82,
       "internalNotes": null,
-      "approvalStatus": "pending"
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-jdm0h9"
     }
   ],
   "missingAreas": [
@@ -315,7 +337,7 @@
       "id": "retroverse-identity",
       "source": "Retroverse Canon",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:27.680Z",
+      "capturedAt": "2026-06-27T22:40:27.735Z",
       "excerpt": "Retroverse track identity: RVTR964817. \"Chains Of Love\" by Erasure. Album: The Innocents (1988).",
       "confidence": 1,
       "stage": "retroverse_vdj",
@@ -325,7 +347,7 @@
       "id": "retroverse-cover",
       "source": "Retroverse Cover Library",
       "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
-      "capturedAt": "2026-06-26T04:28:27.680Z",
+      "capturedAt": "2026-06-27T22:40:27.735Z",
       "excerpt": "Canonical cover assignment for RVTR964817 (Chains Of Love). Cover URL is graph-owned and must not be replaced by external research.",
       "confidence": 1,
       "stage": "retroverse_vdj",
@@ -335,7 +357,7 @@
       "id": "retroverse-chart",
       "source": "Retroverse Graph",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:27.680Z",
+      "capturedAt": "2026-06-27T22:40:27.735Z",
       "excerpt": "Album: The Innocents (1988). Billboard Hot 100 peak: #12. 20 weeks on chart",
       "confidence": 0.95,
       "stage": "retroverse_vdj",
@@ -345,7 +367,7 @@
       "id": "retroverse-vdj-snapshot",
       "source": "VirtualDJ database.xml",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:27.680Z",
+      "capturedAt": "2026-06-27T22:40:27.735Z",
       "excerpt": "Artist: Erasure · Title: Chains Of Love · Album: Chains Of Love · Year: 1988 · Genre: Synth-pop · PlayCount: 10 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4",
       "confidence": 0.99,
       "stage": "retroverse_vdj",
@@ -355,25 +377,28 @@
       "id": "retroverse-year-workspace",
       "source": "Retroverse Year Workspace",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:27.680Z",
+      "capturedAt": "2026-06-27T22:40:27.735Z",
       "excerpt": "Performance year context: 1988.",
       "confidence": 0.98,
       "stage": "retroverse_vdj",
       "internalNotes": null
     },
     {
-      "id": "vdj-media-5258ced7",
+      "id": "vdj-media-62e781cb",
       "source": "VirtualDJ Library",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:27.680Z",
+      "capturedAt": "2026-06-27T22:40:27.735Z",
       "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4 · Plays: 10",
       "confidence": 0.99,
       "stage": "retroverse_vdj",
       "internalNotes": null
     }
   ],
+  "lyrics": {
+    "available": false
+  },
   "summary": {
-    "researchSummary": "Erasure — Chains Of Love · Hot 100 peak #12 · 20 weeks · 1 performance videos · 11 candidate facts · 3 gaps · 1 performance(s) · 8/11 facts approved · confidence 63%",
+    "researchSummary": "Erasure — Chains Of Love · Hot 100 peak #12 · 20 weeks · 1 performance videos · 11 candidate facts · 3 gaps · 1 performance(s) · 8/11 facts approved · confidence 63% · song 1988 / recording 1988",
     "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
   },
   "song": {
@@ -410,7 +435,7 @@
           "id": "retroverse-identity",
           "source": "Retroverse Canon",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:27.680Z",
+          "capturedAt": "2026-06-27T22:40:27.735Z",
           "excerpt": "Retroverse track identity: RVTR964817. \"Chains Of Love\" by Erasure. Album: The Innocents (1988).",
           "confidence": 1,
           "stage": "retroverse_vdj",
@@ -420,7 +445,7 @@
           "id": "retroverse-cover",
           "source": "Retroverse Cover Library",
           "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
-          "capturedAt": "2026-06-26T04:28:27.680Z",
+          "capturedAt": "2026-06-27T22:40:27.735Z",
           "excerpt": "Canonical cover assignment for RVTR964817 (Chains Of Love). Cover URL is graph-owned and must not be replaced by external research.",
           "confidence": 1,
           "stage": "retroverse_vdj",
@@ -430,7 +455,7 @@
           "id": "retroverse-chart",
           "source": "Retroverse Graph",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:27.680Z",
+          "capturedAt": "2026-06-27T22:40:27.735Z",
           "excerpt": "Album: The Innocents (1988). Billboard Hot 100 peak: #12. 20 weeks on chart",
           "confidence": 0.95,
           "stage": "retroverse_vdj",
@@ -440,7 +465,7 @@
           "id": "retroverse-vdj-snapshot",
           "source": "VirtualDJ database.xml",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:27.680Z",
+          "capturedAt": "2026-06-27T22:40:27.735Z",
           "excerpt": "Artist: Erasure · Title: Chains Of Love · Album: Chains Of Love · Year: 1988 · Genre: Synth-pop · PlayCount: 10 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4",
           "confidence": 0.99,
           "stage": "retroverse_vdj",
@@ -450,17 +475,17 @@
           "id": "retroverse-year-workspace",
           "source": "Retroverse Year Workspace",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:27.680Z",
+          "capturedAt": "2026-06-27T22:40:27.735Z",
           "excerpt": "Performance year context: 1988.",
           "confidence": 0.98,
           "stage": "retroverse_vdj",
           "internalNotes": null
         },
         {
-          "id": "vdj-media-5258ced7",
+          "id": "vdj-media-62e781cb",
           "source": "VirtualDJ Library",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:27.680Z",
+          "capturedAt": "2026-06-27T22:40:27.735Z",
           "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4 · Plays: 10",
           "confidence": 0.99,
           "stage": "retroverse_vdj",
@@ -474,114 +499,136 @@
     },
     "candidateFacts": [
       {
-        "id": "61f35152-43d5-492b-a005-32110e18da6e",
+        "id": "1689c62f-4c9b-458c-a19a-36a929932442",
         "category": "trivia",
         "text": "Retroverse track identity: RVTR964817.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "71b5bbd1-ee02-4219-928b-80e34e06e61d",
+        "id": "db549e01-40c8-4ba4-b20d-1fc97c3e0ca7",
         "category": "artist",
         "text": "Chains Of Love is performed by Erasure.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "17329958-7ea4-4ad3-a5b6-2701a062b449",
+        "id": "d9f162f8-46ef-4b1f-b683-42bfa613be4d",
         "category": "album",
         "text": "The song appears on the album \"The Innocents\" (1988).",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-s1xmdw"
       },
       {
-        "id": "47c7f4c3-43e0-48ae-a531-d6209dc673d7",
+        "id": "ecbd177e-e09a-4712-8b49-a51601de61a3",
         "category": "album",
         "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR964817.",
         "source": "Retroverse Graph",
         "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-s1xmdw"
       },
       {
-        "id": "f1ac1d12-34d2-4f04-b5a6-9f9f73988d65",
+        "id": "13bb858b-52bd-443b-bd9b-b134cd7d50e3",
         "category": "chart",
         "text": "The song peaked at #12 on the Billboard Hot 100 and spent 20 weeks on the chart.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "116a8293-3fcb-4b53-9fa4-67e667bbf24e",
+        "id": "efb54b72-3c44-430b-8310-ea7ff480e4ef",
         "category": "trivia",
         "text": "VirtualDJ library play count: 10.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-jdm0h9"
       },
       {
-        "id": "d81bdec3-bbca-46df-b684-e0afab018110",
+        "id": "44f812ae-397c-4be6-b558-48ed3717e798",
         "category": "recording",
         "text": "Chains Of Love was released in 1988.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "bcc16679-cac1-45e7-bf5c-ad6130cf07ac",
+        "id": "6cb29806-73e9-4314-86e6-2ef922989036",
         "category": "trivia",
         "text": "Canonical cover assignment for RVTR964817 (Chains Of Love).",
         "source": "Retroverse Cover Library",
         "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
         "confidence": 0.82,
         "internalNotes": null,
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "da04baff-f195-47aa-8ef7-5ebf979ea856",
+        "id": "7171611d-cf75-4e2c-ad65-724e24095331",
         "category": "trivia",
         "text": "Cover URL is graph-owned and must not be replaced by external research.",
         "source": "Retroverse Cover Library",
         "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg",
         "confidence": 0.82,
         "internalNotes": null,
-        "approvalStatus": "pending"
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "e5f4e76e-9e29-4c4d-bbd3-9d171fca71e4",
+        "id": "97a65219-4a4c-4e6e-8501-52927aac6152",
         "category": "trivia",
         "text": "Artist: Erasure · Title: Chains Of Love · Album: Chains Of Love · Year: 1988 · Genre: Synth-pop · PlayCount: 10 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4",
         "source": "VirtualDJ database.xml",
         "sourceUrl": null,
         "confidence": 0.82,
         "internalNotes": null,
-        "approvalStatus": "pending"
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-jdm0h9"
       },
       {
-        "id": "97348780-d2d2-401e-ac1a-5eb5f122ce61",
+        "id": "c89cc773-ea72-4f6a-b329-773d9dd7ea71",
         "category": "trivia",
         "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4 · Plays: 10",
         "source": "VirtualDJ Library",
         "sourceUrl": null,
         "confidence": 0.82,
         "internalNotes": null,
-        "approvalStatus": "pending"
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-jdm0h9"
       }
     ],
     "missingAreas": [
@@ -590,7 +637,7 @@
       "Artist relationship depth"
     ],
     "identityNotes": [
-      "Studio Alpha batch-001-a2"
+      "Overnight Collector queue"
     ],
     "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL457268/RVAL457268__erasure__the-innocents.jpg"
   },
@@ -618,47 +665,47 @@
               "width": 692,
               "height": 460,
               "selectionReason": "Opening representative moment",
-              "capturedAt": "2026-06-26T04:28:28.774Z"
-            },
-            {
-              "id": "fe7af45bd872",
-              "category": "Performance",
-              "filename": "performance.jpg",
-              "timestampSec": 60,
-              "width": 692,
-              "height": 460,
-              "selectionReason": "Strong performance moment",
-              "capturedAt": "2026-06-26T04:28:28.774Z"
-            },
-            {
-              "id": "293bd12b2af7",
-              "category": "Close-up",
-              "filename": "close-up.jpg",
-              "timestampSec": 100,
-              "width": 692,
-              "height": 460,
-              "selectionReason": "Sharpest close-up in sequence",
-              "capturedAt": "2026-06-26T04:28:28.774Z"
+              "capturedAt": "2026-06-27T22:40:28.804Z"
             },
             {
               "id": "d5271f1a1332",
               "category": "Alternate",
               "filename": "alternate.jpg",
-              "timestampSec": 140,
+              "timestampSec": 60,
               "width": 692,
               "height": 460,
               "selectionReason": "Visually distinct alternate angle",
-              "capturedAt": "2026-06-26T04:28:28.774Z"
+              "capturedAt": "2026-06-27T22:40:28.804Z"
             },
             {
               "id": "cf571f539305",
               "category": "Crowd",
               "filename": "crowd.jpg",
-              "timestampSec": 200,
+              "timestampSec": 100,
               "width": 692,
               "height": 460,
               "selectionReason": "Audience or wide-stage context",
-              "capturedAt": "2026-06-26T04:28:28.774Z"
+              "capturedAt": "2026-06-27T22:40:28.804Z"
+            },
+            {
+              "id": "293bd12b2af7",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 140,
+              "width": 692,
+              "height": 460,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-27T22:40:28.804Z"
+            },
+            {
+              "id": "fe7af45bd872",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 200,
+              "width": 692,
+              "height": 460,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-27T22:40:28.804Z"
             }
           ]
         }
@@ -692,9 +739,285 @@
     ],
     "storyIdeas": [
       "Chart story — peaked at #12 on the Hot 100",
-      "Release moment — 1988 and what was happening in music",
-      "Performance angle — Official Video"
+      "Song release — original 1988 chapter",
+      "Performance angle — Official Video (1988)"
     ],
     "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR964817",
+    "artist": "Erasure",
+    "title": "Chains Of Love",
+    "writers": [],
+    "originalReleaseYear": 1988,
+    "originalAlbum": "The Innocents",
+    "peakHot100": 12,
+    "chartWeeks": 20,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Erasure"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-s1xmdw",
+      "kind": "studio_album",
+      "title": "The Innocents",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "The Innocents",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1988,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-jdm0h9",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1988,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 214.897967,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1988. VirtualDJ play count: 10. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1988",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-vvwfwf",
+        "domain": "song",
+        "kind": "release",
+        "year": 1988,
+        "label": "Chains Of Love — original release",
+        "detail": "Original album: The Innocents",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3fr",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1988,
+        "label": "Billboard Hot 100 peak #12",
+        "detail": "20 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-eozvvi",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1988,
+        "label": "The Innocents",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-s1xmdw"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1988,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-jdm0h9"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1988,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1988,
+      "label": "Album: The Innocents",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1988,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR964817",
+      "artist": "Erasure",
+      "title": "Chains Of Love",
+      "writers": [],
+      "originalReleaseYear": 1988,
+      "originalAlbum": "The Innocents",
+      "peakHot100": 12,
+      "chartWeeks": 20,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Erasure"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-s1xmdw",
+        "kind": "studio_album",
+        "title": "The Innocents",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "The Innocents",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1988,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-jdm0h9",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Erasure - Chains Of Love.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1988,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 214.897967,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1988. VirtualDJ play count: 10. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1988",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-vvwfwf",
+          "domain": "song",
+          "kind": "release",
+          "year": 1988,
+          "label": "Chains Of Love — original release",
+          "detail": "Original album: The Innocents",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3fr",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1988,
+          "label": "Billboard Hot 100 peak #12",
+          "detail": "20 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-eozvvi",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1988,
+          "label": "The Innocents",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-s1xmdw"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1988,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-jdm0h9"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1988,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1988,
+        "label": "Album: The Innocents",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1988,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
   }
 }

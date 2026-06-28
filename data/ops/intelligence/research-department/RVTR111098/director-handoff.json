@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR111098",
+  "artist": "The Tubes",
+  "title": "She's A Beauty",
+  "story": {
+    "headline": "She's A Beauty: The Breakthrough Moment",
+    "subtitle": "The Tubes · Breakthrough · 1975",
+    "hook": "The song peaked at #10 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "The Tubes's \"She's A Beauty\" reached #10 on the Billboard Hot 100. She's A Beauty was released in 1975.",
+    "fullStory": "The Tubes's \"She's A Beauty\" reached #10 on the Billboard Hot 100.\n\nThe song peaked at #10 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nShe's A Beauty was released in 1975.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #10 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "a71d795e-9af5-42e0-a794-0ac70e5872a7",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d0438803-d4a9-4498-b451-98d119b0b159",
+      "text": "She's A Beauty was released in 1975.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "642d6a8e-d427-4502-a5f0-53f9cb76414e",
+      "text": "The song appears on the album \"The Tubes\" (1975).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d4f1cfa4-5e61-4943-ad65-34ee047a888f",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b2c05319-c7bd-4d7f-9ec9-993da4df985a",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "139e38bcaeb5",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111098&file=hero.jpg",
+      "performanceId": "perf-i70wig"
+    },
+    {
+      "assetId": "51f371b28678",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111098&file=performance.jpg",
+      "performanceId": "perf-i70wig"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-i70wig",
+    "title": "Official Video · 1983",
+    "venue": "",
+    "year": 1983,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1983 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "139e38bcaeb5",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111098&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "51f371b28678",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR111098&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #10 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "The Tubes's \"She's A Beauty\" reached #10 on the Billboard Hot 100. She's A Beauty was released in 1975.",
+    "storyBeats": [
+      {
+        "id": "beat-eea902072e",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"She's A Beauty\" — original release 1975. The Tubes — \"She's A Beauty\" · Original release 1975 · Album: The Tubes · Hot 100 peak #10",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "139e38bcaeb5",
+          "51f371b28678"
+        ],
+        "relatedPerformanceId": "perf-i70wig",
+        "priority": 1
+      },
+      {
+        "id": "beat-9e336ba500",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Tubes · Release 1975",
+        "supportingFactIds": [
+          "642d6a8e-d427-4502-a5f0-53f9cb76414e"
+        ],
+        "relatedImageAssetIds": [
+          "139e38bcaeb5",
+          "51f371b28678"
+        ],
+        "relatedPerformanceId": "perf-i70wig",
+        "priority": 2
+      },
+      {
+        "id": "beat-eb52a0d6df",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #10 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "a71d795e-9af5-42e0-a794-0ac70e5872a7"
+        ],
+        "relatedImageAssetIds": [
+          "139e38bcaeb5",
+          "51f371b28678"
+        ],
+        "relatedPerformanceId": "perf-i70wig",
+        "priority": 3
+      },
+      {
+        "id": "beat-1fe0050647",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "139e38bcaeb5",
+          "51f371b28678"
+        ],
+        "relatedPerformanceId": "perf-i70wig",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-e2247f5d59",
+        "title": "Chart milestone",
+        "description": "Peaked at #10 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1975,
+        "supportingFactIds": [
+          "a71d795e-9af5-42e0-a794-0ac70e5872a7"
+        ],
+        "relatedImageAssetIds": [
+          "139e38bcaeb5"
+        ]
+      },
+      {
+        "id": "moment-2a5bcc499e",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1983,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "139e38bcaeb5"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-i70wig",
+      "title": "Official Video · 1983",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1983 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #10 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:34:20.774Z"
+  },
+  "submittedAt": "2026-06-27T04:34:20.774Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

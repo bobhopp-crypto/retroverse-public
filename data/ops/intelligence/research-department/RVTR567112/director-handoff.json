@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR567112",
+  "artist": "Frankie Goes To Hollywood",
+  "title": "War",
+  "story": {
+    "headline": "War: A Cultural Moment Captured on Record",
+    "subtitle": "Frankie Goes To Hollywood · Cultural Moment",
+    "hook": "War is performed by Frankie Goes To Hollywood.",
+    "summary": "Frankie Goes To Hollywood's \"War\" — original release 1984.",
+    "fullStory": "Frankie Goes To Hollywood's \"War\" — original release 1984.\n\nSong release — original 1984 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "0e260395-8bc8-441f-90f4-f6311aa13e25",
+      "text": "VirtualDJ library play count: 14.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "52b5fb51b6f3",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567112&file=hero.jpg",
+      "performanceId": "perf-4rf387"
+    },
+    {
+      "assetId": "0e432b44a1c4",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567112&file=performance.jpg",
+      "performanceId": "perf-4rf387"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-4rf387",
+    "title": "Official Video · 1984",
+    "venue": "",
+    "year": 1984,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "52b5fb51b6f3",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567112&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "0e432b44a1c4",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567112&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "War is performed by Frankie Goes To Hollywood.",
+    "closing": "Frankie Goes To Hollywood's \"War\" — original release 1984.",
+    "storyBeats": [
+      {
+        "id": "beat-8be96c3323",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"War\" — original release 1984. Frankie Goes To Hollywood — \"War\" · Original release 1984",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "52b5fb51b6f3",
+          "0e432b44a1c4"
+        ],
+        "relatedPerformanceId": "perf-4rf387",
+        "priority": 1
+      },
+      {
+        "id": "beat-c0a88a4348",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "52b5fb51b6f3",
+          "0e432b44a1c4"
+        ],
+        "relatedPerformanceId": "perf-4rf387",
+        "priority": 2
+      },
+      {
+        "id": "beat-85477661b8",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "52b5fb51b6f3",
+          "0e432b44a1c4"
+        ],
+        "relatedPerformanceId": "perf-4rf387",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-5a70561e90",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1984,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "52b5fb51b6f3"
+        ]
+      },
+      {
+        "id": "moment-5a70561e90",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1984,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "52b5fb51b6f3"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-4rf387",
+      "title": "Official Video · 1984",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"War is performed by Frankie Goes To Hollywood.\""
+    },
+    "generatedAt": "2026-06-27T04:22:42.633Z"
+  },
+  "submittedAt": "2026-06-27T04:22:42.634Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

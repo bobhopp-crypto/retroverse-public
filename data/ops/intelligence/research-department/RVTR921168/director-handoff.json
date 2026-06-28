@@ -1,0 +1,186 @@
+{
+  "version": 2,
+  "rvtr": "RVTR921168",
+  "artist": "Lou Reed",
+  "title": "Walk On The Wild Side",
+  "story": {
+    "headline": "Walk On The Wild Side: The Performance That Defined It",
+    "subtitle": "Lou Reed · Live Performance · 1972",
+    "hook": "The song peaked at #16 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "summary": "Lou Reed's \"Walk On The Wild Side\" reached #16 on the Billboard Hot 100. Walk On The Wild Side was released in 1972.",
+    "fullStory": "Lou Reed's \"Walk On The Wild Side\" reached #16 on the Billboard Hot 100.\n\nThe song peaked at #16 on the Billboard Hot 100 and spent 14 weeks on the chart.\n\nWalk On The Wild Side was released in 1972.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #16 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "b5e54731-00a7-43db-9e0d-53f6acb82d9b",
+      "text": "The song peaked at #16 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2ef0e883-07e2-4ce5-ad16-fa4d90f6cc66",
+      "text": "Walk On The Wild Side was released in 1972.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bf67c1d8-bbd6-4633-a794-41b292a38afa",
+      "text": "The song appears on the album \"Transformer\" (1972).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "aeb99314-30c3-4697-870c-b93721f5eddf",
+      "text": "VirtualDJ library play count: 13.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "42875a2c-ad25-47aa-9c71-a0855e3f0a05",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "84f8d61931fb",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR921168&file=hero.jpg",
+      "performanceId": "perf-6istt6"
+    },
+    {
+      "assetId": "4a36096e610a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR921168&file=performance.jpg",
+      "performanceId": "perf-6istt6"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-6istt6",
+    "title": "Official Video · 1972",
+    "venue": "",
+    "year": 1972,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "84f8d61931fb",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR921168&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "4a36096e610a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR921168&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #16 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "closing": "Lou Reed's \"Walk On The Wild Side\" reached #16 on the Billboard Hot 100. Walk On The Wild Side was released in 1972.",
+    "storyBeats": [
+      {
+        "id": "beat-fdb2a60348",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Official Video (1972).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "84f8d61931fb",
+          "4a36096e610a"
+        ],
+        "relatedPerformanceId": "perf-6istt6",
+        "priority": 1
+      },
+      {
+        "id": "beat-0b1cecee7d",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"Walk On The Wild Side\" entered the world in 1972.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "84f8d61931fb",
+          "4a36096e610a"
+        ],
+        "relatedPerformanceId": "perf-6istt6",
+        "priority": 2
+      },
+      {
+        "id": "beat-93e0148bd6",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #16 · 14 weeks on chart.",
+        "supportingFactIds": [
+          "b5e54731-00a7-43db-9e0d-53f6acb82d9b"
+        ],
+        "relatedImageAssetIds": [
+          "84f8d61931fb",
+          "4a36096e610a"
+        ],
+        "relatedPerformanceId": "perf-6istt6",
+        "priority": 3
+      },
+      {
+        "id": "beat-2ffdd669e3",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "84f8d61931fb",
+          "4a36096e610a"
+        ],
+        "relatedPerformanceId": "perf-6istt6",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-369e59062b",
+        "title": "Chart milestone",
+        "description": "Peaked at #16 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1972,
+        "supportingFactIds": [
+          "b5e54731-00a7-43db-9e0d-53f6acb82d9b"
+        ],
+        "relatedImageAssetIds": [
+          "84f8d61931fb"
+        ]
+      },
+      {
+        "id": "moment-e9791bfd0c",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "84f8d61931fb"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-6istt6",
+      "title": "Official Video · 1972",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #16 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:27:25.927Z"
+  },
+  "submittedAt": "2026-06-27T04:27:25.927Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

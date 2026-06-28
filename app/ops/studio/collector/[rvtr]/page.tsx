@@ -45,7 +45,7 @@ export default async function CollectorPackagePage({ params }: Props) {
       <div className="ops-page__inner">
         <StudioShell active="collector" lead={dept.mission}>
           {context.package && context.investigation ? (
-            <CollectorPackageView initialContext={context} />
+            <CollectorPackageView key={context.rvtr} initialContext={context} />
           ) : (
             <CollectorPackageMissing rvtr={context.rvtr} />
           )}

@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR388478",
+  "artist": "Sweet",
+  "title": "Ballroom Blitz",
+  "story": {
+    "headline": "Ballroom Blitz: The Breakthrough Moment",
+    "subtitle": "Sweet · Breakthrough · 1975",
+    "hook": "The song peaked at #5 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+    "summary": "Sweet's \"Ballroom Blitz\" reached #5 on the Billboard Hot 100. Ballroom Blitz was released in 1975.",
+    "fullStory": "Sweet's \"Ballroom Blitz\" reached #5 on the Billboard Hot 100.\n\nThe song peaked at #5 on the Billboard Hot 100 and spent 25 weeks on the chart.\n\nBallroom Blitz was released in 1975.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #5 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "e9677e4e-acee-4fa3-b7e9-cfc41e94e3c7",
+      "text": "The song peaked at #5 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3d5ff142-6d98-48f5-8deb-f922ee03a9e6",
+      "text": "Ballroom Blitz was released in 1975.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d16084dc-9d96-4de3-80c3-52e67a8ba0fa",
+      "text": "The song appears on the album \"Desolation Boulevard\" (1975).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "12d18000-303b-40e2-935a-4999e6bee507",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c7c140db-fb39-47bf-94a5-35dd14fa979b",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "1c55c49d92db",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388478&file=performance.jpg",
+      "performanceId": "perf-tetlay"
+    },
+    {
+      "assetId": "4ca3ea5cbc1c",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388478&file=hero.jpg",
+      "performanceId": "perf-tetlay"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-tetlay",
+    "title": "The · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: The. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "1c55c49d92db",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388478&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "4ca3ea5cbc1c",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR388478&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #5 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+    "closing": "Sweet's \"Ballroom Blitz\" reached #5 on the Billboard Hot 100. Ballroom Blitz was released in 1975.",
+    "storyBeats": [
+      {
+        "id": "beat-252e86ed15",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Ballroom Blitz\" — original release 1975. Sweet — \"Ballroom Blitz\" · Original release 1975 · Album: Desolation Boulevard · Hot 100 peak #5",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1c55c49d92db",
+          "4ca3ea5cbc1c"
+        ],
+        "relatedPerformanceId": "perf-tetlay",
+        "priority": 1
+      },
+      {
+        "id": "beat-49bccd2a03",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Desolation Boulevard · Release 1975",
+        "supportingFactIds": [
+          "d16084dc-9d96-4de3-80c3-52e67a8ba0fa"
+        ],
+        "relatedImageAssetIds": [
+          "1c55c49d92db",
+          "4ca3ea5cbc1c"
+        ],
+        "relatedPerformanceId": "perf-tetlay",
+        "priority": 2
+      },
+      {
+        "id": "beat-f9ba38bcc2",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #5 · 25 weeks on chart.",
+        "supportingFactIds": [
+          "e9677e4e-acee-4fa3-b7e9-cfc41e94e3c7"
+        ],
+        "relatedImageAssetIds": [
+          "1c55c49d92db",
+          "4ca3ea5cbc1c"
+        ],
+        "relatedPerformanceId": "perf-tetlay",
+        "priority": 3
+      },
+      {
+        "id": "beat-c3914cd84a",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1c55c49d92db",
+          "4ca3ea5cbc1c"
+        ],
+        "relatedPerformanceId": "perf-tetlay",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-5af52549cb",
+        "title": "Chart milestone",
+        "description": "Peaked at #5 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1975,
+        "supportingFactIds": [
+          "e9677e4e-acee-4fa3-b7e9-cfc41e94e3c7"
+        ],
+        "relatedImageAssetIds": [
+          "1c55c49d92db"
+        ]
+      },
+      {
+        "id": "moment-a0ead6ca76",
+        "title": "The",
+        "description": "Recommended: The. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1c55c49d92db"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-tetlay",
+      "title": "The · 1973",
+      "reason": "Recommended: The. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #5 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T06:00:40.413Z"
+  },
+  "submittedAt": "2026-06-27T06:00:40.413Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

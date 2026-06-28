@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR620162",
+  "artist": "Melanie",
+  "title": "Brand New Key",
+  "story": {
+    "headline": "Brand New Key: The Breakthrough Moment",
+    "subtitle": "Melanie · Breakthrough · 1971",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "summary": "Melanie's \"Brand New Key\" reached #1 on the Billboard Hot 100. Brand New Key was released in 1971.",
+    "fullStory": "Melanie's \"Brand New Key\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 18 weeks on the chart.\n\nBrand New Key was released in 1971.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "70cc0d69-4fe7-464a-96f1-6217a2df75a0",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "160721a1-3665-4d8b-bc1c-0c3fdd6a0778",
+      "text": "Brand New Key was released in 1971.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "78f107b8-fc7d-43fd-be76-d78439775e3d",
+      "text": "The song appears on the album \"Gather Me\" (1971).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2017f63c-5700-4d99-ac5e-2cfbb61d689d",
+      "text": "VirtualDJ library play count: 16.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "49a8d8f2-dfc3-4c4e-ad33-1f47a2f22bdd",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "dccad7d059a7",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR620162&file=performance.jpg",
+      "performanceId": "perf-5hnten"
+    },
+    {
+      "assetId": "c9c663c73e08",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR620162&file=hero.jpg",
+      "performanceId": "perf-5hnten"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-5hnten",
+    "title": "Official Video · 1971",
+    "venue": "",
+    "year": 1971,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1971 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "dccad7d059a7",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR620162&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "c9c663c73e08",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR620162&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "closing": "Melanie's \"Brand New Key\" reached #1 on the Billboard Hot 100. Brand New Key was released in 1971.",
+    "storyBeats": [
+      {
+        "id": "beat-bc9ef45585",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Brand New Key\" — original release 1971. Melanie — \"Brand New Key\" · Original release 1971 · Album: Gather Me · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dccad7d059a7",
+          "c9c663c73e08"
+        ],
+        "relatedPerformanceId": "perf-5hnten",
+        "priority": 1
+      },
+      {
+        "id": "beat-7d245b8f04",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Gather Me · Release 1971",
+        "supportingFactIds": [
+          "78f107b8-fc7d-43fd-be76-d78439775e3d"
+        ],
+        "relatedImageAssetIds": [
+          "dccad7d059a7",
+          "c9c663c73e08"
+        ],
+        "relatedPerformanceId": "perf-5hnten",
+        "priority": 2
+      },
+      {
+        "id": "beat-218c17de44",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 18 weeks on chart.",
+        "supportingFactIds": [
+          "70cc0d69-4fe7-464a-96f1-6217a2df75a0"
+        ],
+        "relatedImageAssetIds": [
+          "dccad7d059a7",
+          "c9c663c73e08"
+        ],
+        "relatedPerformanceId": "perf-5hnten",
+        "priority": 3
+      },
+      {
+        "id": "beat-1b2a9a7d15",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dccad7d059a7",
+          "c9c663c73e08"
+        ],
+        "relatedPerformanceId": "perf-5hnten",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-3cf45fd16f",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1971,
+        "supportingFactIds": [
+          "70cc0d69-4fe7-464a-96f1-6217a2df75a0"
+        ],
+        "relatedImageAssetIds": [
+          "dccad7d059a7"
+        ]
+      },
+      {
+        "id": "moment-1633d1f867",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1971,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dccad7d059a7"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-5hnten",
+      "title": "Official Video · 1971",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1971 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T01:05:42.319Z"
+  },
+  "submittedAt": "2026-06-27T04:20:13.974Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

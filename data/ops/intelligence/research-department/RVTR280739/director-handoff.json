@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR280739",
+  "artist": "Journey",
+  "title": "Wheel In The Sky",
+  "story": {
+    "headline": "Wheel In The Sky: A Cultural Moment Captured on Record",
+    "subtitle": "Journey · Cultural Moment · 2001",
+    "hook": "The song peaked at #57 on the Billboard Hot 100 and spent 8 weeks on the chart.",
+    "summary": "Journey's \"Wheel In The Sky\" reached #57 on the Billboard Hot 100. Wheel In The Sky was released in 2001.",
+    "fullStory": "Journey's \"Wheel In The Sky\" reached #57 on the Billboard Hot 100.\n\nThe song peaked at #57 on the Billboard Hot 100 and spent 8 weeks on the chart.\n\nWheel In The Sky was released in 2001.\n\nChart story — peaked at #57 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "bdfd59fd-f4c2-4202-9717-a7db2a80a8af",
+      "text": "The song peaked at #57 on the Billboard Hot 100 and spent 8 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2833ccfc-728e-4899-bab7-dc1d98aaa45d",
+      "text": "Wheel In The Sky was released in 2001.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "57a8af83-c7a7-460b-be0e-145b95522a35",
+      "text": "The song appears on the album \"The Essential Journey\" (2001).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e5ef3acc-ab8d-465d-bbd5-d98add3a1c1e",
+      "text": "VirtualDJ library play count: 7.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "983091eb0b45",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280739&file=hero.jpg",
+      "performanceId": "perf-zducyi"
+    },
+    {
+      "assetId": "e5bec71517cb",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280739&file=performance.jpg",
+      "performanceId": "perf-zducyi"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-zducyi",
+    "title": "Midnight Special · 1979",
+    "venue": "Midnight Special",
+    "year": 1979,
+    "notes": "Recommended cut — Recommended: Midnight Special. venue context (Midnight Special) adds place and moment. 5 curated visual frames for cards and hero art. dated 1979 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "983091eb0b45",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280739&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "e5bec71517cb",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR280739&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #57 on the Billboard Hot 100 and spent 8 weeks on the chart.",
+    "closing": "Journey's \"Wheel In The Sky\" reached #57 on the Billboard Hot 100. Wheel In The Sky was released in 2001.",
+    "storyBeats": [
+      {
+        "id": "beat-76773d93b0",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Wheel In The Sky\" — original release 2001. Journey — \"Wheel In The Sky\" · Original release 2001 · Album: The Essential Journey · Hot 100 peak #57",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "983091eb0b45",
+          "e5bec71517cb"
+        ],
+        "relatedPerformanceId": "perf-zducyi",
+        "priority": 1
+      },
+      {
+        "id": "beat-b6064c9c38",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Essential Journey · Release 2001",
+        "supportingFactIds": [
+          "57a8af83-c7a7-460b-be0e-145b95522a35"
+        ],
+        "relatedImageAssetIds": [
+          "983091eb0b45",
+          "e5bec71517cb"
+        ],
+        "relatedPerformanceId": "perf-zducyi",
+        "priority": 2
+      },
+      {
+        "id": "beat-97fec412d1",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #57 · 8 weeks on chart.",
+        "supportingFactIds": [
+          "bdfd59fd-f4c2-4202-9717-a7db2a80a8af"
+        ],
+        "relatedImageAssetIds": [
+          "983091eb0b45",
+          "e5bec71517cb"
+        ],
+        "relatedPerformanceId": "perf-zducyi",
+        "priority": 3
+      },
+      {
+        "id": "beat-608e499ced",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "983091eb0b45",
+          "e5bec71517cb"
+        ],
+        "relatedPerformanceId": "perf-zducyi",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-9e8a43ca51",
+        "title": "Chart milestone",
+        "description": "Peaked at #57 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2001,
+        "supportingFactIds": [
+          "bdfd59fd-f4c2-4202-9717-a7db2a80a8af"
+        ],
+        "relatedImageAssetIds": [
+          "983091eb0b45"
+        ]
+      },
+      {
+        "id": "moment-8f8978adb4",
+        "title": "Midnight Special",
+        "description": "Recommended: Midnight Special. venue context (Midnight Special) adds place and moment. 5 curated visual frames for cards and hero art. dated 1979 performance he",
+        "kind": "featured_performance",
+        "year": 1979,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "983091eb0b45"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-zducyi",
+      "title": "Midnight Special · 1979",
+      "reason": "Recommended: Midnight Special. venue context (Midnight Special) adds place and moment. 5 curated visual frames for cards and hero art. dated 1979 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #57 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:14:31.778Z"
+  },
+  "submittedAt": "2026-06-27T05:14:31.779Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

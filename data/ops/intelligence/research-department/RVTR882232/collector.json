@@ -1,0 +1,988 @@
+{
+  "version": 4,
+  "rvtr": "RVTR882232",
+  "artist": "Hot Butter",
+  "title": "Popcorn",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T00:29:30.910Z",
+  "researchQuality": 79,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Hot Butter — Popcorn (RVTR882232)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "2 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #9 · 18 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos · Dance"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "9 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR882232",
+    "artist": "Hot Butter",
+    "title": "Popcorn",
+    "year": 1972,
+    "albumTitle": "Popcorn"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+    "playCount": 3,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+        "artist": "Hot Butter",
+        "title": "Pop Corn (Dance)",
+        "isVideo": true,
+        "playCount": 3,
+        "year": 1972,
+        "genre": "Rock & Roll",
+        "user2": null,
+        "performanceLabel": "Dance"
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Hot Butter - Popcorn.mp3",
+        "artist": "Hot Butter",
+        "title": "Popcorn",
+        "isVideo": false,
+        "playCount": null,
+        "year": 1972,
+        "genre": "Pop/Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 9,
+    "chartWeeks": 18,
+    "albumTitle": "Popcorn",
+    "summary": "Hot 100 peak #9 · 18 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos · Dance",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+        "artist": "Hot Butter",
+        "title": "Pop Corn (Dance)",
+        "isVideo": true,
+        "playCount": 3,
+        "year": 1972,
+        "genre": "Rock & Roll",
+        "user2": null,
+        "performanceLabel": "Dance"
+      }
+    ],
+    "preferredPerformance": "Dance"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "crowd.jpg",
+      "alternate.jpg",
+      "hero.jpg",
+      "close-up.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "ed4a79db92ae",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 0,
+          "width": 480,
+          "height": 360,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T00:29:30.907Z"
+        },
+        {
+          "id": "b47fab18c6de",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 40,
+          "width": 480,
+          "height": 360,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T00:29:30.907Z"
+        },
+        {
+          "id": "06afa0db04b5",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 80,
+          "width": 480,
+          "height": 360,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T00:29:30.907Z"
+        },
+        {
+          "id": "4716c28f99e5",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 100,
+          "width": 480,
+          "height": 360,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T00:29:30.907Z"
+        },
+        {
+          "id": "e0e3d462329d",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 140,
+          "width": 480,
+          "height": 360,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T00:29:30.907Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Hot Butter"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "497754c5-bff7-49b2-9c26-11c61a22f455",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR882232.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "9dab270e-01fa-46ef-8466-beebb3aa531f",
+      "category": "artist",
+      "text": "Popcorn is performed by Hot Butter.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "4d013737-ca80-461d-80d7-851054e7efbe",
+      "category": "album",
+      "text": "The song appears on the album \"Popcorn\" (1972).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-y0edfg"
+    },
+    {
+      "id": "02a8c534-4a8e-4398-b800-6976d0e99aaf",
+      "category": "chart",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "b14196ad-0f92-4c1c-b80a-340aa64659fc",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 3.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-jre4l6"
+    },
+    {
+      "id": "05c75e5d-3302-4c9c-ad36-da36ba023fe2",
+      "category": "recording",
+      "text": "Popcorn was released in 1972.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "94922085-7356-48fd-8cb4-a822be6b1905",
+      "category": "trivia",
+      "text": "Artist: Hot Butter · Title: Pop Corn (Dance) · Album: The Sensational 70's · Year: 1972 · Genre: Rock & Roll · PlayCount: 3 · LastPlayed: 1754888028 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-jre4l6"
+    },
+    {
+      "id": "3aa41ead-c2fc-4ba6-845c-ef25d454ce96",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4 · Plays: 3 · Performance: Dance",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-jre4l6"
+    },
+    {
+      "id": "5b898c21-023f-4280-81da-a43deef1ae68",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Hot Butter - Popcorn.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-jre4l6"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T00:29:30.084Z",
+      "excerpt": "Retroverse track identity: RVTR882232. \"Popcorn\" by Hot Butter. Album: Popcorn (1972).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T00:29:30.084Z",
+      "excerpt": "Album: Popcorn (1972). Billboard Hot 100 peak: #9. 18 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T00:29:30.084Z",
+      "excerpt": "Artist: Hot Butter · Title: Pop Corn (Dance) · Album: The Sensational 70's · Year: 1972 · Genre: Rock & Roll · PlayCount: 3 · LastPlayed: 1754888028 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T00:29:30.084Z",
+      "excerpt": "Performance year context: 1972.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-35c32162",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T00:29:30.084Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4 · Plays: 3 · Performance: Dance",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-0240f4b2",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T00:29:30.084Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Hot Butter - Popcorn.mp3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Hot Butter — Popcorn · Hot 100 peak #9 · 18 weeks · 1 performance videos · Dance · 9 candidate facts · 3 gaps · 1 performance(s) · 6/9 facts approved · confidence 63% · song 1972 / recording 1972",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR882232",
+      "artist": "Hot Butter",
+      "title": "Popcorn",
+      "year": 1972,
+      "albumTitle": "Popcorn"
+    },
+    "charts": {
+      "peakHot100": 9,
+      "chartWeeks": 18,
+      "albumTitle": "Popcorn",
+      "summary": "Hot 100 peak #9 · 18 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Hot Butter"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T00:29:30.084Z",
+          "excerpt": "Retroverse track identity: RVTR882232. \"Popcorn\" by Hot Butter. Album: Popcorn (1972).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T00:29:30.084Z",
+          "excerpt": "Album: Popcorn (1972). Billboard Hot 100 peak: #9. 18 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T00:29:30.084Z",
+          "excerpt": "Artist: Hot Butter · Title: Pop Corn (Dance) · Album: The Sensational 70's · Year: 1972 · Genre: Rock & Roll · PlayCount: 3 · LastPlayed: 1754888028 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T00:29:30.084Z",
+          "excerpt": "Performance year context: 1972.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-35c32162",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T00:29:30.084Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4 · Plays: 3 · Performance: Dance",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-0240f4b2",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T00:29:30.084Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Hot Butter - Popcorn.mp3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Hot Butter — Popcorn · Hot 100 peak #9 · 18 weeks · 1 performance videos · Dance · 9 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "497754c5-bff7-49b2-9c26-11c61a22f455",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR882232.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "9dab270e-01fa-46ef-8466-beebb3aa531f",
+        "category": "artist",
+        "text": "Popcorn is performed by Hot Butter.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "4d013737-ca80-461d-80d7-851054e7efbe",
+        "category": "album",
+        "text": "The song appears on the album \"Popcorn\" (1972).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-y0edfg"
+      },
+      {
+        "id": "02a8c534-4a8e-4398-b800-6976d0e99aaf",
+        "category": "chart",
+        "text": "The song peaked at #9 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "b14196ad-0f92-4c1c-b80a-340aa64659fc",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 3.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-jre4l6"
+      },
+      {
+        "id": "05c75e5d-3302-4c9c-ad36-da36ba023fe2",
+        "category": "recording",
+        "text": "Popcorn was released in 1972.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "94922085-7356-48fd-8cb4-a822be6b1905",
+        "category": "trivia",
+        "text": "Artist: Hot Butter · Title: Pop Corn (Dance) · Album: The Sensational 70's · Year: 1972 · Genre: Rock & Roll · PlayCount: 3 · LastPlayed: 1754888028 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-jre4l6"
+      },
+      {
+        "id": "3aa41ead-c2fc-4ba6-845c-ef25d454ce96",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4 · Plays: 3 · Performance: Dance",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-jre4l6"
+      },
+      {
+        "id": "5b898c21-023f-4280-81da-a43deef1ae68",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Hot Butter - Popcorn.mp3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-jre4l6"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-jre4l6",
+      "title": "Dance",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+      "durationSec": 156.502494,
+      "qualityScore": 100,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "ed4a79db92ae",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 0,
+              "width": 480,
+              "height": 360,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T00:29:30.907Z"
+            },
+            {
+              "id": "b47fab18c6de",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 40,
+              "width": 480,
+              "height": 360,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T00:29:30.907Z"
+            },
+            {
+              "id": "06afa0db04b5",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 80,
+              "width": 480,
+              "height": 360,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T00:29:30.907Z"
+            },
+            {
+              "id": "4716c28f99e5",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 100,
+              "width": 480,
+              "height": 360,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T00:29:30.907Z"
+            },
+            {
+              "id": "e0e3d462329d",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 140,
+              "width": 480,
+              "height": 360,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T00:29:30.907Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Performance label: Dance. Detected year: 1972. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": "Dance",
+      "detectedYear": 1972,
+      "confidence": 1,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Venue or tour: Dance",
+        "Performance year: 1972",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Hot Butter's \"Popcorn\" reached #9 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Popcorn is performed by Hot Butter.",
+      "The song appears on the album \"Popcorn\" (1972).",
+      "The song peaked at #9 on the Billboard Hot 100 and spent 18 weeks on the chart."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #9 on the Hot 100",
+      "Song release — original 1972 chapter",
+      "Performance angle — Dance at Dance (1972)"
+    ],
+    "suggestedAngle": "breakthrough"
+  },
+  "songEntity": {
+    "rvtr": "RVTR882232",
+    "artist": "Hot Butter",
+    "title": "Popcorn",
+    "writers": [],
+    "originalReleaseYear": 1972,
+    "originalAlbum": "Popcorn",
+    "peakHot100": 9,
+    "chartWeeks": 18,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Hot Butter"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-y0edfg",
+      "kind": "studio_album",
+      "title": "Popcorn",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Popcorn",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1972,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-jre4l6",
+      "title": "Dance",
+      "kind": "unknown",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+      "venue": "Dance",
+      "city": "Dance",
+      "country": null,
+      "performanceYear": 1972,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 156.502494,
+      "qualityScore": 100,
+      "performanceNotes": "Performance label: Dance. Detected year: 1972. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Venue or tour: Dance",
+        "Performance year: 1972",
+        "Visual reference library prepared"
+      ],
+      "confidence": 1
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-n3wl9",
+        "domain": "song",
+        "kind": "release",
+        "year": 1972,
+        "label": "Popcorn — original release",
+        "detail": "Original album: Popcorn",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-l47p2r",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1972,
+        "label": "Billboard Hot 100 peak #9",
+        "detail": "18 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-otqqh1",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1972,
+        "label": "Popcorn",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-y0edfg"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-dbakpr",
+        "domain": "performance",
+        "kind": "other",
+        "year": 1972,
+        "label": "Dance",
+        "detail": "Dance",
+        "confidence": 1,
+        "source": "owned video",
+        "entityRef": "perf-jre4l6"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1972,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1972,
+      "label": "Album: Popcorn",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1972,
+      "label": "Dance",
+      "confidence": 1,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR882232",
+      "artist": "Hot Butter",
+      "title": "Popcorn",
+      "writers": [],
+      "originalReleaseYear": 1972,
+      "originalAlbum": "Popcorn",
+      "peakHot100": 9,
+      "chartWeeks": 18,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Hot Butter"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-y0edfg",
+        "kind": "studio_album",
+        "title": "Popcorn",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Popcorn",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1972,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-jre4l6",
+        "title": "Dance",
+        "kind": "unknown",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Hot Butter - Pop Corn (Dance).mp4",
+        "venue": "Dance",
+        "city": "Dance",
+        "country": null,
+        "performanceYear": 1972,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 156.502494,
+        "qualityScore": 100,
+        "performanceNotes": "Performance label: Dance. Detected year: 1972. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Venue or tour: Dance",
+          "Performance year: 1972",
+          "Visual reference library prepared"
+        ],
+        "confidence": 1
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-n3wl9",
+          "domain": "song",
+          "kind": "release",
+          "year": 1972,
+          "label": "Popcorn — original release",
+          "detail": "Original album: Popcorn",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-l47p2r",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1972,
+          "label": "Billboard Hot 100 peak #9",
+          "detail": "18 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-otqqh1",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1972,
+          "label": "Popcorn",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-y0edfg"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-dbakpr",
+          "domain": "performance",
+          "kind": "other",
+          "year": 1972,
+          "label": "Dance",
+          "detail": "Dance",
+          "confidence": 1,
+          "source": "owned video",
+          "entityRef": "perf-jre4l6"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1972,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1972,
+        "label": "Album: Popcorn",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1972,
+        "label": "Dance",
+        "confidence": 1,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

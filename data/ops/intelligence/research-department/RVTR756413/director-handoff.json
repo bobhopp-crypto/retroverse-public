@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR756413",
+  "artist": "George Michael",
+  "title": "Faith",
+  "story": {
+    "headline": "Faith: The Breakthrough Moment",
+    "subtitle": "George Michael · Breakthrough · 1987",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "summary": "George Michael's \"Faith\" reached #1 on the Billboard Hot 100. Faith was released in 1987.",
+    "fullStory": "George Michael's \"Faith\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 21 weeks on the chart.\n\nFaith was released in 1987.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "27c3ee25-e84e-4c8c-9880-95096254b6ce",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "12ecbdcf-9b5a-4c76-97ef-6a416f97daa9",
+      "text": "Faith was released in 1987.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8af0a897-118b-4a19-8040-5cb186a64f23",
+      "text": "The song appears on the album \"Faith\" (1987).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "96c013e4-6459-4662-b9be-9d56574790de",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f253b6d3-88c0-45c0-a17d-9758dfc42da7",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c21f43365dae",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR756413&file=hero.jpg",
+      "performanceId": "perf-9c4pzp"
+    },
+    {
+      "assetId": "de1bdf664093",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR756413&file=performance.jpg",
+      "performanceId": "perf-9c4pzp"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-9c4pzp",
+    "title": "Official Video · 1987",
+    "venue": "",
+    "year": 1987,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "c21f43365dae",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR756413&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "de1bdf664093",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR756413&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "closing": "George Michael's \"Faith\" reached #1 on the Billboard Hot 100. Faith was released in 1987.",
+    "storyBeats": [
+      {
+        "id": "beat-3329d941a3",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Faith\" — original release 1987. George Michael — \"Faith\" · Original release 1987 · Album: Faith · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c21f43365dae",
+          "de1bdf664093"
+        ],
+        "relatedPerformanceId": "perf-9c4pzp",
+        "priority": 1
+      },
+      {
+        "id": "beat-d14e4b6742",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Faith · Release 1987",
+        "supportingFactIds": [
+          "8af0a897-118b-4a19-8040-5cb186a64f23"
+        ],
+        "relatedImageAssetIds": [
+          "c21f43365dae",
+          "de1bdf664093"
+        ],
+        "relatedPerformanceId": "perf-9c4pzp",
+        "priority": 2
+      },
+      {
+        "id": "beat-1bcd415fb4",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 21 weeks on chart.",
+        "supportingFactIds": [
+          "27c3ee25-e84e-4c8c-9880-95096254b6ce"
+        ],
+        "relatedImageAssetIds": [
+          "c21f43365dae",
+          "de1bdf664093"
+        ],
+        "relatedPerformanceId": "perf-9c4pzp",
+        "priority": 3
+      },
+      {
+        "id": "beat-ce8d2b0631",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c21f43365dae",
+          "de1bdf664093"
+        ],
+        "relatedPerformanceId": "perf-9c4pzp",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-1f74a424ab",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1987,
+        "supportingFactIds": [
+          "27c3ee25-e84e-4c8c-9880-95096254b6ce"
+        ],
+        "relatedImageAssetIds": [
+          "c21f43365dae"
+        ]
+      },
+      {
+        "id": "moment-d0635c5193",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1987,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c21f43365dae"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-9c4pzp",
+      "title": "Official Video · 1987",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:18:35.903Z"
+  },
+  "submittedAt": "2026-06-27T05:18:35.903Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -5,7 +5,13 @@
  * Usage: npm run studio
  */
 
-import { spawn, execSync } from "node:child_process";
+import { spawn } from "node:child_process";
+import {
+  appendDevServerEvent,
+  isPortInUse,
+  readDevOwnership,
+  releaseOwnedDevServer,
+} from "./dev-server/ownership.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -31,6 +37,7 @@ let child = null;
 let logStream = null;
 let safariOpenedThisSession = false;
 let restartCount = 0;
+let lastExitAbnormal = false;
 
 function log(message) {
   const line = `${new Date().toISOString()} ${message}`;
@@ -66,35 +73,46 @@ function pipeChildOutput(stream, label) {
   });
 }
 
-function cleanupStaleDevServer() {
-  if (child) return;
-
+async function probeHealthy(url) {
   try {
-    const raw = execSync(`lsof -ti tcp:${port} -sTCP:LISTEN`, {
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "ignore"],
-    }).trim();
-    if (!raw) return;
-
-    for (const pidStr of raw.split("\n").filter(Boolean)) {
-      const pid = Number(pidStr);
-      if (!Number.isFinite(pid)) continue;
-      try {
-        const cmd = execSync(`ps -p ${pid} -o comm=`, {
-          encoding: "utf8",
-          stdio: ["ignore", "pipe", "ignore"],
-        }).trim();
-        if (/node/i.test(cmd)) {
-          log(`[cleanup] stopping stale node listener on port ${port} (pid ${pid})`);
-          process.kill(pid, "SIGTERM");
-        }
-      } catch {
-        /* process already gone */
-      }
-    }
+    const res = await fetch(url, {
+      redirect: "follow",
+      signal: AbortSignal.timeout(4_000),
+      headers: { Accept: "text/html" },
+    });
+    return res.status < 500;
   } catch {
-    /* port free */
+    return false;
   }
+}
+
+/** Reuse a healthy foreign dev server — never kill arbitrary port listeners. */
+async function resolveDevAvailability() {
+  if (await probeHealthy(healthUrl)) {
+    const foreign = readDevOwnership();
+    log(
+      `[reuse] dev already healthy at ${healthUrl}${foreign ? ` (owner=${foreign.owner}, pid=${foreign.wrapperPid})` : ""}`,
+    );
+    return { mode: "reuse" };
+  }
+
+  if (isPortInUse(Number(port))) {
+    const foreign = readDevOwnership();
+    const msg = foreign
+      ? `Port ${port} in use by owner=${foreign.owner} pid=${foreign.wrapperPid} but health check failed.`
+      : `Port ${port} in use but health check failed.`;
+    log(`[blocked] ${msg}`);
+    appendDevServerEvent({
+      event: "studio-blocked-port-conflict",
+      owner: "studio-launcher",
+      note: msg,
+      port: Number(port),
+    });
+    return { mode: "blocked", reason: msg };
+  }
+
+  releaseOwnedDevServer("studio-launcher");
+  return { mode: "spawn" };
 }
 
 async function waitForServer(url, { signal }) {
@@ -141,7 +159,16 @@ function openSafari(url) {
 }
 
 function spawnDevServer() {
-  return new Promise((resolve) => {
+  return new Promise(async (resolve) => {
+    const availability = await resolveDevAvailability();
+    if (availability.mode === "reuse") {
+      openSafari(studioUrl);
+      return resolve({ code: 0, signal: null, reused: true });
+    }
+    if (availability.mode === "blocked") {
+      return resolve({ code: 1, signal: null, blocked: true });
+    }
+
     const abort = new AbortController();
     let settled = false;
 
@@ -153,7 +180,10 @@ function spawnDevServer() {
     };
 
     restartCount += 1;
-    log(`[start] launching dev server on port ${port} (attempt ${restartCount})`);
+    const shouldClean = restartCount === 1 || lastExitAbnormal;
+    log(
+      `[start] launching dev server on port ${port} (attempt ${restartCount}, cache=${shouldClean ? "clean" : "reuse"})`,
+    );
 
     child = spawn("node", ["tools/next-dev.mjs"], {
       cwd: root,
@@ -162,7 +192,10 @@ function spawnDevServer() {
         ...process.env,
         PORT: port,
         HOSTNAME: host,
-        RETROVERSE_DEV_NO_CLEAN: "1",
+        RETROVERSE_DEV_OWNER: "studio-launcher",
+        ...(shouldClean
+          ? { RETROVERSE_DEV_CLEAN: "1" }
+          : { RETROVERSE_DEV_NO_CLEAN: "1" }),
       },
     });
 
@@ -175,6 +208,7 @@ function spawnDevServer() {
     });
 
     child.on("close", (code, signal) => {
+      lastExitAbnormal = code !== 0 || signal != null;
       child = null;
       finish({ code: code ?? 1, signal: signal ?? null });
     });
@@ -200,6 +234,7 @@ function spawnDevServer() {
 
 function stopChild() {
   if (!child) return;
+  releaseOwnedDevServer("studio-launcher");
   try {
     child.kill("SIGTERM");
   } catch {
@@ -213,10 +248,23 @@ async function main() {
   log(`[studio] log file: ${logFile}`);
   log(`[studio] target: ${studioUrl}`);
 
-  cleanupStaleDevServer();
-
   while (!shuttingDown) {
     const result = await spawnDevServer();
+
+    if (result.reused) {
+      log("[studio] using existing dev server — launcher idle (Ctrl+C to exit)");
+      await new Promise((resolve) => {
+        const onSig = () => resolve();
+        process.once("SIGINT", onSig);
+        process.once("SIGTERM", onSig);
+      });
+      break;
+    }
+
+    if (result.blocked) {
+      log("[studio] cannot start — resolve port conflict manually");
+      break;
+    }
 
     if (shuttingDown) break;
 
@@ -224,7 +272,6 @@ async function main() {
 
     log(`[restart] waiting ${restartDelayMs}ms before relaunch…`);
     await sleep(restartDelayMs);
-    cleanupStaleDevServer();
   }
 
   log("[studio] launcher stopped");

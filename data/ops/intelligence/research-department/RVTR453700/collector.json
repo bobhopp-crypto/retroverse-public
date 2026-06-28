@@ -1,0 +1,1047 @@
+{
+  "version": 4,
+  "rvtr": "RVTR453700",
+  "artist": "Tom Jones",
+  "title": "Detroit City",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T07:52:48.448Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Tom Jones — Detroit City (RVTR453700)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #27 · 8 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "12 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR453700",
+    "artist": "Tom Jones",
+    "title": "Detroit City",
+    "year": 1967,
+    "albumTitle": "Green, Green Grass Of Home"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+        "artist": "Tom Jones",
+        "title": "Detroit City",
+        "isVideo": true,
+        "playCount": null,
+        "year": 1967,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 27,
+    "chartWeeks": 8,
+    "albumTitle": "Green, Green Grass Of Home",
+    "summary": "Hot 100 peak #27 · 8 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+        "artist": "Tom Jones",
+        "title": "Detroit City",
+        "isVideo": true,
+        "playCount": null,
+        "year": 1967,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+      "performance.jpg",
+      "close-up.jpg",
+      "hero.jpg",
+      "crowd.jpg",
+      "alternate.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "bfedcd55bfb0",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 0,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T07:52:48.442Z"
+        },
+        {
+          "id": "67556032fd04",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 60,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T07:52:48.442Z"
+        },
+        {
+          "id": "ad0813690741",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 100,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T07:52:48.442Z"
+        },
+        {
+          "id": "d77e91d00ff7",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 160,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T07:52:48.442Z"
+        },
+        {
+          "id": "93ea7973fc0c",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 200,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T07:52:48.442Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Tom Jones"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "b2df9c75-71b4-4cca-988d-a26092acbc7d",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR453700.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "f6337c91-9c35-4f1e-b393-1898cb052a44",
+      "category": "artist",
+      "text": "Detroit City is performed by Tom Jones.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "9a358c60-44fe-4899-986c-43a303c99afc",
+      "category": "album",
+      "text": "The song appears on the album \"Green, Green Grass Of Home\" (1967).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-ca3413"
+    },
+    {
+      "id": "720d8434-bd9e-4508-b3bc-edb7fd391072",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR453700.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-ca3413"
+    },
+    {
+      "id": "95c714a8-3d20-47b9-8765-b54eca543b99",
+      "category": "chart",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 8 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "b34606e3-2e07-4265-8fa6-791321416967",
+      "category": "recording",
+      "text": "Detroit City was released in 1967.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "f1ea7e31-3bbf-418a-a9b3-ee3615af6046",
+      "category": "trivia",
+      "text": "Album: Green, Green Grass Of Home (1967).",
+      "source": "Retroverse Canon",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "6466df77-52de-47ed-95c6-0cd0025eb143",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR453700 (Detroit City).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "fc451f3a-45c3-45c8-853c-de609c0e085a",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "f6254ca9-bd08-4c36-b7c2-cde27b66e1b8",
+      "category": "trivia",
+      "text": "Album: Green, Green Grass Of Home (1967).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "36bfcebd-f66c-4a76-bc39-2fec0af36e11",
+      "category": "trivia",
+      "text": "Artist: Tom Jones · Title: Detroit City · Album: Detroit City · Year: 1967 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-1sexa"
+    },
+    {
+      "id": "e5bf4585-8d1c-49e7-a62d-fb13f92e0cfd",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-1sexa"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T07:52:46.860Z",
+      "excerpt": "Retroverse track identity: RVTR453700. \"Detroit City\" by Tom Jones. Album: Green, Green Grass Of Home (1967).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+      "capturedAt": "2026-06-28T07:52:46.860Z",
+      "excerpt": "Canonical cover assignment for RVTR453700 (Detroit City). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T07:52:46.860Z",
+      "excerpt": "Album: Green, Green Grass Of Home (1967). Billboard Hot 100 peak: #27. 8 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T07:52:46.860Z",
+      "excerpt": "Artist: Tom Jones · Title: Detroit City · Album: Detroit City · Year: 1967 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T07:52:46.860Z",
+      "excerpt": "Performance year context: 1967.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-0d80e582",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T07:52:46.860Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Tom Jones — Detroit City · Hot 100 peak #27 · 8 weeks · 1 performance videos · 12 candidate facts · 3 gaps · 1 performance(s) · 9/12 facts approved · confidence 63% · song 1967 / recording 1967",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR453700",
+      "artist": "Tom Jones",
+      "title": "Detroit City",
+      "year": 1967,
+      "albumTitle": "Green, Green Grass Of Home"
+    },
+    "charts": {
+      "peakHot100": 27,
+      "chartWeeks": 8,
+      "albumTitle": "Green, Green Grass Of Home",
+      "summary": "Hot 100 peak #27 · 8 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Tom Jones"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T07:52:46.860Z",
+          "excerpt": "Retroverse track identity: RVTR453700. \"Detroit City\" by Tom Jones. Album: Green, Green Grass Of Home (1967).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+          "capturedAt": "2026-06-28T07:52:46.860Z",
+          "excerpt": "Canonical cover assignment for RVTR453700 (Detroit City). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T07:52:46.860Z",
+          "excerpt": "Album: Green, Green Grass Of Home (1967). Billboard Hot 100 peak: #27. 8 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T07:52:46.860Z",
+          "excerpt": "Artist: Tom Jones · Title: Detroit City · Album: Detroit City · Year: 1967 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T07:52:46.860Z",
+          "excerpt": "Performance year context: 1967.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-0d80e582",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T07:52:46.860Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Tom Jones — Detroit City · Hot 100 peak #27 · 8 weeks · 1 performance videos · 12 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "b2df9c75-71b4-4cca-988d-a26092acbc7d",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR453700.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "f6337c91-9c35-4f1e-b393-1898cb052a44",
+        "category": "artist",
+        "text": "Detroit City is performed by Tom Jones.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "9a358c60-44fe-4899-986c-43a303c99afc",
+        "category": "album",
+        "text": "The song appears on the album \"Green, Green Grass Of Home\" (1967).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-ca3413"
+      },
+      {
+        "id": "720d8434-bd9e-4508-b3bc-edb7fd391072",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR453700.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-ca3413"
+      },
+      {
+        "id": "95c714a8-3d20-47b9-8765-b54eca543b99",
+        "category": "chart",
+        "text": "The song peaked at #27 on the Billboard Hot 100 and spent 8 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "b34606e3-2e07-4265-8fa6-791321416967",
+        "category": "recording",
+        "text": "Detroit City was released in 1967.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "f1ea7e31-3bbf-418a-a9b3-ee3615af6046",
+        "category": "trivia",
+        "text": "Album: Green, Green Grass Of Home (1967).",
+        "source": "Retroverse Canon",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "6466df77-52de-47ed-95c6-0cd0025eb143",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR453700 (Detroit City).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "fc451f3a-45c3-45c8-853c-de609c0e085a",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "f6254ca9-bd08-4c36-b7c2-cde27b66e1b8",
+        "category": "trivia",
+        "text": "Album: Green, Green Grass Of Home (1967).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "36bfcebd-f66c-4a76-bc39-2fec0af36e11",
+        "category": "trivia",
+        "text": "Artist: Tom Jones · Title: Detroit City · Album: Detroit City · Year: 1967 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-1sexa"
+      },
+      {
+        "id": "e5bf4585-8d1c-49e7-a62d-fb13f92e0cfd",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-1sexa"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL101104/RVAL101104__tom-jones__green-green-grass-of-home.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-1sexa",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "durationSec": 204.011,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "bfedcd55bfb0",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 0,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T07:52:48.442Z"
+            },
+            {
+              "id": "67556032fd04",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 60,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T07:52:48.442Z"
+            },
+            {
+              "id": "ad0813690741",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 100,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T07:52:48.442Z"
+            },
+            {
+              "id": "d77e91d00ff7",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 160,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T07:52:48.442Z"
+            },
+            {
+              "id": "93ea7973fc0c",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 200,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T07:52:48.442Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1967. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1967,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1967",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Tom Jones's \"Detroit City\" reached #27 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Detroit City is performed by Tom Jones.",
+      "The song appears on the album \"Green, Green Grass Of Home\" (1967).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR453700."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #27 on the Hot 100",
+      "Song release — original 1967 chapter",
+      "Performance angle — Official Video (1967)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR453700",
+    "artist": "Tom Jones",
+    "title": "Detroit City",
+    "writers": [],
+    "originalReleaseYear": 1967,
+    "originalAlbum": "Green, Green Grass Of Home",
+    "peakHot100": 27,
+    "chartWeeks": 8,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Tom Jones"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-ca3413",
+      "kind": "studio_album",
+      "title": "Green, Green Grass Of Home",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Green, Green Grass Of Home",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1967,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-1sexa",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1967,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 204.011,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 1967. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1967",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-mmllzw",
+        "domain": "song",
+        "kind": "release",
+        "year": 1967,
+        "label": "Detroit City — original release",
+        "detail": "Original album: Green, Green Grass Of Home",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3gr",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1967,
+        "label": "Billboard Hot 100 peak #27",
+        "detail": "8 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-igcqn2",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1967,
+        "label": "Green, Green Grass Of Home",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-ca3413"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1967,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-1sexa"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1967,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1967,
+      "label": "Album: Green, Green Grass Of Home",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1967,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR453700",
+      "artist": "Tom Jones",
+      "title": "Detroit City",
+      "writers": [],
+      "originalReleaseYear": 1967,
+      "originalAlbum": "Green, Green Grass Of Home",
+      "peakHot100": 27,
+      "chartWeeks": 8,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Tom Jones"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-ca3413",
+        "kind": "studio_album",
+        "title": "Green, Green Grass Of Home",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Green, Green Grass Of Home",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1967,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-1sexa",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1960's/Tom Jones - Detroit City.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1967,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 204.011,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 1967. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1967",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-mmllzw",
+          "domain": "song",
+          "kind": "release",
+          "year": 1967,
+          "label": "Detroit City — original release",
+          "detail": "Original album: Green, Green Grass Of Home",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3gr",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1967,
+          "label": "Billboard Hot 100 peak #27",
+          "detail": "8 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-igcqn2",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1967,
+          "label": "Green, Green Grass Of Home",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-ca3413"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1967,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-1sexa"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1967,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1967,
+        "label": "Album: Green, Green Grass Of Home",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1967,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

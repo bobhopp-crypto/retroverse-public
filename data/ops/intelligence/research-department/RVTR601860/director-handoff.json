@@ -1,0 +1,201 @@
+{
+  "version": 2,
+  "rvtr": "RVTR601860",
+  "artist": "The Rolling Stones",
+  "title": "She's A Rainbow",
+  "story": {
+    "headline": "She's A Rainbow: A Cultural Moment Captured on Record",
+    "subtitle": "The Rolling Stones · Cultural Moment · 1989",
+    "hook": "The song peaked at #25 on the Billboard Hot 100 and spent 7 weeks on the chart.",
+    "summary": "The Rolling Stones's \"She's A Rainbow\" reached #25 on the Billboard Hot 100.",
+    "fullStory": "The Rolling Stones's \"She's A Rainbow\" reached #25 on the Billboard Hot 100.\n\nThe song peaked at #25 on the Billboard Hot 100 and spent 7 weeks on the chart.\n\nGraph compilation anchor: \"Singles Collection - The London Years\" (1989) — not the song's original release year.\n\n\"She's A Rainbow\" by The Rolling Stones.\n\nChart story — peaked at #25 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "43b762eb-fa8c-4295-8836-2f9cb55fedd5",
+      "text": "The song peaked at #25 on the Billboard Hot 100 and spent 7 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a6e3429a-53e6-4db1-ab05-b7863ff4da60",
+      "text": "The song appears on the album \"Singles Collection - The London Years\" (1989).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ce93fc24-13ea-4d6f-bc7e-e8ef99198834",
+      "text": "Graph compilation anchor: \"Singles Collection - The London Years\" (1989) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f4b9a638-4b14-4207-8818-a3ed7eda6e3e",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "1a13f420-55df-479b-a7ff-a5c5f4dc11fb",
+      "text": "\"She's A Rainbow\" by The Rolling Stones.",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "663c8b16-3b9b-4e07-ab97-1379e6ff1e36",
+      "text": "Album: Singles Collection - The London Years (1989).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "2ce26b5c-bdf7-46e2-9794-d0c2fcc4a1c1",
+      "text": "Album: Singles Collection - The London Years (1989).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "fd8b4cfc4cc4",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601860&file=performance.jpg",
+      "performanceId": "perf-7t2h8"
+    },
+    {
+      "assetId": "fdc43ed67e7f",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601860&file=hero.jpg",
+      "performanceId": "perf-7t2h8"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-7t2h8",
+    "title": "Official Video · 1967",
+    "venue": "",
+    "year": 1967,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1967 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "fd8b4cfc4cc4",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601860&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "fdc43ed67e7f",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601860&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #25 on the Billboard Hot 100 and spent 7 weeks on the chart.",
+    "closing": "The Rolling Stones's \"She's A Rainbow\" reached #25 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-74f171c500",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"She's A Rainbow\" — original release 1967. The Rolling Stones — \"She's A Rainbow\" · Original release 1967 · Hot 100 peak #25",
+        "supportingFactIds": [
+          "ce93fc24-13ea-4d6f-bc7e-e8ef99198834"
+        ],
+        "relatedImageAssetIds": [
+          "fd8b4cfc4cc4",
+          "fdc43ed67e7f"
+        ],
+        "relatedPerformanceId": "perf-7t2h8",
+        "priority": 1
+      },
+      {
+        "id": "beat-75549fae4d",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Singles Collection - The London Years · Release 1989 · Compilation edition",
+        "supportingFactIds": [
+          "a6e3429a-53e6-4db1-ab05-b7863ff4da60",
+          "663c8b16-3b9b-4e07-ab97-1379e6ff1e36"
+        ],
+        "relatedImageAssetIds": [
+          "fd8b4cfc4cc4",
+          "fdc43ed67e7f"
+        ],
+        "relatedPerformanceId": "perf-7t2h8",
+        "priority": 2
+      },
+      {
+        "id": "beat-7e536bdd9a",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #25 · 7 weeks on chart.",
+        "supportingFactIds": [
+          "43b762eb-fa8c-4295-8836-2f9cb55fedd5"
+        ],
+        "relatedImageAssetIds": [
+          "fd8b4cfc4cc4",
+          "fdc43ed67e7f"
+        ],
+        "relatedPerformanceId": "perf-7t2h8",
+        "priority": 3
+      },
+      {
+        "id": "beat-27eb5a4326",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "fd8b4cfc4cc4",
+          "fdc43ed67e7f"
+        ],
+        "relatedPerformanceId": "perf-7t2h8",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-e5ae487007",
+        "title": "Chart milestone",
+        "description": "Peaked at #25 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1967,
+        "supportingFactIds": [
+          "43b762eb-fa8c-4295-8836-2f9cb55fedd5"
+        ],
+        "relatedImageAssetIds": [
+          "fd8b4cfc4cc4"
+        ]
+      },
+      {
+        "id": "moment-3deda9d8e5",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1967,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "fd8b4cfc4cc4"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-7t2h8",
+      "title": "Official Video · 1967",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1967 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #25 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:27:41.802Z"
+  },
+  "submittedAt": "2026-06-27T05:27:41.802Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

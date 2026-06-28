@@ -2685,29 +2685,38 @@
   font-weight: 800;
 }
 
-.ops-editor-office__review {
+.ops-editor-office__review,
+.rs-studio-review-panel {
   margin-bottom: 1.25rem;
   padding: 1rem 1.1rem;
-  border: 3px solid #1a6b6b;
-  border-radius: 12px;
-  background: rgba(255, 248, 235, 0.92);
+  border: 2px solid var(--rs-studio-border-info, rgba(79, 213, 255, 0.45));
+  border-radius: var(--rs-studio-radius-lg, 0.65rem);
+  background: linear-gradient(180deg, rgba(9, 27, 57, 0.96), rgba(13, 36, 85, 0.98));
+  box-shadow: var(--rs-studio-shadow-panel, 0 0 0 1px rgba(79, 213, 255, 0.08) inset);
+  color: var(--rs-studio-ink, #f3f7ff);
 }
 
-.ops-editor-office__review-title {
+.ops-editor-office__review-title,
+.rs-studio-review-panel__title {
   margin: 0 0 0.35rem;
   font-size: 1.05rem;
   font-weight: 800;
+  color: var(--rs-studio-ink, #f3f7ff);
 }
 
-.ops-editor-office__review-rec {
+.ops-editor-office__review-rec,
+.rs-studio-review-panel__lead {
   margin: 0 0 0.35rem;
   font-size: 1rem;
   font-weight: 800;
+  color: var(--rs-studio-color-info, #4fd5ff);
 }
 
-.ops-editor-office__review-expl {
+.ops-editor-office__review-expl,
+.rs-studio-review-panel__body {
   margin: 0 0 0.75rem;
   line-height: 1.45;
+  color: var(--rs-studio-ink-muted, #9db4df);
 }
 
 .ops-editor-office__review-grid {
@@ -2721,13 +2730,14 @@
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  opacity: 0.75;
+  color: var(--rs-studio-ink-muted, #9db4df);
 }
 
 .ops-editor-office__review-grid dd {
   margin: 0.15rem 0 0;
   font-size: 1.05rem;
   font-weight: 800;
+  color: var(--rs-studio-ink, #f3f7ff);
 }
 
 .ops-editor-office__weaknesses {
@@ -2758,5 +2768,163 @@
 
   .ops-editor-office__card {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Sprint 3.13 — Editorial Brain */
+.ops-editor-brain__brief {
+  margin-bottom: 1.25rem;
+}
+
+.ops-editor-brain__headline {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.ops-editor-brain__hook {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: rgba(231, 189, 103, 0.95);
+}
+
+.ops-editor-brain__brief-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.ops-editor-brain__brief-grid dt {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(245, 251, 255, 0.55);
+}
+
+.ops-editor-brain__brief-grid dd {
+  margin: 0.15rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.ops-editor-brain__takeaway dd {
+  font-weight: 700;
+  color: rgba(66, 241, 135, 0.95);
+}
+
+.ops-editor-brain__section {
+  margin-bottom: 1.25rem;
+}
+
+.ops-editor-brain__board {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ops-editor-brain__board-section {
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(87, 146, 255, 0.22);
+  border-radius: 0.4rem;
+  background: rgba(8, 24, 52, 0.45);
+}
+
+.ops-editor-brain__board-section h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  color: rgba(107, 200, 255, 0.95);
+}
+
+.ops-editor-brain__board-lead {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  color: rgba(245, 251, 255, 0.55);
+}
+
+.ops-editor-brain__board-section ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.ops-editor-brain__evidence--primary {
+  font-weight: 700;
+}
+
+.ops-editor-brain__museum-lead {
+  margin: 0 0 0.65rem;
+  font-size: 0.92rem;
+  color: rgba(245, 251, 255, 0.75);
+}
+
+.ops-editor-brain__exhibit-flow {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.ops-editor-brain__exhibit {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.55rem 0.65rem;
+  border-left: 3px solid rgba(87, 146, 255, 0.5);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0 0.35rem 0.35rem 0;
+}
+
+.ops-editor-brain__exhibit--opening {
+  border-left-color: rgba(231, 189, 103, 0.9);
+}
+
+.ops-editor-brain__exhibit--closing {
+  border-left-color: rgba(66, 241, 135, 0.85);
+}
+
+.ops-editor-brain__exhibit span {
+  font-size: 0.8rem;
+  color: rgba(245, 251, 255, 0.6);
+}
+
+.ops-editor-brain__director p {
+  margin: 0 0 0.45rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.ops-editor-brain__rv-moments {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.82rem;
+}
+
+.ops-editor-brain__noise,
+.ops-editor-brain__support {
+  margin: 1rem 0;
+  font-size: 0.82rem;
+  color: rgba(245, 251, 255, 0.65);
+}
+
+.ops-editor-brain__noise summary,
+.ops-editor-brain__support summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: rgba(107, 200, 255, 0.9);
+}
+
+@media (min-width: 720px) {
+  .ops-editor-brain__brief-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ops-editor-brain__takeaway {
+    grid-column: 1 / -1;
+  }
+
+  .ops-editor-brain__board {
+    grid-template-columns: 1fr 1fr;
   }
 }

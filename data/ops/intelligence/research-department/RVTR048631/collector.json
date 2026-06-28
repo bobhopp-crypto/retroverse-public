@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR048631",
+  "artist": "Imagine Dragons",
+  "title": "Natural",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T08:16:33.182Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Imagine Dragons — Natural (RVTR048631)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #13 · 27 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR048631",
+    "artist": "Imagine Dragons",
+    "title": "Natural",
+    "year": 2018,
+    "albumTitle": "Origins"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+        "artist": "Imagine Dragons",
+        "title": "Natural",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2018,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 13,
+    "chartWeeks": 27,
+    "albumTitle": "Origins",
+    "summary": "Hot 100 peak #13 · 27 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+        "artist": "Imagine Dragons",
+        "title": "Natural",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2018,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+      "performance.jpg",
+      "crowd.jpg",
+      "hero.jpg",
+      "alternate.jpg",
+      "close-up.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "adaa4edfdbe1",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 20,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T08:16:33.177Z"
+        },
+        {
+          "id": "52f11a75ac2f",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 60,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T08:16:33.177Z"
+        },
+        {
+          "id": "47cf8ec97920",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 80,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T08:16:33.177Z"
+        },
+        {
+          "id": "9b722385bb75",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 140,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T08:16:33.177Z"
+        },
+        {
+          "id": "98140ebe9253",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 180,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T08:16:33.177Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Imagine Dragons"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "7b6e2134-3449-4f17-adc1-495f593c5b01",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR048631.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "7eb00f41-bbf6-4272-b1cf-5f36c4525f1c",
+      "category": "artist",
+      "text": "Natural is performed by Imagine Dragons.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "9c5ecc24-fa66-4081-84ac-0f5e4a54c4cb",
+      "category": "album",
+      "text": "The song appears on the album \"Origins\" (2018).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-p7p6su"
+    },
+    {
+      "id": "73222c1b-93e9-4c97-a3cd-b95d55d85a59",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR048631.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-p7p6su"
+    },
+    {
+      "id": "87f8c975-d632-4f99-84c1-3b567a03768a",
+      "category": "chart",
+      "text": "The song peaked at #13 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "897ed842-4a55-486d-b08f-859d5adc11ee",
+      "category": "recording",
+      "text": "Natural was released in 2018.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "8be83a02-fd44-4b9d-af6f-d7567534674c",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR048631 (Natural).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "7fec70d7-3eae-488d-a680-b0be4be9d2c9",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "e68309ac-7795-4f26-9c4f-609097abdb4a",
+      "category": "trivia",
+      "text": "Artist: Imagine Dragons · Title: Natural · Album: Natural · Year: 2018 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-8uwesn"
+    },
+    {
+      "id": "18c42b2a-c182-4569-9b40-8d8d1c00b8b7",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-8uwesn"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T08:16:31.719Z",
+      "excerpt": "Retroverse track identity: RVTR048631. \"Natural\" by Imagine Dragons. Album: Origins (2018).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+      "capturedAt": "2026-06-28T08:16:31.719Z",
+      "excerpt": "Canonical cover assignment for RVTR048631 (Natural). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T08:16:31.719Z",
+      "excerpt": "Album: Origins (2018). Billboard Hot 100 peak: #13. 27 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T08:16:31.719Z",
+      "excerpt": "Artist: Imagine Dragons · Title: Natural · Album: Natural · Year: 2018 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T08:16:31.719Z",
+      "excerpt": "Performance year context: 2018.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-cc0dec8b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T08:16:31.719Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Imagine Dragons — Natural · Hot 100 peak #13 · 27 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 2018 / recording 2018",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR048631",
+      "artist": "Imagine Dragons",
+      "title": "Natural",
+      "year": 2018,
+      "albumTitle": "Origins"
+    },
+    "charts": {
+      "peakHot100": 13,
+      "chartWeeks": 27,
+      "albumTitle": "Origins",
+      "summary": "Hot 100 peak #13 · 27 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Imagine Dragons"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T08:16:31.719Z",
+          "excerpt": "Retroverse track identity: RVTR048631. \"Natural\" by Imagine Dragons. Album: Origins (2018).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+          "capturedAt": "2026-06-28T08:16:31.719Z",
+          "excerpt": "Canonical cover assignment for RVTR048631 (Natural). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T08:16:31.719Z",
+          "excerpt": "Album: Origins (2018). Billboard Hot 100 peak: #13. 27 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T08:16:31.719Z",
+          "excerpt": "Artist: Imagine Dragons · Title: Natural · Album: Natural · Year: 2018 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T08:16:31.719Z",
+          "excerpt": "Performance year context: 2018.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-cc0dec8b",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T08:16:31.719Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Imagine Dragons — Natural · Hot 100 peak #13 · 27 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "7b6e2134-3449-4f17-adc1-495f593c5b01",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR048631.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "7eb00f41-bbf6-4272-b1cf-5f36c4525f1c",
+        "category": "artist",
+        "text": "Natural is performed by Imagine Dragons.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "9c5ecc24-fa66-4081-84ac-0f5e4a54c4cb",
+        "category": "album",
+        "text": "The song appears on the album \"Origins\" (2018).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-p7p6su"
+      },
+      {
+        "id": "73222c1b-93e9-4c97-a3cd-b95d55d85a59",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR048631.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-p7p6su"
+      },
+      {
+        "id": "87f8c975-d632-4f99-84c1-3b567a03768a",
+        "category": "chart",
+        "text": "The song peaked at #13 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "897ed842-4a55-486d-b08f-859d5adc11ee",
+        "category": "recording",
+        "text": "Natural was released in 2018.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "8be83a02-fd44-4b9d-af6f-d7567534674c",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR048631 (Natural).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "7fec70d7-3eae-488d-a680-b0be4be9d2c9",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "e68309ac-7795-4f26-9c4f-609097abdb4a",
+        "category": "trivia",
+        "text": "Artist: Imagine Dragons · Title: Natural · Album: Natural · Year: 2018 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-8uwesn"
+      },
+      {
+        "id": "18c42b2a-c182-4569-9b40-8d8d1c00b8b7",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-8uwesn"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL755578/RVAL755578__imagine-dragons__origins.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-8uwesn",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "durationSec": 189.59093,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "adaa4edfdbe1",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 20,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T08:16:33.177Z"
+            },
+            {
+              "id": "52f11a75ac2f",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 60,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T08:16:33.177Z"
+            },
+            {
+              "id": "47cf8ec97920",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 80,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T08:16:33.177Z"
+            },
+            {
+              "id": "9b722385bb75",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 140,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T08:16:33.177Z"
+            },
+            {
+              "id": "98140ebe9253",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 180,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T08:16:33.177Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2018. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2018,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2018",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Imagine Dragons's \"Natural\" reached #13 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Natural is performed by Imagine Dragons.",
+      "The song appears on the album \"Origins\" (2018).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR048631."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #13 on the Hot 100",
+      "Song release — original 2018 chapter",
+      "Performance angle — Official Video (2018)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR048631",
+    "artist": "Imagine Dragons",
+    "title": "Natural",
+    "writers": [],
+    "originalReleaseYear": 2018,
+    "originalAlbum": "Origins",
+    "peakHot100": 13,
+    "chartWeeks": 27,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Imagine Dragons"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-p7p6su",
+      "kind": "studio_album",
+      "title": "Origins",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Origins",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2018,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-8uwesn",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2018,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 189.59093,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2018. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2018",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-bxgz8t",
+        "domain": "song",
+        "kind": "release",
+        "year": 2018,
+        "label": "Natural — original release",
+        "detail": "Original album: Origins",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3fs",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2018,
+        "label": "Billboard Hot 100 peak #13",
+        "detail": "27 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-bgp6op",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2018,
+        "label": "Origins",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-p7p6su"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2018,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-8uwesn"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2018,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2018,
+      "label": "Album: Origins",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2018,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR048631",
+      "artist": "Imagine Dragons",
+      "title": "Natural",
+      "writers": [],
+      "originalReleaseYear": 2018,
+      "originalAlbum": "Origins",
+      "peakHot100": 13,
+      "chartWeeks": 27,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Imagine Dragons"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-p7p6su",
+        "kind": "studio_album",
+        "title": "Origins",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Origins",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2018,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-8uwesn",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Imagine Dragons - Natural.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2018,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 189.59093,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2018. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2018",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-bxgz8t",
+          "domain": "song",
+          "kind": "release",
+          "year": 2018,
+          "label": "Natural — original release",
+          "detail": "Original album: Origins",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3fs",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2018,
+          "label": "Billboard Hot 100 peak #13",
+          "detail": "27 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-bgp6op",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2018,
+          "label": "Origins",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-p7p6su"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2018,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-8uwesn"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2018,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2018,
+        "label": "Album: Origins",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2018,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

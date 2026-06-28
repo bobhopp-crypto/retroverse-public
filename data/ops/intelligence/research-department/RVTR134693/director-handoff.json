@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR134693",
+  "artist": "Elvis Presley",
+  "title": "T R O U B L E",
+  "story": {
+    "headline": "T R O U B L E: A Cultural Moment Captured on Record",
+    "subtitle": "Elvis Presley · Cultural Moment · 1975",
+    "hook": "The song peaked at #35 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+    "summary": "Elvis Presley's \"T R O U B L E\" reached #35 on the Billboard Hot 100. T R O U B L E was released in 1975.",
+    "fullStory": "Elvis Presley's \"T R O U B L E\" reached #35 on the Billboard Hot 100.\n\nThe song peaked at #35 on the Billboard Hot 100 and spent 9 weeks on the chart.\n\nT R O U B L E was released in 1975.\n\nChart story — peaked at #35 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "855bdea1-2c36-4ae6-9bcd-e9efb4c0146f",
+      "text": "The song peaked at #35 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d1dabac7-4754-4c09-87b7-48a8129f72c3",
+      "text": "T R O U B L E was released in 1975.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "223d07ce-b1b6-4c5c-88be-be6a984c16b8",
+      "text": "VirtualDJ library play count: 27.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "7ffd32dc4038",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR134693&file=hero.jpg",
+      "performanceId": "perf-y74drc"
+    },
+    {
+      "assetId": "ee372d46fa0d",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR134693&file=performance.jpg",
+      "performanceId": "perf-y74drc"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-y74drc",
+    "title": "Bridge Over Troubled Water · 1970",
+    "venue": "",
+    "year": 1970,
+    "notes": "Recommended cut — Recommended: Bridge Over Troubled Water. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "7ffd32dc4038",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR134693&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "ee372d46fa0d",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR134693&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #35 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+    "closing": "Elvis Presley's \"T R O U B L E\" reached #35 on the Billboard Hot 100. T R O U B L E was released in 1975.",
+    "storyBeats": [
+      {
+        "id": "beat-1106b513fb",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"T R O U B L E\" — original release 1975. Elvis Presley — \"T R O U B L E\" · Original release 1975 · Hot 100 peak #35",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7ffd32dc4038",
+          "ee372d46fa0d"
+        ],
+        "relatedPerformanceId": "perf-y74drc",
+        "priority": 1
+      },
+      {
+        "id": "beat-a8b747800e",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "T R O U B L E — graph recording · Release 1975",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7ffd32dc4038",
+          "ee372d46fa0d"
+        ],
+        "relatedPerformanceId": "perf-y74drc",
+        "priority": 2
+      },
+      {
+        "id": "beat-ea65107790",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #35 · 9 weeks on chart.",
+        "supportingFactIds": [
+          "855bdea1-2c36-4ae6-9bcd-e9efb4c0146f"
+        ],
+        "relatedImageAssetIds": [
+          "7ffd32dc4038",
+          "ee372d46fa0d"
+        ],
+        "relatedPerformanceId": "perf-y74drc",
+        "priority": 3
+      },
+      {
+        "id": "beat-8b77c07705",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7ffd32dc4038",
+          "ee372d46fa0d"
+        ],
+        "relatedPerformanceId": "perf-y74drc",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-4ed57c04f9",
+        "title": "Chart milestone",
+        "description": "Peaked at #35 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1975,
+        "supportingFactIds": [
+          "855bdea1-2c36-4ae6-9bcd-e9efb4c0146f"
+        ],
+        "relatedImageAssetIds": [
+          "7ffd32dc4038"
+        ]
+      },
+      {
+        "id": "moment-42492ee7fb",
+        "title": "Bridge Over Troubled Water",
+        "description": "Recommended: Bridge Over Troubled Water. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1970,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7ffd32dc4038"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-y74drc",
+      "title": "Bridge Over Troubled Water · 1970",
+      "reason": "Recommended: Bridge Over Troubled Water. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #35 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:09.668Z"
+  },
+  "submittedAt": "2026-06-27T04:20:09.668Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

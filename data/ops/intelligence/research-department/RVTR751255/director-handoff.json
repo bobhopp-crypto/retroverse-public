@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR751255",
+  "artist": "T-pain",
+  "title": "Bartender",
+  "story": {
+    "headline": "Bartender: The Breakthrough Moment",
+    "subtitle": "T-pain · Breakthrough · 2007",
+    "hook": "The song peaked at #5 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "summary": "T-pain's \"Bartender\" reached #5 on the Billboard Hot 100. Bartender was released in 2007.",
+    "fullStory": "T-pain's \"Bartender\" reached #5 on the Billboard Hot 100.\n\nThe song peaked at #5 on the Billboard Hot 100 and spent 22 weeks on the chart.\n\nBartender was released in 2007.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #5 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "c2786519-0269-4465-9d61-14f74cfacb4c",
+      "text": "The song peaked at #5 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b385ef4f-f28f-4e57-b67b-0c323dfd13a5",
+      "text": "Bartender was released in 2007.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "5eb95762-53ba-41a3-8ef2-5ead4e62b603",
+      "text": "The song appears on the album \"Epiphany\" (2007).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8f34b7bb-a292-4c0c-a5bd-e2bf46e4f4b7",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f0590295-2c66-459f-8c13-61704b606c1b",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "6c86c9434e29",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR751255&file=performance.jpg",
+      "performanceId": "perf-4mxpml"
+    },
+    {
+      "assetId": "163b1a8fd124",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR751255&file=hero.jpg",
+      "performanceId": "perf-4mxpml"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-4mxpml",
+    "title": "Official Video · 2007",
+    "venue": "",
+    "year": 2007,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2007 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "6c86c9434e29",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR751255&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "163b1a8fd124",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR751255&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #5 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "closing": "T-pain's \"Bartender\" reached #5 on the Billboard Hot 100. Bartender was released in 2007.",
+    "storyBeats": [
+      {
+        "id": "beat-8d5059e563",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Bartender\" — original release 2007. T-pain — \"Bartender\" · Original release 2007 · Album: Epiphany · Hot 100 peak #5",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6c86c9434e29",
+          "163b1a8fd124"
+        ],
+        "relatedPerformanceId": "perf-4mxpml",
+        "priority": 1
+      },
+      {
+        "id": "beat-f849f464ff",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Epiphany · Release 2007",
+        "supportingFactIds": [
+          "5eb95762-53ba-41a3-8ef2-5ead4e62b603"
+        ],
+        "relatedImageAssetIds": [
+          "6c86c9434e29",
+          "163b1a8fd124"
+        ],
+        "relatedPerformanceId": "perf-4mxpml",
+        "priority": 2
+      },
+      {
+        "id": "beat-d899305bea",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #5 · 22 weeks on chart.",
+        "supportingFactIds": [
+          "c2786519-0269-4465-9d61-14f74cfacb4c"
+        ],
+        "relatedImageAssetIds": [
+          "6c86c9434e29",
+          "163b1a8fd124"
+        ],
+        "relatedPerformanceId": "perf-4mxpml",
+        "priority": 3
+      },
+      {
+        "id": "beat-59828a4f15",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6c86c9434e29",
+          "163b1a8fd124"
+        ],
+        "relatedPerformanceId": "perf-4mxpml",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-dd8684bd59",
+        "title": "Chart milestone",
+        "description": "Peaked at #5 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2007,
+        "supportingFactIds": [
+          "c2786519-0269-4465-9d61-14f74cfacb4c"
+        ],
+        "relatedImageAssetIds": [
+          "6c86c9434e29"
+        ]
+      },
+      {
+        "id": "moment-bcec854103",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2007,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6c86c9434e29"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-4mxpml",
+      "title": "Official Video · 2007",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2007 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #5 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:36:20.888Z"
+  },
+  "submittedAt": "2026-06-27T05:36:20.888Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.8,
+    "storyQuality": "Strong"
+  }
+}

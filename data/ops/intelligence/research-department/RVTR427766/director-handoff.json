@@ -1,0 +1,199 @@
+{
+  "version": 2,
+  "rvtr": "RVTR427766",
+  "artist": "Michael Jackson",
+  "title": "Man In The Mirror",
+  "story": {
+    "headline": "Man In The Mirror: The Breakthrough Moment",
+    "subtitle": "Michael Jackson · Breakthrough · 2009",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "summary": "Michael Jackson's \"Man In The Mirror\" reached #1 on the Billboard Hot 100. Man In The Mirror was released in 2009.",
+    "fullStory": "Michael Jackson's \"Man In The Mirror\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.\n\nMan In The Mirror was released in 2009.\n\nAlbum: Michael Jackson's This Is It (Soundtrack) (2009).\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "2a14e09c-da5c-40bc-8b61-ca3a5ef3c851",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "68743783-6f87-4ea7-b632-cefa8780c031",
+      "text": "Man In The Mirror was released in 2009.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "979249df-d312-4a25-a6c8-24caca955010",
+      "text": "The song appears on the album \"Michael Jackson's This Is It (Soundtrack)\" (2009).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2644de38-9f41-48ca-9401-637f5f686138",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0bd77ada-397d-4c5f-a9ac-530a6b9a434f",
+      "text": "Album: Michael Jackson's This Is It (Soundtrack) (2009).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "ce282fad-5a69-432a-a7b0-8bcc817370cb",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "2ced5b7e-f0f2-4cbe-b424-56a9eb11457f",
+      "text": "Album: Michael Jackson's This Is It (Soundtrack) (2009).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "65ac85f910a3",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427766&file=performance.jpg",
+      "performanceId": "perf-dpjp22"
+    },
+    {
+      "assetId": "275f952e59a3",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427766&file=hero.jpg",
+      "performanceId": "perf-dpjp22"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-dpjp22",
+    "title": "Official Video · 1988",
+    "venue": "",
+    "year": 1988,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "65ac85f910a3",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427766&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "275f952e59a3",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR427766&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "closing": "Michael Jackson's \"Man In The Mirror\" reached #1 on the Billboard Hot 100. Man In The Mirror was released in 2009.",
+    "storyBeats": [
+      {
+        "id": "beat-ddb4b2f0af",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Man In The Mirror\" — original release 2009. Michael Jackson — \"Man In The Mirror\" · Original release 2009 · Album: Michael Jackson's This Is It (Soundtrack) · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "65ac85f910a3",
+          "275f952e59a3"
+        ],
+        "relatedPerformanceId": "perf-dpjp22",
+        "priority": 1
+      },
+      {
+        "id": "beat-180af643cd",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Michael Jackson's This Is It (Soundtrack) · Release 2009",
+        "supportingFactIds": [
+          "979249df-d312-4a25-a6c8-24caca955010",
+          "0bd77ada-397d-4c5f-a9ac-530a6b9a434f"
+        ],
+        "relatedImageAssetIds": [
+          "65ac85f910a3",
+          "275f952e59a3"
+        ],
+        "relatedPerformanceId": "perf-dpjp22",
+        "priority": 2
+      },
+      {
+        "id": "beat-acca138ce9",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 17 weeks on chart.",
+        "supportingFactIds": [
+          "2a14e09c-da5c-40bc-8b61-ca3a5ef3c851"
+        ],
+        "relatedImageAssetIds": [
+          "65ac85f910a3",
+          "275f952e59a3"
+        ],
+        "relatedPerformanceId": "perf-dpjp22",
+        "priority": 3
+      },
+      {
+        "id": "beat-4caef01682",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "65ac85f910a3",
+          "275f952e59a3"
+        ],
+        "relatedPerformanceId": "perf-dpjp22",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-840841f480",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2009,
+        "supportingFactIds": [
+          "2a14e09c-da5c-40bc-8b61-ca3a5ef3c851"
+        ],
+        "relatedImageAssetIds": [
+          "65ac85f910a3"
+        ]
+      },
+      {
+        "id": "moment-b912860952",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1988,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "65ac85f910a3"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-dpjp22",
+      "title": "Official Video · 1988",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:44:34.737Z"
+  },
+  "submittedAt": "2026-06-27T05:44:34.737Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "version": 2,
+  "rvtr": "RVTR759453",
+  "artist": "The Cars",
+  "title": "You Might Think",
+  "story": {
+    "headline": "You Might Think: The Breakthrough Moment",
+    "subtitle": "The Cars · Breakthrough · 2002",
+    "hook": "The song peaked at #7 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "summary": "The Cars's \"You Might Think\" reached #7 on the Billboard Hot 100.",
+    "fullStory": "The Cars's \"You Might Think\" reached #7 on the Billboard Hot 100.\n\nThe song peaked at #7 on the Billboard Hot 100 and spent 17 weeks on the chart.\n\nGraph compilation anchor: \"The Complete Greatest Hits\" (2002) — not the song's original release year.\n\nAlbum: The Complete Greatest Hits (2002).\n\nChart story — peaked at #7 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "c3aae42d-398b-4dc5-b1c0-47ec68ceafe9",
+      "text": "The song peaked at #7 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "6a94cd3d-85dd-474d-a8c5-82467f7368c9",
+      "text": "The song appears on the album \"The Complete Greatest Hits\" (2002).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d47a5827-13dd-4cfb-bc12-844de18fdf61",
+      "text": "Graph compilation anchor: \"The Complete Greatest Hits\" (2002) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "cd9b227b-7c55-4b69-a94d-5d5301133536",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d9946284-9d7f-47b5-87c1-e0cb95ed8ef3",
+      "text": "Album: The Complete Greatest Hits (2002).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "2b85d78c-aaee-4411-9db9-38e04b240dc9",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "7e3fbe22-6ef3-42a3-96da-976f2b53df05",
+      "text": "Album: The Complete Greatest Hits (2002).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "f7f455db5912",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR759453&file=performance.jpg",
+      "performanceId": "perf-oxb0ie"
+    },
+    {
+      "assetId": "7a64bea9f94b",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR759453&file=hero.jpg",
+      "performanceId": "perf-oxb0ie"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-oxb0ie",
+    "title": "Official Video · 1984",
+    "venue": "",
+    "year": 1984,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "f7f455db5912",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR759453&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "7a64bea9f94b",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR759453&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #7 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "closing": "The Cars's \"You Might Think\" reached #7 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-985460fac8",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"You Might Think\" — original release 1984. The Cars — \"You Might Think\" · Original release 1984 · Hot 100 peak #7",
+        "supportingFactIds": [
+          "d47a5827-13dd-4cfb-bc12-844de18fdf61"
+        ],
+        "relatedImageAssetIds": [
+          "f7f455db5912",
+          "7a64bea9f94b"
+        ],
+        "relatedPerformanceId": "perf-oxb0ie",
+        "priority": 1
+      },
+      {
+        "id": "beat-9fc6ff1efd",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Complete Greatest Hits · Release 2002 · Compilation edition",
+        "supportingFactIds": [
+          "6a94cd3d-85dd-474d-a8c5-82467f7368c9",
+          "d9946284-9d7f-47b5-87c1-e0cb95ed8ef3"
+        ],
+        "relatedImageAssetIds": [
+          "f7f455db5912",
+          "7a64bea9f94b"
+        ],
+        "relatedPerformanceId": "perf-oxb0ie",
+        "priority": 2
+      },
+      {
+        "id": "beat-062f305e70",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #7 · 17 weeks on chart.",
+        "supportingFactIds": [
+          "c3aae42d-398b-4dc5-b1c0-47ec68ceafe9"
+        ],
+        "relatedImageAssetIds": [
+          "f7f455db5912",
+          "7a64bea9f94b"
+        ],
+        "relatedPerformanceId": "perf-oxb0ie",
+        "priority": 3
+      },
+      {
+        "id": "beat-6b3203ab90",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "f7f455db5912",
+          "7a64bea9f94b"
+        ],
+        "relatedPerformanceId": "perf-oxb0ie",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-7260f71fc4",
+        "title": "Chart milestone",
+        "description": "Peaked at #7 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1984,
+        "supportingFactIds": [
+          "c3aae42d-398b-4dc5-b1c0-47ec68ceafe9"
+        ],
+        "relatedImageAssetIds": [
+          "f7f455db5912"
+        ]
+      },
+      {
+        "id": "moment-00aecbd37d",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1984,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "f7f455db5912"
+        ]
+      },
+      {
+        "id": "moment-00aecbd37d",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1985,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "f7f455db5912"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-oxb0ie",
+      "title": "Official Video · 1984",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #7 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:54:51.974Z"
+  },
+  "submittedAt": "2026-06-27T05:54:51.974Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

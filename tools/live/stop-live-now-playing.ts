@@ -3,8 +3,6 @@
  *
  *   npm run live-stop
  */
-import { execSync } from "node:child_process";
-
 import {
   clearManifest,
   findProjectRoot,
@@ -16,24 +14,6 @@ import {
   statusFail,
   statusOk,
 } from "./shared";
-
-function killPortListeners(port: number): void {
-  if (process.platform === "win32") return;
-  try {
-    const pids = execSync(`lsof -ti tcp:${port} -sTCP:LISTEN`, {
-      encoding: "utf8",
-    })
-      .trim()
-      .split("\n")
-      .filter(Boolean);
-    for (const raw of pids) {
-      const pid = Number(raw);
-      if (pid > 0) killPid(pid, `port ${port}`);
-    }
-  } catch {
-    /* no listeners */
-  }
-}
 
 function main() {
   console.log("\nRetroverse Live Now Playing — shutdown\n");
@@ -75,7 +55,6 @@ function main() {
     } else {
       statusOk("Dev server process already stopped");
     }
-    killPortListeners(manifest.port);
   } else if (manifest.dev) {
     statusOk("Dev server left running", "was not started by live-now-playing");
   }

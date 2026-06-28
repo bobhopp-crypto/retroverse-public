@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR474295",
+  "artist": "Toby Keith",
+  "title": "Red Solo Cup",
+  "story": {
+    "headline": "Red Solo Cup: A Cultural Moment Captured on Record",
+    "subtitle": "Toby Keith · Cultural Moment · 2011",
+    "hook": "The song peaked at #15 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Toby Keith's \"Red Solo Cup\" reached #15 on the Billboard Hot 100. Red Solo Cup was released in 2011.",
+    "fullStory": "Toby Keith's \"Red Solo Cup\" reached #15 on the Billboard Hot 100.\n\nThe song peaked at #15 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nRed Solo Cup was released in 2011.\n\nChart story — peaked at #15 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "0e336924-4d1d-4357-83e4-829840173d91",
+      "text": "The song peaked at #15 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "1185991b-4216-46e5-9f82-8695040cdc5d",
+      "text": "Red Solo Cup was released in 2011.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d644cd69-816e-41a5-a326-28cb4932636d",
+      "text": "The song appears on the album \"Clancy's Tavern\" (2011).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3fc4a3ab-5d12-4444-8ee0-0f2ef08d5e5d",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "299f7855ba66",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR474295&file=performance.jpg",
+      "performanceId": "perf-mp9xef"
+    },
+    {
+      "assetId": "126552661de5",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR474295&file=hero.jpg",
+      "performanceId": "perf-mp9xef"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-mp9xef",
+    "title": "Official Video · 2011",
+    "venue": "",
+    "year": 2011,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2011 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "299f7855ba66",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR474295&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "126552661de5",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR474295&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #15 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Toby Keith's \"Red Solo Cup\" reached #15 on the Billboard Hot 100. Red Solo Cup was released in 2011.",
+    "storyBeats": [
+      {
+        "id": "beat-8e9f8f5e5d",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Red Solo Cup\" — original release 2011. Toby Keith — \"Red Solo Cup\" · Original release 2011 · Album: Clancy's Tavern · Hot 100 peak #15",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "299f7855ba66",
+          "126552661de5"
+        ],
+        "relatedPerformanceId": "perf-mp9xef",
+        "priority": 1
+      },
+      {
+        "id": "beat-f0533a3534",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Clancy's Tavern · Release 2011",
+        "supportingFactIds": [
+          "d644cd69-816e-41a5-a326-28cb4932636d"
+        ],
+        "relatedImageAssetIds": [
+          "299f7855ba66",
+          "126552661de5"
+        ],
+        "relatedPerformanceId": "perf-mp9xef",
+        "priority": 2
+      },
+      {
+        "id": "beat-9f712f9baa",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #15 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "0e336924-4d1d-4357-83e4-829840173d91"
+        ],
+        "relatedImageAssetIds": [
+          "299f7855ba66",
+          "126552661de5"
+        ],
+        "relatedPerformanceId": "perf-mp9xef",
+        "priority": 3
+      },
+      {
+        "id": "beat-51d6eb5829",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "299f7855ba66",
+          "126552661de5"
+        ],
+        "relatedPerformanceId": "perf-mp9xef",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-ca93a542e2",
+        "title": "Chart milestone",
+        "description": "Peaked at #15 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2011,
+        "supportingFactIds": [
+          "0e336924-4d1d-4357-83e4-829840173d91"
+        ],
+        "relatedImageAssetIds": [
+          "299f7855ba66"
+        ]
+      },
+      {
+        "id": "moment-586451fea3",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2011,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "299f7855ba66"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-mp9xef",
+      "title": "Official Video · 2011",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2011 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #15 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:37:32.990Z"
+  },
+  "submittedAt": "2026-06-27T05:37:32.990Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

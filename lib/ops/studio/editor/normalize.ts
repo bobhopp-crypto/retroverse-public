@@ -9,6 +9,7 @@ import type {
   PlannedCard,
   StoryAngleId,
 } from "./types";
+import { modelListItemId } from "@/lib/ops/studio/model-identity";
 
 export function emptyEditor21Workspace(): Pick<
   EditorStoryPackage["workspace"],
@@ -83,6 +84,19 @@ export function ensureEditor21Fields(story: EditorStoryPackage): EditorStoryPack
       candidateFacts,
       plannedCards,
       imageBoard,
+      evidence: {
+        ...story.workspace.evidence,
+        timeline: story.workspace.evidence.timeline.map((event, sequence) => ({
+          ...event,
+          id:
+            event.id ??
+            modelListItemId(
+              `${story.meta.rvtr}-timeline`,
+              sequence,
+              `${event.date}-${event.label}`,
+            ),
+        })),
+      },
     },
     meta: {
       ...story.meta,
@@ -120,7 +134,7 @@ export function syncApprovedFromWorkspace(story: EditorStoryPackage): EditorStor
     ...story,
     approved: {
       ...story.approved,
-      facts: accepted.slice(0, 7).map((f) => ({
+      facts: accepted.map((f) => ({
         id: f.id,
         text: f.text,
         sourceRef: f.sourceRef,

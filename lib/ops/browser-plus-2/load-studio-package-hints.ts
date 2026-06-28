@@ -127,12 +127,16 @@ async function loadHintForRvtr(rvtr: string): Promise<Bp2StudioHint> {
   ]);
   const lastUpdated = mtimes.filter(Boolean).sort().reverse()[0] ?? null;
 
+  const handoffSubmitted =
+    editor?.meta?.editorialStatus === "submitted" ||
+    Boolean(editor?.meta?.directorHandoff?.submittedAt);
+
   const needFlags = deriveStudioNeedFlags({
     hasCollector,
     hasEditor,
     hasDirector,
     renderReady,
-    directorHandoffStatus: editor?.meta?.directorHandoff?.status,
+    directorHandoffStatus: handoffSubmitted ? "submitted" : editor?.meta?.directorHandoff?.status,
   });
 
   return {
@@ -170,7 +174,7 @@ async function loadHintForRvtr(rvtr: string): Promise<Bp2StudioHint> {
       hasCollector,
       researchQuality,
       hasEditor,
-      directorHandoffStatus: editor?.meta?.directorHandoff?.status,
+      directorHandoffStatus: handoffSubmitted ? "submitted" : editor?.meta?.directorHandoff?.status,
       hasDirector,
       directorMissingAssets: director?.review?.missingAssets ?? [],
     }),

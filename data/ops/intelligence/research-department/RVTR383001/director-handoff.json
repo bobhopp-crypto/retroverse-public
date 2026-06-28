@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR383001",
+  "artist": "En Vogue",
+  "title": "Hold On",
+  "story": {
+    "headline": "Hold On: The Breakthrough Moment",
+    "subtitle": "En Vogue · Breakthrough · 1990",
+    "hook": "The song peaked at #2 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+    "summary": "En Vogue's \"Hold On\" reached #2 on the Billboard Hot 100. Hold On was released in 1990.",
+    "fullStory": "En Vogue's \"Hold On\" reached #2 on the Billboard Hot 100.\n\nThe song peaked at #2 on the Billboard Hot 100 and spent 25 weeks on the chart.\n\nHold On was released in 1990.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #2 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "473e90a2-7787-41cd-87cb-68e2c3dcfa65",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a81b9747-363a-4ee8-b3ed-818874a1ea2a",
+      "text": "Hold On was released in 1990.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e8b00cd3-2482-4d27-9cfc-79b1b9086cab",
+      "text": "The song appears on the album \"Born To Sing\" (1990).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d1e16277-3a44-436a-947b-c06cfd44719c",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "5b989371-27f6-4260-9a1a-ecb3ff720836",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "0863eb988dfb",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR383001&file=hero.jpg",
+      "performanceId": "perf-6vxq7f"
+    },
+    {
+      "assetId": "f4ff148b375b",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR383001&file=performance.jpg",
+      "performanceId": "perf-6vxq7f"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-6vxq7f",
+    "title": "Official Video · 1990",
+    "venue": "",
+    "year": 1990,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1990 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "0863eb988dfb",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR383001&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "f4ff148b375b",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR383001&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #2 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+    "closing": "En Vogue's \"Hold On\" reached #2 on the Billboard Hot 100. Hold On was released in 1990.",
+    "storyBeats": [
+      {
+        "id": "beat-a922d65e6c",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Hold On\" — original release 1990. En Vogue — \"Hold On\" · Original release 1990 · Album: Born To Sing · Hot 100 peak #2",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0863eb988dfb",
+          "f4ff148b375b"
+        ],
+        "relatedPerformanceId": "perf-6vxq7f",
+        "priority": 1
+      },
+      {
+        "id": "beat-0a2f380c99",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Born To Sing · Release 1990",
+        "supportingFactIds": [
+          "e8b00cd3-2482-4d27-9cfc-79b1b9086cab"
+        ],
+        "relatedImageAssetIds": [
+          "0863eb988dfb",
+          "f4ff148b375b"
+        ],
+        "relatedPerformanceId": "perf-6vxq7f",
+        "priority": 2
+      },
+      {
+        "id": "beat-b1456b7cbb",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #2 · 25 weeks on chart.",
+        "supportingFactIds": [
+          "473e90a2-7787-41cd-87cb-68e2c3dcfa65"
+        ],
+        "relatedImageAssetIds": [
+          "0863eb988dfb",
+          "f4ff148b375b"
+        ],
+        "relatedPerformanceId": "perf-6vxq7f",
+        "priority": 3
+      },
+      {
+        "id": "beat-1d72e4f625",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0863eb988dfb",
+          "f4ff148b375b"
+        ],
+        "relatedPerformanceId": "perf-6vxq7f",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-95b5c6498d",
+        "title": "Chart milestone",
+        "description": "Peaked at #2 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1990,
+        "supportingFactIds": [
+          "473e90a2-7787-41cd-87cb-68e2c3dcfa65"
+        ],
+        "relatedImageAssetIds": [
+          "0863eb988dfb"
+        ]
+      },
+      {
+        "id": "moment-4b76f2b5ae",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1990,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0863eb988dfb"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-6vxq7f",
+      "title": "Official Video · 1990",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1990 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #2 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:50:59.431Z"
+  },
+  "submittedAt": "2026-06-27T05:50:59.432Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

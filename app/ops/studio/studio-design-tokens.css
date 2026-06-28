@@ -1,23 +1,26 @@
 /**
  * Retroverse Studio — Design Tokens (D-001)
  *
- * Canonical visual language for all Studio surfaces:
- * Browser+ 2, department pages, mission control, queues.
+ * Canonical visual language for Studio Mission Control only:
+ * department pages (/ops/studio/*), Browser+ 2 ops shell (.ops-page--bp2).
+ *
+ * Three design languages — do NOT merge:
+ * • Studio (.ops-studio-page) — Mission Control, dark blue, cinematic
+ * • Public Experience (/experience/*) — Museum, immersive, edge-to-edge
+ * • VirtualDJ Browser (.browser-plus-page) — utility library tables; NEVER Studio blue
  *
  * Rules:
- * - One dark environment. No cream/beige/light section backgrounds.
+ * - One dark environment on Studio surfaces. No cream/beige/light section backgrounds.
  * - Color encodes meaning only (healthy / working / info / problem / inactive).
- * - Large type, numbers first, labels second.
- * - Simple cards, generous spacing, minimal nesting.
  *
- * Scope: apply via .rs-studio on any Studio page root, or use the aliases
- * on .ops-page--bp2 / .ops-studio-page / .ops-command (see bottom of file).
+ * Scope: .rs-studio and .ops-studio-page only for department UI.
+ * Browser+ 2 imports tokens separately for its ops shell — not for embedded VDJ Browser.
+ * EXCLUDED: .browser-plus-page, .browser-plus, /ops/browser-plus (VirtualDJ Browser+).
  */
 
 .rs-studio,
-.ops-page--bp2,
 .ops-studio-page,
-.ops-command {
+.ops-page--bp2 {
   /* ── Background ── */
   --rs-studio-bg-base: #061326;
   --rs-studio-bg-mid: #071a36;

@@ -96,6 +96,7 @@ async function main() {
         PORT: String(config.port),
         RETROVERSE_OPS: "1",
         RETROVERSE_DATA_ROOT: config.dataRoot,
+        RETROVERSE_DEV_OWNER: "live-now-playing",
       },
       logPath: devLog,
     });

@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR279190",
+  "artist": "Bob Dylan",
+  "title": "Don't Think Twice",
+  "story": {
+    "headline": "Don't Think Twice: A Cultural Moment Captured on Record",
+    "subtitle": "Bob Dylan · Cultural Moment",
+    "hook": "Don't Think Twice is performed by Bob Dylan.",
+    "summary": "Bob Dylan's \"Don't Think Twice\" — original release 1963.",
+    "fullStory": "Bob Dylan's \"Don't Think Twice\" — original release 1963.\n\nSong release — original 1963 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "285354f6-8201-42dd-b7af-08305beb080a",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "92adf936693c",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR279190&file=hero.jpg",
+      "performanceId": "perf-79aczi"
+    },
+    {
+      "assetId": "5fd127a8b93a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR279190&file=performance.jpg",
+      "performanceId": "perf-79aczi"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-79aczi",
+    "title": "Official Video · 1963",
+    "venue": "",
+    "year": 1963,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1963 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "92adf936693c",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR279190&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "5fd127a8b93a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR279190&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Don't Think Twice is performed by Bob Dylan.",
+    "closing": "Bob Dylan's \"Don't Think Twice\" — original release 1963.",
+    "storyBeats": [
+      {
+        "id": "beat-7b6963e5ce",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Don't Think Twice\" — original release 1963. Bob Dylan — \"Don't Think Twice\" · Original release 1963",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "92adf936693c",
+          "5fd127a8b93a"
+        ],
+        "relatedPerformanceId": "perf-79aczi",
+        "priority": 1
+      },
+      {
+        "id": "beat-76778101a4",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "92adf936693c",
+          "5fd127a8b93a"
+        ],
+        "relatedPerformanceId": "perf-79aczi",
+        "priority": 2
+      },
+      {
+        "id": "beat-adc1eabb78",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "92adf936693c",
+          "5fd127a8b93a"
+        ],
+        "relatedPerformanceId": "perf-79aczi",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-0f540d6ad5",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1963,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "92adf936693c"
+        ]
+      },
+      {
+        "id": "moment-0f540d6ad5",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1963 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1963,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "92adf936693c"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-79aczi",
+      "title": "Official Video · 1963",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1963 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Don't Think Twice is performed by Bob Dylan.\""
+    },
+    "generatedAt": "2026-06-27T21:36:43.358Z"
+  },
+  "submittedAt": "2026-06-27T21:36:43.358Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

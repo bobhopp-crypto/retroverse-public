@@ -1,0 +1,4345 @@
+{
+  "mode": "local",
+  "generatedAt": "2026-06-27T01:07:39.937Z",
+  "targetCount": 50,
+  "processedCount": 50,
+  "completedCount": 50,
+  "failedCount": 0,
+  "partialCount": 0,
+  "totalRetries": 0,
+  "totalRuntimeMs": 370354,
+  "avgRuntimeMsPerSong": 7407,
+  "avgConfidence": 92.2,
+  "avgPatronValue": 8.4,
+  "avgSceneCount": 10.9,
+  "avgWordsPerScene": 15.1,
+  "avgVisualCoverage": 100,
+  "avgPackageCompleteness": 95.6,
+  "publisherReadyCount": 39,
+  "rendererReadyCount": 50,
+  "estimatedApiCostUsd": null,
+  "results": [
+    {
+      "rvtr": "RVTR508702",
+      "artist": "Outfield",
+      "title": "Your Love",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:01:29.581Z",
+      "finishedAt": "2026-06-27T01:01:39.076Z",
+      "totalRuntimeMs": 9495,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 9484,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 11,
+          "factsCollected": 22,
+          "approvedFacts": 16,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 5,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 556,
+          "acceptedFacts": 12,
+          "patronValue": 10
+        }
+      },
+      "director": {
+        "runtimeMs": 4,
+        "confidence": 7000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 2,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 18,
+          "avgWordsPerScene": 17,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 10,
+      "sceneCount": 18,
+      "wordsPerScene": 17,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR935422",
+      "artist": "Queen",
+      "title": "Somebody To Love",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:01:39.076Z",
+      "finishedAt": "2026-06-27T01:01:47.215Z",
+      "totalRuntimeMs": 8138,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 8134,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 11,
+          "factsCollected": 20,
+          "approvedFacts": 14,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 2,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 621,
+          "acceptedFacts": 10,
+          "patronValue": 10
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 1,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6600,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 14,
+          "avgWordsPerScene": 18,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 10,
+      "sceneCount": 14,
+      "wordsPerScene": 18,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR540714",
+      "artist": "Elton John",
+      "title": "I Guess That's Why They Call It The Blues",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:01:47.215Z",
+      "finishedAt": "2026-06-27T01:01:54.337Z",
+      "totalRuntimeMs": 7122,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7118,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 10,
+          "factsCollected": 17,
+          "approvedFacts": 11,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 2,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 436,
+          "acceptedFacts": 7,
+          "patronValue": 9
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 1,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 11,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 9,
+      "sceneCount": 11,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR569927",
+      "artist": "Fleetwood Mac",
+      "title": "Dreams",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:01:54.337Z",
+      "finishedAt": "2026-06-27T01:02:02.174Z",
+      "totalRuntimeMs": 7837,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7833,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 14,
+          "factsCollected": 26,
+          "approvedFacts": 18,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 611,
+          "acceptedFacts": 14,
+          "patronValue": 9.3
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 14,
+          "avgWordsPerScene": 17,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 9.3,
+      "sceneCount": 14,
+      "wordsPerScene": 17,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR881535",
+      "artist": "Filter",
+      "title": "Take A Picture",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:02:02.174Z",
+      "finishedAt": "2026-06-27T01:02:10.212Z",
+      "totalRuntimeMs": 8038,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 8034,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 10,
+          "factsCollected": 19,
+          "approvedFacts": 14,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 2,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 530,
+          "acceptedFacts": 10,
+          "patronValue": 7.5
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 12,
+          "avgWordsPerScene": 19,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 7.5,
+      "sceneCount": 12,
+      "wordsPerScene": 19,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR012441",
+      "artist": "Bell Biv DeVoe",
+      "title": "Poison",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:02:10.212Z",
+      "finishedAt": "2026-06-27T01:02:17.301Z",
+      "totalRuntimeMs": 7089,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7086,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 6,
+          "factsCollected": 11,
+          "approvedFacts": 8,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 217,
+          "acceptedFacts": 4,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 1,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR679042",
+      "artist": "Eurythmics",
+      "title": "Would I Lie To You",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:02:17.301Z",
+      "finishedAt": "2026-06-27T01:02:24.951Z",
+      "totalRuntimeMs": 7650,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7646,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 14,
+          "approvedFacts": 10,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 310,
+          "acceptedFacts": 6,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 11,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 11,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR164300",
+      "artist": "Jesus Jones",
+      "title": "Right Here, Right Now",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:02:24.951Z",
+      "finishedAt": "2026-06-27T01:02:32.398Z",
+      "totalRuntimeMs": 7447,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7444,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 13,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 315,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7700,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6600,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR989240",
+      "artist": "Chumbawamba",
+      "title": "Tubthumping",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:02:32.398Z",
+      "finishedAt": "2026-06-27T01:02:39.245Z",
+      "totalRuntimeMs": 6847,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6844,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 13,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 297,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR275965",
+      "artist": "Electric Light Orchestra",
+      "title": "Don't Bring Me Down",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:02:39.245Z",
+      "finishedAt": "2026-06-27T01:02:46.489Z",
+      "totalRuntimeMs": 7244,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7240,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 16,
+          "approvedFacts": 12,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 394,
+          "acceptedFacts": 8,
+          "patronValue": 8.5
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 20,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.5,
+      "sceneCount": 10,
+      "wordsPerScene": 20,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR008301",
+      "artist": "America",
+      "title": "A Horse With No Name",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:02:46.489Z",
+      "finishedAt": "2026-06-27T01:02:53.511Z",
+      "totalRuntimeMs": 7022,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7019,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 15,
+          "approvedFacts": 11,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 340,
+          "acceptedFacts": 7,
+          "patronValue": 8.5
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 1,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 11,
+          "avgWordsPerScene": 16,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.5,
+      "sceneCount": 11,
+      "wordsPerScene": 16,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR678114",
+      "artist": "Stevie Wonder",
+      "title": "Superstition",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:02:53.511Z",
+      "finishedAt": "2026-06-27T01:03:00.482Z",
+      "totalRuntimeMs": 6971,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6968,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 11,
+          "factsCollected": 18,
+          "approvedFacts": 11,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 283,
+          "acceptedFacts": 7,
+          "patronValue": 8.5
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7900,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 105,
+          "templateVariety": 6,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 12,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.5,
+      "sceneCount": 9,
+      "wordsPerScene": 12,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR003521",
+      "artist": "Robert Palmer",
+      "title": "Addicted To Love",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:00.482Z",
+      "finishedAt": "2026-06-27T01:03:09.118Z",
+      "totalRuntimeMs": 8636,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 8633,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 11,
+          "factsCollected": 22,
+          "approvedFacts": 16,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 463,
+          "acceptedFacts": 12,
+          "patronValue": 9.3
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 12,
+          "avgWordsPerScene": 12,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 9.3,
+      "sceneCount": 12,
+      "wordsPerScene": 12,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR404950",
+      "artist": "Peter Frampton",
+      "title": "Show Me The Way",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:09.118Z",
+      "finishedAt": "2026-06-27T01:03:17.170Z",
+      "totalRuntimeMs": 8052,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 8048,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 10,
+          "factsCollected": 19,
+          "approvedFacts": 14,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 2,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 658,
+          "acceptedFacts": 10,
+          "patronValue": 7.5
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7200,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 118,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 15,
+          "avgWordsPerScene": 16,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 7.5,
+      "sceneCount": 15,
+      "wordsPerScene": 16,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR531194",
+      "artist": "A Tribe Called Quest",
+      "title": "Can I Kick It",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:17.170Z",
+      "finishedAt": "2026-06-27T01:03:24.152Z",
+      "totalRuntimeMs": 6982,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6979,
+        "confidence": 57,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 4,
+          "factsCollected": 7,
+          "approvedFacts": 5,
+          "framesExtracted": 5,
+          "missingAreas": 4
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 222,
+          "acceptedFacts": 3,
+          "patronValue": 5.8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7600,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 6,
+          "runtimeEstimateSec": 71,
+          "templateVariety": 4,
+          "chartUsage": 0,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 1,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 7,
+          "avgWordsPerScene": 18,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 5.8,
+      "sceneCount": 7,
+      "wordsPerScene": 18,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Billboard chart history; Recording session details"
+      ]
+    },
+    {
+      "rvtr": "RVTR053089",
+      "artist": "Mark Morrison",
+      "title": "Return Of The Mack",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:24.152Z",
+      "finishedAt": "2026-06-27T01:03:31.221Z",
+      "totalRuntimeMs": 7069,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7067,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 13,
+          "factsCollected": 19,
+          "approvedFacts": 10,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 313,
+          "acceptedFacts": 6,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 13,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 13,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR773043",
+      "artist": "Queen",
+      "title": "Crazy Little Thing Called Love",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:31.221Z",
+      "finishedAt": "2026-06-27T01:03:37.981Z",
+      "totalRuntimeMs": 6760,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6757,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 16,
+          "approvedFacts": 12,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 300,
+          "acceptedFacts": 8,
+          "patronValue": 9.3
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 11,
+          "avgWordsPerScene": 13,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 9.3,
+      "sceneCount": 11,
+      "wordsPerScene": 13,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR976928",
+      "artist": "Journey",
+      "title": "Lights",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:37.982Z",
+      "finishedAt": "2026-06-27T01:03:44.910Z",
+      "totalRuntimeMs": 6928,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6925,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 12,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 286,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR080991",
+      "artist": "Commodores",
+      "title": "Easy",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:44.910Z",
+      "finishedAt": "2026-06-27T01:03:52.062Z",
+      "totalRuntimeMs": 7152,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7149,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 10,
+          "factsCollected": 15,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 352,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 16,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 16,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR563699",
+      "artist": "Shaggy",
+      "title": "It Wasn't Me",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:52.062Z",
+      "finishedAt": "2026-06-27T01:03:58.921Z",
+      "totalRuntimeMs": 6859,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6856,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 14,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 294,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 1,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR449839",
+      "artist": "Tina Turner",
+      "title": "The Best",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:03:58.921Z",
+      "finishedAt": "2026-06-27T01:04:07.248Z",
+      "totalRuntimeMs": 8327,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 8324,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 10,
+          "factsCollected": 21,
+          "approvedFacts": 15,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 451,
+          "acceptedFacts": 11,
+          "patronValue": 9.8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 13,
+          "avgWordsPerScene": 16,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 9.8,
+      "sceneCount": 13,
+      "wordsPerScene": 16,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR356489",
+      "artist": "Sammy Johns",
+      "title": "Chevy Van",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:04:07.248Z",
+      "finishedAt": "2026-06-27T01:04:14.954Z",
+      "totalRuntimeMs": 7706,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7703,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 10,
+          "factsCollected": 19,
+          "approvedFacts": 14,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 496,
+          "acceptedFacts": 10,
+          "patronValue": 7.5
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 14,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 7.5,
+      "sceneCount": 14,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR976054",
+      "artist": "Queen",
+      "title": "Bohemian Rhapsody (Wayne's World)",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:04:14.954Z",
+      "finishedAt": "2026-06-27T01:04:22.419Z",
+      "totalRuntimeMs": 7465,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7463,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 12,
+          "factsCollected": 19,
+          "approvedFacts": 11,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 345,
+          "acceptedFacts": 7,
+          "patronValue": 8.5
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 11,
+          "avgWordsPerScene": 17,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.5,
+      "sceneCount": 11,
+      "wordsPerScene": 17,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR839545",
+      "artist": "George McCrae",
+      "title": "Rock Your Baby",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:04:22.419Z",
+      "finishedAt": "2026-06-27T01:04:29.530Z",
+      "totalRuntimeMs": 7111,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7108,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 9,
+          "factsCollected": 14,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 305,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR253373",
+      "artist": "Journey",
+      "title": "Don't Stop Believin'",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:04:29.530Z",
+      "finishedAt": "2026-06-27T01:04:36.942Z",
+      "totalRuntimeMs": 7412,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7409,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 12,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 311,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR976054",
+      "artist": "Queen",
+      "title": "Bohemian Rhapsody",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:04:36.942Z",
+      "finishedAt": "2026-06-27T01:04:44.168Z",
+      "totalRuntimeMs": 7226,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7223,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 12,
+          "factsCollected": 19,
+          "approvedFacts": 11,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 345,
+          "acceptedFacts": 7,
+          "patronValue": 8.5
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 11,
+          "avgWordsPerScene": 17,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.5,
+      "sceneCount": 11,
+      "wordsPerScene": 17,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR871687",
+      "artist": "Hues Corporation",
+      "title": "Rock The Boat",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:04:44.168Z",
+      "finishedAt": "2026-06-27T01:04:51.177Z",
+      "totalRuntimeMs": 7009,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7006,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 14,
+          "approvedFacts": 10,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 279,
+          "acceptedFacts": 6,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 13,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 13,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR894824",
+      "artist": "Poison",
+      "title": "Every Rose Has Its Thorn",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:04:51.177Z",
+      "finishedAt": "2026-06-27T01:04:58.231Z",
+      "totalRuntimeMs": 7054,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7051,
+        "confidence": 81,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 10,
+          "approvedFacts": 6,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 297,
+          "acceptedFacts": 4,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 18,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 18,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR607017",
+      "artist": "Roxette",
+      "title": "The Look",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:04:58.231Z",
+      "finishedAt": "2026-06-27T01:05:06.045Z",
+      "totalRuntimeMs": 7814,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7811,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 12,
+          "factsCollected": 23,
+          "approvedFacts": 17,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 412,
+          "acceptedFacts": 13,
+          "patronValue": 6.5
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 14,
+          "avgWordsPerScene": 17,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 6.5,
+      "sceneCount": 14,
+      "wordsPerScene": 17,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR300772",
+      "artist": "Aerosmith",
+      "title": "Dream On",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:05:06.045Z",
+      "finishedAt": "2026-06-27T01:05:13.897Z",
+      "totalRuntimeMs": 7852,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7847,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 11,
+          "factsCollected": 22,
+          "approvedFacts": 16,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 3,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 642,
+          "acceptedFacts": 12,
+          "patronValue": 9.3
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 6900,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 118,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 1,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 12,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 9.3,
+      "sceneCount": 12,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR833121",
+      "artist": "Heart",
+      "title": "Crazy On You",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:05:13.897Z",
+      "finishedAt": "2026-06-27T01:05:21.219Z",
+      "totalRuntimeMs": 7322,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7320,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 6,
+          "factsCollected": 11,
+          "approvedFacts": 8,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 223,
+          "acceptedFacts": 4,
+          "patronValue": 8.8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 16,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.8,
+      "sceneCount": 9,
+      "wordsPerScene": 16,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR711940",
+      "artist": "Jars Of Clay",
+      "title": "Flood",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:05:21.219Z",
+      "finishedAt": "2026-06-27T01:05:28.341Z",
+      "totalRuntimeMs": 7122,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7120,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 12,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 289,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 16,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 16,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR173020",
+      "artist": "Men At Work",
+      "title": "Overkill",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:05:28.341Z",
+      "finishedAt": "2026-06-27T01:05:35.510Z",
+      "totalRuntimeMs": 7169,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7166,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 12,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 291,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR620162",
+      "artist": "Melanie",
+      "title": "Brand New Key",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:05:35.510Z",
+      "finishedAt": "2026-06-27T01:05:42.321Z",
+      "totalRuntimeMs": 6811,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6808,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 12,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 297,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR565286",
+      "artist": "Roy Orbison",
+      "title": "You Got It",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:05:42.321Z",
+      "finishedAt": "2026-06-27T01:05:49.095Z",
+      "totalRuntimeMs": 6774,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6771,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 9,
+          "factsCollected": 14,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 295,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR018797",
+      "artist": "Divinyls",
+      "title": "I Touch Myself",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:05:49.095Z",
+      "finishedAt": "2026-06-27T01:05:55.949Z",
+      "totalRuntimeMs": 6854,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6852,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 12,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 0,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 300,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 1,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR678114",
+      "artist": "Stevie Wonder",
+      "title": "Superstition",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:05:55.949Z",
+      "finishedAt": "2026-06-27T01:06:04.128Z",
+      "totalRuntimeMs": 8179,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 8175,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 14,
+          "factsCollected": 27,
+          "approvedFacts": 19,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 2,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 454,
+          "acceptedFacts": 15,
+          "patronValue": 8.3
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 118,
+          "templateVariety": 6,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 13,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.3,
+      "sceneCount": 13,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR056508",
+      "artist": "Sean Kingston",
+      "title": "Beautiful Girls",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:06:04.128Z",
+      "finishedAt": "2026-06-27T01:06:12.013Z",
+      "totalRuntimeMs": 7885,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7882,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 11,
+          "factsCollected": 20,
+          "approvedFacts": 14,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 600,
+          "acceptedFacts": 10,
+          "patronValue": 10
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6600,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 14,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 10,
+      "sceneCount": 14,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR840141",
+      "artist": "Glen Campbell",
+      "title": "Rhinestone Cowboy",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:06:12.013Z",
+      "finishedAt": "2026-06-27T01:06:18.854Z",
+      "totalRuntimeMs": 6841,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6839,
+        "confidence": 81,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 12,
+          "factsCollected": 15,
+          "approvedFacts": 6,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 0,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 238,
+          "acceptedFacts": 4,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 13,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 13,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR253281",
+      "artist": "Traveling Wilburys",
+      "title": "End Of The Line",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:06:18.854Z",
+      "finishedAt": "2026-06-27T01:06:26.598Z",
+      "totalRuntimeMs": 7744,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7741,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 15,
+          "approvedFacts": 11,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 354,
+          "acceptedFacts": 7,
+          "patronValue": 8.5
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 12,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.5,
+      "sceneCount": 12,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR056686",
+      "artist": "Montell Jordan",
+      "title": "This Is How We Do It",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:06:26.598Z",
+      "finishedAt": "2026-06-27T01:06:33.907Z",
+      "totalRuntimeMs": 7309,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7307,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 9,
+          "factsCollected": 15,
+          "approvedFacts": 10,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 0,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 288,
+          "acceptedFacts": 6,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR861273",
+      "artist": "Nitty Gritty Dirt Band",
+      "title": "Mr Bojangles",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:06:33.907Z",
+      "finishedAt": "2026-06-27T01:06:41.056Z",
+      "totalRuntimeMs": 7149,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7147,
+        "confidence": 81,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 11,
+          "approvedFacts": 7,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 0,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 280,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 13,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 13,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR759486",
+      "artist": "Michael Jackson",
+      "title": "The Way You Make Me Feel",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:06:41.056Z",
+      "finishedAt": "2026-06-27T01:06:48.407Z",
+      "totalRuntimeMs": 7351,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7348,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 12,
+          "factsCollected": 17,
+          "approvedFacts": 10,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 302,
+          "acceptedFacts": 6,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 13,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 13,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR339336",
+      "artist": "War",
+      "title": "Low Rider",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:06:48.407Z",
+      "finishedAt": "2026-06-27T01:06:55.371Z",
+      "totalRuntimeMs": 6964,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 6962,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 12,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 285,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7500,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 9,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR424524",
+      "artist": "The Clash",
+      "title": "Rock The Casbah",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:06:55.371Z",
+      "finishedAt": "2026-06-27T01:07:03.279Z",
+      "totalRuntimeMs": 7908,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7905,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 10,
+          "factsCollected": 19,
+          "approvedFacts": 14,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 715,
+          "acceptedFacts": 12,
+          "patronValue": 8.8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6600,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 17,
+          "avgWordsPerScene": 19,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.8,
+      "sceneCount": 17,
+      "wordsPerScene": 19,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR908509",
+      "artist": "Asia",
+      "title": "Heat Of The Moment",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:07:03.279Z",
+      "finishedAt": "2026-06-27T01:07:10.804Z",
+      "totalRuntimeMs": 7525,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7522,
+        "confidence": 100,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 9,
+          "factsCollected": 20,
+          "approvedFacts": 14,
+          "framesExtracted": 5,
+          "missingAreas": 1
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 475,
+          "acceptedFacts": 10,
+          "patronValue": 9.8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7000,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 9,
+          "runtimeEstimateSec": 112,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "missing_optional_assets"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 72,
+        "status": "blocked",
+        "error": "needs_review",
+        "details": {
+          "approved": 0,
+          "needsCoaching": 1,
+          "blocked": 1,
+          "missingAssets": 0,
+          "renderReadiness": "Ready with Optional Gaps"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6300,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 14,
+          "avgWordsPerScene": 16,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 9.8,
+      "sceneCount": 14,
+      "wordsPerScene": 16,
+      "visualCoverage": 100,
+      "packageCompleteness": 80,
+      "coachingNotes": []
+    },
+    {
+      "rvtr": "RVTR300772",
+      "artist": "Aerosmith",
+      "title": "Dream On",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:07:10.804Z",
+      "finishedAt": "2026-06-27T01:07:17.807Z",
+      "totalRuntimeMs": 7003,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7000,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 9,
+          "factsCollected": 16,
+          "approvedFacts": 11,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 328,
+          "acceptedFacts": 7,
+          "patronValue": 9.3
+        }
+      },
+      "director": {
+        "runtimeMs": 2,
+        "confidence": 7900,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 105,
+          "templateVariety": 6,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 0,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 12,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 9.3,
+      "sceneCount": 10,
+      "wordsPerScene": 12,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR654480",
+      "artist": "Rolling Stones",
+      "title": "Wild Horses",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:07:17.807Z",
+      "finishedAt": "2026-06-27T01:07:25.880Z",
+      "totalRuntimeMs": 8073,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 8070,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 7,
+          "factsCollected": 12,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 306,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7700,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 105,
+          "templateVariety": 5,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 11,
+          "avgWordsPerScene": 14,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 11,
+      "wordsPerScene": 14,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR846133",
+      "artist": "Neil Diamond",
+      "title": "Sweet Caroline",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:07:25.880Z",
+      "finishedAt": "2026-06-27T01:07:32.888Z",
+      "totalRuntimeMs": 7008,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7005,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 9,
+          "factsCollected": 14,
+          "approvedFacts": 10,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 298,
+          "acceptedFacts": 6,
+          "patronValue": 8.8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7600,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 7,
+          "runtimeEstimateSec": 89,
+          "templateVariety": 4,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6400,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 9,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8.8,
+      "sceneCount": 9,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    },
+    {
+      "rvtr": "RVTR857213",
+      "artist": "ABBA",
+      "title": "Knowing Me, Knowing You",
+      "mode": "local",
+      "status": "complete",
+      "error": null,
+      "startedAt": "2026-06-27T01:07:32.888Z",
+      "finishedAt": "2026-06-27T01:07:39.937Z",
+      "totalRuntimeMs": 7049,
+      "retries": 0,
+      "collector": {
+        "runtimeMs": 7046,
+        "confidence": 91,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sourcesFound": 8,
+          "factsCollected": 13,
+          "approvedFacts": 9,
+          "framesExtracted": 5,
+          "missingAreas": 3
+        }
+      },
+      "editor": {
+        "runtimeMs": 1,
+        "confidence": 58,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "usedCloud": false,
+          "blueprintQuality": "complete",
+          "storyCompleteness": 315,
+          "acceptedFacts": 5,
+          "patronValue": 8
+        }
+      },
+      "director": {
+        "runtimeMs": 1,
+        "confidence": 7900,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "sceneCount": 8,
+          "runtimeEstimateSec": 99,
+          "templateVariety": 6,
+          "chartUsage": 1,
+          "packageReadiness": "ready_to_render"
+        }
+      },
+      "publisher": {
+        "runtimeMs": 0,
+        "confidence": 94,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "approved": 1,
+          "needsCoaching": 0,
+          "blocked": 0,
+          "missingAssets": 0,
+          "renderReadiness": "Ready to Render"
+        }
+      },
+      "renderer": {
+        "runtimeMs": 1,
+        "confidence": 6600,
+        "status": "complete",
+        "error": null,
+        "details": {
+          "generated": true,
+          "renderReady": true,
+          "sceneCount": 10,
+          "avgWordsPerScene": 15,
+          "visualCoveragePct": 100,
+          "museumMode": false,
+          "warnings": 0
+        }
+      },
+      "patronValue": 8,
+      "sceneCount": 10,
+      "wordsPerScene": 15,
+      "visualCoverage": 100,
+      "packageCompleteness": 100,
+      "coachingNotes": [
+        "Collector: Recording session details; Cultural context sources"
+      ]
+    }
+  ]
+}

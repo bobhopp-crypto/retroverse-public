@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR734755",
+  "artist": "The Coasters",
+  "title": "Down In Mexico",
+  "story": {
+    "headline": "Down In Mexico: A Cultural Moment Captured on Record",
+    "subtitle": "The Coasters · Cultural Moment",
+    "hook": "Down In Mexico is performed by The Coasters.",
+    "summary": "The Coasters's \"Down In Mexico\" — captured in performance footage from 1957.",
+    "fullStory": "The Coasters's \"Down In Mexico\" — captured in performance footage from 1957.\n\nPerformance angle — Official Video (1957)."
+  },
+  "approvedFacts": [
+    {
+      "id": "8ec93c34-346e-4d74-81f9-7c92b725591e",
+      "text": "VirtualDJ library play count: 48.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c328d3058929",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR734755&file=hero.jpg",
+      "performanceId": "perf-opbp3c"
+    },
+    {
+      "assetId": "41daa02e425b",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR734755&file=performance.jpg",
+      "performanceId": "perf-opbp3c"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-opbp3c",
+    "title": "Official Video · 1957",
+    "venue": "",
+    "year": 1957,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1957 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "c328d3058929",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR734755&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "41daa02e425b",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR734755&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Down In Mexico is performed by The Coasters.",
+    "closing": "The Coasters's \"Down In Mexico\" — captured in performance footage from 1957.",
+    "storyBeats": [
+      {
+        "id": "beat-9de9691a41",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Down In Mexico\" by The Coasters — The Coasters — \"Down In Mexico\".",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c328d3058929",
+          "41daa02e425b"
+        ],
+        "relatedPerformanceId": "perf-opbp3c",
+        "priority": 1
+      },
+      {
+        "id": "beat-5f098f6707",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c328d3058929",
+          "41daa02e425b"
+        ],
+        "relatedPerformanceId": "perf-opbp3c",
+        "priority": 2
+      },
+      {
+        "id": "beat-f570db3fb3",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c328d3058929",
+          "41daa02e425b"
+        ],
+        "relatedPerformanceId": "perf-opbp3c",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-ef56d2d45e",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1957,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c328d3058929"
+        ]
+      },
+      {
+        "id": "moment-ef56d2d45e",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1956,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c328d3058929"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-opbp3c",
+      "title": "Official Video · 1957",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1957 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Down In Mexico is performed by The Coasters.\""
+    },
+    "generatedAt": "2026-06-27T04:20:08.640Z"
+  },
+  "submittedAt": "2026-06-27T04:20:08.640Z",
+  "editorNotesForDirector": "Collector confidence: Developing (48%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

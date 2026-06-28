@@ -1,0 +1,923 @@
+{
+  "version": 4,
+  "rvtr": "RVTR461125",
+  "artist": "The Beatles",
+  "title": "I Dig A Pony",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-27T22:51:13.857Z",
+  "researchQuality": 85,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "The Beatles — I Dig A Pony (RVTR461125)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "partial",
+      "summary": "No chart history in graph"
+    },
+    "recording": {
+      "status": "complete",
+      "summary": "2 recording notes captured"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "complete",
+      "summary": "2 cultural context notes"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "8 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "2 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "4 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR461125",
+    "artist": "The Beatles",
+    "title": "I Dig A Pony",
+    "year": null,
+    "albumTitle": null
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+    "playCount": 8,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+        "artist": "The Beatles",
+        "title": "I Dig A Pony",
+        "isVideo": true,
+        "playCount": 8,
+        "year": 1970,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "recording": {
+    "summary": "2 recording notes captured",
+    "notes": [
+      "It was written by John Lennon and credited to Lennon–McCartney.",
+      "The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in central London."
+    ]
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+        "artist": "The Beatles",
+        "title": "I Dig A Pony",
+        "isVideo": true,
+        "playCount": 8,
+        "year": 1970,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4"
+  },
+  "culturalContext": {
+    "summary": "2 cultural context notes",
+    "notes": [
+      "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+      "It was written by John Lennon and credited to Lennon–McCartney."
+    ]
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "crowd.jpg",
+      "hero.jpg",
+      "alternate.jpg",
+      "close-up.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "369dc0372c64",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 0,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-27T22:51:13.854Z"
+        },
+        {
+          "id": "37bdb3911821",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 60,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-27T22:51:13.854Z"
+        },
+        {
+          "id": "dfdcbbf2fe1c",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 120,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-27T22:51:13.854Z"
+        },
+        {
+          "id": "e799afe6b555",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 180,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-27T22:51:13.854Z"
+        },
+        {
+          "id": "a1654bff8329",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 220,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-27T22:51:13.854Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "The Beatles"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "a3ac2333-0586-4274-ad23-ba713284294b",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR461125.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "bf064645-3e35-4950-9e8b-b8d891f4bcd0",
+      "category": "artist",
+      "text": "I Dig A Pony is performed by The Beatles.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "041eacc1-af39-4f8b-86c7-208aafa3bbbf",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 8.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-q4ienm"
+    },
+    {
+      "id": "ee0afa5f-0096-4c68-9830-bc9893f6a002",
+      "category": "trivia",
+      "text": "Artist: The Beatles · Title: I Dig A Pony · Album: Let It Be · Year: 1970 · Genre: Rock · PlayCount: 8 · LastPlayed: 1782111036 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-q4ienm"
+    },
+    {
+      "id": "40506322-e635-4a78-b5a8-95e3a26797d8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4 · Plays: 8",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-q4ienm"
+    },
+    {
+      "id": "53ea6df7-eed1-4870-b3ce-03d192cb148e",
+      "category": "cultural_impact",
+      "text": "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Dig_a_Pony",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "79511cd9-aae8-4925-a885-d4f9c36e8f64",
+      "category": "cultural_impact",
+      "text": "It was written by John Lennon and credited to Lennon–McCartney.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Dig_a_Pony",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "a0320234-fb38-4b70-8908-013b70b8cd9b",
+      "category": "cultural_impact",
+      "text": "The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in central London.",
+      "source": "Wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Dig_a_Pony",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    }
+  ],
+  "missingAreas": [
+    "Billboard chart history",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-27T22:51:11.713Z",
+      "excerpt": "Retroverse track identity: RVTR461125. \"I Dig A Pony\" by The Beatles.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-27T22:51:11.713Z",
+      "excerpt": "Artist: The Beatles · Title: I Dig A Pony · Album: Let It Be · Year: 1970 · Genre: Rock · PlayCount: 8 · LastPlayed: 1782111036 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-bea2e33f",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-27T22:51:11.713Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4 · Plays: 8",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "wiki-song-dig-a-pony",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Dig_a_Pony",
+      "capturedAt": "2026-06-27T22:51:12.881Z",
+      "excerpt": "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be. It was written by John Lennon and credited to Lennon–McCartney. The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in central London.\n\n\nComposition\n\"Dig a Pony\" is in the key of A major and in 3/4 time. It was originally called \"All I Want Is You\". John Lennon said the song was \"a piece of garbage\", though he expressed similar scorn for many of his own songs. It was written for his soon-to-be wife Yoko Ono, and features a multitude of strange, seemingly nonsensical phrases strung together in what Lennon referred to as a Bob Dylan style of lyric.\nIn author Ian MacDonald's description, the lyrics \"celebrat[e] countercultural claims that society's old values and taboos were dead, that life was a game and art a free-for-all, and (especially) that words meant whatever the hell one wished them to\".\n\"Dig a Pony\" was among the first songs the Beatles worked on during day one of their filmed rehearsals for a planned return to live performance, in January 1969. Lennon introduced it to George Harrison soon after arriving at Twickenham Film Studios on 2 January, as the pair ran through their latest songs.\n\n\nRecording\n\"Dig a Pony\" was one of the songs on Let It Be recorded at the rooftop concert on 30 January 1969. Kevin Harrington, the band's roadie, held up Lennon's lyrics for him while he sang. It begins with a false start, caused by Ringo Starr yelling \"Hold it!\" because he was putting out his cigarette and had both of his drum sticks in his right hand. On the recording, the sound of someone blowing his nose right after Starr's interjection can be heard, which Mark Lewisohn attributes to Lennon.\nA studio take of the song from 22 January appears on the 1996 Anthology 3 outtakes compilation. The sessions took place at the Beatles' Apple Studio after they had abandoned the filmed rehearsals at Twickenham. When Glyn Johns compiled an album titled Get Back for the band's consideration in 1969, he favoured the 22 January recording of \"Dig a Pony\" over the rooftop performance. As originally included in the rooftop performance also, the studio recording begins and ends with the line \"All I want is ...\" When Phil Spector prepared the album (now titled Let It Be) for release in March 1970, he selected the 30 January live version but shortened the track by cutting the opening and closing \"All I want is ...\" refrains. These edits were retained for the Let It Be... Naked mix of the rooftop version, issued in 2003, which also omits the false start.\n\n\nRelease and reception\nApple Records issued Let It Be on 8 May 1970 with \"Dig a Pony\" sequenced as the second track, between \"Two of Us\" and \"Across the Universe\". The release followed a month after McCartney's comments in a questionnaire promoting his self-titled solo album had resulted in the Beatles' break-up. Early American pressings of Let It Be mistitled the song as \"I Dig a Pony\".\nReviewing the album for Melody Maker, Richard Williams said that \"Dig a Pony\" was the only genuinely new song by Lennon and he admired the \"tremendously funky unison guitar riff\", adding that \"the insane words and wandering tune are typical contemporary Lennon\". Having bemoaned Spector's addition of orchestral and choral overdubs elsewhere on Let It Be, John Mendelsohn of Rolling Stone welcomed the song as an example of the producer's minimal alteration of some of the January 1969 recordings. He described it as \"crossword-puzzlish\" and said that the combination of \"urgent old rocker's vocal\" and similarity to \"such earlier Lennonisms as 'Happiness Is a Warm Gun'\" almost made up for Spector's omission of \"Don't Let Me Down\" and \"Save the Last Dance for Me\".\nWriting for Mojo in 2001, John Harris dismissed the track as \"pretty execrable\" and an example of Lennon's reduced creativity during Let It Be, as well as a reason that Lennon's criticism of Harrison's songwriting in one of the Twickenham sessions contributed to Harrison's decision to leave the band. Neil McCormick of The Daily Telegraph views \"Dig a Pony\" as \"embarrassing\", saying that Lennon was \"the guiltiest party\" with regard to the generally uninspiring songs on Let It Be.\nAmong Beatles biographers, Ian MacDonald described the song as \"inconsequential fun\", saying of the counterculture-inspired lyrics: \"Suspect even in 1967, such whimsy was looking distinctly bedraggled by 1969, but enough people wanted it to be true to ensure that it survived in the minds of progressive educationalists for the next twenty years.\" In his view, the track benefits from the discipline imposed on the Beatles by having to perform in public, resulting in a \"real ensemble performance ... and even a hint of swing\". Mark Hertsgaard deems it a \"lyrically muddled love call to Yoko\" and lacking in melody, yet the combination of McCartney's high harmony singing and the inventiveness of Harrison's lead guitar part \"made it seem more interesting than it actually was\". Citing the lyrics, Peter Doggett says that Lennon was rightly dismissive of the song, while Chris Ingham calls it \"riffily convoluted gobbledygook\" with a \"lugubrious chromatic approach\" that Spector's editing wisely pared back.\n\n\nPersonnel\nAccording to Walter Everett:\nThe Beatles\n\nJohn Lennon – lead vocal, rhythm guitar\nPaul McCartney – harmony vocal, bass guitar\nGeorge Harrison – lead guitar\nRingo Starr – drums\nAdditional musician\n\nBilly Preston – electric piano\n\n\nReferences\n\n\nSources\n\n\nExternal links\nAlan W. Pollack's Notes on \"Dig a Pony\"",
+      "confidence": 0.85,
+      "stage": "recording",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "The Beatles — I Dig A Pony · No chart history in graph · 1 performance videos · 8 candidate facts · 2 gaps · 1 performance(s) · 6/8 facts approved · confidence 64% · song 1970 / recording —",
+    "sourceSummary": "4 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR461125",
+      "artist": "The Beatles",
+      "title": "I Dig A Pony",
+      "year": null,
+      "albumTitle": null
+    },
+    "charts": {
+      "peakHot100": null,
+      "chartWeeks": null,
+      "albumTitle": null,
+      "summary": "No chart history in graph"
+    },
+    "recording": {
+      "summary": "2 recording notes captured",
+      "notes": [
+        "It was written by John Lennon and credited to Lennon–McCartney.",
+        "The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in central London."
+      ]
+    },
+    "relationships": {
+      "relatedArtists": [
+        "The Beatles"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "2 cultural context notes",
+      "notes": [
+        "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+        "It was written by John Lennon and credited to Lennon–McCartney."
+      ]
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-27T22:51:11.713Z",
+          "excerpt": "Retroverse track identity: RVTR461125. \"I Dig A Pony\" by The Beatles.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-27T22:51:11.713Z",
+          "excerpt": "Artist: The Beatles · Title: I Dig A Pony · Album: Let It Be · Year: 1970 · Genre: Rock · PlayCount: 8 · LastPlayed: 1782111036 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-bea2e33f",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-27T22:51:11.713Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4 · Plays: 8",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "wiki-song-dig-a-pony",
+          "source": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Dig_a_Pony",
+          "capturedAt": "2026-06-27T22:51:12.881Z",
+          "excerpt": "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be. It was written by John Lennon and credited to Lennon–McCartney. The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in central London.\n\n\nComposition\n\"Dig a Pony\" is in the key of A major and in 3/4 time. It was originally called \"All I Want Is You\". John Lennon said the song was \"a piece of garbage\", though he expressed similar scorn for many of his own songs. It was written for his soon-to-be wife Yoko Ono, and features a multitude of strange, seemingly nonsensical phrases strung together in what Lennon referred to as a Bob Dylan style of lyric.\nIn author Ian MacDonald's description, the lyrics \"celebrat[e] countercultural claims that society's old values and taboos were dead, that life was a game and art a free-for-all, and (especially) that words meant whatever the hell one wished them to\".\n\"Dig a Pony\" was among the first songs the Beatles worked on during day one of their filmed rehearsals for a planned return to live performance, in January 1969. Lennon introduced it to George Harrison soon after arriving at Twickenham Film Studios on 2 January, as the pair ran through their latest songs.\n\n\nRecording\n\"Dig a Pony\" was one of the songs on Let It Be recorded at the rooftop concert on 30 January 1969. Kevin Harrington, the band's roadie, held up Lennon's lyrics for him while he sang. It begins with a false start, caused by Ringo Starr yelling \"Hold it!\" because he was putting out his cigarette and had both of his drum sticks in his right hand. On the recording, the sound of someone blowing his nose right after Starr's interjection can be heard, which Mark Lewisohn attributes to Lennon.\nA studio take of the song from 22 January appears on the 1996 Anthology 3 outtakes compilation. The sessions took place at the Beatles' Apple Studio after they had abandoned the filmed rehearsals at Twickenham. When Glyn Johns compiled an album titled Get Back for the band's consideration in 1969, he favoured the 22 January recording of \"Dig a Pony\" over the rooftop performance. As originally included in the rooftop performance also, the studio recording begins and ends with the line \"All I want is ...\" When Phil Spector prepared the album (now titled Let It Be) for release in March 1970, he selected the 30 January live version but shortened the track by cutting the opening and closing \"All I want is ...\" refrains. These edits were retained for the Let It Be... Naked mix of the rooftop version, issued in 2003, which also omits the false start.\n\n\nRelease and reception\nApple Records issued Let It Be on 8 May 1970 with \"Dig a Pony\" sequenced as the second track, between \"Two of Us\" and \"Across the Universe\". The release followed a month after McCartney's comments in a questionnaire promoting his self-titled solo album had resulted in the Beatles' break-up. Early American pressings of Let It Be mistitled the song as \"I Dig a Pony\".\nReviewing the album for Melody Maker, Richard Williams said that \"Dig a Pony\" was the only genuinely new song by Lennon and he admired the \"tremendously funky unison guitar riff\", adding that \"the insane words and wandering tune are typical contemporary Lennon\". Having bemoaned Spector's addition of orchestral and choral overdubs elsewhere on Let It Be, John Mendelsohn of Rolling Stone welcomed the song as an example of the producer's minimal alteration of some of the January 1969 recordings. He described it as \"crossword-puzzlish\" and said that the combination of \"urgent old rocker's vocal\" and similarity to \"such earlier Lennonisms as 'Happiness Is a Warm Gun'\" almost made up for Spector's omission of \"Don't Let Me Down\" and \"Save the Last Dance for Me\".\nWriting for Mojo in 2001, John Harris dismissed the track as \"pretty execrable\" and an example of Lennon's reduced creativity during Let It Be, as well as a reason that Lennon's criticism of Harrison's songwriting in one of the Twickenham sessions contributed to Harrison's decision to leave the band. Neil McCormick of The Daily Telegraph views \"Dig a Pony\" as \"embarrassing\", saying that Lennon was \"the guiltiest party\" with regard to the generally uninspiring songs on Let It Be.\nAmong Beatles biographers, Ian MacDonald described the song as \"inconsequential fun\", saying of the counterculture-inspired lyrics: \"Suspect even in 1967, such whimsy was looking distinctly bedraggled by 1969, but enough people wanted it to be true to ensure that it survived in the minds of progressive educationalists for the next twenty years.\" In his view, the track benefits from the discipline imposed on the Beatles by having to perform in public, resulting in a \"real ensemble performance ... and even a hint of swing\". Mark Hertsgaard deems it a \"lyrically muddled love call to Yoko\" and lacking in melody, yet the combination of McCartney's high harmony singing and the inventiveness of Harrison's lead guitar part \"made it seem more interesting than it actually was\". Citing the lyrics, Peter Doggett says that Lennon was rightly dismissive of the song, while Chris Ingham calls it \"riffily convoluted gobbledygook\" with a \"lugubrious chromatic approach\" that Spector's editing wisely pared back.\n\n\nPersonnel\nAccording to Walter Everett:\nThe Beatles\n\nJohn Lennon – lead vocal, rhythm guitar\nPaul McCartney – harmony vocal, bass guitar\nGeorge Harrison – lead guitar\nRingo Starr – drums\nAdditional musician\n\nBilly Preston – electric piano\n\n\nReferences\n\n\nSources\n\n\nExternal links\nAlan W. Pollack's Notes on \"Dig a Pony\"",
+          "confidence": 0.85,
+          "stage": "recording",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "The Beatles — I Dig A Pony · No chart history in graph · 1 performance videos · 8 candidate facts · 2 gaps",
+        "sourceSummary": "4 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "a3ac2333-0586-4274-ad23-ba713284294b",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR461125.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "bf064645-3e35-4950-9e8b-b8d891f4bcd0",
+        "category": "artist",
+        "text": "I Dig A Pony is performed by The Beatles.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "041eacc1-af39-4f8b-86c7-208aafa3bbbf",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 8.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-q4ienm"
+      },
+      {
+        "id": "ee0afa5f-0096-4c68-9830-bc9893f6a002",
+        "category": "trivia",
+        "text": "Artist: The Beatles · Title: I Dig A Pony · Album: Let It Be · Year: 1970 · Genre: Rock · PlayCount: 8 · LastPlayed: 1782111036 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-q4ienm"
+      },
+      {
+        "id": "40506322-e635-4a78-b5a8-95e3a26797d8",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4 · Plays: 8",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-q4ienm"
+      },
+      {
+        "id": "53ea6df7-eed1-4870-b3ce-03d192cb148e",
+        "category": "cultural_impact",
+        "text": "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+        "source": "Wikipedia",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Dig_a_Pony",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "79511cd9-aae8-4925-a885-d4f9c36e8f64",
+        "category": "cultural_impact",
+        "text": "It was written by John Lennon and credited to Lennon–McCartney.",
+        "source": "Wikipedia",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Dig_a_Pony",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "a0320234-fb38-4b70-8908-013b70b8cd9b",
+        "category": "cultural_impact",
+        "text": "The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in central London.",
+        "source": "Wikipedia",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Dig_a_Pony",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      }
+    ],
+    "missingAreas": [
+      "Billboard chart history",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-q4ienm",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+      "durationSec": 227.594033,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "369dc0372c64",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 0,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-27T22:51:13.854Z"
+            },
+            {
+              "id": "37bdb3911821",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 60,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-27T22:51:13.854Z"
+            },
+            {
+              "id": "dfdcbbf2fe1c",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 120,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-27T22:51:13.854Z"
+            },
+            {
+              "id": "e799afe6b555",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 180,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-27T22:51:13.854Z"
+            },
+            {
+              "id": "a1654bff8329",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 220,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-27T22:51:13.854Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1970. VirtualDJ play count: 8. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1970,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1970",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 65,
+    "recording": 90,
+    "charts": 25,
+    "performance": 85,
+    "culture": 70,
+    "relationships": 40,
+    "overall": 64
+  },
+  "storySeed": {
+    "whyItMatters": "The Beatles's \"I Dig A Pony\" — original release 1970. \"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+    "strongestFacts": [
+      "I Dig A Pony is performed by The Beatles.",
+      "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+      "It was written by John Lennon and credited to Lennon–McCartney."
+    ],
+    "storyIdeas": [
+      "Song release — original 1970 chapter",
+      "Performance angle — Official Video (1970)",
+      "It was written by John Lennon and credited to Lennon–McCartney.",
+      "The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR461125",
+    "artist": "The Beatles",
+    "title": "I Dig A Pony",
+    "writers": [
+      "John Lennon and credited to Lennon–McCartney"
+    ],
+    "originalReleaseYear": 1970,
+    "originalAlbum": null,
+    "peakHot100": null,
+    "chartWeeks": null,
+    "certifications": [],
+    "culturalSignificance": [
+      "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+      "It was written by John Lennon and credited to Lennon–McCartney.",
+      "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+      "It was written by John Lennon and credited to Lennon–McCartney.",
+      "The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in central London."
+    ],
+    "relatedArtists": [
+      "The Beatles"
+    ],
+    "legacy": [
+      "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+      "It was written by John Lennon and credited to Lennon–McCartney."
+    ],
+    "confidence": 55
+  },
+  "recordings": [],
+  "performanceEntities": [
+    {
+      "id": "perf-q4ienm",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1970,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 227.594033,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1970. VirtualDJ play count: 8. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1970",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-lotppq",
+        "domain": "song",
+        "kind": "release",
+        "year": 1970,
+        "label": "I Dig A Pony — original release",
+        "detail": null,
+        "confidence": 0.55,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-jrzmov",
+        "domain": "song",
+        "kind": "legacy",
+        "year": 1970,
+        "label": "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+        "detail": null,
+        "confidence": 0.7,
+        "source": "cultural research",
+        "entityRef": null
+      },
+      {
+        "id": "tl-e2wlgc",
+        "domain": "song",
+        "kind": "legacy",
+        "year": null,
+        "label": "It was written by John Lennon and credited to Lennon–McCartney.",
+        "detail": null,
+        "confidence": 0.7,
+        "source": "cultural research",
+        "entityRef": null
+      },
+      {
+        "id": "tl-jrzmov",
+        "domain": "song",
+        "kind": "legacy",
+        "year": 1970,
+        "label": "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+        "detail": null,
+        "confidence": 0.7,
+        "source": "cultural research",
+        "entityRef": null
+      }
+    ],
+    "recording": [],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1970,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-q4ienm"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1970,
+      "label": "Song original release",
+      "confidence": 0.55,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": null,
+      "label": "Graph recording release",
+      "confidence": 0.2,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1970,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR461125",
+      "artist": "The Beatles",
+      "title": "I Dig A Pony",
+      "writers": [
+        "John Lennon and credited to Lennon–McCartney"
+      ],
+      "originalReleaseYear": 1970,
+      "originalAlbum": null,
+      "peakHot100": null,
+      "chartWeeks": null,
+      "certifications": [],
+      "culturalSignificance": [
+        "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+        "It was written by John Lennon and credited to Lennon–McCartney.",
+        "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+        "It was written by John Lennon and credited to Lennon–McCartney.",
+        "The band recorded the song on 30 January 1969, during their rooftop concert at the Apple Corps building on Savile Row in central London."
+      ],
+      "relatedArtists": [
+        "The Beatles"
+      ],
+      "legacy": [
+        "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+        "It was written by John Lennon and credited to Lennon–McCartney."
+      ],
+      "confidence": 55
+    },
+    "recordings": [],
+    "performances": [
+      {
+        "id": "perf-q4ienm",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/The Beatles - I Dig A Pony.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1970,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 227.594033,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1970. VirtualDJ play count: 8. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1970",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-lotppq",
+          "domain": "song",
+          "kind": "release",
+          "year": 1970,
+          "label": "I Dig A Pony — original release",
+          "detail": null,
+          "confidence": 0.55,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-jrzmov",
+          "domain": "song",
+          "kind": "legacy",
+          "year": 1970,
+          "label": "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+          "detail": null,
+          "confidence": 0.7,
+          "source": "cultural research",
+          "entityRef": null
+        },
+        {
+          "id": "tl-e2wlgc",
+          "domain": "song",
+          "kind": "legacy",
+          "year": null,
+          "label": "It was written by John Lennon and credited to Lennon–McCartney.",
+          "detail": null,
+          "confidence": 0.7,
+          "source": "cultural research",
+          "entityRef": null
+        },
+        {
+          "id": "tl-jrzmov",
+          "domain": "song",
+          "kind": "legacy",
+          "year": 1970,
+          "label": "\"Dig a Pony\" is a song by the English rock band the Beatles from their 1970 album Let It Be.",
+          "detail": null,
+          "confidence": 0.7,
+          "source": "cultural research",
+          "entityRef": null
+        }
+      ],
+      "recording": [],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1970,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-q4ienm"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1970,
+        "label": "Song original release",
+        "confidence": 0.55,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": null,
+        "label": "Graph recording release",
+        "confidence": 0.2,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1970,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

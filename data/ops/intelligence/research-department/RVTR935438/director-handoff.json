@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR935438",
+  "artist": "Dave",
+  "title": "Double Barrel",
+  "story": {
+    "headline": "Double Barrel: The Performance That Defined It",
+    "subtitle": "Dave · Live Performance · 1971",
+    "hook": "The song peaked at #22 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+    "summary": "Dave's \"Double Barrel\" reached #22 on the Billboard Hot 100. Double Barrel was released in 1971.",
+    "fullStory": "Dave's \"Double Barrel\" reached #22 on the Billboard Hot 100.\n\nThe song peaked at #22 on the Billboard Hot 100 and spent 11 weeks on the chart.\n\nDouble Barrel was released in 1971.\n\nChart story — peaked at #22 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "bf7fbdb3-fa79-4cca-a6af-d0083aa087bc",
+      "text": "The song peaked at #22 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e2a24b6a-9333-4e05-9077-88990fb95334",
+      "text": "Double Barrel was released in 1971.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "fbc2e84b-b649-4060-948d-66167b9e9135",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "4fcb98b8a12e",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR935438&file=performance.jpg",
+      "performanceId": "perf-9ac4rn"
+    },
+    {
+      "assetId": "230b8c456683",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR935438&file=hero.jpg",
+      "performanceId": "perf-9ac4rn"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-9ac4rn",
+    "title": "Live · 1971",
+    "venue": "Live",
+    "year": 1971,
+    "notes": "Recommended cut — Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1971 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "4fcb98b8a12e",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR935438&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "230b8c456683",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR935438&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #22 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+    "closing": "Dave's \"Double Barrel\" reached #22 on the Billboard Hot 100. Double Barrel was released in 1971.",
+    "storyBeats": [
+      {
+        "id": "beat-de94d982d6",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Live — Live (1971).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4fcb98b8a12e",
+          "230b8c456683"
+        ],
+        "relatedPerformanceId": "perf-9ac4rn",
+        "priority": 1
+      },
+      {
+        "id": "beat-1bdf022eac",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"Double Barrel\" entered the world in 1971.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4fcb98b8a12e",
+          "230b8c456683"
+        ],
+        "relatedPerformanceId": "perf-9ac4rn",
+        "priority": 2
+      },
+      {
+        "id": "beat-d117bd7050",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #22 · 11 weeks on chart.",
+        "supportingFactIds": [
+          "bf7fbdb3-fa79-4cca-a6af-d0083aa087bc"
+        ],
+        "relatedImageAssetIds": [
+          "4fcb98b8a12e",
+          "230b8c456683"
+        ],
+        "relatedPerformanceId": "perf-9ac4rn",
+        "priority": 3
+      },
+      {
+        "id": "beat-332c4124a0",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4fcb98b8a12e",
+          "230b8c456683"
+        ],
+        "relatedPerformanceId": "perf-9ac4rn",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-6d148773e3",
+        "title": "Chart milestone",
+        "description": "Peaked at #22 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1971,
+        "supportingFactIds": [
+          "bf7fbdb3-fa79-4cca-a6af-d0083aa087bc"
+        ],
+        "relatedImageAssetIds": [
+          "4fcb98b8a12e"
+        ]
+      },
+      {
+        "id": "moment-d7bf2dde28",
+        "title": "Live",
+        "description": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1971 performance helps anchor the narrative",
+        "kind": "featured_performance",
+        "year": 1971,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4fcb98b8a12e"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-9ac4rn",
+      "title": "Live · 1971",
+      "reason": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1971 performance helps anchor the narrative."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #22 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:29:29.177Z"
+  },
+  "submittedAt": "2026-06-27T05:29:29.178Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

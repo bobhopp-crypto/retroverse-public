@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR646193",
+  "artist": "M/a/r/r/s",
+  "title": "Pump Up The Volume",
+  "story": {
+    "headline": "Pump Up The Volume: A Cultural Moment Captured on Record",
+    "subtitle": "M/a/r/r/s · Cultural Moment · 1987",
+    "hook": "The song peaked at #13 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+    "summary": "M/a/r/r/s's \"Pump Up The Volume\" reached #13 on the Billboard Hot 100. Pump Up The Volume was released in 1987.",
+    "fullStory": "M/a/r/r/s's \"Pump Up The Volume\" reached #13 on the Billboard Hot 100.\n\nThe song peaked at #13 on the Billboard Hot 100 and spent 23 weeks on the chart.\n\nPump Up The Volume was released in 1987.\n\nChart story — peaked at #13 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "582e050e-c7b8-4938-a2f8-9f2dc712babb",
+      "text": "The song peaked at #13 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f4c63946-3f8b-4f67-abea-f3f8efe625da",
+      "text": "Pump Up The Volume was released in 1987.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "452b681a-c255-4c5a-8e81-afdb41975b5e",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "20e24650fde2",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646193&file=hero.jpg",
+      "performanceId": "perf-z3hp40"
+    },
+    {
+      "assetId": "eadbb1f616b4",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646193&file=performance.jpg",
+      "performanceId": "perf-z3hp40"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-z3hp40",
+    "title": "Official Video · 1988",
+    "venue": "",
+    "year": 1988,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "20e24650fde2",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646193&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "eadbb1f616b4",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR646193&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #13 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+    "closing": "M/a/r/r/s's \"Pump Up The Volume\" reached #13 on the Billboard Hot 100. Pump Up The Volume was released in 1987.",
+    "storyBeats": [
+      {
+        "id": "beat-ad52dde18d",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Pump Up The Volume\" — original release 1987. M/a/r/r/s — \"Pump Up The Volume\" · Original release 1987 · Hot 100 peak #13",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "20e24650fde2",
+          "eadbb1f616b4"
+        ],
+        "relatedPerformanceId": "perf-z3hp40",
+        "priority": 1
+      },
+      {
+        "id": "beat-2065ff2f30",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Pump Up The Volume — graph recording · Release 1987",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "20e24650fde2",
+          "eadbb1f616b4"
+        ],
+        "relatedPerformanceId": "perf-z3hp40",
+        "priority": 2
+      },
+      {
+        "id": "beat-3da5e4eafe",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #13 · 23 weeks on chart.",
+        "supportingFactIds": [
+          "582e050e-c7b8-4938-a2f8-9f2dc712babb"
+        ],
+        "relatedImageAssetIds": [
+          "20e24650fde2",
+          "eadbb1f616b4"
+        ],
+        "relatedPerformanceId": "perf-z3hp40",
+        "priority": 3
+      },
+      {
+        "id": "beat-5c373b95da",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "20e24650fde2",
+          "eadbb1f616b4"
+        ],
+        "relatedPerformanceId": "perf-z3hp40",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-14d44a7087",
+        "title": "Chart milestone",
+        "description": "Peaked at #13 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1987,
+        "supportingFactIds": [
+          "582e050e-c7b8-4938-a2f8-9f2dc712babb"
+        ],
+        "relatedImageAssetIds": [
+          "20e24650fde2"
+        ]
+      },
+      {
+        "id": "moment-d539770422",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1988,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "20e24650fde2"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-z3hp40",
+      "title": "Official Video · 1988",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #13 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:39:30.862Z"
+  },
+  "submittedAt": "2026-06-27T05:39:30.862Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

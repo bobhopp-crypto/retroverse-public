@@ -181,8 +181,77 @@ async function analyzeFrame(tempPath: string, timestampSec: number): Promise<Fra
 function isDiscardable(frame: FrameCandidate): boolean {
   if (frame.mean < 18) return true;
   if (frame.variance < 90) return true;
+  if (frame.sharpness < 12) return true;
   if (frame.width < 32 || frame.height < 32) return true;
   return false;
+}
+
+function fingerprintDistanceNormalized(a: Buffer, b: Buffer): number {
+  return fingerprintDistance(a, b);
+}
+
+function assignCategories(frames: FrameCandidate[]): CollectorVisualAssetCategory[] {
+  if (frames.length === 0) return [];
+  const remaining = new Set(frames);
+  const assignments = new Map<FrameCandidate, CollectorVisualAssetCategory>();
+
+  let closeUp: FrameCandidate | null = null;
+  for (const f of frames) {
+    if (!closeUp || f.sharpness > closeUp.sharpness) closeUp = f;
+  }
+  if (closeUp) {
+    assignments.set(closeUp, "Close-up");
+    remaining.delete(closeUp);
+  }
+
+  let hero: FrameCandidate | null = null;
+  for (const f of remaining) {
+    const score = f.sharpness * 0.6 + Math.min(f.mean, 160) * 0.02;
+    if (!hero || score > (hero.sharpness * 0.6 + Math.min(hero.mean, 160) * 0.02)) hero = f;
+  }
+  if (hero) {
+    assignments.set(hero, "Hero");
+    remaining.delete(hero);
+  }
+
+  let performance: FrameCandidate | null = null;
+  if (hero) {
+    for (const f of remaining) {
+      const timeGap = Math.abs(f.timestampSec - hero.timestampSec);
+      const score = timeGap * 0.4 + f.sharpness * 0.5;
+      if (!performance || score > (Math.abs(performance.timestampSec - hero.timestampSec) * 0.4 + performance.sharpness * 0.5)) {
+        performance = f;
+      }
+    }
+  } else {
+    performance = [...remaining].sort((a, b) => b.sharpness - a.sharpness)[0] ?? null;
+  }
+  if (performance) {
+    assignments.set(performance, "Performance");
+    remaining.delete(performance);
+  }
+
+  let alternate: FrameCandidate | null = null;
+  if (hero) {
+    for (const f of remaining) {
+      const dist = fingerprintDistanceNormalized(f.fingerprint, hero.fingerprint);
+      if (!alternate || dist > fingerprintDistanceNormalized(alternate.fingerprint, hero.fingerprint)) {
+        alternate = f;
+      }
+    }
+  } else {
+    alternate = [...remaining][0] ?? null;
+  }
+  if (alternate) {
+    assignments.set(alternate, "Alternate");
+    remaining.delete(alternate);
+  }
+
+  for (const f of remaining) {
+    assignments.set(f, "Crowd");
+  }
+
+  return frames.map((f) => assignments.get(f) ?? "Crowd");
 }
 
 function dedupeFrames(frames: FrameCandidate[]): FrameCandidate[] {
@@ -309,6 +378,7 @@ export async function extractVisualAssets(input: {
 
   const deduped = dedupeFrames(tempFrames);
   const curated = selectDiverseFrames(deduped, MAX_CURATED_ASSETS);
+  const categories = assignCategories(curated);
 
   await input.onProgress?.("Curating visual assets…");
 
@@ -317,7 +387,7 @@ export async function extractVisualAssets(input: {
 
   for (let index = 0; index < curated.length; index++) {
     const frame = curated[index]!;
-    const category = CATEGORY_ORDER[index];
+    const category = categories[index] ?? CATEGORY_ORDER[index];
     if (!category) break;
 
     const filename = CATEGORY_FILENAME[category];

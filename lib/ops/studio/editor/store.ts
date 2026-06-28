@@ -3,10 +3,14 @@ import "server-only";
 import { mkdir, readFile, writeFile } from "fs/promises";
 import { dirname } from "path";
 
+import { readJsonFileSafe } from "@/lib/ops/studio/safe-io";
+
 import type { CollectorPackage } from "@/lib/ops/studio/collector/package-contract";
 import { loadCollectorPackage } from "@/lib/ops/studio/collector/store";
 
 import { buildDirectorEditorialPackage, updateHandoffChecklist } from "./director-package";
+import { buildRetrographFromCollector } from "@/lib/ops/studio/retrograph/build-retrograph";
+import { saveRetrograph } from "@/lib/ops/studio/retrograph/store";
 import { distillCollectorPackage } from "./distill";
 import { ensureEditor21Fields, syncApprovedFromWorkspace } from "./normalize";
 import { migrateV1ToV2 } from "./migration";
@@ -28,12 +32,7 @@ async function writeJson(path: string, data: unknown): Promise<void> {
 }
 
 async function readRawEditorJson(rvtr: string): Promise<unknown | null> {
-  try {
-    const raw = await readFile(editorOutputPath(rvtr), "utf8");
-    return JSON.parse(raw) as unknown;
-  } catch {
-    return null;
-  }
+  return readJsonFileSafe<unknown | null>(editorOutputPath(rvtr), null, 2000);
 }
 
 /** Normalize on-disk package: migrate v1 → v2 with backup when needed. */
@@ -105,5 +104,6 @@ export async function loadOrDraftEditorStory(
 
   const story = distillCollectorPackage(pkg);
   await saveEditorStory(story);
+  await saveRetrograph(buildRetrographFromCollector(pkg, story));
   return { story, seeded: true, collector: pkg };
 }

@@ -1,0 +1,221 @@
+{
+  "version": 2,
+  "rvtr": "RVTR483649",
+  "artist": "Elton John",
+  "title": "Goodbye Yellow Brick Road",
+  "story": {
+    "headline": "Goodbye Yellow Brick Road: The Breakthrough Moment",
+    "subtitle": "Elton John · Breakthrough · 2007",
+    "hook": "The song peaked at #2 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "summary": "Elton John's \"Goodbye Yellow Brick Road\" reached #2 on the Billboard Hot 100. Goodbye Yellow Brick Road was released in 2007.",
+    "fullStory": "Elton John's \"Goodbye Yellow Brick Road\" reached #2 on the Billboard Hot 100.\n\nThe song peaked at #2 on the Billboard Hot 100 and spent 17 weeks on the chart.\n\nGoodbye Yellow Brick Road was released in 2007.\n\n\"Goodbye Yellow Brick Road\" by Elton John.\n\nChart story — peaked at #2 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "d44c24cd-89d0-48e1-a7b9-f1bb3962938c",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c3b83964-c7c2-46e3-bcf6-abc5b08a1839",
+      "text": "Goodbye Yellow Brick Road was released in 2007.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9d396db4-2a82-4464-8954-b29162721648",
+      "text": "The song appears on the album \"Rocket Man: Number Ones\" (2007).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "1f6b73eb-3145-4504-9a3e-f74202cd135f",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "6c249f4e-4b4e-48f8-89ed-8e013bf94218",
+      "text": "\"Goodbye Yellow Brick Road\" by Elton John.",
+      "sourceRef": "Retroverse Canon"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "2ceb232b106c",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR483649&file=hero.jpg",
+      "performanceId": "perf-3ktey0"
+    },
+    {
+      "assetId": "b75f56bb4ecc",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR483649&file=performance.jpg",
+      "performanceId": "perf-3ktey0"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-3ktey0",
+    "title": "Muppet Show 1977 · 1972",
+    "venue": "Muppet Show 1977",
+    "year": 1972,
+    "notes": "Recommended cut — Recommended: Muppet Show 1977. venue context (Muppet Show 1977) adds place and moment. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "2ceb232b106c",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR483649&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "b75f56bb4ecc",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR483649&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #2 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "closing": "Elton John's \"Goodbye Yellow Brick Road\" reached #2 on the Billboard Hot 100. Goodbye Yellow Brick Road was released in 2007.",
+    "storyBeats": [
+      {
+        "id": "beat-7af33f26a3",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Goodbye Yellow Brick Road\" — original release 2007. Elton John — \"Goodbye Yellow Brick Road\" · Original release 2007 · Album: Rocket Man: Number Ones · Hot 100 peak #2",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ceb232b106c",
+          "b75f56bb4ecc"
+        ],
+        "relatedPerformanceId": "perf-3ktey0",
+        "priority": 1
+      },
+      {
+        "id": "beat-7b6356acdb",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Rocket Man: Number Ones · Release 2007",
+        "supportingFactIds": [
+          "9d396db4-2a82-4464-8954-b29162721648"
+        ],
+        "relatedImageAssetIds": [
+          "2ceb232b106c",
+          "b75f56bb4ecc"
+        ],
+        "relatedPerformanceId": "perf-3ktey0",
+        "priority": 2
+      },
+      {
+        "id": "beat-943c60618e",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #2 · 17 weeks on chart.",
+        "supportingFactIds": [
+          "d44c24cd-89d0-48e1-a7b9-f1bb3962938c"
+        ],
+        "relatedImageAssetIds": [
+          "2ceb232b106c",
+          "b75f56bb4ecc"
+        ],
+        "relatedPerformanceId": "perf-3ktey0",
+        "priority": 3
+      },
+      {
+        "id": "beat-771408cba7",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ceb232b106c",
+          "b75f56bb4ecc"
+        ],
+        "relatedPerformanceId": "perf-3ktey0",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-2de4c4461f",
+        "title": "Chart milestone",
+        "description": "Peaked at #2 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2007,
+        "supportingFactIds": [
+          "d44c24cd-89d0-48e1-a7b9-f1bb3962938c"
+        ],
+        "relatedImageAssetIds": [
+          "2ceb232b106c"
+        ]
+      },
+      {
+        "id": "moment-a7a1e6ca6d",
+        "title": "Muppet Show 1977",
+        "description": "Recommended: Muppet Show 1977. venue context (Muppet Show 1977) adds place and moment. 5 curated visual frames for cards and hero art. dated 1972 performance he",
+        "kind": "featured_performance",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ceb232b106c"
+        ]
+      },
+      {
+        "id": "moment-a7a1e6ca6d",
+        "title": "Muppet Show 1977",
+        "description": "Muppet Show 1977",
+        "kind": "television",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ceb232b106c"
+        ]
+      },
+      {
+        "id": "moment-5a51cc78b8",
+        "title": "Muppet Show",
+        "description": "Muppet Show",
+        "kind": "television",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ceb232b106c"
+        ]
+      },
+      {
+        "id": "moment-54820f9b0b",
+        "title": "The Muppet Show",
+        "description": "The Muppet Show",
+        "kind": "television",
+        "year": 1976,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ceb232b106c"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-3ktey0",
+      "title": "Muppet Show 1977 · 1972",
+      "reason": "Recommended: Muppet Show 1977. venue context (Muppet Show 1977) adds place and moment. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #2 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:49:43.022Z"
+  },
+  "submittedAt": "2026-06-27T05:49:43.022Z",
+  "editorNotesForDirector": "Collector confidence: Good (66%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

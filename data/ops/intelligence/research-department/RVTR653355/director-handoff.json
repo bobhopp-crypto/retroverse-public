@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR653355",
+  "artist": "Bon Jovi",
+  "title": "Wanted Dead Or Alive",
+  "story": {
+    "headline": "Wanted Dead Or Alive: The Performance That Defined It",
+    "subtitle": "Bon Jovi · Live Performance · 2003",
+    "hook": "The song peaked at #7 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "summary": "Bon Jovi's \"Wanted Dead Or Alive\" reached #7 on the Billboard Hot 100. Wanted Dead Or Alive was released in 2003.",
+    "fullStory": "Bon Jovi's \"Wanted Dead Or Alive\" reached #7 on the Billboard Hot 100.\n\nThe song peaked at #7 on the Billboard Hot 100 and spent 17 weeks on the chart.\n\nWanted Dead Or Alive was released in 2003.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #7 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "f4f97aa3-ea3b-4109-bb33-63b2dc24aee6",
+      "text": "The song peaked at #7 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "91d8f008-032c-42a7-8a07-3b7e848e30ca",
+      "text": "Wanted Dead Or Alive was released in 2003.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "98775f6e-59b9-4ab8-bd9d-8b1514670765",
+      "text": "The song appears on the album \"This Left Feels Right\" (2003).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "79289251-9af9-43e7-99fc-ea8cf4ae6efb",
+      "text": "VirtualDJ library play count: 14.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "81cd220b-0f64-4b62-ad2b-837022864a82",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "d59d7416322a",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR653355&file=hero.jpg",
+      "performanceId": "perf-6tq6e1"
+    },
+    {
+      "assetId": "50d8a2575a38",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR653355&file=performance.jpg",
+      "performanceId": "perf-6tq6e1"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-6tq6e1",
+    "title": "Live · 1987",
+    "venue": "Live",
+    "year": 1987,
+    "notes": "Recommended cut — Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "d59d7416322a",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR653355&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "50d8a2575a38",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR653355&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #7 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "closing": "Bon Jovi's \"Wanted Dead Or Alive\" reached #7 on the Billboard Hot 100. Wanted Dead Or Alive was released in 2003.",
+    "storyBeats": [
+      {
+        "id": "beat-a31147e3f0",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Live — Live (1987).",
+        "supportingFactIds": [
+          "91d8f008-032c-42a7-8a07-3b7e848e30ca"
+        ],
+        "relatedImageAssetIds": [
+          "d59d7416322a",
+          "50d8a2575a38"
+        ],
+        "relatedPerformanceId": "perf-6tq6e1",
+        "priority": 1
+      },
+      {
+        "id": "beat-55997011fa",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"Wanted Dead Or Alive\" entered the world in 2003.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d59d7416322a",
+          "50d8a2575a38"
+        ],
+        "relatedPerformanceId": "perf-6tq6e1",
+        "priority": 2
+      },
+      {
+        "id": "beat-fcaef753c8",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #7 · 17 weeks on chart.",
+        "supportingFactIds": [
+          "f4f97aa3-ea3b-4109-bb33-63b2dc24aee6"
+        ],
+        "relatedImageAssetIds": [
+          "d59d7416322a",
+          "50d8a2575a38"
+        ],
+        "relatedPerformanceId": "perf-6tq6e1",
+        "priority": 3
+      },
+      {
+        "id": "beat-f9a2f081a0",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d59d7416322a",
+          "50d8a2575a38"
+        ],
+        "relatedPerformanceId": "perf-6tq6e1",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-f2232aeeda",
+        "title": "Chart milestone",
+        "description": "Peaked at #7 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2003,
+        "supportingFactIds": [
+          "f4f97aa3-ea3b-4109-bb33-63b2dc24aee6"
+        ],
+        "relatedImageAssetIds": [
+          "d59d7416322a"
+        ]
+      },
+      {
+        "id": "moment-1db8274ade",
+        "title": "Live",
+        "description": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative",
+        "kind": "featured_performance",
+        "year": 1987,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d59d7416322a"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-6tq6e1",
+      "title": "Live · 1987",
+      "reason": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #7 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:22:19.791Z"
+  },
+  "submittedAt": "2026-06-27T04:22:19.792Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

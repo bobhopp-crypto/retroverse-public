@@ -1,0 +1,161 @@
+{
+  "version": 2,
+  "rvtr": "RVTR848706",
+  "artist": "Bob Seger",
+  "title": "Turn The Page",
+  "story": {
+    "headline": "Turn The Page: The Personal Story Behind the Song",
+    "subtitle": "Bob Seger · Personal Story · 1973",
+    "hook": "Turn The Page was released in 1973.",
+    "summary": "Bob Seger's \"Turn The Page\" — original release 1973.",
+    "fullStory": "Bob Seger's \"Turn The Page\" — original release 1973.\n\nTurn The Page was released in 1973.\n\nSong release — original 1973 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "1b0b5acc-0ab7-4e61-a269-6c917d44bb24",
+      "text": "Turn The Page was released in 1973.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b1a50102-e4c0-4f79-9f46-7871f9f03961",
+      "text": "The song appears on the album \"Back In '72\" (1973).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0a87500e-ec4b-47ff-b672-b3bbee6946a4",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "d938f19d9720",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848706&file=hero.jpg",
+      "performanceId": "perf-kwnw6i"
+    },
+    {
+      "assetId": "3daf034db464",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848706&file=performance.jpg",
+      "performanceId": "perf-kwnw6i"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-kwnw6i",
+    "title": "Official Video · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "d938f19d9720",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848706&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "3daf034db464",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR848706&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Turn The Page was released in 1973.",
+    "closing": "Bob Seger's \"Turn The Page\" — original release 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-5150477db4",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Turn The Page\" — original release 1973. Bob Seger — \"Turn The Page\" · Original release 1973 · Album: Back In '72",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d938f19d9720",
+          "3daf034db464"
+        ],
+        "relatedPerformanceId": "perf-kwnw6i",
+        "priority": 1
+      },
+      {
+        "id": "beat-efff466d48",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Back In '72 · Release 1973",
+        "supportingFactIds": [
+          "b1a50102-e4c0-4f79-9f46-7871f9f03961"
+        ],
+        "relatedImageAssetIds": [
+          "d938f19d9720",
+          "3daf034db464"
+        ],
+        "relatedPerformanceId": "perf-kwnw6i",
+        "priority": 2
+      },
+      {
+        "id": "beat-21743a88a6",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d938f19d9720",
+          "3daf034db464"
+        ],
+        "relatedPerformanceId": "perf-kwnw6i",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-67747eaad9",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d938f19d9720"
+        ]
+      },
+      {
+        "id": "moment-67747eaad9",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d938f19d9720"
+        ]
+      }
+    ],
+    "emotionalArc": "reflection",
+    "recommendedPace": "slow",
+    "recommendedPerformance": {
+      "performanceId": "perf-kwnw6i",
+      "title": "Official Video · 1973",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "love",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Turn The Page was released in 1973.\""
+    },
+    "generatedAt": "2026-06-27T05:20:31.932Z"
+  },
+  "submittedAt": "2026-06-27T05:20:31.932Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (53%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 2.3,
+    "storyQuality": "Poor"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR900474",
+  "artist": "Tears For Fears",
+  "title": "Shout",
+  "story": {
+    "headline": "Shout: The Breakthrough Moment",
+    "subtitle": "Tears For Fears · Breakthrough · 1985",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+    "summary": "Tears For Fears's \"Shout\" reached #1 on the Billboard Hot 100. Shout was released in 1985.",
+    "fullStory": "Tears For Fears's \"Shout\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.\n\nShout was released in 1985.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "7781128c-0e8f-46a8-bd5f-06494f9da930",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7a78b5ed-571e-40c6-a9a0-695acb973227",
+      "text": "Shout was released in 1985.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b303773e-f9a5-472b-9a2f-5b47ad5f618a",
+      "text": "The song appears on the album \"Songs From The Big Chair\" (1985).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "92e90d42-a255-453c-a3b8-2b5ea2935c16",
+      "text": "VirtualDJ library play count: 21.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "301ab98b-e36f-41a6-840f-3fcb1e0a3d15",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "853305f2b8e6",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR900474&file=hero.jpg",
+      "performanceId": "perf-ikrn8t"
+    },
+    {
+      "assetId": "4a30fbbc3349",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR900474&file=performance.jpg",
+      "performanceId": "perf-ikrn8t"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ikrn8t",
+    "title": "Official Video · 1985",
+    "venue": "",
+    "year": 1985,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1985 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "853305f2b8e6",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR900474&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "4a30fbbc3349",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR900474&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+    "closing": "Tears For Fears's \"Shout\" reached #1 on the Billboard Hot 100. Shout was released in 1985.",
+    "storyBeats": [
+      {
+        "id": "beat-fd1b77cc73",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Shout\" — original release 1985. Tears For Fears — \"Shout\" · Original release 1985 · Album: Songs From The Big Chair · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "853305f2b8e6",
+          "4a30fbbc3349"
+        ],
+        "relatedPerformanceId": "perf-ikrn8t",
+        "priority": 1
+      },
+      {
+        "id": "beat-669eb4a54e",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Songs From The Big Chair · Release 1985",
+        "supportingFactIds": [
+          "b303773e-f9a5-472b-9a2f-5b47ad5f618a"
+        ],
+        "relatedImageAssetIds": [
+          "853305f2b8e6",
+          "4a30fbbc3349"
+        ],
+        "relatedPerformanceId": "perf-ikrn8t",
+        "priority": 2
+      },
+      {
+        "id": "beat-98a1d7aafb",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 19 weeks on chart.",
+        "supportingFactIds": [
+          "7781128c-0e8f-46a8-bd5f-06494f9da930"
+        ],
+        "relatedImageAssetIds": [
+          "853305f2b8e6",
+          "4a30fbbc3349"
+        ],
+        "relatedPerformanceId": "perf-ikrn8t",
+        "priority": 3
+      },
+      {
+        "id": "beat-8090234aa6",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "853305f2b8e6",
+          "4a30fbbc3349"
+        ],
+        "relatedPerformanceId": "perf-ikrn8t",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-ee4fe83bb1",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1985,
+        "supportingFactIds": [
+          "7781128c-0e8f-46a8-bd5f-06494f9da930"
+        ],
+        "relatedImageAssetIds": [
+          "853305f2b8e6"
+        ]
+      },
+      {
+        "id": "moment-2b56e1059d",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1985,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "853305f2b8e6"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-ikrn8t",
+      "title": "Official Video · 1985",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1985 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:10.975Z"
+  },
+  "submittedAt": "2026-06-27T04:20:10.975Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.8,
+    "storyQuality": "Strong"
+  }
+}

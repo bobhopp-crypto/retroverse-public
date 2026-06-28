@@ -22,6 +22,9 @@ export async function writeCollectorPilotReport(packages: CollectorPackage[]): P
     lines.push(`- **RVTR:** ${pkg.rvtr}`);
     lines.push(`- **Graph linked:** ${pkg.graphLinked ? "yes" : "no (VDJ-only)"}`);
     lines.push(`- **Research quality:** ${pkg.researchQuality}%`);
+    lines.push(
+      `- **Lyrics artifact:** ${pkg.lyrics?.available ? `yes (${pkg.lyrics.lineCount} lines · ${pkg.lyrics.source})` : "not available"}`,
+    );
     lines.push(`- **Visual assets:** ${pkg.visualAssets.extraction.extractedCount} curated frames`);
     lines.push(`- **Status:** ${pkg.status}`);
     lines.push(`- **Output:** \`data/ops/intelligence/research-department/${pkg.rvtr}/collector.json\``);

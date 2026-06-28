@@ -1,0 +1,201 @@
+{
+  "version": 2,
+  "rvtr": "RVTR153987",
+  "artist": "Whitesnake",
+  "title": "Here I Go Again",
+  "story": {
+    "headline": "Here I Go Again: The Breakthrough Moment",
+    "subtitle": "Whitesnake · Breakthrough · 1994",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 28 weeks on the chart.",
+    "summary": "Whitesnake's \"Here I Go Again\" reached #1 on the Billboard Hot 100.",
+    "fullStory": "Whitesnake's \"Here I Go Again\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 28 weeks on the chart.\n\nGraph compilation anchor: \"Whitesnake's Greatest Hits\" (1994) — not the song's original release year.\n\nAlbum: Whitesnake's Greatest Hits (1994).\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "c4f28ccb-4d40-44ca-91a9-058a66c44045",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 28 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "171c424e-6017-4522-8312-5fa39f9f4b95",
+      "text": "The song appears on the album \"Whitesnake's Greatest Hits\" (1994).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "77e9cc18-be1a-41b3-af3b-d504acd909df",
+      "text": "Graph compilation anchor: \"Whitesnake's Greatest Hits\" (1994) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2f578851-1f80-4a1e-bad7-68d290c65d01",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "230f1086-ea8e-4f5f-be7e-799001dfb9a5",
+      "text": "Album: Whitesnake's Greatest Hits (1994).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "3160a3ba-ef32-46af-ac35-fd66de7fbdd0",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "4369c846-dfdb-476c-b719-d408458b1cb1",
+      "text": "Album: Whitesnake's Greatest Hits (1994).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "89f2e46793e8",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR153987&file=hero.jpg",
+      "performanceId": "perf-ek8scc"
+    },
+    {
+      "assetId": "4f00a4893708",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR153987&file=performance.jpg",
+      "performanceId": "perf-ek8scc"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ek8scc",
+    "title": "87 · 1987",
+    "venue": "",
+    "year": 1987,
+    "notes": "Recommended cut — Recommended: 87. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "89f2e46793e8",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR153987&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "4f00a4893708",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR153987&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 28 weeks on the chart.",
+    "closing": "Whitesnake's \"Here I Go Again\" reached #1 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-0182dd8089",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Here I Go Again\" — original release 1987. Whitesnake — \"Here I Go Again\" · Original release 1987 · Hot 100 peak #1",
+        "supportingFactIds": [
+          "77e9cc18-be1a-41b3-af3b-d504acd909df"
+        ],
+        "relatedImageAssetIds": [
+          "89f2e46793e8",
+          "4f00a4893708"
+        ],
+        "relatedPerformanceId": "perf-ek8scc",
+        "priority": 1
+      },
+      {
+        "id": "beat-040d62c28f",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Whitesnake's Greatest Hits · Release 1994 · Compilation edition",
+        "supportingFactIds": [
+          "171c424e-6017-4522-8312-5fa39f9f4b95",
+          "230f1086-ea8e-4f5f-be7e-799001dfb9a5"
+        ],
+        "relatedImageAssetIds": [
+          "89f2e46793e8",
+          "4f00a4893708"
+        ],
+        "relatedPerformanceId": "perf-ek8scc",
+        "priority": 2
+      },
+      {
+        "id": "beat-226bf740bf",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 28 weeks on chart.",
+        "supportingFactIds": [
+          "c4f28ccb-4d40-44ca-91a9-058a66c44045"
+        ],
+        "relatedImageAssetIds": [
+          "89f2e46793e8",
+          "4f00a4893708"
+        ],
+        "relatedPerformanceId": "perf-ek8scc",
+        "priority": 3
+      },
+      {
+        "id": "beat-3502d74d0f",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "89f2e46793e8",
+          "4f00a4893708"
+        ],
+        "relatedPerformanceId": "perf-ek8scc",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-f675994b2d",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1987,
+        "supportingFactIds": [
+          "c4f28ccb-4d40-44ca-91a9-058a66c44045"
+        ],
+        "relatedImageAssetIds": [
+          "89f2e46793e8"
+        ]
+      },
+      {
+        "id": "moment-feea7bd98b",
+        "title": "87",
+        "description": "Recommended: 87. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1987,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "89f2e46793e8"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-ek8scc",
+      "title": "87 · 1987",
+      "reason": "Recommended: 87. 5 curated visual frames for cards and hero art. dated 1987 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:41:34.490Z"
+  },
+  "submittedAt": "2026-06-27T05:41:34.491Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

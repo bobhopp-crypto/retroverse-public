@@ -1,0 +1,961 @@
+{
+  "version": 4,
+  "rvtr": "RVTR483544",
+  "artist": "Nickelback",
+  "title": "This Afternoon",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-27T23:56:20.313Z",
+  "researchQuality": 77,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Nickelback — This Afternoon (RVTR483544)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "2 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #34 · 20 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "8 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR483544",
+    "artist": "Nickelback",
+    "title": "This Afternoon",
+    "year": 2010,
+    "albumTitle": null
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+    "playCount": 4,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+        "artist": "Nickelback",
+        "title": "This Afternoon",
+        "isVideo": true,
+        "playCount": 4,
+        "year": 2008,
+        "genre": "Top 40",
+        "user2": null,
+        "performanceLabel": null
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Nickelback/Dark Horse - Nickelback - This Afternoon.mp3",
+        "artist": "Nickelback",
+        "title": "This Afternoon",
+        "isVideo": false,
+        "playCount": null,
+        "year": 2008,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 34,
+    "chartWeeks": 20,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #34 · 20 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+        "artist": "Nickelback",
+        "title": "This Afternoon",
+        "isVideo": true,
+        "playCount": 4,
+        "year": 2008,
+        "genre": "Top 40",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "crowd.jpg",
+      "hero.jpg",
+      "alternate.jpg",
+      "close-up.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "0284a2409a2b",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 20,
+          "width": 720,
+          "height": 480,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-27T23:56:20.310Z"
+        },
+        {
+          "id": "75c36d5479a7",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 80,
+          "width": 720,
+          "height": 480,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-27T23:56:20.310Z"
+        },
+        {
+          "id": "0401632ee86c",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 160,
+          "width": 720,
+          "height": 480,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-27T23:56:20.310Z"
+        },
+        {
+          "id": "e18c60181036",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 240,
+          "width": 720,
+          "height": 480,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-27T23:56:20.310Z"
+        },
+        {
+          "id": "bb4a4bec7112",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 300,
+          "width": 720,
+          "height": 480,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-27T23:56:20.310Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Nickelback"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "e4473f3d-f86a-4fcc-bfa8-dd8ffe2056dc",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR483544.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "6b9a6ef3-fd5a-42ef-9d2c-5c5d9663eeff",
+      "category": "artist",
+      "text": "This Afternoon is performed by Nickelback.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "0af7b2e6-fa46-4413-8252-9f3429fa4824",
+      "category": "chart",
+      "text": "The song peaked at #34 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "c3984d10-0ba2-4040-b8e1-f3f31f811fa1",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 4.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-8599uf"
+    },
+    {
+      "id": "ffcc10be-73be-4f30-aa2c-f6729ab1fa3e",
+      "category": "recording",
+      "text": "This Afternoon was released in 2010.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "8a6014e0-f101-4ee3-98de-666fd2297184",
+      "category": "trivia",
+      "text": "Artist: Nickelback · Title: This Afternoon · Album: HV 6-10 · Year: 2008 · Genre: Top 40 · PlayCount: 4 · LastPlayed: 1774842142 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-8599uf"
+    },
+    {
+      "id": "374c9954-1b03-4627-9cbb-5512b5a14ad8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4 · Plays: 4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-8599uf"
+    },
+    {
+      "id": "3629e542-b86e-4039-8f1b-4d1c24471bc5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Nickelback/Dark Horse - Nickelback - This Afternoon.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-8599uf"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-27T23:56:18.985Z",
+      "excerpt": "Retroverse track identity: RVTR483544. \"This Afternoon\" by Nickelback.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-27T23:56:18.985Z",
+      "excerpt": "Billboard Hot 100 peak: #34. 20 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-27T23:56:18.985Z",
+      "excerpt": "Artist: Nickelback · Title: This Afternoon · Album: HV 6-10 · Year: 2008 · Genre: Top 40 · PlayCount: 4 · LastPlayed: 1774842142 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-27T23:56:18.985Z",
+      "excerpt": "Performance year context: 2010.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-5bf34cb6",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-27T23:56:18.985Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4 · Plays: 4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-333886a4",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-27T23:56:18.985Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Nickelback/Dark Horse - Nickelback - This Afternoon.mp3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Nickelback — This Afternoon · Hot 100 peak #34 · 20 weeks · 1 performance videos · 8 candidate facts · 3 gaps · 1 performance(s) · 5/8 facts approved · confidence 59% · song 2010 / recording 2010",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR483544",
+      "artist": "Nickelback",
+      "title": "This Afternoon",
+      "year": 2010,
+      "albumTitle": null
+    },
+    "charts": {
+      "peakHot100": 34,
+      "chartWeeks": 20,
+      "albumTitle": null,
+      "summary": "Hot 100 peak #34 · 20 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Nickelback"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-27T23:56:18.985Z",
+          "excerpt": "Retroverse track identity: RVTR483544. \"This Afternoon\" by Nickelback.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-27T23:56:18.985Z",
+          "excerpt": "Billboard Hot 100 peak: #34. 20 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-27T23:56:18.985Z",
+          "excerpt": "Artist: Nickelback · Title: This Afternoon · Album: HV 6-10 · Year: 2008 · Genre: Top 40 · PlayCount: 4 · LastPlayed: 1774842142 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-27T23:56:18.985Z",
+          "excerpt": "Performance year context: 2010.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-5bf34cb6",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-27T23:56:18.985Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4 · Plays: 4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-333886a4",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-27T23:56:18.985Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Nickelback/Dark Horse - Nickelback - This Afternoon.mp3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Nickelback — This Afternoon · Hot 100 peak #34 · 20 weeks · 1 performance videos · 8 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "e4473f3d-f86a-4fcc-bfa8-dd8ffe2056dc",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR483544.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "6b9a6ef3-fd5a-42ef-9d2c-5c5d9663eeff",
+        "category": "artist",
+        "text": "This Afternoon is performed by Nickelback.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "0af7b2e6-fa46-4413-8252-9f3429fa4824",
+        "category": "chart",
+        "text": "The song peaked at #34 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "c3984d10-0ba2-4040-b8e1-f3f31f811fa1",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 4.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-8599uf"
+      },
+      {
+        "id": "ffcc10be-73be-4f30-aa2c-f6729ab1fa3e",
+        "category": "recording",
+        "text": "This Afternoon was released in 2010.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "8a6014e0-f101-4ee3-98de-666fd2297184",
+        "category": "trivia",
+        "text": "Artist: Nickelback · Title: This Afternoon · Album: HV 6-10 · Year: 2008 · Genre: Top 40 · PlayCount: 4 · LastPlayed: 1774842142 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-8599uf"
+      },
+      {
+        "id": "374c9954-1b03-4627-9cbb-5512b5a14ad8",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4 · Plays: 4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-8599uf"
+      },
+      {
+        "id": "3629e542-b86e-4039-8f1b-4d1c24471bc5",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/ALBUMS/Nickelback/Dark Horse - Nickelback - This Afternoon.mp3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-8599uf"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-8599uf",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+      "durationSec": 309.242576,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "0284a2409a2b",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 20,
+              "width": 720,
+              "height": 480,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-27T23:56:20.310Z"
+            },
+            {
+              "id": "75c36d5479a7",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 80,
+              "width": 720,
+              "height": 480,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-27T23:56:20.310Z"
+            },
+            {
+              "id": "0401632ee86c",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 160,
+              "width": 720,
+              "height": 480,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-27T23:56:20.310Z"
+            },
+            {
+              "id": "e18c60181036",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 240,
+              "width": 720,
+              "height": 480,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-27T23:56:20.310Z"
+            },
+            {
+              "id": "bb4a4bec7112",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 300,
+              "width": 720,
+              "height": 480,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-27T23:56:20.310Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2008. VirtualDJ play count: 4. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2008,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2008",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "storySeed": {
+    "whyItMatters": "Nickelback's \"This Afternoon\" reached #34 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "This Afternoon is performed by Nickelback.",
+      "The song peaked at #34 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "This Afternoon was released in 2010."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #34 on the Hot 100",
+      "Song release — original 2010 chapter",
+      "Performance angle — Official Video (2008)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR483544",
+    "artist": "Nickelback",
+    "title": "This Afternoon",
+    "writers": [],
+    "originalReleaseYear": 2010,
+    "originalAlbum": null,
+    "peakHot100": 34,
+    "chartWeeks": 20,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Nickelback"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-d5ftgj",
+      "kind": "unknown",
+      "title": "This Afternoon — graph recording",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": null,
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2010,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-8599uf",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2008,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 309.242576,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 2008. VirtualDJ play count: 4. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2008",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-o48hda",
+        "domain": "song",
+        "kind": "release",
+        "year": 2010,
+        "label": "This Afternoon — original release",
+        "detail": null,
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3hj",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2010,
+        "label": "Billboard Hot 100 peak #34",
+        "detail": "20 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-o4him9",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2010,
+        "label": "This Afternoon — graph recording",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-d5ftgj"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2008,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-8599uf"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2010,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2010,
+      "label": "Graph recording release",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2008,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR483544",
+      "artist": "Nickelback",
+      "title": "This Afternoon",
+      "writers": [],
+      "originalReleaseYear": 2010,
+      "originalAlbum": null,
+      "peakHot100": 34,
+      "chartWeeks": 20,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Nickelback"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-d5ftgj",
+        "kind": "unknown",
+        "title": "This Afternoon — graph recording",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": null,
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2010,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-8599uf",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Nickelback - This Afternoon.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2008,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 309.242576,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 2008. VirtualDJ play count: 4. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2008",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-o48hda",
+          "domain": "song",
+          "kind": "release",
+          "year": 2010,
+          "label": "This Afternoon — original release",
+          "detail": null,
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3hj",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2010,
+          "label": "Billboard Hot 100 peak #34",
+          "detail": "20 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-o4him9",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2010,
+          "label": "This Afternoon — graph recording",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-d5ftgj"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2008,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-8599uf"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2010,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2010,
+        "label": "Graph recording release",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2008,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

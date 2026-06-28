@@ -337,3 +337,19 @@
     font-size: 1.08rem;
   }
 }
+
+.rv-exp-cj--museum {
+  width: min(100%, 420px);
+  padding: 0.85rem 0.65rem 0.95rem;
+  border-width: 2px;
+  border-color: rgba(244, 242, 237, 0.35);
+  background: rgba(8, 10, 14, 0.72);
+  backdrop-filter: blur(6px);
+  color: #f4f2ed;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.rv-exp-cj--museum .rv-exp-cj__rows {
+  gap: 0.35rem;
+}
+

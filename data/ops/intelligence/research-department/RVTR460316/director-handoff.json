@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR460316",
+  "artist": "Weezer",
+  "title": "Buddy Holly",
+  "story": {
+    "headline": "Buddy Holly: A Cultural Moment Captured on Record",
+    "subtitle": "Weezer · Cultural Moment",
+    "hook": "Buddy Holly is performed by Weezer.",
+    "summary": "Weezer's \"Buddy Holly\" — original release 2005.",
+    "fullStory": "Weezer's \"Buddy Holly\" — original release 2005.\n\nSong release — original 2005 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "14756c8d-92b2-46ab-a500-350f11c7b5f5",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "1cb2be6f7aa8",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR460316&file=hero.jpg",
+      "performanceId": "perf-ht2ecz"
+    },
+    {
+      "assetId": "fdf4318758d4",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR460316&file=performance.jpg",
+      "performanceId": "perf-ht2ecz"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ht2ecz",
+    "title": "Official Video · 2005",
+    "venue": "",
+    "year": 2005,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2005 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "1cb2be6f7aa8",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR460316&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "fdf4318758d4",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR460316&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Buddy Holly is performed by Weezer.",
+    "closing": "Weezer's \"Buddy Holly\" — original release 2005.",
+    "storyBeats": [
+      {
+        "id": "beat-fbce99f8f8",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Buddy Holly\" — original release 2005. Weezer — \"Buddy Holly\" · Original release 2005",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1cb2be6f7aa8",
+          "fdf4318758d4"
+        ],
+        "relatedPerformanceId": "perf-ht2ecz",
+        "priority": 1
+      },
+      {
+        "id": "beat-9227a409d9",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1cb2be6f7aa8",
+          "fdf4318758d4"
+        ],
+        "relatedPerformanceId": "perf-ht2ecz",
+        "priority": 2
+      },
+      {
+        "id": "beat-a81ec1a141",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1cb2be6f7aa8",
+          "fdf4318758d4"
+        ],
+        "relatedPerformanceId": "perf-ht2ecz",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-1f6e66fd24",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2005,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1cb2be6f7aa8"
+        ]
+      },
+      {
+        "id": "moment-1f6e66fd24",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2005 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 2005,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1cb2be6f7aa8"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-ht2ecz",
+      "title": "Official Video · 2005",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2005 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Buddy Holly is performed by Weezer.\""
+    },
+    "generatedAt": "2026-06-27T05:17:24.075Z"
+  },
+  "submittedAt": "2026-06-27T05:17:24.076Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

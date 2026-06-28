@@ -1,0 +1,145 @@
+{
+  "version": 2,
+  "rvtr": "RVTR347538",
+  "artist": "Led Zeppelin",
+  "title": "Going To California Live",
+  "story": {
+    "headline": "Going To California Live: The Performance That Defined It",
+    "subtitle": "Led Zeppelin · Live Performance",
+    "hook": "Going To California Live is performed by Led Zeppelin.",
+    "summary": "Led Zeppelin's \"Going To California Live\" — original release 1973. \"Going To California Live\" by Led Zeppelin.",
+    "fullStory": "Led Zeppelin's \"Going To California Live\" — original release 1973.\n\n\"Going To California Live\" by Led Zeppelin.\n\nSong release — original 1973 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "94e7a989-83c3-45a9-bf45-b5d06e125b9f",
+      "text": "VirtualDJ library play count: 12.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "76dcb531-da9d-4ec1-94c4-55016e4d6948",
+      "text": "\"Going To California Live\" by Led Zeppelin.",
+      "sourceRef": "Retroverse Canon"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "42c9052f1045",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR347538&file=performance.jpg",
+      "performanceId": "perf-tuywxf"
+    },
+    {
+      "assetId": "df66cb9c7a02",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR347538&file=hero.jpg",
+      "performanceId": "perf-tuywxf"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-tuywxf",
+    "title": "Live · 1973",
+    "venue": "Live",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "42c9052f1045",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR347538&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "df66cb9c7a02",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR347538&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Going To California Live is performed by Led Zeppelin.",
+    "closing": "Led Zeppelin's \"Going To California Live\" — original release 1973. \"Going To California Live\" by Led Zeppelin.",
+    "storyBeats": [
+      {
+        "id": "beat-7602b30806",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Live — Live (1973).",
+        "supportingFactIds": [
+          "76dcb531-da9d-4ec1-94c4-55016e4d6948"
+        ],
+        "relatedImageAssetIds": [
+          "42c9052f1045",
+          "df66cb9c7a02"
+        ],
+        "relatedPerformanceId": "perf-tuywxf",
+        "priority": 1
+      },
+      {
+        "id": "beat-329b48b447",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"Going To California Live\" entered the world in 1973.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "42c9052f1045",
+          "df66cb9c7a02"
+        ],
+        "relatedPerformanceId": "perf-tuywxf",
+        "priority": 2
+      },
+      {
+        "id": "beat-77d3fc2286",
+        "order": 2,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "42c9052f1045",
+          "df66cb9c7a02"
+        ],
+        "relatedPerformanceId": "perf-tuywxf",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-40b578fa1d",
+        "title": "Live",
+        "description": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative",
+        "kind": "featured_performance",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "42c9052f1045"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-tuywxf",
+      "title": "Live · 1973",
+      "reason": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Return to the performance moment — let the owned footage be the final image."
+    },
+    "generatedAt": "2026-06-27T04:31:23.811Z"
+  },
+  "submittedAt": "2026-06-27T04:31:23.811Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 3.3,
+    "storyQuality": "Poor"
+  }
+}

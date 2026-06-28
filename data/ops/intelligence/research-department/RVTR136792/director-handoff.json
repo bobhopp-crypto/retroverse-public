@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR136792",
+  "artist": "Michael Jackson",
+  "title": "Jam",
+  "story": {
+    "headline": "Jam: A Cultural Moment Captured on Record",
+    "subtitle": "Michael Jackson · Cultural Moment · 1991",
+    "hook": "The song peaked at #26 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "summary": "Michael Jackson's \"Jam\" reached #26 on the Billboard Hot 100. Jam was released in 1991.",
+    "fullStory": "Michael Jackson's \"Jam\" reached #26 on the Billboard Hot 100.\n\nThe song peaked at #26 on the Billboard Hot 100 and spent 14 weeks on the chart.\n\nJam was released in 1991.\n\nChart story — peaked at #26 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "f3667f24-7e7d-4571-922d-0786cbd5ae1e",
+      "text": "The song peaked at #26 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a3506b12-d1ef-437a-970b-65ee541d0727",
+      "text": "Jam was released in 1991.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e8142e8d-ab2c-4a6f-82de-362ca8d986d4",
+      "text": "The song appears on the album \"Dangerous\" (1991).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8756bdc9-168d-4775-8d6f-a21fce43a59e",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "4b3b14716784",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR136792&file=performance.jpg",
+      "performanceId": "perf-onqfv0"
+    },
+    {
+      "assetId": "91cb34850493",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR136792&file=hero.jpg",
+      "performanceId": "perf-onqfv0"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-onqfv0",
+    "title": "Official Video · 1992",
+    "venue": "",
+    "year": 1992,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1992 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "4b3b14716784",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR136792&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "91cb34850493",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR136792&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #26 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "closing": "Michael Jackson's \"Jam\" reached #26 on the Billboard Hot 100. Jam was released in 1991.",
+    "storyBeats": [
+      {
+        "id": "beat-29e19aba48",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Jam\" — original release 1991. Michael Jackson — \"Jam\" · Original release 1991 · Album: Dangerous · Hot 100 peak #26",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4b3b14716784",
+          "91cb34850493"
+        ],
+        "relatedPerformanceId": "perf-onqfv0",
+        "priority": 1
+      },
+      {
+        "id": "beat-d1e33d7e18",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Dangerous · Release 1991",
+        "supportingFactIds": [
+          "e8142e8d-ab2c-4a6f-82de-362ca8d986d4"
+        ],
+        "relatedImageAssetIds": [
+          "4b3b14716784",
+          "91cb34850493"
+        ],
+        "relatedPerformanceId": "perf-onqfv0",
+        "priority": 2
+      },
+      {
+        "id": "beat-93329a427c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #26 · 14 weeks on chart.",
+        "supportingFactIds": [
+          "f3667f24-7e7d-4571-922d-0786cbd5ae1e"
+        ],
+        "relatedImageAssetIds": [
+          "4b3b14716784",
+          "91cb34850493"
+        ],
+        "relatedPerformanceId": "perf-onqfv0",
+        "priority": 3
+      },
+      {
+        "id": "beat-060c916fa4",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4b3b14716784",
+          "91cb34850493"
+        ],
+        "relatedPerformanceId": "perf-onqfv0",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-5632d12bdf",
+        "title": "Chart milestone",
+        "description": "Peaked at #26 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1991,
+        "supportingFactIds": [
+          "f3667f24-7e7d-4571-922d-0786cbd5ae1e"
+        ],
+        "relatedImageAssetIds": [
+          "4b3b14716784"
+        ]
+      },
+      {
+        "id": "moment-9e3eda8b0d",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1992,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4b3b14716784"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-onqfv0",
+      "title": "Official Video · 1992",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1992 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #26 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:34:23.265Z"
+  },
+  "submittedAt": "2026-06-27T05:34:23.266Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR880363",
+  "artist": "Bob Seger",
+  "title": "Mainstreet",
+  "story": {
+    "headline": "Mainstreet: A Cultural Moment Captured on Record",
+    "subtitle": "Bob Seger · Cultural Moment · 1976",
+    "hook": "The song peaked at #24 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+    "summary": "Bob Seger's \"Mainstreet\" reached #24 on the Billboard Hot 100. Mainstreet was released in 1976.",
+    "fullStory": "Bob Seger's \"Mainstreet\" reached #24 on the Billboard Hot 100.\n\nThe song peaked at #24 on the Billboard Hot 100 and spent 10 weeks on the chart.\n\nMainstreet was released in 1976.\n\nChart story — peaked at #24 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "30a18feb-fb39-43cf-9b3c-612b6ce6c410",
+      "text": "The song peaked at #24 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9b76705e-d2c4-4836-a9ca-b489edc514bc",
+      "text": "Mainstreet was released in 1976.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7a015a8d-9a52-4ac0-ae91-4326471f7947",
+      "text": "The song appears on the album \"Night Moves\" (1976).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "1fbb5dbe-c206-41f8-a3ed-ef3b00aadc12",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "4131ef87b2e1",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR880363&file=performance.jpg",
+      "performanceId": "perf-hab9df"
+    },
+    {
+      "assetId": "7a5b39a00cff",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR880363&file=hero.jpg",
+      "performanceId": "perf-hab9df"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-hab9df",
+    "title": "Official Video · 1976",
+    "venue": "",
+    "year": 1976,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1976 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "4131ef87b2e1",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR880363&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "7a5b39a00cff",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR880363&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #24 on the Billboard Hot 100 and spent 10 weeks on the chart.",
+    "closing": "Bob Seger's \"Mainstreet\" reached #24 on the Billboard Hot 100. Mainstreet was released in 1976.",
+    "storyBeats": [
+      {
+        "id": "beat-2dfb4f8be8",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Mainstreet\" — original release 1976. Bob Seger — \"Mainstreet\" · Original release 1976 · Album: Night Moves · Hot 100 peak #24",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4131ef87b2e1",
+          "7a5b39a00cff"
+        ],
+        "relatedPerformanceId": "perf-hab9df",
+        "priority": 1
+      },
+      {
+        "id": "beat-db72e19078",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Night Moves · Release 1976",
+        "supportingFactIds": [
+          "7a015a8d-9a52-4ac0-ae91-4326471f7947"
+        ],
+        "relatedImageAssetIds": [
+          "4131ef87b2e1",
+          "7a5b39a00cff"
+        ],
+        "relatedPerformanceId": "perf-hab9df",
+        "priority": 2
+      },
+      {
+        "id": "beat-8108c42427",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #24 · 10 weeks on chart.",
+        "supportingFactIds": [
+          "30a18feb-fb39-43cf-9b3c-612b6ce6c410"
+        ],
+        "relatedImageAssetIds": [
+          "4131ef87b2e1",
+          "7a5b39a00cff"
+        ],
+        "relatedPerformanceId": "perf-hab9df",
+        "priority": 3
+      },
+      {
+        "id": "beat-e22db6981b",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4131ef87b2e1",
+          "7a5b39a00cff"
+        ],
+        "relatedPerformanceId": "perf-hab9df",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-6000982a70",
+        "title": "Chart milestone",
+        "description": "Peaked at #24 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1976,
+        "supportingFactIds": [
+          "30a18feb-fb39-43cf-9b3c-612b6ce6c410"
+        ],
+        "relatedImageAssetIds": [
+          "4131ef87b2e1"
+        ]
+      },
+      {
+        "id": "moment-d8ddce8e85",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1976,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4131ef87b2e1"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-hab9df",
+      "title": "Official Video · 1976",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1976 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #24 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:55:00.517Z"
+  },
+  "submittedAt": "2026-06-27T05:55:00.518Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

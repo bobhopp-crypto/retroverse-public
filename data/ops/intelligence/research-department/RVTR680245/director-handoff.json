@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR680245",
+  "artist": "Blondie",
+  "title": "Dreaming",
+  "story": {
+    "headline": "Dreaming: A Cultural Moment Captured on Record",
+    "subtitle": "Blondie · Cultural Moment · 1979",
+    "hook": "The song peaked at #27 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "summary": "Blondie's \"Dreaming\" reached #27 on the Billboard Hot 100. Dreaming was released in 1979.",
+    "fullStory": "Blondie's \"Dreaming\" reached #27 on the Billboard Hot 100.\n\nThe song peaked at #27 on the Billboard Hot 100 and spent 14 weeks on the chart.\n\nDreaming was released in 1979.\n\nChart story — peaked at #27 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "15554bec-3ab7-4b2a-9d1d-8b90d496da22",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c5ecd5fc-0b59-4bb6-91d6-c1cf7ea14c63",
+      "text": "Dreaming was released in 1979.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2a6ebb4f-1532-4a87-884d-dbcb45a48ecf",
+      "text": "The song appears on the album \"Eat To The Beat\" (1979).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "71848810-6575-442f-9acb-2ec3fef33601",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "a94835e6163d",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR680245&file=hero.jpg",
+      "performanceId": "perf-zduhzk"
+    },
+    {
+      "assetId": "5fbd0d72f1b0",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR680245&file=performance.jpg",
+      "performanceId": "perf-zduhzk"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-zduhzk",
+    "title": "Official Video · 1979",
+    "venue": "",
+    "year": 1979,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1979 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "a94835e6163d",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR680245&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "5fbd0d72f1b0",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR680245&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #27 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "closing": "Blondie's \"Dreaming\" reached #27 on the Billboard Hot 100. Dreaming was released in 1979.",
+    "storyBeats": [
+      {
+        "id": "beat-aa00c98c7d",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Dreaming\" — original release 1979. Blondie — \"Dreaming\" · Original release 1979 · Album: Eat To The Beat · Hot 100 peak #27",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a94835e6163d",
+          "5fbd0d72f1b0"
+        ],
+        "relatedPerformanceId": "perf-zduhzk",
+        "priority": 1
+      },
+      {
+        "id": "beat-d021a3b5ea",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Eat To The Beat · Release 1979",
+        "supportingFactIds": [
+          "2a6ebb4f-1532-4a87-884d-dbcb45a48ecf"
+        ],
+        "relatedImageAssetIds": [
+          "a94835e6163d",
+          "5fbd0d72f1b0"
+        ],
+        "relatedPerformanceId": "perf-zduhzk",
+        "priority": 2
+      },
+      {
+        "id": "beat-2a116ac581",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #27 · 14 weeks on chart.",
+        "supportingFactIds": [
+          "15554bec-3ab7-4b2a-9d1d-8b90d496da22"
+        ],
+        "relatedImageAssetIds": [
+          "a94835e6163d",
+          "5fbd0d72f1b0"
+        ],
+        "relatedPerformanceId": "perf-zduhzk",
+        "priority": 3
+      },
+      {
+        "id": "beat-48e49c2652",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a94835e6163d",
+          "5fbd0d72f1b0"
+        ],
+        "relatedPerformanceId": "perf-zduhzk",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-0e211910ce",
+        "title": "Chart milestone",
+        "description": "Peaked at #27 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1979,
+        "supportingFactIds": [
+          "15554bec-3ab7-4b2a-9d1d-8b90d496da22"
+        ],
+        "relatedImageAssetIds": [
+          "a94835e6163d"
+        ]
+      },
+      {
+        "id": "moment-a10d3175cd",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1979,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a94835e6163d"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-zduhzk",
+      "title": "Official Video · 1979",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1979 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #27 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:52:52.360Z"
+  },
+  "submittedAt": "2026-06-27T04:52:52.360Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.8,
+    "storyQuality": "Strong"
+  }
+}

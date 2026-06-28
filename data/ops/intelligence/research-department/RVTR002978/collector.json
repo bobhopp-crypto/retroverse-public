@@ -1,0 +1,991 @@
+{
+  "version": 4,
+  "rvtr": "RVTR002978",
+  "artist": "Billy Joel",
+  "title": "My Life",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue",
+    "Year resolution: Song original release (1978) is separate from graph compilation anchor (2012)."
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T00:16:00.344Z",
+  "researchQuality": 79,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Billy Joel — My Life (RVTR002978)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "2 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #3 · 19 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "9 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR002978",
+    "artist": "Billy Joel",
+    "title": "My Life",
+    "year": 2012,
+    "albumTitle": "Opus Collection"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+    "playCount": 3,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+        "artist": "Billy Joel",
+        "title": "My Life",
+        "isVideo": true,
+        "playCount": 3,
+        "year": 1978,
+        "genre": "Pop",
+        "user2": null,
+        "performanceLabel": null
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Billy Joel - My Life.mp3",
+        "artist": "Billy Joel",
+        "title": "My Life",
+        "isVideo": false,
+        "playCount": null,
+        "year": null,
+        "genre": "Rock/Pop",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 3,
+    "chartWeeks": 19,
+    "albumTitle": "Opus Collection",
+    "summary": "Hot 100 peak #3 · 19 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+        "artist": "Billy Joel",
+        "title": "My Life",
+        "isVideo": true,
+        "playCount": 3,
+        "year": 1978,
+        "genre": "Pop",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "performance.jpg",
+      "alternate.jpg",
+      "close-up.jpg",
+      "crowd.jpg",
+      "hero.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "c9d850659bbc",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 0,
+          "width": 684,
+          "height": 460,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T00:16:00.341Z"
+        },
+        {
+          "id": "f38078ce2c2f",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 60,
+          "width": 684,
+          "height": 460,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T00:16:00.341Z"
+        },
+        {
+          "id": "b9c3c4f1eb9b",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 120,
+          "width": 684,
+          "height": 460,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T00:16:00.341Z"
+        },
+        {
+          "id": "a6d406f7644e",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 180,
+          "width": 684,
+          "height": 460,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T00:16:00.341Z"
+        },
+        {
+          "id": "0c8d35fa2b3c",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 240,
+          "width": 684,
+          "height": 460,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T00:16:00.341Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Billy Joel"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "9f220c58-6857-4133-bc15-015872002653",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR002978.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "c73626ca-5898-44c0-be60-148904a5f9ca",
+      "category": "artist",
+      "text": "My Life is performed by Billy Joel.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "93d5aa9a-72e6-4755-a254-7a6b0791bcd9",
+      "category": "album",
+      "text": "The song appears on the album \"Opus Collection\" (2012).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "recording",
+      "scopeRef": "rec-irzt7q"
+    },
+    {
+      "id": "7f436294-3bdc-44a6-98cd-bff9ad65e19d",
+      "category": "chart",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "0189ddb1-2503-4c46-9719-1e8fc6a7237f",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 3.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-kbrafh"
+    },
+    {
+      "id": "06de0817-f4b3-46a8-a212-a0dc056daf5d",
+      "category": "album",
+      "text": "Graph compilation anchor: \"Opus Collection\" (2012) — not the song's original release year.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Compilation anchor — scoped to recording",
+      "approvalStatus": "approved",
+      "scope": "recording",
+      "scopeRef": "rec-irzt7q"
+    },
+    {
+      "id": "d95969cb-fe79-4761-ad15-100d6eb866eb",
+      "category": "trivia",
+      "text": "Artist: Billy Joel · Title: My Life · Album: Honesty • My Life · Year: 1978 · Genre: Pop · PlayCount: 3 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-kbrafh"
+    },
+    {
+      "id": "b8da1207-15a1-4c9a-b4f6-ab522bc121a1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4 · Plays: 3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-kbrafh"
+    },
+    {
+      "id": "4ee9b6b6-3ce8-4079-b783-5dd1a6a7e5f1",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Billy Joel - My Life.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-kbrafh"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T00:15:59.069Z",
+      "excerpt": "Retroverse track identity: RVTR002978. \"My Life\" by Billy Joel. Album: Opus Collection (2012).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T00:15:59.069Z",
+      "excerpt": "Album: Opus Collection (2012). Billboard Hot 100 peak: #3. 19 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T00:15:59.069Z",
+      "excerpt": "Artist: Billy Joel · Title: My Life · Album: Honesty • My Life · Year: 1978 · Genre: Pop · PlayCount: 3 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T00:15:59.069Z",
+      "excerpt": "Performance year context: 2012.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-36fefaed",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T00:15:59.069Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4 · Plays: 3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-7d303fcb",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T00:15:59.069Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Billy Joel - My Life.mp3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Billy Joel — My Life · Hot 100 peak #3 · 19 weeks · 1 performance videos · 9 candidate facts · 3 gaps · 1 performance(s) · 6/9 facts approved · confidence 63% · song 1978 / recording 2012",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR002978",
+      "artist": "Billy Joel",
+      "title": "My Life",
+      "year": 2012,
+      "albumTitle": "Opus Collection"
+    },
+    "charts": {
+      "peakHot100": 3,
+      "chartWeeks": 19,
+      "albumTitle": "Opus Collection",
+      "summary": "Hot 100 peak #3 · 19 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Billy Joel"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T00:15:59.069Z",
+          "excerpt": "Retroverse track identity: RVTR002978. \"My Life\" by Billy Joel. Album: Opus Collection (2012).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T00:15:59.069Z",
+          "excerpt": "Album: Opus Collection (2012). Billboard Hot 100 peak: #3. 19 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T00:15:59.069Z",
+          "excerpt": "Artist: Billy Joel · Title: My Life · Album: Honesty • My Life · Year: 1978 · Genre: Pop · PlayCount: 3 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T00:15:59.069Z",
+          "excerpt": "Performance year context: 2012.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-36fefaed",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T00:15:59.069Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4 · Plays: 3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-7d303fcb",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T00:15:59.069Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Billy Joel - My Life.mp3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Billy Joel — My Life · Hot 100 peak #3 · 19 weeks · 1 performance videos · 9 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "9f220c58-6857-4133-bc15-015872002653",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR002978.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "c73626ca-5898-44c0-be60-148904a5f9ca",
+        "category": "artist",
+        "text": "My Life is performed by Billy Joel.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "93d5aa9a-72e6-4755-a254-7a6b0791bcd9",
+        "category": "album",
+        "text": "The song appears on the album \"Opus Collection\" (2012).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "recording",
+        "scopeRef": "rec-irzt7q"
+      },
+      {
+        "id": "7f436294-3bdc-44a6-98cd-bff9ad65e19d",
+        "category": "chart",
+        "text": "The song peaked at #3 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "0189ddb1-2503-4c46-9719-1e8fc6a7237f",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 3.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-kbrafh"
+      },
+      {
+        "id": "06de0817-f4b3-46a8-a212-a0dc056daf5d",
+        "category": "album",
+        "text": "Graph compilation anchor: \"Opus Collection\" (2012) — not the song's original release year.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Compilation anchor — scoped to recording",
+        "approvalStatus": "approved",
+        "scope": "recording",
+        "scopeRef": "rec-irzt7q"
+      },
+      {
+        "id": "d95969cb-fe79-4761-ad15-100d6eb866eb",
+        "category": "trivia",
+        "text": "Artist: Billy Joel · Title: My Life · Album: Honesty • My Life · Year: 1978 · Genre: Pop · PlayCount: 3 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-kbrafh"
+      },
+      {
+        "id": "b8da1207-15a1-4c9a-b4f6-ab522bc121a1",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4 · Plays: 3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-kbrafh"
+      },
+      {
+        "id": "4ee9b6b6-3ce8-4079-b783-5dd1a6a7e5f1",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Fill/Billy Joel - My Life.mp3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-kbrafh"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-kbrafh",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+      "durationSec": 266.8705,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "c9d850659bbc",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 0,
+              "width": 684,
+              "height": 460,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T00:16:00.341Z"
+            },
+            {
+              "id": "f38078ce2c2f",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 60,
+              "width": 684,
+              "height": 460,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T00:16:00.341Z"
+            },
+            {
+              "id": "b9c3c4f1eb9b",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 120,
+              "width": 684,
+              "height": 460,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T00:16:00.341Z"
+            },
+            {
+              "id": "a6d406f7644e",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 180,
+              "width": 684,
+              "height": 460,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T00:16:00.341Z"
+            },
+            {
+              "id": "0c8d35fa2b3c",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 240,
+              "width": 684,
+              "height": 460,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T00:16:00.341Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1978. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1978,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1978",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Billy Joel's \"My Life\" reached #3 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "My Life is performed by Billy Joel.",
+      "The song appears on the album \"Opus Collection\" (2012).",
+      "The song peaked at #3 on the Billboard Hot 100 and spent 19 weeks on the chart."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #3 on the Hot 100",
+      "Song release — original 1978 chapter",
+      "Recording edition — Compilation: Opus Collection",
+      "Performance angle — Official Video (1978)"
+    ],
+    "suggestedAngle": "breakthrough"
+  },
+  "songEntity": {
+    "rvtr": "RVTR002978",
+    "artist": "Billy Joel",
+    "title": "My Life",
+    "writers": [],
+    "originalReleaseYear": 1978,
+    "originalAlbum": null,
+    "peakHot100": 3,
+    "chartWeeks": 19,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Billy Joel"
+    ],
+    "legacy": [],
+    "confidence": 58
+  },
+  "recordings": [
+    {
+      "id": "rec-irzt7q",
+      "kind": "compilation",
+      "title": "Opus Collection",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Opus Collection",
+      "isCompilation": true,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2012,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.82,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-kbrafh",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1978,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 266.8705,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1978. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1978",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-c6lw38",
+        "domain": "song",
+        "kind": "release",
+        "year": 1978,
+        "label": "My Life — original release",
+        "detail": null,
+        "confidence": 0.58,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-l47p2l",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1978,
+        "label": "Billboard Hot 100 peak #3",
+        "detail": "19 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-qica75",
+        "domain": "recording",
+        "kind": "compilation",
+        "year": 2012,
+        "label": "Opus Collection",
+        "detail": null,
+        "confidence": 0.82,
+        "source": "Retroverse graph",
+        "entityRef": "rec-irzt7q"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1978,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-kbrafh"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1978,
+      "label": "Song original release",
+      "confidence": 0.58,
+      "source": "owned performance archival dating (compilation graph anchor excluded)"
+    },
+    "recordingRelease": {
+      "year": 2012,
+      "label": "Compilation: Opus Collection",
+      "confidence": 0.82,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1978,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": [
+      "Song original release (1978) is separate from graph compilation anchor (2012)."
+    ]
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR002978",
+      "artist": "Billy Joel",
+      "title": "My Life",
+      "writers": [],
+      "originalReleaseYear": 1978,
+      "originalAlbum": null,
+      "peakHot100": 3,
+      "chartWeeks": 19,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Billy Joel"
+      ],
+      "legacy": [],
+      "confidence": 58
+    },
+    "recordings": [
+      {
+        "id": "rec-irzt7q",
+        "kind": "compilation",
+        "title": "Opus Collection",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Opus Collection",
+        "isCompilation": true,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2012,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.82,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-kbrafh",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Billy Joel - My Life.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1978,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 266.8705,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1978. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1978",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-c6lw38",
+          "domain": "song",
+          "kind": "release",
+          "year": 1978,
+          "label": "My Life — original release",
+          "detail": null,
+          "confidence": 0.58,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-l47p2l",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1978,
+          "label": "Billboard Hot 100 peak #3",
+          "detail": "19 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-qica75",
+          "domain": "recording",
+          "kind": "compilation",
+          "year": 2012,
+          "label": "Opus Collection",
+          "detail": null,
+          "confidence": 0.82,
+          "source": "Retroverse graph",
+          "entityRef": "rec-irzt7q"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1978,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-kbrafh"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1978,
+        "label": "Song original release",
+        "confidence": 0.58,
+        "source": "owned performance archival dating (compilation graph anchor excluded)"
+      },
+      "recordingRelease": {
+        "year": 2012,
+        "label": "Compilation: Opus Collection",
+        "confidence": 0.82,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1978,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": [
+        "Song original release (1978) is separate from graph compilation anchor (2012)."
+      ]
+    }
+  }
+}

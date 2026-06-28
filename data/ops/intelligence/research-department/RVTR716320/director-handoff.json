@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR716320",
+  "artist": "Lonestar",
+  "title": "Amazed",
+  "story": {
+    "headline": "Amazed: The Breakthrough Moment",
+    "subtitle": "Lonestar · Breakthrough · 1999",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 55 weeks on the chart.",
+    "summary": "Lonestar's \"Amazed\" reached #1 on the Billboard Hot 100. Amazed was released in 1999.",
+    "fullStory": "Lonestar's \"Amazed\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 55 weeks on the chart.\n\nAmazed was released in 1999.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "2df854b5-0d34-4e3a-ae6f-0f1b762d82a1",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 55 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8c886f62-1f0e-446d-842c-655edb366e5f",
+      "text": "Amazed was released in 1999.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3d049196-a360-40d0-b8c0-16d106a7ba7f",
+      "text": "The song appears on the album \"Lonely Grill\" (1999).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a8132fcd-4c85-43a8-bd71-f92eca4dc690",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "09565f53-0777-4c84-a8ce-d4faf78f3bec",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "96a1b786a720",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR716320&file=hero.jpg",
+      "performanceId": "perf-a9k0na"
+    },
+    {
+      "assetId": "82620bd18c38",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR716320&file=performance.jpg",
+      "performanceId": "perf-a9k0na"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-a9k0na",
+    "title": "Official Video · 1999",
+    "venue": "",
+    "year": 1999,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1999 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "96a1b786a720",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR716320&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "82620bd18c38",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR716320&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 55 weeks on the chart.",
+    "closing": "Lonestar's \"Amazed\" reached #1 on the Billboard Hot 100. Amazed was released in 1999.",
+    "storyBeats": [
+      {
+        "id": "beat-c6a3d7dd3b",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Amazed\" — original release 1999. Lonestar — \"Amazed\" · Original release 1999 · Album: Lonely Grill · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "96a1b786a720",
+          "82620bd18c38"
+        ],
+        "relatedPerformanceId": "perf-a9k0na",
+        "priority": 1
+      },
+      {
+        "id": "beat-dc5a2c9cd8",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Lonely Grill · Release 1999",
+        "supportingFactIds": [
+          "3d049196-a360-40d0-b8c0-16d106a7ba7f"
+        ],
+        "relatedImageAssetIds": [
+          "96a1b786a720",
+          "82620bd18c38"
+        ],
+        "relatedPerformanceId": "perf-a9k0na",
+        "priority": 2
+      },
+      {
+        "id": "beat-9ada3eb46b",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 55 weeks on chart.",
+        "supportingFactIds": [
+          "2df854b5-0d34-4e3a-ae6f-0f1b762d82a1"
+        ],
+        "relatedImageAssetIds": [
+          "96a1b786a720",
+          "82620bd18c38"
+        ],
+        "relatedPerformanceId": "perf-a9k0na",
+        "priority": 3
+      },
+      {
+        "id": "beat-4fdb0e046b",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "96a1b786a720",
+          "82620bd18c38"
+        ],
+        "relatedPerformanceId": "perf-a9k0na",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-0ab989bf41",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1999,
+        "supportingFactIds": [
+          "2df854b5-0d34-4e3a-ae6f-0f1b762d82a1"
+        ],
+        "relatedImageAssetIds": [
+          "96a1b786a720"
+        ]
+      },
+      {
+        "id": "moment-403d29734c",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1999,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "96a1b786a720"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-a9k0na",
+      "title": "Official Video · 1999",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1999 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:50:51.942Z"
+  },
+  "submittedAt": "2026-06-27T05:50:51.942Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

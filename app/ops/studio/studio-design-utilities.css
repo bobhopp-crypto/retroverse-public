@@ -1,8 +1,9 @@
 /**
- * Retroverse Studio — Design Utilities (D-001)
+ * Retroverse Studio — Design Utilities (D-001 / D-002)
  *
  * Primitive classes built on studio-design-tokens.css.
- * Use for new Studio UI; existing pages migrate incrementally.
+ * Use ONLY under .ops-studio-page (Collector / Editor / Director / Publisher).
+ * Do NOT use on VirtualDJ Browser (.browser-plus) or other library table UIs.
  */
 
 /* ── Section rhythm ── */
@@ -34,6 +35,95 @@
   background: var(--rs-studio-bg-panel-strong);
   border: 2px solid var(--rs-studio-line);
   box-shadow: var(--rs-studio-shadow-panel);
+}
+
+/* ── Studio 2.0 surfaces (review / eval / coaching panels) ── */
+.rs-studio-panel {
+  padding: var(--rs-studio-space-card);
+  border: 2px solid var(--rs-studio-line-subtle);
+  border-radius: var(--rs-studio-radius-lg);
+  background: linear-gradient(
+    180deg,
+    rgba(18, 55, 119, 0.88),
+    rgba(13, 36, 85, 0.94)
+  );
+  box-shadow: var(--rs-studio-shadow-panel);
+  color: var(--rs-studio-ink);
+}
+
+.rs-studio-elevated-card {
+  padding: var(--rs-studio-space-card);
+  border: 2px solid var(--rs-studio-line);
+  border-radius: var(--rs-studio-radius-lg);
+  background: var(--rs-studio-bg-panel);
+  box-shadow: var(--rs-studio-shadow-panel);
+  color: var(--rs-studio-ink);
+}
+
+.rs-studio-review-panel {
+  margin-bottom: var(--rs-studio-space-5);
+  padding: var(--rs-studio-space-4) var(--rs-studio-space-5);
+  border: 2px solid var(--rs-studio-border-info);
+  border-radius: var(--rs-studio-radius-lg);
+  background: linear-gradient(
+    180deg,
+    rgba(9, 27, 57, 0.96),
+    rgba(13, 36, 85, 0.98)
+  );
+  box-shadow: var(--rs-studio-shadow-panel);
+  color: var(--rs-studio-ink);
+}
+
+.rs-studio-review-panel--attention {
+  border-color: var(--rs-studio-border-working);
+  background: linear-gradient(
+    180deg,
+    rgba(18, 55, 119, 0.92),
+    rgba(13, 36, 85, 0.96)
+  );
+}
+
+.rs-studio-review-panel--info {
+  border-color: var(--rs-studio-border-info);
+  background: linear-gradient(
+    180deg,
+    rgba(9, 40, 72, 0.94),
+    rgba(13, 36, 85, 0.98)
+  );
+}
+
+.rs-studio-review-panel__title {
+  margin: 0 0 var(--rs-studio-space-2);
+  font-size: var(--rs-studio-text-body-sm);
+  font-weight: var(--rs-studio-weight-heavy);
+  color: var(--rs-studio-ink);
+}
+
+.rs-studio-review-panel__lead {
+  margin: 0 0 var(--rs-studio-space-3);
+  font-size: var(--rs-studio-text-body-sm);
+  font-weight: var(--rs-studio-weight-bold);
+  color: var(--rs-studio-color-info);
+  line-height: 1.45;
+}
+
+.rs-studio-review-panel__body {
+  margin: 0 0 var(--rs-studio-space-3);
+  color: var(--rs-studio-ink-muted);
+  line-height: 1.45;
+}
+
+.rs-studio-accent-value {
+  color: var(--rs-studio-color-working);
+}
+
+.rs-studio-panel-title {
+  margin: 0 0 var(--rs-studio-space-3);
+  font-size: var(--rs-studio-text-caption);
+  font-weight: var(--rs-studio-weight-heavy);
+  text-transform: uppercase;
+  letter-spacing: var(--rs-studio-tracking-section);
+  color: var(--rs-studio-color-info);
 }
 
 /* ── Status badge (outline — dark theme) ── */

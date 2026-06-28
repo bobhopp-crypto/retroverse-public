@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR678995",
+  "artist": "Paul Davis",
+  "title": "'65 Love Affair",
+  "story": {
+    "headline": "'65 Love Affair: The Breakthrough Moment",
+    "subtitle": "Paul Davis · Breakthrough · 1982",
+    "hook": "The song peaked at #6 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Paul Davis's \"'65 Love Affair\" reached #6 on the Billboard Hot 100. '65 Love Affair was released in 1982.",
+    "fullStory": "Paul Davis's \"'65 Love Affair\" reached #6 on the Billboard Hot 100.\n\nThe song peaked at #6 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\n'65 Love Affair was released in 1982.\n\nChart story — peaked at #6 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "7e441a36-c817-4a6e-b6d0-855a457dd063",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "fc6c328e-cd30-4346-afaa-7ae417a8bfee",
+      "text": "'65 Love Affair was released in 1982.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2e0f1950-e4d0-4ce4-9e00-6626099dcc6a",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "0807d0827597",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR678995&file=performance.jpg",
+      "performanceId": "perf-mqsium"
+    },
+    {
+      "assetId": "fa8524dbdb74",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR678995&file=hero.jpg",
+      "performanceId": "perf-mqsium"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-mqsium",
+    "title": "65 Love Affair · 1981",
+    "venue": "",
+    "year": 1981,
+    "notes": "Recommended cut — Recommended: 65 Love Affair. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "0807d0827597",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR678995&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "fa8524dbdb74",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR678995&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #6 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Paul Davis's \"'65 Love Affair\" reached #6 on the Billboard Hot 100. '65 Love Affair was released in 1982.",
+    "storyBeats": [
+      {
+        "id": "beat-7103b14a27",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"'65 Love Affair\" — original release 1982. Paul Davis — \"'65 Love Affair\" · Original release 1982 · Hot 100 peak #6",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0807d0827597",
+          "fa8524dbdb74"
+        ],
+        "relatedPerformanceId": "perf-mqsium",
+        "priority": 1
+      },
+      {
+        "id": "beat-18d7d992b3",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "'65 Love Affair — graph recording · Release 1982",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0807d0827597",
+          "fa8524dbdb74"
+        ],
+        "relatedPerformanceId": "perf-mqsium",
+        "priority": 2
+      },
+      {
+        "id": "beat-99d6d34ccc",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #6 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "7e441a36-c817-4a6e-b6d0-855a457dd063"
+        ],
+        "relatedImageAssetIds": [
+          "0807d0827597",
+          "fa8524dbdb74"
+        ],
+        "relatedPerformanceId": "perf-mqsium",
+        "priority": 3
+      },
+      {
+        "id": "beat-b303c2e73e",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0807d0827597",
+          "fa8524dbdb74"
+        ],
+        "relatedPerformanceId": "perf-mqsium",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-f870ca39e5",
+        "title": "Chart milestone",
+        "description": "Peaked at #6 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1982,
+        "supportingFactIds": [
+          "7e441a36-c817-4a6e-b6d0-855a457dd063"
+        ],
+        "relatedImageAssetIds": [
+          "0807d0827597"
+        ]
+      },
+      {
+        "id": "moment-86d1b047f0",
+        "title": "65 Love Affair",
+        "description": "Recommended: 65 Love Affair. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1981,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0807d0827597"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-mqsium",
+      "title": "65 Love Affair · 1981",
+      "reason": "Recommended: 65 Love Affair. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #6 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:21:34.629Z"
+  },
+  "submittedAt": "2026-06-27T05:21:34.629Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

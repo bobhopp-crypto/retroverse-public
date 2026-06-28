@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ChartJourney } from "@/components/retroverse/experience/ChartJourney";
+import { buildChartJourneyPresentationFromTrackPage } from "@/lib/chart-journey/chart-journey-presentation";
 import { ArtistCover } from "@/app/artist/[slug]/artist-cover";
 import { formatSongYear } from "@/lib/artist/format-track-card";
 import type { TrackPageData } from "@/lib/track/load-track-page";
@@ -65,18 +66,12 @@ export function TrackAlbumsSection({ data }: SectionProps) {
 }
 
 export function TrackChartSection({ data }: SectionProps) {
-  if (data.trajectoryWeeks.length === 0) return null;
+  const chartProps = buildChartJourneyPresentationFromTrackPage(data);
+  if (!chartProps) return null;
 
   return (
     <section className="track-journey" aria-label="Chart journey">
-      <ChartJourney
-        weeks={data.trajectoryWeeks}
-        peak={data.peakHot100}
-        chartLabel={data.chartRunLabel}
-        focusTrackId={data.rvtr}
-        releaseYear={data.releaseYear}
-        variant="exhibit"
-      />
+      <ChartJourney {...chartProps} variant="exhibit" />
     </section>
   );
 }

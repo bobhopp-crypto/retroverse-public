@@ -77,7 +77,7 @@ export function approvedImageCount(story: EditorStoryPackage): number {
 
 export function readyForDirector(story: EditorStoryPackage): boolean {
   const c = story.meta.directorHandoff.checklist;
-  return c.story && c.facts && c.cards && c.images && c.performance;
+  return c.story && c.facts && c.images && c.performance;
 }
 
 export function editorialConfidenceLabel(story: EditorStoryPackage): string {

@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR752304",
+  "artist": "The J. Geils Band",
+  "title": "Freeze Frame",
+  "story": {
+    "headline": "Freeze Frame: The Breakthrough Moment",
+    "subtitle": "The J. Geils Band · Breakthrough · 1982",
+    "hook": "The song peaked at #4 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+    "summary": "The J. Geils Band's \"Freeze Frame\" reached #4 on the Billboard Hot 100. Freeze Frame was released in 1982.",
+    "fullStory": "The J. Geils Band's \"Freeze Frame\" reached #4 on the Billboard Hot 100.\n\nThe song peaked at #4 on the Billboard Hot 100 and spent 16 weeks on the chart.\n\nFreeze Frame was released in 1982.\n\nArtist: J Geils Band · Title: Freeze Frame · Album: The J.\n\nChart story — peaked at #4 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "286c0fd2-1428-41c5-ae8e-a94c9cebbfb3",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e7a39b1c-f8b0-4010-870f-6b59e24fda7a",
+      "text": "Freeze Frame was released in 1982.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0fafcc4f-1d84-4a15-9239-32d4cc75a108",
+      "text": "VirtualDJ library play count: 7.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "053ad153-5575-450b-b7a3-c8aef036db1e",
+      "text": "Artist: J Geils Band · Title: Freeze Frame · Album: The J.",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "8c172756e676",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR752304&file=hero.jpg",
+      "performanceId": "perf-1u2yj2"
+    },
+    {
+      "assetId": "a231e0207144",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR752304&file=performance.jpg",
+      "performanceId": "perf-1u2yj2"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-1u2yj2",
+    "title": "Official Video · 1982",
+    "venue": "",
+    "year": 1982,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "8c172756e676",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR752304&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "a231e0207144",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR752304&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #4 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+    "closing": "The J. Geils Band's \"Freeze Frame\" reached #4 on the Billboard Hot 100. Freeze Frame was released in 1982.",
+    "storyBeats": [
+      {
+        "id": "beat-d55c9efad2",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Freeze Frame\" — original release 1982. The J. Geils Band — \"Freeze Frame\" · Original release 1982 · Hot 100 peak #4",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8c172756e676",
+          "a231e0207144"
+        ],
+        "relatedPerformanceId": "perf-1u2yj2",
+        "priority": 1
+      },
+      {
+        "id": "beat-e7c96e5e44",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Freeze Frame — graph recording · Release 1982",
+        "supportingFactIds": [
+          "053ad153-5575-450b-b7a3-c8aef036db1e"
+        ],
+        "relatedImageAssetIds": [
+          "8c172756e676",
+          "a231e0207144"
+        ],
+        "relatedPerformanceId": "perf-1u2yj2",
+        "priority": 2
+      },
+      {
+        "id": "beat-5ede1e20d9",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #4 · 16 weeks on chart.",
+        "supportingFactIds": [
+          "286c0fd2-1428-41c5-ae8e-a94c9cebbfb3"
+        ],
+        "relatedImageAssetIds": [
+          "8c172756e676",
+          "a231e0207144"
+        ],
+        "relatedPerformanceId": "perf-1u2yj2",
+        "priority": 3
+      },
+      {
+        "id": "beat-98068c50e6",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8c172756e676",
+          "a231e0207144"
+        ],
+        "relatedPerformanceId": "perf-1u2yj2",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-f6a9779386",
+        "title": "Chart milestone",
+        "description": "Peaked at #4 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1982,
+        "supportingFactIds": [
+          "286c0fd2-1428-41c5-ae8e-a94c9cebbfb3"
+        ],
+        "relatedImageAssetIds": [
+          "8c172756e676"
+        ]
+      },
+      {
+        "id": "moment-ea829931ba",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1982,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8c172756e676"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-1u2yj2",
+      "title": "Official Video · 1982",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #4 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:07:20.304Z"
+  },
+  "submittedAt": "2026-06-27T05:07:20.304Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

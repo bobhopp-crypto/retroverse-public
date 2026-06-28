@@ -1,0 +1,190 @@
+{
+  "version": 2,
+  "rvtr": "RVTR459155",
+  "artist": "Marvin Gaye",
+  "title": "What's Going On",
+  "story": {
+    "headline": "What's Going On: The Breakthrough Moment",
+    "subtitle": "Marvin Gaye · Breakthrough · 1974",
+    "hook": "The song peaked at #2 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+    "summary": "Marvin Gaye's \"What's Going On\" reached #2 on the Billboard Hot 100.",
+    "fullStory": "Marvin Gaye's \"What's Going On\" reached #2 on the Billboard Hot 100.\n\nThe song peaked at #2 on the Billboard Hot 100 and spent 15 weeks on the chart.\n\nGraph compilation anchor: \"Marvin Gaye Anthology\" (1974) — not the song's original release year.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #2 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "9affaf7c-1c52-49ac-b6b7-0ab74e66ffcd",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "67cc59fa-a81a-48b9-b801-eaf74c9cb94b",
+      "text": "The song appears on the album \"Marvin Gaye Anthology\" (1974).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3f51a2d1-98fa-41b6-ba22-56e96d6b206d",
+      "text": "Graph compilation anchor: \"Marvin Gaye Anthology\" (1974) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bee18d8c-bced-4c0c-b2a8-156d79c86727",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "93c8cd85-5b3d-4680-aa88-aa32b9ad5de8",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "63b445d4a65e",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR459155&file=hero.jpg",
+      "performanceId": "perf-g9yq64"
+    },
+    {
+      "assetId": "c4ee5b229e5f",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR459155&file=performance.jpg",
+      "performanceId": "perf-g9yq64"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-g9yq64",
+    "title": "Official Video · 1972",
+    "venue": "",
+    "year": 1972,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "63b445d4a65e",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR459155&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "c4ee5b229e5f",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR459155&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #2 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+    "closing": "Marvin Gaye's \"What's Going On\" reached #2 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-8350bc2049",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"What's Going On\" — original release 1972. Marvin Gaye — \"What's Going On\" · Original release 1972 · Hot 100 peak #2",
+        "supportingFactIds": [
+          "3f51a2d1-98fa-41b6-ba22-56e96d6b206d"
+        ],
+        "relatedImageAssetIds": [
+          "63b445d4a65e",
+          "c4ee5b229e5f"
+        ],
+        "relatedPerformanceId": "perf-g9yq64",
+        "priority": 1
+      },
+      {
+        "id": "beat-ef49f429be",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Marvin Gaye Anthology · Release 1974 · Compilation edition",
+        "supportingFactIds": [
+          "67cc59fa-a81a-48b9-b801-eaf74c9cb94b"
+        ],
+        "relatedImageAssetIds": [
+          "63b445d4a65e",
+          "c4ee5b229e5f"
+        ],
+        "relatedPerformanceId": "perf-g9yq64",
+        "priority": 2
+      },
+      {
+        "id": "beat-756e3ced27",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #2 · 15 weeks on chart.",
+        "supportingFactIds": [
+          "9affaf7c-1c52-49ac-b6b7-0ab74e66ffcd"
+        ],
+        "relatedImageAssetIds": [
+          "63b445d4a65e",
+          "c4ee5b229e5f"
+        ],
+        "relatedPerformanceId": "perf-g9yq64",
+        "priority": 3
+      },
+      {
+        "id": "beat-b6522edb2d",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "63b445d4a65e",
+          "c4ee5b229e5f"
+        ],
+        "relatedPerformanceId": "perf-g9yq64",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-4b647bb930",
+        "title": "Chart milestone",
+        "description": "Peaked at #2 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1972,
+        "supportingFactIds": [
+          "9affaf7c-1c52-49ac-b6b7-0ab74e66ffcd"
+        ],
+        "relatedImageAssetIds": [
+          "63b445d4a65e"
+        ]
+      },
+      {
+        "id": "moment-f83a038a53",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "63b445d4a65e"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-g9yq64",
+      "title": "Official Video · 1972",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #2 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T21:37:27.217Z"
+  },
+  "submittedAt": "2026-06-27T21:37:27.217Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

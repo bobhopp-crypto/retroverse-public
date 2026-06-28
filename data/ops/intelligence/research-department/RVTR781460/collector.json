@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR781460",
+  "artist": "Kenny Chesney",
+  "title": "Come Over",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T08:12:44.624Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Kenny Chesney — Come Over (RVTR781460)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #23 · 20 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR781460",
+    "artist": "Kenny Chesney",
+    "title": "Come Over",
+    "year": 2012,
+    "albumTitle": "Welcome To The Fishbowl"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+        "artist": "Kenny Chesney",
+        "title": "Come Over",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2012,
+        "genre": "Country",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 23,
+    "chartWeeks": 20,
+    "albumTitle": "Welcome To The Fishbowl",
+    "summary": "Hot 100 peak #23 · 20 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+        "artist": "Kenny Chesney",
+        "title": "Come Over",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2012,
+        "genre": "Country",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+      "hero.jpg",
+      "close-up.jpg",
+      "alternate.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "28bdfed0e547",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 20,
+          "width": 640,
+          "height": 360,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T08:12:44.620Z"
+        },
+        {
+          "id": "8ed1fd879c9b",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 80,
+          "width": 640,
+          "height": 360,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T08:12:44.620Z"
+        },
+        {
+          "id": "2fbfdb9131b1",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 140,
+          "width": 640,
+          "height": 360,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T08:12:44.620Z"
+        },
+        {
+          "id": "265351738f6d",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 180,
+          "width": 640,
+          "height": 360,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T08:12:44.620Z"
+        },
+        {
+          "id": "977e4e6cb7eb",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 240,
+          "width": 640,
+          "height": 360,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T08:12:44.620Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Kenny Chesney"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "1c01744a-0569-4ba3-828c-bc6cc36e00da",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR781460.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "964c078e-fe57-418c-9a5e-5c8b12754b05",
+      "category": "artist",
+      "text": "Come Over is performed by Kenny Chesney.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "78c831ab-4ba9-4b81-b3c0-e40924e2cd16",
+      "category": "album",
+      "text": "The song appears on the album \"Welcome To The Fishbowl\" (2012).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-1qflft"
+    },
+    {
+      "id": "312a5109-1ab2-4aa2-838f-274c7088e508",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR781460.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-1qflft"
+    },
+    {
+      "id": "8d0ecfed-66d7-4b79-9830-087f3813a69a",
+      "category": "chart",
+      "text": "The song peaked at #23 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "13295796-d333-442a-8520-b8a2767ba2a7",
+      "category": "recording",
+      "text": "Come Over was released in 2012.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "921997b4-152c-4fac-8a82-ae177602d356",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR781460 (Come Over).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "d633633d-8bad-4d5c-8ce3-d8b67631b274",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "2866bfc4-13b8-4005-b586-8529699a60cc",
+      "category": "trivia",
+      "text": "Artist: Kenny Chesney · Title: Come Over · Album: Welcome To The Fishbowl · Year: 2012 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-q3tyuj"
+    },
+    {
+      "id": "8b92a784-f3c1-426a-9114-adc9e8c64d5a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-q3tyuj"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T08:12:43.489Z",
+      "excerpt": "Retroverse track identity: RVTR781460. \"Come Over\" by Kenny Chesney. Album: Welcome To The Fishbowl (2012).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+      "capturedAt": "2026-06-28T08:12:43.489Z",
+      "excerpt": "Canonical cover assignment for RVTR781460 (Come Over). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T08:12:43.489Z",
+      "excerpt": "Album: Welcome To The Fishbowl (2012). Billboard Hot 100 peak: #23. 20 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T08:12:43.489Z",
+      "excerpt": "Artist: Kenny Chesney · Title: Come Over · Album: Welcome To The Fishbowl · Year: 2012 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T08:12:43.489Z",
+      "excerpt": "Performance year context: 2012.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-beb155f8",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T08:12:43.489Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Kenny Chesney — Come Over · Hot 100 peak #23 · 20 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 2012 / recording 2012",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR781460",
+      "artist": "Kenny Chesney",
+      "title": "Come Over",
+      "year": 2012,
+      "albumTitle": "Welcome To The Fishbowl"
+    },
+    "charts": {
+      "peakHot100": 23,
+      "chartWeeks": 20,
+      "albumTitle": "Welcome To The Fishbowl",
+      "summary": "Hot 100 peak #23 · 20 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Kenny Chesney"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T08:12:43.489Z",
+          "excerpt": "Retroverse track identity: RVTR781460. \"Come Over\" by Kenny Chesney. Album: Welcome To The Fishbowl (2012).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+          "capturedAt": "2026-06-28T08:12:43.489Z",
+          "excerpt": "Canonical cover assignment for RVTR781460 (Come Over). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T08:12:43.489Z",
+          "excerpt": "Album: Welcome To The Fishbowl (2012). Billboard Hot 100 peak: #23. 20 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T08:12:43.489Z",
+          "excerpt": "Artist: Kenny Chesney · Title: Come Over · Album: Welcome To The Fishbowl · Year: 2012 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T08:12:43.489Z",
+          "excerpt": "Performance year context: 2012.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-beb155f8",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T08:12:43.489Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Kenny Chesney — Come Over · Hot 100 peak #23 · 20 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "1c01744a-0569-4ba3-828c-bc6cc36e00da",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR781460.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "964c078e-fe57-418c-9a5e-5c8b12754b05",
+        "category": "artist",
+        "text": "Come Over is performed by Kenny Chesney.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "78c831ab-4ba9-4b81-b3c0-e40924e2cd16",
+        "category": "album",
+        "text": "The song appears on the album \"Welcome To The Fishbowl\" (2012).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-1qflft"
+      },
+      {
+        "id": "312a5109-1ab2-4aa2-838f-274c7088e508",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR781460.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-1qflft"
+      },
+      {
+        "id": "8d0ecfed-66d7-4b79-9830-087f3813a69a",
+        "category": "chart",
+        "text": "The song peaked at #23 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "13295796-d333-442a-8520-b8a2767ba2a7",
+        "category": "recording",
+        "text": "Come Over was released in 2012.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "921997b4-152c-4fac-8a82-ae177602d356",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR781460 (Come Over).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "d633633d-8bad-4d5c-8ce3-d8b67631b274",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "2866bfc4-13b8-4005-b586-8529699a60cc",
+        "category": "trivia",
+        "text": "Artist: Kenny Chesney · Title: Come Over · Album: Welcome To The Fishbowl · Year: 2012 · Genre: Country · Path: /Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-q3tyuj"
+      },
+      {
+        "id": "8b92a784-f3c1-426a-9114-adc9e8c64d5a",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-q3tyuj"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL364066/RVAL364066__kenny-chesney__welcome-to-the-fishbowl.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-q3tyuj",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "durationSec": 247.614033,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "28bdfed0e547",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 20,
+              "width": 640,
+              "height": 360,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T08:12:44.620Z"
+            },
+            {
+              "id": "8ed1fd879c9b",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 80,
+              "width": 640,
+              "height": 360,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T08:12:44.620Z"
+            },
+            {
+              "id": "2fbfdb9131b1",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 140,
+              "width": 640,
+              "height": 360,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T08:12:44.620Z"
+            },
+            {
+              "id": "265351738f6d",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 180,
+              "width": 640,
+              "height": 360,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T08:12:44.620Z"
+            },
+            {
+              "id": "977e4e6cb7eb",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 240,
+              "width": 640,
+              "height": 360,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T08:12:44.620Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2012. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2012,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2012",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Kenny Chesney's \"Come Over\" reached #23 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Come Over is performed by Kenny Chesney.",
+      "The song appears on the album \"Welcome To The Fishbowl\" (2012).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR781460."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #23 on the Hot 100",
+      "Song release — original 2012 chapter",
+      "Performance angle — Official Video (2012)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR781460",
+    "artist": "Kenny Chesney",
+    "title": "Come Over",
+    "writers": [],
+    "originalReleaseYear": 2012,
+    "originalAlbum": "Welcome To The Fishbowl",
+    "peakHot100": 23,
+    "chartWeeks": 20,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Kenny Chesney"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-1qflft",
+      "kind": "studio_album",
+      "title": "Welcome To The Fishbowl",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Welcome To The Fishbowl",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2012,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-q3tyuj",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2012,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 247.614033,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2012. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2012",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-3514c4",
+        "domain": "song",
+        "kind": "release",
+        "year": 2012,
+        "label": "Come Over — original release",
+        "detail": "Original album: Welcome To The Fishbowl",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3gn",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2012,
+        "label": "Billboard Hot 100 peak #23",
+        "detail": "20 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-cxnnyc",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2012,
+        "label": "Welcome To The Fishbowl",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-1qflft"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2012,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-q3tyuj"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2012,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2012,
+      "label": "Album: Welcome To The Fishbowl",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2012,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR781460",
+      "artist": "Kenny Chesney",
+      "title": "Come Over",
+      "writers": [],
+      "originalReleaseYear": 2012,
+      "originalAlbum": "Welcome To The Fishbowl",
+      "peakHot100": 23,
+      "chartWeeks": 20,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Kenny Chesney"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-1qflft",
+        "kind": "studio_album",
+        "title": "Welcome To The Fishbowl",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Welcome To The Fishbowl",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2012,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-q3tyuj",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/COUNTRY/FILL/Kenny Chesney - Come Over.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2012,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 247.614033,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2012. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2012",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-3514c4",
+          "domain": "song",
+          "kind": "release",
+          "year": 2012,
+          "label": "Come Over — original release",
+          "detail": "Original album: Welcome To The Fishbowl",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3gn",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2012,
+          "label": "Billboard Hot 100 peak #23",
+          "detail": "20 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-cxnnyc",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2012,
+          "label": "Welcome To The Fishbowl",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-1qflft"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2012,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-q3tyuj"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2012,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2012,
+        "label": "Album: Welcome To The Fishbowl",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2012,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

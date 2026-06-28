@@ -1,0 +1,407 @@
+{
+  "version": 1,
+  "rvtr": "RVTR720668",
+  "tier": "video",
+  "generatedAt": "2026-06-26T23:56:12.830Z",
+  "performanceFrames": [
+    {
+      "id": "cb2273409f27",
+      "filename": "hero.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR720668&file=hero.jpg",
+      "timestampSec": 20,
+      "qualityScore": 91,
+      "detectedSubjects": [
+        "performer",
+        "broadcast",
+        "stage"
+      ],
+      "dominantColors": [
+        "#010709",
+        "#474549",
+        "#070E11",
+        "#191F23",
+        "#9D959A"
+      ],
+      "shotType": "hero",
+      "performanceId": "perf-jpbgle",
+      "category": "Hero",
+      "approved": true
+    },
+    {
+      "id": "b9cf85022689",
+      "filename": "performance.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR720668&file=performance.jpg",
+      "timestampSec": 60,
+      "qualityScore": 87,
+      "detectedSubjects": [
+        "performer",
+        "stage"
+      ],
+      "dominantColors": [
+        "#010709",
+        "#474549",
+        "#070E11",
+        "#191F23",
+        "#9D959A"
+      ],
+      "shotType": "performance",
+      "performanceId": "perf-jpbgle",
+      "category": "Performance",
+      "approved": true
+    },
+    {
+      "id": "a9a9c92e715b",
+      "filename": "close-up.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR720668&file=close-up.jpg",
+      "timestampSec": 120,
+      "qualityScore": 89,
+      "detectedSubjects": [
+        "performer",
+        "face"
+      ],
+      "dominantColors": [
+        "#010709",
+        "#474549",
+        "#070E11",
+        "#191F23",
+        "#9D959A"
+      ],
+      "shotType": "close_up",
+      "performanceId": "perf-jpbgle",
+      "category": "Close-up",
+      "approved": false
+    },
+    {
+      "id": "aa56a116cce3",
+      "filename": "alternate.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR720668&file=alternate.jpg",
+      "timestampSec": 180,
+      "qualityScore": 82,
+      "detectedSubjects": [
+        "performer",
+        "stage",
+        "angle"
+      ],
+      "dominantColors": [
+        "#010709",
+        "#474549",
+        "#070E11",
+        "#191F23",
+        "#9D959A"
+      ],
+      "shotType": "alternate",
+      "performanceId": "perf-jpbgle",
+      "category": "Alternate",
+      "approved": false
+    },
+    {
+      "id": "d3805556d09f",
+      "filename": "crowd.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR720668&file=crowd.jpg",
+      "timestampSec": 240,
+      "qualityScore": 79,
+      "detectedSubjects": [
+        "crowd",
+        "stage",
+        "wide"
+      ],
+      "dominantColors": [
+        "#010709",
+        "#474549",
+        "#070E11",
+        "#191F23",
+        "#9D959A"
+      ],
+      "shotType": "crowd",
+      "performanceId": "perf-jpbgle",
+      "category": "Crowd",
+      "approved": false
+    }
+  ],
+  "derivedAssets": [
+    {
+      "id": "dv-RVTR720668-cb2273409f27-blueprint",
+      "sourceFrameId": "cb2273409f27",
+      "style": "blueprint",
+      "styleName": "Blueprint",
+      "prompt": "Transform this performance frame into a blueprint.\n\nSong: \"Tempted\" by Squeeze.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• concert blue lighting\n• stage smoke atmosphere\n• dark overall brightness\n• concert blue · performance-driven mood\n• low energy\n• balanced valence\n• high danceability\n• Charcoal\n• Haze vignette\n• palette hints: #010709, #474549, #191F23, #070E11, #9D959A\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Technical draft lines on deep blue with measured precision.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "behind_the_song",
+        "timeline_beat"
+      ],
+      "publicationAffinity": "concert_program",
+      "storagePath": null
+    },
+    {
+      "id": "dv-RVTR720668-cb2273409f27-halftone_print",
+      "sourceFrameId": "cb2273409f27",
+      "style": "halftone_print",
+      "styleName": "Halftone Print",
+      "prompt": "Transform this performance frame into a halftone print.\n\nSong: \"Tempted\" by Squeeze.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• concert blue lighting\n• stage smoke atmosphere\n• dark overall brightness\n• concert blue · performance-driven mood\n• low energy\n• balanced valence\n• high danceability\n• Charcoal\n• Haze vignette\n• palette hints: #010709, #474549, #191F23, #070E11, #9D959A\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Newsprint dot texture with punchy contrast.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "chart_milestone",
+        "did_you_know"
+      ],
+      "publicationAffinity": "concert_program",
+      "storagePath": null
+    },
+    {
+      "id": "dv-RVTR720668-cb2273409f27-concert_poster",
+      "sourceFrameId": "cb2273409f27",
+      "style": "concert_poster",
+      "styleName": "Concert Poster",
+      "prompt": "Transform this performance frame into a concert poster.\n\nSong: \"Tempted\" by Squeeze.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• concert blue lighting\n• stage smoke atmosphere\n• dark overall brightness\n• concert blue · performance-driven mood\n• low energy\n• balanced valence\n• high danceability\n• Charcoal\n• Haze vignette\n• palette hints: #010709, #474549, #191F23, #070E11, #9D959A\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Screen-printed gig poster energy with oversized typography zones.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "performance_spotlight",
+        "hero_moment"
+      ],
+      "publicationAffinity": "concert_program",
+      "storagePath": null
+    }
+  ],
+  "coverage": [
+    {
+      "role": "hero",
+      "status": "approved",
+      "satisfiedBy": [
+        "cb2273409f27",
+        "dv-RVTR720668-cb2273409f27-concert_poster"
+      ],
+      "notes": "Hero frame on file"
+    },
+    {
+      "role": "performance",
+      "status": "approved",
+      "satisfiedBy": [
+        "cb2273409f27",
+        "b9cf85022689",
+        "a9a9c92e715b",
+        "aa56a116cce3",
+        "dv-RVTR720668-cb2273409f27-concert_poster"
+      ],
+      "notes": "4 performance frames"
+    },
+    {
+      "role": "recording",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Studio/recording story visual"
+    },
+    {
+      "role": "television",
+      "status": "approved",
+      "satisfiedBy": [
+        "cb2273409f27",
+        "dv-RVTR720668-cb2273409f27-concert_poster"
+      ],
+      "notes": "Not a television-forward song"
+    },
+    {
+      "role": "studio",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Studio/recording story visual"
+    },
+    {
+      "role": "chart",
+      "status": "missing",
+      "satisfiedBy": [
+        "dv-RVTR720668-cb2273409f27-halftone_print"
+      ],
+      "notes": "Chart milestone visual or derived halftone"
+    },
+    {
+      "role": "album",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Album sleeve or liner visual"
+    },
+    {
+      "role": "artist",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Artist portrait or identity frame"
+    },
+    {
+      "role": "reflection",
+      "status": "approved",
+      "satisfiedBy": [
+        "a9a9c92e715b"
+      ],
+      "notes": "Reflective close-up available"
+    },
+    {
+      "role": "closing",
+      "status": "approved",
+      "satisfiedBy": [
+        "cb2273409f27",
+        "b9cf85022689"
+      ],
+      "notes": "Closing performance frame available"
+    },
+    {
+      "role": "quote",
+      "status": "missing",
+      "satisfiedBy": [],
+      "notes": "No quotes on file"
+    },
+    {
+      "role": "timeline",
+      "status": "recommended",
+      "satisfiedBy": [
+        "dv-RVTR720668-cb2273409f27-blueprint"
+      ],
+      "notes": "Timeline beat imagery"
+    }
+  ],
+  "duplicateSuggestions": [],
+  "budget": {
+    "tier": "video",
+    "approvedLimit": 3,
+    "approvedCount": 0,
+    "generatedCount": 0,
+    "recommendedCount": 3,
+    "remainingApproved": 3,
+    "atLimit": false
+  },
+  "recommendations": [
+    {
+      "id": "rec-use-hero",
+      "role": "hero",
+      "kind": "use_existing",
+      "priority": 1,
+      "reason": "Hero frame on file — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": [
+        "cb2273409f27"
+      ]
+    },
+    {
+      "id": "rec-use-performance",
+      "role": "performance",
+      "kind": "use_existing",
+      "priority": 2,
+      "reason": "4 performance frames — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": [
+        "cb2273409f27",
+        "b9cf85022689",
+        "a9a9c92e715b",
+        "aa56a116cce3"
+      ]
+    },
+    {
+      "id": "rec-gen-recording-blueprint",
+      "role": "recording",
+      "kind": "generate_derived",
+      "priority": 3,
+      "reason": "Studio/recording story visual — Blueprint via Blueprint.",
+      "suggestedStyle": "blueprint",
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-use-television",
+      "role": "television",
+      "kind": "use_existing",
+      "priority": 4,
+      "reason": "Not a television-forward song — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": [
+        "cb2273409f27"
+      ]
+    },
+    {
+      "id": "rec-gen-studio-blueprint",
+      "role": "studio",
+      "kind": "generate_derived",
+      "priority": 5,
+      "reason": "Studio/recording story visual — Blueprint via Blueprint.",
+      "suggestedStyle": "blueprint",
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-chart-halftone_print",
+      "role": "chart",
+      "kind": "generate_derived",
+      "priority": 6,
+      "reason": "Chart milestone visual or derived halftone — Halftone Print via Magazine Illustration.",
+      "suggestedStyle": "halftone_print",
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-album-concert_poster",
+      "role": "album",
+      "kind": "generate_derived",
+      "priority": 7,
+      "reason": "Album sleeve or liner visual — Concert Poster via Poster Generator.",
+      "suggestedStyle": "concert_poster",
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-artist-concert_poster",
+      "role": "artist",
+      "kind": "generate_derived",
+      "priority": 8,
+      "reason": "Artist portrait or identity frame — Concert Poster via Poster Generator.",
+      "suggestedStyle": "concert_poster",
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-use-reflection",
+      "role": "reflection",
+      "kind": "use_existing",
+      "priority": 9,
+      "reason": "Reflective close-up available — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "a9a9c92e715b",
+      "existingAssetIds": [
+        "a9a9c92e715b"
+      ]
+    },
+    {
+      "id": "rec-use-closing",
+      "role": "closing",
+      "kind": "use_existing",
+      "priority": 10,
+      "reason": "Closing performance frame available — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": [
+        "cb2273409f27",
+        "b9cf85022689"
+      ]
+    },
+    {
+      "id": "rec-gen-quote-concert_poster",
+      "role": "quote",
+      "kind": "generate_derived",
+      "priority": 11,
+      "reason": "No quotes on file — Concert Poster via Poster Generator.",
+      "suggestedStyle": "concert_poster",
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-timeline-concert_poster",
+      "role": "timeline",
+      "kind": "generate_derived",
+      "priority": 12,
+      "reason": "Timeline beat imagery — Concert Poster via Poster Generator.",
+      "suggestedStyle": "concert_poster",
+      "sourceFrameId": "cb2273409f27",
+      "existingAssetIds": []
+    }
+  ],
+  "generationQueue": []
+}

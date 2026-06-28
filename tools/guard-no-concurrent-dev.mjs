@@ -21,10 +21,11 @@ function pidAlive(pid) {
 
 if (fs.existsSync(devMarker)) {
   try {
-    const { pid } = JSON.parse(fs.readFileSync(devMarker, "utf8"));
+    const raw = JSON.parse(fs.readFileSync(devMarker, "utf8"));
+    const pid = typeof raw.wrapperPid === "number" ? raw.wrapperPid : raw.pid;
     if (typeof pid === "number" && pidAlive(pid)) {
       console.error(
-        `[build] Dev launcher still active (pid ${pid}). Stop npm run dev before npm run build.`,
+        `[build] Dev launcher still active (pid ${pid}, owner=${raw.owner ?? "unknown"}). Stop npm run dev before npm run build.`,
       );
       process.exit(1);
     }

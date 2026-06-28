@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR272745",
+  "artist": "Neil Young",
+  "title": "Heart Of Gold",
+  "story": {
+    "headline": "Heart Of Gold: The Breakthrough Moment",
+    "subtitle": "Neil Young · Breakthrough · 1972",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "summary": "Neil Young's \"Heart Of Gold\" reached #1 on the Billboard Hot 100. Heart Of Gold was released in 1972.",
+    "fullStory": "Neil Young's \"Heart Of Gold\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.\n\nHeart Of Gold was released in 1972.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "92f18e87-eb66-4ffa-947a-cec3f0c8b7c9",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7b6ef2ac-2311-4fb5-a998-d30e93eb11e5",
+      "text": "Heart Of Gold was released in 1972.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "32a61e68-40ec-4bac-bdd1-533d5bdda4b2",
+      "text": "The song appears on the album \"Harvest\" (1972).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ac24d441-6b61-4138-be8e-672566f53c3b",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "06cea224-8755-430e-a34e-465d3e5a06d4",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "affc39c33b3a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR272745&file=performance.jpg",
+      "performanceId": "perf-an6m4j"
+    },
+    {
+      "assetId": "e2abc50b7d59",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR272745&file=hero.jpg",
+      "performanceId": "perf-an6m4j"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-an6m4j",
+    "title": "Official Video · 1972",
+    "venue": "",
+    "year": 1972,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "affc39c33b3a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR272745&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "e2abc50b7d59",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR272745&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "closing": "Neil Young's \"Heart Of Gold\" reached #1 on the Billboard Hot 100. Heart Of Gold was released in 1972.",
+    "storyBeats": [
+      {
+        "id": "beat-fad38f384e",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Heart Of Gold\" — original release 1972. Neil Young — \"Heart Of Gold\" · Original release 1972 · Album: Harvest · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "affc39c33b3a",
+          "e2abc50b7d59"
+        ],
+        "relatedPerformanceId": "perf-an6m4j",
+        "priority": 1
+      },
+      {
+        "id": "beat-54a538db44",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Harvest · Release 1972",
+        "supportingFactIds": [
+          "32a61e68-40ec-4bac-bdd1-533d5bdda4b2"
+        ],
+        "relatedImageAssetIds": [
+          "affc39c33b3a",
+          "e2abc50b7d59"
+        ],
+        "relatedPerformanceId": "perf-an6m4j",
+        "priority": 2
+      },
+      {
+        "id": "beat-740cc56f07",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 14 weeks on chart.",
+        "supportingFactIds": [
+          "92f18e87-eb66-4ffa-947a-cec3f0c8b7c9"
+        ],
+        "relatedImageAssetIds": [
+          "affc39c33b3a",
+          "e2abc50b7d59"
+        ],
+        "relatedPerformanceId": "perf-an6m4j",
+        "priority": 3
+      },
+      {
+        "id": "beat-bdf38b4db7",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "affc39c33b3a",
+          "e2abc50b7d59"
+        ],
+        "relatedPerformanceId": "perf-an6m4j",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-47431071fd",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1972,
+        "supportingFactIds": [
+          "92f18e87-eb66-4ffa-947a-cec3f0c8b7c9"
+        ],
+        "relatedImageAssetIds": [
+          "affc39c33b3a"
+        ]
+      },
+      {
+        "id": "moment-a1611427f0",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "affc39c33b3a"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-an6m4j",
+      "title": "Official Video · 1972",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:38:50.779Z"
+  },
+  "submittedAt": "2026-06-27T05:38:50.780Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.8,
+    "storyQuality": "Strong"
+  }
+}

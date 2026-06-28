@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { GuideEmptyState } from "@/components/ops/studio/operator-guide";
 import { SongWorkspaceTabs } from "@/components/ops/studio/SongWorkspaceTabs";
 
 type Props = {
@@ -17,13 +18,13 @@ export function CollectorPackageMissing({ rvtr }: Props) {
         </Link>
       </p>
 
-      <section className="ops-collector-lib__missing" aria-labelledby="collector-missing">
-        <p className="ops-collector-lib__eyebrow">{rvtr}</p>
-        <h1 id="collector-missing" className="ops-collector-lib__title">
-          Research package not created yet.
-        </h1>
-        <p className="ops-collector-lib__missing-copy">Run Collector to begin research.</p>
-      </section>
+      <GuideEmptyState
+        title="No Collector package yet"
+        explanation={`${rvtr} has not completed the Collector stage. Without collector.json, Editor and Director cannot run.`}
+        recommendedAction="Run Collector from Library & Queue batch bar, or queue this RVTR from the library table."
+        actionHref="/ops/browser-plus-2"
+        actionLabel="Open Library & Queue"
+      />
     </div>
   );
 }

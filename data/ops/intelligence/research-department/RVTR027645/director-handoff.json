@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR027645",
+  "artist": "Howard Jones",
+  "title": "New Song",
+  "story": {
+    "headline": "New Song: A Cultural Moment Captured on Record",
+    "subtitle": "Howard Jones · Cultural Moment · 1984",
+    "hook": "The song peaked at #27 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+    "summary": "Howard Jones's \"New Song\" reached #27 on the Billboard Hot 100. New Song was released in 1984.",
+    "fullStory": "Howard Jones's \"New Song\" reached #27 on the Billboard Hot 100.\n\nThe song peaked at #27 on the Billboard Hot 100 and spent 15 weeks on the chart.\n\nNew Song was released in 1984.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #27 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "c0c85b3a-aa7a-44b0-97df-a7887a0b220d",
+      "text": "The song peaked at #27 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7d3d9c74-66ee-4822-a9fb-89cc3957b3cd",
+      "text": "New Song was released in 1984.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "922954f1-c4f1-41bd-af7a-2b9cd7fda92b",
+      "text": "The song appears on the album \"Human's Lib\" (1984).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "936e8e86-91d3-4604-b5c6-0cf273cfd688",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0b8b35a0-612e-4c54-a990-9d73eeab42c5",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "aa8bf2701eab",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027645&file=hero.jpg",
+      "performanceId": "perf-j73gf2"
+    },
+    {
+      "assetId": "9bb436bab0f7",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027645&file=performance.jpg",
+      "performanceId": "perf-j73gf2"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-j73gf2",
+    "title": "Official Video · 1984",
+    "venue": "",
+    "year": 1984,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "aa8bf2701eab",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027645&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "9bb436bab0f7",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR027645&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #27 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+    "closing": "Howard Jones's \"New Song\" reached #27 on the Billboard Hot 100. New Song was released in 1984.",
+    "storyBeats": [
+      {
+        "id": "beat-49f5767130",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"New Song\" — original release 1984. Howard Jones — \"New Song\" · Original release 1984 · Album: Human's Lib · Hot 100 peak #27",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "aa8bf2701eab",
+          "9bb436bab0f7"
+        ],
+        "relatedPerformanceId": "perf-j73gf2",
+        "priority": 1
+      },
+      {
+        "id": "beat-32b8c08586",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Human's Lib · Release 1984",
+        "supportingFactIds": [
+          "922954f1-c4f1-41bd-af7a-2b9cd7fda92b"
+        ],
+        "relatedImageAssetIds": [
+          "aa8bf2701eab",
+          "9bb436bab0f7"
+        ],
+        "relatedPerformanceId": "perf-j73gf2",
+        "priority": 2
+      },
+      {
+        "id": "beat-cde4b57f5c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #27 · 15 weeks on chart.",
+        "supportingFactIds": [
+          "c0c85b3a-aa7a-44b0-97df-a7887a0b220d"
+        ],
+        "relatedImageAssetIds": [
+          "aa8bf2701eab",
+          "9bb436bab0f7"
+        ],
+        "relatedPerformanceId": "perf-j73gf2",
+        "priority": 3
+      },
+      {
+        "id": "beat-f1453f40bc",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "aa8bf2701eab",
+          "9bb436bab0f7"
+        ],
+        "relatedPerformanceId": "perf-j73gf2",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-68a5f2c186",
+        "title": "Chart milestone",
+        "description": "Peaked at #27 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1984,
+        "supportingFactIds": [
+          "c0c85b3a-aa7a-44b0-97df-a7887a0b220d"
+        ],
+        "relatedImageAssetIds": [
+          "aa8bf2701eab"
+        ]
+      },
+      {
+        "id": "moment-66544291cf",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1984,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "aa8bf2701eab"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-j73gf2",
+      "title": "Official Video · 1984",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #27 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:35:56.582Z"
+  },
+  "submittedAt": "2026-06-27T05:35:56.582Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

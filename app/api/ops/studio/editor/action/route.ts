@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { attachEditorialReview } from "@/lib/ops/studio/editor/editorial-review";
+import { refreshEditorDerivedState } from "@/lib/ops/studio/editor/editorial-brain";
 import { buildEditorOfficeView } from "@/lib/ops/studio/editor/office-presentation";
 import { syncApprovedFromWorkspace } from "@/lib/ops/studio/editor/normalize";
 import { loadEditorPackagePageContext } from "@/lib/ops/studio/editor/load-library";
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
   if (body.action === "review_fact" && body.factId && body.factStatus) {
     next = setCandidateFactStatus(next, body.factId, body.factStatus);
     next = syncApprovedFromWorkspace(next);
-    next = attachEditorialReview(context.collector, next);
+    next = refreshEditorDerivedState(context.collector, next);
   } else if (body.action === "rewrite_story") {
     if (next.meta.storyManuallyEdited && !body.forceRewrite) {
       return NextResponse.json({
@@ -82,15 +82,16 @@ export async function POST(request: Request) {
         storyAngleCustom: body.storyAngleCustom ?? null,
       },
     };
-    next = attachEditorialReview(context.collector, next);
+    next = refreshEditorDerivedState(context.collector, next);
   } else if (body.action === "save_story" && body.story) {
     next = syncApprovedFromWorkspace({
       ...body.story,
       meta: { ...body.story.meta, rvtr },
     });
-    next = attachEditorialReview(context.collector, next);
+    next = refreshEditorDerivedState(context.collector, next);
   } else if (body.action === "submit_to_director") {
     next = syncApprovedFromWorkspace(next);
+    next = refreshEditorDerivedState(context.collector, next);
     next = {
       ...next,
       meta: {

@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR578668",
+  "artist": "Patsy Cline",
+  "title": "Crazy",
+  "story": {
+    "headline": "Crazy: The Breakthrough Moment",
+    "subtitle": "Patsy Cline · Breakthrough · 1961",
+    "hook": "The song peaked at #9 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "summary": "Patsy Cline's \"Crazy\" reached #9 on the Billboard Hot 100. Crazy was released in 1961.",
+    "fullStory": "Patsy Cline's \"Crazy\" reached #9 on the Billboard Hot 100.\n\nThe song peaked at #9 on the Billboard Hot 100 and spent 12 weeks on the chart.\n\nCrazy was released in 1961.\n\nChart story — peaked at #9 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "0763a3d2-0554-4df9-942a-bbca30c5baac",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f55cf39d-5b9d-4560-b7b9-b3cc94272a77",
+      "text": "Crazy was released in 1961.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "98a8176d-8ef9-4a64-9a75-de815ef8c038",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "042aa24d7c8d",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR578668&file=performance.jpg",
+      "performanceId": "perf-ut8o1h"
+    },
+    {
+      "assetId": "1c15a5d75831",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR578668&file=hero.jpg",
+      "performanceId": "perf-ut8o1h"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ut8o1h",
+    "title": "Music Video · 1961",
+    "venue": "Music Video",
+    "year": 1961,
+    "notes": "Recommended cut — Recommended: Music Video. venue context (Music Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1961 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "042aa24d7c8d",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR578668&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "1c15a5d75831",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR578668&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #9 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "closing": "Patsy Cline's \"Crazy\" reached #9 on the Billboard Hot 100. Crazy was released in 1961.",
+    "storyBeats": [
+      {
+        "id": "beat-6260ea02f0",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Crazy\" — original release 1961. Patsy Cline — \"Crazy\" · Original release 1961 · Hot 100 peak #9",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "042aa24d7c8d",
+          "1c15a5d75831"
+        ],
+        "relatedPerformanceId": "perf-ut8o1h",
+        "priority": 1
+      },
+      {
+        "id": "beat-d317ae998c",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Crazy — graph recording · Release 1961",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "042aa24d7c8d",
+          "1c15a5d75831"
+        ],
+        "relatedPerformanceId": "perf-ut8o1h",
+        "priority": 2
+      },
+      {
+        "id": "beat-d433ff22c5",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #9 · 12 weeks on chart.",
+        "supportingFactIds": [
+          "0763a3d2-0554-4df9-942a-bbca30c5baac"
+        ],
+        "relatedImageAssetIds": [
+          "042aa24d7c8d",
+          "1c15a5d75831"
+        ],
+        "relatedPerformanceId": "perf-ut8o1h",
+        "priority": 3
+      },
+      {
+        "id": "beat-754ee08289",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "042aa24d7c8d",
+          "1c15a5d75831"
+        ],
+        "relatedPerformanceId": "perf-ut8o1h",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-ef4a1331c7",
+        "title": "Chart milestone",
+        "description": "Peaked at #9 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1961,
+        "supportingFactIds": [
+          "0763a3d2-0554-4df9-942a-bbca30c5baac"
+        ],
+        "relatedImageAssetIds": [
+          "042aa24d7c8d"
+        ]
+      },
+      {
+        "id": "moment-fa614a1b66",
+        "title": "Music Video",
+        "description": "Recommended: Music Video. venue context (Music Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1961 performance helps anchor",
+        "kind": "featured_performance",
+        "year": 1961,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "042aa24d7c8d"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-ut8o1h",
+      "title": "Music Video · 1961",
+      "reason": "Recommended: Music Video. venue context (Music Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1961 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #9 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:37:53.865Z"
+  },
+  "submittedAt": "2026-06-27T04:37:53.865Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

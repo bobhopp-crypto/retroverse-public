@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR131388",
+  "artist": "Spandau Ballet",
+  "title": "True",
+  "story": {
+    "headline": "True: The Breakthrough Moment",
+    "subtitle": "Spandau Ballet · Breakthrough · 1983",
+    "hook": "The song peaked at #4 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "summary": "Spandau Ballet's \"True\" reached #4 on the Billboard Hot 100. True was released in 1983.",
+    "fullStory": "Spandau Ballet's \"True\" reached #4 on the Billboard Hot 100.\n\nThe song peaked at #4 on the Billboard Hot 100 and spent 18 weeks on the chart.\n\nTrue was released in 1983.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #4 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "822ad4aa-bc14-4e5a-9a74-079c13e581ee",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "578e10c8-05b7-431f-bd9e-ba5064172f1f",
+      "text": "True was released in 1983.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "fb26651e-7db2-4331-9cc8-a6d0af89b96d",
+      "text": "The song appears on the album \"True\" (1983).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "290d5fa5-2390-4eeb-93fe-ff09da7d5840",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "90121dc2-a266-4cac-9f91-646036ec55f5",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "cf9fa495101a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR131388&file=performance.jpg",
+      "performanceId": "perf-lcdcwh"
+    },
+    {
+      "assetId": "c0ffbabf8003",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR131388&file=hero.jpg",
+      "performanceId": "perf-lcdcwh"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-lcdcwh",
+    "title": "Official Video · 1983",
+    "venue": "",
+    "year": 1983,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1983 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "cf9fa495101a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR131388&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "c0ffbabf8003",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR131388&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #4 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "closing": "Spandau Ballet's \"True\" reached #4 on the Billboard Hot 100. True was released in 1983.",
+    "storyBeats": [
+      {
+        "id": "beat-8097a3df66",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"True\" — original release 1983. Spandau Ballet — \"True\" · Original release 1983 · Album: True · Hot 100 peak #4",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "cf9fa495101a",
+          "c0ffbabf8003"
+        ],
+        "relatedPerformanceId": "perf-lcdcwh",
+        "priority": 1
+      },
+      {
+        "id": "beat-d7a38b4c75",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "True · Release 1983",
+        "supportingFactIds": [
+          "fb26651e-7db2-4331-9cc8-a6d0af89b96d"
+        ],
+        "relatedImageAssetIds": [
+          "cf9fa495101a",
+          "c0ffbabf8003"
+        ],
+        "relatedPerformanceId": "perf-lcdcwh",
+        "priority": 2
+      },
+      {
+        "id": "beat-6c39965d34",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #4 · 18 weeks on chart.",
+        "supportingFactIds": [
+          "822ad4aa-bc14-4e5a-9a74-079c13e581ee"
+        ],
+        "relatedImageAssetIds": [
+          "cf9fa495101a",
+          "c0ffbabf8003"
+        ],
+        "relatedPerformanceId": "perf-lcdcwh",
+        "priority": 3
+      },
+      {
+        "id": "beat-4d5e90503f",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "cf9fa495101a",
+          "c0ffbabf8003"
+        ],
+        "relatedPerformanceId": "perf-lcdcwh",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-528b825a25",
+        "title": "Chart milestone",
+        "description": "Peaked at #4 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1983,
+        "supportingFactIds": [
+          "822ad4aa-bc14-4e5a-9a74-079c13e581ee"
+        ],
+        "relatedImageAssetIds": [
+          "cf9fa495101a"
+        ]
+      },
+      {
+        "id": "moment-f60c2967f1",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1983,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "cf9fa495101a"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-lcdcwh",
+      "title": "Official Video · 1983",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1983 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #4 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:34:45.742Z"
+  },
+  "submittedAt": "2026-06-27T05:34:45.742Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

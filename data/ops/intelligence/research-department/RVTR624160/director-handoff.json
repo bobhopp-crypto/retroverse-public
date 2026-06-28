@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR624160",
+  "artist": "Stevie Ray Vaughan",
+  "title": "Crossfire",
+  "story": {
+    "headline": "Crossfire: A Cultural Moment Captured on Record",
+    "subtitle": "Stevie Ray Vaughan · Cultural Moment",
+    "hook": "Crossfire is performed by Stevie Ray Vaughan.",
+    "summary": "Stevie Ray Vaughan's \"Crossfire\" — original release 1984.",
+    "fullStory": "Stevie Ray Vaughan's \"Crossfire\" — original release 1984.\n\nSong release — original 1984 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "03544972-6123-4c0f-970e-32b74fe0a3cd",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "55bb67554fe5",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR624160&file=performance.jpg",
+      "performanceId": "perf-g7ca7d"
+    },
+    {
+      "assetId": "39644d2ad2b4",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR624160&file=hero.jpg",
+      "performanceId": "perf-g7ca7d"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-g7ca7d",
+    "title": "Official Video · 1984",
+    "venue": "",
+    "year": 1984,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "55bb67554fe5",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR624160&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "39644d2ad2b4",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR624160&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Crossfire is performed by Stevie Ray Vaughan.",
+    "closing": "Stevie Ray Vaughan's \"Crossfire\" — original release 1984.",
+    "storyBeats": [
+      {
+        "id": "beat-21000cf581",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Crossfire\" — original release 1984. Stevie Ray Vaughan — \"Crossfire\" · Original release 1984",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55bb67554fe5",
+          "39644d2ad2b4"
+        ],
+        "relatedPerformanceId": "perf-g7ca7d",
+        "priority": 1
+      },
+      {
+        "id": "beat-9ed16e412e",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55bb67554fe5",
+          "39644d2ad2b4"
+        ],
+        "relatedPerformanceId": "perf-g7ca7d",
+        "priority": 2
+      },
+      {
+        "id": "beat-e63db17b3b",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55bb67554fe5",
+          "39644d2ad2b4"
+        ],
+        "relatedPerformanceId": "perf-g7ca7d",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-fab78d16df",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1984,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55bb67554fe5"
+        ]
+      },
+      {
+        "id": "moment-fab78d16df",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1984,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55bb67554fe5"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-g7ca7d",
+      "title": "Official Video · 1984",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Crossfire is performed by Stevie Ray Vaughan.\""
+    },
+    "generatedAt": "2026-06-27T05:24:51.740Z"
+  },
+  "submittedAt": "2026-06-27T05:24:51.740Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

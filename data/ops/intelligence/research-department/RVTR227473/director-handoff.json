@@ -1,0 +1,154 @@
+{
+  "version": 2,
+  "rvtr": "RVTR227473",
+  "artist": "Led Zeppelin",
+  "title": "Hey Hey What Can I Do",
+  "story": {
+    "headline": "Hey Hey What Can I Do: A Cultural Moment Captured on Record",
+    "subtitle": "Led Zeppelin · Cultural Moment",
+    "hook": "Hey Hey What Can I Do is performed by Led Zeppelin.",
+    "summary": "Led Zeppelin's \"Hey Hey What Can I Do\" — original release 1972. \"Hey Hey What Can I Do\" by Led Zeppelin.",
+    "fullStory": "Led Zeppelin's \"Hey Hey What Can I Do\" — original release 1972.\n\n\"Hey Hey What Can I Do\" by Led Zeppelin.\n\nSong release — original 1972 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "6304f9dc-7b7c-4fae-b9bd-0c3c76539612",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "975288fb-9ed3-4319-adc2-b6f384f67643",
+      "text": "\"Hey Hey What Can I Do\" by Led Zeppelin.",
+      "sourceRef": "Retroverse Canon"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "a431f7c5ad62",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR227473&file=hero.jpg",
+      "performanceId": "perf-ws9y24"
+    },
+    {
+      "assetId": "6ac0f567b5db",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR227473&file=performance.jpg",
+      "performanceId": "perf-ws9y24"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ws9y24",
+    "title": "Official Video · 1972",
+    "venue": "",
+    "year": 1972,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "a431f7c5ad62",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR227473&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "6ac0f567b5db",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR227473&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Hey Hey What Can I Do is performed by Led Zeppelin.",
+    "closing": "Led Zeppelin's \"Hey Hey What Can I Do\" — original release 1972. \"Hey Hey What Can I Do\" by Led Zeppelin.",
+    "storyBeats": [
+      {
+        "id": "beat-958dcc2b5f",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Hey Hey What Can I Do\" — original release 1972. Led Zeppelin — \"Hey Hey What Can I Do\" · Original release 1972",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a431f7c5ad62",
+          "6ac0f567b5db"
+        ],
+        "relatedPerformanceId": "perf-ws9y24",
+        "priority": 1
+      },
+      {
+        "id": "beat-5454c6f074",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a431f7c5ad62",
+          "6ac0f567b5db"
+        ],
+        "relatedPerformanceId": "perf-ws9y24",
+        "priority": 2
+      },
+      {
+        "id": "beat-b1d0c2bc97",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a431f7c5ad62",
+          "6ac0f567b5db"
+        ],
+        "relatedPerformanceId": "perf-ws9y24",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-659de3dbfa",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a431f7c5ad62"
+        ]
+      },
+      {
+        "id": "moment-659de3dbfa",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1972,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a431f7c5ad62"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-ws9y24",
+      "title": "Official Video · 1972",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1972 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Hey Hey What Can I Do is performed by Led Zeppelin.\""
+    },
+    "generatedAt": "2026-06-27T04:59:34.463Z"
+  },
+  "submittedAt": "2026-06-27T04:59:34.464Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 3.3,
+    "storyQuality": "Poor"
+  }
+}

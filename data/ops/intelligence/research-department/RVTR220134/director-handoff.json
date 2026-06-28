@@ -1,0 +1,201 @@
+{
+  "version": 2,
+  "rvtr": "RVTR220134",
+  "artist": "Whitney Houston",
+  "title": "How Will I Know",
+  "story": {
+    "headline": "How Will I Know: The Breakthrough Moment",
+    "subtitle": "Whitney Houston · Breakthrough · 2014",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+    "summary": "Whitney Houston's \"How Will I Know\" reached #1 on the Billboard Hot 100. How Will I Know was released in 2014.",
+    "fullStory": "Whitney Houston's \"How Will I Know\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.\n\nHow Will I Know was released in 2014.\n\nAlbum: Live: Her Greatest Performances (2014).\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "fd33190f-3d92-4c26-ae12-ec77e93dda42",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7ae2562d-c27f-41ef-ac7c-6d7960094dea",
+      "text": "How Will I Know was released in 2014.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "26b28193-3b84-4dcc-8855-a68c42f984e7",
+      "text": "The song appears on the album \"Live: Her Greatest Performances\" (2014).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f13c8c69-08e4-4df8-9f3c-36af7c5da9ef",
+      "text": "VirtualDJ library play count: 9.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "051fa312-0de0-420a-be78-070c1de86b17",
+      "text": "Album: Live: Her Greatest Performances (2014).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "706efa79-f0f4-4446-9101-3bb0ec34fc84",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "0706e52a-baaa-48dd-ad63-7e0b86d90f29",
+      "text": "Album: Live: Her Greatest Performances (2014).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c163b0f573ce",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR220134&file=performance.jpg",
+      "performanceId": "perf-hpqgwh"
+    },
+    {
+      "assetId": "77566cdc777e",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR220134&file=hero.jpg",
+      "performanceId": "perf-hpqgwh"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-hpqgwh",
+    "title": "Official Video · 1986",
+    "venue": "",
+    "year": 1986,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1986 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "c163b0f573ce",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR220134&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "77566cdc777e",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR220134&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+    "closing": "Whitney Houston's \"How Will I Know\" reached #1 on the Billboard Hot 100. How Will I Know was released in 2014.",
+    "storyBeats": [
+      {
+        "id": "beat-010d1159fe",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"How Will I Know\" — original release 2014. Whitney Houston — \"How Will I Know\" · Original release 2014 · Album: Live: Her Greatest Performances · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c163b0f573ce",
+          "77566cdc777e"
+        ],
+        "relatedPerformanceId": "perf-hpqgwh",
+        "priority": 1
+      },
+      {
+        "id": "beat-4f1dfa06ce",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Live: Her Greatest Performances · Release 2014",
+        "supportingFactIds": [
+          "26b28193-3b84-4dcc-8855-a68c42f984e7",
+          "051fa312-0de0-420a-be78-070c1de86b17"
+        ],
+        "relatedImageAssetIds": [
+          "c163b0f573ce",
+          "77566cdc777e"
+        ],
+        "relatedPerformanceId": "perf-hpqgwh",
+        "priority": 2
+      },
+      {
+        "id": "beat-e2fb16f0c9",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 24 weeks on chart.",
+        "supportingFactIds": [
+          "fd33190f-3d92-4c26-ae12-ec77e93dda42"
+        ],
+        "relatedImageAssetIds": [
+          "c163b0f573ce",
+          "77566cdc777e"
+        ],
+        "relatedPerformanceId": "perf-hpqgwh",
+        "priority": 3
+      },
+      {
+        "id": "beat-44f795911e",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c163b0f573ce",
+          "77566cdc777e"
+        ],
+        "relatedPerformanceId": "perf-hpqgwh",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-d4b7a8a33b",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2014,
+        "supportingFactIds": [
+          "fd33190f-3d92-4c26-ae12-ec77e93dda42"
+        ],
+        "relatedImageAssetIds": [
+          "c163b0f573ce"
+        ]
+      },
+      {
+        "id": "moment-ea6f2527b3",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1986,
+        "supportingFactIds": [
+          "26b28193-3b84-4dcc-8855-a68c42f984e7"
+        ],
+        "relatedImageAssetIds": [
+          "c163b0f573ce"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-hpqgwh",
+      "title": "Official Video · 1986",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1986 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:50:00.026Z"
+  },
+  "submittedAt": "2026-06-27T04:50:00.026Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

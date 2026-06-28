@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR480919",
+  "artist": "George Harrison",
+  "title": "My Sweet Lord",
+  "story": {
+    "headline": "My Sweet Lord: A Cultural Moment Captured on Record",
+    "subtitle": "George Harrison · Cultural Moment · 1970",
+    "hook": "The song peaked at #94 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+    "summary": "George Harrison's \"My Sweet Lord\" reached #94 on the Billboard Hot 100. My Sweet Lord was released in 1970.",
+    "fullStory": "George Harrison's \"My Sweet Lord\" reached #94 on the Billboard Hot 100.\n\nThe song peaked at #94 on the Billboard Hot 100 and spent 1 weeks on the chart.\n\nMy Sweet Lord was released in 1970.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #94 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "9ddb58fd-d19a-44d2-8ebd-64ff7c1bd55c",
+      "text": "The song peaked at #94 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f3c41188-7e72-4afb-83f4-6fea327df39e",
+      "text": "My Sweet Lord was released in 1970.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7dc8f5bd-3aff-466b-91e4-f5de014dbd96",
+      "text": "The song appears on the album \"All Things Must Pass\" (1970).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "01003103-b6e5-4363-ae64-f170514a7cfc",
+      "text": "VirtualDJ library play count: 12.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7e8292be-8f41-41e0-83bf-8a8e6b5eebae",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "1684fc28f99b",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR480919&file=hero.jpg",
+      "performanceId": "perf-iu5tuu"
+    },
+    {
+      "assetId": "7dcafbf5c205",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR480919&file=performance.jpg",
+      "performanceId": "perf-iu5tuu"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-iu5tuu",
+    "title": "Official Video · 1970",
+    "venue": "",
+    "year": 1970,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "1684fc28f99b",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR480919&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "7dcafbf5c205",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR480919&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #94 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+    "closing": "George Harrison's \"My Sweet Lord\" reached #94 on the Billboard Hot 100. My Sweet Lord was released in 1970.",
+    "storyBeats": [
+      {
+        "id": "beat-b39cb79313",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"My Sweet Lord\" — original release 1970. George Harrison — \"My Sweet Lord\" · Original release 1970 · Album: All Things Must Pass · Hot 100 peak #94",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1684fc28f99b",
+          "7dcafbf5c205"
+        ],
+        "relatedPerformanceId": "perf-iu5tuu",
+        "priority": 1
+      },
+      {
+        "id": "beat-5c049f4590",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "All Things Must Pass · Release 1970",
+        "supportingFactIds": [
+          "7dc8f5bd-3aff-466b-91e4-f5de014dbd96"
+        ],
+        "relatedImageAssetIds": [
+          "1684fc28f99b",
+          "7dcafbf5c205"
+        ],
+        "relatedPerformanceId": "perf-iu5tuu",
+        "priority": 2
+      },
+      {
+        "id": "beat-b4c3bbe5aa",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #94 · 1 weeks on chart.",
+        "supportingFactIds": [
+          "9ddb58fd-d19a-44d2-8ebd-64ff7c1bd55c"
+        ],
+        "relatedImageAssetIds": [
+          "1684fc28f99b",
+          "7dcafbf5c205"
+        ],
+        "relatedPerformanceId": "perf-iu5tuu",
+        "priority": 3
+      },
+      {
+        "id": "beat-06c0457953",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1684fc28f99b",
+          "7dcafbf5c205"
+        ],
+        "relatedPerformanceId": "perf-iu5tuu",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-5ff5004482",
+        "title": "Chart milestone",
+        "description": "Peaked at #94 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1970,
+        "supportingFactIds": [
+          "9ddb58fd-d19a-44d2-8ebd-64ff7c1bd55c"
+        ],
+        "relatedImageAssetIds": [
+          "1684fc28f99b"
+        ]
+      },
+      {
+        "id": "moment-83b06c5bb8",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1970,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1684fc28f99b"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-iu5tuu",
+      "title": "Official Video · 1970",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #94 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:30:35.920Z"
+  },
+  "submittedAt": "2026-06-27T04:30:35.920Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

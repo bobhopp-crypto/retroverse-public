@@ -1,0 +1,795 @@
+{
+  "version": "0.3",
+  "rvtr": "RVTR677504",
+  "artist": "Donna Summer",
+  "title": "I Feel Love",
+  "generatedAt": "2026-06-27T04:47:28.092Z",
+  "handoffVersion": 2,
+  "experiencePlan": {
+    "version": "0.3",
+    "opening": "",
+    "closing": "",
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "sceneType": "hero",
+        "title": "Cover",
+        "headline": "I Feel Love",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1978",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "06d87d6bd5e1"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 6,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout. Final: Hero → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "hero",
+          "displayName": "Hero",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Hero → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 2,
+        "sceneType": "chart",
+        "title": "Chart Journey",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "linkedFactIds": [
+          "4917ede6-d6e0-4fe0-b53e-980705d9559c"
+        ],
+        "linkedImageAssetIds": [
+          "abda26fa3522"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 9,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 78,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 78,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 3,
+        "sceneType": "image",
+        "title": "Iconic Moment",
+        "headline": "The Breakthrough Moment",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "06d87d6bd5e1"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 4,
+        "sceneType": "image",
+        "title": "Song DNA",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 7,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 5,
+        "sceneType": "performance",
+        "title": "Performance",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-hk9nxs",
+        "estimatedDurationSec": 8,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 83,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 83,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 6,
+        "sceneType": "image",
+        "title": "Extended — Chart milestone",
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "linkedFactIds": [
+          "4917ede6-d6e0-4fe0-b53e-980705d9559c"
+        ],
+        "linkedImageAssetIds": [
+          "06d87d6bd5e1"
+        ],
+        "linkedPerformanceId": "perf-hk9nxs",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 7,
+        "sceneType": "image",
+        "title": "Extended — Official Video",
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "linkedFactIds": [
+          "4d6897ad-760f-47e4-a27f-9f55ded12bc2"
+        ],
+        "linkedImageAssetIds": [
+          "abda26fa3522"
+        ],
+        "linkedPerformanceId": "perf-hk9nxs",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 67,
+          "reason": "Variety: Gallery run broken with Story"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null,
+        "varietyAdjusted": true
+      },
+      {
+        "sceneNumber": 8,
+        "sceneType": "image",
+        "title": "Extended — Official Video",
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "linkedFactIds": [
+          "4d6897ad-760f-47e4-a27f-9f55ded12bc2"
+        ],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-hk9nxs",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      }
+    ],
+    "estimatedRuntimeSec": 59,
+    "targetRuntimeSec": {
+      "min": 30,
+      "max": 55
+    },
+    "primaryPerformance": {
+      "performanceId": "perf-hk9nxs",
+      "title": "Official Video · 1978",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1978 performance helps anchor the narrative. 4 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "visualRhythm": "moderate",
+    "presentationStyle": "documentary",
+    "templateLibraryVersion": "0.2"
+  },
+  "review": {
+    "readiness": "ready_for_production",
+    "readinessLabel": "Ready for Production",
+    "sceneCount": 8,
+    "estimatedRuntimeSec": 59,
+    "storyCoveragePct": 63,
+    "imageCoveragePct": 63,
+    "factCoveragePct": 40,
+    "recommendedPerformance": "Official Video · 1978",
+    "missingAssets": [
+      "Scene 1 (Cover): Needs Supporting Copy",
+      "Scene 7 (Extended — Official Video): Ready"
+    ],
+    "warnings": [
+      "Runtime 59s exceeds 55s target"
+    ],
+    "summary": "8 exhibits · 59s · museum arc · Render Ready with Optional Gaps · Confidence 55% · Image diversity 40% · Layout ready 75% · 63% exhibit coverage · 63% image · 40% fact coverage · Gaps: 2",
+    "templateCoveragePct": 100,
+    "layoutReadinessPct": 75,
+    "assetCoveragePct": 75,
+    "visualVarietyScore": 40,
+    "templateUsage": [
+      {
+        "templateId": "gallery",
+        "displayName": "Gallery",
+        "count": 4,
+        "pct": 50
+      },
+      {
+        "templateId": "story",
+        "displayName": "Story",
+        "count": 2,
+        "pct": 25
+      },
+      {
+        "templateId": "chart",
+        "displayName": "Chart",
+        "count": 1,
+        "pct": 13
+      },
+      {
+        "templateId": "performance",
+        "displayName": "Performance",
+        "count": 1,
+        "pct": 13
+      }
+    ],
+    "duplicateTemplateWarnings": [],
+    "varietyRecommendations": [
+      "Exhibit image diversity 40% — Publisher scoring target"
+    ],
+    "templateDiversityScore": 50,
+    "visualDiversityScore": 38,
+    "pacingDiversityScore": 9,
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 1,
+    "renderReadiness": "missing_optional_assets",
+    "renderReadinessLabel": "Ready with Optional Gaps",
+    "estimatedRenderingConfidence": 55,
+    "downgradeReport": [
+      "Scene 1: Hero → Story — Hero → Story: minimum viable layout"
+    ],
+    "varietyReport": [
+      "Scene 7: gallery → story — 3 consecutive Gallery scenes — alternate layout"
+    ]
+  },
+  "renderSpec": {
+    "version": "0.3",
+    "metadata": {
+      "rvtr": "RVTR677504",
+      "artist": "Donna Summer",
+      "title": "I Feel Love",
+      "version": "0.3",
+      "generatedAt": "2026-06-27T04:47:28.092Z",
+      "estimatedRuntimeSec": 59,
+      "presentationStyle": "documentary",
+      "primaryPerformance": {
+        "performanceId": "perf-hk9nxs",
+        "title": "Official Video · 1978"
+      },
+      "patronValue": 8.8,
+      "storyQuality": "Strong"
+    },
+    "globalPresentation": {
+      "backgroundTreatment": "warm_paper_documentary",
+      "typographyProfile": "retroverse_display",
+      "colorTheme": "retroverse_teal_cream",
+      "pacingProfile": "moderate",
+      "imageTreatment": "poster_card_framed",
+      "orientation": "both"
+    },
+    "sceneTimeline": [
+      {
+        "sceneNumber": 1,
+        "templateId": "story",
+        "preferredTemplateId": "hero",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Hero → Story: minimum viable layout",
+        "durationSec": 6,
+        "headline": "I Feel Love",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1978",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "06d87d6bd5e1"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 2,
+        "templateId": "chart",
+        "preferredTemplateId": "chart",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 9,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "abda26fa3522"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=hero.jpg"
+          ],
+          "factIds": [
+            "4917ede6-d6e0-4fe0-b53e-980705d9559c"
+          ],
+          "factTexts": [
+            "The song peaked at #6 on the Billboard Hot 100 and spent 23 weeks on the chart."
+          ],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 3,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "The Breakthrough Moment",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "06d87d6bd5e1"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 4,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 5,
+        "templateId": "performance",
+        "preferredTemplateId": "performance",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-hk9nxs",
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "zoom",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 6,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "06d87d6bd5e1"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=performance.jpg"
+          ],
+          "factIds": [
+            "4917ede6-d6e0-4fe0-b53e-980705d9559c"
+          ],
+          "factTexts": [
+            "The song peaked at #6 on the Billboard Hot 100 and spent 23 weeks on the chart."
+          ],
+          "performanceId": "perf-hk9nxs",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 7,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": true,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "abda26fa3522"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=hero.jpg"
+          ],
+          "factIds": [
+            "4d6897ad-760f-47e4-a27f-9f55ded12bc2"
+          ],
+          "factTexts": [
+            "The song appears on the album \"VH1 Presents Live & More Encore!\" (1999)."
+          ],
+          "performanceId": "perf-hk9nxs",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 8,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [
+            "4d6897ad-760f-47e4-a27f-9f55ded12bc2"
+          ],
+          "factTexts": [
+            "The song appears on the album \"VH1 Presents Live & More Encore!\" (1999)."
+          ],
+          "performanceId": "perf-hk9nxs",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      }
+    ],
+    "assetManifest": {
+      "hero": [],
+      "supportingImages": [
+        {
+          "id": "06d87d6bd5e1",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "abda26fa3522",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "performanceImages": [
+        {
+          "id": "06d87d6bd5e1",
+          "role": "performance_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": "perf-hk9nxs",
+          "sceneNumbers": [
+            6,
+            5,
+            7,
+            8
+          ]
+        },
+        {
+          "id": "abda26fa3522",
+          "role": "performance_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR677504&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": "perf-hk9nxs",
+          "sceneNumbers": [
+            7,
+            5,
+            6,
+            8
+          ]
+        }
+      ],
+      "galleryImages": [],
+      "timelineData": [],
+      "charts": [
+        {
+          "id": "chart-scene-2",
+          "role": "chart_data",
+          "required": true,
+          "priority": 80,
+          "url": null,
+          "caption": "",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "quotes": [],
+      "facts": [
+        {
+          "id": "4917ede6-d6e0-4fe0-b53e-980705d9559c",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "The song peaked at #6 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+          "performanceId": null,
+          "sceneNumbers": [
+            2,
+            6
+          ]
+        },
+        {
+          "id": "4d6897ad-760f-47e4-a27f-9f55ded12bc2",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "The song appears on the album \"VH1 Presents Live & More Encore!\" (1999).",
+          "performanceId": null,
+          "sceneNumbers": [
+            7,
+            8
+          ]
+        }
+      ],
+      "logos": []
+    },
+    "renderingInstructions": {
+      "sceneOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "autoAdvance": true,
+      "loopPresentation": false,
+      "respectDurationHints": true,
+      "notes": [
+        "Execute scenes in sceneOrder — no creative decisions required",
+        "Transition hints are labels only; renderer chooses motion",
+        "Template downgrades are final; do not revert to preferredTemplateId",
+        "8 exhibits · 59s · museum arc · Render Ready with Optional Gaps · Confidence 55% · Image diversity 40% · Layout ready 75% · 63% exhibit coverage · 63% image · 40% fact coverage · Gaps: 2"
+      ]
+    },
+    "fallbackRules": [
+      {
+        "id": "quote-to-story",
+        "when": "quote template lacks pull-quote length",
+        "fallbackTemplate": "story",
+        "description": "Quote without quote text becomes Story layout"
+      },
+      {
+        "id": "gallery-to-hero",
+        "when": "gallery template has fewer than two images",
+        "fallbackTemplate": "hero",
+        "description": "Gallery with one image becomes Hero layout"
+      },
+      {
+        "id": "fact-stack-to-story",
+        "when": "fact stack has fewer than two facts",
+        "fallbackTemplate": "story",
+        "description": "Insufficient facts collapse to Story"
+      },
+      {
+        "id": "timeline-to-story",
+        "when": "timeline lacks dated events",
+        "fallbackTemplate": "story",
+        "description": "Timeline without dates becomes Story"
+      },
+      {
+        "id": "performance-to-story",
+        "when": "performance reference or image missing",
+        "fallbackTemplate": "story",
+        "description": "Performance without footage falls back to Story"
+      },
+      {
+        "id": "chart-to-story",
+        "when": "chart data missing",
+        "fallbackTemplate": "story",
+        "description": "Chart without peak data becomes Story"
+      },
+      {
+        "id": "comparison-to-story",
+        "when": "comparison copy missing",
+        "fallbackTemplate": "story",
+        "description": "Comparison without dual timeline copy becomes Story"
+      }
+    ],
+    "renderReadiness": "missing_required_assets",
+    "renderReadinessLabel": "Missing Required Assets — renderer should not publish",
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 1,
+    "estimatedRenderingConfidence": 52
+  }
+}

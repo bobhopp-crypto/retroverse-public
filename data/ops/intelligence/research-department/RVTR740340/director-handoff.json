@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR740340",
+  "artist": "Eagles",
+  "title": "Hotel California",
+  "story": {
+    "headline": "Hotel California: The Performance That Defined It",
+    "subtitle": "Eagles · Live Performance · 1982",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+    "summary": "Eagles's \"Hotel California\" reached #1 on the Billboard Hot 100.",
+    "fullStory": "Eagles's \"Hotel California\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.\n\nGraph compilation anchor: \"Greatest Hits: Volume 2\" (1982) — not the song's original release year.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "18e5daec-ff50-44a9-ac8c-ac7dbca5c03d",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "267a8b38-0880-455b-a01a-5546af5b059b",
+      "text": "The song appears on the album \"Greatest Hits: Volume 2\" (1982).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9ba7fc6a-055e-42c2-99b9-1a54e5bec42e",
+      "text": "Graph compilation anchor: \"Greatest Hits: Volume 2\" (1982) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "87e2a1f4-bfdc-4938-8c88-cfd5f8658f3c",
+      "text": "VirtualDJ library play count: 31.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "22885c41-e2fb-44eb-b545-e8e36cb19dab",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "259fb31b526c",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR740340&file=performance.jpg",
+      "performanceId": "perf-ccaulm"
+    },
+    {
+      "assetId": "e6d7d9c8b4fe",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR740340&file=hero.jpg",
+      "performanceId": "perf-ccaulm"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ccaulm",
+    "title": "2010 · 2010",
+    "venue": "2010",
+    "year": 2010,
+    "notes": "Recommended cut — Recommended: 2010. venue context (2010) adds place and moment. 5 curated visual frames for cards and hero art. dated 2010 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "259fb31b526c",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR740340&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "e6d7d9c8b4fe",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR740340&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+    "closing": "Eagles's \"Hotel California\" reached #1 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-d325ca68f5",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "2010 — 2010 (2010).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "259fb31b526c",
+          "e6d7d9c8b4fe"
+        ],
+        "relatedPerformanceId": "perf-ccaulm",
+        "priority": 1
+      },
+      {
+        "id": "beat-ae33844592",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"Hotel California\" entered the world in 2010.",
+        "supportingFactIds": [
+          "9ba7fc6a-055e-42c2-99b9-1a54e5bec42e"
+        ],
+        "relatedImageAssetIds": [
+          "259fb31b526c",
+          "e6d7d9c8b4fe"
+        ],
+        "relatedPerformanceId": "perf-ccaulm",
+        "priority": 2
+      },
+      {
+        "id": "beat-49f2ccf6ea",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 19 weeks on chart.",
+        "supportingFactIds": [
+          "18e5daec-ff50-44a9-ac8c-ac7dbca5c03d"
+        ],
+        "relatedImageAssetIds": [
+          "259fb31b526c",
+          "e6d7d9c8b4fe"
+        ],
+        "relatedPerformanceId": "perf-ccaulm",
+        "priority": 3
+      },
+      {
+        "id": "beat-be28f4c6e1",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "259fb31b526c",
+          "e6d7d9c8b4fe"
+        ],
+        "relatedPerformanceId": "perf-ccaulm",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-829eda7f99",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2010,
+        "supportingFactIds": [
+          "18e5daec-ff50-44a9-ac8c-ac7dbca5c03d"
+        ],
+        "relatedImageAssetIds": [
+          "259fb31b526c"
+        ]
+      },
+      {
+        "id": "moment-7fd2e23e7a",
+        "title": "2010",
+        "description": "Recommended: 2010. venue context (2010) adds place and moment. 5 curated visual frames for cards and hero art. dated 2010 performance helps anchor the narrative",
+        "kind": "featured_performance",
+        "year": 2010,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "259fb31b526c"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-ccaulm",
+      "title": "2010 · 2010",
+      "reason": "Recommended: 2010. venue context (2010) adds place and moment. 5 curated visual frames for cards and hero art. dated 2010 performance helps anchor the narrative."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:09.160Z"
+  },
+  "submittedAt": "2026-06-27T04:20:09.161Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

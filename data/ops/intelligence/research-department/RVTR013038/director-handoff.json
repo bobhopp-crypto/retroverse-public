@@ -1,0 +1,196 @@
+{
+  "version": 2,
+  "rvtr": "RVTR013038",
+  "artist": "The Monkees",
+  "title": "Daydream Believer",
+  "story": {
+    "headline": "Daydream Believer: The Breakthrough Moment",
+    "subtitle": "The Monkees · Breakthrough · 1986",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+    "summary": "The Monkees's \"Daydream Believer\" reached #1 on the Billboard Hot 100.",
+    "fullStory": "The Monkees's \"Daydream Believer\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 16 weeks on the chart.\n\nGraph compilation anchor: \"The Monkees' Greatest Hits\" (1986) — not the song's original release year.\n\nAlbum: The Monkees' Greatest Hits (1986).\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "2424ae7a-9843-4610-87ed-a92ff1fecbff",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0d5a4c3e-993a-4b66-add4-cc8127b8baf7",
+      "text": "The song appears on the album \"The Monkees' Greatest Hits\" (1986).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0e1dbf0a-fbf7-4ed4-a4db-5ea7b76de4b4",
+      "text": "Graph compilation anchor: \"The Monkees' Greatest Hits\" (1986) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d11192e8-bc7c-475d-ac05-1c920513e75b",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "36cb54b3-3371-41f9-aa6d-d511dbda5444",
+      "text": "Album: The Monkees' Greatest Hits (1986).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "236f42b6-1894-47e3-ab4e-93d125e23ba5",
+      "text": "Album: The Monkees' Greatest Hits (1986).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "5cc8c5be8dbe",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013038&file=performance.jpg",
+      "performanceId": "perf-p3w6fe"
+    },
+    {
+      "assetId": "141070b8ffd6",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013038&file=hero.jpg",
+      "performanceId": "perf-p3w6fe"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-p3w6fe",
+    "title": "Official Video · 1968",
+    "venue": "",
+    "year": 1968,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1968 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "5cc8c5be8dbe",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013038&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "141070b8ffd6",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013038&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+    "closing": "The Monkees's \"Daydream Believer\" reached #1 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-bcc58cb4e8",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Daydream Believer\" — original release 1968. The Monkees — \"Daydream Believer\" · Original release 1968 · Hot 100 peak #1",
+        "supportingFactIds": [
+          "0e1dbf0a-fbf7-4ed4-a4db-5ea7b76de4b4"
+        ],
+        "relatedImageAssetIds": [
+          "5cc8c5be8dbe",
+          "141070b8ffd6"
+        ],
+        "relatedPerformanceId": "perf-p3w6fe",
+        "priority": 1
+      },
+      {
+        "id": "beat-f79e1040b3",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Monkees' Greatest Hits · Release 1986 · Compilation edition",
+        "supportingFactIds": [
+          "0d5a4c3e-993a-4b66-add4-cc8127b8baf7",
+          "36cb54b3-3371-41f9-aa6d-d511dbda5444"
+        ],
+        "relatedImageAssetIds": [
+          "5cc8c5be8dbe",
+          "141070b8ffd6"
+        ],
+        "relatedPerformanceId": "perf-p3w6fe",
+        "priority": 2
+      },
+      {
+        "id": "beat-62b1fc9307",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 16 weeks on chart.",
+        "supportingFactIds": [
+          "2424ae7a-9843-4610-87ed-a92ff1fecbff"
+        ],
+        "relatedImageAssetIds": [
+          "5cc8c5be8dbe",
+          "141070b8ffd6"
+        ],
+        "relatedPerformanceId": "perf-p3w6fe",
+        "priority": 3
+      },
+      {
+        "id": "beat-25982e933a",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5cc8c5be8dbe",
+          "141070b8ffd6"
+        ],
+        "relatedPerformanceId": "perf-p3w6fe",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-b6b522a7ba",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1968,
+        "supportingFactIds": [
+          "2424ae7a-9843-4610-87ed-a92ff1fecbff"
+        ],
+        "relatedImageAssetIds": [
+          "5cc8c5be8dbe"
+        ]
+      },
+      {
+        "id": "moment-bc0da28d89",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1968,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5cc8c5be8dbe"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-p3w6fe",
+      "title": "Official Video · 1968",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1968 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:35:56.948Z"
+  },
+  "submittedAt": "2026-06-27T04:35:56.949Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.8,
+    "storyQuality": "Strong"
+  }
+}

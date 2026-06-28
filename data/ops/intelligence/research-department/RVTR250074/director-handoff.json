@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR250074",
+  "artist": "Luke Bryan",
+  "title": "One Margarita",
+  "story": {
+    "headline": "One Margarita: A Cultural Moment Captured on Record",
+    "subtitle": "Luke Bryan · Cultural Moment · 2020",
+    "hook": "The song peaked at #19 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Luke Bryan's \"One Margarita\" reached #19 on the Billboard Hot 100. One Margarita was released in 2020.",
+    "fullStory": "Luke Bryan's \"One Margarita\" reached #19 on the Billboard Hot 100.\n\nThe song peaked at #19 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nOne Margarita was released in 2020.\n\nChart story — peaked at #19 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "96dfa093-9995-4bd1-b7be-8d8c23e5f42a",
+      "text": "The song peaked at #19 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9fce46b1-9a17-42c9-9914-a1331e9c9d2c",
+      "text": "One Margarita was released in 2020.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "90d2832a-a908-4e26-a120-98fc8637c27b",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "81bd3fe6ef42",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250074&file=performance.jpg",
+      "performanceId": "perf-e99zjy"
+    },
+    {
+      "assetId": "ad3b8c2c81df",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250074&file=hero.jpg",
+      "performanceId": "perf-e99zjy"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-e99zjy",
+    "title": "Official Video · 2020",
+    "venue": "",
+    "year": 2020,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2020 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "81bd3fe6ef42",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250074&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "ad3b8c2c81df",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR250074&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #19 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Luke Bryan's \"One Margarita\" reached #19 on the Billboard Hot 100. One Margarita was released in 2020.",
+    "storyBeats": [
+      {
+        "id": "beat-76e57b34b1",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"One Margarita\" — original release 2020. Luke Bryan — \"One Margarita\" · Original release 2020 · Hot 100 peak #19",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "81bd3fe6ef42",
+          "ad3b8c2c81df"
+        ],
+        "relatedPerformanceId": "perf-e99zjy",
+        "priority": 1
+      },
+      {
+        "id": "beat-058e42a632",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "One Margarita — graph recording · Release 2020",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "81bd3fe6ef42",
+          "ad3b8c2c81df"
+        ],
+        "relatedPerformanceId": "perf-e99zjy",
+        "priority": 2
+      },
+      {
+        "id": "beat-8a249d9fbd",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #19 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "96dfa093-9995-4bd1-b7be-8d8c23e5f42a"
+        ],
+        "relatedImageAssetIds": [
+          "81bd3fe6ef42",
+          "ad3b8c2c81df"
+        ],
+        "relatedPerformanceId": "perf-e99zjy",
+        "priority": 3
+      },
+      {
+        "id": "beat-416a9cd40c",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "81bd3fe6ef42",
+          "ad3b8c2c81df"
+        ],
+        "relatedPerformanceId": "perf-e99zjy",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-251a0c4613",
+        "title": "Chart milestone",
+        "description": "Peaked at #19 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2020,
+        "supportingFactIds": [
+          "96dfa093-9995-4bd1-b7be-8d8c23e5f42a"
+        ],
+        "relatedImageAssetIds": [
+          "81bd3fe6ef42"
+        ]
+      },
+      {
+        "id": "moment-271de3820a",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2020,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "81bd3fe6ef42"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-e99zjy",
+      "title": "Official Video · 2020",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2020 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #19 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:59:36.138Z"
+  },
+  "submittedAt": "2026-06-27T05:59:36.138Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

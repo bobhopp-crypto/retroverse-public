@@ -1,0 +1,198 @@
+{
+  "version": 2,
+  "rvtr": "RVTR300772",
+  "artist": "Aerosmith",
+  "title": "Dream On",
+  "story": {
+    "headline": "Dream On: The Performance That Defined It",
+    "subtitle": "Aerosmith · Live Performance · 1980",
+    "hook": "The song peaked at #6 on the Billboard Hot 100 and spent 29 weeks on the chart.",
+    "summary": "Aerosmith's \"Dream On\" reached #6 on the Billboard Hot 100.",
+    "fullStory": "Aerosmith's \"Dream On\" reached #6 on the Billboard Hot 100.\n\nThe song peaked at #6 on the Billboard Hot 100 and spent 29 weeks on the chart.\n\nGraph compilation anchor: \"Aerosmith's Greatest Hits\" (1980) — not the song's original release year.\n\nAlbum: Aerosmith's Greatest Hits (1980).\n\nChart story — peaked at #6 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "80cbc7ba-a49a-4817-b665-7c443dd51bf2",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 29 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "1ab27a53-592a-43f0-b90a-f8dfd9fb4150",
+      "text": "The song appears on the album \"Aerosmith's Greatest Hits\" (1980).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bed36a99-c771-4b01-b565-93db0d8b51de",
+      "text": "Graph compilation anchor: \"Aerosmith's Greatest Hits\" (1980) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "622944d6-6094-44c6-b372-41942c88961e",
+      "text": "VirtualDJ library play count: 15.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e5f7e469-295a-40ab-933d-ec503519cf74",
+      "text": "Album: Aerosmith's Greatest Hits (1980).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "a58774cc-d566-47fe-a5cb-d9bb1cac48d1",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "23402212-3116-495a-8401-912de8defda3",
+      "text": "Album: Aerosmith's Greatest Hits (1980).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "dd2a2c57ceae",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300772&file=performance.jpg",
+      "performanceId": "perf-dff8yv"
+    },
+    {
+      "assetId": "92d8c16bc94e",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300772&file=hero.jpg",
+      "performanceId": "perf-dff8yv"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-dff8yv",
+    "title": "Live · 1976",
+    "venue": "Live",
+    "year": 1976,
+    "notes": "Recommended cut — Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1976 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "dd2a2c57ceae",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300772&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "92d8c16bc94e",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR300772&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #6 on the Billboard Hot 100 and spent 29 weeks on the chart.",
+    "closing": "Aerosmith's \"Dream On\" reached #6 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-4e0dedb0b4",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Live — Live (1976).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dd2a2c57ceae",
+          "92d8c16bc94e"
+        ],
+        "relatedPerformanceId": "perf-dff8yv",
+        "priority": 1
+      },
+      {
+        "id": "beat-76a6f33775",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"Dream On\" entered the world in 1974.",
+        "supportingFactIds": [
+          "bed36a99-c771-4b01-b565-93db0d8b51de"
+        ],
+        "relatedImageAssetIds": [
+          "dd2a2c57ceae",
+          "92d8c16bc94e"
+        ],
+        "relatedPerformanceId": "perf-dff8yv",
+        "priority": 2
+      },
+      {
+        "id": "beat-7736ab78ff",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #6 · 29 weeks on chart.",
+        "supportingFactIds": [
+          "80cbc7ba-a49a-4817-b665-7c443dd51bf2"
+        ],
+        "relatedImageAssetIds": [
+          "dd2a2c57ceae",
+          "92d8c16bc94e"
+        ],
+        "relatedPerformanceId": "perf-dff8yv",
+        "priority": 3
+      },
+      {
+        "id": "beat-48338db351",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dd2a2c57ceae",
+          "92d8c16bc94e"
+        ],
+        "relatedPerformanceId": "perf-dff8yv",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-04dde74548",
+        "title": "Chart milestone",
+        "description": "Peaked at #6 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1974,
+        "supportingFactIds": [
+          "80cbc7ba-a49a-4817-b665-7c443dd51bf2"
+        ],
+        "relatedImageAssetIds": [
+          "dd2a2c57ceae"
+        ]
+      },
+      {
+        "id": "moment-02eee2f2cc",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1974,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dd2a2c57ceae"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-dff8yv",
+      "title": "Live · 1976",
+      "reason": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1976 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #6 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T01:07:17.805Z"
+  },
+  "submittedAt": "2026-06-27T04:20:13.724Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 9.3,
+    "storyQuality": "Strong"
+  }
+}

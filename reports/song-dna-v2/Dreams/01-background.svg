@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <filter id="v2-atmo-blur" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="28"/>
+  </filter>
+    <filter id="v2-light-blur" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="18"/>
+  </filter>
+    <filter id="v2-sig-blur" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="3"/>
+  </filter>
+  </defs>
+  <g id="v2-background">
+    <rect width="1200" height="1200" fill="#000000"/>
+    <rect width="1200" height="1200" fill="hsl(248 48% 8%)" opacity="0.216"/>
+    <ellipse cx="445.3" cy="768.6" rx="136.4" ry="53.3" fill="hsl(265 42% 22%)" opacity="0.122" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="1012.3" cy="572.1" rx="89.7" ry="56.3" fill="hsl(265 42% 22%)" opacity="0.130" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="636.6" cy="208.9" rx="193.9" ry="88.6" fill="hsl(265 42% 22%)" opacity="0.127" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="352.2" cy="619.9" rx="149.5" ry="156.4" fill="hsl(265 42% 22%)" opacity="0.089" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="903.2" cy="328.9" rx="152.0" ry="77.0" fill="hsl(200 60% 28%)" opacity="0.137" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="271.2" cy="849.9" rx="182.4" ry="51.8" fill="hsl(265 42% 22%)" opacity="0.117" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="325.2" cy="827.1" rx="79.3" ry="69.6" fill="hsl(200 60% 28%)" opacity="0.103" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="280.4" cy="660.6" rx="117.4" ry="103.2" fill="hsl(265 42% 22%)" opacity="0.091" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="301.8" cy="291.5" rx="134.9" ry="129.3" fill="hsl(265 42% 22%)" opacity="0.100" filter="url(#v2-atmo-blur)"/>
+    <radialGradient id="v2-void-mask" cx="0.596" cy="0.452" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.387"/>
+      <stop offset="0.069" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <rect width="1200" height="1200" fill="url(#v2-void-mask)"/>
+  </g>
+</svg>

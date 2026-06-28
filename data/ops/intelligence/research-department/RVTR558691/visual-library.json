@@ -1,0 +1,406 @@
+{
+  "version": 1,
+  "rvtr": "RVTR558691",
+  "tier": "curated",
+  "generatedAt": "2026-06-26T23:56:12.832Z",
+  "performanceFrames": [
+    {
+      "id": "b017cb5b7434",
+      "filename": "hero.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR558691&file=hero.jpg",
+      "timestampSec": 40,
+      "qualityScore": 91,
+      "detectedSubjects": [
+        "performer",
+        "broadcast",
+        "stage"
+      ],
+      "dominantColors": [
+        "#010200",
+        "#392823",
+        "#1D1318",
+        "#373752",
+        "#97949D"
+      ],
+      "shotType": "hero",
+      "performanceId": "perf-88o72g",
+      "category": "Hero",
+      "approved": true
+    },
+    {
+      "id": "85d00e9b398f",
+      "filename": "performance.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR558691&file=performance.jpg",
+      "timestampSec": 80,
+      "qualityScore": 87,
+      "detectedSubjects": [
+        "performer",
+        "stage"
+      ],
+      "dominantColors": [
+        "#010200",
+        "#392823",
+        "#1D1318",
+        "#373752",
+        "#97949D"
+      ],
+      "shotType": "performance",
+      "performanceId": "perf-88o72g",
+      "category": "Performance",
+      "approved": true
+    },
+    {
+      "id": "629a208e3abc",
+      "filename": "close-up.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR558691&file=close-up.jpg",
+      "timestampSec": 140,
+      "qualityScore": 89,
+      "detectedSubjects": [
+        "performer",
+        "face"
+      ],
+      "dominantColors": [
+        "#010200",
+        "#392823",
+        "#1D1318",
+        "#373752",
+        "#97949D"
+      ],
+      "shotType": "close_up",
+      "performanceId": "perf-88o72g",
+      "category": "Close-up",
+      "approved": false
+    },
+    {
+      "id": "59a8dd210c6b",
+      "filename": "alternate.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR558691&file=alternate.jpg",
+      "timestampSec": 200,
+      "qualityScore": 82,
+      "detectedSubjects": [
+        "performer",
+        "stage",
+        "angle"
+      ],
+      "dominantColors": [
+        "#010200",
+        "#392823",
+        "#1D1318",
+        "#373752",
+        "#97949D"
+      ],
+      "shotType": "alternate",
+      "performanceId": "perf-88o72g",
+      "category": "Alternate",
+      "approved": false
+    },
+    {
+      "id": "af9b8b026d09",
+      "filename": "crowd.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR558691&file=crowd.jpg",
+      "timestampSec": 240,
+      "qualityScore": 79,
+      "detectedSubjects": [
+        "crowd",
+        "stage",
+        "wide"
+      ],
+      "dominantColors": [
+        "#010200",
+        "#392823",
+        "#1D1318",
+        "#373752",
+        "#97949D"
+      ],
+      "shotType": "crowd",
+      "performanceId": "perf-88o72g",
+      "category": "Crowd",
+      "approved": false
+    }
+  ],
+  "derivedAssets": [
+    {
+      "id": "dv-RVTR558691-b017cb5b7434-blueprint",
+      "sourceFrameId": "b017cb5b7434",
+      "style": "blueprint",
+      "styleName": "Blueprint",
+      "prompt": "Transform this performance frame into a blueprint.\n\nSong: \"Be My Lover\" by La Bouche.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• warm stage lighting\n• live house atmosphere\n• dark overall brightness\n• warm stage · triumph mood\n• high energy\n• bright valence\n• high danceability\n• Deep Crimson\n• Club stage frame\n• palette hints: #010200, #392823, #1D1318, #373752, #97949D\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Technical draft lines on deep blue with measured precision.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "behind_the_song",
+        "timeline_beat"
+      ],
+      "publicationAffinity": "billboard",
+      "storagePath": null
+    },
+    {
+      "id": "dv-RVTR558691-b017cb5b7434-halftone_print",
+      "sourceFrameId": "b017cb5b7434",
+      "style": "halftone_print",
+      "styleName": "Halftone Print",
+      "prompt": "Transform this performance frame into a halftone print.\n\nSong: \"Be My Lover\" by La Bouche.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• warm stage lighting\n• live house atmosphere\n• dark overall brightness\n• warm stage · triumph mood\n• high energy\n• bright valence\n• high danceability\n• Deep Crimson\n• Club stage frame\n• palette hints: #010200, #392823, #1D1318, #373752, #97949D\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Newsprint dot texture with punchy contrast.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "chart_milestone",
+        "did_you_know"
+      ],
+      "publicationAffinity": "billboard",
+      "storagePath": null
+    },
+    {
+      "id": "dv-RVTR558691-b017cb5b7434-neon_poster",
+      "sourceFrameId": "b017cb5b7434",
+      "style": "neon_poster",
+      "styleName": "Neon Poster",
+      "prompt": "Transform this performance frame into a neon poster.\n\nSong: \"Be My Lover\" by La Bouche.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• warm stage lighting\n• live house atmosphere\n• dark overall brightness\n• warm stage · triumph mood\n• high energy\n• bright valence\n• high danceability\n• Deep Crimson\n• Club stage frame\n• palette hints: #010200, #392823, #1D1318, #373752, #97949D\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Electric neon edges on dark stage backgrounds.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "performance_spotlight",
+        "visual_break"
+      ],
+      "publicationAffinity": "billboard",
+      "storagePath": null
+    }
+  ],
+  "coverage": [
+    {
+      "role": "hero",
+      "status": "approved",
+      "satisfiedBy": [
+        "b017cb5b7434"
+      ],
+      "notes": "Hero frame on file"
+    },
+    {
+      "role": "performance",
+      "status": "approved",
+      "satisfiedBy": [
+        "b017cb5b7434",
+        "85d00e9b398f",
+        "629a208e3abc",
+        "59a8dd210c6b",
+        "dv-RVTR558691-b017cb5b7434-neon_poster"
+      ],
+      "notes": "4 performance frames"
+    },
+    {
+      "role": "recording",
+      "status": "missing",
+      "satisfiedBy": [],
+      "notes": "No recording session imagery"
+    },
+    {
+      "role": "television",
+      "status": "approved",
+      "satisfiedBy": [
+        "b017cb5b7434",
+        "dv-RVTR558691-b017cb5b7434-neon_poster"
+      ],
+      "notes": "Not a television-forward song"
+    },
+    {
+      "role": "studio",
+      "status": "missing",
+      "satisfiedBy": [],
+      "notes": "No recording session imagery"
+    },
+    {
+      "role": "chart",
+      "status": "missing",
+      "satisfiedBy": [
+        "dv-RVTR558691-b017cb5b7434-halftone_print"
+      ],
+      "notes": "Chart milestone visual or derived halftone"
+    },
+    {
+      "role": "album",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Album sleeve or liner visual"
+    },
+    {
+      "role": "artist",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Artist portrait or identity frame"
+    },
+    {
+      "role": "reflection",
+      "status": "approved",
+      "satisfiedBy": [
+        "629a208e3abc"
+      ],
+      "notes": "Reflective close-up available"
+    },
+    {
+      "role": "closing",
+      "status": "approved",
+      "satisfiedBy": [
+        "b017cb5b7434",
+        "85d00e9b398f"
+      ],
+      "notes": "Closing performance frame available"
+    },
+    {
+      "role": "quote",
+      "status": "missing",
+      "satisfiedBy": [],
+      "notes": "No quotes on file"
+    },
+    {
+      "role": "timeline",
+      "status": "recommended",
+      "satisfiedBy": [
+        "dv-RVTR558691-b017cb5b7434-blueprint"
+      ],
+      "notes": "Timeline beat imagery"
+    }
+  ],
+  "duplicateSuggestions": [],
+  "budget": {
+    "tier": "curated",
+    "approvedLimit": 6,
+    "approvedCount": 0,
+    "generatedCount": 0,
+    "recommendedCount": 3,
+    "remainingApproved": 6,
+    "atLimit": false
+  },
+  "recommendations": [
+    {
+      "id": "rec-use-hero",
+      "role": "hero",
+      "kind": "use_existing",
+      "priority": 1,
+      "reason": "Hero frame on file — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": [
+        "b017cb5b7434"
+      ]
+    },
+    {
+      "id": "rec-use-performance",
+      "role": "performance",
+      "kind": "use_existing",
+      "priority": 2,
+      "reason": "4 performance frames — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": [
+        "b017cb5b7434",
+        "85d00e9b398f",
+        "629a208e3abc",
+        "59a8dd210c6b"
+      ]
+    },
+    {
+      "id": "rec-gen-recording-blueprint",
+      "role": "recording",
+      "kind": "generate_derived",
+      "priority": 3,
+      "reason": "No recording session imagery — Blueprint via Blueprint.",
+      "suggestedStyle": "blueprint",
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-use-television",
+      "role": "television",
+      "kind": "use_existing",
+      "priority": 4,
+      "reason": "Not a television-forward song — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": [
+        "b017cb5b7434"
+      ]
+    },
+    {
+      "id": "rec-gen-studio-blueprint",
+      "role": "studio",
+      "kind": "generate_derived",
+      "priority": 5,
+      "reason": "No recording session imagery — Blueprint via Blueprint.",
+      "suggestedStyle": "blueprint",
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-chart-halftone_print",
+      "role": "chart",
+      "kind": "generate_derived",
+      "priority": 6,
+      "reason": "Chart milestone visual or derived halftone — Halftone Print via Magazine Illustration.",
+      "suggestedStyle": "halftone_print",
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-album-neon_poster",
+      "role": "album",
+      "kind": "generate_derived",
+      "priority": 7,
+      "reason": "Album sleeve or liner visual — Neon Poster via Poster Generator.",
+      "suggestedStyle": "neon_poster",
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-artist-neon_poster",
+      "role": "artist",
+      "kind": "generate_derived",
+      "priority": 8,
+      "reason": "Artist portrait or identity frame — Neon Poster via Poster Generator.",
+      "suggestedStyle": "neon_poster",
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-use-reflection",
+      "role": "reflection",
+      "kind": "use_existing",
+      "priority": 9,
+      "reason": "Reflective close-up available — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "629a208e3abc",
+      "existingAssetIds": [
+        "629a208e3abc"
+      ]
+    },
+    {
+      "id": "rec-use-closing",
+      "role": "closing",
+      "kind": "use_existing",
+      "priority": 10,
+      "reason": "Closing performance frame available — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": [
+        "b017cb5b7434",
+        "85d00e9b398f"
+      ]
+    },
+    {
+      "id": "rec-gen-quote-neon_poster",
+      "role": "quote",
+      "kind": "generate_derived",
+      "priority": 11,
+      "reason": "No quotes on file — Neon Poster via Poster Generator.",
+      "suggestedStyle": "neon_poster",
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-timeline-neon_poster",
+      "role": "timeline",
+      "kind": "generate_derived",
+      "priority": 12,
+      "reason": "Timeline beat imagery — Neon Poster via Poster Generator.",
+      "suggestedStyle": "neon_poster",
+      "sourceFrameId": "b017cb5b7434",
+      "existingAssetIds": []
+    }
+  ],
+  "generationQueue": []
+}

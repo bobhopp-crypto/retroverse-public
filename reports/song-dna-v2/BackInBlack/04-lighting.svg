@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <filter id="v2-atmo-blur" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="28"/>
+  </filter>
+    <filter id="v2-light-blur" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="18"/>
+  </filter>
+    <filter id="v2-sig-blur" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="3"/>
+  </filter>
+  </defs>
+  <g id="v2-background">
+    <rect width="1200" height="1200" fill="#000000"/>
+    <rect width="1200" height="1200" fill="hsl(18 55% 10%)" opacity="0.334"/>
+    <ellipse cx="361.5" cy="984.2" rx="165.7" ry="142.6" fill="hsl(32 78% 42%)" opacity="0.071" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="712.6" cy="564.6" rx="71.7" ry="84.4" fill="hsl(165 50% 38%)" opacity="0.096" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="1008.6" cy="499.5" rx="159.9" ry="51.9" fill="hsl(32 78% 42%)" opacity="0.093" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="785.5" cy="803.9" rx="123.1" ry="127.1" fill="hsl(165 50% 38%)" opacity="0.043" filter="url(#v2-atmo-blur)"/>
+    <radialGradient id="v2-void-mask" cx="0.596" cy="0.544" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.390"/>
+      <stop offset="0.074" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <rect width="1200" height="1200" fill="url(#v2-void-mask)"/>
+  </g>
+<g id="v2-rhythm"><path d="M 300.0 71.5 Q 448.6 11.0 609.6 -77.1" fill="none" stroke="hsl(48 90% 55%)" stroke-width="9.60" stroke-linecap="round" opacity="0.565"/>
+<path d="M 600.0 590.0 Q 831.1 606.3 969.0 695.1" fill="none" stroke="hsl(12 88% 48%)" stroke-width="9.97" stroke-linecap="round" opacity="0.565"/>
+<path d="M 900.0 1086.1 Q 1109.7 1006.0 1275.7 893.0" fill="none" stroke="hsl(32 78% 42%)" stroke-width="8.33" stroke-linecap="round" opacity="0.565"/>
+<path d="M 301.9 90.8 Q 510.5 45.5 651.7 60.8" fill="none" stroke="hsl(48 90% 55%)" stroke-width="8.74" stroke-linecap="round" opacity="0.565"/>
+<path d="M 611.5 613.4 Q 822.8 534.3 965.2 440.1" fill="none" stroke="hsl(12 88% 48%)" stroke-width="6.30" stroke-linecap="round" opacity="0.565"/>
+<path d="M 909.0 1106.5 Q 1098.3 1059.4 1273.2 945.8" fill="none" stroke="hsl(32 78% 42%)" stroke-width="8.54" stroke-linecap="round" opacity="0.565"/>
+<path d="M 325.3 108.0 Q 498.2 -27.9 657.7 -123.2" fill="none" stroke="hsl(48 90% 55%)" stroke-width="11.31" stroke-linecap="round" opacity="0.565"/>
+<path d="M 629.5 631.4 Q 831.7 546.4 953.8 400.1" fill="none" stroke="hsl(12 88% 48%)" stroke-width="11.31" stroke-linecap="round" opacity="0.565"/>
+<path d="M 890.7 1132.3 Q 1109.9 1138.3 1273.6 1198.3" fill="none" stroke="hsl(32 78% 42%)" stroke-width="6.51" stroke-linecap="round" opacity="0.565"/>
+<path d="M 353.9 112.7 Q 471.1 -22.5 552.8 -162.2" fill="none" stroke="hsl(48 90% 55%)" stroke-width="14.72" stroke-linecap="round" opacity="0.565"/>
+<path d="M 575.4 662.4 Q 781.6 693.3 912.4 743.2" fill="none" stroke="hsl(12 88% 48%)" stroke-width="14.94" stroke-linecap="round" opacity="0.565"/>
+<path d="M 957.5 1132.1 Q 1112.4 944.2 1192.1 846.0" fill="none" stroke="hsl(32 78% 42%)" stroke-width="6.80" stroke-linecap="round" opacity="0.565"/>
+<path d="M 237.2 132.1 Q 376.6 315.1 488.0 424.2" fill="none" stroke="hsl(48 90% 55%)" stroke-width="8.58" stroke-linecap="round" opacity="0.565"/>
+<path d="M 561.9 691.1 Q 683.6 773.9 886.5 801.7" fill="none" stroke="hsl(12 88% 48%)" stroke-width="15.75" stroke-linecap="round" opacity="0.565"/>
+<path d="M 824.5 1150.7 Q 928.4 1252.7 1059.0 1368.8" fill="none" stroke="hsl(32 78% 42%)" stroke-width="11.61" stroke-linecap="round" opacity="0.565"/>
+<path d="M 239.2 174.1 Q 412.8 257.7 562.8 326.2" fill="none" stroke="hsl(48 90% 55%)" stroke-width="11.87" stroke-linecap="round" opacity="0.565"/>
+<path d="M 685.6 684.9 Q 776.2 535.6 955.5 446.8" fill="none" stroke="hsl(12 88% 48%)" stroke-width="7.65" stroke-linecap="round" opacity="0.565"/>
+<path d="M 822.4 1175.2 Q 938.8 1298.2 1102.6 1427.6" fill="none" stroke="hsl(32 78% 42%)" stroke-width="12.29" stroke-linecap="round" opacity="0.565"/>
+<path d="M 403.4 172.5 Q 515.3 72.4 642.4 -91.5" fill="none" stroke="hsl(48 90% 55%)" stroke-width="13.77" stroke-linecap="round" opacity="0.565"/></g>
+<g id="v2-particles"><circle cx="429.5" cy="604.0" r="4.88" fill="hsl(12 88% 48%)" opacity="0.510"/>
+<circle cx="371.1" cy="547.2" r="6.04" fill="hsl(12 88% 48%)" opacity="0.267"/>
+<circle cx="276.2" cy="562.7" r="4.94" fill="hsl(165 50% 38%)" opacity="0.703"/>
+<circle cx="232.1" cy="639.0" r="3.09" fill="hsl(12 88% 48%)" opacity="0.555"/>
+<circle cx="300.0" cy="690.3" r="4.33" fill="hsl(165 50% 38%)" opacity="0.420"/>
+<circle cx="365.6" cy="539.6" r="4.70" fill="hsl(165 50% 38%)" opacity="0.250"/>
+<circle cx="469.1" cy="631.7" r="4.63" fill="hsl(165 50% 38%)" opacity="0.298"/>
+<circle cx="341.7" cy="442.4" r="7.95" fill="hsl(12 88% 48%)" opacity="0.598"/>
+<circle cx="376.2" cy="668.3" r="4.73" fill="hsl(165 50% 38%)" opacity="0.317"/>
+<circle cx="453.4" cy="674.7" r="1.56" fill="hsl(12 88% 48%)" opacity="0.685"/></g>
+<g id="v2-lighting">
+    <radialGradient id="v2-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="hsl(12 88% 48%)" stop-opacity="0.550"/>
+      <stop offset="55%" stop-color="hsl(48 90% 55%)" stop-opacity="0.193"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <ellipse cx="432.5" cy="861.0" rx="537.7" ry="440.9" fill="url(#v2-halo)"/>
+    <line x1="432.5" y1="861.0" x2="-103.4" y2="475.9" stroke="hsl(12 88% 48%)" stroke-width="160.0" stroke-linecap="round" opacity="0.249" filter="url(#v2-light-blur)"/>
+<line x1="432.5" y1="861.0" x2="-215.5" y2="986.0" stroke="hsl(12 88% 48%)" stroke-width="160.0" stroke-linecap="round" opacity="0.247" filter="url(#v2-light-blur)"/>
+<line x1="432.5" y1="861.0" x2="689.5" y2="1468.9" stroke="hsl(12 88% 48%)" stroke-width="160.0" stroke-linecap="round" opacity="0.276" filter="url(#v2-light-blur)"/>
+  </g>
+</svg>

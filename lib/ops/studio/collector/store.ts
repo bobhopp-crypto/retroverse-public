@@ -1,6 +1,9 @@
 import { createHash, randomUUID } from "crypto";
-import { mkdir, readFile, writeFile } from "fs/promises";
+import { mkdir, writeFile } from "fs/promises";
 import { dirname } from "path";
+
+import { readJsonFileSafe } from "@/lib/ops/studio/safe-io";
+import { ensureCollectorActivityIds } from "@/lib/ops/studio/pipeline-event-id";
 
 import { collectorOutputPath, collectorProgressPath } from "./paths";
 import { normalizeCollectorPackage } from "./presentation";
@@ -31,18 +34,20 @@ export function emptyCollectorProgress(): CollectorProgress {
 }
 
 export async function loadCollectorProgress(): Promise<CollectorProgress> {
-  try {
-    const raw = await readFile(collectorProgressPath(), "utf8");
-    const parsed = JSON.parse(raw) as Partial<CollectorProgress>;
-    return {
-      ...emptyCollectorProgress(),
-      ...parsed,
-      recentActivity: Array.isArray(parsed.recentActivity) ? parsed.recentActivity : [],
-      recentlyCompleted: Array.isArray(parsed.recentlyCompleted) ? parsed.recentlyCompleted : [],
-    };
-  } catch {
-    return emptyCollectorProgress();
-  }
+  const parsed = await readJsonFileSafe<Partial<CollectorProgress> | null>(
+    collectorProgressPath(),
+    null,
+    2000,
+  );
+  if (!parsed) return emptyCollectorProgress();
+  return {
+    ...emptyCollectorProgress(),
+    ...parsed,
+    recentActivity: ensureCollectorActivityIds(
+      Array.isArray(parsed.recentActivity) ? parsed.recentActivity : [],
+    ),
+    recentlyCompleted: Array.isArray(parsed.recentlyCompleted) ? parsed.recentlyCompleted : [],
+  };
 }
 
 export async function saveCollectorProgress(progress: CollectorProgress): Promise<void> {
@@ -56,9 +61,14 @@ export async function saveCollectorProgress(progress: CollectorProgress): Promis
 }
 
 export async function loadCollectorPackage(rvtr: string): Promise<CollectorPackage | null> {
+  const parsed = await readJsonFileSafe<CollectorPackage | null>(
+    collectorOutputPath(rvtr),
+    null,
+    2000,
+  );
+  if (!parsed) return null;
   try {
-    const raw = await readFile(collectorOutputPath(rvtr), "utf8");
-    return normalizeCollectorPackage(JSON.parse(raw) as CollectorPackage);
+    return normalizeCollectorPackage(parsed);
   } catch {
     return null;
   }

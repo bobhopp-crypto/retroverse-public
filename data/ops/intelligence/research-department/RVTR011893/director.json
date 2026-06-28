@@ -1,0 +1,689 @@
+{
+  "version": "0.3",
+  "rvtr": "RVTR011893",
+  "artist": "Etta James",
+  "title": "Something's Got A Hold On Me",
+  "generatedAt": "2026-06-27T05:48:37.507Z",
+  "handoffVersion": 2,
+  "experiencePlan": {
+    "version": "0.3",
+    "opening": "",
+    "closing": "",
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "sceneType": "hero",
+        "title": "Cover",
+        "headline": "Something's Got A Hold On Me",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1959",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "cover-RVTR011893"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 6,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout. Final: Hero → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "hero",
+          "displayName": "Hero",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Hero → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 2,
+        "sceneType": "chart",
+        "title": "Chart Journey",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "linkedFactIds": [
+          "8c1b1e13-c787-4096-828e-9c8d7055dbb1"
+        ],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 9,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 72,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 72,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 3,
+        "sceneType": "image",
+        "title": "Iconic Moment",
+        "headline": "A Cultural Moment Captured on Record",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "cover-RVTR011893"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat. Final: Gallery → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Gallery → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 4,
+        "sceneType": "image",
+        "title": "Song DNA",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 7,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat. Final: Gallery → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Gallery → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 5,
+        "sceneType": "performance",
+        "title": "Performance",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-rs2x3f",
+        "estimatedDurationSec": 8,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Beat focuses on owned performance footage. Final: Performance → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 78,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Performance → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 6,
+        "sceneType": "image",
+        "title": "Extended — Chart milestone",
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "linkedFactIds": [
+          "8c1b1e13-c787-4096-828e-9c8d7055dbb1"
+        ],
+        "linkedImageAssetIds": [
+          "cover-RVTR011893"
+        ],
+        "linkedPerformanceId": "perf-rs2x3f",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "timeline",
+          "displayName": "Timeline",
+          "confidence": 73,
+          "reason": "Variety: Story run broken with Timeline"
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Gallery → Story: minimum viable layout",
+        "varietyAdjusted": true
+      },
+      {
+        "sceneNumber": 7,
+        "sceneType": "image",
+        "title": "Extended — Official Video",
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-rs2x3f",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat. Final: Gallery → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Gallery → Story: minimum viable layout"
+      }
+    ],
+    "estimatedRuntimeSec": 52,
+    "targetRuntimeSec": {
+      "min": 30,
+      "max": 55
+    },
+    "primaryPerformance": {
+      "performanceId": "perf-rs2x3f",
+      "title": "On Me · 1959",
+      "reason": "Recommended: On Me. dated 1959 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "visualRhythm": "moderate",
+    "presentationStyle": "documentary",
+    "templateLibraryVersion": "0.2"
+  },
+  "review": {
+    "readiness": "missing_assets",
+    "readinessLabel": "Missing Assets",
+    "sceneCount": 7,
+    "estimatedRuntimeSec": 52,
+    "storyCoveragePct": 71,
+    "imageCoveragePct": 43,
+    "factCoveragePct": 14,
+    "recommendedPerformance": "On Me · 1959",
+    "missingAssets": [
+      "Scene 1 (Cover): Needs Supporting Copy",
+      "Scene 3 (Iconic Moment): Needs Supporting Copy",
+      "Scene 4 (Song DNA): Needs Supporting Copy",
+      "Scene 5 (Performance): Needs Supporting Copy",
+      "Scene 7 (Extended — Official Video): Needs Supporting Copy"
+    ],
+    "warnings": [
+      "3 consecutive \"Story\" scenes (scenes 3–5) — recommend variation"
+    ],
+    "summary": "7 exhibits · 52s · museum arc · Render Ready with Optional Gaps · Confidence 16% · Image diversity 33% · Layout ready 29% · 71% exhibit coverage · 43% image · 14% fact coverage · Gaps: 5",
+    "templateCoveragePct": 100,
+    "layoutReadinessPct": 29,
+    "assetCoveragePct": 29,
+    "visualVarietyScore": 33,
+    "templateUsage": [
+      {
+        "templateId": "story",
+        "displayName": "Story",
+        "count": 5,
+        "pct": 71
+      },
+      {
+        "templateId": "chart",
+        "displayName": "Chart",
+        "count": 1,
+        "pct": 14
+      },
+      {
+        "templateId": "timeline",
+        "displayName": "Timeline",
+        "count": 1,
+        "pct": 14
+      }
+    ],
+    "duplicateTemplateWarnings": [
+      "3 consecutive \"Story\" scenes (scenes 3–5) — recommend variation"
+    ],
+    "varietyRecommendations": [
+      "Exhibit image diversity 33% — Publisher scoring target"
+    ],
+    "templateDiversityScore": 43,
+    "visualDiversityScore": 29,
+    "pacingDiversityScore": 9,
+    "templateDowngradesApplied": 6,
+    "varietyAdjustmentsApplied": 1,
+    "renderReadiness": "missing_optional_assets",
+    "renderReadinessLabel": "Ready with Optional Gaps",
+    "estimatedRenderingConfidence": 16,
+    "downgradeReport": [
+      "Scene 1: Hero → Story — Hero → Story: minimum viable layout",
+      "Scene 3: Gallery → Story — Gallery → Story: minimum viable layout",
+      "Scene 4: Gallery → Story — Gallery → Story: minimum viable layout",
+      "Scene 5: Performance → Story — Performance → Story: minimum viable layout",
+      "Scene 6: Gallery → Timeline — Gallery → Story: minimum viable layout",
+      "Scene 7: Gallery → Story — Gallery → Story: minimum viable layout"
+    ],
+    "varietyReport": [
+      "Scene 6: story → timeline — 5 consecutive Story scenes — alternate layout"
+    ]
+  },
+  "renderSpec": {
+    "version": "0.3",
+    "metadata": {
+      "rvtr": "RVTR011893",
+      "artist": "Etta James",
+      "title": "Something's Got A Hold On Me",
+      "version": "0.3",
+      "generatedAt": "2026-06-27T05:48:37.507Z",
+      "estimatedRuntimeSec": 52,
+      "presentationStyle": "documentary",
+      "primaryPerformance": {
+        "performanceId": "perf-rs2x3f",
+        "title": "On Me · 1959"
+      },
+      "patronValue": 8.5,
+      "storyQuality": "Strong"
+    },
+    "globalPresentation": {
+      "backgroundTreatment": "warm_paper_documentary",
+      "typographyProfile": "retroverse_display",
+      "colorTheme": "retroverse_teal_cream",
+      "pacingProfile": "moderate",
+      "imageTreatment": "poster_card_framed",
+      "orientation": "both"
+    },
+    "sceneTimeline": [
+      {
+        "sceneNumber": 1,
+        "templateId": "story",
+        "preferredTemplateId": "hero",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Hero → Story: minimum viable layout",
+        "durationSec": 6,
+        "headline": "Something's Got A Hold On Me",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1959",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "cover-RVTR011893"
+          ],
+          "imageUrls": [
+            "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL097817/RVAL097817__etta-james__etta-james-rocks-the-house.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 2,
+        "templateId": "chart",
+        "preferredTemplateId": "chart",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 9,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [
+            "8c1b1e13-c787-4096-828e-9c8d7055dbb1"
+          ],
+          "factTexts": [
+            "The song peaked at #37 on the Billboard Hot 100 and spent 12 weeks on the chart."
+          ],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 3,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Gallery → Story: minimum viable layout",
+        "durationSec": 8,
+        "headline": "A Cultural Moment Captured on Record",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "cover-RVTR011893"
+          ],
+          "imageUrls": [
+            "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL097817/RVAL097817__etta-james__etta-james-rocks-the-house.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 4,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Gallery → Story: minimum viable layout",
+        "durationSec": 7,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 5,
+        "templateId": "story",
+        "preferredTemplateId": "performance",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Performance → Story: minimum viable layout",
+        "durationSec": 8,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-rs2x3f",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 6,
+        "templateId": "timeline",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": true,
+        "varietyAdjusted": true,
+        "downgradeReason": "Gallery → Story: minimum viable layout",
+        "durationSec": 7,
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "cover-RVTR011893"
+          ],
+          "imageUrls": [
+            "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL097817/RVAL097817__etta-james__etta-james-rocks-the-house.jpg"
+          ],
+          "factIds": [
+            "8c1b1e13-c787-4096-828e-9c8d7055dbb1"
+          ],
+          "factTexts": [
+            "The song peaked at #37 on the Billboard Hot 100 and spent 12 weeks on the chart."
+          ],
+          "performanceId": "perf-rs2x3f",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 7,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Gallery → Story: minimum viable layout",
+        "durationSec": 7,
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-rs2x3f",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      }
+    ],
+    "assetManifest": {
+      "hero": [],
+      "supportingImages": [
+        {
+          "id": "cover-RVTR011893",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL097817/RVAL097817__etta-james__etta-james-rocks-the-house.jpg",
+          "caption": "Cover artwork",
+          "performanceId": null,
+          "sceneNumbers": [
+            1,
+            3
+          ]
+        }
+      ],
+      "performanceImages": [
+        {
+          "id": "cover-RVTR011893",
+          "role": "performance_image",
+          "required": false,
+          "priority": 50,
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL097817/RVAL097817__etta-james__etta-james-rocks-the-house.jpg",
+          "caption": "Cover artwork",
+          "performanceId": "perf-rs2x3f",
+          "sceneNumbers": [
+            6
+          ]
+        }
+      ],
+      "galleryImages": [],
+      "timelineData": [
+        {
+          "id": "timeline-scene-6",
+          "role": "timeline_data",
+          "required": true,
+          "priority": 75,
+          "url": null,
+          "caption": "0 dated events",
+          "performanceId": null,
+          "sceneNumbers": [
+            6
+          ]
+        }
+      ],
+      "charts": [
+        {
+          "id": "chart-scene-2",
+          "role": "chart_data",
+          "required": true,
+          "priority": 80,
+          "url": null,
+          "caption": "",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "quotes": [],
+      "facts": [
+        {
+          "id": "8c1b1e13-c787-4096-828e-9c8d7055dbb1",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "The song peaked at #37 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+          "performanceId": null,
+          "sceneNumbers": [
+            2,
+            6
+          ]
+        }
+      ],
+      "logos": []
+    },
+    "renderingInstructions": {
+      "sceneOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "autoAdvance": true,
+      "loopPresentation": false,
+      "respectDurationHints": true,
+      "notes": [
+        "Execute scenes in sceneOrder — no creative decisions required",
+        "Transition hints are labels only; renderer chooses motion",
+        "Template downgrades are final; do not revert to preferredTemplateId",
+        "7 exhibits · 52s · museum arc · Render Ready with Optional Gaps · Confidence 16% · Image diversity 33% · Layout ready 29% · 71% exhibit coverage · 43% image · 14% fact coverage · Gaps: 5"
+      ]
+    },
+    "fallbackRules": [
+      {
+        "id": "quote-to-story",
+        "when": "quote template lacks pull-quote length",
+        "fallbackTemplate": "story",
+        "description": "Quote without quote text becomes Story layout"
+      },
+      {
+        "id": "gallery-to-hero",
+        "when": "gallery template has fewer than two images",
+        "fallbackTemplate": "hero",
+        "description": "Gallery with one image becomes Hero layout"
+      },
+      {
+        "id": "fact-stack-to-story",
+        "when": "fact stack has fewer than two facts",
+        "fallbackTemplate": "story",
+        "description": "Insufficient facts collapse to Story"
+      },
+      {
+        "id": "timeline-to-story",
+        "when": "timeline lacks dated events",
+        "fallbackTemplate": "story",
+        "description": "Timeline without dates becomes Story"
+      },
+      {
+        "id": "performance-to-story",
+        "when": "performance reference or image missing",
+        "fallbackTemplate": "story",
+        "description": "Performance without footage falls back to Story"
+      },
+      {
+        "id": "chart-to-story",
+        "when": "chart data missing",
+        "fallbackTemplate": "story",
+        "description": "Chart without peak data becomes Story"
+      },
+      {
+        "id": "comparison-to-story",
+        "when": "comparison copy missing",
+        "fallbackTemplate": "story",
+        "description": "Comparison without dual timeline copy becomes Story"
+      }
+    ],
+    "renderReadiness": "missing_required_assets",
+    "renderReadinessLabel": "Missing Required Assets — renderer should not publish",
+    "templateDowngradesApplied": 6,
+    "varietyAdjustmentsApplied": 1,
+    "estimatedRenderingConfidence": 16
+  }
+}

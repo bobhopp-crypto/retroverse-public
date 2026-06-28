@@ -1,0 +1,961 @@
+{
+  "version": 4,
+  "rvtr": "RVTR207948",
+  "artist": "Beck",
+  "title": "Where It's At",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T02:13:25.127Z",
+  "researchQuality": 77,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Beck — Where It's At (RVTR207948)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "2 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #61 · 19 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "8 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR207948",
+    "artist": "Beck",
+    "title": "Where It's At",
+    "year": 1996,
+    "albumTitle": null
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+    "playCount": 1,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+        "artist": "Beck",
+        "title": "Where It's At",
+        "isVideo": true,
+        "playCount": 1,
+        "year": 1996,
+        "genre": "Trip Hop",
+        "user2": null,
+        "performanceLabel": null
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Beck - Where It's At.mp3",
+        "artist": "Beck",
+        "title": "Where It's At",
+        "isVideo": false,
+        "playCount": null,
+        "year": 1989,
+        "genre": "genre",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 61,
+    "chartWeeks": 19,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #61 · 19 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+        "artist": "Beck",
+        "title": "Where It's At",
+        "isVideo": true,
+        "playCount": 1,
+        "year": 1996,
+        "genre": "Trip Hop",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "performance.jpg",
+      "close-up.jpg",
+      "hero.jpg",
+      "alternate.jpg",
+      "crowd.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "4c18f540083f",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 20,
+          "width": 720,
+          "height": 540,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T02:13:25.124Z"
+        },
+        {
+          "id": "3e321d39b60d",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 60,
+          "width": 720,
+          "height": 540,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T02:13:25.124Z"
+        },
+        {
+          "id": "0e5b86861143",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 120,
+          "width": 720,
+          "height": 540,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T02:13:25.124Z"
+        },
+        {
+          "id": "23b3144280ca",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 160,
+          "width": 720,
+          "height": 540,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T02:13:25.124Z"
+        },
+        {
+          "id": "aba328f3a456",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 200,
+          "width": 720,
+          "height": 540,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T02:13:25.124Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Beck"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "fb83fe9d-5f52-46c8-a992-0eaa316713b1",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR207948.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "b531f5ff-01da-42df-b599-228fb232ccd8",
+      "category": "artist",
+      "text": "Where It's At is performed by Beck.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "987afec0-501f-439c-bdea-bd58750e2d0e",
+      "category": "chart",
+      "text": "The song peaked at #61 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "ed519ea8-0887-432c-b94d-d0b46c95ccf7",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 1.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-fwxiq6"
+    },
+    {
+      "id": "5eadcce7-a0d0-4c82-9a28-e17d964fbc95",
+      "category": "recording",
+      "text": "Where It's At was released in 1996.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "37e7beed-b291-4ff5-a625-e2bb56b73309",
+      "category": "trivia",
+      "text": "Artist: Beck · Title: Where It's At · Album: Where It's At + Remixes · Year: 1996 · Genre: Trip Hop · PlayCount: 1 · LastPlayed: 1782095891 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-fwxiq6"
+    },
+    {
+      "id": "123f591c-9741-417e-9a18-cebbf559321b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-fwxiq6"
+    },
+    {
+      "id": "04a8773f-a438-452e-882f-9b79741137c5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Beck - Where It's At.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-fwxiq6"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T02:13:24.073Z",
+      "excerpt": "Retroverse track identity: RVTR207948. \"Where It's At\" by Beck.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T02:13:24.073Z",
+      "excerpt": "Billboard Hot 100 peak: #61. 19 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T02:13:24.073Z",
+      "excerpt": "Artist: Beck · Title: Where It's At · Album: Where It's At + Remixes · Year: 1996 · Genre: Trip Hop · PlayCount: 1 · LastPlayed: 1782095891 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T02:13:24.073Z",
+      "excerpt": "Performance year context: 1996.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-dde0eebd",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T02:13:24.073Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4 · Plays: 1",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-ec15364b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T02:13:24.073Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Beck - Where It's At.mp3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Beck — Where It's At · Hot 100 peak #61 · 19 weeks · 1 performance videos · 8 candidate facts · 3 gaps · 1 performance(s) · 5/8 facts approved · confidence 59% · song 1996 / recording 1996",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR207948",
+      "artist": "Beck",
+      "title": "Where It's At",
+      "year": 1996,
+      "albumTitle": null
+    },
+    "charts": {
+      "peakHot100": 61,
+      "chartWeeks": 19,
+      "albumTitle": null,
+      "summary": "Hot 100 peak #61 · 19 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Beck"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T02:13:24.073Z",
+          "excerpt": "Retroverse track identity: RVTR207948. \"Where It's At\" by Beck.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T02:13:24.073Z",
+          "excerpt": "Billboard Hot 100 peak: #61. 19 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T02:13:24.073Z",
+          "excerpt": "Artist: Beck · Title: Where It's At · Album: Where It's At + Remixes · Year: 1996 · Genre: Trip Hop · PlayCount: 1 · LastPlayed: 1782095891 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T02:13:24.073Z",
+          "excerpt": "Performance year context: 1996.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-dde0eebd",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T02:13:24.073Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4 · Plays: 1",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-ec15364b",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T02:13:24.073Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Beck - Where It's At.mp3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Beck — Where It's At · Hot 100 peak #61 · 19 weeks · 1 performance videos · 8 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "fb83fe9d-5f52-46c8-a992-0eaa316713b1",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR207948.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "b531f5ff-01da-42df-b599-228fb232ccd8",
+        "category": "artist",
+        "text": "Where It's At is performed by Beck.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "987afec0-501f-439c-bdea-bd58750e2d0e",
+        "category": "chart",
+        "text": "The song peaked at #61 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "ed519ea8-0887-432c-b94d-d0b46c95ccf7",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 1.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-fwxiq6"
+      },
+      {
+        "id": "5eadcce7-a0d0-4c82-9a28-e17d964fbc95",
+        "category": "recording",
+        "text": "Where It's At was released in 1996.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "37e7beed-b291-4ff5-a625-e2bb56b73309",
+        "category": "trivia",
+        "text": "Artist: Beck · Title: Where It's At · Album: Where It's At + Remixes · Year: 1996 · Genre: Trip Hop · PlayCount: 1 · LastPlayed: 1782095891 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-fwxiq6"
+      },
+      {
+        "id": "123f591c-9741-417e-9a18-cebbf559321b",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4 · Plays: 1",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-fwxiq6"
+      },
+      {
+        "id": "04a8773f-a438-452e-882f-9b79741137c5",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1990/Beck - Where It's At.mp3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-fwxiq6"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-fwxiq6",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+      "durationSec": 210.07093,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "4c18f540083f",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 20,
+              "width": 720,
+              "height": 540,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T02:13:25.124Z"
+            },
+            {
+              "id": "3e321d39b60d",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 60,
+              "width": 720,
+              "height": 540,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T02:13:25.124Z"
+            },
+            {
+              "id": "0e5b86861143",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 120,
+              "width": 720,
+              "height": 540,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T02:13:25.124Z"
+            },
+            {
+              "id": "23b3144280ca",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 160,
+              "width": 720,
+              "height": 540,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T02:13:25.124Z"
+            },
+            {
+              "id": "aba328f3a456",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 200,
+              "width": 720,
+              "height": 540,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T02:13:25.124Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1996. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1996,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1996",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "storySeed": {
+    "whyItMatters": "Beck's \"Where It's At\" reached #61 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Where It's At is performed by Beck.",
+      "The song peaked at #61 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "Where It's At was released in 1996."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #61 on the Hot 100",
+      "Song release — original 1996 chapter",
+      "Performance angle — Official Video (1996)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR207948",
+    "artist": "Beck",
+    "title": "Where It's At",
+    "writers": [],
+    "originalReleaseYear": 1996,
+    "originalAlbum": null,
+    "peakHot100": 61,
+    "chartWeeks": 19,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Beck"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-dj6b8c",
+      "kind": "unknown",
+      "title": "Where It's At — graph recording",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": null,
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1996,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-fwxiq6",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1996,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 210.07093,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1996. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1996",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-9cmsex",
+        "domain": "song",
+        "kind": "release",
+        "year": 1996,
+        "label": "Where It's At — original release",
+        "detail": null,
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3k1",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1996,
+        "label": "Billboard Hot 100 peak #61",
+        "detail": "19 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-2qhfc2",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1996,
+        "label": "Where It's At — graph recording",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-dj6b8c"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1996,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-fwxiq6"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1996,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1996,
+      "label": "Graph recording release",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1996,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR207948",
+      "artist": "Beck",
+      "title": "Where It's At",
+      "writers": [],
+      "originalReleaseYear": 1996,
+      "originalAlbum": null,
+      "peakHot100": 61,
+      "chartWeeks": 19,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Beck"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-dj6b8c",
+        "kind": "unknown",
+        "title": "Where It's At — graph recording",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": null,
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1996,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-fwxiq6",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Beck - Where It's At.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1996,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 210.07093,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1996. VirtualDJ play count: 1. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1996",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-9cmsex",
+          "domain": "song",
+          "kind": "release",
+          "year": 1996,
+          "label": "Where It's At — original release",
+          "detail": null,
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3k1",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1996,
+          "label": "Billboard Hot 100 peak #61",
+          "detail": "19 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-2qhfc2",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1996,
+          "label": "Where It's At — graph recording",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-dj6b8c"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1996,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-fwxiq6"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1996,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1996,
+        "label": "Graph recording release",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1996,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

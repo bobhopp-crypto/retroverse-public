@@ -1,0 +1,201 @@
+{
+  "version": 2,
+  "rvtr": "RVTR979650",
+  "artist": "Chuck Berry",
+  "title": "Johnny B Goode",
+  "story": {
+    "headline": "Johnny B Goode: A Cultural Moment Captured on Record",
+    "subtitle": "Chuck Berry · Cultural Moment · 1964",
+    "hook": "The song peaked at #80 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+    "summary": "Chuck Berry's \"Johnny B Goode\" reached #80 on the Billboard Hot 100.",
+    "fullStory": "Chuck Berry's \"Johnny B Goode\" reached #80 on the Billboard Hot 100.\n\nThe song peaked at #80 on the Billboard Hot 100 and spent 1 weeks on the chart.\n\nGraph compilation anchor: \"Chuck Berry's Greatest Hits\" (1964) — not the song's original release year.\n\nAlbum: Chuck Berry's Greatest Hits (1964).\n\nChart story — peaked at #80 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "74004593-cc66-4a90-84b9-7bb3d69de27d",
+      "text": "The song peaked at #80 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ca18eb0a-6810-49a3-bceb-1d1f8b4ed437",
+      "text": "The song appears on the album \"Chuck Berry's Greatest Hits\" (1964).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d3739f8a-de7d-4d56-b391-1aeb61d2b763",
+      "text": "Graph compilation anchor: \"Chuck Berry's Greatest Hits\" (1964) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f17c2e7c-0113-4b1a-a68b-1fe1fd9909b1",
+      "text": "VirtualDJ library play count: 7.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "6f324517-5e8d-4718-bda1-25049b347e7c",
+      "text": "Album: Chuck Berry's Greatest Hits (1964).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "c760d53c-d5d9-4e4b-b4ff-baa3f6577e1c",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "aef39c8c-91da-4f3d-af93-716abde151dd",
+      "text": "Album: Chuck Berry's Greatest Hits (1964).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "87251bb2cbc1",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979650&file=hero.jpg",
+      "performanceId": "perf-udzf7h"
+    },
+    {
+      "assetId": "fa62faab21e1",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979650&file=performance.jpg",
+      "performanceId": "perf-udzf7h"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-udzf7h",
+    "title": "Back to the Future · 1985",
+    "venue": "Back to the Future",
+    "year": 1985,
+    "notes": "Recommended cut — Recommended: Back to the Future. venue context (Back to the Future) adds place and moment. 5 curated visual frames for cards and hero art. dated 1985 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "87251bb2cbc1",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979650&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "fa62faab21e1",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR979650&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #80 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+    "closing": "Chuck Berry's \"Johnny B Goode\" reached #80 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-0adede0b3e",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Johnny B Goode\" — original release 1964. Chuck Berry — \"Johnny B Goode\" · Hot 100 peak #80",
+        "supportingFactIds": [
+          "d3739f8a-de7d-4d56-b391-1aeb61d2b763"
+        ],
+        "relatedImageAssetIds": [
+          "87251bb2cbc1",
+          "fa62faab21e1"
+        ],
+        "relatedPerformanceId": "perf-udzf7h",
+        "priority": 1
+      },
+      {
+        "id": "beat-eaa840ea4c",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Chuck Berry's Greatest Hits · Release 1964 · Compilation edition",
+        "supportingFactIds": [
+          "ca18eb0a-6810-49a3-bceb-1d1f8b4ed437",
+          "6f324517-5e8d-4718-bda1-25049b347e7c"
+        ],
+        "relatedImageAssetIds": [
+          "87251bb2cbc1",
+          "fa62faab21e1"
+        ],
+        "relatedPerformanceId": "perf-udzf7h",
+        "priority": 2
+      },
+      {
+        "id": "beat-40f6ad49bc",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #80 · 1 weeks on chart.",
+        "supportingFactIds": [
+          "74004593-cc66-4a90-84b9-7bb3d69de27d"
+        ],
+        "relatedImageAssetIds": [
+          "87251bb2cbc1",
+          "fa62faab21e1"
+        ],
+        "relatedPerformanceId": "perf-udzf7h",
+        "priority": 3
+      },
+      {
+        "id": "beat-6f5d905b2a",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "87251bb2cbc1",
+          "fa62faab21e1"
+        ],
+        "relatedPerformanceId": "perf-udzf7h",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-6513549c6b",
+        "title": "Chart milestone",
+        "description": "Peaked at #80 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1964,
+        "supportingFactIds": [
+          "74004593-cc66-4a90-84b9-7bb3d69de27d"
+        ],
+        "relatedImageAssetIds": [
+          "87251bb2cbc1"
+        ]
+      },
+      {
+        "id": "moment-2c5990e30c",
+        "title": "Back to the Future",
+        "description": "Recommended: Back to the Future. venue context (Back to the Future) adds place and moment. 5 curated visual frames for cards and hero art. dated 1985 performanc",
+        "kind": "featured_performance",
+        "year": 1985,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "87251bb2cbc1"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-udzf7h",
+      "title": "Back to the Future · 1985",
+      "reason": "Recommended: Back to the Future. venue context (Back to the Future) adds place and moment. 5 curated visual frames for cards and hero art. dated 1985 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #80 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:14:54.415Z"
+  },
+  "submittedAt": "2026-06-27T05:14:54.415Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

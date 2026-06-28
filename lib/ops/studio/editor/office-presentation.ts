@@ -13,8 +13,9 @@ import {
   readyForDirector,
   storyAngleLabel,
 } from "./editorial-constants";
-import type { EditorialReview } from "./types";
+import type { EditorialReview, EditorialBrain } from "./types";
 import type { EditorStoryPackage } from "./types";
+import { identifyStrings, type IdentifiedText } from "@/lib/ops/studio/model-identity";
 
 export type EditorPerformanceReview = {
   id: string;
@@ -44,6 +45,12 @@ export type EditorOfficeDashboard = {
   editorialReview: EditorialReview | null;
 };
 
+export type EditorOfficeEditorialBrain = Omit<EditorialBrain, "directorBrief"> & {
+  directorBrief: Omit<EditorialBrain["directorBrief"], "retroverseMoments"> & {
+    retroverseMoments: IdentifiedText[];
+  };
+};
+
 export type EditorOfficeView = {
   rvtr: string;
   artist: string;
@@ -56,7 +63,18 @@ export type EditorOfficeView = {
   lastSaved: string;
   canSubmit: boolean;
   submitted: boolean;
+  editorialBrain: EditorOfficeEditorialBrain | null;
 };
+
+function presentEditorialBrain(brain: EditorialBrain, rvtr: string): EditorOfficeEditorialBrain {
+  return {
+    ...brain,
+    directorBrief: {
+      ...brain.directorBrief,
+      retroverseMoments: identifyStrings(`${rvtr}-rv-moment`, brain.directorBrief.retroverseMoments),
+    },
+  };
+}
 
 export function buildEditorOfficeView(
   collector: CollectorPackage,
@@ -131,5 +149,8 @@ export function buildEditorOfficeView(
       story.story.hook.trim().length > 0 &&
       story.meta.editorialStatus !== "submitted",
     submitted: story.meta.editorialStatus === "submitted",
+    editorialBrain: story.editorialBrain
+      ? presentEditorialBrain(story.editorialBrain, collector.rvtr)
+      : null,
   };
 }

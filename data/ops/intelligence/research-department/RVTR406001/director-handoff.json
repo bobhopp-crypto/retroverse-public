@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR406001",
+  "artist": "Folk Implosion",
+  "title": "Natural One",
+  "story": {
+    "headline": "Natural One: A Cultural Moment Captured on Record",
+    "subtitle": "Folk Implosion · Cultural Moment",
+    "hook": "Natural One is performed by Folk Implosion.",
+    "summary": "Folk Implosion's \"Natural One\" — captured in performance footage from 1995.",
+    "fullStory": "Folk Implosion's \"Natural One\" — captured in performance footage from 1995.\n\nPerformance angle — Official Video (1995)."
+  },
+  "approvedFacts": [
+    {
+      "id": "b93d0888-16a8-41fb-96b7-1c8714c94e33",
+      "text": "VirtualDJ library play count: 10.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "ed1611c0746d",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR406001&file=hero.jpg",
+      "performanceId": "perf-o1ruzy"
+    },
+    {
+      "assetId": "17f5b01d107a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR406001&file=performance.jpg",
+      "performanceId": "perf-o1ruzy"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-o1ruzy",
+    "title": "Official Video · 1995",
+    "venue": "",
+    "year": 1995,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1995 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "ed1611c0746d",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR406001&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "17f5b01d107a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR406001&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Natural One is performed by Folk Implosion.",
+    "closing": "Folk Implosion's \"Natural One\" — captured in performance footage from 1995.",
+    "storyBeats": [
+      {
+        "id": "beat-c0c3dedc8e",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Natural One\" by Folk Implosion — Folk Implosion — \"Natural One\".",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ed1611c0746d",
+          "17f5b01d107a"
+        ],
+        "relatedPerformanceId": "perf-o1ruzy",
+        "priority": 1
+      },
+      {
+        "id": "beat-d7e06878c9",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ed1611c0746d",
+          "17f5b01d107a"
+        ],
+        "relatedPerformanceId": "perf-o1ruzy",
+        "priority": 2
+      },
+      {
+        "id": "beat-392aa16b35",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ed1611c0746d",
+          "17f5b01d107a"
+        ],
+        "relatedPerformanceId": "perf-o1ruzy",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-97296cce35",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1995,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ed1611c0746d"
+        ]
+      },
+      {
+        "id": "moment-97296cce35",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1995,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ed1611c0746d"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-o1ruzy",
+      "title": "Official Video · 1995",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1995 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Natural One is performed by Folk Implosion.\""
+    },
+    "generatedAt": "2026-06-27T04:43:00.341Z"
+  },
+  "submittedAt": "2026-06-27T04:43:00.342Z",
+  "editorNotesForDirector": "Collector confidence: Developing (48%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

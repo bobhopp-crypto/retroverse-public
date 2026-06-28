@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR706913",
+  "artist": "Rick Springfield",
+  "title": "Jessie's Girl",
+  "story": {
+    "headline": "Jessie's Girl: The Breakthrough Moment",
+    "subtitle": "Rick Springfield · Breakthrough · 1981",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 32 weeks on the chart.",
+    "summary": "Rick Springfield's \"Jessie's Girl\" reached #1 on the Billboard Hot 100. Jessie's Girl was released in 1981.",
+    "fullStory": "Rick Springfield's \"Jessie's Girl\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 32 weeks on the chart.\n\nJessie's Girl was released in 1981.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "9418e71c-55a3-47a5-b274-0b5f017a2a38",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 32 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e5508e5e-a4ed-4f47-9fa7-f5ac0003d3d2",
+      "text": "Jessie's Girl was released in 1981.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b65ac482-a6d3-4709-9bbc-5459d12c0b20",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "67249df7ba2e",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706913&file=performance.jpg",
+      "performanceId": "perf-tz42i0"
+    },
+    {
+      "assetId": "391b21e7789c",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706913&file=hero.jpg",
+      "performanceId": "perf-tz42i0"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-tz42i0",
+    "title": "Official Video · 1981",
+    "venue": "",
+    "year": 1981,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "67249df7ba2e",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706913&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "391b21e7789c",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR706913&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 32 weeks on the chart.",
+    "closing": "Rick Springfield's \"Jessie's Girl\" reached #1 on the Billboard Hot 100. Jessie's Girl was released in 1981.",
+    "storyBeats": [
+      {
+        "id": "beat-6273a07868",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Jessie's Girl\" — original release 1981. Rick Springfield — \"Jessie's Girl\" · Original release 1981 · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "67249df7ba2e",
+          "391b21e7789c"
+        ],
+        "relatedPerformanceId": "perf-tz42i0",
+        "priority": 1
+      },
+      {
+        "id": "beat-4085a7a33e",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Jessie's Girl — graph recording · Release 1981",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "67249df7ba2e",
+          "391b21e7789c"
+        ],
+        "relatedPerformanceId": "perf-tz42i0",
+        "priority": 2
+      },
+      {
+        "id": "beat-02ede77de5",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 32 weeks on chart.",
+        "supportingFactIds": [
+          "9418e71c-55a3-47a5-b274-0b5f017a2a38"
+        ],
+        "relatedImageAssetIds": [
+          "67249df7ba2e",
+          "391b21e7789c"
+        ],
+        "relatedPerformanceId": "perf-tz42i0",
+        "priority": 3
+      },
+      {
+        "id": "beat-d4165ec40c",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "67249df7ba2e",
+          "391b21e7789c"
+        ],
+        "relatedPerformanceId": "perf-tz42i0",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-acc5403474",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1981,
+        "supportingFactIds": [
+          "9418e71c-55a3-47a5-b274-0b5f017a2a38"
+        ],
+        "relatedImageAssetIds": [
+          "67249df7ba2e"
+        ]
+      },
+      {
+        "id": "moment-d961d22aaa",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1981,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "67249df7ba2e"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-tz42i0",
+      "title": "Official Video · 1981",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:25:53.303Z"
+  },
+  "submittedAt": "2026-06-27T05:25:53.303Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

@@ -18,6 +18,7 @@ import {
   queueDepartmentLabel,
   requirementLabels,
 } from "@/components/ops/browser-plus-2/studio-ops-labels";
+import { GuideAnnotatedSection, GuideTooltip } from "@/components/ops/studio/operator-guide";
 
 type Props = {
   operations: Bp2StudioOperations;
@@ -195,8 +196,9 @@ export function StudioOperationsDashboard({
   }
 
   return (
-    <section className="bp2__ops-mission" aria-label="Studio mission control">
-      <header className="bp2__ops-mission-hero">
+    <GuideAnnotatedSection cardId="missionControl">
+      <section className="bp2__ops-mission" aria-label="Studio mission control">
+        <header className="bp2__ops-mission-hero" data-guide="mission-hero">
         <div className="bp2__ops-mission-status">
           <span className={`bp2__ops-mission-lamp bp2__ops-mission-lamp--${overallState}`} aria-hidden />
           <div>
@@ -216,14 +218,18 @@ export function StudioOperationsDashboard({
         ) : null}
       </header>
 
-      <div className="bp2__ops-mission-stats" aria-label="Work status">
+      <div className="bp2__ops-mission-stats" aria-label="Work status" data-guide="mission-stats">
         <div className="bp2__ops-stat bp2__ops-stat--queue">
           <strong>{productionHealth?.queueWaiting ?? activeJobs.filter((j) => j.status === "queued").length}</strong>
-          <span>Waiting</span>
+          <GuideTooltip metricId="queueWaiting">
+            <span>Waiting</span>
+          </GuideTooltip>
         </div>
         <div className="bp2__ops-stat bp2__ops-stat--live">
           <strong>{productionHealth?.queueRunning ?? runningJobs.length}</strong>
-          <span>Running</span>
+          <GuideTooltip metricId="queueRunning">
+            <span>Running</span>
+          </GuideTooltip>
         </div>
         <div className="bp2__ops-stat">
           <strong>{productionHealth?.queueCompleted24h ?? jobs.filter((j) => j.status === "complete").length}</strong>
@@ -231,11 +237,15 @@ export function StudioOperationsDashboard({
         </div>
         <div className="bp2__ops-stat bp2__ops-stat--warn">
           <strong>{productionHealth?.queueBlocked ?? blockedPlans.length}</strong>
-          <span>Blocked</span>
+          <GuideTooltip metricId="queueBlocked">
+            <span>Blocked</span>
+          </GuideTooltip>
         </div>
         <div className="bp2__ops-stat bp2__ops-stat--fail">
           <strong>{productionHealth?.queueFailed24h ?? jobs.filter((j) => j.status === "failed").length}</strong>
-          <span>Failed (24h)</span>
+          <GuideTooltip metricId="queueFailed">
+            <span>Failed (24h)</span>
+          </GuideTooltip>
         </div>
       </div>
 
@@ -290,6 +300,7 @@ export function StudioOperationsDashboard({
           </div>
         </div>
       ) : null}
-    </section>
+      </section>
+    </GuideAnnotatedSection>
   );
 }

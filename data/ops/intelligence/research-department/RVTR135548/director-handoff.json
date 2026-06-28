@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR135548",
+  "artist": "Kenny Loggins",
+  "title": "I'm Alright",
+  "story": {
+    "headline": "I'm Alright: The Breakthrough Moment",
+    "subtitle": "Kenny Loggins · Breakthrough · 1980",
+    "hook": "The song peaked at #7 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "summary": "Kenny Loggins's \"I'm Alright\" reached #7 on the Billboard Hot 100. I'm Alright was released in 1980.",
+    "fullStory": "Kenny Loggins's \"I'm Alright\" reached #7 on the Billboard Hot 100.\n\nThe song peaked at #7 on the Billboard Hot 100 and spent 22 weeks on the chart.\n\nI'm Alright was released in 1980.\n\nChart story — peaked at #7 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "9ce9f897-9bb7-4def-8286-3485f0b99fd6",
+      "text": "The song peaked at #7 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "fdeddc38-6021-443e-b5df-89d5a86761d0",
+      "text": "I'm Alright was released in 1980.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "055e8d81-a323-4f9d-a67a-e4365739e5a8",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "992e5f9a8550",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR135548&file=hero.jpg",
+      "performanceId": "perf-17bg6x"
+    },
+    {
+      "assetId": "fa0fa688835f",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR135548&file=performance.jpg",
+      "performanceId": "perf-17bg6x"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-17bg6x",
+    "title": "Official Video · 1980",
+    "venue": "",
+    "year": 1980,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "992e5f9a8550",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR135548&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "fa0fa688835f",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR135548&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #7 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "closing": "Kenny Loggins's \"I'm Alright\" reached #7 on the Billboard Hot 100. I'm Alright was released in 1980.",
+    "storyBeats": [
+      {
+        "id": "beat-011d5f626b",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"I'm Alright\" — original release 1980. Kenny Loggins — \"I'm Alright\" · Original release 1980 · Hot 100 peak #7",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "992e5f9a8550",
+          "fa0fa688835f"
+        ],
+        "relatedPerformanceId": "perf-17bg6x",
+        "priority": 1
+      },
+      {
+        "id": "beat-ff20f11377",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "I'm Alright — graph recording · Release 1980",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "992e5f9a8550",
+          "fa0fa688835f"
+        ],
+        "relatedPerformanceId": "perf-17bg6x",
+        "priority": 2
+      },
+      {
+        "id": "beat-e0c3b9e6eb",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #7 · 22 weeks on chart.",
+        "supportingFactIds": [
+          "9ce9f897-9bb7-4def-8286-3485f0b99fd6"
+        ],
+        "relatedImageAssetIds": [
+          "992e5f9a8550",
+          "fa0fa688835f"
+        ],
+        "relatedPerformanceId": "perf-17bg6x",
+        "priority": 3
+      },
+      {
+        "id": "beat-8fe26d8370",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "992e5f9a8550",
+          "fa0fa688835f"
+        ],
+        "relatedPerformanceId": "perf-17bg6x",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-f236008a81",
+        "title": "Chart milestone",
+        "description": "Peaked at #7 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1980,
+        "supportingFactIds": [
+          "9ce9f897-9bb7-4def-8286-3485f0b99fd6"
+        ],
+        "relatedImageAssetIds": [
+          "992e5f9a8550"
+        ]
+      },
+      {
+        "id": "moment-59c44192d2",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1980,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "992e5f9a8550"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-17bg6x",
+      "title": "Official Video · 1980",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #7 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:22:23.175Z"
+  },
+  "submittedAt": "2026-06-27T05:22:23.175Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

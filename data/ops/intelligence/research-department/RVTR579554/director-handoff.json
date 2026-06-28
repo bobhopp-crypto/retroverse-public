@@ -1,0 +1,138 @@
+{
+  "version": 2,
+  "rvtr": "RVTR579554",
+  "artist": "Dua Lipa",
+  "title": "Cold Heart Live",
+  "story": {
+    "headline": "Cold Heart Live: The Performance That Defined It",
+    "subtitle": "Dua Lipa · Live Performance",
+    "hook": "Cold Heart Live is performed by Dua Lipa.",
+    "summary": "Dua Lipa's \"Cold Heart Live\" — captured in performance footage from 2022.",
+    "fullStory": "Dua Lipa's \"Cold Heart Live\" — captured in performance footage from 2022.\n\nPerformance angle — Live at Live (2022)."
+  },
+  "approvedFacts": [
+    {
+      "id": "d9dff10d-a0a4-4683-90ae-b97e3394d7e7",
+      "text": "VirtualDJ library play count: 16.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "6884948036b2",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR579554&file=performance.jpg",
+      "performanceId": "perf-6edfqo"
+    },
+    {
+      "assetId": "556a3bb0bb0a",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR579554&file=hero.jpg",
+      "performanceId": "perf-6edfqo"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-6edfqo",
+    "title": "Live · 2022",
+    "venue": "Live",
+    "year": 2022,
+    "notes": "Recommended cut — Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 2022 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "6884948036b2",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR579554&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "556a3bb0bb0a",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR579554&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Cold Heart Live is performed by Dua Lipa.",
+    "closing": "Dua Lipa's \"Cold Heart Live\" — captured in performance footage from 2022.",
+    "storyBeats": [
+      {
+        "id": "beat-981cf7918c",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Live — Live (2022).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6884948036b2",
+          "556a3bb0bb0a"
+        ],
+        "relatedPerformanceId": "perf-6edfqo",
+        "priority": 1
+      },
+      {
+        "id": "beat-ed6c1afb1b",
+        "order": 1,
+        "title": "How the song began",
+        "description": "The composition behind \"Cold Heart Live\" — Dua Lipa — \"Cold Heart Live\".",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6884948036b2",
+          "556a3bb0bb0a"
+        ],
+        "relatedPerformanceId": "perf-6edfqo",
+        "priority": 2
+      },
+      {
+        "id": "beat-19ed434423",
+        "order": 2,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6884948036b2",
+          "556a3bb0bb0a"
+        ],
+        "relatedPerformanceId": "perf-6edfqo",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-69ced7f508",
+        "title": "Live",
+        "description": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 2022 performance helps anchor the narrative",
+        "kind": "featured_performance",
+        "year": 2022,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6884948036b2"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-6edfqo",
+      "title": "Live · 2022",
+      "reason": "Recommended: Live. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 2022 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Return to the performance moment — let the owned footage be the final image."
+    },
+    "generatedAt": "2026-06-27T04:20:14.236Z"
+  },
+  "submittedAt": "2026-06-27T04:20:14.236Z",
+  "editorNotesForDirector": "Collector confidence: Developing (48%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 1.5,
+    "storyQuality": "Poor"
+  }
+}

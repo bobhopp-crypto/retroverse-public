@@ -2,6 +2,7 @@ import "server-only";
 
 import type { CollectorPackage } from "@/lib/ops/studio/collector/package-contract";
 
+import { attachEditorialBrain } from "./editorial-brain";
 import { attachEditorialReview } from "./editorial-review";
 import { attachNarrativeBlueprint } from "./narrative-blueprint";
 import { storyAngleLabel } from "./editorial-constants";
@@ -11,6 +12,8 @@ import type {
   EditorStoryPackage,
   StoryAngleId,
 } from "./types";
+
+import { REWRITE_SYSTEM_PROMPT } from "./editorial-brain-instructions";
 
 const ENCYCLOPEDIA =
   /is performed by|retroverse track|canonical cover|virtualdj library|owned media file|appears on the album/i;
@@ -223,8 +226,7 @@ Return JSON: headline, subtitle, hook (one gripping sentence), summary (2 senten
         messages: [
           {
             role: "system",
-            content:
-              "You write vivid music journalism. Valid JSON only. No Wikipedia tone.",
+            content: REWRITE_SYSTEM_PROMPT,
           },
           { role: "user", content: prompt },
         ],
@@ -256,6 +258,7 @@ export type RewriteResult = {
 export async function rewriteStoryFromAcceptedFacts(
   pkg: CollectorPackage,
   story: EditorStoryPackage,
+  options?: { allowCloud?: boolean },
 ): Promise<RewriteResult> {
   const facts = acceptedFacts(story);
   const synced = {
@@ -270,7 +273,8 @@ export async function rewriteStoryFromAcceptedFacts(
     },
   };
 
-  const aiNarrative = await buildNarrativeOpenAI(pkg, synced, facts);
+  const allowCloud = options?.allowCloud !== false;
+  const aiNarrative = allowCloud ? await buildNarrativeOpenAI(pkg, synced, facts) : null;
   const narrative = aiNarrative ?? buildNarrativeRules(pkg, synced, facts);
 
   const rewritten: EditorStoryPackage = {
@@ -287,7 +291,10 @@ export async function rewriteStoryFromAcceptedFacts(
 
   return {
     usedAi: aiNarrative != null,
-    story: attachNarrativeBlueprint(pkg, attachEditorialReview(pkg, rewritten)),
+    story: attachEditorialBrain(
+      pkg,
+      attachNarrativeBlueprint(pkg, attachEditorialReview(pkg, rewritten)),
+    ),
   };
 }
 

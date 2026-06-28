@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import {
   BP2_FILTERS,
@@ -46,6 +47,14 @@ import { StudioDailyReportPanel } from "@/components/ops/browser-plus-2/StudioDa
 import { StudioHealthDashboard } from "@/components/ops/browser-plus-2/StudioHealthDashboard";
 import { StudioOperationsDashboard } from "@/components/ops/browser-plus-2/StudioOperationsDashboard";
 import { StudioQueuePanel } from "@/components/ops/browser-plus-2/StudioQueuePanel";
+import { SongDnaInspector } from "@/components/ops/browser-plus-2/SongDnaInspector";
+import {
+  GuideAnnotatedSection,
+  GuideRecommendation,
+  StudioGuideChrome,
+} from "@/components/ops/studio/operator-guide";
+import { useTrainingModeOptional } from "@/components/ops/studio/training";
+import { recommendationFromNextAction } from "@/lib/ops/studio/operator-guide";
 import {
   activeWorkQueueLabels,
   computeWorkQueueResearchScore,
@@ -260,6 +269,8 @@ function artifactChecks(pkg: SongPackage | null, row: Bp2Row) {
 }
 
 export function BrowserPlus2Client() {
+  const router = useRouter();
+  const training = useTrainingModeOptional();
   const [model, setModel] = useState<Bp2Model | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -327,6 +338,12 @@ export function BrowserPlus2Client() {
     () => filteredRows.find((row) => row.id === selectedId) ?? filteredRows[0] ?? null,
     [filteredRows, selectedId],
   );
+
+  useEffect(() => {
+    if (!training?.trainingMode || !selectedRow?.rvtr) return;
+    training.setActiveRvtr(selectedRow.rvtr);
+    router.push(`/ops/studio/training/${selectedRow.rvtr}/collector`);
+  }, [router, selectedRow?.rvtr, training]);
 
   useEffect(() => {
     if (!selectedRow?.rvtr) {
@@ -650,13 +667,18 @@ export function BrowserPlus2Client() {
 
   return (
     <div className="bp2">
+      <StudioGuideChrome pageId="mission-control" />
+
       <header className="bp2__header">
         <div className="bp2__header-main">
-          <p className="bp2__kicker">Studio · Mission Control</p>
+          <p className="bp2__kicker">Browser+ · Library &amp; Queue</p>
           <h1 className="bp2__title">Operations Center</h1>
-          <p className="bp2__subtitle">Queue · health · library — everything visible from here</p>
+          <p className="bp2__subtitle">Library browse · batch queue · overnight runs</p>
         </div>
         <div className="bp2__header-actions">
+          <Link href="/ops/studio" className="bp2__nav-link">
+            Mission Control
+          </Link>
           <Link href="/ops/browser-plus" className="bp2__nav-link">
             Classic Browser+
           </Link>
@@ -682,30 +704,41 @@ export function BrowserPlus2Client() {
             ) : null}
 
             {model.studioQueue ? (
-              <StudioQueuePanel
-                jobs={model.studioQueue.jobs}
-                paused={model.studioQueue.paused}
-                busy={studioQueueBusy}
-                jobPlans={model.studioOperations?.jobPlans}
-                onPause={() => void studioQueueControl("pause")}
-                onResume={() => void studioQueueControl("resume")}
-                onCancel={(jobId) => void studioQueueControl("cancel", jobId)}
-                onRetry={(jobId) => void studioQueueControl("retry", jobId)}
-              />
+              <GuideAnnotatedSection cardId="productionQueue">
+                <div data-guide="production-queue">
+                  <StudioQueuePanel
+                    jobs={model.studioQueue.jobs}
+                    paused={model.studioQueue.paused}
+                    busy={studioQueueBusy}
+                    jobPlans={model.studioOperations?.jobPlans}
+                    onPause={() => void studioQueueControl("pause")}
+                    onResume={() => void studioQueueControl("resume")}
+                    onCancel={(jobId) => void studioQueueControl("cancel", jobId)}
+                    onRetry={(jobId) => void studioQueueControl("retry", jobId)}
+                  />
+                </div>
+              </GuideAnnotatedSection>
             ) : null}
 
             {model.productionHealth ? (
-              <StudioHealthDashboard health={model.productionHealth} />
+              <GuideAnnotatedSection cardId="productionHealth">
+                <StudioHealthDashboard health={model.productionHealth} />
+              </GuideAnnotatedSection>
             ) : null}
 
             {model.dailyReport ? (
-              <StudioDailyReportPanel
-                report={model.dailyReport}
-                integrity={model.packageIntegrity}
-              />
+              <GuideAnnotatedSection cardId="dailyReport">
+                <div data-guide="daily-report">
+                  <StudioDailyReportPanel
+                    report={model.dailyReport}
+                    integrity={model.packageIntegrity}
+                  />
+                </div>
+              </GuideAnnotatedSection>
             ) : null}
           </div>
 
+          <div data-guide="batch-bar">
           <StudioBatchBar
             selectedCount={selectedIds.size}
             filteredCount={filteredRows.length}
@@ -715,6 +748,7 @@ export function BrowserPlus2Client() {
             onOvernight={handleOvernight}
             onClearSelection={() => setSelectedIds(new Set())}
           />
+          </div>
 
           {studioQueueMessage ? <p className="bp2__banner">{studioQueueMessage}</p> : null}
 
@@ -956,6 +990,13 @@ export function BrowserPlus2Client() {
                             Priority: {selectedRow.patronPriority}
                           </span>
                         </div>
+                        {(() => {
+                          const rec = recommendationFromNextAction(
+                            selectedRow.nextAction,
+                            selectedRow.studio,
+                          );
+                          return rec ? <GuideRecommendation recommendation={rec} /> : null;
+                        })()}
                         <div className="bp2__song-header-grid">
                           <div><span>Year</span><strong>{selectedRow.year ?? "—"}</strong></div>
                           <div><span>RVTR</span><strong>{selectedRow.rvtr ?? "—"}</strong></div>
@@ -1173,6 +1214,7 @@ export function BrowserPlus2Client() {
                             </ul>
                           </div>
                         ) : null}
+                        <SongDnaInspector rvtr={selectedRow.rvtr} />
                       </section>
 
                       <section className="bp2__panel bp2__panel--actions">

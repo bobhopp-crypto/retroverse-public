@@ -1,0 +1,5 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+
+> retroverse-public@0.1.0 research:collector:overnight
+> NODE_OPTIONS='--require ./tools/finance/preload-server-only.cjs' npx --yes tsx tools/research/collector-overnight-batch.ts
+

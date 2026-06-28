@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR735338",
+  "artist": "Stray Cats",
+  "title": "Rock This Town",
+  "story": {
+    "headline": "Rock This Town: The Breakthrough Moment",
+    "subtitle": "Stray Cats · Breakthrough · 1982",
+    "hook": "The song peaked at #9 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "summary": "Stray Cats's \"Rock This Town\" reached #9 on the Billboard Hot 100. Rock This Town was released in 1982.",
+    "fullStory": "Stray Cats's \"Rock This Town\" reached #9 on the Billboard Hot 100.\n\nThe song peaked at #9 on the Billboard Hot 100 and spent 21 weeks on the chart.\n\nRock This Town was released in 1982.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #9 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "b53cec07-1c48-4ff2-ab93-73d02edef601",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8340d784-5f9f-4e35-b8e7-2efc4bca0aee",
+      "text": "Rock This Town was released in 1982.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7a531edf-e8a6-4419-b255-cc4768c590f5",
+      "text": "The song appears on the album \"Built For Speed\" (1982).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "03b165fc-2b94-4ced-82ed-71bd853ef15e",
+      "text": "VirtualDJ library play count: 7.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "335d2bd7-4856-4871-83bd-2b7615753da8",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "dcc091448564",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR735338&file=performance.jpg",
+      "performanceId": "perf-de2i7c"
+    },
+    {
+      "assetId": "3b84561e44a9",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR735338&file=hero.jpg",
+      "performanceId": "perf-de2i7c"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-de2i7c",
+    "title": "Official Video · 1982",
+    "venue": "",
+    "year": 1982,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "dcc091448564",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR735338&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "3b84561e44a9",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR735338&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #9 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "closing": "Stray Cats's \"Rock This Town\" reached #9 on the Billboard Hot 100. Rock This Town was released in 1982.",
+    "storyBeats": [
+      {
+        "id": "beat-810253aaeb",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Rock This Town\" — original release 1982. Stray Cats — \"Rock This Town\" · Original release 1982 · Album: Built For Speed · Hot 100 peak #9",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dcc091448564",
+          "3b84561e44a9"
+        ],
+        "relatedPerformanceId": "perf-de2i7c",
+        "priority": 1
+      },
+      {
+        "id": "beat-6498298205",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Built For Speed · Release 1982",
+        "supportingFactIds": [
+          "7a531edf-e8a6-4419-b255-cc4768c590f5"
+        ],
+        "relatedImageAssetIds": [
+          "dcc091448564",
+          "3b84561e44a9"
+        ],
+        "relatedPerformanceId": "perf-de2i7c",
+        "priority": 2
+      },
+      {
+        "id": "beat-fa39a84009",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #9 · 21 weeks on chart.",
+        "supportingFactIds": [
+          "b53cec07-1c48-4ff2-ab93-73d02edef601"
+        ],
+        "relatedImageAssetIds": [
+          "dcc091448564",
+          "3b84561e44a9"
+        ],
+        "relatedPerformanceId": "perf-de2i7c",
+        "priority": 3
+      },
+      {
+        "id": "beat-c4ba30e3cf",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dcc091448564",
+          "3b84561e44a9"
+        ],
+        "relatedPerformanceId": "perf-de2i7c",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-cd5eb3948d",
+        "title": "Chart milestone",
+        "description": "Peaked at #9 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1982,
+        "supportingFactIds": [
+          "b53cec07-1c48-4ff2-ab93-73d02edef601"
+        ],
+        "relatedImageAssetIds": [
+          "dcc091448564"
+        ]
+      },
+      {
+        "id": "moment-ddf7dbd478",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1982,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dcc091448564"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-de2i7c",
+      "title": "Official Video · 1982",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #9 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:08:21.040Z"
+  },
+  "submittedAt": "2026-06-27T05:08:21.040Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

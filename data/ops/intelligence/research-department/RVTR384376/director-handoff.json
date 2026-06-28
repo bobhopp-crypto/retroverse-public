@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR384376",
+  "artist": "Def Leppard",
+  "title": "Hysteria",
+  "story": {
+    "headline": "Hysteria: The Breakthrough Moment",
+    "subtitle": "Def Leppard · Breakthrough · 1987",
+    "hook": "The song peaked at #10 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+    "summary": "Def Leppard's \"Hysteria\" reached #10 on the Billboard Hot 100. Hysteria was released in 1987.",
+    "fullStory": "Def Leppard's \"Hysteria\" reached #10 on the Billboard Hot 100.\n\nThe song peaked at #10 on the Billboard Hot 100 and spent 16 weeks on the chart.\n\nHysteria was released in 1987.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #10 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "4bf7b23b-ccd4-4745-aec3-55ee6ee55603",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "838a25f3-d6f8-4395-a0f0-00c39846c1cc",
+      "text": "Hysteria was released in 1987.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8b17145f-944a-4918-ba37-95eb3905a922",
+      "text": "The song appears on the album \"Hysteria\" (1987).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0931e9f7-784d-4ab6-808a-5f8a7358b810",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "91d2a207-bd49-4a9a-94ce-6d5883381f7d",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "5b002ff703cd",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384376&file=hero.jpg",
+      "performanceId": "perf-fro329"
+    },
+    {
+      "assetId": "71b79a5335b6",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384376&file=performance.jpg",
+      "performanceId": "perf-fro329"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-fro329",
+    "title": "Official Video · 1988",
+    "venue": "",
+    "year": 1988,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "5b002ff703cd",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384376&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "71b79a5335b6",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384376&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #10 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+    "closing": "Def Leppard's \"Hysteria\" reached #10 on the Billboard Hot 100. Hysteria was released in 1987.",
+    "storyBeats": [
+      {
+        "id": "beat-724427a759",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Hysteria\" — original release 1987. Def Leppard — \"Hysteria\" · Original release 1987 · Album: Hysteria · Hot 100 peak #10",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5b002ff703cd",
+          "71b79a5335b6"
+        ],
+        "relatedPerformanceId": "perf-fro329",
+        "priority": 1
+      },
+      {
+        "id": "beat-684a3bed35",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Hysteria · Release 1987",
+        "supportingFactIds": [
+          "8b17145f-944a-4918-ba37-95eb3905a922"
+        ],
+        "relatedImageAssetIds": [
+          "5b002ff703cd",
+          "71b79a5335b6"
+        ],
+        "relatedPerformanceId": "perf-fro329",
+        "priority": 2
+      },
+      {
+        "id": "beat-2ae326cbc5",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #10 · 16 weeks on chart.",
+        "supportingFactIds": [
+          "4bf7b23b-ccd4-4745-aec3-55ee6ee55603"
+        ],
+        "relatedImageAssetIds": [
+          "5b002ff703cd",
+          "71b79a5335b6"
+        ],
+        "relatedPerformanceId": "perf-fro329",
+        "priority": 3
+      },
+      {
+        "id": "beat-072e7e72c3",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5b002ff703cd",
+          "71b79a5335b6"
+        ],
+        "relatedPerformanceId": "perf-fro329",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-3c2a2a95fb",
+        "title": "Chart milestone",
+        "description": "Peaked at #10 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1987,
+        "supportingFactIds": [
+          "4bf7b23b-ccd4-4745-aec3-55ee6ee55603"
+        ],
+        "relatedImageAssetIds": [
+          "5b002ff703cd"
+        ]
+      },
+      {
+        "id": "moment-4e5e2073c3",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1988,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5b002ff703cd"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-fro329",
+      "title": "Official Video · 1988",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #10 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:33:55.361Z"
+  },
+  "submittedAt": "2026-06-27T04:33:55.361Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

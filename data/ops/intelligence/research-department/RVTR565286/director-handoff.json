@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR565286",
+  "artist": "Roy Orbison",
+  "title": "You Got It",
+  "story": {
+    "headline": "You Got It: The Breakthrough Moment",
+    "subtitle": "Roy Orbison · Breakthrough · 1989",
+    "hook": "The song peaked at #9 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "summary": "Roy Orbison's \"You Got It\" reached #9 on the Billboard Hot 100. You Got It was released in 1989.",
+    "fullStory": "Roy Orbison's \"You Got It\" reached #9 on the Billboard Hot 100.\n\nThe song peaked at #9 on the Billboard Hot 100 and spent 18 weeks on the chart.\n\nYou Got It was released in 1989.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #9 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "f82b59db-f9a4-4219-b77b-e7541844f5b5",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ecc8b13f-ad85-4107-abb9-0f9b431aff15",
+      "text": "You Got It was released in 1989.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "627e8fc7-2943-471f-ae3f-e5278136ce01",
+      "text": "The song appears on the album \"Mystery Girl\" (1989).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c8f09409-0cd2-43e1-a87d-529b18943923",
+      "text": "VirtualDJ library play count: 16.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "848ea319-0bd9-4104-8975-65170cbb2f71",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "3292ed5593a6",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR565286&file=performance.jpg",
+      "performanceId": "perf-dqz1j9"
+    },
+    {
+      "assetId": "c546499655b9",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR565286&file=hero.jpg",
+      "performanceId": "perf-dqz1j9"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-dqz1j9",
+    "title": "Official Video · 1989",
+    "venue": "",
+    "year": 1989,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1989 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "3292ed5593a6",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR565286&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "c546499655b9",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR565286&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #9 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "closing": "Roy Orbison's \"You Got It\" reached #9 on the Billboard Hot 100. You Got It was released in 1989.",
+    "storyBeats": [
+      {
+        "id": "beat-27c222506f",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"You Got It\" — original release 1989. Roy Orbison — \"You Got It\" · Original release 1989 · Album: Mystery Girl · Hot 100 peak #9",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "3292ed5593a6",
+          "c546499655b9"
+        ],
+        "relatedPerformanceId": "perf-dqz1j9",
+        "priority": 1
+      },
+      {
+        "id": "beat-e17dc7accc",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Mystery Girl · Release 1989",
+        "supportingFactIds": [
+          "627e8fc7-2943-471f-ae3f-e5278136ce01"
+        ],
+        "relatedImageAssetIds": [
+          "3292ed5593a6",
+          "c546499655b9"
+        ],
+        "relatedPerformanceId": "perf-dqz1j9",
+        "priority": 2
+      },
+      {
+        "id": "beat-784c53ab8e",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #9 · 18 weeks on chart.",
+        "supportingFactIds": [
+          "f82b59db-f9a4-4219-b77b-e7541844f5b5"
+        ],
+        "relatedImageAssetIds": [
+          "3292ed5593a6",
+          "c546499655b9"
+        ],
+        "relatedPerformanceId": "perf-dqz1j9",
+        "priority": 3
+      },
+      {
+        "id": "beat-39a85166e2",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "3292ed5593a6",
+          "c546499655b9"
+        ],
+        "relatedPerformanceId": "perf-dqz1j9",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-69c8d7546b",
+        "title": "Chart milestone",
+        "description": "Peaked at #9 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1989,
+        "supportingFactIds": [
+          "f82b59db-f9a4-4219-b77b-e7541844f5b5"
+        ],
+        "relatedImageAssetIds": [
+          "3292ed5593a6"
+        ]
+      },
+      {
+        "id": "moment-a932ceeea2",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1989,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "3292ed5593a6"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-dqz1j9",
+      "title": "Official Video · 1989",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1989 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #9 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T01:05:49.093Z"
+  },
+  "submittedAt": "2026-06-27T04:20:14.089Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

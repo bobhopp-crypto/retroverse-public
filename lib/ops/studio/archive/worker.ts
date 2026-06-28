@@ -19,6 +19,8 @@ const DEFAULT_ACTION = "verify";
 
 const ARCHIVE_ARTIFACTS = [
   "collector",
+  "visual-identity",
+  "song-dna",
   "editor",
   "director-handoff",
   "director",

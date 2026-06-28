@@ -1,0 +1,181 @@
+{
+  "version": 2,
+  "rvtr": "RVTR959356",
+  "artist": "The Notorious B.i.g",
+  "title": "Mo Money Mo Problems",
+  "story": {
+    "headline": "Mo Money Mo Problems: The Breakthrough Moment",
+    "subtitle": "The Notorious B.i.g · Breakthrough · 1997",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 30 weeks on the chart.",
+    "summary": "The Notorious B.i.g's \"Mo Money Mo Problems\" reached #1 on the Billboard Hot 100. Mo Money Mo Problems was released in 1997.",
+    "fullStory": "The Notorious B.i.g's \"Mo Money Mo Problems\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 30 weeks on the chart.\n\nMo Money Mo Problems was released in 1997.\n\n\"Mo Money Mo Problems\" by The Notorious B.i.g.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "4e70ab23-ada0-4edc-9f9b-d788be271a89",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 30 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2f555e72-3011-43cb-9a1f-2bb40657f0b6",
+      "text": "Mo Money Mo Problems was released in 1997.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "872f9374-cbb3-485c-8a46-38099b980525",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "52228184-17ae-48d9-8602-db9e0734e36c",
+      "text": "\"Mo Money Mo Problems\" by The Notorious B.i.g.",
+      "sourceRef": "Retroverse Canon"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "a67e6300ea7a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR959356&file=performance.jpg",
+      "performanceId": "perf-ww4y08"
+    },
+    {
+      "assetId": "ea97583e8d51",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR959356&file=hero.jpg",
+      "performanceId": "perf-ww4y08"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ww4y08",
+    "title": "Official Video · 1997",
+    "venue": "",
+    "year": 1997,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1997 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "a67e6300ea7a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR959356&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "ea97583e8d51",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR959356&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 30 weeks on the chart.",
+    "closing": "The Notorious B.i.g's \"Mo Money Mo Problems\" reached #1 on the Billboard Hot 100. Mo Money Mo Problems was released in 1997.",
+    "storyBeats": [
+      {
+        "id": "beat-8fe12a32f1",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Mo Money Mo Problems\" — original release 1997. The Notorious B.i.g — \"Mo Money Mo Problems\" · Original release 1997 · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a67e6300ea7a",
+          "ea97583e8d51"
+        ],
+        "relatedPerformanceId": "perf-ww4y08",
+        "priority": 1
+      },
+      {
+        "id": "beat-cdad5b9d1e",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Mo Money Mo Problems — graph recording · Release 1997",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a67e6300ea7a",
+          "ea97583e8d51"
+        ],
+        "relatedPerformanceId": "perf-ww4y08",
+        "priority": 2
+      },
+      {
+        "id": "beat-d86a6d8484",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 30 weeks on chart.",
+        "supportingFactIds": [
+          "4e70ab23-ada0-4edc-9f9b-d788be271a89"
+        ],
+        "relatedImageAssetIds": [
+          "a67e6300ea7a",
+          "ea97583e8d51"
+        ],
+        "relatedPerformanceId": "perf-ww4y08",
+        "priority": 3
+      },
+      {
+        "id": "beat-b8d9f5b9c3",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a67e6300ea7a",
+          "ea97583e8d51"
+        ],
+        "relatedPerformanceId": "perf-ww4y08",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-6eea43150d",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1997,
+        "supportingFactIds": [
+          "4e70ab23-ada0-4edc-9f9b-d788be271a89"
+        ],
+        "relatedImageAssetIds": [
+          "a67e6300ea7a"
+        ]
+      },
+      {
+        "id": "moment-c95d20d966",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1997,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a67e6300ea7a"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-ww4y08",
+      "title": "Official Video · 1997",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1997 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:28:55.539Z"
+  },
+  "submittedAt": "2026-06-27T05:28:55.540Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

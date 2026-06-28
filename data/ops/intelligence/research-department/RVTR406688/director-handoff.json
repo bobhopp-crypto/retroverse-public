@@ -1,0 +1,186 @@
+{
+  "version": 2,
+  "rvtr": "RVTR406688",
+  "artist": "Go-go's",
+  "title": "We Got The Beat",
+  "story": {
+    "headline": "We Got The Beat: The Performance That Defined It",
+    "subtitle": "Go-go's · Live Performance · 1981",
+    "hook": "The song peaked at #2 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+    "summary": "Go-go's's \"We Got The Beat\" reached #2 on the Billboard Hot 100. We Got The Beat was released in 1981.",
+    "fullStory": "Go-go's's \"We Got The Beat\" reached #2 on the Billboard Hot 100.\n\nThe song peaked at #2 on the Billboard Hot 100 and spent 19 weeks on the chart.\n\nWe Got The Beat was released in 1981.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #2 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "5338f6bb-0334-4e36-8ede-129b7d3ae68b",
+      "text": "The song peaked at #2 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a4d00799-4e43-4e4f-9fd9-7344415b6318",
+      "text": "We Got The Beat was released in 1981.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "fce30993-7311-4c14-b447-b6c761940f2e",
+      "text": "The song appears on the album \"Beauty And The Beat\" (1981).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8f140422-671d-42e1-b325-9745bce00c8c",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f5cdf690-dbcd-4381-b632-a2a3ac14c6e3",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "003cb6ce9647",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR406688&file=hero.jpg",
+      "performanceId": "perf-nzglrg"
+    },
+    {
+      "assetId": "8b67fa3d9285",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR406688&file=performance.jpg",
+      "performanceId": "perf-nzglrg"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-nzglrg",
+    "title": "Official Video · 1980",
+    "venue": "",
+    "year": 1980,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative. 18 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "003cb6ce9647",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR406688&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "8b67fa3d9285",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR406688&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #2 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+    "closing": "Go-go's's \"We Got The Beat\" reached #2 on the Billboard Hot 100. We Got The Beat was released in 1981.",
+    "storyBeats": [
+      {
+        "id": "beat-cea2f18ec8",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Official Video (1980).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "003cb6ce9647",
+          "8b67fa3d9285"
+        ],
+        "relatedPerformanceId": "perf-nzglrg",
+        "priority": 1
+      },
+      {
+        "id": "beat-2fb423b7a0",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"We Got The Beat\" entered the world in 1981.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "003cb6ce9647",
+          "8b67fa3d9285"
+        ],
+        "relatedPerformanceId": "perf-nzglrg",
+        "priority": 2
+      },
+      {
+        "id": "beat-64f4b54dc0",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #2 · 19 weeks on chart.",
+        "supportingFactIds": [
+          "5338f6bb-0334-4e36-8ede-129b7d3ae68b"
+        ],
+        "relatedImageAssetIds": [
+          "003cb6ce9647",
+          "8b67fa3d9285"
+        ],
+        "relatedPerformanceId": "perf-nzglrg",
+        "priority": 3
+      },
+      {
+        "id": "beat-dd93f2469a",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "003cb6ce9647",
+          "8b67fa3d9285"
+        ],
+        "relatedPerformanceId": "perf-nzglrg",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-3b518b3667",
+        "title": "Chart milestone",
+        "description": "Peaked at #2 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1981,
+        "supportingFactIds": [
+          "5338f6bb-0334-4e36-8ede-129b7d3ae68b"
+        ],
+        "relatedImageAssetIds": [
+          "003cb6ce9647"
+        ]
+      },
+      {
+        "id": "moment-2b5a18a049",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1980,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "003cb6ce9647"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-nzglrg",
+      "title": "Official Video · 1980",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative. 18 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #2 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:19:52.090Z"
+  },
+  "submittedAt": "2026-06-27T05:19:52.090Z",
+  "editorNotesForDirector": "Collector confidence: Good (66%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

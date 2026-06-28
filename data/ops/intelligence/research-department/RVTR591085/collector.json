@@ -1,0 +1,961 @@
+{
+  "version": 4,
+  "rvtr": "RVTR591085",
+  "artist": "Aerosmith",
+  "title": "Jaded",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T05:28:45.915Z",
+  "researchQuality": 77,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Aerosmith — Jaded (RVTR591085)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "2 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #7 · 20 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "8 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR591085",
+    "artist": "Aerosmith",
+    "title": "Jaded",
+    "year": 2001,
+    "albumTitle": "Just Push Play"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+        "artist": "Aerosmith",
+        "title": "Jaded",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2001,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Aerosmith - Jaded.mp3",
+        "artist": "Aerosmith",
+        "title": "Jaded",
+        "isVideo": false,
+        "playCount": null,
+        "year": 2001,
+        "genre": "Pop/Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 7,
+    "chartWeeks": 20,
+    "albumTitle": "Just Push Play",
+    "summary": "Hot 100 peak #7 · 20 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+        "artist": "Aerosmith",
+        "title": "Jaded",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2001,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "hero.jpg",
+      "alternate.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "close-up.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "abd8e8648a17",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 20,
+          "width": 348,
+          "height": 288,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T05:28:45.912Z"
+        },
+        {
+          "id": "cedc7fbda02e",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 60,
+          "width": 348,
+          "height": 288,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T05:28:45.912Z"
+        },
+        {
+          "id": "7f7f217690ca",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 120,
+          "width": 348,
+          "height": 288,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T05:28:45.912Z"
+        },
+        {
+          "id": "a0d237217465",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 160,
+          "width": 348,
+          "height": 288,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T05:28:45.912Z"
+        },
+        {
+          "id": "55226088e7a6",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 220,
+          "width": 348,
+          "height": 288,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T05:28:45.912Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Aerosmith"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "299e0698-1968-449f-844e-85b4de5f7cb0",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR591085.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "715a2c0a-04ba-404f-a60d-3d56e7134c37",
+      "category": "artist",
+      "text": "Jaded is performed by Aerosmith.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "aab7ff42-0c0c-49f9-ace9-d14f2f884cad",
+      "category": "album",
+      "text": "The song appears on the album \"Just Push Play\" (2001).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-47zqs3"
+    },
+    {
+      "id": "39432b78-45bd-4281-aee9-ac79e6c5965f",
+      "category": "chart",
+      "text": "The song peaked at #7 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "53a7217d-3cf3-4918-a92c-bebc0f60f82e",
+      "category": "recording",
+      "text": "Jaded was released in 2001.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "740b2ebb-372b-45d4-a904-ea75f8297c28",
+      "category": "trivia",
+      "text": "Artist: Aerosmith · Title: Jaded · Album: Jaded · Year: 2001 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-q58vs9"
+    },
+    {
+      "id": "27b83f08-773c-498d-9948-a0559e436a8b",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-q58vs9"
+    },
+    {
+      "id": "1fbb5d3d-bacf-4d17-b057-b39d6382b22d",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Aerosmith - Jaded.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-q58vs9"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T05:28:44.909Z",
+      "excerpt": "Retroverse track identity: RVTR591085. \"Jaded\" by Aerosmith. Album: Just Push Play (2001).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T05:28:44.909Z",
+      "excerpt": "Album: Just Push Play (2001). Billboard Hot 100 peak: #7. 20 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T05:28:44.909Z",
+      "excerpt": "Artist: Aerosmith · Title: Jaded · Album: Jaded · Year: 2001 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T05:28:44.909Z",
+      "excerpt": "Performance year context: 2001.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-672b6cec",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T05:28:44.909Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-05cd7796",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T05:28:44.909Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Aerosmith - Jaded.mp3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Aerosmith — Jaded · Hot 100 peak #7 · 20 weeks · 1 performance videos · 8 candidate facts · 3 gaps · 1 performance(s) · 5/8 facts approved · confidence 63% · song 2001 / recording 2001",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR591085",
+      "artist": "Aerosmith",
+      "title": "Jaded",
+      "year": 2001,
+      "albumTitle": "Just Push Play"
+    },
+    "charts": {
+      "peakHot100": 7,
+      "chartWeeks": 20,
+      "albumTitle": "Just Push Play",
+      "summary": "Hot 100 peak #7 · 20 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Aerosmith"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T05:28:44.909Z",
+          "excerpt": "Retroverse track identity: RVTR591085. \"Jaded\" by Aerosmith. Album: Just Push Play (2001).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T05:28:44.909Z",
+          "excerpt": "Album: Just Push Play (2001). Billboard Hot 100 peak: #7. 20 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T05:28:44.909Z",
+          "excerpt": "Artist: Aerosmith · Title: Jaded · Album: Jaded · Year: 2001 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T05:28:44.909Z",
+          "excerpt": "Performance year context: 2001.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-672b6cec",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T05:28:44.909Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-05cd7796",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T05:28:44.909Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Aerosmith - Jaded.mp3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Aerosmith — Jaded · Hot 100 peak #7 · 20 weeks · 1 performance videos · 8 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "299e0698-1968-449f-844e-85b4de5f7cb0",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR591085.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "715a2c0a-04ba-404f-a60d-3d56e7134c37",
+        "category": "artist",
+        "text": "Jaded is performed by Aerosmith.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "aab7ff42-0c0c-49f9-ace9-d14f2f884cad",
+        "category": "album",
+        "text": "The song appears on the album \"Just Push Play\" (2001).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-47zqs3"
+      },
+      {
+        "id": "39432b78-45bd-4281-aee9-ac79e6c5965f",
+        "category": "chart",
+        "text": "The song peaked at #7 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "53a7217d-3cf3-4918-a92c-bebc0f60f82e",
+        "category": "recording",
+        "text": "Jaded was released in 2001.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "740b2ebb-372b-45d4-a904-ea75f8297c28",
+        "category": "trivia",
+        "text": "Artist: Aerosmith · Title: Jaded · Album: Jaded · Year: 2001 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-q58vs9"
+      },
+      {
+        "id": "27b83f08-773c-498d-9948-a0559e436a8b",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-q58vs9"
+      },
+      {
+        "id": "1fbb5d3d-bacf-4d17-b057-b39d6382b22d",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Aerosmith - Jaded.mp3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-q58vs9"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-q58vs9",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "durationSec": 228.343991,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "abd8e8648a17",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 20,
+              "width": 348,
+              "height": 288,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T05:28:45.912Z"
+            },
+            {
+              "id": "cedc7fbda02e",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 60,
+              "width": 348,
+              "height": 288,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T05:28:45.912Z"
+            },
+            {
+              "id": "7f7f217690ca",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 120,
+              "width": 348,
+              "height": 288,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T05:28:45.912Z"
+            },
+            {
+              "id": "a0d237217465",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 160,
+              "width": 348,
+              "height": 288,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T05:28:45.912Z"
+            },
+            {
+              "id": "55226088e7a6",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 220,
+              "width": 348,
+              "height": 288,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T05:28:45.912Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2001. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2001,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2001",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Aerosmith's \"Jaded\" reached #7 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Jaded is performed by Aerosmith.",
+      "The song appears on the album \"Just Push Play\" (2001).",
+      "The song peaked at #7 on the Billboard Hot 100 and spent 20 weeks on the chart."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #7 on the Hot 100",
+      "Song release — original 2001 chapter",
+      "Performance angle — Official Video (2001)"
+    ],
+    "suggestedAngle": "breakthrough"
+  },
+  "songEntity": {
+    "rvtr": "RVTR591085",
+    "artist": "Aerosmith",
+    "title": "Jaded",
+    "writers": [],
+    "originalReleaseYear": 2001,
+    "originalAlbum": "Just Push Play",
+    "peakHot100": 7,
+    "chartWeeks": 20,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Aerosmith"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-47zqs3",
+      "kind": "studio_album",
+      "title": "Just Push Play",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Just Push Play",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2001,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-q58vs9",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2001,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 228.343991,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2001. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2001",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-4vauts",
+        "domain": "song",
+        "kind": "release",
+        "year": 2001,
+        "label": "Jaded — original release",
+        "detail": "Original album: Just Push Play",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-l47p2p",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2001,
+        "label": "Billboard Hot 100 peak #7",
+        "detail": "20 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-o1ln0a",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2001,
+        "label": "Just Push Play",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-47zqs3"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2001,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-q58vs9"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2001,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2001,
+      "label": "Album: Just Push Play",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2001,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR591085",
+      "artist": "Aerosmith",
+      "title": "Jaded",
+      "writers": [],
+      "originalReleaseYear": 2001,
+      "originalAlbum": "Just Push Play",
+      "peakHot100": 7,
+      "chartWeeks": 20,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Aerosmith"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-47zqs3",
+        "kind": "studio_album",
+        "title": "Just Push Play",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Just Push Play",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2001,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-q58vs9",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Aerosmith - Jaded.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2001,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 228.343991,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2001. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2001",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-4vauts",
+          "domain": "song",
+          "kind": "release",
+          "year": 2001,
+          "label": "Jaded — original release",
+          "detail": "Original album: Just Push Play",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-l47p2p",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2001,
+          "label": "Billboard Hot 100 peak #7",
+          "detail": "20 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-o1ln0a",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2001,
+          "label": "Just Push Play",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-47zqs3"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2001,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-q58vs9"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2001,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2001,
+        "label": "Album: Just Push Play",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2001,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

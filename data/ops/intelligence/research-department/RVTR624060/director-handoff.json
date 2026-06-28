@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR624060",
+  "artist": "Beach Boys",
+  "title": "Kokomo",
+  "story": {
+    "headline": "Kokomo: A Cultural Moment Captured on Record",
+    "subtitle": "Beach Boys · Cultural Moment",
+    "hook": "Kokomo is performed by Beach Boys.",
+    "summary": "Beach Boys's \"Kokomo\" — original release 1988.",
+    "fullStory": "Beach Boys's \"Kokomo\" — original release 1988.\n\nSong release — original 1988 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "30c5c67d-ea5d-4320-8bba-8f00075e1f6d",
+      "text": "VirtualDJ library play count: 10.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "2ea9ed263c4a",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR624060&file=hero.jpg",
+      "performanceId": "perf-ed1u5l"
+    },
+    {
+      "assetId": "6f32e91bc0e1",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR624060&file=performance.jpg",
+      "performanceId": "perf-ed1u5l"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ed1u5l",
+    "title": "Official Video · 1988",
+    "venue": "",
+    "year": 1988,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "2ea9ed263c4a",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR624060&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "6f32e91bc0e1",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR624060&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Kokomo is performed by Beach Boys.",
+    "closing": "Beach Boys's \"Kokomo\" — original release 1988.",
+    "storyBeats": [
+      {
+        "id": "beat-c9719d875c",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Kokomo\" — original release 1988. Beach Boys — \"Kokomo\" · Original release 1988",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ea9ed263c4a",
+          "6f32e91bc0e1"
+        ],
+        "relatedPerformanceId": "perf-ed1u5l",
+        "priority": 1
+      },
+      {
+        "id": "beat-a4d412a719",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ea9ed263c4a",
+          "6f32e91bc0e1"
+        ],
+        "relatedPerformanceId": "perf-ed1u5l",
+        "priority": 2
+      },
+      {
+        "id": "beat-9a6d671e99",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ea9ed263c4a",
+          "6f32e91bc0e1"
+        ],
+        "relatedPerformanceId": "perf-ed1u5l",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-0c9bfecd15",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1988,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ea9ed263c4a"
+        ]
+      },
+      {
+        "id": "moment-0c9bfecd15",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1988,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2ea9ed263c4a"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-ed1u5l",
+      "title": "Official Video · 1988",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Kokomo is performed by Beach Boys.\""
+    },
+    "generatedAt": "2026-06-27T04:39:47.326Z"
+  },
+  "submittedAt": "2026-06-27T04:39:47.326Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

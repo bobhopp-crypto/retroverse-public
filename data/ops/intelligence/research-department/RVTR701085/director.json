@@ -1,0 +1,635 @@
+{
+  "version": "0.3",
+  "rvtr": "RVTR701085",
+  "artist": "Pulp Fiction",
+  "title": "Dance Scene You Can Never Tell",
+  "generatedAt": "2026-06-27T04:20:10.859Z",
+  "handoffVersion": 2,
+  "experiencePlan": {
+    "version": "0.3",
+    "opening": "",
+    "closing": "",
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "sceneType": "hero",
+        "title": "Cover",
+        "headline": "Dance Scene You Can Never Tell",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1964",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "4477a7cc6682"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 6,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 83,
+          "reason": "Opening beat requires a strong hero layout. Final: Hero → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "hero",
+          "displayName": "Hero",
+          "confidence": 83,
+          "reason": "Opening beat requires a strong hero layout."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Hero → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 2,
+        "sceneType": "chart",
+        "title": "Chart Journey",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "linkedFactIds": [
+          "8f44acdd-87e0-4a6d-998c-dc9df0238326"
+        ],
+        "linkedImageAssetIds": [
+          "4477a7cc6682"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 9,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 72,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 72,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 3,
+        "sceneType": "image",
+        "title": "Iconic Moment",
+        "headline": "A Cultural Moment Captured on Record",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "24edffba3002"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 83,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 83,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 4,
+        "sceneType": "image",
+        "title": "Song DNA",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 7,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 83,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 83,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 5,
+        "sceneType": "performance",
+        "title": "Performance",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-9bdi4s",
+        "estimatedDurationSec": 8,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 78,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 78,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 6,
+        "sceneType": "image",
+        "title": "Extended — You Can Never Tell",
+        "headline": "You Can Never Tell",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:featured_performance",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "4477a7cc6682"
+        ],
+        "linkedPerformanceId": "perf-9bdi4s",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 83,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 83,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      }
+    ],
+    "estimatedRuntimeSec": 45,
+    "targetRuntimeSec": {
+      "min": 30,
+      "max": 55
+    },
+    "primaryPerformance": {
+      "performanceId": "perf-9bdi4s",
+      "title": "You Can Never Tell · 1964",
+      "reason": "Recommended: You Can Never Tell. venue context (You Can Never Tell) adds place and moment. 5 curated visual frames for cards and hero art. dated 1964 performance helps anchor the narrative."
+    },
+    "visualRhythm": "moderate",
+    "presentationStyle": "documentary",
+    "templateLibraryVersion": "0.2"
+  },
+  "review": {
+    "readiness": "ready_for_production",
+    "readinessLabel": "Ready for Production",
+    "sceneCount": 6,
+    "estimatedRuntimeSec": 45,
+    "storyCoveragePct": 83,
+    "imageCoveragePct": 67,
+    "factCoveragePct": 20,
+    "recommendedPerformance": "You Can Never Tell · 1964",
+    "missingAssets": [
+      "Scene 1 (Cover): Needs Supporting Copy"
+    ],
+    "warnings": [],
+    "summary": "6 exhibits · 45s · museum arc · Render Ready with Optional Gaps · Confidence 63% · Image diversity 50% · Layout ready 83% · 83% exhibit coverage · 67% image · 20% fact coverage · Gaps: 1",
+    "templateCoveragePct": 100,
+    "layoutReadinessPct": 83,
+    "assetCoveragePct": 83,
+    "visualVarietyScore": 50,
+    "templateUsage": [
+      {
+        "templateId": "gallery",
+        "displayName": "Gallery",
+        "count": 3,
+        "pct": 50
+      },
+      {
+        "templateId": "story",
+        "displayName": "Story",
+        "count": 1,
+        "pct": 17
+      },
+      {
+        "templateId": "chart",
+        "displayName": "Chart",
+        "count": 1,
+        "pct": 17
+      },
+      {
+        "templateId": "performance",
+        "displayName": "Performance",
+        "count": 1,
+        "pct": 17
+      }
+    ],
+    "duplicateTemplateWarnings": [],
+    "varietyRecommendations": [
+      "Exhibit image diversity 50% — Publisher scoring target"
+    ],
+    "templateDiversityScore": 67,
+    "visualDiversityScore": 50,
+    "pacingDiversityScore": 10,
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 0,
+    "renderReadiness": "missing_optional_assets",
+    "renderReadinessLabel": "Ready with Optional Gaps",
+    "estimatedRenderingConfidence": 63,
+    "downgradeReport": [
+      "Scene 1: Hero → Story — Hero → Story: minimum viable layout"
+    ],
+    "varietyReport": []
+  },
+  "renderSpec": {
+    "version": "0.3",
+    "metadata": {
+      "rvtr": "RVTR701085",
+      "artist": "Pulp Fiction",
+      "title": "Dance Scene You Can Never Tell",
+      "version": "0.3",
+      "generatedAt": "2026-06-27T04:20:10.859Z",
+      "estimatedRuntimeSec": 45,
+      "presentationStyle": "documentary",
+      "primaryPerformance": {
+        "performanceId": "perf-9bdi4s",
+        "title": "You Can Never Tell · 1964"
+      },
+      "patronValue": 10,
+      "storyQuality": "Strong"
+    },
+    "globalPresentation": {
+      "backgroundTreatment": "warm_paper_documentary",
+      "typographyProfile": "retroverse_display",
+      "colorTheme": "retroverse_teal_cream",
+      "pacingProfile": "moderate",
+      "imageTreatment": "poster_card_framed",
+      "orientation": "both"
+    },
+    "sceneTimeline": [
+      {
+        "sceneNumber": 1,
+        "templateId": "story",
+        "preferredTemplateId": "hero",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Hero → Story: minimum viable layout",
+        "durationSec": 6,
+        "headline": "Dance Scene You Can Never Tell",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1964",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "4477a7cc6682"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701085&file=hero.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 2,
+        "templateId": "chart",
+        "preferredTemplateId": "chart",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 9,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "4477a7cc6682"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701085&file=hero.jpg"
+          ],
+          "factIds": [
+            "8f44acdd-87e0-4a6d-998c-dc9df0238326"
+          ],
+          "factTexts": [
+            "\"You Never Can Tell\", also known as \"C'est La Vie\" or \"Teenage Wedding\", is a song written by Chuck Berry."
+          ],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 3,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "A Cultural Moment Captured on Record",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "24edffba3002"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701085&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 4,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 5,
+        "templateId": "performance",
+        "preferredTemplateId": "performance",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-9bdi4s",
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "zoom",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 6,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "You Can Never Tell",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:featured_performance",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "4477a7cc6682"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR701085&file=hero.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-9bdi4s",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      }
+    ],
+    "assetManifest": {
+      "hero": [],
+      "supportingImages": [
+        {
+          "id": "4477a7cc6682",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701085&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "24edffba3002",
+          "role": "supporting_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701085&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            3
+          ]
+        }
+      ],
+      "performanceImages": [
+        {
+          "id": "4477a7cc6682",
+          "role": "performance_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701085&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": "perf-9bdi4s",
+          "sceneNumbers": [
+            6,
+            5
+          ]
+        },
+        {
+          "id": "24edffba3002",
+          "role": "performance_image",
+          "required": false,
+          "priority": 85,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR701085&file=performance.jpg",
+          "caption": "You Can Never Tell · 1964",
+          "performanceId": "perf-9bdi4s",
+          "sceneNumbers": [
+            5,
+            6
+          ]
+        }
+      ],
+      "galleryImages": [],
+      "timelineData": [],
+      "charts": [
+        {
+          "id": "chart-scene-2",
+          "role": "chart_data",
+          "required": true,
+          "priority": 80,
+          "url": null,
+          "caption": "",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "quotes": [],
+      "facts": [
+        {
+          "id": "8f44acdd-87e0-4a6d-998c-dc9df0238326",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "\"You Never Can Tell\", also known as \"C'est La Vie\" or \"Teenage Wedding\", is a song written by Chuck Berry.",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "logos": []
+    },
+    "renderingInstructions": {
+      "sceneOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "autoAdvance": true,
+      "loopPresentation": false,
+      "respectDurationHints": true,
+      "notes": [
+        "Execute scenes in sceneOrder — no creative decisions required",
+        "Transition hints are labels only; renderer chooses motion",
+        "Template downgrades are final; do not revert to preferredTemplateId",
+        "6 exhibits · 45s · museum arc · Render Ready with Optional Gaps · Confidence 63% · Image diversity 50% · Layout ready 83% · 83% exhibit coverage · 67% image · 20% fact coverage · Gaps: 1"
+      ]
+    },
+    "fallbackRules": [
+      {
+        "id": "quote-to-story",
+        "when": "quote template lacks pull-quote length",
+        "fallbackTemplate": "story",
+        "description": "Quote without quote text becomes Story layout"
+      },
+      {
+        "id": "gallery-to-hero",
+        "when": "gallery template has fewer than two images",
+        "fallbackTemplate": "hero",
+        "description": "Gallery with one image becomes Hero layout"
+      },
+      {
+        "id": "fact-stack-to-story",
+        "when": "fact stack has fewer than two facts",
+        "fallbackTemplate": "story",
+        "description": "Insufficient facts collapse to Story"
+      },
+      {
+        "id": "timeline-to-story",
+        "when": "timeline lacks dated events",
+        "fallbackTemplate": "story",
+        "description": "Timeline without dates becomes Story"
+      },
+      {
+        "id": "performance-to-story",
+        "when": "performance reference or image missing",
+        "fallbackTemplate": "story",
+        "description": "Performance without footage falls back to Story"
+      },
+      {
+        "id": "chart-to-story",
+        "when": "chart data missing",
+        "fallbackTemplate": "story",
+        "description": "Chart without peak data becomes Story"
+      },
+      {
+        "id": "comparison-to-story",
+        "when": "comparison copy missing",
+        "fallbackTemplate": "story",
+        "description": "Comparison without dual timeline copy becomes Story"
+      }
+    ],
+    "renderReadiness": "missing_required_assets",
+    "renderReadinessLabel": "Missing Required Assets — renderer should not publish",
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 0,
+    "estimatedRenderingConfidence": 52
+  }
+}

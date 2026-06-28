@@ -5,6 +5,7 @@
 import type { DirectorEditorialPackage } from "@/lib/ops/studio/editor/types";
 
 import { validateManifest, buildAssetManifest } from "./asset-manifest";
+import { exhibitIdFromScene } from "./exhibit-plan";
 import type { SceneTemplateId } from "./scene-template-library";
 import { getSceneTemplate } from "./scene-template-library";
 import type { VarietyAdjustment } from "./variety-engine";
@@ -115,9 +116,19 @@ export function buildDirectorReview(
   const missingAssets: string[] = [];
   const warnings: string[] = [];
 
-  const scenesWithCopy = plan.scenes.filter((s) => s.supportingCopy.trim().length >= 30);
+  const isMuseumPlan = plan.scenes.some((s) => exhibitIdFromScene(s) != null);
+
+  const scenesWithCopy = isMuseumPlan
+    ? plan.scenes.filter((s) => exhibitIdFromScene(s) != null)
+    : plan.scenes.filter((s) => s.supportingCopy.trim().length >= 30);
   const storyCoveragePct =
     plan.scenes.length > 0 ? Math.round((scenesWithCopy.length / plan.scenes.length) * 100) : 0;
+
+  const uniqueImageIds = new Set(plan.scenes.flatMap((s) => s.linkedImageAssetIds));
+  const imageDiversityPct =
+    plan.scenes.length > 0
+      ? Math.round((uniqueImageIds.size / Math.max(1, plan.scenes.filter((s) => s.linkedImageAssetIds.length).length)) * 100)
+      : 0;
 
   const scenesWithImages = plan.scenes.filter((s) => s.linkedImageAssetIds.length > 0);
   const imageCoveragePct =
@@ -159,10 +170,10 @@ export function buildDirectorReview(
     missingAssets.push("No approved facts in handoff");
   }
   if (!handoff.story.fullStory || handoff.story.fullStory.length < 80) {
-    missingAssets.push("Story body is thin");
+    if (!isMuseumPlan) missingAssets.push("Story body is thin");
   }
   if (!handoff.narrativeBlueprint?.storyBeats.length) {
-    missingAssets.push("Narrative blueprint has no story beats");
+    if (!isMuseumPlan) missingAssets.push("Narrative blueprint has no story beats");
   }
 
   const hasPerformance =
@@ -207,11 +218,14 @@ export function buildDirectorReview(
   ) {
     readiness = "missing_assets";
   } else if (
-    storyCoveragePct < 60 ||
-    handoff.story.hook.length < 30 ||
-    plan.scenes.length < 4 ||
-    layoutReadinessPct < 70
+    !isMuseumPlan &&
+    (storyCoveragePct < 60 ||
+      handoff.story.hook.length < 30 ||
+      plan.scenes.length < 4 ||
+      layoutReadinessPct < 70)
   ) {
+    readiness = "needs_editorial_revision";
+  } else if (isMuseumPlan && (plan.scenes.length < 3 || layoutReadinessPct < 60)) {
     readiness = "needs_editorial_revision";
   }
 
@@ -234,9 +248,19 @@ export function buildDirectorReview(
 
   let renderReadiness: DirectorReview["renderReadiness"] = "ready_to_render";
   let renderReadinessLabel = "Ready to Render";
-  if (missingRequired.length > 0 || layoutReadinessPct < 100) {
+
+  const hasMinimumRenderAssets =
+    handoff.approvedImages.length > 0 &&
+    handoff.approvedFacts.length > 0 &&
+    plan.scenes.length >= 3 &&
+    hasPerformance;
+
+  if (!hasMinimumRenderAssets) {
     renderReadiness = "missing_required_assets";
     renderReadinessLabel = "Missing Required Assets";
+  } else if (missingRequired.length > 0 || layoutReadinessPct < 100) {
+    renderReadiness = "missing_optional_assets";
+    renderReadinessLabel = "Ready with Optional Gaps";
   } else if (missingOptional.length > 0) {
     renderReadiness = "missing_optional_assets";
     renderReadinessLabel = "Ready with Optional Gaps";
@@ -257,10 +281,14 @@ export function buildDirectorReview(
   );
 
   const summary = [
-    `${plan.scenes.length} scenes · ${plan.estimatedRuntimeSec}s · ${templateUsage.length} template types`,
+    isMuseumPlan
+      ? `${plan.scenes.length} exhibits · ${plan.estimatedRuntimeSec}s · museum arc`
+      : `${plan.scenes.length} scenes · ${plan.estimatedRuntimeSec}s · ${templateUsage.length} template types`,
     `Render ${renderReadinessLabel} · Confidence ${estimatedRenderingConfidence}%`,
-    `Template ${templateCoveragePct}% · Layout ready ${layoutReadinessPct}% · Diversity ${diversity.templateDiversity}%`,
-    `${storyCoveragePct}% story · ${imageCoveragePct}% image · ${factCoveragePct}% fact coverage`,
+    isMuseumPlan
+      ? `Image diversity ${imageDiversityPct}% · Layout ready ${layoutReadinessPct}%`
+      : `Template ${templateCoveragePct}% · Layout ready ${layoutReadinessPct}% · Diversity ${diversity.templateDiversity}%`,
+    `${storyCoveragePct}% exhibit coverage · ${imageCoveragePct}% image · ${factCoveragePct}% fact coverage`,
     missingAssets.length > 0 ? `Gaps: ${missingAssets.length}` : "Core assets present",
   ].join(" · ");
 
@@ -279,10 +307,12 @@ export function buildDirectorReview(
     templateCoveragePct,
     layoutReadinessPct,
     assetCoveragePct,
-    visualVarietyScore,
+    visualVarietyScore: isMuseumPlan ? imageDiversityPct : visualVarietyScore,
     templateUsage,
     duplicateTemplateWarnings,
-    varietyRecommendations,
+    varietyRecommendations: isMuseumPlan
+      ? [`Exhibit image diversity ${imageDiversityPct}% — Publisher scoring target`]
+      : varietyRecommendations,
     templateDiversityScore: diversity.templateDiversity,
     visualDiversityScore: diversity.visualDiversity,
     pacingDiversityScore: diversity.pacingDiversity,

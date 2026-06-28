@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR927157",
+  "artist": "Chicago",
+  "title": "I'm A Man",
+  "story": {
+    "headline": "I'm A Man: A Cultural Moment Captured on Record",
+    "subtitle": "Chicago · Cultural Moment",
+    "hook": "I'm A Man is performed by Chicago.",
+    "summary": "Chicago's \"I'm A Man\" — captured in performance footage from 1969.",
+    "fullStory": "Chicago's \"I'm A Man\" — captured in performance footage from 1969.\n\nPerformance angle — Official Video (1969)."
+  },
+  "approvedFacts": [
+    {
+      "id": "332fff63-b063-4c35-8ff5-a500195ea948",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "16a203af4e4d",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR927157&file=hero.jpg",
+      "performanceId": "perf-krlwzi"
+    },
+    {
+      "assetId": "1760bfad75df",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR927157&file=performance.jpg",
+      "performanceId": "perf-krlwzi"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-krlwzi",
+    "title": "Official Video · 1969",
+    "venue": "",
+    "year": 1969,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "16a203af4e4d",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR927157&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "1760bfad75df",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR927157&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "I'm A Man is performed by Chicago.",
+    "closing": "Chicago's \"I'm A Man\" — captured in performance footage from 1969.",
+    "storyBeats": [
+      {
+        "id": "beat-6bbf951c60",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"I'm A Man\" by Chicago — Chicago — \"I'm A Man\".",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "16a203af4e4d",
+          "1760bfad75df"
+        ],
+        "relatedPerformanceId": "perf-krlwzi",
+        "priority": 1
+      },
+      {
+        "id": "beat-fc46bec10a",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "16a203af4e4d",
+          "1760bfad75df"
+        ],
+        "relatedPerformanceId": "perf-krlwzi",
+        "priority": 2
+      },
+      {
+        "id": "beat-d4e5262dea",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "16a203af4e4d",
+          "1760bfad75df"
+        ],
+        "relatedPerformanceId": "perf-krlwzi",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-fdac09e477",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1969,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "16a203af4e4d"
+        ]
+      },
+      {
+        "id": "moment-fdac09e477",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1969,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "16a203af4e4d"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-krlwzi",
+      "title": "Official Video · 1969",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"I'm A Man is performed by Chicago.\""
+    },
+    "generatedAt": "2026-06-27T05:53:20.045Z"
+  },
+  "submittedAt": "2026-06-27T05:53:20.045Z",
+  "editorNotesForDirector": "Collector confidence: Developing (48%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

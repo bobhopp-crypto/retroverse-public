@@ -1,0 +1,786 @@
+{
+  "version": 4,
+  "rvtr": "RVTR784498",
+  "artist": "Bob Marley",
+  "title": "Is This Love",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "partial",
+  "completedAt": "2026-06-28T01:54:48.739Z",
+  "researchQuality": 55,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Bob Marley — Is This Love (RVTR784498)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "2 library items · graph linked"
+    },
+    "charts": {
+      "status": "partial",
+      "summary": "No chart history in graph"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "6 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "4 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "4 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR784498",
+    "artist": "Bob Marley",
+    "title": "Is This Love",
+    "year": null,
+    "albumTitle": null
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+    "playCount": 2,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+        "artist": "Bob Marley",
+        "title": "Is This Love",
+        "isVideo": true,
+        "playCount": 2,
+        "year": 1978,
+        "genre": "Roots Reggae",
+        "user2": null,
+        "performanceLabel": null
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Bob Marley - Is This Love.mp3",
+        "artist": "Bob Marley",
+        "title": "Is This Love",
+        "isVideo": false,
+        "playCount": 1,
+        "year": 1978,
+        "genre": "Reggae",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": null,
+    "chartWeeks": null,
+    "albumTitle": null,
+    "summary": "No chart history in graph"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+        "artist": "Bob Marley",
+        "title": "Is This Love",
+        "isVideo": true,
+        "playCount": 2,
+        "year": 1978,
+        "genre": "Roots Reggae",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "hero.jpg",
+      "close-up.jpg",
+      "crowd.jpg",
+      "alternate.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "76d7de37ddd5",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 20,
+          "width": 854,
+          "height": 480,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T01:54:48.735Z"
+        },
+        {
+          "id": "2754d35e09be",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 60,
+          "width": 854,
+          "height": 480,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T01:54:48.735Z"
+        },
+        {
+          "id": "b552beabbc71",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 120,
+          "width": 854,
+          "height": 480,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T01:54:48.735Z"
+        },
+        {
+          "id": "09fd500bdd27",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 160,
+          "width": 854,
+          "height": 480,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T01:54:48.735Z"
+        },
+        {
+          "id": "dc352e6eb408",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 220,
+          "width": 854,
+          "height": 480,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T01:54:48.735Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Bob Marley"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "6c804323-1b53-402c-8838-fc7827166a20",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR784498.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "896ea879-237f-4d99-b44c-7076cb00e09f",
+      "category": "artist",
+      "text": "Is This Love is performed by Bob Marley.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "ea381e99-57f7-45b3-97fc-acf6a0fd0d1a",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 2.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-4yj7fp"
+    },
+    {
+      "id": "7974f4b5-d635-4d85-984b-b9984adbbc60",
+      "category": "trivia",
+      "text": "Artist: Bob Marley · Title: Is This Love · Year: 1978 · Genre: Roots Reggae · PlayCount: 2 · LastPlayed: 1774731359 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-4yj7fp"
+    },
+    {
+      "id": "a7562eaa-0d56-4d75-bbe7-0393ab559ffc",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4 · Plays: 2",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-4yj7fp"
+    },
+    {
+      "id": "da75bc9a-adfb-4603-b870-b5fe3572c953",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Bob Marley - Is This Love.mp3 · Plays: 1",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-4yj7fp"
+    }
+  ],
+  "missingAreas": [
+    "Billboard chart history",
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T01:54:47.549Z",
+      "excerpt": "Retroverse track identity: RVTR784498. \"Is This Love\" by Bob Marley.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T01:54:47.549Z",
+      "excerpt": "Artist: Bob Marley · Title: Is This Love · Year: 1978 · Genre: Roots Reggae · PlayCount: 2 · LastPlayed: 1774731359 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-ff98c12d",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T01:54:47.549Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4 · Plays: 2",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-d09f6bee",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T01:54:47.549Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Bob Marley - Is This Love.mp3 · Plays: 1",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Bob Marley — Is This Love · No chart history in graph · 1 performance videos · 6 candidate facts · 4 gaps · 1 performance(s) · 3/6 facts approved · confidence 46% · song 1978 / recording —",
+    "sourceSummary": "4 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR784498",
+      "artist": "Bob Marley",
+      "title": "Is This Love",
+      "year": null,
+      "albumTitle": null
+    },
+    "charts": {
+      "peakHot100": null,
+      "chartWeeks": null,
+      "albumTitle": null,
+      "summary": "No chart history in graph"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Bob Marley"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T01:54:47.549Z",
+          "excerpt": "Retroverse track identity: RVTR784498. \"Is This Love\" by Bob Marley.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T01:54:47.549Z",
+          "excerpt": "Artist: Bob Marley · Title: Is This Love · Year: 1978 · Genre: Roots Reggae · PlayCount: 2 · LastPlayed: 1774731359 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-ff98c12d",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T01:54:47.549Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4 · Plays: 2",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-d09f6bee",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T01:54:47.549Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Bob Marley - Is This Love.mp3 · Plays: 1",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Bob Marley — Is This Love · No chart history in graph · 1 performance videos · 6 candidate facts · 4 gaps",
+        "sourceSummary": "4 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "6c804323-1b53-402c-8838-fc7827166a20",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR784498.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "896ea879-237f-4d99-b44c-7076cb00e09f",
+        "category": "artist",
+        "text": "Is This Love is performed by Bob Marley.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "ea381e99-57f7-45b3-97fc-acf6a0fd0d1a",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 2.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-4yj7fp"
+      },
+      {
+        "id": "7974f4b5-d635-4d85-984b-b9984adbbc60",
+        "category": "trivia",
+        "text": "Artist: Bob Marley · Title: Is This Love · Year: 1978 · Genre: Roots Reggae · PlayCount: 2 · LastPlayed: 1774731359 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-4yj7fp"
+      },
+      {
+        "id": "a7562eaa-0d56-4d75-bbe7-0393ab559ffc",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4 · Plays: 2",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-4yj7fp"
+      },
+      {
+        "id": "da75bc9a-adfb-4603-b870-b5fe3572c953",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/1970/Bob Marley - Is This Love.mp3 · Plays: 1",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-4yj7fp"
+      }
+    ],
+    "missingAreas": [
+      "Billboard chart history",
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-4yj7fp",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+      "durationSec": 233.824943,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "76d7de37ddd5",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 20,
+              "width": 854,
+              "height": 480,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T01:54:48.735Z"
+            },
+            {
+              "id": "2754d35e09be",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 60,
+              "width": 854,
+              "height": 480,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T01:54:48.735Z"
+            },
+            {
+              "id": "b552beabbc71",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 120,
+              "width": 854,
+              "height": 480,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T01:54:48.735Z"
+            },
+            {
+              "id": "09fd500bdd27",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 160,
+              "width": 854,
+              "height": 480,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T01:54:48.735Z"
+            },
+            {
+              "id": "dc352e6eb408",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 220,
+              "width": 854,
+              "height": 480,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T01:54:48.735Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1978. VirtualDJ play count: 2. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1978,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1978",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 65,
+    "recording": 20,
+    "charts": 25,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 46
+  },
+  "storySeed": {
+    "whyItMatters": "Bob Marley's \"Is This Love\" — original release 1978.",
+    "strongestFacts": [
+      "Is This Love is performed by Bob Marley."
+    ],
+    "storyIdeas": [
+      "Song release — original 1978 chapter",
+      "Performance angle — Official Video (1978)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR784498",
+    "artist": "Bob Marley",
+    "title": "Is This Love",
+    "writers": [],
+    "originalReleaseYear": 1978,
+    "originalAlbum": null,
+    "peakHot100": null,
+    "chartWeeks": null,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Bob Marley"
+    ],
+    "legacy": [],
+    "confidence": 45
+  },
+  "recordings": [],
+  "performanceEntities": [
+    {
+      "id": "perf-4yj7fp",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1978,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 233.824943,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1978. VirtualDJ play count: 2. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1978",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-nmhjf6",
+        "domain": "song",
+        "kind": "release",
+        "year": 1978,
+        "label": "Is This Love — original release",
+        "detail": null,
+        "confidence": 0.45,
+        "source": "song entity",
+        "entityRef": null
+      }
+    ],
+    "recording": [],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1978,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-4yj7fp"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1978,
+      "label": "Song original release",
+      "confidence": 0.45,
+      "source": "single owned performance year (weak song anchor)"
+    },
+    "recordingRelease": {
+      "year": null,
+      "label": "Graph recording release",
+      "confidence": 0.2,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1978,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR784498",
+      "artist": "Bob Marley",
+      "title": "Is This Love",
+      "writers": [],
+      "originalReleaseYear": 1978,
+      "originalAlbum": null,
+      "peakHot100": null,
+      "chartWeeks": null,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Bob Marley"
+      ],
+      "legacy": [],
+      "confidence": 45
+    },
+    "recordings": [],
+    "performances": [
+      {
+        "id": "perf-4yj7fp",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Bob Marley & The Wailers - Is This Love.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1978,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 233.824943,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1978. VirtualDJ play count: 2. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1978",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-nmhjf6",
+          "domain": "song",
+          "kind": "release",
+          "year": 1978,
+          "label": "Is This Love — original release",
+          "detail": null,
+          "confidence": 0.45,
+          "source": "song entity",
+          "entityRef": null
+        }
+      ],
+      "recording": [],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1978,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-4yj7fp"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1978,
+        "label": "Song original release",
+        "confidence": 0.45,
+        "source": "single owned performance year (weak song anchor)"
+      },
+      "recordingRelease": {
+        "year": null,
+        "label": "Graph recording release",
+        "confidence": 0.2,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1978,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

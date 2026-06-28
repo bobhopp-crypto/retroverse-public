@@ -4,6 +4,13 @@ import { notFound } from "next/navigation";
 import { ExperienceGallery } from "@/components/retroverse/gallery/ExperienceGallery";
 import { loadGalleryPageData } from "@/lib/retroverse/gallery/load-gallery-page";
 import type { GalleryPageData } from "@/lib/retroverse/gallery/gallery-types";
+import {
+  galleryInstrumentEnabled,
+  galleryLog,
+  galleryLogPayload,
+  galleryTime,
+  galleryTimeEnd,
+} from "@/lib/retroverse/gallery/gallery-instrument";
 
 export const dynamic = "force-dynamic";
 
@@ -18,29 +25,42 @@ type Props = {
 };
 
 export default async function RetroverseExperienceGalleryPage({ searchParams }: Props) {
-  const trace = process.env.RETROVERSE_GALLERY_TRACE === "1";
+  const trace = galleryInstrumentEnabled();
   if (trace) {
-    console.log("[gallery-trace] page ENTER");
-    console.time("[gallery-trace] page total");
+    galleryLog("[gallery-instrument] SERVER RetroverseExperienceGalleryPage ENTER");
+    galleryTime("[gallery-instrument] SERVER page total");
+    galleryTime("[gallery-instrument] SERVER searchParams await");
   }
 
   try {
-  const { rvtr } = await searchParams;
+  const { rvtr } = trace
+    ? await (async () => {
+        const params = await searchParams;
+        galleryTimeEnd("[gallery-instrument] SERVER searchParams await");
+        return params;
+      })()
+    : await searchParams;
+
+  if (trace) galleryTime("[gallery-instrument] SERVER loadGalleryPageData");
   const loaded = await loadGalleryPageData(rvtr);
+  if (trace) galleryTimeEnd("[gallery-instrument] SERVER loadGalleryPageData");
   if (!loaded) notFound();
 
-  if (trace) console.log("[gallery-trace] page loadGalleryPageData OK");
+  if (trace) galleryLogPayload("loadGalleryPageData result (pre-clone)", loaded);
 
-  // Plain JSON clone — guarantees no functions cross the RSC/client boundary.
+  if (trace) galleryTime("[gallery-instrument] SERVER JSON clone");
   const data = JSON.parse(JSON.stringify(loaded)) as GalleryPageData;
-
-  if (trace) console.log("[gallery-trace] page JSON clone OK — rendering ExperienceGallery");
+  if (trace) {
+    galleryTimeEnd("[gallery-instrument] SERVER JSON clone");
+    galleryLogPayload("ExperienceGallery props (post-clone)", data);
+    galleryLog("[gallery-instrument] SERVER scheduling ExperienceGallery render");
+  }
 
   return <ExperienceGallery data={data} />;
   } finally {
     if (trace) {
-      console.timeEnd("[gallery-trace] page total");
-      console.log("[gallery-trace] page EXIT (render scheduled)");
+      galleryTimeEnd("[gallery-instrument] SERVER page total");
+      galleryLog("[gallery-instrument] SERVER RetroverseExperienceGalleryPage EXIT");
     }
   }
 }

@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR567644",
+  "artist": "David Bowie",
+  "title": "Let's Dance",
+  "story": {
+    "headline": "Let's Dance: The Breakthrough Moment",
+    "subtitle": "David Bowie · Breakthrough · 1983",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "David Bowie's \"Let's Dance\" reached #1 on the Billboard Hot 100. Let's Dance was released in 1983.",
+    "fullStory": "David Bowie's \"Let's Dance\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nLet's Dance was released in 1983.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "4ee36a30-2ce8-42a9-b0a5-6a97800bd573",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "36b93e4c-17fc-460a-ab20-8ecbb5a66d85",
+      "text": "Let's Dance was released in 1983.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a64124e3-a725-4a36-a6ab-310eca602e47",
+      "text": "VirtualDJ library play count: 20.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "5664d786a1f4",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567644&file=hero.jpg",
+      "performanceId": "perf-d2ayep"
+    },
+    {
+      "assetId": "d2eee70c3cdb",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567644&file=performance.jpg",
+      "performanceId": "perf-d2ayep"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-d2ayep",
+    "title": "Official Video · 1983",
+    "venue": "",
+    "year": 1983,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1983 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "5664d786a1f4",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567644&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "d2eee70c3cdb",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR567644&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "David Bowie's \"Let's Dance\" reached #1 on the Billboard Hot 100. Let's Dance was released in 1983.",
+    "storyBeats": [
+      {
+        "id": "beat-b0f281848b",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Let's Dance\" — original release 1983. David Bowie — \"Let's Dance\" · Original release 1983 · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5664d786a1f4",
+          "d2eee70c3cdb"
+        ],
+        "relatedPerformanceId": "perf-d2ayep",
+        "priority": 1
+      },
+      {
+        "id": "beat-8dfd67ca1f",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Let's Dance — graph recording · Release 1983",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5664d786a1f4",
+          "d2eee70c3cdb"
+        ],
+        "relatedPerformanceId": "perf-d2ayep",
+        "priority": 2
+      },
+      {
+        "id": "beat-8d99b35047",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "4ee36a30-2ce8-42a9-b0a5-6a97800bd573"
+        ],
+        "relatedImageAssetIds": [
+          "5664d786a1f4",
+          "d2eee70c3cdb"
+        ],
+        "relatedPerformanceId": "perf-d2ayep",
+        "priority": 3
+      },
+      {
+        "id": "beat-b18656a058",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5664d786a1f4",
+          "d2eee70c3cdb"
+        ],
+        "relatedPerformanceId": "perf-d2ayep",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-c612525990",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1983,
+        "supportingFactIds": [
+          "4ee36a30-2ce8-42a9-b0a5-6a97800bd573"
+        ],
+        "relatedImageAssetIds": [
+          "5664d786a1f4"
+        ]
+      },
+      {
+        "id": "moment-017fd7940e",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1983,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5664d786a1f4"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-d2ayep",
+      "title": "Official Video · 1983",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1983 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:11.264Z"
+  },
+  "submittedAt": "2026-06-27T04:20:11.264Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "version": 2,
+  "rvtr": "RVTR690337",
+  "artist": "Jackson 5",
+  "title": "I Want You Back",
+  "story": {
+    "headline": "I Want You Back: The Breakthrough Moment",
+    "subtitle": "Jackson 5 · Breakthrough · 2017",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+    "summary": "Jackson 5's \"I Want You Back\" reached #1 on the Billboard Hot 100.",
+    "fullStory": "Jackson 5's \"I Want You Back\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.\n\nGraph compilation anchor: \"The Best Of The Jackson 5: 20th Century Masters: The Christmas Collection\" (2017) — not the song's original release year.\n\nAlbum: The Best Of The Jackson 5: 20th Century Masters: The Christmas Collection (2017).\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "12c7d796-458c-4845-8367-bcc569459a2e",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "aa976590-e3bc-4f19-bb4a-116a1ddaba8c",
+      "text": "The song appears on the album \"The Best Of The Jackson 5: 20th Century Masters: The Christmas Collection\" (2017).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3a44493f-f6c8-4f11-abf5-7c18adf911bd",
+      "text": "Graph compilation anchor: \"The Best Of The Jackson 5: 20th Century Masters: The Christmas Collection\" (2017) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e87055c4-e29f-4154-b788-91e4881694b0",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "15ccdf4f-88f1-45e2-86f9-3f558f2e4147",
+      "text": "Album: The Best Of The Jackson 5: 20th Century Masters: The Christmas Collection (2017).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "44fcd465-4666-4091-b989-6a8393d291bb",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "18e3c3ef-ec01-4502-b9f2-4d0e552427d1",
+      "text": "Album: The Best Of The Jackson 5: 20th Century Masters: The Christmas Collection (2017).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c893e10fd8a9",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690337&file=performance.jpg",
+      "performanceId": "perf-rzp16u"
+    },
+    {
+      "assetId": "13612b47c621",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690337&file=hero.jpg",
+      "performanceId": "perf-rzp16u"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-rzp16u",
+    "title": "Official Video · 1969",
+    "venue": "",
+    "year": 1969,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "c893e10fd8a9",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690337&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "13612b47c621",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR690337&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 19 weeks on the chart.",
+    "closing": "Jackson 5's \"I Want You Back\" reached #1 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-f1cc9c2703",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"I Want You Back\" — original release 1969. Jackson 5 — \"I Want You Back\" · Original release 1969 · Hot 100 peak #1",
+        "supportingFactIds": [
+          "3a44493f-f6c8-4f11-abf5-7c18adf911bd"
+        ],
+        "relatedImageAssetIds": [
+          "c893e10fd8a9",
+          "13612b47c621"
+        ],
+        "relatedPerformanceId": "perf-rzp16u",
+        "priority": 1
+      },
+      {
+        "id": "beat-4719dd64b3",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Best Of The Jackson 5: 20th Century Masters: The Christmas Collection · Release 2017 · Compilation edition",
+        "supportingFactIds": [
+          "aa976590-e3bc-4f19-bb4a-116a1ddaba8c",
+          "15ccdf4f-88f1-45e2-86f9-3f558f2e4147"
+        ],
+        "relatedImageAssetIds": [
+          "c893e10fd8a9",
+          "13612b47c621"
+        ],
+        "relatedPerformanceId": "perf-rzp16u",
+        "priority": 2
+      },
+      {
+        "id": "beat-385544ff96",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 19 weeks on chart.",
+        "supportingFactIds": [
+          "12c7d796-458c-4845-8367-bcc569459a2e"
+        ],
+        "relatedImageAssetIds": [
+          "c893e10fd8a9",
+          "13612b47c621"
+        ],
+        "relatedPerformanceId": "perf-rzp16u",
+        "priority": 3
+      },
+      {
+        "id": "beat-a9d56d8036",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c893e10fd8a9",
+          "13612b47c621"
+        ],
+        "relatedPerformanceId": "perf-rzp16u",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-8ad2339c8e",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1969,
+        "supportingFactIds": [
+          "12c7d796-458c-4845-8367-bcc569459a2e"
+        ],
+        "relatedImageAssetIds": [
+          "c893e10fd8a9"
+        ]
+      },
+      {
+        "id": "moment-004c1bf2db",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1969,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c893e10fd8a9"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-rzp16u",
+      "title": "Official Video · 1969",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:34:59.822Z"
+  },
+  "submittedAt": "2026-06-27T04:34:59.822Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 9,
+    "storyQuality": "Strong"
+  }
+}

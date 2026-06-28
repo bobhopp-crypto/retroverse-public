@@ -1,0 +1,190 @@
+{
+  "version": 2,
+  "rvtr": "RVTR543732",
+  "artist": "Metallica",
+  "title": "Enter Sandman",
+  "story": {
+    "headline": "Enter Sandman: A Cultural Moment Captured on Record",
+    "subtitle": "Metallica · Cultural Moment · 1993",
+    "hook": "The song peaked at #16 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Metallica's \"Enter Sandman\" reached #16 on the Billboard Hot 100. Enter Sandman was released in 1993.",
+    "fullStory": "Metallica's \"Enter Sandman\" reached #16 on the Billboard Hot 100.\n\nThe song peaked at #16 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nEnter Sandman was released in 1993.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #16 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "ec3515d3-d78a-48f1-ad19-73632573d258",
+      "text": "The song peaked at #16 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7792c8fc-e27e-4afb-8411-355f6bb77a5d",
+      "text": "Enter Sandman was released in 1993.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ed96305e-fc1b-4d06-a09f-b6c0ce75b2ed",
+      "text": "The song appears on the album \"Live Shit: Binge & Purge\" (1993).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "8f0ffa4f-d893-48a0-9bc1-f060fbb57683",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "827e0436-3405-4b4a-8f8c-ad685527cd92",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "de37d1a38306",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR543732&file=performance.jpg",
+      "performanceId": "perf-3rim9g"
+    },
+    {
+      "assetId": "0af878e11656",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR543732&file=hero.jpg",
+      "performanceId": "perf-3rim9g"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-3rim9g",
+    "title": "Official Video · 1991",
+    "venue": "",
+    "year": 1991,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1991 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "de37d1a38306",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR543732&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "0af878e11656",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR543732&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #16 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Metallica's \"Enter Sandman\" reached #16 on the Billboard Hot 100. Enter Sandman was released in 1993.",
+    "storyBeats": [
+      {
+        "id": "beat-3b3f4b1ba7",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Enter Sandman\" — original release 1993. Metallica — \"Enter Sandman\" · Original release 1993 · Album: Live Shit: Binge & Purge · Hot 100 peak #16",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "de37d1a38306",
+          "0af878e11656"
+        ],
+        "relatedPerformanceId": "perf-3rim9g",
+        "priority": 1
+      },
+      {
+        "id": "beat-26e0d2c1ef",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Live Shit: Binge & Purge · Release 1993",
+        "supportingFactIds": [
+          "ed96305e-fc1b-4d06-a09f-b6c0ce75b2ed"
+        ],
+        "relatedImageAssetIds": [
+          "de37d1a38306",
+          "0af878e11656"
+        ],
+        "relatedPerformanceId": "perf-3rim9g",
+        "priority": 2
+      },
+      {
+        "id": "beat-1cf6e3042b",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #16 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "ec3515d3-d78a-48f1-ad19-73632573d258"
+        ],
+        "relatedImageAssetIds": [
+          "de37d1a38306",
+          "0af878e11656"
+        ],
+        "relatedPerformanceId": "perf-3rim9g",
+        "priority": 3
+      },
+      {
+        "id": "beat-cf4726b5bb",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "de37d1a38306",
+          "0af878e11656"
+        ],
+        "relatedPerformanceId": "perf-3rim9g",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-37af2133ba",
+        "title": "Chart milestone",
+        "description": "Peaked at #16 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1993,
+        "supportingFactIds": [
+          "ec3515d3-d78a-48f1-ad19-73632573d258"
+        ],
+        "relatedImageAssetIds": [
+          "de37d1a38306"
+        ]
+      },
+      {
+        "id": "moment-7366d9ea08",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1991,
+        "supportingFactIds": [
+          "ed96305e-fc1b-4d06-a09f-b6c0ce75b2ed"
+        ],
+        "relatedImageAssetIds": [
+          "de37d1a38306"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-3rim9g",
+      "title": "Official Video · 1991",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1991 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #16 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:34:29.027Z"
+  },
+  "submittedAt": "2026-06-27T04:34:29.028Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

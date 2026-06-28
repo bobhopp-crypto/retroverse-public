@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <defs>
+    <filter id="v2-atmo-blur" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="28"/>
+  </filter>
+    <filter id="v2-light-blur" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="18"/>
+  </filter>
+    <filter id="v2-sig-blur" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="3"/>
+  </filter>
+  </defs>
+  <g id="v2-background">
+    <rect width="1200" height="1200" fill="#000000"/>
+    <rect width="1200" height="1200" fill="hsl(18 55% 10%)" opacity="0.358"/>
+    <ellipse cx="1147.5" cy="33.2" rx="181.3" ry="53.4" fill="hsl(165 50% 38%)" opacity="0.099" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="355.4" cy="143.5" rx="146.8" ry="97.6" fill="hsl(32 78% 42%)" opacity="0.077" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="725.5" cy="643.2" rx="143.3" ry="122.5" fill="hsl(32 78% 42%)" opacity="0.089" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="303.3" cy="1150.7" rx="87.5" ry="132.9" fill="hsl(32 78% 42%)" opacity="0.062" filter="url(#v2-atmo-blur)"/>
+<ellipse cx="1035.5" cy="206.6" rx="130.1" ry="103.6" fill="hsl(165 50% 38%)" opacity="0.091" filter="url(#v2-atmo-blur)"/>
+    <radialGradient id="v2-void-mask" cx="0.554" cy="0.372" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.392"/>
+      <stop offset="0.079" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <rect width="1200" height="1200" fill="url(#v2-void-mask)"/>
+  </g>
+</svg>

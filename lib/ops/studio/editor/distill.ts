@@ -16,6 +16,7 @@ import {
   attachEditorialReview,
   buildPerformanceRationale,
 } from "./editorial-review";
+import { attachEditorialBrain } from "./editorial-brain";
 import { attachNarrativeBlueprint } from "./narrative-blueprint";
 import { visualAssetUrl } from "@/lib/ops/studio/collector/visual-asset-url";
 
@@ -35,19 +36,21 @@ import {
 } from "./types";
 
 export const DISTILL_LIMITS = {
-  approvedFacts: 7,
-  storyIdeas: 8,
-  quotes: 5,
-  images: 6,
+  /** Sprint 3.27 — preservation mode; no arbitrary fact cap. */
+  approvedFacts: Number.MAX_SAFE_INTEGER,
+  storyIdeas: 64,
+  quotes: 32,
+  images: 32,
   autoPromotedFacts: 0,
 } as const;
+
+import { isInvalidCollectorFact, normalizeFactText } from "@/lib/ops/studio/retrograph/fact-guards";
 
 const RVTR_PATTERN = /\bRVTR\d{6}\b/gi;
 const FILE_PATH_PATTERN =
   /(?:\/Users\/|\/DJ MEDIA\/|\\|[A-Z]:\\)[^\s]+|\.(?:mp4|mp3|m4a|wav|flac)\b/gi;
 const VDJ_NOISE =
   /virtualdj|vdj-only|play count|playcount|owned media file|rotation signal|library item/i;
-const GRAPH_NOISE = /graph linkage|graph pending|not yet linked|canonical — locked/i;
 
 type RankedFact = {
   id: string;
@@ -64,18 +67,11 @@ function stableId(prefix: string, seed: string): string {
 }
 
 function normalizeText(text: string): string {
-  return text.replace(/\s+/g, " ").trim().toLowerCase();
+  return normalizeFactText(text);
 }
 
 function isNoiseFact(text: string): boolean {
-  const t = text.trim();
-  if (t.length < 12) return true;
-  if (RVTR_PATTERN.test(t)) return true;
-  if (FILE_PATH_PATTERN.test(t)) return true;
-  if (/^retroverse track identity/i.test(t)) return true;
-  if (/^[\d\s·plays:]+$/i.test(t)) return true;
-  if (/is performed by .+\.$/i.test(t) && t.length < 80) return true;
-  return false;
+  return isInvalidCollectorFact(text);
 }
 
 function isVdjMetadata(text: string): boolean {
@@ -125,15 +121,10 @@ function dedupeTexts(items: string[]): string[] {
 
 function rankFacts(facts: CollectorResearchFact[]): RankedFact[] {
   return facts
+    .filter((fact) => !isInvalidCollectorFact(fact.text))
     .map((fact) => {
       let score = categoryScore(fact.category) + Math.round(fact.confidence * 20);
       if (fact.approvalStatus === "approved") score += 60;
-      if (isNoiseFact(fact.text)) score = 0;
-      if (/^retroverse track identity/i.test(fact.text)) score = 0;
-      if (isVdjMetadata(fact.text) && fact.approvalStatus !== "approved") {
-        score = Math.min(score, 15);
-      }
-      if (GRAPH_NOISE.test(fact.text) && fact.approvalStatus !== "approved") score = 0;
       return {
         id: fact.id,
         text: fact.text.trim(),
@@ -143,7 +134,6 @@ function rankFacts(facts: CollectorResearchFact[]): RankedFact[] {
         confidence: fact.confidence,
       };
     })
-    .filter((f) => f.score > 0 && f.text.length >= 12)
     .sort((a, b) => b.score - a.score);
 }
 
@@ -476,12 +466,12 @@ function buildPerformanceWorkspace(
     venue: perf.detectedVenue ?? "",
     year: perf.detectedYear,
     observations,
-    screenshots: perf.visualAssets.extraction.assets.slice(0, DISTILL_LIMITS.images).map((asset) => ({
+    screenshots: perf.visualAssets.extraction.assets.map((asset) => ({
       assetId: asset.id,
       label: asset.category,
       imageUrl: visualAssetUrl(rvtr, asset.filename),
       caption: asset.selectionReason ?? "",
-      approved: recommended && (asset.category === "Hero" || asset.category === "Performance"),
+      approved: true,
     })),
     recommended,
     recommendReason,
@@ -571,15 +561,25 @@ function buildMissingNotes(pkg: CollectorPackage): EditorNote[] {
 }
 
 function buildCandidateFacts(facts: CollectorResearchFact[]): CandidateFactReview[] {
-  const ranked = rankFacts(facts);
-  const approvalById = new Map(facts.map((f) => [f.id, f.approvalStatus]));
-  return ranked.slice(0, 20).map((f) => ({
-    id: f.id,
-    text: f.text,
-    sourceRef: f.source,
-    category: f.category,
-    status: approvalById.get(f.id) === "approved" ? "accepted" : "pending",
-  }));
+  const seen = new Set<string>();
+  const out: CandidateFactReview[] = [];
+  for (const fact of facts) {
+    if (isInvalidCollectorFact(fact.text)) continue;
+    const key = normalizeFactText(fact.text).slice(0, 100);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push({
+      id: fact.id,
+      text: fact.text.trim(),
+      sourceRef: fact.source,
+      category: fact.category,
+      status:
+        fact.approvalStatus === "approved" || fact.confidence >= 0.75
+          ? "accepted"
+          : "pending",
+    });
+  }
+  return out;
 }
 
 function parseStoryAngle(seed: string | undefined): StoryAngleId {
@@ -663,7 +663,7 @@ function buildPlannedCards(
       id: stableId("pcard", "recording"),
       title: "Recording Story",
       body: pkg.recording.summary,
-      approved: false,
+      approved: true,
       hidden: false,
       priority: 1,
       order: order++,
@@ -674,19 +674,19 @@ function buildPlannedCards(
       id: stableId("pcard", "chart"),
       title: "Chart History",
       body: `Hot 100 peak #${pkg.charts.peakHot100}`,
-      approved: false,
+      approved: true,
       hidden: false,
       priority: 1,
       order: order++,
     });
   }
-  for (const fact of ranked.slice(0, 6)) {
+  for (const fact of ranked) {
     if (cards.length >= DISTILL_LIMITS.storyIdeas) break;
     cards.push({
       id: stableId("pcard", fact.id),
       title: fact.category.replace(/_/g, " "),
       body: fact.text.slice(0, 120),
-      approved: false,
+      approved: true,
       hidden: false,
       priority: 0,
       order: order++,
@@ -727,7 +727,9 @@ export function distillCollectorPackage(pkg: CollectorPackage): EditorStoryPacka
   }
 
   const candidateFacts = buildCandidateFacts(pkg.candidateFacts);
-  const approvedFactReviews = candidateFacts.filter((f) => f.status === "accepted");
+  const approvedFactReviews = candidateFacts.filter(
+    (f) => f.status === "accepted" || f.status === "pending",
+  );
   const plannedCards = buildPlannedCards(pkg, ranked);
   const imageBoard = buildImageBoard(performances, perfWorkspaces, rvtr);
   const storyIdeas = buildStoryIdeas(pkg, canonical, ranked.slice(0, 8));
@@ -771,12 +773,17 @@ export function distillCollectorPackage(pkg: CollectorPackage): EditorStoryPacka
       fullStory: generateFullStory(pkg, canonical, ranked, recording, culture),
     },
     approved: {
-      facts: approvedFactReviews.slice(0, DISTILL_LIMITS.approvedFacts).map((f) => ({
+      facts: approvedFactReviews.map((f) => ({
         id: f.id,
         text: f.text,
         sourceRef: f.sourceRef,
       })),
-      cards: [],
+      cards: plannedCards.filter((c) => !c.hidden).map((c) => ({
+        id: c.id,
+        title: c.title,
+        body: c.body,
+        cardType: "story",
+      })),
       images: approvedImages,
       quotes: [],
       performanceId: recommendation?.id ?? performances[0]?.id ?? null,
@@ -845,7 +852,7 @@ export function distillCollectorPackage(pkg: CollectorPackage): EditorStoryPacka
     },
   };
 
-  return attachNarrativeBlueprint(pkg, attachEditorialReview(pkg, draft));
+  return attachEditorialBrain(pkg, attachNarrativeBlueprint(pkg, attachEditorialReview(pkg, draft)));
 }
 
 export function newEditorNoteId(): string {

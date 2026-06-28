@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR840141",
+  "artist": "Glen Campbell",
+  "title": "Rhinestone Cowboy",
+  "story": {
+    "headline": "Rhinestone Cowboy: The Breakthrough Moment",
+    "subtitle": "Glen Campbell · Breakthrough · 2003",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+    "summary": "Glen Campbell's \"Rhinestone Cowboy\" reached #1 on the Billboard Hot 100. Rhinestone Cowboy was released in 2003.",
+    "fullStory": "Glen Campbell's \"Rhinestone Cowboy\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 23 weeks on the chart.\n\nRhinestone Cowboy was released in 2003.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "0f8b305e-1e00-4d49-bfd9-73aac1e22267",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "28b0a268-98bd-4bf6-9fc0-88a593b078ca",
+      "text": "Rhinestone Cowboy was released in 2003.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "dc85eb6b-ac3a-44b4-8751-2f32e192123d",
+      "text": "The song appears on the album \"All The Best\" (2003).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "aa95f91f-7a30-45f9-9e62-313aba06912b",
+      "text": "VirtualDJ library play count: 16.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c2bf0dc45b9b",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR840141&file=performance.jpg",
+      "performanceId": "perf-a0afju"
+    },
+    {
+      "assetId": "9a117933551b",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR840141&file=hero.jpg",
+      "performanceId": "perf-a0afju"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-a0afju",
+    "title": "Official Video · 1975",
+    "venue": "",
+    "year": 1975,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1975 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "c2bf0dc45b9b",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR840141&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "9a117933551b",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR840141&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+    "closing": "Glen Campbell's \"Rhinestone Cowboy\" reached #1 on the Billboard Hot 100. Rhinestone Cowboy was released in 2003.",
+    "storyBeats": [
+      {
+        "id": "beat-c6223e8f27",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Rhinestone Cowboy\" — original release 2003. Glen Campbell — \"Rhinestone Cowboy\" · Original release 2003 · Album: All The Best · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c2bf0dc45b9b",
+          "9a117933551b"
+        ],
+        "relatedPerformanceId": "perf-a0afju",
+        "priority": 1
+      },
+      {
+        "id": "beat-803e250d2c",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "All The Best · Release 2003",
+        "supportingFactIds": [
+          "dc85eb6b-ac3a-44b4-8751-2f32e192123d"
+        ],
+        "relatedImageAssetIds": [
+          "c2bf0dc45b9b",
+          "9a117933551b"
+        ],
+        "relatedPerformanceId": "perf-a0afju",
+        "priority": 2
+      },
+      {
+        "id": "beat-f9f0012965",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 23 weeks on chart.",
+        "supportingFactIds": [
+          "0f8b305e-1e00-4d49-bfd9-73aac1e22267"
+        ],
+        "relatedImageAssetIds": [
+          "c2bf0dc45b9b",
+          "9a117933551b"
+        ],
+        "relatedPerformanceId": "perf-a0afju",
+        "priority": 3
+      },
+      {
+        "id": "beat-5a5b919f80",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c2bf0dc45b9b",
+          "9a117933551b"
+        ],
+        "relatedPerformanceId": "perf-a0afju",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-cba0c0da12",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2003,
+        "supportingFactIds": [
+          "0f8b305e-1e00-4d49-bfd9-73aac1e22267"
+        ],
+        "relatedImageAssetIds": [
+          "c2bf0dc45b9b"
+        ]
+      },
+      {
+        "id": "moment-05608842c1",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1975,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c2bf0dc45b9b"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-a0afju",
+      "title": "Official Video · 1975",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1975 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T01:06:18.852Z"
+  },
+  "submittedAt": "2026-06-27T04:20:14.518Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

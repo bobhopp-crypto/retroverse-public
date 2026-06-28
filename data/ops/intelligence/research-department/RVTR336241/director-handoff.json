@@ -1,0 +1,199 @@
+{
+  "version": 2,
+  "rvtr": "RVTR336241",
+  "artist": "Michael Jackson",
+  "title": "Thriller",
+  "story": {
+    "headline": "Thriller: The Breakthrough Moment",
+    "subtitle": "Michael Jackson · Breakthrough · 1995",
+    "hook": "The song peaked at #4 on the Billboard Hot 100 and spent 26 weeks on the chart.",
+    "summary": "Michael Jackson's \"Thriller\" reached #4 on the Billboard Hot 100. Thriller was released in 1995.",
+    "fullStory": "Michael Jackson's \"Thriller\" reached #4 on the Billboard Hot 100.\n\nThe song peaked at #4 on the Billboard Hot 100 and spent 26 weeks on the chart.\n\nThriller was released in 1995.\n\nAlbum: HIStory: Past, Present And Future Book 1 (1995).\n\nChart story — peaked at #4 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "b7dc0db6-39bd-4844-8625-d2f62dd77583",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 26 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "68d2be69-dfbd-4ee8-bb33-ae536d50d4d2",
+      "text": "Thriller was released in 1995.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "cc7d9d86-2ab2-4846-839e-9e7c0aded030",
+      "text": "The song appears on the album \"HIStory: Past, Present And Future Book 1\" (1995).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f6b11579-4014-4c1e-8b0f-b8911763bf64",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "821f8211-af51-454c-84ad-c0af42439379",
+      "text": "Album: HIStory: Past, Present And Future Book 1 (1995).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "a28d0040-6f30-4045-8578-b46d2a397f96",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "1ea3592e-7e5c-47c8-8baf-d0b7d293f198",
+      "text": "Album: HIStory: Past, Present And Future Book 1 (1995).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "ec4b0600c0a3",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR336241&file=hero.jpg",
+      "performanceId": "perf-2tlc1r"
+    },
+    {
+      "assetId": "7afa6ae73483",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR336241&file=performance.jpg",
+      "performanceId": "perf-2tlc1r"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-2tlc1r",
+    "title": "This Is It · 1984",
+    "venue": "This Is It",
+    "year": 1984,
+    "notes": "Recommended cut — Recommended: This Is It. venue context (This Is It) adds place and moment. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "ec4b0600c0a3",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR336241&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "7afa6ae73483",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR336241&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #4 on the Billboard Hot 100 and spent 26 weeks on the chart.",
+    "closing": "Michael Jackson's \"Thriller\" reached #4 on the Billboard Hot 100. Thriller was released in 1995.",
+    "storyBeats": [
+      {
+        "id": "beat-24d04ba7ca",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Thriller\" — original release 1995. Michael Jackson — \"Thriller\" · Original release 1995 · Album: HIStory: Past, Present And Future Book 1 · Hot 100 peak #4",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ec4b0600c0a3",
+          "7afa6ae73483"
+        ],
+        "relatedPerformanceId": "perf-2tlc1r",
+        "priority": 1
+      },
+      {
+        "id": "beat-c5d92719c7",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "HIStory: Past, Present And Future Book 1 · Release 1995",
+        "supportingFactIds": [
+          "cc7d9d86-2ab2-4846-839e-9e7c0aded030",
+          "821f8211-af51-454c-84ad-c0af42439379"
+        ],
+        "relatedImageAssetIds": [
+          "ec4b0600c0a3",
+          "7afa6ae73483"
+        ],
+        "relatedPerformanceId": "perf-2tlc1r",
+        "priority": 2
+      },
+      {
+        "id": "beat-7e1915daf0",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #4 · 26 weeks on chart.",
+        "supportingFactIds": [
+          "b7dc0db6-39bd-4844-8625-d2f62dd77583"
+        ],
+        "relatedImageAssetIds": [
+          "ec4b0600c0a3",
+          "7afa6ae73483"
+        ],
+        "relatedPerformanceId": "perf-2tlc1r",
+        "priority": 3
+      },
+      {
+        "id": "beat-26d25bd7de",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ec4b0600c0a3",
+          "7afa6ae73483"
+        ],
+        "relatedPerformanceId": "perf-2tlc1r",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-97ca02e55c",
+        "title": "Chart milestone",
+        "description": "Peaked at #4 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1995,
+        "supportingFactIds": [
+          "b7dc0db6-39bd-4844-8625-d2f62dd77583"
+        ],
+        "relatedImageAssetIds": [
+          "ec4b0600c0a3"
+        ]
+      },
+      {
+        "id": "moment-8675df2865",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2003,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ec4b0600c0a3"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-2tlc1r",
+      "title": "This Is It · 1984",
+      "reason": "Recommended: This Is It. venue context (This Is It) adds place and moment. 5 curated visual frames for cards and hero art. dated 1984 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #4 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:00:54.116Z"
+  },
+  "submittedAt": "2026-06-27T05:00:54.116Z",
+  "editorNotesForDirector": "Collector confidence: Good (66%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

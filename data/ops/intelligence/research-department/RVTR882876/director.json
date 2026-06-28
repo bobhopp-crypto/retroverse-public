@@ -1,0 +1,865 @@
+{
+  "version": "0.3",
+  "rvtr": "RVTR882876",
+  "artist": "Glen Campbell",
+  "title": "Wichita Lineman",
+  "generatedAt": "2026-06-27T04:20:15.759Z",
+  "handoffVersion": 2,
+  "experiencePlan": {
+    "version": "0.3",
+    "opening": "",
+    "closing": "",
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "sceneType": "hero",
+        "title": "Cover",
+        "headline": "Wichita Lineman",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1968",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "2d8649e16ca9"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 6,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout. Final: Hero → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "hero",
+          "displayName": "Hero",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Hero → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 2,
+        "sceneType": "chart",
+        "title": "Chart Journey",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "linkedFactIds": [
+          "17c76510-ebde-4e46-9a9e-b33df5279fbb"
+        ],
+        "linkedImageAssetIds": [
+          "2d8649e16ca9"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 9,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 78,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 78,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 3,
+        "sceneType": "image",
+        "title": "Iconic Moment",
+        "headline": "The Breakthrough Moment",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "e1868a27d2fb"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 4,
+        "sceneType": "image",
+        "title": "Song DNA",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 7,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 5,
+        "sceneType": "performance",
+        "title": "Performance",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-ayak3q",
+        "estimatedDurationSec": 8,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 83,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 83,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 6,
+        "sceneType": "image",
+        "title": "Extended — Chart milestone",
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "linkedFactIds": [
+          "887e4cca-880b-4fec-aa72-16a44a0b37c2"
+        ],
+        "linkedImageAssetIds": [
+          "2d8649e16ca9"
+        ],
+        "linkedPerformanceId": "perf-ayak3q",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 7,
+        "sceneType": "image",
+        "title": "Extended — Official Video",
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "e1868a27d2fb"
+        ],
+        "linkedPerformanceId": "perf-ayak3q",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 67,
+          "reason": "Variety: Gallery run broken with Story"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null,
+        "varietyAdjusted": true
+      },
+      {
+        "sceneNumber": 8,
+        "sceneType": "image",
+        "title": "Extended — Official Video",
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-ayak3q",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 67,
+          "reason": "Variety: Gallery run broken with Story"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null,
+        "varietyAdjusted": true
+      },
+      {
+        "sceneNumber": 9,
+        "sceneType": "image",
+        "title": "Extended — In 2000, the single Wichita Lineman was inducted into the Gr",
+        "headline": "In 2000, the single Wichita Lineman was inducted into the Gr",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:cultural_highlight",
+        "linkedFactIds": [
+          "4769c0fb-8f7f-48f9-a240-592f237272a1"
+        ],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-ayak3q",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      }
+    ],
+    "estimatedRuntimeSec": 66,
+    "targetRuntimeSec": {
+      "min": 30,
+      "max": 55
+    },
+    "primaryPerformance": {
+      "performanceId": "perf-ayak3q",
+      "title": "Official Video · 1968",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1968 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "visualRhythm": "moderate",
+    "presentationStyle": "documentary",
+    "templateLibraryVersion": "0.2"
+  },
+  "review": {
+    "readiness": "ready_for_production",
+    "readinessLabel": "Ready for Production",
+    "sceneCount": 9,
+    "estimatedRuntimeSec": 66,
+    "storyCoveragePct": 56,
+    "imageCoveragePct": 56,
+    "factCoveragePct": 43,
+    "recommendedPerformance": "Official Video · 1968",
+    "missingAssets": [
+      "Scene 1 (Cover): Needs Supporting Copy",
+      "Scene 7 (Extended — Official Video): Ready",
+      "Scene 8 (Extended — Official Video): Ready"
+    ],
+    "warnings": [
+      "Runtime 66s exceeds 55s target"
+    ],
+    "summary": "9 exhibits · 66s · museum arc · Render Ready with Optional Gaps · Confidence 49% · Image diversity 40% · Layout ready 67% · 56% exhibit coverage · 56% image · 43% fact coverage · Gaps: 3",
+    "templateCoveragePct": 100,
+    "layoutReadinessPct": 67,
+    "assetCoveragePct": 67,
+    "visualVarietyScore": 40,
+    "templateUsage": [
+      {
+        "templateId": "gallery",
+        "displayName": "Gallery",
+        "count": 4,
+        "pct": 44
+      },
+      {
+        "templateId": "story",
+        "displayName": "Story",
+        "count": 3,
+        "pct": 33
+      },
+      {
+        "templateId": "chart",
+        "displayName": "Chart",
+        "count": 1,
+        "pct": 11
+      },
+      {
+        "templateId": "performance",
+        "displayName": "Performance",
+        "count": 1,
+        "pct": 11
+      }
+    ],
+    "duplicateTemplateWarnings": [],
+    "varietyRecommendations": [
+      "Exhibit image diversity 40% — Publisher scoring target"
+    ],
+    "templateDiversityScore": 44,
+    "visualDiversityScore": 33,
+    "pacingDiversityScore": 8,
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 2,
+    "renderReadiness": "missing_optional_assets",
+    "renderReadinessLabel": "Ready with Optional Gaps",
+    "estimatedRenderingConfidence": 49,
+    "downgradeReport": [
+      "Scene 1: Hero → Story — Hero → Story: minimum viable layout"
+    ],
+    "varietyReport": [
+      "Scene 7: gallery → story — 4 consecutive Gallery scenes — alternate layout",
+      "Scene 8: gallery → story — 4 consecutive Gallery scenes — alternate layout"
+    ]
+  },
+  "renderSpec": {
+    "version": "0.3",
+    "metadata": {
+      "rvtr": "RVTR882876",
+      "artist": "Glen Campbell",
+      "title": "Wichita Lineman",
+      "version": "0.3",
+      "generatedAt": "2026-06-27T04:20:15.759Z",
+      "estimatedRuntimeSec": 66,
+      "presentationStyle": "documentary",
+      "primaryPerformance": {
+        "performanceId": "perf-ayak3q",
+        "title": "Official Video · 1968"
+      },
+      "patronValue": 9,
+      "storyQuality": "Strong"
+    },
+    "globalPresentation": {
+      "backgroundTreatment": "warm_paper_documentary",
+      "typographyProfile": "retroverse_display",
+      "colorTheme": "retroverse_teal_cream",
+      "pacingProfile": "moderate",
+      "imageTreatment": "poster_card_framed",
+      "orientation": "both"
+    },
+    "sceneTimeline": [
+      {
+        "sceneNumber": 1,
+        "templateId": "story",
+        "preferredTemplateId": "hero",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Hero → Story: minimum viable layout",
+        "durationSec": 6,
+        "headline": "Wichita Lineman",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1968",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "2d8649e16ca9"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=hero.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 2,
+        "templateId": "chart",
+        "preferredTemplateId": "chart",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 9,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "2d8649e16ca9"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=hero.jpg"
+          ],
+          "factIds": [
+            "17c76510-ebde-4e46-9a9e-b33df5279fbb"
+          ],
+          "factTexts": [
+            "\"Wichita Lineman\" is a 1968 song written by Jimmy Webb for American country music artist Glen Campbell, who recorded it backed by members of the Wrecking Crew."
+          ],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 3,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "The Breakthrough Moment",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "e1868a27d2fb"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 4,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 5,
+        "templateId": "performance",
+        "preferredTemplateId": "performance",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-ayak3q",
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "zoom",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 6,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "2d8649e16ca9"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=hero.jpg"
+          ],
+          "factIds": [
+            "887e4cca-880b-4fec-aa72-16a44a0b37c2"
+          ],
+          "factTexts": [
+            "The song peaked at #3 on the Billboard Hot 100 and spent 15 weeks on the chart."
+          ],
+          "performanceId": "perf-ayak3q",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 7,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": true,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "e1868a27d2fb"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-ayak3q",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 8,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": true,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-ayak3q",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 9,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "In 2000, the single Wichita Lineman was inducted into the Gr",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:cultural_highlight",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [
+            "4769c0fb-8f7f-48f9-a240-592f237272a1"
+          ],
+          "factTexts": [
+            "In 2000, the single Wichita Lineman was inducted into the Grammy Hall of Fame."
+          ],
+          "performanceId": "perf-ayak3q",
+          "timelineEvents": [
+            {
+              "year": 2000,
+              "label": "In 2000, the single Wichita Lineman was inducted into the Gr"
+            }
+          ]
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      }
+    ],
+    "assetManifest": {
+      "hero": [],
+      "supportingImages": [
+        {
+          "id": "2d8649e16ca9",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "e1868a27d2fb",
+          "role": "supporting_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            3
+          ]
+        }
+      ],
+      "performanceImages": [
+        {
+          "id": "2d8649e16ca9",
+          "role": "performance_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": "perf-ayak3q",
+          "sceneNumbers": [
+            6,
+            5,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "id": "e1868a27d2fb",
+          "role": "performance_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR882876&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": "perf-ayak3q",
+          "sceneNumbers": [
+            7,
+            5,
+            6,
+            8,
+            9
+          ]
+        }
+      ],
+      "galleryImages": [],
+      "timelineData": [],
+      "charts": [
+        {
+          "id": "chart-scene-2",
+          "role": "chart_data",
+          "required": true,
+          "priority": 80,
+          "url": null,
+          "caption": "",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "quotes": [],
+      "facts": [
+        {
+          "id": "17c76510-ebde-4e46-9a9e-b33df5279fbb",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "\"Wichita Lineman\" is a 1968 song written by Jimmy Webb for American country music artist Glen Campbell, who recorded it backed by members of the Wrecking Crew.",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        },
+        {
+          "id": "887e4cca-880b-4fec-aa72-16a44a0b37c2",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "The song peaked at #3 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+          "performanceId": null,
+          "sceneNumbers": [
+            6
+          ]
+        },
+        {
+          "id": "4769c0fb-8f7f-48f9-a240-592f237272a1",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "In 2000, the single Wichita Lineman was inducted into the Grammy Hall of Fame.",
+          "performanceId": null,
+          "sceneNumbers": [
+            9
+          ]
+        }
+      ],
+      "logos": []
+    },
+    "renderingInstructions": {
+      "sceneOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "autoAdvance": true,
+      "loopPresentation": false,
+      "respectDurationHints": true,
+      "notes": [
+        "Execute scenes in sceneOrder — no creative decisions required",
+        "Transition hints are labels only; renderer chooses motion",
+        "Template downgrades are final; do not revert to preferredTemplateId",
+        "9 exhibits · 66s · museum arc · Render Ready with Optional Gaps · Confidence 49% · Image diversity 40% · Layout ready 67% · 56% exhibit coverage · 56% image · 43% fact coverage · Gaps: 3"
+      ]
+    },
+    "fallbackRules": [
+      {
+        "id": "quote-to-story",
+        "when": "quote template lacks pull-quote length",
+        "fallbackTemplate": "story",
+        "description": "Quote without quote text becomes Story layout"
+      },
+      {
+        "id": "gallery-to-hero",
+        "when": "gallery template has fewer than two images",
+        "fallbackTemplate": "hero",
+        "description": "Gallery with one image becomes Hero layout"
+      },
+      {
+        "id": "fact-stack-to-story",
+        "when": "fact stack has fewer than two facts",
+        "fallbackTemplate": "story",
+        "description": "Insufficient facts collapse to Story"
+      },
+      {
+        "id": "timeline-to-story",
+        "when": "timeline lacks dated events",
+        "fallbackTemplate": "story",
+        "description": "Timeline without dates becomes Story"
+      },
+      {
+        "id": "performance-to-story",
+        "when": "performance reference or image missing",
+        "fallbackTemplate": "story",
+        "description": "Performance without footage falls back to Story"
+      },
+      {
+        "id": "chart-to-story",
+        "when": "chart data missing",
+        "fallbackTemplate": "story",
+        "description": "Chart without peak data becomes Story"
+      },
+      {
+        "id": "comparison-to-story",
+        "when": "comparison copy missing",
+        "fallbackTemplate": "story",
+        "description": "Comparison without dual timeline copy becomes Story"
+      }
+    ],
+    "renderReadiness": "missing_required_assets",
+    "renderReadinessLabel": "Missing Required Assets — renderer should not publish",
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 2,
+    "estimatedRenderingConfidence": 49
+  }
+}

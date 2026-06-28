@@ -1,4 +1,9 @@
 .browser-plus-page {
+  /*
+   * VirtualDJ Browser+ — separate product surface (NOT Studio Mission Control).
+   * Utility-first table browser: dark neutral panels, VDJ red accents.
+   * Do not import studio-design-tokens.css or rs-studio-* classes here.
+   */
   min-height: 100vh;
   padding: 8px;
   background:

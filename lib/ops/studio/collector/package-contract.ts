@@ -24,6 +24,7 @@ export type {
   CollectorPackage,
   CollectorPerformance,
   CollectorSongArchive,
+  CollectorLyricsArtifact,
   CollectorSongEntity,
   CollectorRecordingEntity,
   CollectorPerformanceEntity,
@@ -32,3 +33,18 @@ export type {
   CollectorCanonicalModel,
   CollectorTimelineEvent,
 } from "./types";
+
+export type {
+  CollectorVisualIdentityPackage,
+  PerformanceVisualIdentity,
+  VisualIdentityProfile,
+  VisualLightingStyle,
+} from "./visual-identity-types";
+
+export type {
+  CollectorSongDna,
+  SongDnaExperience,
+  SongDnaMusical,
+  SongDnaStory,
+  SongDnaVisual,
+} from "./song-dna-types";

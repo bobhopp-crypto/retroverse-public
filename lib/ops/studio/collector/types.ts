@@ -41,6 +41,19 @@ export const COLLECTOR_STAGES = [
   { id: "source_log", label: "Source Log" },
 ] as const;
 
+/** Sprint 3.10 — internal lyrics research artifact (not patron-facing). */
+export type CollectorLyricsArtifact =
+  | { available: false }
+  | {
+      available: true;
+      source: string;
+      language: string;
+      copyrightStatus: string;
+      retrievedAt: string;
+      fullText: string;
+      lineCount: number;
+    };
+
 export const COLLECTOR_STAGE_TOTAL = COLLECTOR_STAGES.length;
 
 export type CollectorStageId = (typeof COLLECTOR_STAGES)[number]["id"];
@@ -275,9 +288,12 @@ export type CollectorPackage = {
   yearResolution?: CollectorYearResolution;
   /** Sprint A3 — full canonical model snapshot (v4). */
   canonical?: CollectorCanonicalModel;
+  /** Sprint 3.10 — optional lyrics research artifact. */
+  lyrics?: CollectorLyricsArtifact;
 };
 
 export type CollectorActivityEntry = {
+  id?: string;
   at: string;
   message: string;
 };

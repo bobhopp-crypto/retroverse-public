@@ -1,0 +1,735 @@
+{
+  "version": "0.3",
+  "rvtr": "RVTR792858",
+  "artist": "Nick Lowe",
+  "title": "Cruel To Be Kind",
+  "generatedAt": "2026-06-27T04:20:09.479Z",
+  "handoffVersion": 2,
+  "experiencePlan": {
+    "version": "0.3",
+    "opening": "",
+    "closing": "",
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "sceneType": "hero",
+        "title": "Cover",
+        "headline": "Cruel To Be Kind",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1979",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "22135d269217"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 6,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout. Final: Hero → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "hero",
+          "displayName": "Hero",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Hero → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 2,
+        "sceneType": "chart",
+        "title": "Chart Journey",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "linkedFactIds": [
+          "cdfa23b0-cd3d-464e-9e92-285bd33d06f0"
+        ],
+        "linkedImageAssetIds": [
+          "599325ac3a54"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 9,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 72,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 72,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 3,
+        "sceneType": "image",
+        "title": "Iconic Moment",
+        "headline": "A Cultural Moment Captured on Record",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "22135d269217"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 4,
+        "sceneType": "image",
+        "title": "Song DNA",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 7,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 5,
+        "sceneType": "performance",
+        "title": "Performance",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-xzh1rb",
+        "estimatedDurationSec": 8,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 78,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 78,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 6,
+        "sceneType": "image",
+        "title": "Extended — Chart milestone",
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "linkedFactIds": [
+          "9f2dcfaa-b5a1-464f-9b76-e4e668672757"
+        ],
+        "linkedImageAssetIds": [
+          "22135d269217"
+        ],
+        "linkedPerformanceId": "perf-xzh1rb",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 7,
+        "sceneType": "image",
+        "title": "Extended — Official Video",
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "linkedFactIds": [
+          "0d2cd593-5ab8-457a-b963-43d9cc28f46e"
+        ],
+        "linkedImageAssetIds": [
+          "599325ac3a54"
+        ],
+        "linkedPerformanceId": "perf-xzh1rb",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 78,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      }
+    ],
+    "estimatedRuntimeSec": 52,
+    "targetRuntimeSec": {
+      "min": 30,
+      "max": 55
+    },
+    "primaryPerformance": {
+      "performanceId": "perf-xzh1rb",
+      "title": "Official Video · 1979",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1979 performance helps anchor the narrative."
+    },
+    "visualRhythm": "moderate",
+    "presentationStyle": "documentary",
+    "templateLibraryVersion": "0.2"
+  },
+  "review": {
+    "readiness": "ready_for_production",
+    "readinessLabel": "Ready for Production",
+    "sceneCount": 7,
+    "estimatedRuntimeSec": 52,
+    "storyCoveragePct": 71,
+    "imageCoveragePct": 71,
+    "factCoveragePct": 43,
+    "recommendedPerformance": "Official Video · 1979",
+    "missingAssets": [
+      "Scene 1 (Cover): Needs Supporting Copy"
+    ],
+    "warnings": [],
+    "summary": "7 exhibits · 52s · museum arc · Render Ready with Optional Gaps · Confidence 63% · Image diversity 40% · Layout ready 86% · 71% exhibit coverage · 71% image · 43% fact coverage · Gaps: 1",
+    "templateCoveragePct": 100,
+    "layoutReadinessPct": 86,
+    "assetCoveragePct": 86,
+    "visualVarietyScore": 40,
+    "templateUsage": [
+      {
+        "templateId": "gallery",
+        "displayName": "Gallery",
+        "count": 4,
+        "pct": 57
+      },
+      {
+        "templateId": "story",
+        "displayName": "Story",
+        "count": 1,
+        "pct": 14
+      },
+      {
+        "templateId": "chart",
+        "displayName": "Chart",
+        "count": 1,
+        "pct": 14
+      },
+      {
+        "templateId": "performance",
+        "displayName": "Performance",
+        "count": 1,
+        "pct": 14
+      }
+    ],
+    "duplicateTemplateWarnings": [],
+    "varietyRecommendations": [
+      "Exhibit image diversity 40% — Publisher scoring target"
+    ],
+    "templateDiversityScore": 57,
+    "visualDiversityScore": 43,
+    "pacingDiversityScore": 9,
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 0,
+    "renderReadiness": "missing_optional_assets",
+    "renderReadinessLabel": "Ready with Optional Gaps",
+    "estimatedRenderingConfidence": 63,
+    "downgradeReport": [
+      "Scene 1: Hero → Story — Hero → Story: minimum viable layout"
+    ],
+    "varietyReport": []
+  },
+  "renderSpec": {
+    "version": "0.3",
+    "metadata": {
+      "rvtr": "RVTR792858",
+      "artist": "Nick Lowe",
+      "title": "Cruel To Be Kind",
+      "version": "0.3",
+      "generatedAt": "2026-06-27T04:20:09.479Z",
+      "estimatedRuntimeSec": 52,
+      "presentationStyle": "documentary",
+      "primaryPerformance": {
+        "performanceId": "perf-xzh1rb",
+        "title": "Official Video · 1979"
+      },
+      "patronValue": 10,
+      "storyQuality": "Strong"
+    },
+    "globalPresentation": {
+      "backgroundTreatment": "warm_paper_documentary",
+      "typographyProfile": "retroverse_display",
+      "colorTheme": "retroverse_teal_cream",
+      "pacingProfile": "moderate",
+      "imageTreatment": "poster_card_framed",
+      "orientation": "both"
+    },
+    "sceneTimeline": [
+      {
+        "sceneNumber": 1,
+        "templateId": "story",
+        "preferredTemplateId": "hero",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Hero → Story: minimum viable layout",
+        "durationSec": 6,
+        "headline": "Cruel To Be Kind",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1979",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "22135d269217"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 2,
+        "templateId": "chart",
+        "preferredTemplateId": "chart",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 9,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "599325ac3a54"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=hero.jpg"
+          ],
+          "factIds": [
+            "cdfa23b0-cd3d-464e-9e92-285bd33d06f0"
+          ],
+          "factTexts": [
+            "\"Cruel to Be Kind\" is a song co-written by Nick Lowe and his former bandmate Ian Gomm while the pair were in Brinsley Schwarz."
+          ],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 3,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "A Cultural Moment Captured on Record",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "22135d269217"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 4,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 5,
+        "templateId": "performance",
+        "preferredTemplateId": "performance",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-xzh1rb",
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "zoom",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 6,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "22135d269217"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=performance.jpg"
+          ],
+          "factIds": [
+            "9f2dcfaa-b5a1-464f-9b76-e4e668672757"
+          ],
+          "factTexts": [
+            "The song peaked at #12 on the Billboard Hot 100 and spent 15 weeks on the chart."
+          ],
+          "performanceId": "perf-xzh1rb",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 7,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "599325ac3a54"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=hero.jpg"
+          ],
+          "factIds": [
+            "0d2cd593-5ab8-457a-b963-43d9cc28f46e"
+          ],
+          "factTexts": [
+            "Musically, the song was inspired by \"The Love I Lost\" by Harold Melvin & the Blue Notes, an influence reflected in more recent performances of the song."
+          ],
+          "performanceId": "perf-xzh1rb",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      }
+    ],
+    "assetManifest": {
+      "hero": [],
+      "supportingImages": [
+        {
+          "id": "22135d269217",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "599325ac3a54",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "performanceImages": [
+        {
+          "id": "22135d269217",
+          "role": "performance_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": "perf-xzh1rb",
+          "sceneNumbers": [
+            6,
+            5,
+            7
+          ]
+        },
+        {
+          "id": "599325ac3a54",
+          "role": "performance_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792858&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": "perf-xzh1rb",
+          "sceneNumbers": [
+            7,
+            5,
+            6
+          ]
+        }
+      ],
+      "galleryImages": [],
+      "timelineData": [],
+      "charts": [
+        {
+          "id": "chart-scene-2",
+          "role": "chart_data",
+          "required": true,
+          "priority": 80,
+          "url": null,
+          "caption": "",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "quotes": [],
+      "facts": [
+        {
+          "id": "cdfa23b0-cd3d-464e-9e92-285bd33d06f0",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "\"Cruel to Be Kind\" is a song co-written by Nick Lowe and his former bandmate Ian Gomm while the pair were in Brinsley Schwarz.",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        },
+        {
+          "id": "9f2dcfaa-b5a1-464f-9b76-e4e668672757",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "The song peaked at #12 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+          "performanceId": null,
+          "sceneNumbers": [
+            6
+          ]
+        },
+        {
+          "id": "0d2cd593-5ab8-457a-b963-43d9cc28f46e",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "Musically, the song was inspired by \"The Love I Lost\" by Harold Melvin & the Blue Notes, an influence reflected in more recent performances of the song.",
+          "performanceId": null,
+          "sceneNumbers": [
+            7
+          ]
+        }
+      ],
+      "logos": []
+    },
+    "renderingInstructions": {
+      "sceneOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "autoAdvance": true,
+      "loopPresentation": false,
+      "respectDurationHints": true,
+      "notes": [
+        "Execute scenes in sceneOrder — no creative decisions required",
+        "Transition hints are labels only; renderer chooses motion",
+        "Template downgrades are final; do not revert to preferredTemplateId",
+        "7 exhibits · 52s · museum arc · Render Ready with Optional Gaps · Confidence 63% · Image diversity 40% · Layout ready 86% · 71% exhibit coverage · 71% image · 43% fact coverage · Gaps: 1"
+      ]
+    },
+    "fallbackRules": [
+      {
+        "id": "quote-to-story",
+        "when": "quote template lacks pull-quote length",
+        "fallbackTemplate": "story",
+        "description": "Quote without quote text becomes Story layout"
+      },
+      {
+        "id": "gallery-to-hero",
+        "when": "gallery template has fewer than two images",
+        "fallbackTemplate": "hero",
+        "description": "Gallery with one image becomes Hero layout"
+      },
+      {
+        "id": "fact-stack-to-story",
+        "when": "fact stack has fewer than two facts",
+        "fallbackTemplate": "story",
+        "description": "Insufficient facts collapse to Story"
+      },
+      {
+        "id": "timeline-to-story",
+        "when": "timeline lacks dated events",
+        "fallbackTemplate": "story",
+        "description": "Timeline without dates becomes Story"
+      },
+      {
+        "id": "performance-to-story",
+        "when": "performance reference or image missing",
+        "fallbackTemplate": "story",
+        "description": "Performance without footage falls back to Story"
+      },
+      {
+        "id": "chart-to-story",
+        "when": "chart data missing",
+        "fallbackTemplate": "story",
+        "description": "Chart without peak data becomes Story"
+      },
+      {
+        "id": "comparison-to-story",
+        "when": "comparison copy missing",
+        "fallbackTemplate": "story",
+        "description": "Comparison without dual timeline copy becomes Story"
+      }
+    ],
+    "renderReadiness": "missing_required_assets",
+    "renderReadinessLabel": "Missing Required Assets — renderer should not publish",
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 0,
+    "estimatedRenderingConfidence": 55
+  }
+}

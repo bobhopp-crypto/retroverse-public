@@ -1,0 +1,194 @@
+{
+  "version": 2,
+  "rvtr": "RVTR458117",
+  "artist": "B.w. Stevenson",
+  "title": "My Maria",
+  "story": {
+    "headline": "My Maria: The Breakthrough Moment",
+    "subtitle": "B.w. Stevenson · Breakthrough · 1973",
+    "hook": "The song peaked at #9 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+    "summary": "B.w. Stevenson's \"My Maria\" reached #9 on the Billboard Hot 100. My Maria was released in 1973.",
+    "fullStory": "B.w. Stevenson's \"My Maria\" reached #9 on the Billboard Hot 100.\n\nThe song peaked at #9 on the Billboard Hot 100 and spent 16 weeks on the chart.\n\nMy Maria was released in 1973.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #9 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "7c61fbd1-14c0-45bb-8ff0-9634d0713e78",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e15b12c4-3844-4842-9cf1-bb549bbc6519",
+      "text": "My Maria was released in 1973.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0ab466b7-36b9-4efb-ae19-d5d9ef1587e1",
+      "text": "The song appears on the album \"My Maria\" (1973).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "61219078-e784-4e80-9a64-bd2e6e7c498e",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "31446392-ab27-4e43-b718-b871286ffd41",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "b6e58886-afe9-43e6-9b23-5ff6e08a2645",
+      "text": "Artist: BW Stevenson · Title: My Maria · Album: B.W.",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "bc418b7177c2",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR458117&file=hero.jpg",
+      "performanceId": "perf-1oerie"
+    },
+    {
+      "assetId": "5ec47e45a265",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR458117&file=performance.jpg",
+      "performanceId": "perf-1oerie"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-1oerie",
+    "title": "Official Video · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "bc418b7177c2",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR458117&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "5ec47e45a265",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR458117&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #9 on the Billboard Hot 100 and spent 16 weeks on the chart.",
+    "closing": "B.w. Stevenson's \"My Maria\" reached #9 on the Billboard Hot 100. My Maria was released in 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-4a78365c37",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"My Maria\" — original release 1973. B.w. Stevenson — \"My Maria\" · Original release 1973 · Album: My Maria · Hot 100 peak #9",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "bc418b7177c2",
+          "5ec47e45a265"
+        ],
+        "relatedPerformanceId": "perf-1oerie",
+        "priority": 1
+      },
+      {
+        "id": "beat-3f3bad46c0",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "My Maria · Release 1973",
+        "supportingFactIds": [
+          "0ab466b7-36b9-4efb-ae19-d5d9ef1587e1",
+          "b6e58886-afe9-43e6-9b23-5ff6e08a2645"
+        ],
+        "relatedImageAssetIds": [
+          "bc418b7177c2",
+          "5ec47e45a265"
+        ],
+        "relatedPerformanceId": "perf-1oerie",
+        "priority": 2
+      },
+      {
+        "id": "beat-0327219b70",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #9 · 16 weeks on chart.",
+        "supportingFactIds": [
+          "7c61fbd1-14c0-45bb-8ff0-9634d0713e78"
+        ],
+        "relatedImageAssetIds": [
+          "bc418b7177c2",
+          "5ec47e45a265"
+        ],
+        "relatedPerformanceId": "perf-1oerie",
+        "priority": 3
+      },
+      {
+        "id": "beat-1441f423c3",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "bc418b7177c2",
+          "5ec47e45a265"
+        ],
+        "relatedPerformanceId": "perf-1oerie",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-9fbe1b2f63",
+        "title": "Chart milestone",
+        "description": "Peaked at #9 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1973,
+        "supportingFactIds": [
+          "7c61fbd1-14c0-45bb-8ff0-9634d0713e78"
+        ],
+        "relatedImageAssetIds": [
+          "bc418b7177c2"
+        ]
+      },
+      {
+        "id": "moment-4979739d0d",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "bc418b7177c2"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-1oerie",
+      "title": "Official Video · 1973",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #9 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:19:59.901Z"
+  },
+  "submittedAt": "2026-06-27T05:19:59.902Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

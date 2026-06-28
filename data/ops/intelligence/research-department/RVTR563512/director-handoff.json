@@ -1,0 +1,186 @@
+{
+  "version": 2,
+  "rvtr": "RVTR563512",
+  "artist": "The Steve Miller Band",
+  "title": "The Joker",
+  "story": {
+    "headline": "The Joker: The Performance That Defined It",
+    "subtitle": "The Steve Miller Band · Live Performance · 1973",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "The Steve Miller Band's \"The Joker\" reached #1 on the Billboard Hot 100. The Joker was released in 1973.",
+    "fullStory": "The Steve Miller Band's \"The Joker\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nThe Joker was released in 1973.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "2b9b7a2f-6c53-4a6a-87b0-77f5833a94e9",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bd179470-d83c-4a30-bf08-eb65383bf5c9",
+      "text": "The Joker was released in 1973.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "83ee97f8-0f7d-4aa7-a765-7a6aa073a376",
+      "text": "The song appears on the album \"The Joker\" (1973).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a0fa10f9-2086-4433-9eb1-f62ebb6b9078",
+      "text": "VirtualDJ library play count: 14.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c5e05867-c81d-4bf5-b837-962c930acaf8",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "9fa7fb99d2ed",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR563512&file=performance.jpg",
+      "performanceId": "perf-ar3gow"
+    },
+    {
+      "assetId": "86a8e2d29fc6",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR563512&file=hero.jpg",
+      "performanceId": "perf-ar3gow"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ar3gow",
+    "title": "Live · 1973",
+    "venue": "Live",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Live. iconic live setting with strong audience energy. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "9fa7fb99d2ed",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR563512&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "86a8e2d29fc6",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR563512&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "The Steve Miller Band's \"The Joker\" reached #1 on the Billboard Hot 100. The Joker was released in 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-1dc37dae3b",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Live — Live (1973).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "9fa7fb99d2ed",
+          "86a8e2d29fc6"
+        ],
+        "relatedPerformanceId": "perf-ar3gow",
+        "priority": 1
+      },
+      {
+        "id": "beat-8d61aef0b8",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"The Joker\" entered the world in 1973.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "9fa7fb99d2ed",
+          "86a8e2d29fc6"
+        ],
+        "relatedPerformanceId": "perf-ar3gow",
+        "priority": 2
+      },
+      {
+        "id": "beat-9b1f933b1c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "2b9b7a2f-6c53-4a6a-87b0-77f5833a94e9"
+        ],
+        "relatedImageAssetIds": [
+          "9fa7fb99d2ed",
+          "86a8e2d29fc6"
+        ],
+        "relatedPerformanceId": "perf-ar3gow",
+        "priority": 3
+      },
+      {
+        "id": "beat-e931f7a596",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "9fa7fb99d2ed",
+          "86a8e2d29fc6"
+        ],
+        "relatedPerformanceId": "perf-ar3gow",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-e408e7989e",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1973,
+        "supportingFactIds": [
+          "2b9b7a2f-6c53-4a6a-87b0-77f5833a94e9"
+        ],
+        "relatedImageAssetIds": [
+          "9fa7fb99d2ed"
+        ]
+      },
+      {
+        "id": "moment-386c206b28",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1974,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "9fa7fb99d2ed"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-ar3gow",
+      "title": "Live · 1973",
+      "reason": "Recommended: Live. iconic live setting with strong audience energy. venue context (Live) adds place and moment. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:23:47.612Z"
+  },
+  "submittedAt": "2026-06-27T04:23:47.613Z",
+  "editorNotesForDirector": "Collector confidence: Good (66%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

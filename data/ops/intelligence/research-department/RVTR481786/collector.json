@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR481786",
+  "artist": "America",
+  "title": "Tin Man",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T05:23:38.829Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "America — Tin Man (RVTR481786)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #4 · 18 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR481786",
+    "artist": "America",
+    "title": "Tin Man",
+    "year": 1977,
+    "albumTitle": "America/Live"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+        "artist": "America",
+        "title": "Tin Man",
+        "isVideo": true,
+        "playCount": null,
+        "year": 1975,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 4,
+    "chartWeeks": 18,
+    "albumTitle": "America/Live",
+    "summary": "Hot 100 peak #4 · 18 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+        "artist": "America",
+        "title": "Tin Man",
+        "isVideo": true,
+        "playCount": null,
+        "year": 1975,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+      "performance.jpg",
+      "alternate.jpg",
+      "close-up.jpg",
+      "hero.jpg",
+      "crowd.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "94b34cb96719",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 0,
+          "width": 960,
+          "height": 720,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T05:23:38.826Z"
+        },
+        {
+          "id": "69eac0c63a59",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 40,
+          "width": 960,
+          "height": 720,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T05:23:38.826Z"
+        },
+        {
+          "id": "067f8067ee2f",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 100,
+          "width": 960,
+          "height": 720,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T05:23:38.826Z"
+        },
+        {
+          "id": "4f894dcf8639",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 160,
+          "width": 960,
+          "height": 720,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T05:23:38.826Z"
+        },
+        {
+          "id": "9ef844b057f2",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 200,
+          "width": 960,
+          "height": 720,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T05:23:38.826Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "America"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "11b3493c-27fa-48ed-817e-c49cf502a1d9",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR481786.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "600d2d8a-c218-4421-8a42-b70386da70b7",
+      "category": "artist",
+      "text": "Tin Man is performed by America.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "802aa88f-24bd-47e5-9340-1b41534c9106",
+      "category": "album",
+      "text": "The song appears on the album \"America/Live\" (1977).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-mmtyhh"
+    },
+    {
+      "id": "8f6d6ba7-884d-49ca-aa07-4f7848c2bb39",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR481786.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-mmtyhh"
+    },
+    {
+      "id": "0bd97f12-d880-4e6e-9fe1-656259b5e104",
+      "category": "chart",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "054f7ac2-f942-49f4-a2b6-43e710df8339",
+      "category": "recording",
+      "text": "Tin Man was released in 1977.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "a19cadb8-c90d-4204-b668-ccfc7a17f529",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR481786 (Tin Man).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "d7a49eb8-cda6-43d7-a5d3-c994f807110d",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "eddd1e27-b26c-4b27-960c-8758d295ba26",
+      "category": "trivia",
+      "text": "Artist: America · Title: Tin Man · Album: Mad Dog · Year: 1975 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-fp10n5"
+    },
+    {
+      "id": "25497c79-3956-4b1a-b72b-6bc1c1baa757",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-fp10n5"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T05:23:37.716Z",
+      "excerpt": "Retroverse track identity: RVTR481786. \"Tin Man\" by America. Album: America/Live (1977).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+      "capturedAt": "2026-06-28T05:23:37.716Z",
+      "excerpt": "Canonical cover assignment for RVTR481786 (Tin Man). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T05:23:37.716Z",
+      "excerpt": "Album: America/Live (1977). Billboard Hot 100 peak: #4. 18 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T05:23:37.716Z",
+      "excerpt": "Artist: America · Title: Tin Man · Album: Mad Dog · Year: 1975 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T05:23:37.716Z",
+      "excerpt": "Performance year context: 1977.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-efeb94ae",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T05:23:37.716Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "America — Tin Man · Hot 100 peak #4 · 18 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 1977 / recording 1977",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR481786",
+      "artist": "America",
+      "title": "Tin Man",
+      "year": 1977,
+      "albumTitle": "America/Live"
+    },
+    "charts": {
+      "peakHot100": 4,
+      "chartWeeks": 18,
+      "albumTitle": "America/Live",
+      "summary": "Hot 100 peak #4 · 18 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "America"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T05:23:37.716Z",
+          "excerpt": "Retroverse track identity: RVTR481786. \"Tin Man\" by America. Album: America/Live (1977).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+          "capturedAt": "2026-06-28T05:23:37.716Z",
+          "excerpt": "Canonical cover assignment for RVTR481786 (Tin Man). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T05:23:37.716Z",
+          "excerpt": "Album: America/Live (1977). Billboard Hot 100 peak: #4. 18 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T05:23:37.716Z",
+          "excerpt": "Artist: America · Title: Tin Man · Album: Mad Dog · Year: 1975 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T05:23:37.716Z",
+          "excerpt": "Performance year context: 1977.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-efeb94ae",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T05:23:37.716Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "America — Tin Man · Hot 100 peak #4 · 18 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "11b3493c-27fa-48ed-817e-c49cf502a1d9",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR481786.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "600d2d8a-c218-4421-8a42-b70386da70b7",
+        "category": "artist",
+        "text": "Tin Man is performed by America.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "802aa88f-24bd-47e5-9340-1b41534c9106",
+        "category": "album",
+        "text": "The song appears on the album \"America/Live\" (1977).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-mmtyhh"
+      },
+      {
+        "id": "8f6d6ba7-884d-49ca-aa07-4f7848c2bb39",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR481786.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-mmtyhh"
+      },
+      {
+        "id": "0bd97f12-d880-4e6e-9fe1-656259b5e104",
+        "category": "chart",
+        "text": "The song peaked at #4 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "054f7ac2-f942-49f4-a2b6-43e710df8339",
+        "category": "recording",
+        "text": "Tin Man was released in 1977.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "a19cadb8-c90d-4204-b668-ccfc7a17f529",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR481786 (Tin Man).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "d7a49eb8-cda6-43d7-a5d3-c994f807110d",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "eddd1e27-b26c-4b27-960c-8758d295ba26",
+        "category": "trivia",
+        "text": "Artist: America · Title: Tin Man · Album: Mad Dog · Year: 1975 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-fp10n5"
+      },
+      {
+        "id": "25497c79-3956-4b1a-b72b-6bc1c1baa757",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-fp10n5"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL655646/RVAL655646__america__america-live.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-fp10n5",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "durationSec": 208.375873,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "94b34cb96719",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 0,
+              "width": 960,
+              "height": 720,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T05:23:38.826Z"
+            },
+            {
+              "id": "69eac0c63a59",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 40,
+              "width": 960,
+              "height": 720,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T05:23:38.826Z"
+            },
+            {
+              "id": "067f8067ee2f",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 100,
+              "width": 960,
+              "height": 720,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T05:23:38.826Z"
+            },
+            {
+              "id": "4f894dcf8639",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 160,
+              "width": 960,
+              "height": 720,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T05:23:38.826Z"
+            },
+            {
+              "id": "9ef844b057f2",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 200,
+              "width": 960,
+              "height": 720,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T05:23:38.826Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1975. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1975,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1975",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "America's \"Tin Man\" reached #4 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Tin Man is performed by America.",
+      "The song appears on the album \"America/Live\" (1977).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR481786."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #4 on the Hot 100",
+      "Song release — original 1977 chapter",
+      "Performance angle — Official Video (1975)"
+    ],
+    "suggestedAngle": "breakthrough"
+  },
+  "songEntity": {
+    "rvtr": "RVTR481786",
+    "artist": "America",
+    "title": "Tin Man",
+    "writers": [],
+    "originalReleaseYear": 1977,
+    "originalAlbum": "America/Live",
+    "peakHot100": 4,
+    "chartWeeks": 18,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "America"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-mmtyhh",
+      "kind": "live_album",
+      "title": "America/Live",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "America/Live",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1977,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-fp10n5",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1975,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 208.375873,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 1975. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1975",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-bx4l2v",
+        "domain": "song",
+        "kind": "release",
+        "year": 1977,
+        "label": "Tin Man — original release",
+        "detail": "Original album: America/Live",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-l47p2m",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1977,
+        "label": "Billboard Hot 100 peak #4",
+        "detail": "18 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-5le6zl",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1977,
+        "label": "America/Live",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-mmtyhh"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1975,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-fp10n5"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1977,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1977,
+      "label": "Album: America/Live",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1975,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR481786",
+      "artist": "America",
+      "title": "Tin Man",
+      "writers": [],
+      "originalReleaseYear": 1977,
+      "originalAlbum": "America/Live",
+      "peakHot100": 4,
+      "chartWeeks": 18,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "America"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-mmtyhh",
+        "kind": "live_album",
+        "title": "America/Live",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "America/Live",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1977,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-fp10n5",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/America - Tin Man.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1975,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 208.375873,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 1975. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1975",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-bx4l2v",
+          "domain": "song",
+          "kind": "release",
+          "year": 1977,
+          "label": "Tin Man — original release",
+          "detail": "Original album: America/Live",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-l47p2m",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1977,
+          "label": "Billboard Hot 100 peak #4",
+          "detail": "18 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-5le6zl",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1977,
+          "label": "America/Live",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-mmtyhh"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1975,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-fp10n5"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1977,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1977,
+        "label": "Album: America/Live",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1975,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

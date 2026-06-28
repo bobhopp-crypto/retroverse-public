@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR976928",
+  "artist": "Journey",
+  "title": "Lights",
+  "story": {
+    "headline": "Lights: A Cultural Moment Captured on Record",
+    "subtitle": "Journey · Cultural Moment · 1978",
+    "hook": "The song peaked at #68 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "summary": "Journey's \"Lights\" reached #68 on the Billboard Hot 100. Lights was released in 1978.",
+    "fullStory": "Journey's \"Lights\" reached #68 on the Billboard Hot 100.\n\nThe song peaked at #68 on the Billboard Hot 100 and spent 17 weeks on the chart.\n\nLights was released in 1978.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #68 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "a0c1b096-b807-40bd-b8a4-027cb3045587",
+      "text": "The song peaked at #68 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ef9d0208-050d-4b9a-9ce0-b7865058fa2c",
+      "text": "Lights was released in 1978.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3c2f8b20-0f70-4881-9de7-65cfb1d4dfde",
+      "text": "The song appears on the album \"Infinity\" (1978).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "06ea5e65-9e22-4965-a37b-54d04301fd3d",
+      "text": "VirtualDJ library play count: 17.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "28b4feca-4351-4220-88a1-c8897c8b4fba",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "2eab2017eafb",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976928&file=hero.jpg",
+      "performanceId": "perf-c7lirq"
+    },
+    {
+      "assetId": "082406accdf0",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976928&file=performance.jpg",
+      "performanceId": "perf-c7lirq"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-c7lirq",
+    "title": "Official Video · 1978",
+    "venue": "",
+    "year": 1978,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1978 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "2eab2017eafb",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976928&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "082406accdf0",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR976928&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #68 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "closing": "Journey's \"Lights\" reached #68 on the Billboard Hot 100. Lights was released in 1978.",
+    "storyBeats": [
+      {
+        "id": "beat-94a471fbca",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Lights\" — original release 1978. Journey — \"Lights\" · Original release 1978 · Album: Infinity · Hot 100 peak #68",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2eab2017eafb",
+          "082406accdf0"
+        ],
+        "relatedPerformanceId": "perf-c7lirq",
+        "priority": 1
+      },
+      {
+        "id": "beat-888a325bdd",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Infinity · Release 1978",
+        "supportingFactIds": [
+          "3c2f8b20-0f70-4881-9de7-65cfb1d4dfde"
+        ],
+        "relatedImageAssetIds": [
+          "2eab2017eafb",
+          "082406accdf0"
+        ],
+        "relatedPerformanceId": "perf-c7lirq",
+        "priority": 2
+      },
+      {
+        "id": "beat-07e40b6b9c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #68 · 17 weeks on chart.",
+        "supportingFactIds": [
+          "a0c1b096-b807-40bd-b8a4-027cb3045587"
+        ],
+        "relatedImageAssetIds": [
+          "2eab2017eafb",
+          "082406accdf0"
+        ],
+        "relatedPerformanceId": "perf-c7lirq",
+        "priority": 3
+      },
+      {
+        "id": "beat-9c652324b6",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2eab2017eafb",
+          "082406accdf0"
+        ],
+        "relatedPerformanceId": "perf-c7lirq",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-9b61ded4f8",
+        "title": "Chart milestone",
+        "description": "Peaked at #68 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1978,
+        "supportingFactIds": [
+          "a0c1b096-b807-40bd-b8a4-027cb3045587"
+        ],
+        "relatedImageAssetIds": [
+          "2eab2017eafb"
+        ]
+      },
+      {
+        "id": "moment-e2aa93cc91",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1978,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "2eab2017eafb"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-c7lirq",
+      "title": "Official Video · 1978",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1978 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #68 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T01:03:44.907Z"
+  },
+  "submittedAt": "2026-06-27T04:20:12.973Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

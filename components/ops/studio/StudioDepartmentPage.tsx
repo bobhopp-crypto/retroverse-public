@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { StudioDepartmentDetail } from "@/components/ops/studio/StudioDepartmentDetail";
 import { StudioShell } from "@/components/ops/studio/StudioShell";
 import { getStudioDepartment } from "@/lib/ops/studio/departments";
+import type { StudioGuidePageId } from "@/lib/ops/studio/operator-guide";
 import { isOpsEnabled } from "@/lib/ops/ops-gate";
 
 type NavSlug =
@@ -33,11 +34,21 @@ export function StudioDepartmentPage({ slug }: Props) {
   const dept = getStudioDepartment(slug);
   if (!dept) notFound();
 
+  const guideSlugs: StudioGuidePageId[] = [
+    "collector",
+    "editor",
+    "director",
+    "publisher",
+  ];
+  const guidePage = guideSlugs.includes(slug as StudioGuidePageId)
+    ? (slug as StudioGuidePageId)
+    : "dashboard";
+
   return (
     <main className="ops-page ops-command ops-studio-page">
       <div className="ops-page__grain" aria-hidden />
       <div className="ops-page__inner">
-        <StudioShell active={slug} lead={dept.mission}>
+        <StudioShell active={slug} guidePage={guidePage} lead={dept.mission}>
           <StudioDepartmentDetail dept={dept} />
         </StudioShell>
       </div>

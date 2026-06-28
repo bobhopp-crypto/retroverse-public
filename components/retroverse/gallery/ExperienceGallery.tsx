@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
 import type { GalleryPageData } from "@/lib/retroverse/gallery/gallery-types";
+import { useGalleryClientInstrument } from "@/lib/retroverse/gallery/use-gallery-client-instrument";
 
 import "./experience-gallery.css";
 
@@ -26,8 +27,26 @@ function formatDate(iso: string | null): string {
 }
 
 export function ExperienceGallery({ data }: Props) {
+  const renderCount = useGalleryClientInstrument("ExperienceGallery");
+
+  if (process.env.NODE_ENV === "development") {
+    console.log("[gallery-instrument] ExperienceGallery body", {
+      renderCount,
+      rvtr: data.currentRvtr,
+      navigationTotal: data.navigation.total,
+    });
+  }
+
   const router = useRouter();
+  if (process.env.NODE_ENV === "development") {
+    console.log("[gallery-instrument] useSearchParams() call start");
+  }
   const searchParams = useSearchParams();
+  if (process.env.NODE_ENV === "development") {
+    console.log("[gallery-instrument] useSearchParams() call end", {
+      experience: searchParams.get("experience"),
+    });
+  }
   const [rvtrJump, setRvtrJump] = useState(data.currentRvtr);
 
   const selectedId =
@@ -103,6 +122,8 @@ export function ExperienceGallery({ data }: Props) {
               height={320}
               className="rv-gallery__cover"
               unoptimized
+              onLoad={() => console.log("[gallery-instrument] Image loaded: current-song-cover")}
+              onError={() => console.log("[gallery-instrument] Image error: current-song-cover")}
             />
           ) : (
             <div className="rv-gallery__cover rv-gallery__cover--empty" aria-hidden />
@@ -267,6 +288,8 @@ export function ExperienceGallery({ data }: Props) {
                 height={480}
                 className="rv-gallery__preview-cover"
                 unoptimized
+                onLoad={() => console.log("[gallery-instrument] Image loaded: preview-cover")}
+                onError={() => console.log("[gallery-instrument] Image error: preview-cover")}
               />
             ) : (
               <div className="rv-gallery__preview-cover rv-gallery__cover--empty" />

@@ -1,0 +1,187 @@
+{
+  "version": 2,
+  "rvtr": "RVTR621535",
+  "artist": "Joe Walsh",
+  "title": "Life's Been Good",
+  "story": {
+    "headline": "Life's Been Good: A Cultural Moment Captured on Record",
+    "subtitle": "Joe Walsh · Cultural Moment · 1978",
+    "hook": "The song peaked at #12 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+    "summary": "Joe Walsh's \"Life's Been Good\" reached #12 on the Billboard Hot 100. Life's Been Good was released in 1978.",
+    "fullStory": "Joe Walsh's \"Life's Been Good\" reached #12 on the Billboard Hot 100.\n\nThe song peaked at #12 on the Billboard Hot 100 and spent 15 weeks on the chart.\n\nLife's Been Good was released in 1978.\n\nChart story — peaked at #12 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "24149c16-2a33-4e4f-82f9-e0a9cca2779d",
+      "text": "The song peaked at #12 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f45e78cf-a773-4e85-b18b-41380915745d",
+      "text": "Life's Been Good was released in 1978.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "286b829e-0fd0-4b37-af8a-a7d856f02221",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "55a2a748fd16",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR621535&file=hero.jpg",
+      "performanceId": "perf-o8lnee"
+    },
+    {
+      "assetId": "80a9f07dc26c",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR621535&file=performance.jpg",
+      "performanceId": "perf-o8lnee"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-o8lnee",
+    "title": "Official Video · 1978",
+    "venue": "",
+    "year": 1978,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1978 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "55a2a748fd16",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR621535&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "80a9f07dc26c",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR621535&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #12 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+    "closing": "Joe Walsh's \"Life's Been Good\" reached #12 on the Billboard Hot 100. Life's Been Good was released in 1978.",
+    "storyBeats": [
+      {
+        "id": "beat-9544185f89",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Life's Been Good\" — original release 1978. Joe Walsh — \"Life's Been Good\" · Original release 1978 · Hot 100 peak #12",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55a2a748fd16",
+          "80a9f07dc26c"
+        ],
+        "relatedPerformanceId": "perf-o8lnee",
+        "priority": 1
+      },
+      {
+        "id": "beat-e4825eb14b",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Life's Been Good — graph recording · Release 1978",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55a2a748fd16",
+          "80a9f07dc26c"
+        ],
+        "relatedPerformanceId": "perf-o8lnee",
+        "priority": 2
+      },
+      {
+        "id": "beat-c3af821b3c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #12 · 15 weeks on chart.",
+        "supportingFactIds": [
+          "24149c16-2a33-4e4f-82f9-e0a9cca2779d"
+        ],
+        "relatedImageAssetIds": [
+          "55a2a748fd16",
+          "80a9f07dc26c"
+        ],
+        "relatedPerformanceId": "perf-o8lnee",
+        "priority": 3
+      },
+      {
+        "id": "beat-bd4216dd53",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55a2a748fd16",
+          "80a9f07dc26c"
+        ],
+        "relatedPerformanceId": "perf-o8lnee",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-029684b43e",
+        "title": "Chart milestone",
+        "description": "Peaked at #12 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1978,
+        "supportingFactIds": [
+          "24149c16-2a33-4e4f-82f9-e0a9cca2779d"
+        ],
+        "relatedImageAssetIds": [
+          "55a2a748fd16"
+        ]
+      },
+      {
+        "id": "moment-232628c5ae",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1978,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55a2a748fd16"
+        ]
+      },
+      {
+        "id": "moment-232628c5ae",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1984,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "55a2a748fd16"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-o8lnee",
+      "title": "Official Video · 1978",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1978 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #12 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:35:26.435Z"
+  },
+  "submittedAt": "2026-06-27T04:35:26.435Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (61%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

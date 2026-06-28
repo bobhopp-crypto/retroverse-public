@@ -1,0 +1,196 @@
+{
+  "version": 2,
+  "rvtr": "RVTR429997",
+  "artist": "Chicago",
+  "title": "25 Or 6 To 4",
+  "story": {
+    "headline": "25 Or 6 To 4: The Breakthrough Moment",
+    "subtitle": "Chicago · Breakthrough · 1975",
+    "hook": "The song peaked at #4 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "summary": "Chicago's \"25 Or 6 To 4\" reached #4 on the Billboard Hot 100.",
+    "fullStory": "Chicago's \"25 Or 6 To 4\" reached #4 on the Billboard Hot 100.\n\nThe song peaked at #4 on the Billboard Hot 100 and spent 12 weeks on the chart.\n\nGraph compilation anchor: \"Chicago IX: Chicago's Greatest Hits\" (1975) — not the song's original release year.\n\nAlbum: Chicago IX: Chicago's Greatest Hits (1975).\n\nChart story — peaked at #4 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "75780a5b-7b6f-473d-8440-072054e58f0a",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "fecbaec2-07f1-4d8e-9000-566f214a9678",
+      "text": "The song appears on the album \"Chicago IX: Chicago's Greatest Hits\" (1975).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bcea10b5-006b-43a4-affe-7ceeeea65650",
+      "text": "Graph compilation anchor: \"Chicago IX: Chicago's Greatest Hits\" (1975) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bdf3721a-dbee-4024-9b90-53860c06f678",
+      "text": "VirtualDJ library play count: 14.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "02a45445-191a-4578-9a8e-b99c96781514",
+      "text": "Album: Chicago IX: Chicago's Greatest Hits (1975).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "363a67b1-a55a-4b12-85ad-b7b830a25cd1",
+      "text": "Album: Chicago IX: Chicago's Greatest Hits (1975).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "974414fa85b4",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429997&file=performance.jpg",
+      "performanceId": "perf-lk2mtz"
+    },
+    {
+      "assetId": "ba8533e3eed0",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429997&file=hero.jpg",
+      "performanceId": "perf-lk2mtz"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-lk2mtz",
+    "title": "Official Video · 1970",
+    "venue": "",
+    "year": 1970,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "974414fa85b4",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429997&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "ba8533e3eed0",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR429997&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #4 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "closing": "Chicago's \"25 Or 6 To 4\" reached #4 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-3e9740d0e6",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"25 Or 6 To 4\" — original release 1970. Chicago — \"25 Or 6 To 4\" · Original release 1970 · Hot 100 peak #4",
+        "supportingFactIds": [
+          "bcea10b5-006b-43a4-affe-7ceeeea65650"
+        ],
+        "relatedImageAssetIds": [
+          "974414fa85b4",
+          "ba8533e3eed0"
+        ],
+        "relatedPerformanceId": "perf-lk2mtz",
+        "priority": 1
+      },
+      {
+        "id": "beat-181f4d2fdc",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Chicago IX: Chicago's Greatest Hits · Release 1975 · Compilation edition",
+        "supportingFactIds": [
+          "fecbaec2-07f1-4d8e-9000-566f214a9678",
+          "02a45445-191a-4578-9a8e-b99c96781514"
+        ],
+        "relatedImageAssetIds": [
+          "974414fa85b4",
+          "ba8533e3eed0"
+        ],
+        "relatedPerformanceId": "perf-lk2mtz",
+        "priority": 2
+      },
+      {
+        "id": "beat-f4b9da217f",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #4 · 12 weeks on chart.",
+        "supportingFactIds": [
+          "75780a5b-7b6f-473d-8440-072054e58f0a"
+        ],
+        "relatedImageAssetIds": [
+          "974414fa85b4",
+          "ba8533e3eed0"
+        ],
+        "relatedPerformanceId": "perf-lk2mtz",
+        "priority": 3
+      },
+      {
+        "id": "beat-77d24861e8",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "974414fa85b4",
+          "ba8533e3eed0"
+        ],
+        "relatedPerformanceId": "perf-lk2mtz",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-80b7047164",
+        "title": "Chart milestone",
+        "description": "Peaked at #4 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1970,
+        "supportingFactIds": [
+          "75780a5b-7b6f-473d-8440-072054e58f0a"
+        ],
+        "relatedImageAssetIds": [
+          "974414fa85b4"
+        ]
+      },
+      {
+        "id": "moment-233e37e009",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1970,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "974414fa85b4"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-lk2mtz",
+      "title": "Official Video · 1970",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #4 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:42.013Z"
+  },
+  "submittedAt": "2026-06-27T04:20:42.013Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

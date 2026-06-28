@@ -1,14 +1,14 @@
 {
-  "version": 3,
+  "version": 4,
   "rvtr": "RVTR843599",
   "artist": "Danzig",
   "title": "Mother",
   "graphLinked": true,
   "identityNotes": [
-    "Studio Alpha batch-001-a2"
+    "Overnight Collector queue"
   ],
   "status": "complete",
-  "completedAt": "2026-06-26T04:28:57.438Z",
+  "completedAt": "2026-06-27T22:39:37.338Z",
   "researchQuality": 91,
   "stages": {
     "identity": {
@@ -120,11 +120,11 @@
     "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
     "inventory": [
       "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
-      "hero.jpg",
       "performance.jpg",
-      "close-up.jpg",
-      "alternate.jpg",
       "crowd.jpg",
+      "alternate.jpg",
+      "hero.jpg",
+      "close-up.jpg",
       "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4"
     ],
     "extraction": {
@@ -135,54 +135,54 @@
       "extractedCount": 5,
       "assets": [
         {
-          "id": "c5cd1f8cdc21",
-          "category": "Hero",
-          "filename": "hero.jpg",
-          "timestampSec": 20,
-          "width": 352,
-          "height": 240,
-          "selectionReason": "Opening representative moment",
-          "capturedAt": "2026-06-26T04:28:57.435Z"
-        },
-        {
           "id": "3f41afa45059",
           "category": "Performance",
           "filename": "performance.jpg",
-          "timestampSec": 60,
+          "timestampSec": 20,
           "width": 352,
           "height": 240,
           "selectionReason": "Strong performance moment",
-          "capturedAt": "2026-06-26T04:28:57.435Z"
-        },
-        {
-          "id": "25ffb99ddc93",
-          "category": "Close-up",
-          "filename": "close-up.jpg",
-          "timestampSec": 100,
-          "width": 352,
-          "height": 240,
-          "selectionReason": "Sharpest close-up in sequence",
-          "capturedAt": "2026-06-26T04:28:57.435Z"
-        },
-        {
-          "id": "eeae811a10d7",
-          "category": "Alternate",
-          "filename": "alternate.jpg",
-          "timestampSec": 160,
-          "width": 352,
-          "height": 240,
-          "selectionReason": "Visually distinct alternate angle",
-          "capturedAt": "2026-06-26T04:28:57.435Z"
+          "capturedAt": "2026-06-27T22:39:37.336Z"
         },
         {
           "id": "20369ad0d63b",
           "category": "Crowd",
           "filename": "crowd.jpg",
-          "timestampSec": 200,
+          "timestampSec": 60,
           "width": 352,
           "height": 240,
           "selectionReason": "Audience or wide-stage context",
-          "capturedAt": "2026-06-26T04:28:57.435Z"
+          "capturedAt": "2026-06-27T22:39:37.336Z"
+        },
+        {
+          "id": "eeae811a10d7",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 100,
+          "width": 352,
+          "height": 240,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-27T22:39:37.336Z"
+        },
+        {
+          "id": "c5cd1f8cdc21",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 160,
+          "width": 352,
+          "height": 240,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-27T22:39:37.336Z"
+        },
+        {
+          "id": "25ffb99ddc93",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 200,
+          "width": 352,
+          "height": 240,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-27T22:39:37.336Z"
         }
       ]
     }
@@ -195,114 +195,136 @@
   },
   "candidateFacts": [
     {
-      "id": "4adf8fbe-46db-446d-987f-496e51a081de",
+      "id": "1f1543ff-8bf4-4555-8f72-593c3d03a6e2",
       "category": "trivia",
       "text": "Retroverse track identity: RVTR843599.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "5e267a99-5103-4eea-86f2-ccddeb3d89be",
+      "id": "7e0a1490-c7ca-46b3-929f-33ea3ecaa7c9",
       "category": "artist",
       "text": "Mother is performed by Danzig.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "23e3cb32-40ff-40b5-9e92-2273cf43673f",
+      "id": "838a418d-eeee-4cbf-a846-4d8e215f4dc0",
       "category": "album",
       "text": "The song appears on the album \"Danzig\" (1988).",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-jriypx"
     },
     {
-      "id": "7013db2e-2e00-48bc-b85b-fe4c585a3480",
+      "id": "c1bf40f1-83e0-4e6b-bdd6-4397032cc86c",
       "category": "album",
       "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR843599.",
       "source": "Retroverse Graph",
       "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-jriypx"
     },
     {
-      "id": "5290d007-3f9f-4a1b-b3c7-b97f81631715",
+      "id": "9e1aca9b-1f9d-42df-85ae-2ea3e5136e91",
       "category": "chart",
       "text": "The song peaked at #43 on the Billboard Hot 100 and spent 15 weeks on the chart.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "ade29da6-3b54-4579-89df-70b5991a927e",
+      "id": "ee720fb1-8fa9-48d7-86ee-09d5b98b519e",
       "category": "trivia",
       "text": "VirtualDJ library play count: 10.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-62fxmq"
     },
     {
-      "id": "338a2b84-f2bd-4c7f-a856-8345ec86f6d3",
+      "id": "727d5ae2-ca36-41c9-96e1-1d2ee1e9aba9",
       "category": "recording",
       "text": "Mother was released in 1988.",
       "source": "Retroverse Graph",
       "sourceUrl": null,
       "confidence": 1,
       "internalNotes": "Canonical — locked",
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "19da0cf6-dc47-49ff-ae0b-5717f2858450",
+      "id": "0ade83c3-d6fc-46af-8842-01b9a8c9fe8b",
       "category": "trivia",
       "text": "Canonical cover assignment for RVTR843599 (Mother).",
       "source": "Retroverse Cover Library",
       "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
       "confidence": 0.82,
       "internalNotes": null,
-      "approvalStatus": "approved"
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "0241e203-c97e-499f-be60-a96b6546a1de",
+      "id": "f1669b1b-1fab-407d-a4ed-7fd215d4412d",
       "category": "trivia",
       "text": "Cover URL is graph-owned and must not be replaced by external research.",
       "source": "Retroverse Cover Library",
       "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
       "confidence": 0.82,
       "internalNotes": null,
-      "approvalStatus": "pending"
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
     },
     {
-      "id": "e36b4942-5288-4d8e-8c3d-da47f3857bbc",
+      "id": "b81e3d3b-483e-41d2-a5be-0f7f1e961149",
       "category": "trivia",
       "text": "Artist: Danzig · Title: Mother · Album: Mother · Year: 1988 · Genre: Rock · PlayCount: 10 · LastPlayed: 1779079696 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4",
       "source": "VirtualDJ database.xml",
       "sourceUrl": null,
       "confidence": 0.82,
       "internalNotes": null,
-      "approvalStatus": "pending"
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-62fxmq"
     },
     {
-      "id": "3b3b5340-1817-4a76-b684-06e36fc43888",
+      "id": "3f878847-c247-4361-a775-8b149dc2df9a",
       "category": "trivia",
       "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4 · Plays: 10",
       "source": "VirtualDJ Library",
       "sourceUrl": null,
       "confidence": 0.82,
       "internalNotes": null,
-      "approvalStatus": "pending"
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-62fxmq"
     }
   ],
   "missingAreas": [
@@ -315,7 +337,7 @@
       "id": "retroverse-identity",
       "source": "Retroverse Canon",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:56.233Z",
+      "capturedAt": "2026-06-27T22:39:36.350Z",
       "excerpt": "Retroverse track identity: RVTR843599. \"Mother\" by Danzig. Album: Danzig (1988).",
       "confidence": 1,
       "stage": "retroverse_vdj",
@@ -325,7 +347,7 @@
       "id": "retroverse-cover",
       "source": "Retroverse Cover Library",
       "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
-      "capturedAt": "2026-06-26T04:28:56.233Z",
+      "capturedAt": "2026-06-27T22:39:36.350Z",
       "excerpt": "Canonical cover assignment for RVTR843599 (Mother). Cover URL is graph-owned and must not be replaced by external research.",
       "confidence": 1,
       "stage": "retroverse_vdj",
@@ -335,7 +357,7 @@
       "id": "retroverse-chart",
       "source": "Retroverse Graph",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:56.233Z",
+      "capturedAt": "2026-06-27T22:39:36.350Z",
       "excerpt": "Album: Danzig (1988). Billboard Hot 100 peak: #43. 15 weeks on chart",
       "confidence": 0.95,
       "stage": "retroverse_vdj",
@@ -345,7 +367,7 @@
       "id": "retroverse-vdj-snapshot",
       "source": "VirtualDJ database.xml",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:56.233Z",
+      "capturedAt": "2026-06-27T22:39:36.350Z",
       "excerpt": "Artist: Danzig · Title: Mother · Album: Mother · Year: 1988 · Genre: Rock · PlayCount: 10 · LastPlayed: 1779079696 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4",
       "confidence": 0.99,
       "stage": "retroverse_vdj",
@@ -355,25 +377,28 @@
       "id": "retroverse-year-workspace",
       "source": "Retroverse Year Workspace",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:56.233Z",
+      "capturedAt": "2026-06-27T22:39:36.350Z",
       "excerpt": "Performance year context: 1988.",
       "confidence": 0.98,
       "stage": "retroverse_vdj",
       "internalNotes": null
     },
     {
-      "id": "vdj-media-5b17b194",
+      "id": "vdj-media-902f2914",
       "source": "VirtualDJ Library",
       "url": null,
-      "capturedAt": "2026-06-26T04:28:56.233Z",
+      "capturedAt": "2026-06-27T22:39:36.350Z",
       "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4 · Plays: 10",
       "confidence": 0.99,
       "stage": "retroverse_vdj",
       "internalNotes": null
     }
   ],
+  "lyrics": {
+    "available": false
+  },
   "summary": {
-    "researchSummary": "Danzig — Mother · Hot 100 peak #43 · 15 weeks · 1 performance videos · 11 candidate facts · 3 gaps · 1 performance(s) · 8/11 facts approved · confidence 63%",
+    "researchSummary": "Danzig — Mother · Hot 100 peak #43 · 15 weeks · 1 performance videos · 11 candidate facts · 3 gaps · 1 performance(s) · 8/11 facts approved · confidence 63% · song 1988 / recording 1988",
     "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
   },
   "song": {
@@ -410,7 +435,7 @@
           "id": "retroverse-identity",
           "source": "Retroverse Canon",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:56.233Z",
+          "capturedAt": "2026-06-27T22:39:36.350Z",
           "excerpt": "Retroverse track identity: RVTR843599. \"Mother\" by Danzig. Album: Danzig (1988).",
           "confidence": 1,
           "stage": "retroverse_vdj",
@@ -420,7 +445,7 @@
           "id": "retroverse-cover",
           "source": "Retroverse Cover Library",
           "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
-          "capturedAt": "2026-06-26T04:28:56.233Z",
+          "capturedAt": "2026-06-27T22:39:36.350Z",
           "excerpt": "Canonical cover assignment for RVTR843599 (Mother). Cover URL is graph-owned and must not be replaced by external research.",
           "confidence": 1,
           "stage": "retroverse_vdj",
@@ -430,7 +455,7 @@
           "id": "retroverse-chart",
           "source": "Retroverse Graph",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:56.233Z",
+          "capturedAt": "2026-06-27T22:39:36.350Z",
           "excerpt": "Album: Danzig (1988). Billboard Hot 100 peak: #43. 15 weeks on chart",
           "confidence": 0.95,
           "stage": "retroverse_vdj",
@@ -440,7 +465,7 @@
           "id": "retroverse-vdj-snapshot",
           "source": "VirtualDJ database.xml",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:56.233Z",
+          "capturedAt": "2026-06-27T22:39:36.350Z",
           "excerpt": "Artist: Danzig · Title: Mother · Album: Mother · Year: 1988 · Genre: Rock · PlayCount: 10 · LastPlayed: 1779079696 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4",
           "confidence": 0.99,
           "stage": "retroverse_vdj",
@@ -450,17 +475,17 @@
           "id": "retroverse-year-workspace",
           "source": "Retroverse Year Workspace",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:56.233Z",
+          "capturedAt": "2026-06-27T22:39:36.350Z",
           "excerpt": "Performance year context: 1988.",
           "confidence": 0.98,
           "stage": "retroverse_vdj",
           "internalNotes": null
         },
         {
-          "id": "vdj-media-5b17b194",
+          "id": "vdj-media-902f2914",
           "source": "VirtualDJ Library",
           "url": null,
-          "capturedAt": "2026-06-26T04:28:56.233Z",
+          "capturedAt": "2026-06-27T22:39:36.350Z",
           "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4 · Plays: 10",
           "confidence": 0.99,
           "stage": "retroverse_vdj",
@@ -474,114 +499,136 @@
     },
     "candidateFacts": [
       {
-        "id": "4adf8fbe-46db-446d-987f-496e51a081de",
+        "id": "1f1543ff-8bf4-4555-8f72-593c3d03a6e2",
         "category": "trivia",
         "text": "Retroverse track identity: RVTR843599.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "5e267a99-5103-4eea-86f2-ccddeb3d89be",
+        "id": "7e0a1490-c7ca-46b3-929f-33ea3ecaa7c9",
         "category": "artist",
         "text": "Mother is performed by Danzig.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "23e3cb32-40ff-40b5-9e92-2273cf43673f",
+        "id": "838a418d-eeee-4cbf-a846-4d8e215f4dc0",
         "category": "album",
         "text": "The song appears on the album \"Danzig\" (1988).",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-jriypx"
       },
       {
-        "id": "7013db2e-2e00-48bc-b85b-fe4c585a3480",
+        "id": "c1bf40f1-83e0-4e6b-bdd6-4397032cc86c",
         "category": "album",
         "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR843599.",
         "source": "Retroverse Graph",
         "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-jriypx"
       },
       {
-        "id": "5290d007-3f9f-4a1b-b3c7-b97f81631715",
+        "id": "9e1aca9b-1f9d-42df-85ae-2ea3e5136e91",
         "category": "chart",
         "text": "The song peaked at #43 on the Billboard Hot 100 and spent 15 weeks on the chart.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "ade29da6-3b54-4579-89df-70b5991a927e",
+        "id": "ee720fb1-8fa9-48d7-86ee-09d5b98b519e",
         "category": "trivia",
         "text": "VirtualDJ library play count: 10.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-62fxmq"
       },
       {
-        "id": "338a2b84-f2bd-4c7f-a856-8345ec86f6d3",
+        "id": "727d5ae2-ca36-41c9-96e1-1d2ee1e9aba9",
         "category": "recording",
         "text": "Mother was released in 1988.",
         "source": "Retroverse Graph",
         "sourceUrl": null,
         "confidence": 1,
         "internalNotes": "Canonical — locked",
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "19da0cf6-dc47-49ff-ae0b-5717f2858450",
+        "id": "0ade83c3-d6fc-46af-8842-01b9a8c9fe8b",
         "category": "trivia",
         "text": "Canonical cover assignment for RVTR843599 (Mother).",
         "source": "Retroverse Cover Library",
         "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
         "confidence": 0.82,
         "internalNotes": null,
-        "approvalStatus": "approved"
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "0241e203-c97e-499f-be60-a96b6546a1de",
+        "id": "f1669b1b-1fab-407d-a4ed-7fd215d4412d",
         "category": "trivia",
         "text": "Cover URL is graph-owned and must not be replaced by external research.",
         "source": "Retroverse Cover Library",
         "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg",
         "confidence": 0.82,
         "internalNotes": null,
-        "approvalStatus": "pending"
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
       },
       {
-        "id": "e36b4942-5288-4d8e-8c3d-da47f3857bbc",
+        "id": "b81e3d3b-483e-41d2-a5be-0f7f1e961149",
         "category": "trivia",
         "text": "Artist: Danzig · Title: Mother · Album: Mother · Year: 1988 · Genre: Rock · PlayCount: 10 · LastPlayed: 1779079696 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4",
         "source": "VirtualDJ database.xml",
         "sourceUrl": null,
         "confidence": 0.82,
         "internalNotes": null,
-        "approvalStatus": "pending"
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-62fxmq"
       },
       {
-        "id": "3b3b5340-1817-4a76-b684-06e36fc43888",
+        "id": "3f878847-c247-4361-a775-8b149dc2df9a",
         "category": "trivia",
         "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4 · Plays: 10",
         "source": "VirtualDJ Library",
         "sourceUrl": null,
         "confidence": 0.82,
         "internalNotes": null,
-        "approvalStatus": "pending"
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-62fxmq"
       }
     ],
     "missingAreas": [
@@ -590,7 +637,7 @@
       "Artist relationship depth"
     ],
     "identityNotes": [
-      "Studio Alpha batch-001-a2"
+      "Overnight Collector queue"
     ],
     "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL222524/RVAL222524__danzig__danzig.jpg"
   },
@@ -611,54 +658,54 @@
           "extractedCount": 5,
           "assets": [
             {
-              "id": "c5cd1f8cdc21",
-              "category": "Hero",
-              "filename": "hero.jpg",
-              "timestampSec": 20,
-              "width": 352,
-              "height": 240,
-              "selectionReason": "Opening representative moment",
-              "capturedAt": "2026-06-26T04:28:57.435Z"
-            },
-            {
               "id": "3f41afa45059",
               "category": "Performance",
               "filename": "performance.jpg",
-              "timestampSec": 60,
+              "timestampSec": 20,
               "width": 352,
               "height": 240,
               "selectionReason": "Strong performance moment",
-              "capturedAt": "2026-06-26T04:28:57.435Z"
-            },
-            {
-              "id": "25ffb99ddc93",
-              "category": "Close-up",
-              "filename": "close-up.jpg",
-              "timestampSec": 100,
-              "width": 352,
-              "height": 240,
-              "selectionReason": "Sharpest close-up in sequence",
-              "capturedAt": "2026-06-26T04:28:57.435Z"
-            },
-            {
-              "id": "eeae811a10d7",
-              "category": "Alternate",
-              "filename": "alternate.jpg",
-              "timestampSec": 160,
-              "width": 352,
-              "height": 240,
-              "selectionReason": "Visually distinct alternate angle",
-              "capturedAt": "2026-06-26T04:28:57.435Z"
+              "capturedAt": "2026-06-27T22:39:37.336Z"
             },
             {
               "id": "20369ad0d63b",
               "category": "Crowd",
               "filename": "crowd.jpg",
-              "timestampSec": 200,
+              "timestampSec": 60,
               "width": 352,
               "height": 240,
               "selectionReason": "Audience or wide-stage context",
-              "capturedAt": "2026-06-26T04:28:57.435Z"
+              "capturedAt": "2026-06-27T22:39:37.336Z"
+            },
+            {
+              "id": "eeae811a10d7",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 100,
+              "width": 352,
+              "height": 240,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-27T22:39:37.336Z"
+            },
+            {
+              "id": "c5cd1f8cdc21",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 160,
+              "width": 352,
+              "height": 240,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-27T22:39:37.336Z"
+            },
+            {
+              "id": "25ffb99ddc93",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 200,
+              "width": 352,
+              "height": 240,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-27T22:39:37.336Z"
             }
           ]
         }
@@ -692,9 +739,285 @@
     ],
     "storyIdeas": [
       "Chart story — peaked at #43 on the Hot 100",
-      "Release moment — 1988 and what was happening in music",
-      "Performance angle — Official Video"
+      "Song release — original 1988 chapter",
+      "Performance angle — Official Video (1988)"
     ],
     "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR843599",
+    "artist": "Danzig",
+    "title": "Mother",
+    "writers": [],
+    "originalReleaseYear": 1988,
+    "originalAlbum": "Danzig",
+    "peakHot100": 43,
+    "chartWeeks": 15,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Danzig"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-jriypx",
+      "kind": "studio_album",
+      "title": "Danzig",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Danzig",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1988,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-62fxmq",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1988,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 208.266,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1988. VirtualDJ play count: 10. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1988",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-aogxtj",
+        "domain": "song",
+        "kind": "release",
+        "year": 1988,
+        "label": "Mother — original release",
+        "detail": "Original album: Danzig",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3id",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1988,
+        "label": "Billboard Hot 100 peak #43",
+        "detail": "15 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-t9vr6j",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1988,
+        "label": "Danzig",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-jriypx"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1988,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-62fxmq"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1988,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1988,
+      "label": "Album: Danzig",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1988,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR843599",
+      "artist": "Danzig",
+      "title": "Mother",
+      "writers": [],
+      "originalReleaseYear": 1988,
+      "originalAlbum": "Danzig",
+      "peakHot100": 43,
+      "chartWeeks": 15,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Danzig"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-jriypx",
+        "kind": "studio_album",
+        "title": "Danzig",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Danzig",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1988,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-62fxmq",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1990's/Danzig - Mother.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1988,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 208.266,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1988. VirtualDJ play count: 10. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1988",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-aogxtj",
+          "domain": "song",
+          "kind": "release",
+          "year": 1988,
+          "label": "Mother — original release",
+          "detail": "Original album: Danzig",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3id",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1988,
+          "label": "Billboard Hot 100 peak #43",
+          "detail": "15 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-t9vr6j",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1988,
+          "label": "Danzig",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-jriypx"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1988,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-62fxmq"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1988,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1988,
+        "label": "Album: Danzig",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1988,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
   }
 }

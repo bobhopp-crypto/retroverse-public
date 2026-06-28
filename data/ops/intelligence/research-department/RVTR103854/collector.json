@@ -1,0 +1,992 @@
+{
+  "version": 4,
+  "rvtr": "RVTR103854",
+  "artist": "Alicia Keys",
+  "title": "Fallin'",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T06:07:27.496Z",
+  "researchQuality": 77,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Alicia Keys — Fallin' (RVTR103854)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "3 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #1 · 34 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 6 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "8 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "7 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR103854",
+    "artist": "Alicia Keys",
+    "title": "Fallin'",
+    "year": 2001,
+    "albumTitle": null
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+        "artist": "Alicia Keys",
+        "title": "Fallin'",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2001,
+        "genre": "Hip Hop",
+        "user2": null,
+        "performanceLabel": null
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/Alicia Keys - Fallin.mp3",
+        "artist": "Alicia Keys",
+        "title": "Fallin",
+        "isVideo": false,
+        "playCount": null,
+        "year": 2001,
+        "genre": "Other",
+        "user2": null,
+        "performanceLabel": null
+      },
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Alicia Keys - Fallin'.mp3",
+        "artist": "Alicia Keys",
+        "title": "Fallin'",
+        "isVideo": false,
+        "playCount": null,
+        "year": 2001,
+        "genre": "R&B",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 1,
+    "chartWeeks": 34,
+    "albumTitle": null,
+    "summary": "Hot 100 peak #1 · 34 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+        "artist": "Alicia Keys",
+        "title": "Fallin'",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2001,
+        "genre": "Hip Hop",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": null,
+    "inventory": [
+      "alternate.jpg",
+      "hero.jpg",
+      "close-up.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "b3e3d4fe2948",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 0,
+          "width": 700,
+          "height": 466,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T06:07:27.493Z"
+        },
+        {
+          "id": "9888ad472a26",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 60,
+          "width": 700,
+          "height": 466,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T06:07:27.493Z"
+        },
+        {
+          "id": "fc65e827652b",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 100,
+          "width": 700,
+          "height": 466,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T06:07:27.493Z"
+        },
+        {
+          "id": "6002803dd431",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 140,
+          "width": 700,
+          "height": 466,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T06:07:27.493Z"
+        },
+        {
+          "id": "a0b374ef7c27",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 180,
+          "width": 700,
+          "height": 466,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T06:07:27.493Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Alicia Keys"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "81cae67d-d41b-4e2d-95e9-c9bad83740bb",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR103854.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "7a13a741-0bee-43ca-b2ce-1491a2463706",
+      "category": "artist",
+      "text": "Fallin' is performed by Alicia Keys.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "19de0eb7-f38d-4663-b948-efb80cf0f3b0",
+      "category": "chart",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 34 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "63f622bc-9400-4719-8373-d34264641503",
+      "category": "recording",
+      "text": "Fallin' was released in 2001.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "b5260fdc-7a5d-4af0-a0b5-9b56d9b9d4ec",
+      "category": "trivia",
+      "text": "Artist: Alicia Keys · Title: Fallin' · Album: Fallin' · Year: 2001 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-ehmjnr"
+    },
+    {
+      "id": "ffcd00da-f6fc-4169-a182-484c122a287a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-ehmjnr"
+    },
+    {
+      "id": "25633883-d181-4349-8857-d6883f3f4642",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/Alicia Keys - Fallin.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-ehmjnr"
+    },
+    {
+      "id": "e96bcceb-0584-490d-b3e1-e9d3ee1af7e8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Alicia Keys - Fallin'.mp3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-ehmjnr"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T06:07:26.492Z",
+      "excerpt": "Retroverse track identity: RVTR103854. \"Fallin'\" by Alicia Keys.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T06:07:26.492Z",
+      "excerpt": "Billboard Hot 100 peak: #1. 34 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T06:07:26.492Z",
+      "excerpt": "Artist: Alicia Keys · Title: Fallin' · Album: Fallin' · Year: 2001 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T06:07:26.492Z",
+      "excerpt": "Performance year context: 2001.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-55064e4b",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T06:07:26.492Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-1b756c50",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T06:07:26.492Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/Alicia Keys - Fallin.mp3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-f7ac237a",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T06:07:26.492Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Alicia Keys - Fallin'.mp3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Alicia Keys — Fallin' · Hot 100 peak #1 · 34 weeks · 1 performance videos · 8 candidate facts · 3 gaps · 1 performance(s) · 4/8 facts approved · confidence 59% · song 2001 / recording 2001",
+    "sourceSummary": "7 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR103854",
+      "artist": "Alicia Keys",
+      "title": "Fallin'",
+      "year": 2001,
+      "albumTitle": null
+    },
+    "charts": {
+      "peakHot100": 1,
+      "chartWeeks": 34,
+      "albumTitle": null,
+      "summary": "Hot 100 peak #1 · 34 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Alicia Keys"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T06:07:26.492Z",
+          "excerpt": "Retroverse track identity: RVTR103854. \"Fallin'\" by Alicia Keys.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T06:07:26.492Z",
+          "excerpt": "Billboard Hot 100 peak: #1. 34 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T06:07:26.492Z",
+          "excerpt": "Artist: Alicia Keys · Title: Fallin' · Album: Fallin' · Year: 2001 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T06:07:26.492Z",
+          "excerpt": "Performance year context: 2001.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-55064e4b",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T06:07:26.492Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-1b756c50",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T06:07:26.492Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/Alicia Keys - Fallin.mp3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-f7ac237a",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T06:07:26.492Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Alicia Keys - Fallin'.mp3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Alicia Keys — Fallin' · Hot 100 peak #1 · 34 weeks · 1 performance videos · 8 candidate facts · 3 gaps",
+        "sourceSummary": "7 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "81cae67d-d41b-4e2d-95e9-c9bad83740bb",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR103854.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "7a13a741-0bee-43ca-b2ce-1491a2463706",
+        "category": "artist",
+        "text": "Fallin' is performed by Alicia Keys.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "19de0eb7-f38d-4663-b948-efb80cf0f3b0",
+        "category": "chart",
+        "text": "The song peaked at #1 on the Billboard Hot 100 and spent 34 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "63f622bc-9400-4719-8373-d34264641503",
+        "category": "recording",
+        "text": "Fallin' was released in 2001.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "b5260fdc-7a5d-4af0-a0b5-9b56d9b9d4ec",
+        "category": "trivia",
+        "text": "Artist: Alicia Keys · Title: Fallin' · Album: Fallin' · Year: 2001 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-ehmjnr"
+      },
+      {
+        "id": "ffcd00da-f6fc-4169-a182-484c122a287a",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-ehmjnr"
+      },
+      {
+        "id": "25633883-d181-4349-8857-d6883f3f4642",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/SLOW/2000/Alicia Keys - Fallin.mp3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-ehmjnr"
+      },
+      {
+        "id": "e96bcceb-0584-490d-b3e1-e9d3ee1af7e8",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/MUSIC/POP/2000/Fill/Alicia Keys - Fallin'.mp3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-ehmjnr"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": null
+  },
+  "performances": [
+    {
+      "id": "perf-ehmjnr",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "durationSec": 194.324,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "b3e3d4fe2948",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 0,
+              "width": 700,
+              "height": 466,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T06:07:27.493Z"
+            },
+            {
+              "id": "9888ad472a26",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 60,
+              "width": 700,
+              "height": 466,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T06:07:27.493Z"
+            },
+            {
+              "id": "fc65e827652b",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 100,
+              "width": 700,
+              "height": 466,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T06:07:27.493Z"
+            },
+            {
+              "id": "6002803dd431",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 140,
+              "width": 700,
+              "height": 466,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T06:07:27.493Z"
+            },
+            {
+              "id": "a0b374ef7c27",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 180,
+              "width": 700,
+              "height": 466,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T06:07:27.493Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2001. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2001,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2001",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 80,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 59
+  },
+  "storySeed": {
+    "whyItMatters": "Alicia Keys's \"Fallin'\" reached #1 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Fallin' is performed by Alicia Keys.",
+      "The song peaked at #1 on the Billboard Hot 100 and spent 34 weeks on the chart.",
+      "Fallin' was released in 2001."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #1 on the Hot 100",
+      "Song release — original 2001 chapter",
+      "Performance angle — Official Video (2001)"
+    ],
+    "suggestedAngle": "breakthrough"
+  },
+  "songEntity": {
+    "rvtr": "RVTR103854",
+    "artist": "Alicia Keys",
+    "title": "Fallin'",
+    "writers": [],
+    "originalReleaseYear": 2001,
+    "originalAlbum": null,
+    "peakHot100": 1,
+    "chartWeeks": 34,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Alicia Keys"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-ij7jke",
+      "kind": "unknown",
+      "title": "Fallin' — graph recording",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": null,
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2001,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-ehmjnr",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2001,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 194.324,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2001. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2001",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-geo3m3",
+        "domain": "song",
+        "kind": "release",
+        "year": 2001,
+        "label": "Fallin' — original release",
+        "detail": null,
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-l47p2j",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2001,
+        "label": "Billboard Hot 100 peak #1",
+        "detail": "34 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-nflpfe",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2001,
+        "label": "Fallin' — graph recording",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-ij7jke"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2001,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-ehmjnr"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2001,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2001,
+      "label": "Graph recording release",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2001,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR103854",
+      "artist": "Alicia Keys",
+      "title": "Fallin'",
+      "writers": [],
+      "originalReleaseYear": 2001,
+      "originalAlbum": null,
+      "peakHot100": 1,
+      "chartWeeks": 34,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Alicia Keys"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-ij7jke",
+        "kind": "unknown",
+        "title": "Fallin' — graph recording",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": null,
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2001,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-ehmjnr",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Alicia Keys - Fallin'.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2001,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 194.324,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2001. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2001",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-geo3m3",
+          "domain": "song",
+          "kind": "release",
+          "year": 2001,
+          "label": "Fallin' — original release",
+          "detail": null,
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-l47p2j",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2001,
+          "label": "Billboard Hot 100 peak #1",
+          "detail": "34 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-nflpfe",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2001,
+          "label": "Fallin' — graph recording",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-ij7jke"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2001,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-ehmjnr"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2001,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2001,
+        "label": "Graph recording release",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2001,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

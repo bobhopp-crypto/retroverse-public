@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR241321",
+  "artist": "Beyonce",
+  "title": "Ring The Alarm",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T07:28:31.382Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Beyonce — Ring The Alarm (RVTR241321)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #11 · 14 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR241321",
+    "artist": "Beyonce",
+    "title": "Ring The Alarm",
+    "year": 2006,
+    "albumTitle": "B'Day"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+        "artist": "Beyonce",
+        "title": "Ring The Alarm",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2006,
+        "genre": "House",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 11,
+    "chartWeeks": 14,
+    "albumTitle": "B'Day",
+    "summary": "Hot 100 peak #11 · 14 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+        "artist": "Beyonce",
+        "title": "Ring The Alarm",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2006,
+        "genre": "House",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+      "hero.jpg",
+      "close-up.jpg",
+      "alternate.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "2508e0a2591c",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 0,
+          "width": 698,
+          "height": 466,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T07:28:31.378Z"
+        },
+        {
+          "id": "36a37e4c7568",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 40,
+          "width": 698,
+          "height": 466,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T07:28:31.378Z"
+        },
+        {
+          "id": "8e3bb84bd25e",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 100,
+          "width": 698,
+          "height": 466,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T07:28:31.378Z"
+        },
+        {
+          "id": "f18cab03e640",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 160,
+          "width": 698,
+          "height": 466,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T07:28:31.378Z"
+        },
+        {
+          "id": "1b0b78e58827",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 200,
+          "width": 698,
+          "height": 466,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T07:28:31.378Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Beyonce"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "bed2498d-d471-43e5-b9ca-0d855afe5395",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR241321.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "01fce28d-ff0e-4479-8551-a054a58e8fce",
+      "category": "artist",
+      "text": "Ring The Alarm is performed by Beyonce.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "dc7e5d59-620e-4974-b455-812a1cc40f77",
+      "category": "album",
+      "text": "The song appears on the album \"B'Day\" (2006).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-1pmtrb"
+    },
+    {
+      "id": "7603d597-e99b-4418-ab19-a05dcb528336",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR241321.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-1pmtrb"
+    },
+    {
+      "id": "d704f554-f076-4e69-99f7-7e29a3f38a59",
+      "category": "chart",
+      "text": "The song peaked at #11 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "d074e300-5e94-416f-b665-8e0a4febca86",
+      "category": "recording",
+      "text": "Ring The Alarm was released in 2006.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "9180681b-ac73-445a-99e7-e2fb8d499869",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR241321 (Ring The Alarm).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "4e06f8cc-2513-43a1-8f28-1b57d8bc0695",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "334b390a-56de-42aa-a689-e64d8a7c0e8d",
+      "category": "trivia",
+      "text": "Artist: Beyonce · Title: Ring The Alarm · Album: Beyoncé - Ring The Alarm · Year: 2006 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-32nj7e"
+    },
+    {
+      "id": "07743d69-f24b-41e2-97a7-077069076fc5",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-32nj7e"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T07:28:30.325Z",
+      "excerpt": "Retroverse track identity: RVTR241321. \"Ring The Alarm\" by Beyonce. Album: B'Day (2006).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+      "capturedAt": "2026-06-28T07:28:30.325Z",
+      "excerpt": "Canonical cover assignment for RVTR241321 (Ring The Alarm). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T07:28:30.325Z",
+      "excerpt": "Album: B'Day (2006). Billboard Hot 100 peak: #11. 14 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T07:28:30.325Z",
+      "excerpt": "Artist: Beyonce · Title: Ring The Alarm · Album: Beyoncé - Ring The Alarm · Year: 2006 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T07:28:30.325Z",
+      "excerpt": "Performance year context: 2006.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-2b420a8c",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T07:28:30.325Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Beyonce — Ring The Alarm · Hot 100 peak #11 · 14 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 2006 / recording 2006",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR241321",
+      "artist": "Beyonce",
+      "title": "Ring The Alarm",
+      "year": 2006,
+      "albumTitle": "B'Day"
+    },
+    "charts": {
+      "peakHot100": 11,
+      "chartWeeks": 14,
+      "albumTitle": "B'Day",
+      "summary": "Hot 100 peak #11 · 14 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Beyonce"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T07:28:30.325Z",
+          "excerpt": "Retroverse track identity: RVTR241321. \"Ring The Alarm\" by Beyonce. Album: B'Day (2006).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+          "capturedAt": "2026-06-28T07:28:30.325Z",
+          "excerpt": "Canonical cover assignment for RVTR241321 (Ring The Alarm). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T07:28:30.325Z",
+          "excerpt": "Album: B'Day (2006). Billboard Hot 100 peak: #11. 14 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T07:28:30.325Z",
+          "excerpt": "Artist: Beyonce · Title: Ring The Alarm · Album: Beyoncé - Ring The Alarm · Year: 2006 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T07:28:30.325Z",
+          "excerpt": "Performance year context: 2006.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-2b420a8c",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T07:28:30.325Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Beyonce — Ring The Alarm · Hot 100 peak #11 · 14 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "bed2498d-d471-43e5-b9ca-0d855afe5395",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR241321.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "01fce28d-ff0e-4479-8551-a054a58e8fce",
+        "category": "artist",
+        "text": "Ring The Alarm is performed by Beyonce.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "dc7e5d59-620e-4974-b455-812a1cc40f77",
+        "category": "album",
+        "text": "The song appears on the album \"B'Day\" (2006).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-1pmtrb"
+      },
+      {
+        "id": "7603d597-e99b-4418-ab19-a05dcb528336",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR241321.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-1pmtrb"
+      },
+      {
+        "id": "d704f554-f076-4e69-99f7-7e29a3f38a59",
+        "category": "chart",
+        "text": "The song peaked at #11 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "d074e300-5e94-416f-b665-8e0a4febca86",
+        "category": "recording",
+        "text": "Ring The Alarm was released in 2006.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "9180681b-ac73-445a-99e7-e2fb8d499869",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR241321 (Ring The Alarm).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "4e06f8cc-2513-43a1-8f28-1b57d8bc0695",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "334b390a-56de-42aa-a689-e64d8a7c0e8d",
+        "category": "trivia",
+        "text": "Artist: Beyonce · Title: Ring The Alarm · Album: Beyoncé - Ring The Alarm · Year: 2006 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-32nj7e"
+      },
+      {
+        "id": "07743d69-f24b-41e2-97a7-077069076fc5",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-32nj7e"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL086316/RVAL086316__beyonce__b-day.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-32nj7e",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "durationSec": 202.7034,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "2508e0a2591c",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 0,
+              "width": 698,
+              "height": 466,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T07:28:31.378Z"
+            },
+            {
+              "id": "36a37e4c7568",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 40,
+              "width": 698,
+              "height": 466,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T07:28:31.378Z"
+            },
+            {
+              "id": "8e3bb84bd25e",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 100,
+              "width": 698,
+              "height": 466,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T07:28:31.378Z"
+            },
+            {
+              "id": "f18cab03e640",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 160,
+              "width": 698,
+              "height": 466,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T07:28:31.378Z"
+            },
+            {
+              "id": "1b0b78e58827",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 200,
+              "width": 698,
+              "height": 466,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T07:28:31.378Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2006. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2006,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2006",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Beyonce's \"Ring The Alarm\" reached #11 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Ring The Alarm is performed by Beyonce.",
+      "The song appears on the album \"B'Day\" (2006).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR241321."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #11 on the Hot 100",
+      "Song release — original 2006 chapter",
+      "Performance angle — Official Video (2006)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR241321",
+    "artist": "Beyonce",
+    "title": "Ring The Alarm",
+    "writers": [],
+    "originalReleaseYear": 2006,
+    "originalAlbum": "B'Day",
+    "peakHot100": 11,
+    "chartWeeks": 14,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Beyonce"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-1pmtrb",
+      "kind": "studio_album",
+      "title": "B'Day",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "B'Day",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2006,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-32nj7e",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2006,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 202.7034,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2006. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2006",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-h37f5m",
+        "domain": "song",
+        "kind": "release",
+        "year": 2006,
+        "label": "Ring The Alarm — original release",
+        "detail": "Original album: B'Day",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3fq",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2006,
+        "label": "Billboard Hot 100 peak #11",
+        "detail": "14 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-36bwpv",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2006,
+        "label": "B'Day",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-1pmtrb"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2006,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-32nj7e"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2006,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2006,
+      "label": "Album: B'Day",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2006,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR241321",
+      "artist": "Beyonce",
+      "title": "Ring The Alarm",
+      "writers": [],
+      "originalReleaseYear": 2006,
+      "originalAlbum": "B'Day",
+      "peakHot100": 11,
+      "chartWeeks": 14,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Beyonce"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-1pmtrb",
+        "kind": "studio_album",
+        "title": "B'Day",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "B'Day",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2006,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-32nj7e",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Beyonce - Ring The Alarm.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2006,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 202.7034,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2006. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2006",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-h37f5m",
+          "domain": "song",
+          "kind": "release",
+          "year": 2006,
+          "label": "Ring The Alarm — original release",
+          "detail": "Original album: B'Day",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3fq",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2006,
+          "label": "Billboard Hot 100 peak #11",
+          "detail": "14 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-36bwpv",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2006,
+          "label": "B'Day",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-1pmtrb"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2006,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-32nj7e"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2006,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2006,
+        "label": "Album: B'Day",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2006,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR147753",
+  "artist": "Lipps, Inc",
+  "title": "Funkytown",
+  "story": {
+    "headline": "Funkytown: The Breakthrough Moment",
+    "subtitle": "Lipps, Inc · Breakthrough · 1980",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+    "summary": "Lipps, Inc's \"Funkytown\" reached #1 on the Billboard Hot 100. Funkytown was released in 1980.",
+    "fullStory": "Lipps, Inc's \"Funkytown\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 23 weeks on the chart.\n\nFunkytown was released in 1980.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "4bdfbbb3-cde5-4008-b620-698771e9d51e",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "495027c0-7fb9-4512-827b-11dbe522e37e",
+      "text": "Funkytown was released in 1980.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "c044df96-c4dd-433c-aaeb-4ca4550a5946",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "170654a02b0b",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR147753&file=performance.jpg",
+      "performanceId": "perf-altud5"
+    },
+    {
+      "assetId": "62f0716da28e",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR147753&file=hero.jpg",
+      "performanceId": "perf-altud5"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-altud5",
+    "title": "Dancers · 1981",
+    "venue": "Dancers",
+    "year": 1981,
+    "notes": "Recommended cut — Recommended: Dancers. venue context (Dancers) adds place and moment. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "170654a02b0b",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR147753&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "62f0716da28e",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR147753&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+    "closing": "Lipps, Inc's \"Funkytown\" reached #1 on the Billboard Hot 100. Funkytown was released in 1980.",
+    "storyBeats": [
+      {
+        "id": "beat-8c9791c926",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Funkytown\" — original release 1980. Lipps, Inc — \"Funkytown\" · Original release 1980 · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "170654a02b0b",
+          "62f0716da28e"
+        ],
+        "relatedPerformanceId": "perf-altud5",
+        "priority": 1
+      },
+      {
+        "id": "beat-72172b394f",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Funkytown — graph recording · Release 1980",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "170654a02b0b",
+          "62f0716da28e"
+        ],
+        "relatedPerformanceId": "perf-altud5",
+        "priority": 2
+      },
+      {
+        "id": "beat-2d51ca87b6",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 23 weeks on chart.",
+        "supportingFactIds": [
+          "4bdfbbb3-cde5-4008-b620-698771e9d51e"
+        ],
+        "relatedImageAssetIds": [
+          "170654a02b0b",
+          "62f0716da28e"
+        ],
+        "relatedPerformanceId": "perf-altud5",
+        "priority": 3
+      },
+      {
+        "id": "beat-3ae3794f59",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "170654a02b0b",
+          "62f0716da28e"
+        ],
+        "relatedPerformanceId": "perf-altud5",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-049c1f8bdb",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1980,
+        "supportingFactIds": [
+          "4bdfbbb3-cde5-4008-b620-698771e9d51e"
+        ],
+        "relatedImageAssetIds": [
+          "170654a02b0b"
+        ]
+      },
+      {
+        "id": "moment-fc639fee9b",
+        "title": "Dancers",
+        "description": "Recommended: Dancers. venue context (Dancers) adds place and moment. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the nar",
+        "kind": "featured_performance",
+        "year": 1981,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "170654a02b0b"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-altud5",
+      "title": "Dancers · 1981",
+      "reason": "Recommended: Dancers. venue context (Dancers) adds place and moment. 5 curated visual frames for cards and hero art. dated 1981 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:43:32.976Z"
+  },
+  "submittedAt": "2026-06-27T05:43:32.976Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

@@ -9,6 +9,8 @@ export {
   researchDepartmentRoot,
   collectorSongDir,
   collectorOutputPath,
+  collectorVisualIdentityPath,
+  collectorSongDnaPath,
   collectorTempDir,
   collectorVisualAssetsDir,
   collectorProgressPath,

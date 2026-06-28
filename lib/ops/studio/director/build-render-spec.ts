@@ -25,6 +25,18 @@ import { readinessIsBlocking } from "./template-downgrade";
 import type { DirectorReview, ExperiencePlan, ExperienceScene } from "./types";
 
 function globalPresentation(plan: ExperiencePlan): GlobalPresentationSettings {
+  const isMuseum = plan.templateLibraryVersion === "museum-2.0";
+  if (isMuseum) {
+    return {
+      backgroundTreatment: "museum_dark",
+      typographyProfile: "editorial_minimal",
+      colorTheme: "museum",
+      pacingProfile: plan.visualRhythm,
+      imageTreatment: "cinematic_frame",
+      orientation: "portrait_compatible",
+    };
+  }
+
   const style = plan.presentationStyle;
   const bgByStyle: Record<string, string> = {
     documentary: "warm_paper_documentary",

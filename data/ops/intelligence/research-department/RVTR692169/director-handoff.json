@@ -1,0 +1,186 @@
+{
+  "version": 2,
+  "rvtr": "RVTR692169",
+  "artist": "Wild Cherry",
+  "title": "Play That Funky Music",
+  "story": {
+    "headline": "Play That Funky Music: The Performance That Defined It",
+    "subtitle": "Wild Cherry · Live Performance · 1976",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+    "summary": "Wild Cherry's \"Play That Funky Music\" reached #1 on the Billboard Hot 100. Play That Funky Music was released in 1976.",
+    "fullStory": "Wild Cherry's \"Play That Funky Music\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.\n\nPlay That Funky Music was released in 1976.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "db71413f-0c8d-4205-99b2-0a587e97b757",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "fc69f474-419f-4d47-8735-bbbb9e64fc79",
+      "text": "Play That Funky Music was released in 1976.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9a6a0a90-d44b-4ecf-84d1-c2b877e56e90",
+      "text": "The song appears on the album \"Wild Cherry\" (1976).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "92085eaf-e2f4-4ba3-92ab-a652f5d2fe40",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "77ba1ba0-9da9-4590-9de6-1e5423b3f3cd",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "f6e19df40417",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR692169&file=hero.jpg",
+      "performanceId": "perf-e1v9jj"
+    },
+    {
+      "assetId": "5c2683582f3c",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR692169&file=performance.jpg",
+      "performanceId": "perf-e1v9jj"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-e1v9jj",
+    "title": "Official Video · 1976",
+    "venue": "",
+    "year": 1976,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1976 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "f6e19df40417",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR692169&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "5c2683582f3c",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR692169&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 25 weeks on the chart.",
+    "closing": "Wild Cherry's \"Play That Funky Music\" reached #1 on the Billboard Hot 100. Play That Funky Music was released in 1976.",
+    "storyBeats": [
+      {
+        "id": "beat-c45243ac12",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Official Video (1976).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "f6e19df40417",
+          "5c2683582f3c"
+        ],
+        "relatedPerformanceId": "perf-e1v9jj",
+        "priority": 1
+      },
+      {
+        "id": "beat-fb1be6a652",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"Play That Funky Music\" entered the world in 1976.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "f6e19df40417",
+          "5c2683582f3c"
+        ],
+        "relatedPerformanceId": "perf-e1v9jj",
+        "priority": 2
+      },
+      {
+        "id": "beat-80821c87b2",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 25 weeks on chart.",
+        "supportingFactIds": [
+          "db71413f-0c8d-4205-99b2-0a587e97b757"
+        ],
+        "relatedImageAssetIds": [
+          "f6e19df40417",
+          "5c2683582f3c"
+        ],
+        "relatedPerformanceId": "perf-e1v9jj",
+        "priority": 3
+      },
+      {
+        "id": "beat-b53bcba55a",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "f6e19df40417",
+          "5c2683582f3c"
+        ],
+        "relatedPerformanceId": "perf-e1v9jj",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-a50498f377",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1976,
+        "supportingFactIds": [
+          "db71413f-0c8d-4205-99b2-0a587e97b757"
+        ],
+        "relatedImageAssetIds": [
+          "f6e19df40417"
+        ]
+      },
+      {
+        "id": "moment-324a93f98f",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1976,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "f6e19df40417"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-e1v9jj",
+      "title": "Official Video · 1976",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1976 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:59:50.088Z"
+  },
+  "submittedAt": "2026-06-27T04:59:50.088Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

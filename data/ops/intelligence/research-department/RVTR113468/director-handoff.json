@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR113468",
+  "artist": "Bill Withers",
+  "title": "Lean On Me",
+  "story": {
+    "headline": "Lean On Me: A Cultural Moment Captured on Record",
+    "subtitle": "Bill Withers · Cultural Moment",
+    "hook": "Lean On Me is performed by Bill Withers.",
+    "summary": "Bill Withers's \"Lean On Me\" — original release 1973.",
+    "fullStory": "Bill Withers's \"Lean On Me\" — original release 1973.\n\nSong release — original 1973 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "ce03eab6-1655-4b4b-a7ff-7bb09b707662",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "e909d985b531",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR113468&file=hero.jpg",
+      "performanceId": "perf-dpnkas"
+    },
+    {
+      "assetId": "815b34c628ad",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR113468&file=performance.jpg",
+      "performanceId": "perf-dpnkas"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-dpnkas",
+    "title": "Official Video · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "e909d985b531",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR113468&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "815b34c628ad",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR113468&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Lean On Me is performed by Bill Withers.",
+    "closing": "Bill Withers's \"Lean On Me\" — original release 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-9f4eb1fb57",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Lean On Me\" — original release 1973. Bill Withers — \"Lean On Me\" · Original release 1973",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e909d985b531",
+          "815b34c628ad"
+        ],
+        "relatedPerformanceId": "perf-dpnkas",
+        "priority": 1
+      },
+      {
+        "id": "beat-fc3a4eadc3",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e909d985b531",
+          "815b34c628ad"
+        ],
+        "relatedPerformanceId": "perf-dpnkas",
+        "priority": 2
+      },
+      {
+        "id": "beat-5fe110f980",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e909d985b531",
+          "815b34c628ad"
+        ],
+        "relatedPerformanceId": "perf-dpnkas",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-43b96a8734",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e909d985b531"
+        ]
+      },
+      {
+        "id": "moment-43b96a8734",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e909d985b531"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-dpnkas",
+      "title": "Official Video · 1973",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Lean On Me is performed by Bill Withers.\""
+    },
+    "generatedAt": "2026-06-27T05:56:30.503Z"
+  },
+  "submittedAt": "2026-06-27T05:56:30.503Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

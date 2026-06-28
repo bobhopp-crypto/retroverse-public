@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR100757",
+  "artist": "Next",
+  "title": "Too Close",
+  "story": {
+    "headline": "Too Close: The Breakthrough Moment",
+    "subtitle": "Next · Breakthrough · 1997",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 53 weeks on the chart.",
+    "summary": "Next's \"Too Close\" reached #1 on the Billboard Hot 100. Too Close was released in 1997.",
+    "fullStory": "Next's \"Too Close\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 53 weeks on the chart.\n\nToo Close was released in 1997.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "0d446ba0-fcbc-4699-bda3-ace7fd272661",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 53 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ca2fa524-6db6-4642-8d12-1131404c2ec3",
+      "text": "Too Close was released in 1997.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "6519b1b8-4cc2-40de-b926-a9cacbb32c35",
+      "text": "The song appears on the album \"Rated Next\" (1997).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "faf00426-9d0a-4e59-8e98-5115b1722f90",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3c45d004-f87f-4a8d-b869-ac191002db92",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "d88f932f1828",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR100757&file=hero.jpg",
+      "performanceId": "perf-ajfazn"
+    },
+    {
+      "assetId": "62d9aeb41e2d",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR100757&file=performance.jpg",
+      "performanceId": "perf-ajfazn"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ajfazn",
+    "title": "Official Video · 1988",
+    "venue": "",
+    "year": 1988,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "d88f932f1828",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR100757&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "62d9aeb41e2d",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR100757&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 53 weeks on the chart.",
+    "closing": "Next's \"Too Close\" reached #1 on the Billboard Hot 100. Too Close was released in 1997.",
+    "storyBeats": [
+      {
+        "id": "beat-69f66fb955",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Too Close\" — original release 1997. Next — \"Too Close\" · Original release 1997 · Album: Rated Next · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d88f932f1828",
+          "62d9aeb41e2d"
+        ],
+        "relatedPerformanceId": "perf-ajfazn",
+        "priority": 1
+      },
+      {
+        "id": "beat-7c4256dbde",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Rated Next · Release 1997",
+        "supportingFactIds": [
+          "6519b1b8-4cc2-40de-b926-a9cacbb32c35"
+        ],
+        "relatedImageAssetIds": [
+          "d88f932f1828",
+          "62d9aeb41e2d"
+        ],
+        "relatedPerformanceId": "perf-ajfazn",
+        "priority": 2
+      },
+      {
+        "id": "beat-09f7afc684",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 53 weeks on chart.",
+        "supportingFactIds": [
+          "0d446ba0-fcbc-4699-bda3-ace7fd272661"
+        ],
+        "relatedImageAssetIds": [
+          "d88f932f1828",
+          "62d9aeb41e2d"
+        ],
+        "relatedPerformanceId": "perf-ajfazn",
+        "priority": 3
+      },
+      {
+        "id": "beat-c83ddcdf4b",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d88f932f1828",
+          "62d9aeb41e2d"
+        ],
+        "relatedPerformanceId": "perf-ajfazn",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-d7664f5ced",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1997,
+        "supportingFactIds": [
+          "0d446ba0-fcbc-4699-bda3-ace7fd272661"
+        ],
+        "relatedImageAssetIds": [
+          "d88f932f1828"
+        ]
+      },
+      {
+        "id": "moment-760a9def9a",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1988,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d88f932f1828"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-ajfazn",
+      "title": "Official Video · 1988",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1988 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:32:20.206Z"
+  },
+  "submittedAt": "2026-06-27T04:32:20.206Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

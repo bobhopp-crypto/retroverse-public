@@ -1,0 +1,194 @@
+{
+  "version": 2,
+  "rvtr": "RVTR283044",
+  "artist": "The Guess Who",
+  "title": "These Eyes",
+  "story": {
+    "headline": "These Eyes: The Breakthrough Moment",
+    "subtitle": "The Guess Who · Breakthrough · 1969",
+    "hook": "The song peaked at #6 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "summary": "The Guess Who's \"These Eyes\" reached #6 on the Billboard Hot 100. These Eyes was released in 1969.",
+    "fullStory": "The Guess Who's \"These Eyes\" reached #6 on the Billboard Hot 100.\n\nThe song peaked at #6 on the Billboard Hot 100 and spent 14 weeks on the chart.\n\nThese Eyes was released in 1969.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #6 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "c0f6cbf1-303a-4d3e-8f7d-0a6c865e2df1",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0829d17e-c71d-4ad7-818d-c86e5d8641cb",
+      "text": "These Eyes was released in 1969.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "cdddfef1-6c1f-491d-b11d-ff018dc14b53",
+      "text": "The song appears on the album \"Wheatfield Soul\" (1969).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "45f59c28-046e-49ba-bb80-2709388a69f9",
+      "text": "VirtualDJ library play count: 33.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a3e214e8-83d3-4e0e-bb2f-897a33982151",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "945c8791-2a53-4f3d-9c75-836d6da65642",
+      "text": "Artist: Guess Who · Title: These Eyes · Album: The Guess Who?",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "d0306a56dbad",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283044&file=performance.jpg",
+      "performanceId": "perf-fat84x"
+    },
+    {
+      "assetId": "598c7780066a",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283044&file=hero.jpg",
+      "performanceId": "perf-fat84x"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-fat84x",
+    "title": "Official Video · 1969",
+    "venue": "",
+    "year": 1969,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "d0306a56dbad",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283044&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "598c7780066a",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR283044&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #6 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "closing": "The Guess Who's \"These Eyes\" reached #6 on the Billboard Hot 100. These Eyes was released in 1969.",
+    "storyBeats": [
+      {
+        "id": "beat-2e39e04868",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"These Eyes\" — original release 1969. The Guess Who — \"These Eyes\" · Original release 1969 · Album: Wheatfield Soul · Hot 100 peak #6",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d0306a56dbad",
+          "598c7780066a"
+        ],
+        "relatedPerformanceId": "perf-fat84x",
+        "priority": 1
+      },
+      {
+        "id": "beat-9dcc989834",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Wheatfield Soul · Release 1969",
+        "supportingFactIds": [
+          "cdddfef1-6c1f-491d-b11d-ff018dc14b53",
+          "945c8791-2a53-4f3d-9c75-836d6da65642"
+        ],
+        "relatedImageAssetIds": [
+          "d0306a56dbad",
+          "598c7780066a"
+        ],
+        "relatedPerformanceId": "perf-fat84x",
+        "priority": 2
+      },
+      {
+        "id": "beat-98fce760bd",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #6 · 14 weeks on chart.",
+        "supportingFactIds": [
+          "c0f6cbf1-303a-4d3e-8f7d-0a6c865e2df1"
+        ],
+        "relatedImageAssetIds": [
+          "d0306a56dbad",
+          "598c7780066a"
+        ],
+        "relatedPerformanceId": "perf-fat84x",
+        "priority": 3
+      },
+      {
+        "id": "beat-650a181692",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d0306a56dbad",
+          "598c7780066a"
+        ],
+        "relatedPerformanceId": "perf-fat84x",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-cde323b5e1",
+        "title": "Chart milestone",
+        "description": "Peaked at #6 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1969,
+        "supportingFactIds": [
+          "c0f6cbf1-303a-4d3e-8f7d-0a6c865e2df1"
+        ],
+        "relatedImageAssetIds": [
+          "d0306a56dbad"
+        ]
+      },
+      {
+        "id": "moment-d32147b233",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1969,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d0306a56dbad"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-fat84x",
+      "title": "Official Video · 1969",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #6 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:09.002Z"
+  },
+  "submittedAt": "2026-06-27T04:20:09.002Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

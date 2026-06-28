@@ -1,0 +1,1023 @@
+{
+  "version": 4,
+  "rvtr": "RVTR063890",
+  "artist": "Jefferson Starship",
+  "title": "Jane",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T01:19:31.480Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Jefferson Starship — Jane (RVTR063890)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #14 · 15 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "11 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR063890",
+    "artist": "Jefferson Starship",
+    "title": "Jane",
+    "year": 1979,
+    "albumTitle": "Freedom At Point Zero"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+    "playCount": 2,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+        "artist": "Jefferson Starship",
+        "title": "Jane",
+        "isVideo": true,
+        "playCount": 2,
+        "year": 1979,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 14,
+    "chartWeeks": 15,
+    "albumTitle": "Freedom At Point Zero",
+    "summary": "Hot 100 peak #14 · 15 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+        "artist": "Jefferson Starship",
+        "title": "Jane",
+        "isVideo": true,
+        "playCount": 2,
+        "year": 1979,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+      "crowd.jpg",
+      "hero.jpg",
+      "alternate.jpg",
+      "close-up.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "30af56627839",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 20,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T01:19:31.478Z"
+        },
+        {
+          "id": "72646ed3088e",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 60,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T01:19:31.478Z"
+        },
+        {
+          "id": "a77084d6ce5e",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 120,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T01:19:31.478Z"
+        },
+        {
+          "id": "05460a1c24d9",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 180,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T01:19:31.478Z"
+        },
+        {
+          "id": "d3a8fe29ff86",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 240,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T01:19:31.478Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Jefferson Starship"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "2f7739c6-2a49-4bf1-9fd3-b0b1e437e49d",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR063890.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "c22eb180-de83-499f-af38-251cecd1dd3b",
+      "category": "artist",
+      "text": "Jane is performed by Jefferson Starship.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "c72b39cb-79f9-401c-b668-5d1e71c4df7e",
+      "category": "album",
+      "text": "The song appears on the album \"Freedom At Point Zero\" (1979).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-puc7h3"
+    },
+    {
+      "id": "408ba341-81ae-442a-957b-a52771ac4adb",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR063890.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-puc7h3"
+    },
+    {
+      "id": "06d02aa5-9f2a-404e-940b-5c5b6f1daf9d",
+      "category": "chart",
+      "text": "The song peaked at #14 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "a789fece-5389-44d5-8cdc-0bf8885a53c2",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 2.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-ly8r0u"
+    },
+    {
+      "id": "2e4d14e5-8140-4243-bacb-2e395e474c73",
+      "category": "recording",
+      "text": "Jane was released in 1979.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "fccc002f-1d31-4833-bf24-06381412f4d4",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR063890 (Jane).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "7804eb16-26db-4a2d-976b-f3da67fa0474",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "cd0e1ed8-97b7-4aee-84b4-ac1a920ae6b7",
+      "category": "trivia",
+      "text": "Artist: Jefferson Starship · Title: Jane · Album: Jane · Year: 1979 · Genre: Rock · PlayCount: 2 · LastPlayed: 1772426960 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-ly8r0u"
+    },
+    {
+      "id": "82c90fee-a2c9-4f8f-ba0f-a235d30d0eb3",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4 · Plays: 2",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-ly8r0u"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T01:19:30.286Z",
+      "excerpt": "Retroverse track identity: RVTR063890. \"Jane\" by Jefferson Starship. Album: Freedom At Point Zero (1979).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+      "capturedAt": "2026-06-28T01:19:30.286Z",
+      "excerpt": "Canonical cover assignment for RVTR063890 (Jane). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T01:19:30.286Z",
+      "excerpt": "Album: Freedom At Point Zero (1979). Billboard Hot 100 peak: #14. 15 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T01:19:30.286Z",
+      "excerpt": "Artist: Jefferson Starship · Title: Jane · Album: Jane · Year: 1979 · Genre: Rock · PlayCount: 2 · LastPlayed: 1772426960 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T01:19:30.286Z",
+      "excerpt": "Performance year context: 1979.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-8c932c51",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T01:19:30.286Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4 · Plays: 2",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Jefferson Starship — Jane · Hot 100 peak #14 · 15 weeks · 1 performance videos · 11 candidate facts · 3 gaps · 1 performance(s) · 8/11 facts approved · confidence 63% · song 1979 / recording 1979",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR063890",
+      "artist": "Jefferson Starship",
+      "title": "Jane",
+      "year": 1979,
+      "albumTitle": "Freedom At Point Zero"
+    },
+    "charts": {
+      "peakHot100": 14,
+      "chartWeeks": 15,
+      "albumTitle": "Freedom At Point Zero",
+      "summary": "Hot 100 peak #14 · 15 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Jefferson Starship"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T01:19:30.286Z",
+          "excerpt": "Retroverse track identity: RVTR063890. \"Jane\" by Jefferson Starship. Album: Freedom At Point Zero (1979).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+          "capturedAt": "2026-06-28T01:19:30.286Z",
+          "excerpt": "Canonical cover assignment for RVTR063890 (Jane). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T01:19:30.286Z",
+          "excerpt": "Album: Freedom At Point Zero (1979). Billboard Hot 100 peak: #14. 15 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T01:19:30.286Z",
+          "excerpt": "Artist: Jefferson Starship · Title: Jane · Album: Jane · Year: 1979 · Genre: Rock · PlayCount: 2 · LastPlayed: 1772426960 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T01:19:30.286Z",
+          "excerpt": "Performance year context: 1979.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-8c932c51",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T01:19:30.286Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4 · Plays: 2",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Jefferson Starship — Jane · Hot 100 peak #14 · 15 weeks · 1 performance videos · 11 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "2f7739c6-2a49-4bf1-9fd3-b0b1e437e49d",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR063890.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "c22eb180-de83-499f-af38-251cecd1dd3b",
+        "category": "artist",
+        "text": "Jane is performed by Jefferson Starship.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "c72b39cb-79f9-401c-b668-5d1e71c4df7e",
+        "category": "album",
+        "text": "The song appears on the album \"Freedom At Point Zero\" (1979).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-puc7h3"
+      },
+      {
+        "id": "408ba341-81ae-442a-957b-a52771ac4adb",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR063890.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-puc7h3"
+      },
+      {
+        "id": "06d02aa5-9f2a-404e-940b-5c5b6f1daf9d",
+        "category": "chart",
+        "text": "The song peaked at #14 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "a789fece-5389-44d5-8cdc-0bf8885a53c2",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 2.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-ly8r0u"
+      },
+      {
+        "id": "2e4d14e5-8140-4243-bacb-2e395e474c73",
+        "category": "recording",
+        "text": "Jane was released in 1979.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "fccc002f-1d31-4833-bf24-06381412f4d4",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR063890 (Jane).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "7804eb16-26db-4a2d-976b-f3da67fa0474",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "cd0e1ed8-97b7-4aee-84b4-ac1a920ae6b7",
+        "category": "trivia",
+        "text": "Artist: Jefferson Starship · Title: Jane · Album: Jane · Year: 1979 · Genre: Rock · PlayCount: 2 · LastPlayed: 1772426960 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-ly8r0u"
+      },
+      {
+        "id": "82c90fee-a2c9-4f8f-ba0f-a235d30d0eb3",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4 · Plays: 2",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-ly8r0u"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL589814/RVAL589814__jefferson-starship__freedom-at-point-zero.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-ly8r0u",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+      "durationSec": 260.365351,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "30af56627839",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 20,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T01:19:31.478Z"
+            },
+            {
+              "id": "72646ed3088e",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 60,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T01:19:31.478Z"
+            },
+            {
+              "id": "a77084d6ce5e",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 120,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T01:19:31.478Z"
+            },
+            {
+              "id": "05460a1c24d9",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 180,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T01:19:31.478Z"
+            },
+            {
+              "id": "d3a8fe29ff86",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 240,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T01:19:31.478Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1979. VirtualDJ play count: 2. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1979,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1979",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Jefferson Starship's \"Jane\" reached #14 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Jane is performed by Jefferson Starship.",
+      "The song appears on the album \"Freedom At Point Zero\" (1979).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR063890."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #14 on the Hot 100",
+      "Song release — original 1979 chapter",
+      "Performance angle — Official Video (1979)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR063890",
+    "artist": "Jefferson Starship",
+    "title": "Jane",
+    "writers": [],
+    "originalReleaseYear": 1979,
+    "originalAlbum": "Freedom At Point Zero",
+    "peakHot100": 14,
+    "chartWeeks": 15,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Jefferson Starship"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-puc7h3",
+      "kind": "studio_album",
+      "title": "Freedom At Point Zero",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Freedom At Point Zero",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1979,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-ly8r0u",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1979,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 260.365351,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1979. VirtualDJ play count: 2. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1979",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-82zzpe",
+        "domain": "song",
+        "kind": "release",
+        "year": 1979,
+        "label": "Jane — original release",
+        "detail": "Original album: Freedom At Point Zero",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3ft",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1979,
+        "label": "Billboard Hot 100 peak #14",
+        "detail": "15 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-1d8raf",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1979,
+        "label": "Freedom At Point Zero",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-puc7h3"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1979,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-ly8r0u"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1979,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1979,
+      "label": "Album: Freedom At Point Zero",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1979,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR063890",
+      "artist": "Jefferson Starship",
+      "title": "Jane",
+      "writers": [],
+      "originalReleaseYear": 1979,
+      "originalAlbum": "Freedom At Point Zero",
+      "peakHot100": 14,
+      "chartWeeks": 15,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Jefferson Starship"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-puc7h3",
+        "kind": "studio_album",
+        "title": "Freedom At Point Zero",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Freedom At Point Zero",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1979,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-ly8r0u",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Jefferson Starship - Jane.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1979,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 260.365351,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1979. VirtualDJ play count: 2. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1979",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-82zzpe",
+          "domain": "song",
+          "kind": "release",
+          "year": 1979,
+          "label": "Jane — original release",
+          "detail": "Original album: Freedom At Point Zero",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3ft",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1979,
+          "label": "Billboard Hot 100 peak #14",
+          "detail": "15 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-1d8raf",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1979,
+          "label": "Freedom At Point Zero",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-puc7h3"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1979,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-ly8r0u"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1979,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1979,
+        "label": "Album: Freedom At Point Zero",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1979,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

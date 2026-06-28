@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR846839",
+  "artist": "Eddie Money",
+  "title": "Shakin'",
+  "story": {
+    "headline": "Shakin': A Cultural Moment Captured on Record",
+    "subtitle": "Eddie Money · Cultural Moment · 1982",
+    "hook": "The song peaked at #63 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+    "summary": "Eddie Money's \"Shakin'\" reached #63 on the Billboard Hot 100. Shakin' was released in 1982.",
+    "fullStory": "Eddie Money's \"Shakin'\" reached #63 on the Billboard Hot 100.\n\nThe song peaked at #63 on the Billboard Hot 100 and spent 9 weeks on the chart.\n\nShakin' was released in 1982.\n\nChart story — peaked at #63 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "33ffcc25-b326-449b-a958-344fadd32f83",
+      "text": "The song peaked at #63 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "26c23733-18f2-4818-9883-c9265b7f5502",
+      "text": "Shakin' was released in 1982.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7ec5f5b6-b7d6-481f-83fa-23e7c70e059a",
+      "text": "VirtualDJ library play count: 9.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "714c523dfe02",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR846839&file=performance.jpg",
+      "performanceId": "perf-ya1yht"
+    },
+    {
+      "assetId": "68f9c0da5091",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR846839&file=hero.jpg",
+      "performanceId": "perf-ya1yht"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ya1yht",
+    "title": "Official Video · 1982",
+    "venue": "",
+    "year": 1982,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "714c523dfe02",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR846839&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "68f9c0da5091",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR846839&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #63 on the Billboard Hot 100 and spent 9 weeks on the chart.",
+    "closing": "Eddie Money's \"Shakin'\" reached #63 on the Billboard Hot 100. Shakin' was released in 1982.",
+    "storyBeats": [
+      {
+        "id": "beat-d24874f68f",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Shakin'\" — original release 1982. Eddie Money — \"Shakin'\" · Original release 1982 · Hot 100 peak #63",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "714c523dfe02",
+          "68f9c0da5091"
+        ],
+        "relatedPerformanceId": "perf-ya1yht",
+        "priority": 1
+      },
+      {
+        "id": "beat-37c80ad79e",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Shakin' — graph recording · Release 1982",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "714c523dfe02",
+          "68f9c0da5091"
+        ],
+        "relatedPerformanceId": "perf-ya1yht",
+        "priority": 2
+      },
+      {
+        "id": "beat-e6430a29a1",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #63 · 9 weeks on chart.",
+        "supportingFactIds": [
+          "33ffcc25-b326-449b-a958-344fadd32f83"
+        ],
+        "relatedImageAssetIds": [
+          "714c523dfe02",
+          "68f9c0da5091"
+        ],
+        "relatedPerformanceId": "perf-ya1yht",
+        "priority": 3
+      },
+      {
+        "id": "beat-b41bea713c",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "714c523dfe02",
+          "68f9c0da5091"
+        ],
+        "relatedPerformanceId": "perf-ya1yht",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-a50fac8e78",
+        "title": "Chart milestone",
+        "description": "Peaked at #63 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1982,
+        "supportingFactIds": [
+          "33ffcc25-b326-449b-a958-344fadd32f83"
+        ],
+        "relatedImageAssetIds": [
+          "714c523dfe02"
+        ]
+      },
+      {
+        "id": "moment-d45630d394",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1982,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "714c523dfe02"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-ya1yht",
+      "title": "Official Video · 1982",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #63 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:45:29.018Z"
+  },
+  "submittedAt": "2026-06-27T04:45:29.019Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

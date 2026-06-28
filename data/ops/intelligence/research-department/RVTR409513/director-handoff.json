@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR409513",
+  "artist": "Supertramp",
+  "title": "Goodbye Stranger",
+  "story": {
+    "headline": "Goodbye Stranger: A Cultural Moment Captured on Record",
+    "subtitle": "Supertramp · Cultural Moment · 1979",
+    "hook": "The song peaked at #15 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "summary": "Supertramp's \"Goodbye Stranger\" reached #15 on the Billboard Hot 100. Goodbye Stranger was released in 1979.",
+    "fullStory": "Supertramp's \"Goodbye Stranger\" reached #15 on the Billboard Hot 100.\n\nThe song peaked at #15 on the Billboard Hot 100 and spent 14 weeks on the chart.\n\nGoodbye Stranger was released in 1979.\n\nChart story — peaked at #15 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "ba051927-0b69-4a04-9735-b8b00251b1a4",
+      "text": "The song peaked at #15 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "6e7935e6-d031-483c-a98f-207f0c77c199",
+      "text": "Goodbye Stranger was released in 1979.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "89d8f61c-3205-4d7e-9dbd-d55e95bdc8cc",
+      "text": "The song appears on the album \"Breakfast In America\" (1979).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ff181409-aa62-4c86-80cb-3d2630ea6269",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "8fd13e07b058",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR409513&file=performance.jpg",
+      "performanceId": "perf-gd8oxq"
+    },
+    {
+      "assetId": "21a74fec599c",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR409513&file=hero.jpg",
+      "performanceId": "perf-gd8oxq"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-gd8oxq",
+    "title": "Official Video · 1979",
+    "venue": "",
+    "year": 1979,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1979 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "8fd13e07b058",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR409513&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "21a74fec599c",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR409513&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #15 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "closing": "Supertramp's \"Goodbye Stranger\" reached #15 on the Billboard Hot 100. Goodbye Stranger was released in 1979.",
+    "storyBeats": [
+      {
+        "id": "beat-dd7fa405dc",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Goodbye Stranger\" — original release 1979. Supertramp — \"Goodbye Stranger\" · Original release 1979 · Album: Breakfast In America · Hot 100 peak #15",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8fd13e07b058",
+          "21a74fec599c"
+        ],
+        "relatedPerformanceId": "perf-gd8oxq",
+        "priority": 1
+      },
+      {
+        "id": "beat-dbe524b644",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Breakfast In America · Release 1979",
+        "supportingFactIds": [
+          "89d8f61c-3205-4d7e-9dbd-d55e95bdc8cc"
+        ],
+        "relatedImageAssetIds": [
+          "8fd13e07b058",
+          "21a74fec599c"
+        ],
+        "relatedPerformanceId": "perf-gd8oxq",
+        "priority": 2
+      },
+      {
+        "id": "beat-eacc5ebc84",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #15 · 14 weeks on chart.",
+        "supportingFactIds": [
+          "ba051927-0b69-4a04-9735-b8b00251b1a4"
+        ],
+        "relatedImageAssetIds": [
+          "8fd13e07b058",
+          "21a74fec599c"
+        ],
+        "relatedPerformanceId": "perf-gd8oxq",
+        "priority": 3
+      },
+      {
+        "id": "beat-eab9b90363",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8fd13e07b058",
+          "21a74fec599c"
+        ],
+        "relatedPerformanceId": "perf-gd8oxq",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-baf2d8f9ed",
+        "title": "Chart milestone",
+        "description": "Peaked at #15 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1979,
+        "supportingFactIds": [
+          "ba051927-0b69-4a04-9735-b8b00251b1a4"
+        ],
+        "relatedImageAssetIds": [
+          "8fd13e07b058"
+        ]
+      },
+      {
+        "id": "moment-abf9068ccf",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1979,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "8fd13e07b058"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-gd8oxq",
+      "title": "Official Video · 1979",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1979 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #15 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:24:44.250Z"
+  },
+  "submittedAt": "2026-06-27T05:24:44.250Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

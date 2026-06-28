@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR563699",
+  "artist": "Shaggy",
+  "title": "It Wasn't Me",
+  "story": {
+    "headline": "It Wasn't Me: The Breakthrough Moment",
+    "subtitle": "Shaggy · Breakthrough · 2000",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+    "summary": "Shaggy's \"It Wasn't Me\" reached #1 on the Billboard Hot 100. It Wasn't Me was released in 2000.",
+    "fullStory": "Shaggy's \"It Wasn't Me\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.\n\nIt Wasn't Me was released in 2000.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "0ce7a504-ce67-400b-bcb7-38253ba336cb",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "60fa308e-9806-4ca1-89df-7f81f4676d9c",
+      "text": "It Wasn't Me was released in 2000.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e52eb85a-29d5-4738-89e1-339cf98e6d46",
+      "text": "The song appears on the album \"Hotshot\" (2000).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "eb4b2de1-237a-49b9-a0ed-99cc39ec414b",
+      "text": "VirtualDJ library play count: 17.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "4ca043c0-8f7a-451f-a820-de0050afb6fd",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "7c0b6f6b3e85",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR563699&file=hero.jpg",
+      "performanceId": "perf-yn992d"
+    },
+    {
+      "assetId": "513be22664f3",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR563699&file=performance.jpg",
+      "performanceId": "perf-yn992d"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-yn992d",
+    "title": "Official Video · 2001",
+    "venue": "",
+    "year": 2001,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2001 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "7c0b6f6b3e85",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR563699&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "513be22664f3",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR563699&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+    "closing": "Shaggy's \"It Wasn't Me\" reached #1 on the Billboard Hot 100. It Wasn't Me was released in 2000.",
+    "storyBeats": [
+      {
+        "id": "beat-b21c1d6aa8",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"It Wasn't Me\" — original release 2000. Shaggy — \"It Wasn't Me\" · Original release 2000 · Album: Hotshot · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7c0b6f6b3e85",
+          "513be22664f3"
+        ],
+        "relatedPerformanceId": "perf-yn992d",
+        "priority": 1
+      },
+      {
+        "id": "beat-84052dbfb2",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Hotshot · Release 2000",
+        "supportingFactIds": [
+          "e52eb85a-29d5-4738-89e1-339cf98e6d46"
+        ],
+        "relatedImageAssetIds": [
+          "7c0b6f6b3e85",
+          "513be22664f3"
+        ],
+        "relatedPerformanceId": "perf-yn992d",
+        "priority": 2
+      },
+      {
+        "id": "beat-816ab8360d",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 24 weeks on chart.",
+        "supportingFactIds": [
+          "0ce7a504-ce67-400b-bcb7-38253ba336cb"
+        ],
+        "relatedImageAssetIds": [
+          "7c0b6f6b3e85",
+          "513be22664f3"
+        ],
+        "relatedPerformanceId": "perf-yn992d",
+        "priority": 3
+      },
+      {
+        "id": "beat-26b94613f0",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7c0b6f6b3e85",
+          "513be22664f3"
+        ],
+        "relatedPerformanceId": "perf-yn992d",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-4d874520d5",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2000,
+        "supportingFactIds": [
+          "0ce7a504-ce67-400b-bcb7-38253ba336cb"
+        ],
+        "relatedImageAssetIds": [
+          "7c0b6f6b3e85"
+        ]
+      },
+      {
+        "id": "moment-fd579c55d5",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2001,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7c0b6f6b3e85"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-yn992d",
+      "title": "Official Video · 2001",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2001 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T01:03:58.919Z"
+  },
+  "submittedAt": "2026-06-27T04:20:13.087Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

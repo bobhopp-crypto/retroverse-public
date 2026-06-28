@@ -82,8 +82,8 @@ export function ChartJourneyRowView({
         <div id={detailId} className="rv-exp-cj__detail" role="region" aria-label="Chart week details">
           <p className="rv-exp-cj__detail-headline">{formatChartJourneyDate(row.detail.date)}</p>
           <ul className="rv-exp-cj__detail-list">
-            {bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
+            {bullets.map((bullet, bulletIndex) => (
+              <li key={`cj-bullet-${bulletIndex}-${row.week.issueDate}`}>{bullet}</li>
             ))}
           </ul>
           {row.context.href ? (

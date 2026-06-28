@@ -1,0 +1,207 @@
+{
+  "version": 2,
+  "rvtr": "RVTR485826",
+  "artist": "Tesla",
+  "title": "Love Song",
+  "story": {
+    "headline": "Love Song: The Breakthrough Moment",
+    "subtitle": "Tesla · Breakthrough · 1996",
+    "hook": "The song peaked at #10 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+    "summary": "Tesla's \"Love Song\" reached #10 on the Billboard Hot 100.",
+    "fullStory": "Tesla's \"Love Song\" reached #10 on the Billboard Hot 100.\n\nThe song peaked at #10 on the Billboard Hot 100 and spent 27 weeks on the chart.\n\nGraph compilation anchor: \"Time's Makin' Changes - The Best Of Tesla\" (1996) — not the song's original release year.\n\nAlbum: Time's Makin' Changes - The Best Of Tesla (1996).\n\nChart story — peaked at #10 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "fd159fba-46b9-46e4-a842-0df1a3c0610b",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7c13010b-ffb7-4bf1-bd0d-677cbf00a914",
+      "text": "The song appears on the album \"Time's Makin' Changes - The Best Of Tesla\" (1996).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "96f813b5-4d5d-410f-b2cd-9bed4c03e080",
+      "text": "Graph compilation anchor: \"Time's Makin' Changes - The Best Of Tesla\" (1996) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "5f2f4430-0354-4a8b-b415-7d4e47fa8164",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bd7df7a5-26d7-42d4-b171-0534841f90d9",
+      "text": "Album: Time's Makin' Changes - The Best Of Tesla (1996).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "19a694e4-a807-481f-a2de-74b47db229ab",
+      "text": "Album: Time's Makin' Changes - The Best Of Tesla (1996).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "159d18aef775",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR485826&file=hero.jpg",
+      "performanceId": "perf-bt7md2"
+    },
+    {
+      "assetId": "a4561ea8be20",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR485826&file=performance.jpg",
+      "performanceId": "perf-bt7md2"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-bt7md2",
+    "title": "Official Video · 1990",
+    "venue": "",
+    "year": 1990,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1990 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "159d18aef775",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR485826&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "a4561ea8be20",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR485826&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #10 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+    "closing": "Tesla's \"Love Song\" reached #10 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-7a15c309ea",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Love Song\" — original release 1990. Tesla — \"Love Song\" · Original release 1990 · Hot 100 peak #10",
+        "supportingFactIds": [
+          "96f813b5-4d5d-410f-b2cd-9bed4c03e080"
+        ],
+        "relatedImageAssetIds": [
+          "159d18aef775",
+          "a4561ea8be20"
+        ],
+        "relatedPerformanceId": "perf-bt7md2",
+        "priority": 1
+      },
+      {
+        "id": "beat-51ddbf7854",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Time's Makin' Changes - The Best Of Tesla · Release 1996 · Compilation edition",
+        "supportingFactIds": [
+          "7c13010b-ffb7-4bf1-bd0d-677cbf00a914",
+          "bd7df7a5-26d7-42d4-b171-0534841f90d9"
+        ],
+        "relatedImageAssetIds": [
+          "159d18aef775",
+          "a4561ea8be20"
+        ],
+        "relatedPerformanceId": "perf-bt7md2",
+        "priority": 2
+      },
+      {
+        "id": "beat-f273594979",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #10 · 27 weeks on chart.",
+        "supportingFactIds": [
+          "fd159fba-46b9-46e4-a842-0df1a3c0610b"
+        ],
+        "relatedImageAssetIds": [
+          "159d18aef775",
+          "a4561ea8be20"
+        ],
+        "relatedPerformanceId": "perf-bt7md2",
+        "priority": 3
+      },
+      {
+        "id": "beat-ebc87cb464",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "159d18aef775",
+          "a4561ea8be20"
+        ],
+        "relatedPerformanceId": "perf-bt7md2",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-a2a4d1acf6",
+        "title": "Chart milestone",
+        "description": "Peaked at #10 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1990,
+        "supportingFactIds": [
+          "fd159fba-46b9-46e4-a842-0df1a3c0610b"
+        ],
+        "relatedImageAssetIds": [
+          "159d18aef775"
+        ]
+      },
+      {
+        "id": "moment-a9c0b51e42",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1990,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "159d18aef775"
+        ]
+      },
+      {
+        "id": "moment-a9c0b51e42",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2001,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "159d18aef775"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-bt7md2",
+      "title": "Official Video · 1990",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1990 performance helps anchor the narrative. 2 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #10 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:32:35.326Z"
+  },
+  "submittedAt": "2026-06-27T04:32:35.326Z",
+  "editorNotesForDirector": "Collector confidence: Good (66%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.8,
+    "storyQuality": "Strong"
+  }
+}

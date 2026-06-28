@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR940295",
+  "artist": "Adam Ant",
+  "title": "Strip",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T05:18:46.949Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Adam Ant — Strip (RVTR940295)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #42 · 13 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR940295",
+    "artist": "Adam Ant",
+    "title": "Strip",
+    "year": 1983,
+    "albumTitle": "Strip"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+        "artist": "Adam Ant",
+        "title": "Strip",
+        "isVideo": true,
+        "playCount": null,
+        "year": 1983,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 42,
+    "chartWeeks": 13,
+    "albumTitle": "Strip",
+    "summary": "Hot 100 peak #42 · 13 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+        "artist": "Adam Ant",
+        "title": "Strip",
+        "isVideo": true,
+        "playCount": null,
+        "year": 1983,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+      "performance.jpg",
+      "close-up.jpg",
+      "crowd.jpg",
+      "hero.jpg",
+      "alternate.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "f1bc96d83af1",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 20,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T05:18:46.946Z"
+        },
+        {
+          "id": "3a38d7c8ecea",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 60,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T05:18:46.946Z"
+        },
+        {
+          "id": "60e7a5b98c28",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 120,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T05:18:46.946Z"
+        },
+        {
+          "id": "aecfe36aa996",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 160,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T05:18:46.946Z"
+        },
+        {
+          "id": "cff5bafc945a",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 220,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T05:18:46.946Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Adam Ant"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "e68a672d-b342-49ed-9327-57f781cfde5d",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR940295.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "fd0a051d-f443-42aa-a5d0-c20b75cca222",
+      "category": "artist",
+      "text": "Strip is performed by Adam Ant.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "91a3822c-0bcb-41bc-bfe2-30e78b7d3121",
+      "category": "album",
+      "text": "The song appears on the album \"Strip\" (1983).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-76zg4l"
+    },
+    {
+      "id": "aeca2856-3f75-4b00-b49c-78cc099b40c9",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR940295.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-76zg4l"
+    },
+    {
+      "id": "d48c72ae-8309-40ab-b59a-7d75f9456e68",
+      "category": "chart",
+      "text": "The song peaked at #42 on the Billboard Hot 100 and spent 13 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "9eaca7de-acca-4650-af84-9b1840aab2f6",
+      "category": "recording",
+      "text": "Strip was released in 1983.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "f068ce25-c6e0-4648-99bb-9ee454cb60b8",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR940295 (Strip).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "a6e6c94d-1131-4507-97f6-f6628fc401fa",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "ba043c4f-7360-492b-9851-e18a8a9de286",
+      "category": "trivia",
+      "text": "Artist: Adam Ant · Title: Strip · Album: Strip · Year: 1983 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-bdtm7l"
+    },
+    {
+      "id": "09f14958-aaa4-47fc-b00a-19e8283ffd5a",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-bdtm7l"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T05:18:45.904Z",
+      "excerpt": "Retroverse track identity: RVTR940295. \"Strip\" by Adam Ant. Album: Strip (1983).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+      "capturedAt": "2026-06-28T05:18:45.904Z",
+      "excerpt": "Canonical cover assignment for RVTR940295 (Strip). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T05:18:45.904Z",
+      "excerpt": "Album: Strip (1983). Billboard Hot 100 peak: #42. 13 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T05:18:45.904Z",
+      "excerpt": "Artist: Adam Ant · Title: Strip · Album: Strip · Year: 1983 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T05:18:45.904Z",
+      "excerpt": "Performance year context: 1983.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-2f5d0c26",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T05:18:45.904Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Adam Ant — Strip · Hot 100 peak #42 · 13 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 1983 / recording 1983",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR940295",
+      "artist": "Adam Ant",
+      "title": "Strip",
+      "year": 1983,
+      "albumTitle": "Strip"
+    },
+    "charts": {
+      "peakHot100": 42,
+      "chartWeeks": 13,
+      "albumTitle": "Strip",
+      "summary": "Hot 100 peak #42 · 13 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Adam Ant"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T05:18:45.904Z",
+          "excerpt": "Retroverse track identity: RVTR940295. \"Strip\" by Adam Ant. Album: Strip (1983).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+          "capturedAt": "2026-06-28T05:18:45.904Z",
+          "excerpt": "Canonical cover assignment for RVTR940295 (Strip). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T05:18:45.904Z",
+          "excerpt": "Album: Strip (1983). Billboard Hot 100 peak: #42. 13 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T05:18:45.904Z",
+          "excerpt": "Artist: Adam Ant · Title: Strip · Album: Strip · Year: 1983 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T05:18:45.904Z",
+          "excerpt": "Performance year context: 1983.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-2f5d0c26",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T05:18:45.904Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Adam Ant — Strip · Hot 100 peak #42 · 13 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "e68a672d-b342-49ed-9327-57f781cfde5d",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR940295.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "fd0a051d-f443-42aa-a5d0-c20b75cca222",
+        "category": "artist",
+        "text": "Strip is performed by Adam Ant.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "91a3822c-0bcb-41bc-bfe2-30e78b7d3121",
+        "category": "album",
+        "text": "The song appears on the album \"Strip\" (1983).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-76zg4l"
+      },
+      {
+        "id": "aeca2856-3f75-4b00-b49c-78cc099b40c9",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR940295.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-76zg4l"
+      },
+      {
+        "id": "d48c72ae-8309-40ab-b59a-7d75f9456e68",
+        "category": "chart",
+        "text": "The song peaked at #42 on the Billboard Hot 100 and spent 13 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "9eaca7de-acca-4650-af84-9b1840aab2f6",
+        "category": "recording",
+        "text": "Strip was released in 1983.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "f068ce25-c6e0-4648-99bb-9ee454cb60b8",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR940295 (Strip).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "a6e6c94d-1131-4507-97f6-f6628fc401fa",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "ba043c4f-7360-492b-9851-e18a8a9de286",
+        "category": "trivia",
+        "text": "Artist: Adam Ant · Title: Strip · Album: Strip · Year: 1983 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-bdtm7l"
+      },
+      {
+        "id": "09f14958-aaa4-47fc-b00a-19e8283ffd5a",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-bdtm7l"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL649963/RVAL649963__adam-ant__strip.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-bdtm7l",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "durationSec": 227.950295,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "f1bc96d83af1",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 20,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T05:18:46.946Z"
+            },
+            {
+              "id": "3a38d7c8ecea",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 60,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T05:18:46.946Z"
+            },
+            {
+              "id": "60e7a5b98c28",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 120,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T05:18:46.946Z"
+            },
+            {
+              "id": "aecfe36aa996",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 160,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T05:18:46.946Z"
+            },
+            {
+              "id": "cff5bafc945a",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 220,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T05:18:46.946Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1983. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1983,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1983",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Adam Ant's \"Strip\" reached #42 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Strip is performed by Adam Ant.",
+      "The song appears on the album \"Strip\" (1983).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR940295."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #42 on the Hot 100",
+      "Song release — original 1983 chapter",
+      "Performance angle — Official Video (1983)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR940295",
+    "artist": "Adam Ant",
+    "title": "Strip",
+    "writers": [],
+    "originalReleaseYear": 1983,
+    "originalAlbum": "Strip",
+    "peakHot100": 42,
+    "chartWeeks": 13,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Adam Ant"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-76zg4l",
+      "kind": "studio_album",
+      "title": "Strip",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Strip",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1983,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-bdtm7l",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1983,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 227.950295,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 1983. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1983",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-koelks",
+        "domain": "song",
+        "kind": "release",
+        "year": 1983,
+        "label": "Strip — original release",
+        "detail": "Original album: Strip",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3ic",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1983,
+        "label": "Billboard Hot 100 peak #42",
+        "detail": "13 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-3h2j38",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1983,
+        "label": "Strip",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-76zg4l"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1983,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-bdtm7l"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1983,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1983,
+      "label": "Album: Strip",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1983,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR940295",
+      "artist": "Adam Ant",
+      "title": "Strip",
+      "writers": [],
+      "originalReleaseYear": 1983,
+      "originalAlbum": "Strip",
+      "peakHot100": 42,
+      "chartWeeks": 13,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Adam Ant"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-76zg4l",
+        "kind": "studio_album",
+        "title": "Strip",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Strip",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1983,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-bdtm7l",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1980's/Adam Ant - Strip.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1983,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 227.950295,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 1983. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1983",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-koelks",
+          "domain": "song",
+          "kind": "release",
+          "year": 1983,
+          "label": "Strip — original release",
+          "detail": "Original album: Strip",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3ic",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1983,
+          "label": "Billboard Hot 100 peak #42",
+          "detail": "13 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-3h2j38",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1983,
+          "label": "Strip",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-76zg4l"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1983,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-bdtm7l"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1983,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1983,
+        "label": "Album: Strip",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1983,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

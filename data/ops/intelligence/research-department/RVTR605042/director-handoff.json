@@ -1,0 +1,194 @@
+{
+  "version": 2,
+  "rvtr": "RVTR605042",
+  "artist": "Mary J. Blige",
+  "title": "Family Affair",
+  "story": {
+    "headline": "Family Affair: The Breakthrough Moment",
+    "subtitle": "Mary J. Blige · Breakthrough · 2001",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 41 weeks on the chart.",
+    "summary": "Mary J. Blige's \"Family Affair\" reached #1 on the Billboard Hot 100. Family Affair was released in 2001.",
+    "fullStory": "Mary J. Blige's \"Family Affair\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 41 weeks on the chart.\n\nFamily Affair was released in 2001.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "b82acd88-7b91-497d-9b53-58a24567d7d2",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 41 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "5c09a163-28ca-4d7a-92f6-ddc2f7863d05",
+      "text": "Family Affair was released in 2001.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0918b91b-57ce-49b6-9cc5-363f1bf52621",
+      "text": "The song appears on the album \"No More Drama\" (2001).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "680c2c06-c300-47e8-aaad-73fc41d5842c",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "548d721e-7f62-47a6-a568-f8cd1c978491",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "041046f0-e200-45d7-8255-3ef52f6c845d",
+      "text": "Artist: Mary J Blige · Title: Family Affair · Album: Mary J.",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "a1c085901ce1",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605042&file=hero.jpg",
+      "performanceId": "perf-kipc30"
+    },
+    {
+      "assetId": "788591d7dfc0",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605042&file=performance.jpg",
+      "performanceId": "perf-kipc30"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-kipc30",
+    "title": "Official Video · 2001",
+    "venue": "",
+    "year": 2001,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2001 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "a1c085901ce1",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605042&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "788591d7dfc0",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605042&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 41 weeks on the chart.",
+    "closing": "Mary J. Blige's \"Family Affair\" reached #1 on the Billboard Hot 100. Family Affair was released in 2001.",
+    "storyBeats": [
+      {
+        "id": "beat-8d928e2fc1",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Family Affair\" — original release 2001. Mary J. Blige — \"Family Affair\" · Original release 2001 · Album: No More Drama · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a1c085901ce1",
+          "788591d7dfc0"
+        ],
+        "relatedPerformanceId": "perf-kipc30",
+        "priority": 1
+      },
+      {
+        "id": "beat-cb47739239",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "No More Drama · Release 2001",
+        "supportingFactIds": [
+          "0918b91b-57ce-49b6-9cc5-363f1bf52621",
+          "041046f0-e200-45d7-8255-3ef52f6c845d"
+        ],
+        "relatedImageAssetIds": [
+          "a1c085901ce1",
+          "788591d7dfc0"
+        ],
+        "relatedPerformanceId": "perf-kipc30",
+        "priority": 2
+      },
+      {
+        "id": "beat-263cbc6126",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 41 weeks on chart.",
+        "supportingFactIds": [
+          "b82acd88-7b91-497d-9b53-58a24567d7d2"
+        ],
+        "relatedImageAssetIds": [
+          "a1c085901ce1",
+          "788591d7dfc0"
+        ],
+        "relatedPerformanceId": "perf-kipc30",
+        "priority": 3
+      },
+      {
+        "id": "beat-2f7bf03851",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a1c085901ce1",
+          "788591d7dfc0"
+        ],
+        "relatedPerformanceId": "perf-kipc30",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-76b48fb264",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2001,
+        "supportingFactIds": [
+          "b82acd88-7b91-497d-9b53-58a24567d7d2"
+        ],
+        "relatedImageAssetIds": [
+          "a1c085901ce1"
+        ]
+      },
+      {
+        "id": "moment-860e1c7ed3",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2001,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a1c085901ce1"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-kipc30",
+      "title": "Official Video · 2001",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2001 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:35:41.494Z"
+  },
+  "submittedAt": "2026-06-27T04:35:41.494Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

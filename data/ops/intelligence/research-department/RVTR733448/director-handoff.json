@@ -1,0 +1,186 @@
+{
+  "version": 2,
+  "rvtr": "RVTR733448",
+  "artist": "Golden Earring",
+  "title": "Twilight Zone",
+  "story": {
+    "headline": "Twilight Zone: The Performance That Defined It",
+    "subtitle": "Golden Earring · Live Performance · 1982",
+    "hook": "The song peaked at #10 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+    "summary": "Golden Earring's \"Twilight Zone\" reached #10 on the Billboard Hot 100. Twilight Zone was released in 1982.",
+    "fullStory": "Golden Earring's \"Twilight Zone\" reached #10 on the Billboard Hot 100.\n\nThe song peaked at #10 on the Billboard Hot 100 and spent 27 weeks on the chart.\n\nTwilight Zone was released in 1982.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #10 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "e8c24543-1f3a-4c04-8401-2a1743ab6014",
+      "text": "The song peaked at #10 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "53108d5b-b0ba-445c-808b-c1283758e5d1",
+      "text": "Twilight Zone was released in 1982.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "16be81a8-b717-4cfe-b88e-ec28472fa880",
+      "text": "The song appears on the album \"Cut\" (1982).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "604a2466-729c-45ee-a516-3a4c28e2e26c",
+      "text": "VirtualDJ library play count: 43.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "eb18aae2-6e36-4da7-a8bd-f9f110c4db1c",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c6e45a565b0b",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR733448&file=hero.jpg",
+      "performanceId": "perf-l34oqa"
+    },
+    {
+      "assetId": "87b65b958ed3",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR733448&file=performance.jpg",
+      "performanceId": "perf-l34oqa"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-l34oqa",
+    "title": "Official Video · 1982",
+    "venue": "",
+    "year": 1982,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "c6e45a565b0b",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR733448&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "87b65b958ed3",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR733448&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #10 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+    "closing": "Golden Earring's \"Twilight Zone\" reached #10 on the Billboard Hot 100. Twilight Zone was released in 1982.",
+    "storyBeats": [
+      {
+        "id": "beat-f1cd505496",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Official Video (1982).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c6e45a565b0b",
+          "87b65b958ed3"
+        ],
+        "relatedPerformanceId": "perf-l34oqa",
+        "priority": 1
+      },
+      {
+        "id": "beat-2fecc056d8",
+        "order": 1,
+        "title": "How the song began",
+        "description": "Before the stage: \"Twilight Zone\" entered the world in 1982.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c6e45a565b0b",
+          "87b65b958ed3"
+        ],
+        "relatedPerformanceId": "perf-l34oqa",
+        "priority": 2
+      },
+      {
+        "id": "beat-9d263f60eb",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #10 · 27 weeks on chart.",
+        "supportingFactIds": [
+          "e8c24543-1f3a-4c04-8401-2a1743ab6014"
+        ],
+        "relatedImageAssetIds": [
+          "c6e45a565b0b",
+          "87b65b958ed3"
+        ],
+        "relatedPerformanceId": "perf-l34oqa",
+        "priority": 3
+      },
+      {
+        "id": "beat-0dedb38a43",
+        "order": 3,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c6e45a565b0b",
+          "87b65b958ed3"
+        ],
+        "relatedPerformanceId": "perf-l34oqa",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-8e3db71dbd",
+        "title": "Chart milestone",
+        "description": "Peaked at #10 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1982,
+        "supportingFactIds": [
+          "e8c24543-1f3a-4c04-8401-2a1743ab6014"
+        ],
+        "relatedImageAssetIds": [
+          "c6e45a565b0b"
+        ]
+      },
+      {
+        "id": "moment-23d990c0f9",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1982,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c6e45a565b0b"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-l34oqa",
+      "title": "Official Video · 1982",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #10 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:08.676Z"
+  },
+  "submittedAt": "2026-06-27T04:20:08.676Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

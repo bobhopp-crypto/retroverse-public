@@ -94,9 +94,9 @@ export function EditorLibraryHome({ index }: Props) {
       </header>
 
       {showEmpty ? (
-        <section className="ops-editor-lib__empty-panel">
-          <h2>No researched songs yet</h2>
-          <p>Collector must finish research before stories appear on the Editor desk.</p>
+        <section className="ops-editor-lib__empty-panel rs-living-empty">
+          <h2>All stories have been edited.</h2>
+          <p>No songs waiting on the Story Desk — check Collector for new research.</p>
           <Link className="ops-editor-lib__card-cta" href="/ops/studio/collector">
             Open Research Library →
           </Link>

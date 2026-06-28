@@ -1,0 +1,883 @@
+{
+  "version": "0.3",
+  "rvtr": "RVTR898688",
+  "artist": "Savage Garden",
+  "title": "I Want You",
+  "generatedAt": "2026-06-27T04:20:09.142Z",
+  "handoffVersion": 2,
+  "experiencePlan": {
+    "version": "0.3",
+    "opening": "",
+    "closing": "",
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "sceneType": "hero",
+        "title": "Cover",
+        "headline": "I Want You",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1996",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "cb9aa04876a0"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 6,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout. Final: Hero → Story: minimum viable layout"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Needs Supporting Copy",
+        "preferredTemplate": {
+          "templateId": "hero",
+          "displayName": "Hero",
+          "confidence": 78,
+          "reason": "Opening beat requires a strong hero layout."
+        },
+        "templateDowngraded": true,
+        "downgradeReason": "Hero → Story: minimum viable layout"
+      },
+      {
+        "sceneNumber": 2,
+        "sceneType": "chart",
+        "title": "Chart Journey",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "linkedFactIds": [
+          "f2b29244-eb95-4640-b3cc-513dff212842"
+        ],
+        "linkedImageAssetIds": [
+          "cb9aa04876a0"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 9,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 78,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "chart",
+          "displayName": "Chart",
+          "confidence": 78,
+          "reason": "Chart milestone or commercial success data present."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 3,
+        "sceneType": "image",
+        "title": "Iconic Moment",
+        "headline": "The Breakthrough Moment",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "034064c544fb"
+        ],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 8,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 4,
+        "sceneType": "image",
+        "title": "Song DNA",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": null,
+        "estimatedDurationSec": 7,
+        "priority": 2,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 5,
+        "sceneType": "performance",
+        "title": "Performance",
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-myqsq6",
+        "estimatedDurationSec": 8,
+        "priority": 1,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 83,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "performance",
+          "displayName": "Performance",
+          "confidence": 83,
+          "reason": "Beat focuses on owned performance footage."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 6,
+        "sceneType": "image",
+        "title": "Extended — Chart milestone",
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "linkedFactIds": [
+          "ffb5a63d-6c2a-41ea-a2d6-f7ee965bda6f"
+        ],
+        "linkedImageAssetIds": [
+          "cb9aa04876a0"
+        ],
+        "linkedPerformanceId": "perf-myqsq6",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      },
+      {
+        "sceneNumber": 7,
+        "sceneType": "image",
+        "title": "Extended — Official Video",
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "linkedFactIds": [],
+        "linkedImageAssetIds": [
+          "034064c544fb"
+        ],
+        "linkedPerformanceId": "perf-myqsq6",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 67,
+          "reason": "Variety: Gallery run broken with Story"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null,
+        "varietyAdjusted": true
+      },
+      {
+        "sceneNumber": 8,
+        "sceneType": "image",
+        "title": "Extended — The album won the award for Highest Selling Album at the 12t",
+        "headline": "The album won the award for Highest Selling Album at the 12t",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:cultural_highlight",
+        "linkedFactIds": [
+          "686b574a-a0bd-47ce-b3ee-6eabdf1626c9"
+        ],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-myqsq6",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "story",
+          "displayName": "Story",
+          "confidence": 67,
+          "reason": "Variety: Gallery run broken with Story"
+        },
+        "layoutReadiness": "needs_supporting_copy",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null,
+        "varietyAdjusted": true
+      },
+      {
+        "sceneNumber": 9,
+        "sceneType": "image",
+        "title": "Extended — In September 1997, Savage Garden won a record ten ARIA Award",
+        "headline": "In September 1997, Savage Garden won a record ten ARIA Award",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:cultural_highlight",
+        "linkedFactIds": [
+          "22cdd872-e3ea-41db-a3ca-90005a41bf32"
+        ],
+        "linkedImageAssetIds": [],
+        "linkedPerformanceId": "perf-myqsq6",
+        "estimatedDurationSec": 7,
+        "priority": 50,
+        "durationFlag": "ok",
+        "recommendedTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "layoutReadiness": "ready",
+        "layoutReadinessLabel": "Ready",
+        "preferredTemplate": {
+          "templateId": "gallery",
+          "displayName": "Gallery",
+          "confidence": 72,
+          "reason": "Multiple related images available for this beat."
+        },
+        "templateDowngraded": false,
+        "downgradeReason": null
+      }
+    ],
+    "estimatedRuntimeSec": 66,
+    "targetRuntimeSec": {
+      "min": 30,
+      "max": 55
+    },
+    "primaryPerformance": {
+      "performanceId": "perf-myqsq6",
+      "title": "Official Video · 1996",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1996 performance helps anchor the narrative."
+    },
+    "visualRhythm": "moderate",
+    "presentationStyle": "documentary",
+    "templateLibraryVersion": "0.2"
+  },
+  "review": {
+    "readiness": "ready_for_production",
+    "readinessLabel": "Ready for Production",
+    "sceneCount": 9,
+    "estimatedRuntimeSec": 66,
+    "storyCoveragePct": 56,
+    "imageCoveragePct": 56,
+    "factCoveragePct": 57,
+    "recommendedPerformance": "Official Video · 1996",
+    "missingAssets": [
+      "Scene 1 (Cover): Needs Supporting Copy",
+      "Scene 7 (Extended — Official Video): Ready",
+      "Scene 8 (Extended — The album won the award for Highest Selling Album at the 12t): Ready"
+    ],
+    "warnings": [
+      "Runtime 66s exceeds 55s target"
+    ],
+    "summary": "9 exhibits · 66s · museum arc · Render Ready with Optional Gaps · Confidence 49% · Image diversity 40% · Layout ready 67% · 56% exhibit coverage · 56% image · 57% fact coverage · Gaps: 3",
+    "templateCoveragePct": 100,
+    "layoutReadinessPct": 67,
+    "assetCoveragePct": 67,
+    "visualVarietyScore": 40,
+    "templateUsage": [
+      {
+        "templateId": "gallery",
+        "displayName": "Gallery",
+        "count": 4,
+        "pct": 44
+      },
+      {
+        "templateId": "story",
+        "displayName": "Story",
+        "count": 3,
+        "pct": 33
+      },
+      {
+        "templateId": "chart",
+        "displayName": "Chart",
+        "count": 1,
+        "pct": 11
+      },
+      {
+        "templateId": "performance",
+        "displayName": "Performance",
+        "count": 1,
+        "pct": 11
+      }
+    ],
+    "duplicateTemplateWarnings": [],
+    "varietyRecommendations": [
+      "Exhibit image diversity 40% — Publisher scoring target"
+    ],
+    "templateDiversityScore": 44,
+    "visualDiversityScore": 33,
+    "pacingDiversityScore": 8,
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 2,
+    "renderReadiness": "missing_optional_assets",
+    "renderReadinessLabel": "Ready with Optional Gaps",
+    "estimatedRenderingConfidence": 49,
+    "downgradeReport": [
+      "Scene 1: Hero → Story — Hero → Story: minimum viable layout"
+    ],
+    "varietyReport": [
+      "Scene 7: gallery → story — 4 consecutive Gallery scenes — alternate layout",
+      "Scene 8: gallery → story — 4 consecutive Gallery scenes — alternate layout"
+    ]
+  },
+  "renderSpec": {
+    "version": "0.3",
+    "metadata": {
+      "rvtr": "RVTR898688",
+      "artist": "Savage Garden",
+      "title": "I Want You",
+      "version": "0.3",
+      "generatedAt": "2026-06-27T04:20:09.142Z",
+      "estimatedRuntimeSec": 66,
+      "presentationStyle": "documentary",
+      "primaryPerformance": {
+        "performanceId": "perf-myqsq6",
+        "title": "Official Video · 1996"
+      },
+      "patronValue": 8.3,
+      "storyQuality": "Strong"
+    },
+    "globalPresentation": {
+      "backgroundTreatment": "warm_paper_documentary",
+      "typographyProfile": "retroverse_display",
+      "colorTheme": "retroverse_teal_cream",
+      "pacingProfile": "moderate",
+      "imageTreatment": "poster_card_framed",
+      "orientation": "both"
+    },
+    "sceneTimeline": [
+      {
+        "sceneNumber": 1,
+        "templateId": "story",
+        "preferredTemplateId": "hero",
+        "templateDowngraded": true,
+        "varietyAdjusted": false,
+        "downgradeReason": "Hero → Story: minimum viable layout",
+        "durationSec": 6,
+        "headline": "I Want You",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:cover:year=1996",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "cb9aa04876a0"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=hero.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Needs Supporting Copy",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 2,
+        "templateId": "chart",
+        "preferredTemplateId": "chart",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 9,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:chart_journey",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "cb9aa04876a0"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=hero.jpg"
+          ],
+          "factIds": [
+            "f2b29244-eb95-4640-b3cc-513dff212842"
+          ],
+          "factTexts": [
+            "\"I Want You\" is a song by Australian pop duo Savage Garden, originally released in Australia on 27 May 1996 as the lead single from their debut album, Savage Garden (1997)."
+          ],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 3,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "The Breakthrough Moment",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:iconic_moment",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "034064c544fb"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 4,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:song_dna",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": null,
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 5,
+        "templateId": "performance",
+        "preferredTemplateId": "performance",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 8,
+        "headline": "",
+        "supportingCopy": "",
+        "narrativePurpose": "museum_exhibit:performance",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-myqsq6",
+          "timelineEvents": []
+        },
+        "transitionIn": "cut",
+        "transitionOut": "zoom",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 6,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Chart milestone",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:chart_milestone",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "cb9aa04876a0"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=hero.jpg"
+          ],
+          "factIds": [
+            "ffb5a63d-6c2a-41ea-a2d6-f7ee965bda6f"
+          ],
+          "factTexts": [
+            "The single reached number one in Canada and peaked at number four in Australia and on the US Billboard Hot 100."
+          ],
+          "performanceId": "perf-myqsq6",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 7,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": true,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "Official Video",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:music_video",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [
+            "034064c544fb"
+          ],
+          "imageUrls": [
+            "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=performance.jpg"
+          ],
+          "factIds": [],
+          "factTexts": [],
+          "performanceId": "perf-myqsq6",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 8,
+        "templateId": "story",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": true,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "The album won the award for Highest Selling Album at the 12t",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:cultural_highlight",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [
+            "686b574a-a0bd-47ce-b3ee-6eabdf1626c9"
+          ],
+          "factTexts": [
+            "The album won the award for Highest Selling Album at the 12th Annual ARIA Music Awards, selling more than 12 million copies worldwide, according to Billboard magazine."
+          ],
+          "performanceId": "perf-myqsq6",
+          "timelineEvents": []
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      },
+      {
+        "sceneNumber": 9,
+        "templateId": "gallery",
+        "preferredTemplateId": "gallery",
+        "templateDowngraded": false,
+        "varietyAdjusted": false,
+        "downgradeReason": null,
+        "durationSec": 7,
+        "headline": "In September 1997, Savage Garden won a record ten ARIA Award",
+        "supportingCopy": "",
+        "narrativePurpose": "extended_exhibit:cultural_highlight",
+        "importance": "low",
+        "assets": {
+          "imageAssetIds": [],
+          "imageUrls": [],
+          "factIds": [
+            "22cdd872-e3ea-41db-a3ca-90005a41bf32"
+          ],
+          "factTexts": [
+            "In September 1997, Savage Garden won a record ten ARIA Awards from 13 nominations for the album and associated singles."
+          ],
+          "performanceId": "perf-myqsq6",
+          "timelineEvents": [
+            {
+              "year": 1997,
+              "label": "In September 1997, Savage Garden won a record ten ARIA Award"
+            }
+          ]
+        },
+        "transitionIn": "crossfade",
+        "transitionOut": "crossfade",
+        "layoutReadiness": "Ready",
+        "selfContained": true
+      }
+    ],
+    "assetManifest": {
+      "hero": [],
+      "supportingImages": [
+        {
+          "id": "cb9aa04876a0",
+          "role": "supporting_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "034064c544fb",
+          "role": "supporting_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": null,
+          "sceneNumbers": [
+            3
+          ]
+        }
+      ],
+      "performanceImages": [
+        {
+          "id": "cb9aa04876a0",
+          "role": "performance_image",
+          "required": true,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=hero.jpg",
+          "caption": "Opening representative moment",
+          "performanceId": "perf-myqsq6",
+          "sceneNumbers": [
+            6,
+            5,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "id": "034064c544fb",
+          "role": "performance_image",
+          "required": false,
+          "priority": 50,
+          "url": "/api/ops/studio/collector/visual-asset?rvtr=RVTR898688&file=performance.jpg",
+          "caption": "Strong performance moment",
+          "performanceId": "perf-myqsq6",
+          "sceneNumbers": [
+            7,
+            5,
+            6,
+            8,
+            9
+          ]
+        }
+      ],
+      "galleryImages": [],
+      "timelineData": [],
+      "charts": [
+        {
+          "id": "chart-scene-2",
+          "role": "chart_data",
+          "required": true,
+          "priority": 80,
+          "url": null,
+          "caption": "",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        }
+      ],
+      "quotes": [],
+      "facts": [
+        {
+          "id": "f2b29244-eb95-4640-b3cc-513dff212842",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "\"I Want You\" is a song by Australian pop duo Savage Garden, originally released in Australia on 27 May 1996 as the lead single from their debut album, Savage Garden (1997).",
+          "performanceId": null,
+          "sceneNumbers": [
+            2
+          ]
+        },
+        {
+          "id": "ffb5a63d-6c2a-41ea-a2d6-f7ee965bda6f",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "The single reached number one in Canada and peaked at number four in Australia and on the US Billboard Hot 100.",
+          "performanceId": null,
+          "sceneNumbers": [
+            6
+          ]
+        },
+        {
+          "id": "686b574a-a0bd-47ce-b3ee-6eabdf1626c9",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "The album won the award for Highest Selling Album at the 12th Annual ARIA Music Awards, selling more than 12 million copies worldwide, according to Billboard magazine.",
+          "performanceId": null,
+          "sceneNumbers": [
+            8
+          ]
+        },
+        {
+          "id": "22cdd872-e3ea-41db-a3ca-90005a41bf32",
+          "role": "fact",
+          "required": false,
+          "priority": 60,
+          "url": null,
+          "caption": "In September 1997, Savage Garden won a record ten ARIA Awards from 13 nominations for the album and associated singles.",
+          "performanceId": null,
+          "sceneNumbers": [
+            9
+          ]
+        }
+      ],
+      "logos": []
+    },
+    "renderingInstructions": {
+      "sceneOrder": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "autoAdvance": true,
+      "loopPresentation": false,
+      "respectDurationHints": true,
+      "notes": [
+        "Execute scenes in sceneOrder — no creative decisions required",
+        "Transition hints are labels only; renderer chooses motion",
+        "Template downgrades are final; do not revert to preferredTemplateId",
+        "9 exhibits · 66s · museum arc · Render Ready with Optional Gaps · Confidence 49% · Image diversity 40% · Layout ready 67% · 56% exhibit coverage · 56% image · 57% fact coverage · Gaps: 3"
+      ]
+    },
+    "fallbackRules": [
+      {
+        "id": "quote-to-story",
+        "when": "quote template lacks pull-quote length",
+        "fallbackTemplate": "story",
+        "description": "Quote without quote text becomes Story layout"
+      },
+      {
+        "id": "gallery-to-hero",
+        "when": "gallery template has fewer than two images",
+        "fallbackTemplate": "hero",
+        "description": "Gallery with one image becomes Hero layout"
+      },
+      {
+        "id": "fact-stack-to-story",
+        "when": "fact stack has fewer than two facts",
+        "fallbackTemplate": "story",
+        "description": "Insufficient facts collapse to Story"
+      },
+      {
+        "id": "timeline-to-story",
+        "when": "timeline lacks dated events",
+        "fallbackTemplate": "story",
+        "description": "Timeline without dates becomes Story"
+      },
+      {
+        "id": "performance-to-story",
+        "when": "performance reference or image missing",
+        "fallbackTemplate": "story",
+        "description": "Performance without footage falls back to Story"
+      },
+      {
+        "id": "chart-to-story",
+        "when": "chart data missing",
+        "fallbackTemplate": "story",
+        "description": "Chart without peak data becomes Story"
+      },
+      {
+        "id": "comparison-to-story",
+        "when": "comparison copy missing",
+        "fallbackTemplate": "story",
+        "description": "Comparison without dual timeline copy becomes Story"
+      }
+    ],
+    "renderReadiness": "missing_required_assets",
+    "renderReadinessLabel": "Missing Required Assets — renderer should not publish",
+    "templateDowngradesApplied": 1,
+    "varietyAdjustmentsApplied": 2,
+    "estimatedRenderingConfidence": 49
+  }
+}

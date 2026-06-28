@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR657646",
+  "artist": "Sonny And Cher",
+  "title": "I Got You Babe 2",
+  "story": {
+    "headline": "I Got You Babe 2: A Cultural Moment Captured on Record",
+    "subtitle": "Sonny And Cher · Cultural Moment",
+    "hook": "I Got You Babe 2 is performed by Sonny And Cher.",
+    "summary": "Sonny And Cher's \"I Got You Babe 2\" — captured in performance footage from 1969.",
+    "fullStory": "Sonny And Cher's \"I Got You Babe 2\" — captured in performance footage from 1969.\n\nPerformance angle — Official Video (1969)."
+  },
+  "approvedFacts": [
+    {
+      "id": "3751ffc0-e118-4d6e-8b87-47404301d42f",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c8d898161828",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR657646&file=performance.jpg",
+      "performanceId": "perf-1ixprt"
+    },
+    {
+      "assetId": "e2b8b2a8ceea",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR657646&file=hero.jpg",
+      "performanceId": "perf-1ixprt"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-1ixprt",
+    "title": "Official Video · 1969",
+    "venue": "",
+    "year": 1969,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "c8d898161828",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR657646&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "e2b8b2a8ceea",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR657646&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "I Got You Babe 2 is performed by Sonny And Cher.",
+    "closing": "Sonny And Cher's \"I Got You Babe 2\" — captured in performance footage from 1969.",
+    "storyBeats": [
+      {
+        "id": "beat-2194bd86e2",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"I Got You Babe 2\" by Sonny And Cher — Sonny And Cher — \"I Got You Babe 2\".",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c8d898161828",
+          "e2b8b2a8ceea"
+        ],
+        "relatedPerformanceId": "perf-1ixprt",
+        "priority": 1
+      },
+      {
+        "id": "beat-738f4cfbd7",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c8d898161828",
+          "e2b8b2a8ceea"
+        ],
+        "relatedPerformanceId": "perf-1ixprt",
+        "priority": 2
+      },
+      {
+        "id": "beat-e42597f759",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c8d898161828",
+          "e2b8b2a8ceea"
+        ],
+        "relatedPerformanceId": "perf-1ixprt",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-e3df66ff2b",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1969,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c8d898161828"
+        ]
+      },
+      {
+        "id": "moment-e3df66ff2b",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative. 1 alternate cut(s) on file — thi",
+        "kind": "featured_performance",
+        "year": 1969,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c8d898161828"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-1ixprt",
+      "title": "Official Video · 1969",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1969 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"I Got You Babe 2 is performed by Sonny And Cher.\""
+    },
+    "generatedAt": "2026-06-27T05:42:44.000Z"
+  },
+  "submittedAt": "2026-06-27T05:42:44.001Z",
+  "editorNotesForDirector": "Collector confidence: Developing (48%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

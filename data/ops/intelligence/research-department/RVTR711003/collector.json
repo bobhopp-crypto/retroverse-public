@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR711003",
+  "artist": "Sheppard",
+  "title": "Geronimo",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T05:58:56.295Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Sheppard — Geronimo (RVTR711003)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #53 · 21 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR711003",
+    "artist": "Sheppard",
+    "title": "Geronimo",
+    "year": 2015,
+    "albumTitle": "Bombs Away"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+        "artist": "Sheppard",
+        "title": "Geronimo",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2014,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 53,
+    "chartWeeks": 21,
+    "albumTitle": "Bombs Away",
+    "summary": "Hot 100 peak #53 · 21 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+        "artist": "Sheppard",
+        "title": "Geronimo",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2014,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+      "close-up.jpg",
+      "alternate.jpg",
+      "hero.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "e7574b8bdb07",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 20,
+          "width": 1920,
+          "height": 1080,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T05:58:56.292Z"
+        },
+        {
+          "id": "7d256c51cde8",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 40,
+          "width": 1920,
+          "height": 1080,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T05:58:56.292Z"
+        },
+        {
+          "id": "3c331c6aa8dd",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 100,
+          "width": 1920,
+          "height": 1080,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T05:58:56.292Z"
+        },
+        {
+          "id": "db9c56173773",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 160,
+          "width": 1920,
+          "height": 1080,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T05:58:56.292Z"
+        },
+        {
+          "id": "55af7ff29d7e",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 200,
+          "width": 1920,
+          "height": 1080,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T05:58:56.292Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Sheppard"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "90c6d444-63e1-487a-a5cb-16d0190932f9",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR711003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "ca933ec6-4bd5-4461-bc1c-bd900c8a3b25",
+      "category": "artist",
+      "text": "Geronimo is performed by Sheppard.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "c2163151-d23a-4c9a-baa5-371cf2880e9d",
+      "category": "album",
+      "text": "The song appears on the album \"Bombs Away\" (2015).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-cwlcbl"
+    },
+    {
+      "id": "ca0f2e03-a46e-41ce-847b-20f0143d7973",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR711003.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-cwlcbl"
+    },
+    {
+      "id": "0d874412-c8b7-427a-b22a-39e5550cb993",
+      "category": "chart",
+      "text": "The song peaked at #53 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "5e3dcd9e-0a55-4b5d-af66-f619ec0cd984",
+      "category": "recording",
+      "text": "Geronimo was released in 2015.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "6b43589e-f494-4c2a-a43c-10807f5de077",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR711003 (Geronimo).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "f383d20d-59ee-474b-b87e-7cca2f72a04d",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "6f97e609-444a-46a7-8db5-bd117aa18b79",
+      "category": "trivia",
+      "text": "Artist: Sheppard · Title: Geronimo · Album: Geronimo · Year: 2014 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-z3dvor"
+    },
+    {
+      "id": "d222f179-a21a-4f0f-ab1b-ffd3da3a3810",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-z3dvor"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T05:58:54.901Z",
+      "excerpt": "Retroverse track identity: RVTR711003. \"Geronimo\" by Sheppard. Album: Bombs Away (2015).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+      "capturedAt": "2026-06-28T05:58:54.901Z",
+      "excerpt": "Canonical cover assignment for RVTR711003 (Geronimo). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T05:58:54.901Z",
+      "excerpt": "Album: Bombs Away (2015). Billboard Hot 100 peak: #53. 21 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T05:58:54.901Z",
+      "excerpt": "Artist: Sheppard · Title: Geronimo · Album: Geronimo · Year: 2014 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T05:58:54.901Z",
+      "excerpt": "Performance year context: 2015.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-a7b274ac",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T05:58:54.901Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Sheppard — Geronimo · Hot 100 peak #53 · 21 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 2015 / recording 2015",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR711003",
+      "artist": "Sheppard",
+      "title": "Geronimo",
+      "year": 2015,
+      "albumTitle": "Bombs Away"
+    },
+    "charts": {
+      "peakHot100": 53,
+      "chartWeeks": 21,
+      "albumTitle": "Bombs Away",
+      "summary": "Hot 100 peak #53 · 21 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Sheppard"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T05:58:54.901Z",
+          "excerpt": "Retroverse track identity: RVTR711003. \"Geronimo\" by Sheppard. Album: Bombs Away (2015).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+          "capturedAt": "2026-06-28T05:58:54.901Z",
+          "excerpt": "Canonical cover assignment for RVTR711003 (Geronimo). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T05:58:54.901Z",
+          "excerpt": "Album: Bombs Away (2015). Billboard Hot 100 peak: #53. 21 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T05:58:54.901Z",
+          "excerpt": "Artist: Sheppard · Title: Geronimo · Album: Geronimo · Year: 2014 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T05:58:54.901Z",
+          "excerpt": "Performance year context: 2015.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-a7b274ac",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T05:58:54.901Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Sheppard — Geronimo · Hot 100 peak #53 · 21 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "90c6d444-63e1-487a-a5cb-16d0190932f9",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR711003.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "ca933ec6-4bd5-4461-bc1c-bd900c8a3b25",
+        "category": "artist",
+        "text": "Geronimo is performed by Sheppard.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "c2163151-d23a-4c9a-baa5-371cf2880e9d",
+        "category": "album",
+        "text": "The song appears on the album \"Bombs Away\" (2015).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-cwlcbl"
+      },
+      {
+        "id": "ca0f2e03-a46e-41ce-847b-20f0143d7973",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR711003.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-cwlcbl"
+      },
+      {
+        "id": "0d874412-c8b7-427a-b22a-39e5550cb993",
+        "category": "chart",
+        "text": "The song peaked at #53 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "5e3dcd9e-0a55-4b5d-af66-f619ec0cd984",
+        "category": "recording",
+        "text": "Geronimo was released in 2015.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "6b43589e-f494-4c2a-a43c-10807f5de077",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR711003 (Geronimo).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "f383d20d-59ee-474b-b87e-7cca2f72a04d",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "6f97e609-444a-46a7-8db5-bd117aa18b79",
+        "category": "trivia",
+        "text": "Artist: Sheppard · Title: Geronimo · Album: Geronimo · Year: 2014 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-z3dvor"
+      },
+      {
+        "id": "d222f179-a21a-4f0f-ab1b-ffd3da3a3810",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-z3dvor"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL468518/RVAL468518__sheppard__bombs-away.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-z3dvor",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "durationSec": 220.821769,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "e7574b8bdb07",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 20,
+              "width": 1920,
+              "height": 1080,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T05:58:56.292Z"
+            },
+            {
+              "id": "7d256c51cde8",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 40,
+              "width": 1920,
+              "height": 1080,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T05:58:56.292Z"
+            },
+            {
+              "id": "3c331c6aa8dd",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 100,
+              "width": 1920,
+              "height": 1080,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T05:58:56.292Z"
+            },
+            {
+              "id": "db9c56173773",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 160,
+              "width": 1920,
+              "height": 1080,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T05:58:56.292Z"
+            },
+            {
+              "id": "55af7ff29d7e",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 200,
+              "width": 1920,
+              "height": 1080,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T05:58:56.292Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2014. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2014,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2014",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Sheppard's \"Geronimo\" reached #53 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Geronimo is performed by Sheppard.",
+      "The song appears on the album \"Bombs Away\" (2015).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR711003."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #53 on the Hot 100",
+      "Song release — original 2015 chapter",
+      "Performance angle — Official Video (2014)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR711003",
+    "artist": "Sheppard",
+    "title": "Geronimo",
+    "writers": [],
+    "originalReleaseYear": 2015,
+    "originalAlbum": "Bombs Away",
+    "peakHot100": 53,
+    "chartWeeks": 21,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Sheppard"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-cwlcbl",
+      "kind": "studio_album",
+      "title": "Bombs Away",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Bombs Away",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2015,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-z3dvor",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2014,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 220.821769,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2014. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2014",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-5g8yic",
+        "domain": "song",
+        "kind": "release",
+        "year": 2015,
+        "label": "Geronimo — original release",
+        "detail": "Original album: Bombs Away",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3j8",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2015,
+        "label": "Billboard Hot 100 peak #53",
+        "detail": "21 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-vyf74f",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2015,
+        "label": "Bombs Away",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-cwlcbl"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2014,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-z3dvor"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2015,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2015,
+      "label": "Album: Bombs Away",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2014,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR711003",
+      "artist": "Sheppard",
+      "title": "Geronimo",
+      "writers": [],
+      "originalReleaseYear": 2015,
+      "originalAlbum": "Bombs Away",
+      "peakHot100": 53,
+      "chartWeeks": 21,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Sheppard"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-cwlcbl",
+        "kind": "studio_album",
+        "title": "Bombs Away",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Bombs Away",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2015,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-z3dvor",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Sheppard - Geronimo.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2014,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 220.821769,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2014. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2014",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-5g8yic",
+          "domain": "song",
+          "kind": "release",
+          "year": 2015,
+          "label": "Geronimo — original release",
+          "detail": "Original album: Bombs Away",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3j8",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2015,
+          "label": "Billboard Hot 100 peak #53",
+          "detail": "21 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-vyf74f",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2015,
+          "label": "Bombs Away",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-cwlcbl"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2014,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-z3dvor"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2015,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2015,
+        "label": "Album: Bombs Away",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2014,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

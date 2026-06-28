@@ -5,6 +5,10 @@ import type { CollectorPackage } from "@/lib/ops/studio/collector/package-contra
 
 import type { DirectorEditorialPackage, EditorStoryPackage, NarrativeBlueprint } from "./types";
 import { buildNarrativeBlueprint } from "./narrative-blueprint";
+import {
+  formatDirectorBriefForNotes,
+} from "./editorial-brain";
+import { isInvalidCollectorFact } from "@/lib/ops/studio/retrograph/fact-guards";
 
 function parseArtistTitle(editor: EditorStoryPackage): { artist: string; title: string } {
   const canonical = editor.workspace.evidence.canonical?.songSummary;
@@ -48,13 +52,20 @@ export function buildDirectorHandoffFromEditor(
 
   const performanceTitle = bpPerf?.title || "Performance";
 
+  const approvedFacts = [...synced.approved.facts].filter((f) => !isInvalidCollectorFact(f.text));
+
+  const brain = synced.editorialBrain;
+  const directorBrief = brain?.directorBrief;
+  const briefNotes = directorBrief ? formatDirectorBriefForNotes(directorBrief) : "";
+  const editorNotes = [synced.meta.directorHandoff.notes, briefNotes].filter(Boolean).join("\n\n");
+
   return {
     version: 2,
     rvtr: synced.meta.rvtr.trim().toUpperCase(),
     artist,
     title,
     story: { ...synced.story },
-    approvedFacts: [...synced.approved.facts],
+    approvedFacts,
     approvedCards: [...synced.approved.cards],
     approvedImages: [...synced.approved.images],
     approvedQuotes: [...synced.approved.quotes],
@@ -68,7 +79,8 @@ export function buildDirectorHandoffFromEditor(
     },
     narrativeBlueprint: bp ?? minimalBlueprintFallback(synced, artist, title),
     submittedAt: synced.meta.directorHandoff.submittedAt ?? new Date().toISOString(),
-    editorNotesForDirector: synced.meta.directorHandoff.notes || undefined,
+    editorNotesForDirector: editorNotes || undefined,
+    directorBrief,
     editorialQuality: synced.workspace.editorialReview
       ? {
           patronValue: synced.workspace.editorialReview.patronValue ?? null,
@@ -87,7 +99,9 @@ function syncApprovedLayerFromWorkspace(editor: EditorStoryPackage): EditorStory
       facts:
         editor.approved.facts.length > 0
           ? editor.approved.facts
-          : accepted.slice(0, 7).map((f) => ({
+          : accepted
+              .filter((f) => !isInvalidCollectorFact(f.text))
+              .map((f) => ({
               id: f.id,
               text: f.text,
               sourceRef: f.sourceRef,
@@ -166,8 +180,7 @@ export function buildDirectorEditorialPackage(
           performanceId: i.performanceId,
         })),
       facts: editor.workspace.candidateFacts
-        .filter((f) => f.status === "accepted")
-        .slice(0, 7)
+        .filter((f) => f.status === "accepted" || f.status === "pending")
         .map((f) => ({ id: f.id, text: f.text, sourceRef: f.sourceRef })),
     },
   };

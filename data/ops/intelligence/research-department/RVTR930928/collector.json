@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR930928",
+  "artist": "Robin Thicke",
+  "title": "Magic",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T05:57:37.405Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Robin Thicke — Magic (RVTR930928)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #59 · 17 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR930928",
+    "artist": "Robin Thicke",
+    "title": "Magic",
+    "year": 2008,
+    "albumTitle": "Something Else"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+        "artist": "Robin Thicke",
+        "title": "Magic",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2008,
+        "genre": "Hip Hop",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 59,
+    "chartWeeks": 17,
+    "albumTitle": "Something Else",
+    "summary": "Hot 100 peak #59 · 17 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+        "artist": "Robin Thicke",
+        "title": "Magic",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2008,
+        "genre": "Hip Hop",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+      "alternate.jpg",
+      "hero.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "close-up.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "52721e64eb13",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 20,
+          "width": 692,
+          "height": 358,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T05:57:37.402Z"
+        },
+        {
+          "id": "c9038a68c134",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 60,
+          "width": 692,
+          "height": 358,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T05:57:37.402Z"
+        },
+        {
+          "id": "0183686c9fa9",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 120,
+          "width": 692,
+          "height": 358,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T05:57:37.402Z"
+        },
+        {
+          "id": "1aa8739c176c",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 160,
+          "width": 692,
+          "height": 358,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T05:57:37.402Z"
+        },
+        {
+          "id": "74635226dd0a",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 200,
+          "width": 692,
+          "height": 358,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T05:57:37.402Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Robin Thicke"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "0c500288-df0f-4a48-9372-e73c3e271b92",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR930928.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "85b9c9df-8d29-4c2b-a3f2-4c962f447eae",
+      "category": "artist",
+      "text": "Magic is performed by Robin Thicke.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "5dfd236d-3900-4172-a9e3-ab3a08b665b6",
+      "category": "album",
+      "text": "The song appears on the album \"Something Else\" (2008).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-wu1ssf"
+    },
+    {
+      "id": "46c7050e-e0f5-4d36-a9f1-961b4f61bf2e",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR930928.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-wu1ssf"
+    },
+    {
+      "id": "1586cd4d-1124-4dea-9400-4a9838b622e8",
+      "category": "chart",
+      "text": "The song peaked at #59 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "24f09d42-3602-4d8e-886d-4dfbb551f990",
+      "category": "recording",
+      "text": "Magic was released in 2008.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "b8952229-7aca-48f7-9e4a-10ff18237b90",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR930928 (Magic).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "18feb5af-a538-4c47-ba1b-3f40788e17a8",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "1d7bbb43-962d-4f68-987a-7327d6f4b3e5",
+      "category": "trivia",
+      "text": "Artist: Robin Thicke · Title: Magic · Album: Magic · Year: 2008 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-1lbvu8"
+    },
+    {
+      "id": "3e46937e-88e0-4485-9f73-dc606131c8ab",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-1lbvu8"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T05:57:36.340Z",
+      "excerpt": "Retroverse track identity: RVTR930928. \"Magic\" by Robin Thicke. Album: Something Else (2008).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+      "capturedAt": "2026-06-28T05:57:36.340Z",
+      "excerpt": "Canonical cover assignment for RVTR930928 (Magic). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T05:57:36.340Z",
+      "excerpt": "Album: Something Else (2008). Billboard Hot 100 peak: #59. 17 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T05:57:36.340Z",
+      "excerpt": "Artist: Robin Thicke · Title: Magic · Album: Magic · Year: 2008 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T05:57:36.340Z",
+      "excerpt": "Performance year context: 2008.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-32a14895",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T05:57:36.340Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Robin Thicke — Magic · Hot 100 peak #59 · 17 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 2008 / recording 2008",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR930928",
+      "artist": "Robin Thicke",
+      "title": "Magic",
+      "year": 2008,
+      "albumTitle": "Something Else"
+    },
+    "charts": {
+      "peakHot100": 59,
+      "chartWeeks": 17,
+      "albumTitle": "Something Else",
+      "summary": "Hot 100 peak #59 · 17 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Robin Thicke"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T05:57:36.340Z",
+          "excerpt": "Retroverse track identity: RVTR930928. \"Magic\" by Robin Thicke. Album: Something Else (2008).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+          "capturedAt": "2026-06-28T05:57:36.340Z",
+          "excerpt": "Canonical cover assignment for RVTR930928 (Magic). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T05:57:36.340Z",
+          "excerpt": "Album: Something Else (2008). Billboard Hot 100 peak: #59. 17 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T05:57:36.340Z",
+          "excerpt": "Artist: Robin Thicke · Title: Magic · Album: Magic · Year: 2008 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T05:57:36.340Z",
+          "excerpt": "Performance year context: 2008.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-32a14895",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T05:57:36.340Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Robin Thicke — Magic · Hot 100 peak #59 · 17 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "0c500288-df0f-4a48-9372-e73c3e271b92",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR930928.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "85b9c9df-8d29-4c2b-a3f2-4c962f447eae",
+        "category": "artist",
+        "text": "Magic is performed by Robin Thicke.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "5dfd236d-3900-4172-a9e3-ab3a08b665b6",
+        "category": "album",
+        "text": "The song appears on the album \"Something Else\" (2008).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-wu1ssf"
+      },
+      {
+        "id": "46c7050e-e0f5-4d36-a9f1-961b4f61bf2e",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR930928.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-wu1ssf"
+      },
+      {
+        "id": "1586cd4d-1124-4dea-9400-4a9838b622e8",
+        "category": "chart",
+        "text": "The song peaked at #59 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "24f09d42-3602-4d8e-886d-4dfbb551f990",
+        "category": "recording",
+        "text": "Magic was released in 2008.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "b8952229-7aca-48f7-9e4a-10ff18237b90",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR930928 (Magic).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "18feb5af-a538-4c47-ba1b-3f40788e17a8",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "1d7bbb43-962d-4f68-987a-7327d6f4b3e5",
+        "category": "trivia",
+        "text": "Artist: Robin Thicke · Title: Magic · Album: Magic · Year: 2008 · Genre: Hip Hop · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-1lbvu8"
+      },
+      {
+        "id": "3e46937e-88e0-4485-9f73-dc606131c8ab",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-1lbvu8"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL905232/RVAL905232__robin-thicke__something-else.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-1lbvu8",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "durationSec": 219.714767,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "52721e64eb13",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 20,
+              "width": 692,
+              "height": 358,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T05:57:37.402Z"
+            },
+            {
+              "id": "c9038a68c134",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 60,
+              "width": 692,
+              "height": 358,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T05:57:37.402Z"
+            },
+            {
+              "id": "0183686c9fa9",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 120,
+              "width": 692,
+              "height": 358,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T05:57:37.402Z"
+            },
+            {
+              "id": "1aa8739c176c",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 160,
+              "width": 692,
+              "height": 358,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T05:57:37.402Z"
+            },
+            {
+              "id": "74635226dd0a",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 200,
+              "width": 692,
+              "height": 358,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T05:57:37.402Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2008. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2008,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2008",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Robin Thicke's \"Magic\" reached #59 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Magic is performed by Robin Thicke.",
+      "The song appears on the album \"Something Else\" (2008).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR930928."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #59 on the Hot 100",
+      "Song release — original 2008 chapter",
+      "Performance angle — Official Video (2008)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR930928",
+    "artist": "Robin Thicke",
+    "title": "Magic",
+    "writers": [],
+    "originalReleaseYear": 2008,
+    "originalAlbum": "Something Else",
+    "peakHot100": 59,
+    "chartWeeks": 17,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Robin Thicke"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-wu1ssf",
+      "kind": "studio_album",
+      "title": "Something Else",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Something Else",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2008,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-1lbvu8",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2008,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 219.714767,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2008. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2008",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-hjcrjl",
+        "domain": "song",
+        "kind": "release",
+        "year": 2008,
+        "label": "Magic — original release",
+        "detail": "Original album: Something Else",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3je",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2008,
+        "label": "Billboard Hot 100 peak #59",
+        "detail": "17 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-4u8mz1",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2008,
+        "label": "Something Else",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-wu1ssf"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2008,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-1lbvu8"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2008,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2008,
+      "label": "Album: Something Else",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2008,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR930928",
+      "artist": "Robin Thicke",
+      "title": "Magic",
+      "writers": [],
+      "originalReleaseYear": 2008,
+      "originalAlbum": "Something Else",
+      "peakHot100": 59,
+      "chartWeeks": 17,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Robin Thicke"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-wu1ssf",
+        "kind": "studio_album",
+        "title": "Something Else",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Something Else",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2008,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-1lbvu8",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Robin Thicke - Magic.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2008,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 219.714767,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2008. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2008",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-hjcrjl",
+          "domain": "song",
+          "kind": "release",
+          "year": 2008,
+          "label": "Magic — original release",
+          "detail": "Original album: Something Else",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3je",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2008,
+          "label": "Billboard Hot 100 peak #59",
+          "detail": "17 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-4u8mz1",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2008,
+          "label": "Something Else",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-wu1ssf"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2008,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-1lbvu8"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2008,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2008,
+        "label": "Album: Something Else",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2008,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

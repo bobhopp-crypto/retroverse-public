@@ -1,0 +1,1023 @@
+{
+  "version": 4,
+  "rvtr": "RVTR341579",
+  "artist": "Heart",
+  "title": "Magic Man",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T00:11:59.096Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Heart — Magic Man (RVTR341579)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #9 · 23 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "11 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR341579",
+    "artist": "Heart",
+    "title": "Magic Man",
+    "year": 1976,
+    "albumTitle": "Dreamboat Annie"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+    "playCount": 3,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+        "artist": "Heart",
+        "title": "Magic Man",
+        "isVideo": true,
+        "playCount": 3,
+        "year": 1976,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 9,
+    "chartWeeks": 23,
+    "albumTitle": "Dreamboat Annie",
+    "summary": "Hot 100 peak #9 · 23 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+        "artist": "Heart",
+        "title": "Magic Man",
+        "isVideo": true,
+        "playCount": 3,
+        "year": 1976,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+      "alternate.jpg",
+      "hero.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "close-up.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "01012f0dbf88",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 0,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T00:11:59.093Z"
+        },
+        {
+          "id": "27c2b86df983",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 40,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T00:11:59.093Z"
+        },
+        {
+          "id": "ede2f5463522",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 80,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T00:11:59.093Z"
+        },
+        {
+          "id": "c741d63f943e",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 120,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T00:11:59.093Z"
+        },
+        {
+          "id": "3675601678f4",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 160,
+          "width": 640,
+          "height": 480,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T00:11:59.093Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Heart"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "ca62f589-8af8-41a9-8453-8f5046e9b607",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR341579.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "2e6352cd-5b87-4e76-8850-0a93fb3bb93a",
+      "category": "artist",
+      "text": "Magic Man is performed by Heart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "84cc45c3-0c54-4c31-b34d-2377757be2da",
+      "category": "album",
+      "text": "The song appears on the album \"Dreamboat Annie\" (1976).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-c10win"
+    },
+    {
+      "id": "f05ac67a-9b8e-49b6-902e-f3435e22ccee",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR341579.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-c10win"
+    },
+    {
+      "id": "f5a78276-34be-4b48-bf6a-726c56ae8012",
+      "category": "chart",
+      "text": "The song peaked at #9 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "7497db28-63c6-4b85-b56b-a7b91c84c86e",
+      "category": "trivia",
+      "text": "VirtualDJ library play count: 3.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "performance",
+      "scopeRef": "perf-l2td6z"
+    },
+    {
+      "id": "bc391ef4-f90a-4bce-bfe2-e00fac4e8ba8",
+      "category": "recording",
+      "text": "Magic Man was released in 1976.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "3b393664-e1aa-4f42-aecb-b736fb16499a",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR341579 (Magic Man).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "2ed27cbd-989c-47b6-b3f7-e0d088262b7c",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "88314162-1720-46a9-9fc4-c778677d59db",
+      "category": "trivia",
+      "text": "Artist: Heart · Title: Magic Man · Album: WTF · Year: 1976 · Genre: Rock · PlayCount: 3 · LastPlayed: 1758523103 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-l2td6z"
+    },
+    {
+      "id": "68808c7e-0e71-4499-aff8-969d16fb7728",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4 · Plays: 3",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-l2td6z"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T00:11:58.144Z",
+      "excerpt": "Retroverse track identity: RVTR341579. \"Magic Man\" by Heart. Album: Dreamboat Annie (1976).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+      "capturedAt": "2026-06-28T00:11:58.144Z",
+      "excerpt": "Canonical cover assignment for RVTR341579 (Magic Man). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T00:11:58.144Z",
+      "excerpt": "Album: Dreamboat Annie (1976). Billboard Hot 100 peak: #9. 23 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T00:11:58.144Z",
+      "excerpt": "Artist: Heart · Title: Magic Man · Album: WTF · Year: 1976 · Genre: Rock · PlayCount: 3 · LastPlayed: 1758523103 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T00:11:58.144Z",
+      "excerpt": "Performance year context: 1976.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-bc215077",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T00:11:58.144Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4 · Plays: 3",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Heart — Magic Man · Hot 100 peak #9 · 23 weeks · 1 performance videos · 11 candidate facts · 3 gaps · 1 performance(s) · 8/11 facts approved · confidence 63% · song 1976 / recording 1976",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR341579",
+      "artist": "Heart",
+      "title": "Magic Man",
+      "year": 1976,
+      "albumTitle": "Dreamboat Annie"
+    },
+    "charts": {
+      "peakHot100": 9,
+      "chartWeeks": 23,
+      "albumTitle": "Dreamboat Annie",
+      "summary": "Hot 100 peak #9 · 23 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Heart"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T00:11:58.144Z",
+          "excerpt": "Retroverse track identity: RVTR341579. \"Magic Man\" by Heart. Album: Dreamboat Annie (1976).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+          "capturedAt": "2026-06-28T00:11:58.144Z",
+          "excerpt": "Canonical cover assignment for RVTR341579 (Magic Man). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T00:11:58.144Z",
+          "excerpt": "Album: Dreamboat Annie (1976). Billboard Hot 100 peak: #9. 23 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T00:11:58.144Z",
+          "excerpt": "Artist: Heart · Title: Magic Man · Album: WTF · Year: 1976 · Genre: Rock · PlayCount: 3 · LastPlayed: 1758523103 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T00:11:58.144Z",
+          "excerpt": "Performance year context: 1976.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-bc215077",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T00:11:58.144Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4 · Plays: 3",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Heart — Magic Man · Hot 100 peak #9 · 23 weeks · 1 performance videos · 11 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "ca62f589-8af8-41a9-8453-8f5046e9b607",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR341579.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "2e6352cd-5b87-4e76-8850-0a93fb3bb93a",
+        "category": "artist",
+        "text": "Magic Man is performed by Heart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "84cc45c3-0c54-4c31-b34d-2377757be2da",
+        "category": "album",
+        "text": "The song appears on the album \"Dreamboat Annie\" (1976).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-c10win"
+      },
+      {
+        "id": "f05ac67a-9b8e-49b6-902e-f3435e22ccee",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR341579.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-c10win"
+      },
+      {
+        "id": "f5a78276-34be-4b48-bf6a-726c56ae8012",
+        "category": "chart",
+        "text": "The song peaked at #9 on the Billboard Hot 100 and spent 23 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "7497db28-63c6-4b85-b56b-a7b91c84c86e",
+        "category": "trivia",
+        "text": "VirtualDJ library play count: 3.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "performance",
+        "scopeRef": "perf-l2td6z"
+      },
+      {
+        "id": "bc391ef4-f90a-4bce-bfe2-e00fac4e8ba8",
+        "category": "recording",
+        "text": "Magic Man was released in 1976.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "3b393664-e1aa-4f42-aecb-b736fb16499a",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR341579 (Magic Man).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "2ed27cbd-989c-47b6-b3f7-e0d088262b7c",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "88314162-1720-46a9-9fc4-c778677d59db",
+        "category": "trivia",
+        "text": "Artist: Heart · Title: Magic Man · Album: WTF · Year: 1976 · Genre: Rock · PlayCount: 3 · LastPlayed: 1758523103 · Path: /Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-l2td6z"
+      },
+      {
+        "id": "68808c7e-0e71-4499-aff8-969d16fb7728",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4 · Plays: 3",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-l2td6z"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL797816/RVAL797816__heart__dreamboat-annie.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-l2td6z",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+      "durationSec": 164.954558,
+      "qualityScore": 85,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "01012f0dbf88",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 0,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T00:11:59.093Z"
+            },
+            {
+              "id": "27c2b86df983",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 40,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T00:11:59.093Z"
+            },
+            {
+              "id": "ede2f5463522",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 80,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T00:11:59.093Z"
+            },
+            {
+              "id": "c741d63f943e",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 120,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T00:11:59.093Z"
+            },
+            {
+              "id": "3675601678f4",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 160,
+              "width": 640,
+              "height": 480,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T00:11:59.093Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 1976. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 1976,
+      "confidence": 0.8,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1976",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Heart's \"Magic Man\" reached #9 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Magic Man is performed by Heart.",
+      "The song appears on the album \"Dreamboat Annie\" (1976).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR341579."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #9 on the Hot 100",
+      "Song release — original 1976 chapter",
+      "Performance angle — Official Video (1976)"
+    ],
+    "suggestedAngle": "breakthrough"
+  },
+  "songEntity": {
+    "rvtr": "RVTR341579",
+    "artist": "Heart",
+    "title": "Magic Man",
+    "writers": [],
+    "originalReleaseYear": 1976,
+    "originalAlbum": "Dreamboat Annie",
+    "peakHot100": 9,
+    "chartWeeks": 23,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Heart"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-c10win",
+      "kind": "studio_album",
+      "title": "Dreamboat Annie",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Dreamboat Annie",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 1976,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-l2td6z",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 1976,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 164.954558,
+      "qualityScore": 85,
+      "performanceNotes": "Detected year: 1976. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 1976",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.8
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-fts88l",
+        "domain": "song",
+        "kind": "release",
+        "year": 1976,
+        "label": "Magic Man — original release",
+        "detail": "Original album: Dreamboat Annie",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-l47p2r",
+        "domain": "song",
+        "kind": "chart",
+        "year": 1976,
+        "label": "Billboard Hot 100 peak #9",
+        "detail": "23 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-fbi038",
+        "domain": "recording",
+        "kind": "album",
+        "year": 1976,
+        "label": "Dreamboat Annie",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-c10win"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 1976,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.8,
+        "source": "owned video",
+        "entityRef": "perf-l2td6z"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 1976,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 1976,
+      "label": "Album: Dreamboat Annie",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 1976,
+      "label": "Official Video",
+      "confidence": 0.8,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR341579",
+      "artist": "Heart",
+      "title": "Magic Man",
+      "writers": [],
+      "originalReleaseYear": 1976,
+      "originalAlbum": "Dreamboat Annie",
+      "peakHot100": 9,
+      "chartWeeks": 23,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Heart"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-c10win",
+        "kind": "studio_album",
+        "title": "Dreamboat Annie",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Dreamboat Annie",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 1976,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-l2td6z",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/1970's/Heart - Magic Man.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 1976,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 164.954558,
+        "qualityScore": 85,
+        "performanceNotes": "Detected year: 1976. VirtualDJ play count: 3. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 1976",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.8
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-fts88l",
+          "domain": "song",
+          "kind": "release",
+          "year": 1976,
+          "label": "Magic Man — original release",
+          "detail": "Original album: Dreamboat Annie",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-l47p2r",
+          "domain": "song",
+          "kind": "chart",
+          "year": 1976,
+          "label": "Billboard Hot 100 peak #9",
+          "detail": "23 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-fbi038",
+          "domain": "recording",
+          "kind": "album",
+          "year": 1976,
+          "label": "Dreamboat Annie",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-c10win"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 1976,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.8,
+          "source": "owned video",
+          "entityRef": "perf-l2td6z"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 1976,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 1976,
+        "label": "Album: Dreamboat Annie",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 1976,
+        "label": "Official Video",
+        "confidence": 0.8,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

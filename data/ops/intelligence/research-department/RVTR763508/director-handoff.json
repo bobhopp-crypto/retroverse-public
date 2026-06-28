@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR763508",
+  "artist": "3 Doors Down",
+  "title": "Kryptonite",
+  "story": {
+    "headline": "Kryptonite: The Breakthrough Moment",
+    "subtitle": "3 Doors Down · Breakthrough · 2000",
+    "hook": "The song peaked at #3 on the Billboard Hot 100 and spent 53 weeks on the chart.",
+    "summary": "3 Doors Down's \"Kryptonite\" reached #3 on the Billboard Hot 100. Kryptonite was released in 2000.",
+    "fullStory": "3 Doors Down's \"Kryptonite\" reached #3 on the Billboard Hot 100.\n\nThe song peaked at #3 on the Billboard Hot 100 and spent 53 weeks on the chart.\n\nKryptonite was released in 2000.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #3 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "d0297664-7f47-479d-8cee-27089bf713ad",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 53 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d565a837-0e43-4c88-8853-afbce1444091",
+      "text": "Kryptonite was released in 2000.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "724ae0fd-eff3-43c0-b290-94d7c380ef8f",
+      "text": "The song appears on the album \"The Better Life\" (2000).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e80420f9-76ae-4ae4-b6d9-6948f57cb003",
+      "text": "VirtualDJ library play count: 7.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "5b0f6bef-bea6-406e-bed2-e6c31ea3c589",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "039fd9f39124",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR763508&file=performance.jpg",
+      "performanceId": "perf-mmrlyc"
+    },
+    {
+      "assetId": "dc154548cb10",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR763508&file=hero.jpg",
+      "performanceId": "perf-mmrlyc"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-mmrlyc",
+    "title": "Official Video · 2000",
+    "venue": "",
+    "year": 2000,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2000 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "039fd9f39124",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR763508&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "dc154548cb10",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR763508&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #3 on the Billboard Hot 100 and spent 53 weeks on the chart.",
+    "closing": "3 Doors Down's \"Kryptonite\" reached #3 on the Billboard Hot 100. Kryptonite was released in 2000.",
+    "storyBeats": [
+      {
+        "id": "beat-5ad4cc08e3",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Kryptonite\" — original release 2000. 3 Doors Down — \"Kryptonite\" · Original release 2000 · Album: The Better Life · Hot 100 peak #3",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "039fd9f39124",
+          "dc154548cb10"
+        ],
+        "relatedPerformanceId": "perf-mmrlyc",
+        "priority": 1
+      },
+      {
+        "id": "beat-fd583d4d70",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Better Life · Release 2000",
+        "supportingFactIds": [
+          "724ae0fd-eff3-43c0-b290-94d7c380ef8f"
+        ],
+        "relatedImageAssetIds": [
+          "039fd9f39124",
+          "dc154548cb10"
+        ],
+        "relatedPerformanceId": "perf-mmrlyc",
+        "priority": 2
+      },
+      {
+        "id": "beat-c93da6ae02",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #3 · 53 weeks on chart.",
+        "supportingFactIds": [
+          "d0297664-7f47-479d-8cee-27089bf713ad"
+        ],
+        "relatedImageAssetIds": [
+          "039fd9f39124",
+          "dc154548cb10"
+        ],
+        "relatedPerformanceId": "perf-mmrlyc",
+        "priority": 3
+      },
+      {
+        "id": "beat-56a0c470b7",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "039fd9f39124",
+          "dc154548cb10"
+        ],
+        "relatedPerformanceId": "perf-mmrlyc",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-41daf41e4b",
+        "title": "Chart milestone",
+        "description": "Peaked at #3 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2000,
+        "supportingFactIds": [
+          "d0297664-7f47-479d-8cee-27089bf713ad"
+        ],
+        "relatedImageAssetIds": [
+          "039fd9f39124"
+        ]
+      },
+      {
+        "id": "moment-8a0e2bc027",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2000,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "039fd9f39124"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-mmrlyc",
+      "title": "Official Video · 2000",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2000 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #3 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:06:48.224Z"
+  },
+  "submittedAt": "2026-06-27T05:06:48.224Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

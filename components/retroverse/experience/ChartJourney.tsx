@@ -24,6 +24,8 @@ type Props = {
   className?: string;
   /** Hide the inline timeline (song page uses Beyond the Charts instead). */
   hideTimeline?: boolean;
+  /** Museum experience — fingerprint only, no headers or narrative. */
+  museumMinimal?: boolean;
   /** Precomputed narrative from experience.json — skips runtime story assembly. */
   summary?: string | null;
 };
@@ -41,6 +43,7 @@ export function ChartJourney({
   variant = "exhibit",
   className,
   hideTimeline = false,
+  museumMinimal = false,
   summary = null,
 }: Props) {
   const experience = buildChartExperience({
@@ -59,7 +62,14 @@ export function ChartJourney({
 
   const { model, timeline } = experience;
   const { rows, gaps } = model;
-  const panelClass = ["rv-exp-cj", `rv-exp-cj--${variant}`, className].filter(Boolean).join(" ");
+  const panelClass = [
+    "rv-exp-cj",
+    `rv-exp-cj--${variant}`,
+    museumMinimal ? "rv-exp-cj--museum" : null,
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
   const label = chartLabel.replace(/^Billboard\s+/i, "");
 
   const gapBeforeRow = new Map<number, (typeof gaps)[number]>();
@@ -82,21 +92,23 @@ export function ChartJourney({
   }
 
   return (
-    <section className={panelClass} aria-labelledby="rv-exp-cj-heading">
-      <header className="rv-exp-cj__head">
-        <div>
-          <p className="rv-exp-cj__eyebrow">Chart Journey</p>
-          <h2 id="rv-exp-cj-heading">{label}</h2>
-        </div>
-      </header>
+    <section className={panelClass} aria-labelledby={museumMinimal ? undefined : "rv-exp-cj-heading"}>
+      {museumMinimal ? null : (
+        <header className="rv-exp-cj__head">
+          <div>
+            <p className="rv-exp-cj__eyebrow">Chart Journey</p>
+            <h2 id="rv-exp-cj-heading">{label}</h2>
+          </div>
+        </header>
+      )}
 
-      <ChartJourneySummary model={model} summary={summary} />
+      {museumMinimal ? null : <ChartJourneySummary model={model} summary={summary} />}
 
       <div className="rv-exp-cj__fingerprint" aria-label={`${label} chart fingerprint`}>
         <ol className="rv-exp-cj__rows">
           {rows.map((row, index) => (
             <ChartJourneyRowView
-              key={`${row.week.issueDate}-${index}`}
+              key={`cj-row-${row.week.issueDate}-${row.week.rank}-${index}`}
               row={row}
               model={model}
               gap={gapBeforeRow.get(index)}

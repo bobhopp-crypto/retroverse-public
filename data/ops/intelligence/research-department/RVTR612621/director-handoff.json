@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR612621",
+  "artist": "Peggy Lee",
+  "title": "Fever",
+  "story": {
+    "headline": "Fever: The Breakthrough Moment",
+    "subtitle": "Peggy Lee · Breakthrough · 2010",
+    "hook": "The song peaked at #8 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "summary": "Peggy Lee's \"Fever\" reached #8 on the Billboard Hot 100. Fever was released in 2010.",
+    "fullStory": "Peggy Lee's \"Fever\" reached #8 on the Billboard Hot 100.\n\nThe song peaked at #8 on the Billboard Hot 100 and spent 12 weeks on the chart.\n\nFever was released in 2010.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #8 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "5a828838-0c59-48c0-96f9-82fc7fdccbad",
+      "text": "The song peaked at #8 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "53491440-821d-47d6-bbb7-9500b06dcd6e",
+      "text": "Fever was released in 2010.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0cd36b7b-b8b3-44d3-8ccd-d58b3008d2dc",
+      "text": "The song appears on the album \"Come Rain Or Come Shine\" (2010).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "81330b0b-5a73-4486-ba50-85ff161b85cf",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f0ad1f86-f4cc-49cf-b4ad-bd119109e516",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "5ccde6a445dd",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR612621&file=performance.jpg",
+      "performanceId": "perf-74wums"
+    },
+    {
+      "assetId": "4dc27deebcf8",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR612621&file=hero.jpg",
+      "performanceId": "perf-74wums"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-74wums",
+    "title": "Official Video · 1958",
+    "venue": "",
+    "year": 1958,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1958 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "5ccde6a445dd",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR612621&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "4dc27deebcf8",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR612621&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #8 on the Billboard Hot 100 and spent 12 weeks on the chart.",
+    "closing": "Peggy Lee's \"Fever\" reached #8 on the Billboard Hot 100. Fever was released in 2010.",
+    "storyBeats": [
+      {
+        "id": "beat-2c3128a5be",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Fever\" — original release 2010. Peggy Lee — \"Fever\" · Original release 2010 · Album: Come Rain Or Come Shine · Hot 100 peak #8",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5ccde6a445dd",
+          "4dc27deebcf8"
+        ],
+        "relatedPerformanceId": "perf-74wums",
+        "priority": 1
+      },
+      {
+        "id": "beat-d7e697a0cb",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Come Rain Or Come Shine · Release 2010",
+        "supportingFactIds": [
+          "0cd36b7b-b8b3-44d3-8ccd-d58b3008d2dc"
+        ],
+        "relatedImageAssetIds": [
+          "5ccde6a445dd",
+          "4dc27deebcf8"
+        ],
+        "relatedPerformanceId": "perf-74wums",
+        "priority": 2
+      },
+      {
+        "id": "beat-916d93cef0",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #8 · 12 weeks on chart.",
+        "supportingFactIds": [
+          "5a828838-0c59-48c0-96f9-82fc7fdccbad"
+        ],
+        "relatedImageAssetIds": [
+          "5ccde6a445dd",
+          "4dc27deebcf8"
+        ],
+        "relatedPerformanceId": "perf-74wums",
+        "priority": 3
+      },
+      {
+        "id": "beat-180b80c689",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5ccde6a445dd",
+          "4dc27deebcf8"
+        ],
+        "relatedPerformanceId": "perf-74wums",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-cb6f2cd234",
+        "title": "Chart milestone",
+        "description": "Peaked at #8 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2010,
+        "supportingFactIds": [
+          "5a828838-0c59-48c0-96f9-82fc7fdccbad"
+        ],
+        "relatedImageAssetIds": [
+          "5ccde6a445dd"
+        ]
+      },
+      {
+        "id": "moment-2a32b5aedf",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1958,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5ccde6a445dd"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-74wums",
+      "title": "Official Video · 1958",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1958 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #8 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:50:29.558Z"
+  },
+  "submittedAt": "2026-06-27T05:50:29.558Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "version": 2,
+  "rvtr": "RVTR589746",
+  "artist": "John Denver",
+  "title": "Calypso",
+  "story": {
+    "headline": "Calypso: A Cultural Moment Captured on Record",
+    "subtitle": "John Denver · Cultural Moment · 1995",
+    "hook": "Calypso was released in 1995.",
+    "summary": "John Denver's \"Calypso\" — original release 1995.",
+    "fullStory": "John Denver's \"Calypso\" — original release 1995.\n\nCalypso was released in 1995.\n\nSong release — original 1995 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "1f155752-8946-4122-9e18-a1f4e639a419",
+      "text": "Calypso was released in 1995.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "6cc8eff9-1a78-46e5-a3ee-7d8042e4de92",
+      "text": "The song appears on the album \"Wildlife Concert\" (1995).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "acb53ac2-a9bc-46ee-b892-3fb95c54a5d5",
+      "text": "VirtualDJ library play count: 11.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "588636896c98",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR589746&file=hero.jpg",
+      "performanceId": "perf-hfmie"
+    },
+    {
+      "assetId": "267df4e85a87",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR589746&file=performance.jpg",
+      "performanceId": "perf-hfmie"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-hfmie",
+    "title": "Official Video · 1975",
+    "venue": "",
+    "year": 1975,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1975 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "588636896c98",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR589746&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "267df4e85a87",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR589746&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Cultural Moment — Calypso: A Cultural Moment Captured on Record",
+    "closing": "John Denver's \"Calypso\" — original release 1995.",
+    "storyBeats": [
+      {
+        "id": "beat-f5d1d477fc",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Calypso\" — original release 1995. John Denver — \"Calypso\" · Original release 1995 · Album: Wildlife Concert",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "588636896c98",
+          "267df4e85a87"
+        ],
+        "relatedPerformanceId": "perf-hfmie",
+        "priority": 1
+      },
+      {
+        "id": "beat-3d53455442",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Wildlife Concert · Release 1995",
+        "supportingFactIds": [
+          "6cc8eff9-1a78-46e5-a3ee-7d8042e4de92"
+        ],
+        "relatedImageAssetIds": [
+          "588636896c98",
+          "267df4e85a87"
+        ],
+        "relatedPerformanceId": "perf-hfmie",
+        "priority": 2
+      },
+      {
+        "id": "beat-f49d3b279e",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "588636896c98",
+          "267df4e85a87"
+        ],
+        "relatedPerformanceId": "perf-hfmie",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-21ae4b555e",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1975,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "588636896c98"
+        ]
+      },
+      {
+        "id": "moment-21ae4b555e",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1975 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1975,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "588636896c98"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-hfmie",
+      "title": "Official Video · 1975",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1975 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Calypso was released in 1995.\""
+    },
+    "generatedAt": "2026-06-27T04:33:39.661Z"
+  },
+  "submittedAt": "2026-06-27T04:33:39.661Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (53%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0.8,
+    "storyQuality": "Poor"
+  }
+}

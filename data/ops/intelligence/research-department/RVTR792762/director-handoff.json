@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR792762",
+  "artist": "Toto",
+  "title": "Africa",
+  "story": {
+    "headline": "Africa: The Breakthrough Moment",
+    "subtitle": "Toto · Breakthrough · 1982",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "summary": "Toto's \"Africa\" reached #1 on the Billboard Hot 100. Africa was released in 1982.",
+    "fullStory": "Toto's \"Africa\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 21 weeks on the chart.\n\nAfrica was released in 1982.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "bcab0dc2-13b9-48d4-ae66-617ce6c3e1ff",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e84f22b1-3107-4d7d-90e7-3e0b7b1e6411",
+      "text": "Africa was released in 1982.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "37f0dd18-48d8-4db1-86ab-61b4ae4de35c",
+      "text": "The song appears on the album \"Toto IV\" (1982).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "df962dab-4838-4d82-a387-9e5177f4f164",
+      "text": "VirtualDJ library play count: 67.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7e2d2fb7-3618-48ec-a0eb-9a06914302db",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "5b003c7fbe54",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792762&file=hero.jpg",
+      "performanceId": "perf-6ghdif"
+    },
+    {
+      "assetId": "f3da3c76ef7f",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792762&file=performance.jpg",
+      "performanceId": "perf-6ghdif"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-6ghdif",
+    "title": "Official Video · 1982",
+    "venue": "",
+    "year": 1982,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "5b003c7fbe54",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792762&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "f3da3c76ef7f",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR792762&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "closing": "Toto's \"Africa\" reached #1 on the Billboard Hot 100. Africa was released in 1982.",
+    "storyBeats": [
+      {
+        "id": "beat-884a7eace7",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Africa\" — original release 1982. Toto — \"Africa\" · Original release 1982 · Album: Toto IV · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5b003c7fbe54",
+          "f3da3c76ef7f"
+        ],
+        "relatedPerformanceId": "perf-6ghdif",
+        "priority": 1
+      },
+      {
+        "id": "beat-d0ef0b0359",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Toto IV · Release 1982",
+        "supportingFactIds": [
+          "37f0dd18-48d8-4db1-86ab-61b4ae4de35c"
+        ],
+        "relatedImageAssetIds": [
+          "5b003c7fbe54",
+          "f3da3c76ef7f"
+        ],
+        "relatedPerformanceId": "perf-6ghdif",
+        "priority": 2
+      },
+      {
+        "id": "beat-cbf5a7833c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 21 weeks on chart.",
+        "supportingFactIds": [
+          "bcab0dc2-13b9-48d4-ae66-617ce6c3e1ff"
+        ],
+        "relatedImageAssetIds": [
+          "5b003c7fbe54",
+          "f3da3c76ef7f"
+        ],
+        "relatedPerformanceId": "perf-6ghdif",
+        "priority": 3
+      },
+      {
+        "id": "beat-3430c267ae",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5b003c7fbe54",
+          "f3da3c76ef7f"
+        ],
+        "relatedPerformanceId": "perf-6ghdif",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-42f2c150a1",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1982,
+        "supportingFactIds": [
+          "bcab0dc2-13b9-48d4-ae66-617ce6c3e1ff"
+        ],
+        "relatedImageAssetIds": [
+          "5b003c7fbe54"
+        ]
+      },
+      {
+        "id": "moment-01fe601f95",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1982,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5b003c7fbe54"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-6ghdif",
+      "title": "Official Video · 1982",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:08.473Z"
+  },
+  "submittedAt": "2026-06-27T04:20:08.473Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

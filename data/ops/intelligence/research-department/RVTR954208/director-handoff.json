@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR954208",
+  "artist": "Men At Work",
+  "title": "It's A Mistake",
+  "story": {
+    "headline": "It's A Mistake: The Breakthrough Moment",
+    "subtitle": "Men At Work · Breakthrough · 1983",
+    "hook": "The song peaked at #6 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+    "summary": "Men At Work's \"It's A Mistake\" reached #6 on the Billboard Hot 100. It's A Mistake was released in 1983.",
+    "fullStory": "Men At Work's \"It's A Mistake\" reached #6 on the Billboard Hot 100.\n\nThe song peaked at #6 on the Billboard Hot 100 and spent 15 weeks on the chart.\n\nIt's A Mistake was released in 1983.\n\nChart story — peaked at #6 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "cbc98f31-be4b-424c-9ca1-864df2724025",
+      "text": "The song peaked at #6 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a476d7e7-b9c4-454a-a516-6fc38da27943",
+      "text": "It's A Mistake was released in 1983.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "beaf39d1-eab3-43b1-9b42-cb6929283c94",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "7bfcf4b090f2",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR954208&file=hero.jpg",
+      "performanceId": "perf-tx2lf9"
+    },
+    {
+      "assetId": "4c220224848f",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR954208&file=performance.jpg",
+      "performanceId": "perf-tx2lf9"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-tx2lf9",
+    "title": "Official Video · 1983",
+    "venue": "",
+    "year": 1983,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1983 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "7bfcf4b090f2",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR954208&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "4c220224848f",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR954208&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #6 on the Billboard Hot 100 and spent 15 weeks on the chart.",
+    "closing": "Men At Work's \"It's A Mistake\" reached #6 on the Billboard Hot 100. It's A Mistake was released in 1983.",
+    "storyBeats": [
+      {
+        "id": "beat-7ef306c23d",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"It's A Mistake\" — original release 1983. Men At Work — \"It's A Mistake\" · Original release 1983 · Hot 100 peak #6",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7bfcf4b090f2",
+          "4c220224848f"
+        ],
+        "relatedPerformanceId": "perf-tx2lf9",
+        "priority": 1
+      },
+      {
+        "id": "beat-b762836e87",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "It's A Mistake — graph recording · Release 1983",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7bfcf4b090f2",
+          "4c220224848f"
+        ],
+        "relatedPerformanceId": "perf-tx2lf9",
+        "priority": 2
+      },
+      {
+        "id": "beat-9505b8420d",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #6 · 15 weeks on chart.",
+        "supportingFactIds": [
+          "cbc98f31-be4b-424c-9ca1-864df2724025"
+        ],
+        "relatedImageAssetIds": [
+          "7bfcf4b090f2",
+          "4c220224848f"
+        ],
+        "relatedPerformanceId": "perf-tx2lf9",
+        "priority": 3
+      },
+      {
+        "id": "beat-28ddfe2d67",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7bfcf4b090f2",
+          "4c220224848f"
+        ],
+        "relatedPerformanceId": "perf-tx2lf9",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-925a3baa7f",
+        "title": "Chart milestone",
+        "description": "Peaked at #6 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1983,
+        "supportingFactIds": [
+          "cbc98f31-be4b-424c-9ca1-864df2724025"
+        ],
+        "relatedImageAssetIds": [
+          "7bfcf4b090f2"
+        ]
+      },
+      {
+        "id": "moment-45939f71d8",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1983,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7bfcf4b090f2"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-tx2lf9",
+      "title": "Official Video · 1983",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1983 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #6 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:39:45.358Z"
+  },
+  "submittedAt": "2026-06-27T05:39:45.358Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

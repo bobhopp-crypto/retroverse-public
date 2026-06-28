@@ -1,0 +1,201 @@
+{
+  "version": 2,
+  "rvtr": "RVTR363109",
+  "artist": "Michael Jackson",
+  "title": "Black Or White",
+  "story": {
+    "headline": "Black Or White: The Breakthrough Moment",
+    "subtitle": "Michael Jackson · Breakthrough · 2001",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Michael Jackson's \"Black Or White\" reached #1 on the Billboard Hot 100.",
+    "fullStory": "Michael Jackson's \"Black Or White\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nGraph compilation anchor: \"Greatest Hits: HIStory -- Volume 1\" (2001) — not the song's original release year.\n\nAlbum: Greatest Hits: HIStory -- Volume 1 (2001).\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "85a2cdbb-9696-471a-9966-b26b5754bab2",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e06d4fb0-c978-4dd1-952d-c623d8600a7d",
+      "text": "The song appears on the album \"Greatest Hits: HIStory -- Volume 1\" (2001).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "4023ed04-703a-4692-81d0-ff92608034b1",
+      "text": "Graph compilation anchor: \"Greatest Hits: HIStory -- Volume 1\" (2001) — not the song's original release year.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e96df632-0aaa-4b26-97ba-0b65ccf6e66c",
+      "text": "VirtualDJ library play count: 14.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f1cae966-3535-4922-a1c5-052c0dcf2982",
+      "text": "Album: Greatest Hits: HIStory -- Volume 1 (2001).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "af53463f-83a4-43f8-95b2-72e585c70c04",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    },
+    {
+      "id": "63ed4e66-32af-4257-b93f-95ccc27bd402",
+      "text": "Album: Greatest Hits: HIStory -- Volume 1 (2001).",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "b94c9c7e0e7b",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR363109&file=hero.jpg",
+      "performanceId": "perf-716bfn"
+    },
+    {
+      "assetId": "944dd11d1517",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR363109&file=performance.jpg",
+      "performanceId": "perf-716bfn"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-716bfn",
+    "title": "Official Video · 1991",
+    "venue": "",
+    "year": 1991,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1991 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "b94c9c7e0e7b",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR363109&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "944dd11d1517",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR363109&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Michael Jackson's \"Black Or White\" reached #1 on the Billboard Hot 100.",
+    "storyBeats": [
+      {
+        "id": "beat-9548046f85",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Black Or White\" — original release 1991. Michael Jackson — \"Black Or White\" · Original release 1991 · Hot 100 peak #1",
+        "supportingFactIds": [
+          "4023ed04-703a-4692-81d0-ff92608034b1"
+        ],
+        "relatedImageAssetIds": [
+          "b94c9c7e0e7b",
+          "944dd11d1517"
+        ],
+        "relatedPerformanceId": "perf-716bfn",
+        "priority": 1
+      },
+      {
+        "id": "beat-7cfe68adf2",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Greatest Hits: HIStory -- Volume 1 · Release 2001 · Compilation edition",
+        "supportingFactIds": [
+          "e06d4fb0-c978-4dd1-952d-c623d8600a7d",
+          "f1cae966-3535-4922-a1c5-052c0dcf2982"
+        ],
+        "relatedImageAssetIds": [
+          "b94c9c7e0e7b",
+          "944dd11d1517"
+        ],
+        "relatedPerformanceId": "perf-716bfn",
+        "priority": 2
+      },
+      {
+        "id": "beat-852febe433",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "85a2cdbb-9696-471a-9966-b26b5754bab2"
+        ],
+        "relatedImageAssetIds": [
+          "b94c9c7e0e7b",
+          "944dd11d1517"
+        ],
+        "relatedPerformanceId": "perf-716bfn",
+        "priority": 3
+      },
+      {
+        "id": "beat-e2ea6478d6",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "b94c9c7e0e7b",
+          "944dd11d1517"
+        ],
+        "relatedPerformanceId": "perf-716bfn",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-ce18c1a4e8",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1991,
+        "supportingFactIds": [
+          "85a2cdbb-9696-471a-9966-b26b5754bab2"
+        ],
+        "relatedImageAssetIds": [
+          "b94c9c7e0e7b"
+        ]
+      },
+      {
+        "id": "moment-87c7f0278c",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1991,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "b94c9c7e0e7b"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-716bfn",
+      "title": "Official Video · 1991",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1991 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:22:35.104Z"
+  },
+  "submittedAt": "2026-06-27T04:22:35.105Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.5,
+    "storyQuality": "Strong"
+  }
+}

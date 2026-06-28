@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR822659",
+  "artist": "The Moody Blues",
+  "title": "Ride My See Saw",
+  "story": {
+    "headline": "Ride My See Saw: A Cultural Moment Captured on Record",
+    "subtitle": "The Moody Blues · Cultural Moment · 1968",
+    "hook": "The song peaked at #61 on the Billboard Hot 100 and spent 5 weeks on the chart.",
+    "summary": "The Moody Blues's \"Ride My See Saw\" reached #61 on the Billboard Hot 100. Ride My See Saw was released in 1968.",
+    "fullStory": "The Moody Blues's \"Ride My See Saw\" reached #61 on the Billboard Hot 100.\n\nThe song peaked at #61 on the Billboard Hot 100 and spent 5 weeks on the chart.\n\nRide My See Saw was released in 1968.\n\nChart story — peaked at #61 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "39b57a92-269a-4b3c-9118-0012a7c229b6",
+      "text": "The song peaked at #61 on the Billboard Hot 100 and spent 5 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "dd37db6c-4502-4fd0-b4c4-1ac20ed60dda",
+      "text": "Ride My See Saw was released in 1968.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f24649d0-0607-4487-a71a-ce23f460f6c3",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "a1f3fd4b70de",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR822659&file=hero.jpg",
+      "performanceId": "perf-k3eupn"
+    },
+    {
+      "assetId": "8720385f5bc8",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR822659&file=performance.jpg",
+      "performanceId": "perf-k3eupn"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-k3eupn",
+    "title": "Official Video · 1968",
+    "venue": "",
+    "year": 1968,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1968 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "a1f3fd4b70de",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR822659&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "8720385f5bc8",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR822659&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #61 on the Billboard Hot 100 and spent 5 weeks on the chart.",
+    "closing": "The Moody Blues's \"Ride My See Saw\" reached #61 on the Billboard Hot 100. Ride My See Saw was released in 1968.",
+    "storyBeats": [
+      {
+        "id": "beat-12a3cc401e",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Ride My See Saw\" — original release 1968. The Moody Blues — \"Ride My See Saw\" · Original release 1968 · Hot 100 peak #61",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a1f3fd4b70de",
+          "8720385f5bc8"
+        ],
+        "relatedPerformanceId": "perf-k3eupn",
+        "priority": 1
+      },
+      {
+        "id": "beat-d44455067a",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Ride My See Saw — graph recording · Release 1968",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a1f3fd4b70de",
+          "8720385f5bc8"
+        ],
+        "relatedPerformanceId": "perf-k3eupn",
+        "priority": 2
+      },
+      {
+        "id": "beat-d0a5933115",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #61 · 5 weeks on chart.",
+        "supportingFactIds": [
+          "39b57a92-269a-4b3c-9118-0012a7c229b6"
+        ],
+        "relatedImageAssetIds": [
+          "a1f3fd4b70de",
+          "8720385f5bc8"
+        ],
+        "relatedPerformanceId": "perf-k3eupn",
+        "priority": 3
+      },
+      {
+        "id": "beat-106de4711a",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a1f3fd4b70de",
+          "8720385f5bc8"
+        ],
+        "relatedPerformanceId": "perf-k3eupn",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-22ce27ee78",
+        "title": "Chart milestone",
+        "description": "Peaked at #61 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1968,
+        "supportingFactIds": [
+          "39b57a92-269a-4b3c-9118-0012a7c229b6"
+        ],
+        "relatedImageAssetIds": [
+          "a1f3fd4b70de"
+        ]
+      },
+      {
+        "id": "moment-a7cafa8326",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1968,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "a1f3fd4b70de"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-k3eupn",
+      "title": "Official Video · 1968",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1968 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #61 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:43:40.196Z"
+  },
+  "submittedAt": "2026-06-27T05:43:40.196Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

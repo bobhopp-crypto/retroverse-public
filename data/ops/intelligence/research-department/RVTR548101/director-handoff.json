@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "rvtr": "RVTR548101",
+  "artist": "The Beatles",
+  "title": "A Day In The Life",
+  "story": {
+    "headline": "A Day In The Life: The Personal Story Behind the Song",
+    "subtitle": "The Beatles · Personal Story · 1973",
+    "hook": "A Day In The Life was released in 1973.",
+    "summary": "The Beatles's \"A Day In The Life\" — original release 1973.",
+    "fullStory": "The Beatles's \"A Day In The Life\" — original release 1973.\n\nA Day In The Life was released in 1973.\n\nArtist: The Beatles · Title: A Day In The Life · Album: Inside Sgt.\n\nSong release — original 1973 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "4317959e-4e3e-4fe6-8332-d4bd6ed6fd10",
+      "text": "A Day In The Life was released in 1973.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "1d35e39e-6d88-4472-aa3f-03bed1e2cd31",
+      "text": "The song appears on the album \"The Beatles 1967-1970\" (1973).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "53990f6f-c58c-4d25-88b3-d28067b0b42b",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f2ab4429-0736-4db3-9f35-e3bd8e8a0391",
+      "text": "Artist: The Beatles · Title: A Day In The Life · Album: Inside Sgt.",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "0d281e12b586",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR548101&file=performance.jpg",
+      "performanceId": "perf-hsk42f"
+    },
+    {
+      "assetId": "a0788a83cde3",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR548101&file=hero.jpg",
+      "performanceId": "perf-hsk42f"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-hsk42f",
+    "title": "Official Video · 1967",
+    "venue": "",
+    "year": 1967,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1967 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "0d281e12b586",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR548101&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "a0788a83cde3",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR548101&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "A Day In The Life was released in 1973.",
+    "closing": "The Beatles's \"A Day In The Life\" — original release 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-03757e8a6b",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"A Day In The Life\" — original release 1973. The Beatles — \"A Day In The Life\" · Original release 1973 · Album: The Beatles 1967-1970",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0d281e12b586",
+          "a0788a83cde3"
+        ],
+        "relatedPerformanceId": "perf-hsk42f",
+        "priority": 1
+      },
+      {
+        "id": "beat-a6c884fb4f",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "The Beatles 1967-1970 · Release 1973",
+        "supportingFactIds": [
+          "1d35e39e-6d88-4472-aa3f-03bed1e2cd31",
+          "f2ab4429-0736-4db3-9f35-e3bd8e8a0391"
+        ],
+        "relatedImageAssetIds": [
+          "0d281e12b586",
+          "a0788a83cde3"
+        ],
+        "relatedPerformanceId": "perf-hsk42f",
+        "priority": 2
+      },
+      {
+        "id": "beat-beea4cb74e",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0d281e12b586",
+          "a0788a83cde3"
+        ],
+        "relatedPerformanceId": "perf-hsk42f",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-ee57b10673",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1967,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0d281e12b586"
+        ]
+      },
+      {
+        "id": "moment-ee57b10673",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1967 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1967,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "0d281e12b586"
+        ]
+      }
+    ],
+    "emotionalArc": "reflection",
+    "recommendedPace": "slow",
+    "recommendedPerformance": {
+      "performanceId": "perf-hsk42f",
+      "title": "Official Video · 1967",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1967 performance helps anchor the narrative."
+    },
+    "primaryTheme": "love",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"A Day In The Life was released in 1973.\""
+    },
+    "generatedAt": "2026-06-27T04:57:38.940Z"
+  },
+  "submittedAt": "2026-06-27T04:57:38.940Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (53%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 5.5,
+    "storyQuality": "Fair"
+  }
+}

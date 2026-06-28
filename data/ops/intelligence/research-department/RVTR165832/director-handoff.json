@@ -1,0 +1,161 @@
+{
+  "version": 2,
+  "rvtr": "RVTR165832",
+  "artist": "Louis Armstrong",
+  "title": "Blueberry Hill",
+  "story": {
+    "headline": "Blueberry Hill: The Personal Story Behind the Song",
+    "subtitle": "Louis Armstrong · Personal Story · 1964",
+    "hook": "Blueberry Hill was released in 1964.",
+    "summary": "Louis Armstrong's \"Blueberry Hill\" — original release 1964.",
+    "fullStory": "Louis Armstrong's \"Blueberry Hill\" — original release 1964.\n\nBlueberry Hill was released in 1964.\n\nSong release — original 1964 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "04dbb004-6774-4bef-bfee-1e8424f19d86",
+      "text": "Blueberry Hill was released in 1964.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "7005ec02-46a6-4429-8dd2-42741c758de6",
+      "text": "The song appears on the album \"Hello Dolly\" (1964).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "cd3fe319-c35a-4822-b703-89b05a193913",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "d7857f86e714",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR165832&file=hero.jpg",
+      "performanceId": "perf-atxx26"
+    },
+    {
+      "assetId": "75c1fb6b2b63",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR165832&file=performance.jpg",
+      "performanceId": "perf-atxx26"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-atxx26",
+    "title": "Official Video · 1970",
+    "venue": "",
+    "year": 1970,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "d7857f86e714",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR165832&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "75c1fb6b2b63",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR165832&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Blueberry Hill was released in 1964.",
+    "closing": "Louis Armstrong's \"Blueberry Hill\" — original release 1964.",
+    "storyBeats": [
+      {
+        "id": "beat-a0f17a1840",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Blueberry Hill\" — original release 1964. Louis Armstrong — \"Blueberry Hill\" · Original release 1964 · Album: Hello Dolly",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d7857f86e714",
+          "75c1fb6b2b63"
+        ],
+        "relatedPerformanceId": "perf-atxx26",
+        "priority": 1
+      },
+      {
+        "id": "beat-a911c8b1d1",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Hello Dolly · Release 1964",
+        "supportingFactIds": [
+          "7005ec02-46a6-4429-8dd2-42741c758de6"
+        ],
+        "relatedImageAssetIds": [
+          "d7857f86e714",
+          "75c1fb6b2b63"
+        ],
+        "relatedPerformanceId": "perf-atxx26",
+        "priority": 2
+      },
+      {
+        "id": "beat-bd01b1753c",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d7857f86e714",
+          "75c1fb6b2b63"
+        ],
+        "relatedPerformanceId": "perf-atxx26",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-6280c1f1df",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1970,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d7857f86e714"
+        ]
+      },
+      {
+        "id": "moment-6280c1f1df",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1970,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "d7857f86e714"
+        ]
+      }
+    ],
+    "emotionalArc": "reflection",
+    "recommendedPace": "slow",
+    "recommendedPerformance": {
+      "performanceId": "perf-atxx26",
+      "title": "Official Video · 1970",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1970 performance helps anchor the narrative."
+    },
+    "primaryTheme": "love",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Blueberry Hill was released in 1964.\""
+    },
+    "generatedAt": "2026-06-27T05:26:25.491Z"
+  },
+  "submittedAt": "2026-06-27T05:26:25.492Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (53%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 2.3,
+    "storyQuality": "Poor"
+  }
+}

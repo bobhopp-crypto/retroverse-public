@@ -1,0 +1,156 @@
+{
+  "version": 2,
+  "rvtr": "RVTR292864",
+  "artist": "Glenn Miller",
+  "title": "At Last",
+  "story": {
+    "headline": "At Last: A Cultural Moment Captured on Record",
+    "subtitle": "Glenn Miller · Cultural Moment",
+    "hook": "At Last is performed by Glenn Miller.",
+    "summary": "Glenn Miller's \"At Last\" — original release 1942. Artist: Glenn Miller · Title: At Last · Album: Dal Film Universal Inter.",
+    "fullStory": "Glenn Miller's \"At Last\" — original release 1942.\n\nArtist: Glenn Miller · Title: At Last · Album: Dal Film Universal Inter.\n\nSong release — original 1942 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "56b34233-80f5-4093-982c-46d02e51735e",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "dc655a2b-7663-4e52-8aa8-a836c06136fe",
+      "text": "Artist: Glenn Miller · Title: At Last · Album: Dal Film Universal Inter.",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "e34b05d61aac",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR292864&file=performance.jpg",
+      "performanceId": "perf-flp4wc"
+    },
+    {
+      "assetId": "a1adf92db8de",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR292864&file=hero.jpg",
+      "performanceId": "perf-flp4wc"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-flp4wc",
+    "title": "Official Video · 1942",
+    "venue": "",
+    "year": 1942,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1942 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "e34b05d61aac",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR292864&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "a1adf92db8de",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR292864&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "At Last is performed by Glenn Miller.",
+    "closing": "Glenn Miller's \"At Last\" — original release 1942. Artist: Glenn Miller · Title: At Last · Album: Dal Film Universal Inter.",
+    "storyBeats": [
+      {
+        "id": "beat-658bc735aa",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"At Last\" — original release 1942. Glenn Miller — \"At Last\" · Original release 1942",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e34b05d61aac",
+          "a1adf92db8de"
+        ],
+        "relatedPerformanceId": "perf-flp4wc",
+        "priority": 1
+      },
+      {
+        "id": "beat-7a00ff01a5",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [
+          "dc655a2b-7663-4e52-8aa8-a836c06136fe"
+        ],
+        "relatedImageAssetIds": [
+          "e34b05d61aac",
+          "a1adf92db8de"
+        ],
+        "relatedPerformanceId": "perf-flp4wc",
+        "priority": 2
+      },
+      {
+        "id": "beat-b915a829cf",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e34b05d61aac",
+          "a1adf92db8de"
+        ],
+        "relatedPerformanceId": "perf-flp4wc",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-9c30e5db19",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1942,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e34b05d61aac"
+        ]
+      },
+      {
+        "id": "moment-9c30e5db19",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1942 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1942,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "e34b05d61aac"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-flp4wc",
+      "title": "Official Video · 1942",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1942 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"At Last is performed by Glenn Miller.\""
+    },
+    "generatedAt": "2026-06-27T05:54:34.820Z"
+  },
+  "submittedAt": "2026-06-27T05:54:34.821Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 2.3,
+    "storyQuality": "Poor"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR776852",
+  "artist": "Jack Harlow",
+  "title": "Lovin On Me",
+  "story": {
+    "headline": "Lovin On Me: The Breakthrough Moment",
+    "subtitle": "Jack Harlow · Breakthrough · 2023",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 38 weeks on the chart.",
+    "summary": "Jack Harlow's \"Lovin On Me\" reached #1 on the Billboard Hot 100. Lovin On Me was released in 2023.",
+    "fullStory": "Jack Harlow's \"Lovin On Me\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 38 weeks on the chart.\n\nLovin On Me was released in 2023.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "d24ad3e5-28a0-4893-bf46-08ff2c26181e",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 38 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "15bdcd2a-2cb9-4846-aeb6-96581a4b5798",
+      "text": "Lovin On Me was released in 2023.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0421ffbb-2b12-441b-b989-3ad15b1272b2",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "ead8d2f918af",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR776852&file=performance.jpg",
+      "performanceId": "perf-pytq1m"
+    },
+    {
+      "assetId": "8f0d898d084c",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR776852&file=hero.jpg",
+      "performanceId": "perf-pytq1m"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-pytq1m",
+    "title": "Official Video · 2023",
+    "venue": "",
+    "year": 2023,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2023 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "ead8d2f918af",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR776852&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "8f0d898d084c",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR776852&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 38 weeks on the chart.",
+    "closing": "Jack Harlow's \"Lovin On Me\" reached #1 on the Billboard Hot 100. Lovin On Me was released in 2023.",
+    "storyBeats": [
+      {
+        "id": "beat-91d4844d40",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Lovin On Me\" — original release 2023. Jack Harlow — \"Lovin On Me\" · Original release 2023 · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ead8d2f918af",
+          "8f0d898d084c"
+        ],
+        "relatedPerformanceId": "perf-pytq1m",
+        "priority": 1
+      },
+      {
+        "id": "beat-76ec295b68",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Lovin On Me — graph recording · Release 2023",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ead8d2f918af",
+          "8f0d898d084c"
+        ],
+        "relatedPerformanceId": "perf-pytq1m",
+        "priority": 2
+      },
+      {
+        "id": "beat-89199270a7",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 38 weeks on chart.",
+        "supportingFactIds": [
+          "d24ad3e5-28a0-4893-bf46-08ff2c26181e"
+        ],
+        "relatedImageAssetIds": [
+          "ead8d2f918af",
+          "8f0d898d084c"
+        ],
+        "relatedPerformanceId": "perf-pytq1m",
+        "priority": 3
+      },
+      {
+        "id": "beat-11b817caa5",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ead8d2f918af",
+          "8f0d898d084c"
+        ],
+        "relatedPerformanceId": "perf-pytq1m",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-ec3689419d",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2023,
+        "supportingFactIds": [
+          "d24ad3e5-28a0-4893-bf46-08ff2c26181e"
+        ],
+        "relatedImageAssetIds": [
+          "ead8d2f918af"
+        ]
+      },
+      {
+        "id": "moment-74374cea59",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2023,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "ead8d2f918af"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-pytq1m",
+      "title": "Official Video · 2023",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2023 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:56:56.471Z"
+  },
+  "submittedAt": "2026-06-27T05:56:56.471Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

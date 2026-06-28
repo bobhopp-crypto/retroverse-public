@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR013681",
+  "artist": "Walker Hayes",
+  "title": "Fancy Like",
+  "story": {
+    "headline": "Fancy Like: The Breakthrough Moment",
+    "subtitle": "Walker Hayes · Breakthrough · 2021",
+    "hook": "The song peaked at #3 on the Billboard Hot 100 and spent 45 weeks on the chart.",
+    "summary": "Walker Hayes's \"Fancy Like\" reached #3 on the Billboard Hot 100. Fancy Like was released in 2021.",
+    "fullStory": "Walker Hayes's \"Fancy Like\" reached #3 on the Billboard Hot 100.\n\nThe song peaked at #3 on the Billboard Hot 100 and spent 45 weeks on the chart.\n\nFancy Like was released in 2021.\n\nChart story — peaked at #3 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "89031e09-b25a-487e-8c2b-d96d1ae84fde",
+      "text": "The song peaked at #3 on the Billboard Hot 100 and spent 45 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "5134990c-8559-4648-ae32-88b4d8ab7781",
+      "text": "Fancy Like was released in 2021.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "4063e63a-2909-407b-af46-03b6aa2bee5d",
+      "text": "VirtualDJ library play count: 23.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c831d385a16a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013681&file=performance.jpg",
+      "performanceId": "perf-kee6fr"
+    },
+    {
+      "assetId": "ef62221e591e",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013681&file=hero.jpg",
+      "performanceId": "perf-kee6fr"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-kee6fr",
+    "title": "Official Video · 2021",
+    "venue": "",
+    "year": 2021,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2021 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "c831d385a16a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013681&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "ef62221e591e",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR013681&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #3 on the Billboard Hot 100 and spent 45 weeks on the chart.",
+    "closing": "Walker Hayes's \"Fancy Like\" reached #3 on the Billboard Hot 100. Fancy Like was released in 2021.",
+    "storyBeats": [
+      {
+        "id": "beat-41fb8f9699",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Fancy Like\" — original release 2021. Walker Hayes — \"Fancy Like\" · Original release 2021 · Hot 100 peak #3",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c831d385a16a",
+          "ef62221e591e"
+        ],
+        "relatedPerformanceId": "perf-kee6fr",
+        "priority": 1
+      },
+      {
+        "id": "beat-e0ff60bc19",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Fancy Like — graph recording · Release 2021",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c831d385a16a",
+          "ef62221e591e"
+        ],
+        "relatedPerformanceId": "perf-kee6fr",
+        "priority": 2
+      },
+      {
+        "id": "beat-394cdff155",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #3 · 45 weeks on chart.",
+        "supportingFactIds": [
+          "89031e09-b25a-487e-8c2b-d96d1ae84fde"
+        ],
+        "relatedImageAssetIds": [
+          "c831d385a16a",
+          "ef62221e591e"
+        ],
+        "relatedPerformanceId": "perf-kee6fr",
+        "priority": 3
+      },
+      {
+        "id": "beat-6d3d379c62",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c831d385a16a",
+          "ef62221e591e"
+        ],
+        "relatedPerformanceId": "perf-kee6fr",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-28e222dc8d",
+        "title": "Chart milestone",
+        "description": "Peaked at #3 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2021,
+        "supportingFactIds": [
+          "89031e09-b25a-487e-8c2b-d96d1ae84fde"
+        ],
+        "relatedImageAssetIds": [
+          "c831d385a16a"
+        ]
+      },
+      {
+        "id": "moment-9868e49cfb",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2021,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c831d385a16a"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-kee6fr",
+      "title": "Official Video · 2021",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2021 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #3 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:10.364Z"
+  },
+  "submittedAt": "2026-06-27T04:20:10.364Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

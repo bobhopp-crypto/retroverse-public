@@ -1,0 +1,156 @@
+{
+  "version": 2,
+  "rvtr": "RVTR899875",
+  "artist": "Dinosaur Jr",
+  "title": "Feel The Pain",
+  "story": {
+    "headline": "Feel The Pain: A Cultural Moment Captured on Record",
+    "subtitle": "Dinosaur Jr · Cultural Moment",
+    "hook": "Feel The Pain is performed by Dinosaur Jr.",
+    "summary": "Dinosaur Jr's \"Feel The Pain\" — original release 1994. Artist: Dinosaur Jr · Title: Feel The Pain · Album: Dinosaur Jr.",
+    "fullStory": "Dinosaur Jr's \"Feel The Pain\" — original release 1994.\n\nArtist: Dinosaur Jr · Title: Feel The Pain · Album: Dinosaur Jr.\n\nSong release — original 1994 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "ddd6743a-54c9-4711-81c4-aba2507bddf0",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "bd27d08b-5e5d-49d1-8d2f-3ec7dbd92501",
+      "text": "Artist: Dinosaur Jr · Title: Feel The Pain · Album: Dinosaur Jr.",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "228220e14e07",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899875&file=hero.jpg",
+      "performanceId": "perf-fimq4y"
+    },
+    {
+      "assetId": "6f8c741d6b41",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899875&file=performance.jpg",
+      "performanceId": "perf-fimq4y"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-fimq4y",
+    "title": "Official Video · 1994",
+    "venue": "",
+    "year": 1994,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1994 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "228220e14e07",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899875&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "6f8c741d6b41",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR899875&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Feel The Pain is performed by Dinosaur Jr.",
+    "closing": "Dinosaur Jr's \"Feel The Pain\" — original release 1994. Artist: Dinosaur Jr · Title: Feel The Pain · Album: Dinosaur Jr.",
+    "storyBeats": [
+      {
+        "id": "beat-2b4fe8d1ae",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Feel The Pain\" — original release 1994. Dinosaur Jr — \"Feel The Pain\" · Original release 1994",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "228220e14e07",
+          "6f8c741d6b41"
+        ],
+        "relatedPerformanceId": "perf-fimq4y",
+        "priority": 1
+      },
+      {
+        "id": "beat-61c83af04e",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [
+          "bd27d08b-5e5d-49d1-8d2f-3ec7dbd92501"
+        ],
+        "relatedImageAssetIds": [
+          "228220e14e07",
+          "6f8c741d6b41"
+        ],
+        "relatedPerformanceId": "perf-fimq4y",
+        "priority": 2
+      },
+      {
+        "id": "beat-d5c6051624",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "228220e14e07",
+          "6f8c741d6b41"
+        ],
+        "relatedPerformanceId": "perf-fimq4y",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-d911d00b7e",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1994,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "228220e14e07"
+        ]
+      },
+      {
+        "id": "moment-d911d00b7e",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1994 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1994,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "228220e14e07"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-fimq4y",
+      "title": "Official Video · 1994",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1994 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Feel The Pain is performed by Dinosaur Jr.\""
+    },
+    "generatedAt": "2026-06-27T06:00:50.690Z"
+  },
+  "submittedAt": "2026-06-27T06:00:50.690Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 4,
+    "storyQuality": "Weak"
+  }
+}

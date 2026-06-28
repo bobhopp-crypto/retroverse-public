@@ -11,6 +11,7 @@ import { EDITOR_STORY_VERSION } from "@/lib/studio/package";
 
 export { EDITOR_STORY_VERSION };
 export const EDITOR_DISTILL_VERSION = "2026-06-26.a4" as const;
+export const EDITORIAL_BRAIN_VERSION = 1 as const;
 
 /** @deprecated v1 shape — used only for migration input */
 export type EditorConfidenceLevel = "draft" | "review" | "ready";
@@ -23,7 +24,8 @@ export type EditorEditorialStatus =
   | "distilling"
   | "in_progress"
   | "ready"
-  | "submitted";
+  | "submitted"
+  | "showcase_curation";
 
 export type StoryIdeaKind = "card" | "visual" | "quote" | "animation" | "transition";
 export type StoryIdeaStatus = "suggested" | "dismissed" | "promoted";
@@ -68,6 +70,7 @@ export type EditorNote = {
 };
 
 export type TimelineEvent = {
+  id?: string;
   date: string;
   label: string;
 };
@@ -245,6 +248,84 @@ export type NarrativeBlueprint = {
   generatedAt: string;
 };
 
+/** Sprint 3.13 — Evidence grouped by narrative value, not source. */
+export type EvidenceBoardSectionId =
+  | "recording_story"
+  | "chart_story"
+  | "performance_story"
+  | "artist_perspective"
+  | "lyrics"
+  | "retroverse_knowledge";
+
+export type EvidenceBoardItem = {
+  id: string;
+  text: string;
+  factId: string | null;
+  sourceRef: string | null;
+  emphasis: "primary" | "supporting";
+};
+
+export type EvidenceBoardSection = {
+  id: EvidenceBoardSectionId;
+  title: string;
+  lead: string;
+  items: EvidenceBoardItem[];
+};
+
+export type EditorialBrief = {
+  primaryTheme: string;
+  emotionalHook: string;
+  culturalSignificance: string;
+  whyPeopleRemember: string;
+  mostSurprising: string;
+  visitorTakeaway: string;
+  summary: string;
+};
+
+export type DiscardedResearchItem = {
+  id: string;
+  text: string;
+  reason: string;
+};
+
+export type MuseumExhibitStep = {
+  id: string;
+  label: string;
+  role: "opening" | "body" | "closing";
+  rationale: string;
+  linkedFactIds: string[];
+};
+
+export type MuseumRecommendation = {
+  headline: string;
+  exhibitFlow: MuseumExhibitStep[];
+};
+
+export type DirectorCreativeBrief = {
+  theme: string;
+  openingHook: string;
+  emotionalArc: string;
+  keySupportingEvidence: string[];
+  recommendedExhibitOrder: string[];
+  closingTakeaway: string;
+  retroverseMoments: string[];
+  visualOpportunities: string[];
+  quoteOpportunities: string[];
+  songDnaDirection: string | null;
+};
+
+/** Sprint 3.13 — Editorial Brain: story discovery layer between Collector and Director. */
+export type EditorialBrain = {
+  version: typeof EDITORIAL_BRAIN_VERSION;
+  generatedAt: string;
+  brief: EditorialBrief;
+  evidenceBoard: EvidenceBoardSection[];
+  discarded: DiscardedResearchItem[];
+  promotedFactIds: string[];
+  museumRecommendation: MuseumRecommendation;
+  directorBrief: DirectorCreativeBrief;
+};
+
 export type EditorStoryNarrative = {
   headline: string;
   subtitle: string;
@@ -336,6 +417,8 @@ export type EditorStoryPackage = {
   approved: EditorApprovedLayer;
   /** Sprint A4 — structured creative plan for Director (not prose). */
   narrativeBlueprint?: NarrativeBlueprint;
+  /** Sprint 3.13 — editorial story discovery (optional; backward compatible). */
+  editorialBrain?: EditorialBrain;
   workspace: EditorWorkspace;
   meta: EditorPackageMeta;
 };
@@ -407,6 +490,8 @@ export type DirectorEditorialPackage = {
     patronValue: number | null;
     storyQuality: string | null;
   };
+  /** Sprint 3.13 — creative handoff from Editorial Brain (optional). */
+  directorBrief?: DirectorCreativeBrief;
 };
 
 /** Legacy presentation compat — maps from PerformanceWorkspace */

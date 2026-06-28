@@ -1,0 +1,176 @@
+{
+  "version": 2,
+  "rvtr": "RVTR093366",
+  "artist": "Tommy Tutone",
+  "title": "867 5309 Jenny",
+  "story": {
+    "headline": "867 5309 Jenny: The Breakthrough Moment",
+    "subtitle": "Tommy Tutone · Breakthrough · 1982",
+    "hook": "The song peaked at #4 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+    "summary": "Tommy Tutone's \"867 5309 Jenny\" reached #4 on the Billboard Hot 100. 867 5309 Jenny was released in 1982.",
+    "fullStory": "Tommy Tutone's \"867 5309 Jenny\" reached #4 on the Billboard Hot 100.\n\nThe song peaked at #4 on the Billboard Hot 100 and spent 27 weeks on the chart.\n\n867 5309 Jenny was released in 1982.\n\nChart story — peaked at #4 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "05367b32-2ef2-4afa-a063-7583e8aa2ce6",
+      "text": "The song peaked at #4 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a15a1c2f-57bd-42f5-a045-17e3dfabce95",
+      "text": "867 5309 Jenny was released in 1982.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "0e7f9148-face-4e60-bb47-5a66690b3b1b",
+      "text": "VirtualDJ library play count: 7.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c93c2a013990",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093366&file=performance.jpg",
+      "performanceId": "perf-8qf9vd"
+    },
+    {
+      "assetId": "2a901582bd81",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093366&file=hero.jpg",
+      "performanceId": "perf-8qf9vd"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-8qf9vd",
+    "title": "8675309 Jenny · 1982",
+    "venue": "",
+    "year": 1982,
+    "notes": "Recommended cut — Recommended: 8675309 Jenny. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "c93c2a013990",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093366&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "2a901582bd81",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR093366&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #4 on the Billboard Hot 100 and spent 27 weeks on the chart.",
+    "closing": "Tommy Tutone's \"867 5309 Jenny\" reached #4 on the Billboard Hot 100. 867 5309 Jenny was released in 1982.",
+    "storyBeats": [
+      {
+        "id": "beat-d0958da495",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"867 5309 Jenny\" — original release 1982. Tommy Tutone — \"867 5309 Jenny\" · Original release 1982 · Hot 100 peak #4",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c93c2a013990",
+          "2a901582bd81"
+        ],
+        "relatedPerformanceId": "perf-8qf9vd",
+        "priority": 1
+      },
+      {
+        "id": "beat-b251ccfe12",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "867 5309 Jenny — graph recording · Release 1982",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c93c2a013990",
+          "2a901582bd81"
+        ],
+        "relatedPerformanceId": "perf-8qf9vd",
+        "priority": 2
+      },
+      {
+        "id": "beat-108db7a5d4",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #4 · 27 weeks on chart.",
+        "supportingFactIds": [
+          "05367b32-2ef2-4afa-a063-7583e8aa2ce6"
+        ],
+        "relatedImageAssetIds": [
+          "c93c2a013990",
+          "2a901582bd81"
+        ],
+        "relatedPerformanceId": "perf-8qf9vd",
+        "priority": 3
+      },
+      {
+        "id": "beat-ab6a0214eb",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c93c2a013990",
+          "2a901582bd81"
+        ],
+        "relatedPerformanceId": "perf-8qf9vd",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-1fa498a5ca",
+        "title": "Chart milestone",
+        "description": "Peaked at #4 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1982,
+        "supportingFactIds": [
+          "05367b32-2ef2-4afa-a063-7583e8aa2ce6"
+        ],
+        "relatedImageAssetIds": [
+          "c93c2a013990"
+        ]
+      },
+      {
+        "id": "moment-7301dbfc4c",
+        "title": "8675309 Jenny",
+        "description": "Recommended: 8675309 Jenny. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1982,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c93c2a013990"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-8qf9vd",
+      "title": "8675309 Jenny · 1982",
+      "reason": "Recommended: 8675309 Jenny. 5 curated visual frames for cards and hero art. dated 1982 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #4 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:08:28.415Z"
+  },
+  "submittedAt": "2026-06-27T05:08:28.416Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 7.3,
+    "storyQuality": "Good"
+  }
+}

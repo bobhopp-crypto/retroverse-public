@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR287848",
+  "artist": "The Troggs",
+  "title": "Wild Thing",
+  "story": {
+    "headline": "Wild Thing: The Breakthrough Moment",
+    "subtitle": "The Troggs · Breakthrough · 1966",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+    "summary": "The Troggs's \"Wild Thing\" reached #1 on the Billboard Hot 100. Wild Thing was released in 1966.",
+    "fullStory": "The Troggs's \"Wild Thing\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 11 weeks on the chart.\n\nWild Thing was released in 1966.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "06c2d754-e56e-4794-a472-2d9e9c9883ab",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "40929ef1-ae5e-4265-8ced-f1de7beb5ff9",
+      "text": "Wild Thing was released in 1966.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "d53ade52-5780-4ec1-bc65-a29aee726562",
+      "text": "The song appears on the album \"Wild Thing\" (1966).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9547033b-1fee-4567-b6b8-e598128796bc",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "92c0610b6f6e",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR287848&file=hero.jpg",
+      "performanceId": "perf-7w9pak"
+    },
+    {
+      "assetId": "16987ff899a9",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR287848&file=performance.jpg",
+      "performanceId": "perf-7w9pak"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-7w9pak",
+    "title": "Official Video · 1966",
+    "venue": "",
+    "year": 1966,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1966 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "92c0610b6f6e",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR287848&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "16987ff899a9",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR287848&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 11 weeks on the chart.",
+    "closing": "The Troggs's \"Wild Thing\" reached #1 on the Billboard Hot 100. Wild Thing was released in 1966.",
+    "storyBeats": [
+      {
+        "id": "beat-7a501bfdbc",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Wild Thing\" — original release 1966. The Troggs — \"Wild Thing\" · Original release 1966 · Album: Wild Thing · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "92c0610b6f6e",
+          "16987ff899a9"
+        ],
+        "relatedPerformanceId": "perf-7w9pak",
+        "priority": 1
+      },
+      {
+        "id": "beat-25b2d56966",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Wild Thing · Release 1966",
+        "supportingFactIds": [
+          "d53ade52-5780-4ec1-bc65-a29aee726562"
+        ],
+        "relatedImageAssetIds": [
+          "92c0610b6f6e",
+          "16987ff899a9"
+        ],
+        "relatedPerformanceId": "perf-7w9pak",
+        "priority": 2
+      },
+      {
+        "id": "beat-ab2d7c2494",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 11 weeks on chart.",
+        "supportingFactIds": [
+          "06c2d754-e56e-4794-a472-2d9e9c9883ab"
+        ],
+        "relatedImageAssetIds": [
+          "92c0610b6f6e",
+          "16987ff899a9"
+        ],
+        "relatedPerformanceId": "perf-7w9pak",
+        "priority": 3
+      },
+      {
+        "id": "beat-843f83e3d7",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "92c0610b6f6e",
+          "16987ff899a9"
+        ],
+        "relatedPerformanceId": "perf-7w9pak",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-9543a2ecbf",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1966,
+        "supportingFactIds": [
+          "06c2d754-e56e-4794-a472-2d9e9c9883ab"
+        ],
+        "relatedImageAssetIds": [
+          "92c0610b6f6e"
+        ]
+      },
+      {
+        "id": "moment-f9e7e59f38",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1966,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "92c0610b6f6e"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-7w9pak",
+      "title": "Official Video · 1966",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1966 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:35:49.269Z"
+  },
+  "submittedAt": "2026-06-27T05:35:49.269Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

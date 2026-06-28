@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR227281",
+  "artist": "Primus",
+  "title": "My Name Is Mud",
+  "story": {
+    "headline": "My Name Is Mud: The Performance That Defined It",
+    "subtitle": "Primus · Live Performance",
+    "hook": "My Name Is Mud is performed by Primus.",
+    "summary": "Primus's \"My Name Is Mud\" — captured in performance footage from 1993.",
+    "fullStory": "Primus's \"My Name Is Mud\" — captured in performance footage from 1993.\n\nPerformance angle — Official Video (1993)."
+  },
+  "approvedFacts": [
+    {
+      "id": "05f497da-a84f-4b0f-85dd-4ecf0e19c05b",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "5690cc621fa1",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR227281&file=performance.jpg",
+      "performanceId": "perf-76nj17"
+    },
+    {
+      "assetId": "6729b95bd7d3",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR227281&file=hero.jpg",
+      "performanceId": "perf-76nj17"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-76nj17",
+    "title": "Official Video · 1993",
+    "venue": "",
+    "year": 1993,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1993 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "5690cc621fa1",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR227281&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "6729b95bd7d3",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR227281&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "My Name Is Mud is performed by Primus.",
+    "closing": "Primus's \"My Name Is Mud\" — captured in performance footage from 1993.",
+    "storyBeats": [
+      {
+        "id": "beat-ac9ff71b07",
+        "order": 0,
+        "title": "The performance setting",
+        "description": "Official Video (1993).",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5690cc621fa1",
+          "6729b95bd7d3"
+        ],
+        "relatedPerformanceId": "perf-76nj17",
+        "priority": 1
+      },
+      {
+        "id": "beat-d6783086b4",
+        "order": 1,
+        "title": "How the song began",
+        "description": "The composition behind \"My Name Is Mud\" — Primus — \"My Name Is Mud\".",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5690cc621fa1",
+          "6729b95bd7d3"
+        ],
+        "relatedPerformanceId": "perf-76nj17",
+        "priority": 2
+      },
+      {
+        "id": "beat-8c3d3bf752",
+        "order": 2,
+        "title": "Legacy",
+        "description": "Why this performance still carries weight for patrons today.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5690cc621fa1",
+          "6729b95bd7d3"
+        ],
+        "relatedPerformanceId": "perf-76nj17",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-132463a597",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1993,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5690cc621fa1"
+        ]
+      },
+      {
+        "id": "moment-132463a597",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1993 performance helps anchor the narrative. 1 alternate cut(s) on file — thi",
+        "kind": "featured_performance",
+        "year": 1993,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "5690cc621fa1"
+        ]
+      }
+    ],
+    "emotionalArc": "energy",
+    "recommendedPace": "mixed",
+    "recommendedPerformance": {
+      "performanceId": "perf-76nj17",
+      "title": "Official Video · 1993",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1993 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "performance",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Return to the performance moment — let the owned footage be the final image."
+    },
+    "generatedAt": "2026-06-27T05:19:37.508Z"
+  },
+  "submittedAt": "2026-06-27T05:19:37.508Z",
+  "editorNotesForDirector": "Collector confidence: Developing (48%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 0,
+    "storyQuality": "Poor"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR046019",
+  "artist": "Dobie Gray",
+  "title": "Drift Away",
+  "story": {
+    "headline": "Drift Away: The Breakthrough Moment",
+    "subtitle": "Dobie Gray · Breakthrough · 1973",
+    "hook": "The song peaked at #5 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "summary": "Dobie Gray's \"Drift Away\" reached #5 on the Billboard Hot 100. Drift Away was released in 1973.",
+    "fullStory": "Dobie Gray's \"Drift Away\" reached #5 on the Billboard Hot 100.\n\nThe song peaked at #5 on the Billboard Hot 100 and spent 21 weeks on the chart.\n\nDrift Away was released in 1973.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #5 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "ae25bd50-c4d5-4ce4-99e7-45854f675692",
+      "text": "The song peaked at #5 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "4b9bcf30-24ea-4d11-a1f6-6ca27e0bf1b1",
+      "text": "Drift Away was released in 1973.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a28dfd09-5380-4123-943c-7d3f7a856d1e",
+      "text": "The song appears on the album \"Drift Away\" (1973).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3ab39ce2-a872-4b30-9035-7e9baa29c729",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3728a1cb-f11a-45d6-b24f-248d17419e09",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "dd0b1ed4766e",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR046019&file=hero.jpg",
+      "performanceId": "perf-hmgmdj"
+    },
+    {
+      "assetId": "06a9427c8025",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR046019&file=performance.jpg",
+      "performanceId": "perf-hmgmdj"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-hmgmdj",
+    "title": "Official Video · 1973",
+    "venue": "",
+    "year": 1973,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "dd0b1ed4766e",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR046019&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "06a9427c8025",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR046019&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #5 on the Billboard Hot 100 and spent 21 weeks on the chart.",
+    "closing": "Dobie Gray's \"Drift Away\" reached #5 on the Billboard Hot 100. Drift Away was released in 1973.",
+    "storyBeats": [
+      {
+        "id": "beat-306b1be04c",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Drift Away\" — original release 1973. Dobie Gray — \"Drift Away\" · Original release 1973 · Album: Drift Away · Hot 100 peak #5",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dd0b1ed4766e",
+          "06a9427c8025"
+        ],
+        "relatedPerformanceId": "perf-hmgmdj",
+        "priority": 1
+      },
+      {
+        "id": "beat-a71fe96887",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Drift Away · Release 1973",
+        "supportingFactIds": [
+          "a28dfd09-5380-4123-943c-7d3f7a856d1e"
+        ],
+        "relatedImageAssetIds": [
+          "dd0b1ed4766e",
+          "06a9427c8025"
+        ],
+        "relatedPerformanceId": "perf-hmgmdj",
+        "priority": 2
+      },
+      {
+        "id": "beat-88d60ec5e1",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #5 · 21 weeks on chart.",
+        "supportingFactIds": [
+          "ae25bd50-c4d5-4ce4-99e7-45854f675692"
+        ],
+        "relatedImageAssetIds": [
+          "dd0b1ed4766e",
+          "06a9427c8025"
+        ],
+        "relatedPerformanceId": "perf-hmgmdj",
+        "priority": 3
+      },
+      {
+        "id": "beat-01dc608fdd",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dd0b1ed4766e",
+          "06a9427c8025"
+        ],
+        "relatedPerformanceId": "perf-hmgmdj",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-64de9158cb",
+        "title": "Chart milestone",
+        "description": "Peaked at #5 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1973,
+        "supportingFactIds": [
+          "ae25bd50-c4d5-4ce4-99e7-45854f675692"
+        ],
+        "relatedImageAssetIds": [
+          "dd0b1ed4766e"
+        ]
+      },
+      {
+        "id": "moment-a17be54024",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1973,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "dd0b1ed4766e"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-hmgmdj",
+      "title": "Official Video · 1973",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1973 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #5 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:19:22.657Z"
+  },
+  "submittedAt": "2026-06-27T05:19:22.658Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

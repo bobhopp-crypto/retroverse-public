@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR108370",
+  "artist": "Ariana Grande",
+  "title": "Into You",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T07:35:34.006Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "Ariana Grande — Into You (RVTR108370)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #13 · 24 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR108370",
+    "artist": "Ariana Grande",
+    "title": "Into You",
+    "year": 2016,
+    "albumTitle": "Dangerous Woman"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+        "artist": "Ariana Grande",
+        "title": "Into You",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2016,
+        "genre": "House",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 13,
+    "chartWeeks": 24,
+    "albumTitle": "Dangerous Woman",
+    "summary": "Hot 100 peak #13 · 24 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+        "artist": "Ariana Grande",
+        "title": "Into You",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2016,
+        "genre": "House",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+      "alternate.jpg",
+      "hero.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "close-up.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "beb50ff77820",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 20,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T07:35:34.003Z"
+        },
+        {
+          "id": "8b352686fddf",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 80,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T07:35:34.003Z"
+        },
+        {
+          "id": "c7a5e88cfca2",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 120,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T07:35:34.003Z"
+        },
+        {
+          "id": "4f2e6b3781ba",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 180,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T07:35:34.003Z"
+        },
+        {
+          "id": "c17c29c23906",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 240,
+          "width": 1280,
+          "height": 720,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T07:35:34.003Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "Ariana Grande"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "2579742b-63ed-4e80-ad01-c1bde8ebaae6",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR108370.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "07555b78-aef2-4307-8d12-7637901aadeb",
+      "category": "artist",
+      "text": "Into You is performed by Ariana Grande.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "2ac18303-9d56-4adc-b61a-1e991bf47bb4",
+      "category": "album",
+      "text": "The song appears on the album \"Dangerous Woman\" (2016).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-jz4w27"
+    },
+    {
+      "id": "29b0e8b3-feec-444b-82b5-ea99d8e64279",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR108370.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-jz4w27"
+    },
+    {
+      "id": "03801e8d-8fc9-4755-b2d8-e813f448de05",
+      "category": "chart",
+      "text": "The song peaked at #13 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "bf1f53a0-842b-4d3c-b73c-7b4b100469d0",
+      "category": "recording",
+      "text": "Into You was released in 2016.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "c3b31981-e00b-4cce-b30a-ece2e7a20dc3",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR108370 (Into You).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "52de3c11-d3fa-4857-a77a-a8a989998035",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "0a4e1125-475b-4db2-af9f-b4d4f219e50a",
+      "category": "trivia",
+      "text": "Artist: Ariana Grande · Title: Into You · Album: Into You (3LAU Remix) · Year: 2016 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-yzk40e"
+    },
+    {
+      "id": "88423b10-5784-4c8c-bf05-d10e0d3142f8",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-yzk40e"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T07:35:32.658Z",
+      "excerpt": "Retroverse track identity: RVTR108370. \"Into You\" by Ariana Grande. Album: Dangerous Woman (2016).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+      "capturedAt": "2026-06-28T07:35:32.658Z",
+      "excerpt": "Canonical cover assignment for RVTR108370 (Into You). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T07:35:32.658Z",
+      "excerpt": "Album: Dangerous Woman (2016). Billboard Hot 100 peak: #13. 24 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T07:35:32.658Z",
+      "excerpt": "Artist: Ariana Grande · Title: Into You · Album: Into You (3LAU Remix) · Year: 2016 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T07:35:32.658Z",
+      "excerpt": "Performance year context: 2016.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-a9d6740e",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T07:35:32.658Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "Ariana Grande — Into You · Hot 100 peak #13 · 24 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 2016 / recording 2016",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR108370",
+      "artist": "Ariana Grande",
+      "title": "Into You",
+      "year": 2016,
+      "albumTitle": "Dangerous Woman"
+    },
+    "charts": {
+      "peakHot100": 13,
+      "chartWeeks": 24,
+      "albumTitle": "Dangerous Woman",
+      "summary": "Hot 100 peak #13 · 24 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "Ariana Grande"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T07:35:32.658Z",
+          "excerpt": "Retroverse track identity: RVTR108370. \"Into You\" by Ariana Grande. Album: Dangerous Woman (2016).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+          "capturedAt": "2026-06-28T07:35:32.658Z",
+          "excerpt": "Canonical cover assignment for RVTR108370 (Into You). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T07:35:32.658Z",
+          "excerpt": "Album: Dangerous Woman (2016). Billboard Hot 100 peak: #13. 24 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T07:35:32.658Z",
+          "excerpt": "Artist: Ariana Grande · Title: Into You · Album: Into You (3LAU Remix) · Year: 2016 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T07:35:32.658Z",
+          "excerpt": "Performance year context: 2016.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-a9d6740e",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T07:35:32.658Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "Ariana Grande — Into You · Hot 100 peak #13 · 24 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "2579742b-63ed-4e80-ad01-c1bde8ebaae6",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR108370.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "07555b78-aef2-4307-8d12-7637901aadeb",
+        "category": "artist",
+        "text": "Into You is performed by Ariana Grande.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "2ac18303-9d56-4adc-b61a-1e991bf47bb4",
+        "category": "album",
+        "text": "The song appears on the album \"Dangerous Woman\" (2016).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-jz4w27"
+      },
+      {
+        "id": "29b0e8b3-feec-444b-82b5-ea99d8e64279",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR108370.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-jz4w27"
+      },
+      {
+        "id": "03801e8d-8fc9-4755-b2d8-e813f448de05",
+        "category": "chart",
+        "text": "The song peaked at #13 on the Billboard Hot 100 and spent 24 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "bf1f53a0-842b-4d3c-b73c-7b4b100469d0",
+        "category": "recording",
+        "text": "Into You was released in 2016.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "c3b31981-e00b-4cce-b30a-ece2e7a20dc3",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR108370 (Into You).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "52de3c11-d3fa-4857-a77a-a8a989998035",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "0a4e1125-475b-4db2-af9f-b4d4f219e50a",
+        "category": "trivia",
+        "text": "Artist: Ariana Grande · Title: Into You · Album: Into You (3LAU Remix) · Year: 2016 · Genre: House · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-yzk40e"
+      },
+      {
+        "id": "88423b10-5784-4c8c-bf05-d10e0d3142f8",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-yzk40e"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL789424/RVAL789424__ariana-grande__dangerous-woman.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-yzk40e",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "durationSec": 254.885442,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "beb50ff77820",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 20,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T07:35:34.003Z"
+            },
+            {
+              "id": "8b352686fddf",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 80,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T07:35:34.003Z"
+            },
+            {
+              "id": "c7a5e88cfca2",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 120,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T07:35:34.003Z"
+            },
+            {
+              "id": "4f2e6b3781ba",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 180,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T07:35:34.003Z"
+            },
+            {
+              "id": "c17c29c23906",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 240,
+              "width": 1280,
+              "height": 720,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T07:35:34.003Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2016. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2016,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2016",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "Ariana Grande's \"Into You\" reached #13 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Into You is performed by Ariana Grande.",
+      "The song appears on the album \"Dangerous Woman\" (2016).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR108370."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #13 on the Hot 100",
+      "Song release — original 2016 chapter",
+      "Performance angle — Official Video (2016)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR108370",
+    "artist": "Ariana Grande",
+    "title": "Into You",
+    "writers": [],
+    "originalReleaseYear": 2016,
+    "originalAlbum": "Dangerous Woman",
+    "peakHot100": 13,
+    "chartWeeks": 24,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "Ariana Grande"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-jz4w27",
+      "kind": "studio_album",
+      "title": "Dangerous Woman",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Dangerous Woman",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2016,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-yzk40e",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2016,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 254.885442,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2016. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2016",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-9nrlql",
+        "domain": "song",
+        "kind": "release",
+        "year": 2016,
+        "label": "Into You — original release",
+        "detail": "Original album: Dangerous Woman",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3fs",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2016,
+        "label": "Billboard Hot 100 peak #13",
+        "detail": "24 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-8jvdns",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2016,
+        "label": "Dangerous Woman",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-jz4w27"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2016,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-yzk40e"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2016,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2016,
+      "label": "Album: Dangerous Woman",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2016,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR108370",
+      "artist": "Ariana Grande",
+      "title": "Into You",
+      "writers": [],
+      "originalReleaseYear": 2016,
+      "originalAlbum": "Dangerous Woman",
+      "peakHot100": 13,
+      "chartWeeks": 24,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "Ariana Grande"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-jz4w27",
+        "kind": "studio_album",
+        "title": "Dangerous Woman",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Dangerous Woman",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2016,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-yzk40e",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2010's/Ariana Grande - Into You.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2016,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 254.885442,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2016. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2016",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-9nrlql",
+          "domain": "song",
+          "kind": "release",
+          "year": 2016,
+          "label": "Into You — original release",
+          "detail": "Original album: Dangerous Woman",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3fs",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2016,
+          "label": "Billboard Hot 100 peak #13",
+          "detail": "24 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-8jvdns",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2016,
+          "label": "Dangerous Woman",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-jz4w27"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2016,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-yzk40e"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2016,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2016,
+        "label": "Album: Dangerous Woman",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2016,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

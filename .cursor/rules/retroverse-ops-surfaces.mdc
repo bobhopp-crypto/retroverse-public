@@ -1,0 +1,41 @@
+---
+description: Ops surface design boundaries — Studio vs Browser vs Experience
+globs:
+  - "app/ops/studio/**"
+  - "app/ops/browser-plus/**"
+  - "components/ops/studio/**"
+  - "components/ops/browser-plus/**"
+  - "app/ops/studio/studio-design*.css"
+alwaysApply: false
+---
+
+# Ops Surface Design Boundaries
+
+Three intentional design languages. Do not unify them.
+
+## Studio — Mission Control
+
+- Routes: `/ops/studio/*`, Browser+ 2 ops shell (`.ops-page--bp2`)
+- Theme: dark blue, cinematic, `rs-studio-*` tokens
+- CSS: `studio-design-tokens.css`, `studio-design-utilities.css`, `studio.css`
+- Use: `rs-studio-panel`, `rs-studio-review-panel`, department pages
+
+## Public Experience — Museum
+
+- Routes: `/experience/*`
+- Theme: immersive, edge-to-edge patron UI
+- Not ops tooling; not Studio blue
+
+## VirtualDJ Browser — Library utility
+
+- Routes: `/ops/browser-plus` (`.browser-plus-page`, `.browser-plus`)
+- Theme: lightweight, data-first, VDJ red/black utility tables
+- CSS: `browser-plus.css`, `browser-product-tokens.css` only
+- **Never** apply Studio 2.0 blue theme, `rs-studio-*` classes, or `studio-design-tokens.css` here
+- Treat as a separate embedded application
+
+## When editing
+
+- Studio 2.0 visual passes → scope to `.ops-studio-page` only
+- Library/browser table work → keep VirtualDJ Browser styling isolated
+- Browser+ 2 may use Studio tokens for Mission Control chrome; link out to `/ops/browser-plus` for full VDJ browser

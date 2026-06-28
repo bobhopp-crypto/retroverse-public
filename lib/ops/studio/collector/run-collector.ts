@@ -1,5 +1,6 @@
 import { randomUUID } from "crypto";
 
+import { appendPipelineEvent } from "@/lib/ops/studio/department-status/pipeline-events";
 import { emitCanonicalFacts } from "@/lib/ops/intelligence/canonical-facts";
 import { buildCanonResearchCaptures } from "@/lib/ops/intelligence/canon-research-vault";
 import { loadSongMetadata } from "@/lib/ops/intelligence/load-song-metadata";
@@ -28,6 +29,7 @@ import {
   COLLECTOR_STAGES,
   type CollectorPackage,
   type CollectorProgress,
+  type CollectorLyricsArtifact,
   type CollectorResearchFact,
   type CollectorSourceLogEntry,
   type CollectorStageId,
@@ -36,6 +38,11 @@ import {
 } from "./types";
 import { extractVisualAssets, probeVideoDurationSec } from "./visual-extraction";
 import { finalizeCollectorPackage } from "./package-finalize";
+import { buildCollectorLyricsArtifact } from "./lyrics-artifact";
+import { buildSongDnaPackage } from "./build-song-dna";
+import { saveSongDnaPackage } from "./song-dna-store";
+import { buildVisualIdentityPackage } from "./visual-identity";
+import { saveVisualIdentityPackage } from "./visual-identity-store";
 import { isCompilationAlbumTitle } from "./identity-resolution";
 
 export type RunCollectorOptions = {
@@ -47,11 +54,19 @@ function stageLabel(stageId: CollectorStageId): string {
 }
 
 async function pushActivity(progress: CollectorProgress, message: string): Promise<void> {
-  progress.recentActivity = [{ at: new Date().toISOString(), message }, ...progress.recentActivity].slice(
-    0,
-    40,
-  );
+  const at = new Date().toISOString();
+  progress.recentActivity = [
+    { id: randomUUID(), at, message },
+    ...progress.recentActivity,
+  ].slice(0, 40);
   await saveCollectorProgress(progress);
+  await appendPipelineEvent({
+    at,
+    department: "collector",
+    type: "activity",
+    message,
+    rvtr: progress.currentSong?.rvtr,
+  });
 }
 
 async function setStage(
@@ -217,7 +232,15 @@ export async function runCollectorForSong(
     title: resolved.title,
   };
   progress.status = "researching";
+  progress.startedAt = new Date().toISOString();
   await saveCollectorProgress(progress);
+  await appendPipelineEvent({
+    at: progress.startedAt,
+    department: "collector",
+    type: "started",
+    message: `Research started — ${resolved.title}`,
+    rvtr: resolved.rvtr,
+  });
 
   const stageResults = {} as CollectorPackage["stages"];
   const sourceLog: CollectorSourceLogEntry[] = [];
@@ -225,6 +248,7 @@ export async function runCollectorForSong(
   let mediaItems: CollectorVdjMediaItem[] = [];
   let vault: WikipediaCapture[] = [];
   let candidateFacts: CollectorResearchFact[] = [];
+  let lyrics: CollectorLyricsArtifact = { available: false };
 
   // 1 Identity
   await setStage(progress, "identity", 1, options);
@@ -304,6 +328,11 @@ export async function runCollectorForSong(
   vault = [...vault, ...wikiEarly];
   sourceLog.push(...vaultToSourceLog(wikiEarly, "recording"));
 
+  const lyricsResult = await buildCollectorLyricsArtifact(wikiEarly).catch(
+    (): CollectorLyricsArtifact => ({ available: false }),
+  );
+  lyrics = lyricsResult;
+
   const recordingNotes = wikiEarly
     .flatMap((capture) =>
       capture.excerpt
@@ -317,8 +346,10 @@ export async function runCollectorForSong(
     status: recordingNotes.length > 0 ? "complete" : "partial",
     summary:
       recordingNotes.length > 0
-        ? `${recordingNotes.length} recording notes captured`
-        : "Limited recording detail available",
+        ? `${recordingNotes.length} recording notes captured${lyrics.available ? " · lyrics stored" : ""}`
+        : lyrics.available
+          ? "Lyrics artifact captured"
+          : "Limited recording detail available",
   };
 
   // 5 Video / Performance
@@ -478,6 +509,7 @@ export async function runCollectorForSong(
     candidateFacts,
     missingAreas: [] as string[],
     sourceLog,
+    lyrics,
     summary: {
       researchSummary: "",
       sourceSummary: "",
@@ -513,7 +545,7 @@ export async function runCollectorForSong(
         stageResults.video_performance.summary,
         `${candidateFacts.length} candidate facts · ${missingAreas.length} gaps`,
       ].join(" · "),
-      sourceSummary: `${sourceLog.length} sources across Retroverse, VirtualDJ, and Wikipedia`,
+      sourceSummary: `${sourceLog.length} sources across Retroverse, VirtualDJ, and Wikipedia${lyrics.available ? " · lyrics artifact" : ""}`,
     },
   };
 
@@ -523,6 +555,12 @@ export async function runCollectorForSong(
     primaryExtraction: visualExtraction,
     durationSec,
   });
+
+  const visualIdentity = await buildVisualIdentityPackage(pkg);
+  await saveVisualIdentityPackage(visualIdentity);
+
+  const songDna = await buildSongDnaPackage(pkg, visualIdentity);
+  await saveSongDnaPackage(songDna);
 
   await saveCollectorPackage(pkg);
   return pkg;

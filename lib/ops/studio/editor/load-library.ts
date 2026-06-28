@@ -1,16 +1,19 @@
 import "server-only";
 
-import { readdir } from "node:fs/promises";
-
 import { buildEditorHandoff } from "@/lib/ops/studio/collector/package-handoff";
 import { type CollectorLibraryCard } from "@/lib/ops/studio/collector/load-library";
 import { performanceCount } from "@/lib/ops/studio/collector/package-archive";
 import { normalizeCollectorPackage } from "@/lib/ops/studio/collector/presentation";
-import { researchDepartmentRoot } from "@/lib/ops/studio/collector/paths";
 import { loadCollectorPackage } from "@/lib/ops/studio/collector/store";
 import { visualAssetUrl } from "@/lib/ops/studio/collector/visual-asset-url";
 import type { CollectorPackage } from "@/lib/ops/studio/collector/package-contract";
+import {
+  listRvtrDirectories,
+  mapInBatches,
+  STUDIO_LIBRARY_CARD_LIMIT,
+} from "@/lib/ops/studio/list-rvtrs";
 
+import { attachEditorialBrain } from "./editorial-brain";
 import { buildEditorOfficeView } from "./office-presentation";
 import { buildEditorStoryView } from "./presentation";
 import { loadEditorStory, loadOrDraftEditorStory } from "./store";
@@ -25,8 +28,6 @@ import {
 import type { EditorPackagePageContext } from "./page-context";
 
 export type { EditorPackagePageContext } from "./page-context";
-
-const RVTR_DIR = /^RVTR\d+$/i;
 
 function handoffReady(pkg: CollectorPackage): boolean {
   const handoff = buildEditorHandoff(pkg, pkg.performances?.[0]?.id ?? null);
@@ -71,29 +72,23 @@ function compareCards(a: EditorLibraryCard, b: EditorLibraryCard): number {
 }
 
 export async function loadEditorLibraryIndex(): Promise<EditorLibraryIndex> {
-  const root = researchDepartmentRoot();
-  let entries: string[] = [];
+  const { rvtrs } = await listRvtrDirectories({
+    limit: STUDIO_LIBRARY_CARD_LIMIT,
+    recentFirst: true,
+  });
 
-  try {
-    const dirEntries = await readdir(root, { withFileTypes: true });
-    entries = dirEntries.filter((e) => e.isDirectory() && RVTR_DIR.test(e.name)).map((e) => e.name);
-  } catch {
-    entries = [];
-  }
-
-  const cards: EditorLibraryCard[] = [];
-
-  for (const dir of entries) {
-    const rvtr = dir.toUpperCase();
-    try {
-      const pkg = await loadCollectorPackage(rvtr);
-      if (!pkg) continue;
-      const story = await loadEditorStory(rvtr);
-      cards.push(cardFromPackage(pkg, story));
-    } catch {
-      /* skip */
-    }
-  }
+  const cards = (
+    await mapInBatches(rvtrs, 12, async (rvtr) => {
+      try {
+        const pkg = await loadCollectorPackage(rvtr);
+        if (!pkg) return null;
+        const story = await loadEditorStory(rvtr);
+        return cardFromPackage(pkg, story);
+      } catch {
+        return null;
+      }
+    })
+  ).filter((c): c is EditorLibraryCard => c != null);
 
   const alphabetical = [...cards].sort(compareCards);
   const recent = [...cards]
@@ -152,6 +147,9 @@ export async function loadEditorPackagePageContext(
   try {
     const result = await loadOrDraftEditorStory(normalized, normalizedCollector);
     story = result.story;
+    if (story && !story.editorialBrain) {
+      story = attachEditorialBrain(normalizedCollector, story);
+    }
     seeded = result.seeded;
   } catch {
     story = null;

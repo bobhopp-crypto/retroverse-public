@@ -11,6 +11,9 @@ import {
 } from "@/lib/studio/worker";
 import { normalizeRvtr } from "@/lib/studio/status";
 
+import { evaluatePublisherPackage } from "./evaluate";
+import { runVisualProducer } from "./visual-producer";
+
 import { allArtifactsPresent, departmentArtifactStatus } from "../workers/artifact-status";
 
 const CAPABILITIES = ["validate", "publish"] as const;
@@ -71,12 +74,18 @@ async function run(input: DepartmentWorkerRunInput): Promise<DepartmentWorkerRun
     return blockedWorkerResult(normalized, action, validation.blockers);
   }
 
+  await runVisualProducer(normalized);
+  const record = await evaluatePublisherPackage(normalized);
+  if (!record?.evaluation) {
+    return blockedWorkerResult(normalized, action, ["Publisher evaluation failed"]);
+  }
+
   if (action === "publish") {
     return {
       rvtr: normalized,
       action,
-      status: "skipped",
-      message: "Publisher worker not implemented",
+      status: "complete",
+      message: `Evaluated — ${record.evaluation.publicationClass} (${record.evaluation.qualityScore}%)`,
     };
   }
 
@@ -84,7 +93,7 @@ async function run(input: DepartmentWorkerRunInput): Promise<DepartmentWorkerRun
     rvtr: normalized,
     action,
     status: "complete",
-    message: "Publish inputs validated",
+    message: `Editorial evaluation complete — ${record.evaluation.publicationClass}`,
   };
 }
 

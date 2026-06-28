@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "rvtr": "RVTR601503",
+  "artist": "Pat Benetar",
+  "title": "Heartbreaker",
+  "story": {
+    "headline": "Heartbreaker: A Cultural Moment Captured on Record",
+    "subtitle": "Pat Benetar · Cultural Moment",
+    "hook": "Heartbreaker is performed by Pat Benetar.",
+    "summary": "Pat Benetar's \"Heartbreaker\" — original release 1980.",
+    "fullStory": "Pat Benetar's \"Heartbreaker\" — original release 1980.\n\nSong release — original 1980 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "e784f112-7210-4877-bb03-74bf74c19527",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "6d224475489d",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601503&file=hero.jpg",
+      "performanceId": "perf-kqnsan"
+    },
+    {
+      "assetId": "ca52869443ff",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601503&file=performance.jpg",
+      "performanceId": "perf-kqnsan"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-kqnsan",
+    "title": "Official Video · 1980",
+    "venue": "",
+    "year": 1980,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "6d224475489d",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601503&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "ca52869443ff",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR601503&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Heartbreaker is performed by Pat Benetar.",
+    "closing": "Pat Benetar's \"Heartbreaker\" — original release 1980.",
+    "storyBeats": [
+      {
+        "id": "beat-7712b7ea8f",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Heartbreaker\" — original release 1980. Pat Benetar — \"Heartbreaker\" · Original release 1980",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6d224475489d",
+          "ca52869443ff"
+        ],
+        "relatedPerformanceId": "perf-kqnsan",
+        "priority": 1
+      },
+      {
+        "id": "beat-a6f219476e",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Limited recording detail available",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6d224475489d",
+          "ca52869443ff"
+        ],
+        "relatedPerformanceId": "perf-kqnsan",
+        "priority": 2
+      },
+      {
+        "id": "beat-5975a1ba16",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6d224475489d",
+          "ca52869443ff"
+        ],
+        "relatedPerformanceId": "perf-kqnsan",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-1795c6b11d",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1980,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6d224475489d"
+        ]
+      },
+      {
+        "id": "moment-1795c6b11d",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 1980,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6d224475489d"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-kqnsan",
+      "title": "Official Video · 1980",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Heartbreaker is performed by Pat Benetar.\""
+    },
+    "generatedAt": "2026-06-27T05:59:56.148Z"
+  },
+  "submittedAt": "2026-06-27T05:59:56.148Z",
+  "editorNotesForDirector": "Collector confidence: Developing (46%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 1.5,
+    "storyQuality": "Poor"
+  }
+}

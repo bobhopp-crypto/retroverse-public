@@ -1,0 +1,999 @@
+{
+  "version": 4,
+  "rvtr": "RVTR475224",
+  "artist": "The Killers",
+  "title": "Spaceman",
+  "graphLinked": true,
+  "identityNotes": [
+    "Overnight Collector queue"
+  ],
+  "status": "complete",
+  "completedAt": "2026-06-28T05:41:22.148Z",
+  "researchQuality": 91,
+  "stages": {
+    "identity": {
+      "status": "complete",
+      "summary": "The Killers — Spaceman (RVTR475224)"
+    },
+    "retroverse_vdj": {
+      "status": "complete",
+      "summary": "1 library items · graph linked"
+    },
+    "charts": {
+      "status": "complete",
+      "summary": "Hot 100 peak #67 · 1 weeks"
+    },
+    "recording": {
+      "status": "partial",
+      "summary": "Limited recording detail available"
+    },
+    "video_performance": {
+      "status": "complete",
+      "summary": "1 performance videos"
+    },
+    "visual_asset_extraction": {
+      "status": "complete",
+      "summary": "5 curated visual assets"
+    },
+    "cultural_context": {
+      "status": "partial",
+      "summary": "Cultural context thin"
+    },
+    "visual_assets": {
+      "status": "complete",
+      "summary": "5 curated frames · 7 visual items"
+    },
+    "relationships": {
+      "status": "partial",
+      "summary": "1 related artists in scope"
+    },
+    "candidate_facts": {
+      "status": "complete",
+      "summary": "10 candidate facts gathered"
+    },
+    "missing_information": {
+      "status": "complete",
+      "summary": "3 gaps noted"
+    },
+    "source_log": {
+      "status": "complete",
+      "summary": "6 sources logged"
+    }
+  },
+  "identity": {
+    "rvtr": "RVTR475224",
+    "artist": "The Killers",
+    "title": "Spaceman",
+    "year": 2008,
+    "albumTitle": "Day & Age"
+  },
+  "virtualDj": {
+    "primaryPath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+    "playCount": null,
+    "tags": [],
+    "mediaItems": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+        "artist": "Killers",
+        "title": "Spaceman",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2008,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ]
+  },
+  "charts": {
+    "peakHot100": 67,
+    "chartWeeks": 1,
+    "albumTitle": "Day & Age",
+    "summary": "Hot 100 peak #67 · 1 weeks"
+  },
+  "recording": {
+    "summary": "Limited recording detail available",
+    "notes": []
+  },
+  "videoPerformance": {
+    "summary": "1 performance videos",
+    "items": [
+      {
+        "filePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+        "artist": "Killers",
+        "title": "Spaceman",
+        "isVideo": true,
+        "playCount": null,
+        "year": 2008,
+        "genre": "Rock",
+        "user2": null,
+        "performanceLabel": null
+      }
+    ],
+    "preferredPerformance": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4"
+  },
+  "culturalContext": {
+    "summary": "Cultural context thin",
+    "notes": []
+  },
+  "visualAssets": {
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+    "inventory": [
+      "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+      "hero.jpg",
+      "alternate.jpg",
+      "crowd.jpg",
+      "performance.jpg",
+      "close-up.jpg",
+      "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4"
+    ],
+    "extraction": {
+      "skipped": false,
+      "skipReason": null,
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "frameIntervalSec": 20,
+      "extractedCount": 5,
+      "assets": [
+        {
+          "id": "4566c49a80f5",
+          "category": "Hero",
+          "filename": "hero.jpg",
+          "timestampSec": 20,
+          "width": 692,
+          "height": 362,
+          "selectionReason": "Opening representative moment",
+          "capturedAt": "2026-06-28T05:41:22.145Z"
+        },
+        {
+          "id": "462bdab52b6c",
+          "category": "Alternate",
+          "filename": "alternate.jpg",
+          "timestampSec": 80,
+          "width": 692,
+          "height": 362,
+          "selectionReason": "Visually distinct alternate angle",
+          "capturedAt": "2026-06-28T05:41:22.145Z"
+        },
+        {
+          "id": "cfd6127264f9",
+          "category": "Crowd",
+          "filename": "crowd.jpg",
+          "timestampSec": 140,
+          "width": 692,
+          "height": 362,
+          "selectionReason": "Audience or wide-stage context",
+          "capturedAt": "2026-06-28T05:41:22.145Z"
+        },
+        {
+          "id": "522717932271",
+          "category": "Performance",
+          "filename": "performance.jpg",
+          "timestampSec": 200,
+          "width": 692,
+          "height": 362,
+          "selectionReason": "Strong performance moment",
+          "capturedAt": "2026-06-28T05:41:22.145Z"
+        },
+        {
+          "id": "77b3bf6698a4",
+          "category": "Close-up",
+          "filename": "close-up.jpg",
+          "timestampSec": 260,
+          "width": 692,
+          "height": 362,
+          "selectionReason": "Sharpest close-up in sequence",
+          "capturedAt": "2026-06-28T05:41:22.145Z"
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "relatedArtists": [
+      "The Killers"
+    ],
+    "summary": "1 related artists in scope"
+  },
+  "candidateFacts": [
+    {
+      "id": "cf85d414-c4f0-4846-82aa-36fb42b74b26",
+      "category": "trivia",
+      "text": "Retroverse track identity: RVTR475224.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "577bf6d1-1a86-42dd-8ceb-7f636ee518c3",
+      "category": "artist",
+      "text": "Spaceman is performed by The Killers.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "4d471693-f204-4fb1-836f-8de0aca2c0f8",
+      "category": "album",
+      "text": "The song appears on the album \"Day & Age\" (2008).",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-h78h41"
+    },
+    {
+      "id": "3727fa78-532c-4b7b-a257-965659510644",
+      "category": "album",
+      "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR475224.",
+      "source": "Retroverse Graph",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": "rec-h78h41"
+    },
+    {
+      "id": "2af616cb-b6a0-40a2-9edd-0c7e0d6d3e9f",
+      "category": "chart",
+      "text": "The song peaked at #67 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "6c77aa47-17d3-4994-8374-c8b1205247a6",
+      "category": "recording",
+      "text": "Spaceman was released in 2008.",
+      "source": "Retroverse Graph",
+      "sourceUrl": null,
+      "confidence": 1,
+      "internalNotes": "Canonical — locked",
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "ab9dabea-9320-4160-b242-56a5dac45846",
+      "category": "trivia",
+      "text": "Canonical cover assignment for RVTR475224 (Spaceman).",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "approved",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "e6488452-a806-437a-9523-76a52d9d4008",
+      "category": "trivia",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "source": "Retroverse Cover Library",
+      "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "song",
+      "scopeRef": null
+    },
+    {
+      "id": "5a05ae9f-bab5-4ec8-bf98-bf4208cea9a7",
+      "category": "trivia",
+      "text": "Artist: Killers · Title: Spaceman · Album: The Killers - Spaceman · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "source": "VirtualDJ database.xml",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-3jduax"
+    },
+    {
+      "id": "2444dff8-7ca3-44de-b1e0-a78659da3e78",
+      "category": "trivia",
+      "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "source": "VirtualDJ Library",
+      "sourceUrl": null,
+      "confidence": 0.82,
+      "internalNotes": null,
+      "approvalStatus": "pending",
+      "scope": "performance",
+      "scopeRef": "perf-3jduax"
+    }
+  ],
+  "missingAreas": [
+    "Recording session details",
+    "Cultural context sources",
+    "Artist relationship depth"
+  ],
+  "sourceLog": [
+    {
+      "id": "retroverse-identity",
+      "source": "Retroverse Canon",
+      "url": null,
+      "capturedAt": "2026-06-28T05:41:20.782Z",
+      "excerpt": "Retroverse track identity: RVTR475224. \"Spaceman\" by The Killers. Album: Day & Age (2008).",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-cover",
+      "source": "Retroverse Cover Library",
+      "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+      "capturedAt": "2026-06-28T05:41:20.782Z",
+      "excerpt": "Canonical cover assignment for RVTR475224 (Spaceman). Cover URL is graph-owned and must not be replaced by external research.",
+      "confidence": 1,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-chart",
+      "source": "Retroverse Graph",
+      "url": null,
+      "capturedAt": "2026-06-28T05:41:20.782Z",
+      "excerpt": "Album: Day & Age (2008). Billboard Hot 100 peak: #67. 1 weeks on chart",
+      "confidence": 0.95,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-vdj-snapshot",
+      "source": "VirtualDJ database.xml",
+      "url": null,
+      "capturedAt": "2026-06-28T05:41:20.782Z",
+      "excerpt": "Artist: Killers · Title: Spaceman · Album: The Killers - Spaceman · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "retroverse-year-workspace",
+      "source": "Retroverse Year Workspace",
+      "url": null,
+      "capturedAt": "2026-06-28T05:41:20.782Z",
+      "excerpt": "Performance year context: 2008.",
+      "confidence": 0.98,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    },
+    {
+      "id": "vdj-media-5ea45ad3",
+      "source": "VirtualDJ Library",
+      "url": null,
+      "capturedAt": "2026-06-28T05:41:20.782Z",
+      "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "confidence": 0.99,
+      "stage": "retroverse_vdj",
+      "internalNotes": null
+    }
+  ],
+  "lyrics": {
+    "available": false
+  },
+  "summary": {
+    "researchSummary": "The Killers — Spaceman · Hot 100 peak #67 · 1 weeks · 1 performance videos · 10 candidate facts · 3 gaps · 1 performance(s) · 7/10 facts approved · confidence 63% · song 2008 / recording 2008",
+    "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+  },
+  "song": {
+    "identity": {
+      "rvtr": "RVTR475224",
+      "artist": "The Killers",
+      "title": "Spaceman",
+      "year": 2008,
+      "albumTitle": "Day & Age"
+    },
+    "charts": {
+      "peakHot100": 67,
+      "chartWeeks": 1,
+      "albumTitle": "Day & Age",
+      "summary": "Hot 100 peak #67 · 1 weeks"
+    },
+    "recording": {
+      "summary": "Limited recording detail available",
+      "notes": []
+    },
+    "relationships": {
+      "relatedArtists": [
+        "The Killers"
+      ],
+      "summary": "1 related artists in scope"
+    },
+    "culture": {
+      "summary": "Cultural context thin",
+      "notes": []
+    },
+    "sources": {
+      "sourceLog": [
+        {
+          "id": "retroverse-identity",
+          "source": "Retroverse Canon",
+          "url": null,
+          "capturedAt": "2026-06-28T05:41:20.782Z",
+          "excerpt": "Retroverse track identity: RVTR475224. \"Spaceman\" by The Killers. Album: Day & Age (2008).",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-cover",
+          "source": "Retroverse Cover Library",
+          "url": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+          "capturedAt": "2026-06-28T05:41:20.782Z",
+          "excerpt": "Canonical cover assignment for RVTR475224 (Spaceman). Cover URL is graph-owned and must not be replaced by external research.",
+          "confidence": 1,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-chart",
+          "source": "Retroverse Graph",
+          "url": null,
+          "capturedAt": "2026-06-28T05:41:20.782Z",
+          "excerpt": "Album: Day & Age (2008). Billboard Hot 100 peak: #67. 1 weeks on chart",
+          "confidence": 0.95,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-vdj-snapshot",
+          "source": "VirtualDJ database.xml",
+          "url": null,
+          "capturedAt": "2026-06-28T05:41:20.782Z",
+          "excerpt": "Artist: Killers · Title: Spaceman · Album: The Killers - Spaceman · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "retroverse-year-workspace",
+          "source": "Retroverse Year Workspace",
+          "url": null,
+          "capturedAt": "2026-06-28T05:41:20.782Z",
+          "excerpt": "Performance year context: 2008.",
+          "confidence": 0.98,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        },
+        {
+          "id": "vdj-media-5ea45ad3",
+          "source": "VirtualDJ Library",
+          "url": null,
+          "capturedAt": "2026-06-28T05:41:20.782Z",
+          "excerpt": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+          "confidence": 0.99,
+          "stage": "retroverse_vdj",
+          "internalNotes": null
+        }
+      ],
+      "summary": {
+        "researchSummary": "The Killers — Spaceman · Hot 100 peak #67 · 1 weeks · 1 performance videos · 10 candidate facts · 3 gaps",
+        "sourceSummary": "6 sources across Retroverse, VirtualDJ, and Wikipedia"
+      }
+    },
+    "candidateFacts": [
+      {
+        "id": "cf85d414-c4f0-4846-82aa-36fb42b74b26",
+        "category": "trivia",
+        "text": "Retroverse track identity: RVTR475224.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "577bf6d1-1a86-42dd-8ceb-7f636ee518c3",
+        "category": "artist",
+        "text": "Spaceman is performed by The Killers.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "4d471693-f204-4fb1-836f-8de0aca2c0f8",
+        "category": "album",
+        "text": "The song appears on the album \"Day & Age\" (2008).",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-h78h41"
+      },
+      {
+        "id": "3727fa78-532c-4b7b-a257-965659510644",
+        "category": "album",
+        "text": "Canonical cover art is assigned in the Retroverse Cover Library for RVTR475224.",
+        "source": "Retroverse Graph",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": "rec-h78h41"
+      },
+      {
+        "id": "2af616cb-b6a0-40a2-9edd-0c7e0d6d3e9f",
+        "category": "chart",
+        "text": "The song peaked at #67 on the Billboard Hot 100 and spent 1 weeks on the chart.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "6c77aa47-17d3-4994-8374-c8b1205247a6",
+        "category": "recording",
+        "text": "Spaceman was released in 2008.",
+        "source": "Retroverse Graph",
+        "sourceUrl": null,
+        "confidence": 1,
+        "internalNotes": "Canonical — locked",
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "ab9dabea-9320-4160-b242-56a5dac45846",
+        "category": "trivia",
+        "text": "Canonical cover assignment for RVTR475224 (Spaceman).",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "approved",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "e6488452-a806-437a-9523-76a52d9d4008",
+        "category": "trivia",
+        "text": "Cover URL is graph-owned and must not be replaced by external research.",
+        "source": "Retroverse Cover Library",
+        "sourceUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg",
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "song",
+        "scopeRef": null
+      },
+      {
+        "id": "5a05ae9f-bab5-4ec8-bf98-bf4208cea9a7",
+        "category": "trivia",
+        "text": "Artist: Killers · Title: Spaceman · Album: The Killers - Spaceman · Year: 2008 · Genre: Rock · Path: /Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+        "source": "VirtualDJ database.xml",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-3jduax"
+      },
+      {
+        "id": "2444dff8-7ca3-44de-b1e0-a78659da3e78",
+        "category": "trivia",
+        "text": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+        "source": "VirtualDJ Library",
+        "sourceUrl": null,
+        "confidence": 0.82,
+        "internalNotes": null,
+        "approvalStatus": "pending",
+        "scope": "performance",
+        "scopeRef": "perf-3jduax"
+      }
+    ],
+    "missingAreas": [
+      "Recording session details",
+      "Cultural context sources",
+      "Artist relationship depth"
+    ],
+    "identityNotes": [
+      "Overnight Collector queue"
+    ],
+    "coverUrl": "https://pub-15869768b4464dd2ab5f02901a31569c.r2.dev/retroverse/covers/RVAL207728/RVAL207728__the-killers__day-age.jpg"
+  },
+  "performances": [
+    {
+      "id": "perf-3jduax",
+      "title": "Official Video",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "durationSec": 274.8746,
+      "qualityScore": 70,
+      "visualAssets": {
+        "extraction": {
+          "skipped": false,
+          "skipReason": null,
+          "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+          "frameIntervalSec": 20,
+          "extractedCount": 5,
+          "assets": [
+            {
+              "id": "4566c49a80f5",
+              "category": "Hero",
+              "filename": "hero.jpg",
+              "timestampSec": 20,
+              "width": 692,
+              "height": 362,
+              "selectionReason": "Opening representative moment",
+              "capturedAt": "2026-06-28T05:41:22.145Z"
+            },
+            {
+              "id": "462bdab52b6c",
+              "category": "Alternate",
+              "filename": "alternate.jpg",
+              "timestampSec": 80,
+              "width": 692,
+              "height": 362,
+              "selectionReason": "Visually distinct alternate angle",
+              "capturedAt": "2026-06-28T05:41:22.145Z"
+            },
+            {
+              "id": "cfd6127264f9",
+              "category": "Crowd",
+              "filename": "crowd.jpg",
+              "timestampSec": 140,
+              "width": 692,
+              "height": 362,
+              "selectionReason": "Audience or wide-stage context",
+              "capturedAt": "2026-06-28T05:41:22.145Z"
+            },
+            {
+              "id": "522717932271",
+              "category": "Performance",
+              "filename": "performance.jpg",
+              "timestampSec": 200,
+              "width": 692,
+              "height": 362,
+              "selectionReason": "Strong performance moment",
+              "capturedAt": "2026-06-28T05:41:22.145Z"
+            },
+            {
+              "id": "77b3bf6698a4",
+              "category": "Close-up",
+              "filename": "close-up.jpg",
+              "timestampSec": 260,
+              "width": 692,
+              "height": 362,
+              "selectionReason": "Sharpest close-up in sequence",
+              "capturedAt": "2026-06-28T05:41:22.145Z"
+            }
+          ]
+        }
+      },
+      "collectorNotes": "Detected year: 2008. Curated visual reference frames extracted from this footage.",
+      "detectedVenue": null,
+      "detectedYear": 2008,
+      "confidence": 0.75,
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2008",
+        "Visual reference library prepared"
+      ]
+    }
+  ],
+  "confidence": {
+    "identity": 100,
+    "recording": 20,
+    "charts": 95,
+    "performance": 85,
+    "culture": 20,
+    "relationships": 40,
+    "overall": 63
+  },
+  "storySeed": {
+    "whyItMatters": "The Killers's \"Spaceman\" reached #67 on the Billboard Hot 100.",
+    "strongestFacts": [
+      "Spaceman is performed by The Killers.",
+      "The song appears on the album \"Day & Age\" (2008).",
+      "Canonical cover art is assigned in the Retroverse Cover Library for RVTR475224."
+    ],
+    "storyIdeas": [
+      "Chart story — peaked at #67 on the Hot 100",
+      "Song release — original 2008 chapter",
+      "Performance angle — Official Video (2008)"
+    ],
+    "suggestedAngle": "cultural_moment"
+  },
+  "songEntity": {
+    "rvtr": "RVTR475224",
+    "artist": "The Killers",
+    "title": "Spaceman",
+    "writers": [],
+    "originalReleaseYear": 2008,
+    "originalAlbum": "Day & Age",
+    "peakHot100": 67,
+    "chartWeeks": 1,
+    "certifications": [],
+    "culturalSignificance": [],
+    "relatedArtists": [
+      "The Killers"
+    ],
+    "legacy": [],
+    "confidence": 72
+  },
+  "recordings": [
+    {
+      "id": "rec-h78h41",
+      "kind": "studio_album",
+      "title": "Day & Age",
+      "recordingDate": null,
+      "recordingLocation": null,
+      "producer": null,
+      "engineer": null,
+      "musicians": [],
+      "albumTitle": "Day & Age",
+      "isCompilation": false,
+      "isRemaster": false,
+      "label": null,
+      "releaseDate": 2008,
+      "catalogNumber": null,
+      "notes": [],
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    }
+  ],
+  "performanceEntities": [
+    {
+      "id": "perf-3jduax",
+      "title": "Official Video",
+      "kind": "music_video",
+      "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+      "venue": null,
+      "city": null,
+      "country": null,
+      "performanceYear": 2008,
+      "event": null,
+      "tvShow": null,
+      "tour": null,
+      "durationSec": 274.8746,
+      "qualityScore": 70,
+      "performanceNotes": "Detected year: 2008. Curated visual reference frames extracted from this footage.",
+      "facts": [
+        "Matched VirtualDJ performance video",
+        "Performance year: 2008",
+        "Visual reference library prepared"
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "timelines": {
+    "song": [
+      {
+        "id": "tl-hrre54",
+        "domain": "song",
+        "kind": "release",
+        "year": 2008,
+        "label": "Spaceman — original release",
+        "detail": "Original album: Day & Age",
+        "confidence": 0.72,
+        "source": "song entity",
+        "entityRef": null
+      },
+      {
+        "id": "tl-fcm3k7",
+        "domain": "song",
+        "kind": "chart",
+        "year": 2008,
+        "label": "Billboard Hot 100 peak #67",
+        "detail": "1 weeks on chart",
+        "confidence": 0.95,
+        "source": "Retroverse graph",
+        "entityRef": null
+      }
+    ],
+    "recording": [
+      {
+        "id": "tl-p1qhzn",
+        "domain": "recording",
+        "kind": "album",
+        "year": 2008,
+        "label": "Day & Age",
+        "detail": null,
+        "confidence": 0.88,
+        "source": "Retroverse graph",
+        "entityRef": "rec-h78h41"
+      }
+    ],
+    "performance": [
+      {
+        "id": "tl-k5j70p",
+        "domain": "performance",
+        "kind": "music_video",
+        "year": 2008,
+        "label": "Official Video",
+        "detail": null,
+        "confidence": 0.75,
+        "source": "owned video",
+        "entityRef": "perf-3jduax"
+      }
+    ]
+  },
+  "yearResolution": {
+    "songRelease": {
+      "year": 2008,
+      "label": "Song original release",
+      "confidence": 0.72,
+      "source": "research text"
+    },
+    "recordingRelease": {
+      "year": 2008,
+      "label": "Album: Day & Age",
+      "confidence": 0.88,
+      "source": "Retroverse graph"
+    },
+    "primaryPerformance": {
+      "year": 2008,
+      "label": "Official Video",
+      "confidence": 0.75,
+      "source": "owned performance video"
+    },
+    "conflicts": [],
+    "notes": []
+  },
+  "canonical": {
+    "song": {
+      "rvtr": "RVTR475224",
+      "artist": "The Killers",
+      "title": "Spaceman",
+      "writers": [],
+      "originalReleaseYear": 2008,
+      "originalAlbum": "Day & Age",
+      "peakHot100": 67,
+      "chartWeeks": 1,
+      "certifications": [],
+      "culturalSignificance": [],
+      "relatedArtists": [
+        "The Killers"
+      ],
+      "legacy": [],
+      "confidence": 72
+    },
+    "recordings": [
+      {
+        "id": "rec-h78h41",
+        "kind": "studio_album",
+        "title": "Day & Age",
+        "recordingDate": null,
+        "recordingLocation": null,
+        "producer": null,
+        "engineer": null,
+        "musicians": [],
+        "albumTitle": "Day & Age",
+        "isCompilation": false,
+        "isRemaster": false,
+        "label": null,
+        "releaseDate": 2008,
+        "catalogNumber": null,
+        "notes": [],
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      }
+    ],
+    "performances": [
+      {
+        "id": "perf-3jduax",
+        "title": "Official Video",
+        "kind": "music_video",
+        "virtualDjFilePath": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+        "sourceVideo": "/Users/bobhopp/DJ MEDIA/VIDEO/2000's/Killers - Spaceman.mp4",
+        "venue": null,
+        "city": null,
+        "country": null,
+        "performanceYear": 2008,
+        "event": null,
+        "tvShow": null,
+        "tour": null,
+        "durationSec": 274.8746,
+        "qualityScore": 70,
+        "performanceNotes": "Detected year: 2008. Curated visual reference frames extracted from this footage.",
+        "facts": [
+          "Matched VirtualDJ performance video",
+          "Performance year: 2008",
+          "Visual reference library prepared"
+        ],
+        "confidence": 0.75
+      }
+    ],
+    "timelines": {
+      "song": [
+        {
+          "id": "tl-hrre54",
+          "domain": "song",
+          "kind": "release",
+          "year": 2008,
+          "label": "Spaceman — original release",
+          "detail": "Original album: Day & Age",
+          "confidence": 0.72,
+          "source": "song entity",
+          "entityRef": null
+        },
+        {
+          "id": "tl-fcm3k7",
+          "domain": "song",
+          "kind": "chart",
+          "year": 2008,
+          "label": "Billboard Hot 100 peak #67",
+          "detail": "1 weeks on chart",
+          "confidence": 0.95,
+          "source": "Retroverse graph",
+          "entityRef": null
+        }
+      ],
+      "recording": [
+        {
+          "id": "tl-p1qhzn",
+          "domain": "recording",
+          "kind": "album",
+          "year": 2008,
+          "label": "Day & Age",
+          "detail": null,
+          "confidence": 0.88,
+          "source": "Retroverse graph",
+          "entityRef": "rec-h78h41"
+        }
+      ],
+      "performance": [
+        {
+          "id": "tl-k5j70p",
+          "domain": "performance",
+          "kind": "music_video",
+          "year": 2008,
+          "label": "Official Video",
+          "detail": null,
+          "confidence": 0.75,
+          "source": "owned video",
+          "entityRef": "perf-3jduax"
+        }
+      ]
+    },
+    "yearResolution": {
+      "songRelease": {
+        "year": 2008,
+        "label": "Song original release",
+        "confidence": 0.72,
+        "source": "research text"
+      },
+      "recordingRelease": {
+        "year": 2008,
+        "label": "Album: Day & Age",
+        "confidence": 0.88,
+        "source": "Retroverse graph"
+      },
+      "primaryPerformance": {
+        "year": 2008,
+        "label": "Official Video",
+        "confidence": 0.75,
+        "source": "owned performance video"
+      },
+      "conflicts": [],
+      "notes": []
+    }
+  }
+}

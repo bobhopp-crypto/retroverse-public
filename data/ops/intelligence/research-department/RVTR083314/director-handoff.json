@@ -1,0 +1,193 @@
+{
+  "version": 2,
+  "rvtr": "RVTR083314",
+  "artist": "The Steve Miller Band",
+  "title": "Jet Airliner",
+  "story": {
+    "headline": "Jet Airliner: The Breakthrough Moment",
+    "subtitle": "The Steve Miller Band · Breakthrough · 1977",
+    "hook": "The song peaked at #8 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "summary": "The Steve Miller Band's \"Jet Airliner\" reached #8 on the Billboard Hot 100. Jet Airliner was released in 1977.",
+    "fullStory": "The Steve Miller Band's \"Jet Airliner\" reached #8 on the Billboard Hot 100.\n\nThe song peaked at #8 on the Billboard Hot 100 and spent 18 weeks on the chart.\n\nJet Airliner was released in 1977.\n\n\"Jet Airliner\" by The Steve Miller Band.\n\nChart story — peaked at #8 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "f3db0a75-81e3-4c5d-8e65-cc1fee9adf44",
+      "text": "The song peaked at #8 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ba94a123-0fff-44b4-8488-bb311f28675e",
+      "text": "Jet Airliner was released in 1977.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "fba23e68-b8ae-4e25-ad3b-c33ac0ca708e",
+      "text": "The song appears on the album \"Book Of Dreams\" (1977).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "100e0675-978a-4be6-8602-527aacb4b134",
+      "text": "VirtualDJ library play count: 6.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "11a96f22-a9cf-40ce-8bb1-06e7d1da78d0",
+      "text": "\"Jet Airliner\" by The Steve Miller Band.",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "41fbf946-562f-424e-899d-217ca544727c",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "fd17fc6899ba",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR083314&file=hero.jpg",
+      "performanceId": "perf-3ljks"
+    },
+    {
+      "assetId": "6ec7a29e93e4",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR083314&file=performance.jpg",
+      "performanceId": "perf-3ljks"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-3ljks",
+    "title": "Official Video · 1977",
+    "venue": "",
+    "year": 1977,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1977 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "fd17fc6899ba",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR083314&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "6ec7a29e93e4",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR083314&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #8 on the Billboard Hot 100 and spent 18 weeks on the chart.",
+    "closing": "The Steve Miller Band's \"Jet Airliner\" reached #8 on the Billboard Hot 100. Jet Airliner was released in 1977.",
+    "storyBeats": [
+      {
+        "id": "beat-d9c06ec388",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Jet Airliner\" — original release 1977. The Steve Miller Band — \"Jet Airliner\" · Original release 1977 · Album: Book Of Dreams · Hot 100 peak #8",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "fd17fc6899ba",
+          "6ec7a29e93e4"
+        ],
+        "relatedPerformanceId": "perf-3ljks",
+        "priority": 1
+      },
+      {
+        "id": "beat-2005597c60",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Book Of Dreams · Release 1977",
+        "supportingFactIds": [
+          "fba23e68-b8ae-4e25-ad3b-c33ac0ca708e"
+        ],
+        "relatedImageAssetIds": [
+          "fd17fc6899ba",
+          "6ec7a29e93e4"
+        ],
+        "relatedPerformanceId": "perf-3ljks",
+        "priority": 2
+      },
+      {
+        "id": "beat-13b461e520",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #8 · 18 weeks on chart.",
+        "supportingFactIds": [
+          "f3db0a75-81e3-4c5d-8e65-cc1fee9adf44"
+        ],
+        "relatedImageAssetIds": [
+          "fd17fc6899ba",
+          "6ec7a29e93e4"
+        ],
+        "relatedPerformanceId": "perf-3ljks",
+        "priority": 3
+      },
+      {
+        "id": "beat-7d4e6b21a3",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "fd17fc6899ba",
+          "6ec7a29e93e4"
+        ],
+        "relatedPerformanceId": "perf-3ljks",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-0dbcc69564",
+        "title": "Chart milestone",
+        "description": "Peaked at #8 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1977,
+        "supportingFactIds": [
+          "f3db0a75-81e3-4c5d-8e65-cc1fee9adf44"
+        ],
+        "relatedImageAssetIds": [
+          "fd17fc6899ba"
+        ]
+      },
+      {
+        "id": "moment-565e0d1641",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1977,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "fd17fc6899ba"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-3ljks",
+      "title": "Official Video · 1977",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1977 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #8 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:25:38.278Z"
+  },
+  "submittedAt": "2026-06-27T05:25:38.278Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "version": 2,
+  "rvtr": "RVTR605004",
+  "artist": "Herb Alpert",
+  "title": "This Guy's In Love With You",
+  "story": {
+    "headline": "This Guy's In Love With You: The Breakthrough Moment",
+    "subtitle": "Herb Alpert · Breakthrough · 1968",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "summary": "Herb Alpert's \"This Guy's In Love With You\" reached #1 on the Billboard Hot 100. This Guy's In Love With You was released in 1968.",
+    "fullStory": "Herb Alpert's \"This Guy's In Love With You\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.\n\nThis Guy's In Love With You was released in 1968.\n\n\"This Guy's In Love With You\" by Herb Alpert.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "14e97899-1a0c-4eff-b796-4794a126631e",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f26f5ddd-c81f-4ccb-9a1f-7e24cf4440a5",
+      "text": "This Guy's In Love With You was released in 1968.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "4a8bc72e-ba87-49c3-83eb-544b0fc8a9d1",
+      "text": "VirtualDJ library play count: 8.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e0058c7e-f6ff-4076-8a01-b740fc7744c5",
+      "text": "\"This Guy's In Love With You\" by Herb Alpert.",
+      "sourceRef": "Retroverse Canon"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "090c58dcded7",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605004&file=performance.jpg",
+      "performanceId": "perf-ohggq1"
+    },
+    {
+      "assetId": "e6272def62b3",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605004&file=hero.jpg",
+      "performanceId": "perf-ohggq1"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-ohggq1",
+    "title": "Official Video · 1968",
+    "venue": "",
+    "year": 1968,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1968 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "090c58dcded7",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605004&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "e6272def62b3",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR605004&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 14 weeks on the chart.",
+    "closing": "Herb Alpert's \"This Guy's In Love With You\" reached #1 on the Billboard Hot 100. This Guy's In Love With You was released in 1968.",
+    "storyBeats": [
+      {
+        "id": "beat-8c8ea091f0",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"This Guy's In Love With You\" — original release 1968. Herb Alpert — \"This Guy's In Love With You\" · Original release 1968 · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "090c58dcded7",
+          "e6272def62b3"
+        ],
+        "relatedPerformanceId": "perf-ohggq1",
+        "priority": 1
+      },
+      {
+        "id": "beat-a9e0930e98",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "This Guy's In Love With You — graph recording · Release 1968",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "090c58dcded7",
+          "e6272def62b3"
+        ],
+        "relatedPerformanceId": "perf-ohggq1",
+        "priority": 2
+      },
+      {
+        "id": "beat-7c47cb8d53",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 14 weeks on chart.",
+        "supportingFactIds": [
+          "14e97899-1a0c-4eff-b796-4794a126631e"
+        ],
+        "relatedImageAssetIds": [
+          "090c58dcded7",
+          "e6272def62b3"
+        ],
+        "relatedPerformanceId": "perf-ohggq1",
+        "priority": 3
+      },
+      {
+        "id": "beat-229a8e14c5",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "090c58dcded7",
+          "e6272def62b3"
+        ],
+        "relatedPerformanceId": "perf-ohggq1",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-088f57565f",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1968,
+        "supportingFactIds": [
+          "14e97899-1a0c-4eff-b796-4794a126631e"
+        ],
+        "relatedImageAssetIds": [
+          "090c58dcded7"
+        ]
+      },
+      {
+        "id": "moment-d3529507eb",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1968,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "090c58dcded7"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-ohggq1",
+      "title": "Official Video · 1968",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1968 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:01:35.604Z"
+  },
+  "submittedAt": "2026-06-27T05:01:35.604Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8.8,
+    "storyQuality": "Strong"
+  }
+}

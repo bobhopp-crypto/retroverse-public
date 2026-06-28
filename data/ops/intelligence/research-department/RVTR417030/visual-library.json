@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "rvtr": "RVTR417030",
+  "tier": "showcase",
+  "generatedAt": "2026-06-26T23:56:12.826Z",
+  "performanceFrames": [
+    {
+      "id": "57e3365f84be",
+      "filename": "hero.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR417030&file=hero.jpg",
+      "timestampSec": 0,
+      "qualityScore": 91,
+      "detectedSubjects": [
+        "performer",
+        "broadcast",
+        "stage"
+      ],
+      "dominantColors": [
+        "#9B9677",
+        "#000200",
+        "#040C00",
+        "#375450",
+        "#10180B"
+      ],
+      "shotType": "hero",
+      "performanceId": "perf-mgusu5",
+      "category": "Hero",
+      "approved": true
+    },
+    {
+      "id": "45d14cac4c20",
+      "filename": "performance.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR417030&file=performance.jpg",
+      "timestampSec": 60,
+      "qualityScore": 87,
+      "detectedSubjects": [
+        "performer",
+        "stage"
+      ],
+      "dominantColors": [
+        "#9B9677",
+        "#000200",
+        "#040C00",
+        "#375450",
+        "#10180B"
+      ],
+      "shotType": "performance",
+      "performanceId": "perf-mgusu5",
+      "category": "Performance",
+      "approved": true
+    },
+    {
+      "id": "7e28c945f58f",
+      "filename": "close-up.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR417030&file=close-up.jpg",
+      "timestampSec": 140,
+      "qualityScore": 89,
+      "detectedSubjects": [
+        "performer",
+        "face"
+      ],
+      "dominantColors": [
+        "#9B9677",
+        "#000200",
+        "#040C00",
+        "#375450",
+        "#10180B"
+      ],
+      "shotType": "close_up",
+      "performanceId": "perf-mgusu5",
+      "category": "Close-up",
+      "approved": true
+    },
+    {
+      "id": "2a811b544fb0",
+      "filename": "alternate.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR417030&file=alternate.jpg",
+      "timestampSec": 200,
+      "qualityScore": 82,
+      "detectedSubjects": [
+        "performer",
+        "stage",
+        "angle"
+      ],
+      "dominantColors": [
+        "#9B9677",
+        "#000200",
+        "#040C00",
+        "#375450",
+        "#10180B"
+      ],
+      "shotType": "alternate",
+      "performanceId": "perf-mgusu5",
+      "category": "Alternate",
+      "approved": true
+    },
+    {
+      "id": "dd1ebf63baf3",
+      "filename": "crowd.jpg",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR417030&file=crowd.jpg",
+      "timestampSec": 260,
+      "qualityScore": 79,
+      "detectedSubjects": [
+        "crowd",
+        "stage",
+        "wide"
+      ],
+      "dominantColors": [
+        "#9B9677",
+        "#000200",
+        "#040C00",
+        "#375450",
+        "#10180B"
+      ],
+      "shotType": "crowd",
+      "performanceId": "perf-mgusu5",
+      "category": "Crowd",
+      "approved": true
+    }
+  ],
+  "derivedAssets": [
+    {
+      "id": "dv-RVTR417030-57e3365f84be-blueprint",
+      "sourceFrameId": "57e3365f84be",
+      "style": "blueprint",
+      "styleName": "Blueprint",
+      "prompt": "Transform this performance frame into a blueprint.\n\nSong: \"In The Air Tonight\" by Phil Collins.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• television lighting\n• broadcast stage atmosphere\n• dark overall brightness\n• television · breakthrough mood\n• low energy\n• dark valence\n• moderate danceability\n• Deep Gold\n• Broadcast frame\n• palette hints: #9B9677, #000200, #040C00, #375450, #10180B\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Technical draft lines on deep blue with measured precision.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "behind_the_song",
+        "timeline_beat"
+      ],
+      "publicationAffinity": "mtv",
+      "storagePath": null
+    },
+    {
+      "id": "dv-RVTR417030-57e3365f84be-halftone_print",
+      "sourceFrameId": "57e3365f84be",
+      "style": "halftone_print",
+      "styleName": "Halftone Print",
+      "prompt": "Transform this performance frame into a halftone print.\n\nSong: \"In The Air Tonight\" by Phil Collins.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• television lighting\n• broadcast stage atmosphere\n• dark overall brightness\n• television · breakthrough mood\n• low energy\n• dark valence\n• moderate danceability\n• Deep Gold\n• Broadcast frame\n• palette hints: #9B9677, #000200, #040C00, #375450, #10180B\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Newsprint dot texture with punchy contrast.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "chart_milestone",
+        "did_you_know"
+      ],
+      "publicationAffinity": "mtv",
+      "storagePath": null
+    },
+    {
+      "id": "dv-RVTR417030-57e3365f84be-charcoal_sketch",
+      "sourceFrameId": "57e3365f84be",
+      "style": "charcoal_sketch",
+      "styleName": "Charcoal Sketch",
+      "prompt": "Transform this performance frame into a charcoal sketch.\n\nSong: \"In The Air Tonight\" by Phil Collins.\nFrame context: Hero.\n\nPreserve\n• performer identity\n• stage lighting\n• composition\n\nEmphasize\n• television lighting\n• broadcast stage atmosphere\n• dark overall brightness\n• television · breakthrough mood\n• low energy\n• dark valence\n• moderate danceability\n• Deep Gold\n• Broadcast frame\n• palette hints: #9B9677, #000200, #040C00, #375450, #10180B\n\nDo not change pose.\nDo not invent instruments.\nDo not crop performer.\nDo not add text or logos.\n\nStyle notes: Dramatic graphite strokes with deep shadow and isolation.",
+      "status": "recommended",
+      "preferredSceneTypes": [
+        "hero_moment",
+        "final_reflection",
+        "did_you_know"
+      ],
+      "publicationAffinity": "mtv",
+      "storagePath": null
+    }
+  ],
+  "coverage": [
+    {
+      "role": "hero",
+      "status": "approved",
+      "satisfiedBy": [
+        "57e3365f84be",
+        "dv-RVTR417030-57e3365f84be-charcoal_sketch"
+      ],
+      "notes": "Hero frame on file"
+    },
+    {
+      "role": "performance",
+      "status": "approved",
+      "satisfiedBy": [
+        "57e3365f84be",
+        "45d14cac4c20",
+        "7e28c945f58f",
+        "2a811b544fb0"
+      ],
+      "notes": "4 performance frames"
+    },
+    {
+      "role": "recording",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Studio/recording story visual"
+    },
+    {
+      "role": "television",
+      "status": "approved",
+      "satisfiedBy": [
+        "57e3365f84be",
+        "dv-RVTR417030-57e3365f84be-charcoal_sketch"
+      ],
+      "notes": "Television/broadcast visual treatment"
+    },
+    {
+      "role": "studio",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Studio/recording story visual"
+    },
+    {
+      "role": "chart",
+      "status": "missing",
+      "satisfiedBy": [
+        "dv-RVTR417030-57e3365f84be-halftone_print"
+      ],
+      "notes": "Chart milestone visual or derived halftone"
+    },
+    {
+      "role": "album",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Album sleeve or liner visual"
+    },
+    {
+      "role": "artist",
+      "status": "recommended",
+      "satisfiedBy": [],
+      "notes": "Artist portrait or identity frame"
+    },
+    {
+      "role": "reflection",
+      "status": "approved",
+      "satisfiedBy": [
+        "7e28c945f58f",
+        "dv-RVTR417030-57e3365f84be-charcoal_sketch"
+      ],
+      "notes": "Reflective close-up available"
+    },
+    {
+      "role": "closing",
+      "status": "approved",
+      "satisfiedBy": [
+        "57e3365f84be",
+        "45d14cac4c20",
+        "dv-RVTR417030-57e3365f84be-charcoal_sketch"
+      ],
+      "notes": "Closing performance frame available"
+    },
+    {
+      "role": "quote",
+      "status": "missing",
+      "satisfiedBy": [],
+      "notes": "No quotes on file"
+    },
+    {
+      "role": "timeline",
+      "status": "recommended",
+      "satisfiedBy": [
+        "dv-RVTR417030-57e3365f84be-blueprint"
+      ],
+      "notes": "Timeline beat imagery"
+    }
+  ],
+  "duplicateSuggestions": [],
+  "budget": {
+    "tier": "showcase",
+    "approvedLimit": 12,
+    "approvedCount": 0,
+    "generatedCount": 0,
+    "recommendedCount": 3,
+    "remainingApproved": 12,
+    "atLimit": false
+  },
+  "recommendations": [
+    {
+      "id": "rec-use-hero",
+      "role": "hero",
+      "kind": "use_existing",
+      "priority": 1,
+      "reason": "Hero frame on file — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": [
+        "57e3365f84be"
+      ]
+    },
+    {
+      "id": "rec-use-performance",
+      "role": "performance",
+      "kind": "use_existing",
+      "priority": 2,
+      "reason": "4 performance frames — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": [
+        "57e3365f84be",
+        "45d14cac4c20",
+        "7e28c945f58f",
+        "2a811b544fb0"
+      ]
+    },
+    {
+      "id": "rec-gen-recording-blueprint",
+      "role": "recording",
+      "kind": "generate_derived",
+      "priority": 3,
+      "reason": "Studio/recording story visual — Blueprint via Blueprint.",
+      "suggestedStyle": "blueprint",
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-use-television",
+      "role": "television",
+      "kind": "use_existing",
+      "priority": 4,
+      "reason": "Television/broadcast visual treatment — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": [
+        "57e3365f84be"
+      ]
+    },
+    {
+      "id": "rec-gen-studio-blueprint",
+      "role": "studio",
+      "kind": "generate_derived",
+      "priority": 5,
+      "reason": "Studio/recording story visual — Blueprint via Blueprint.",
+      "suggestedStyle": "blueprint",
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-chart-halftone_print",
+      "role": "chart",
+      "kind": "generate_derived",
+      "priority": 6,
+      "reason": "Chart milestone visual or derived halftone — Halftone Print via Magazine Illustration.",
+      "suggestedStyle": "halftone_print",
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-album-charcoal_sketch",
+      "role": "album",
+      "kind": "generate_derived",
+      "priority": 7,
+      "reason": "Album sleeve or liner visual — Charcoal Sketch via Frame Stylizer.",
+      "suggestedStyle": "charcoal_sketch",
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-artist-charcoal_sketch",
+      "role": "artist",
+      "kind": "generate_derived",
+      "priority": 8,
+      "reason": "Artist portrait or identity frame — Charcoal Sketch via Frame Stylizer.",
+      "suggestedStyle": "charcoal_sketch",
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-use-reflection",
+      "role": "reflection",
+      "kind": "use_existing",
+      "priority": 9,
+      "reason": "Reflective close-up available — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "7e28c945f58f",
+      "existingAssetIds": [
+        "7e28c945f58f"
+      ]
+    },
+    {
+      "id": "rec-use-closing",
+      "role": "closing",
+      "kind": "use_existing",
+      "priority": 10,
+      "reason": "Closing performance frame available — existing assets satisfy this role.",
+      "suggestedStyle": null,
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": [
+        "57e3365f84be",
+        "45d14cac4c20"
+      ]
+    },
+    {
+      "id": "rec-gen-quote-charcoal_sketch",
+      "role": "quote",
+      "kind": "generate_derived",
+      "priority": 11,
+      "reason": "No quotes on file — Charcoal Sketch via Frame Stylizer.",
+      "suggestedStyle": "charcoal_sketch",
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": []
+    },
+    {
+      "id": "rec-gen-timeline-charcoal_sketch",
+      "role": "timeline",
+      "kind": "generate_derived",
+      "priority": 12,
+      "reason": "Timeline beat imagery — Charcoal Sketch via Frame Stylizer.",
+      "suggestedStyle": "charcoal_sketch",
+      "sourceFrameId": "57e3365f84be",
+      "existingAssetIds": []
+    }
+  ],
+  "generationQueue": []
+}

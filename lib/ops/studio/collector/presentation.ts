@@ -3,6 +3,9 @@
  * Translates pipeline JSON into language a music historian would use.
  */
 
+import { pipelineEventId } from "@/lib/ops/studio/pipeline-event-id";
+import { identifyLabels, identifyStrings, type IdentifiedLabel, type IdentifiedText } from "@/lib/ops/studio/model-identity";
+
 import type {
   CollectorActivityEntry,
   CollectorDashboardStats,
@@ -47,16 +50,17 @@ export type CollectorInvestigationView = {
   activityLine: string;
   knowledgeTier: KnowledgeTier;
   knowledgeBar: string;
-  stillLookingFor: string[];
-  discoveries: string[];
-  packageCards: Array<{ label: string; status: PackageCardStatus }>;
-  recentDiscoveries: Array<{ at: string; time: string; message: string }>;
+  stillLookingFor: IdentifiedText[];
+  discoveries: IdentifiedText[];
+  packageCards: Array<{ id: string; label: string; status: PackageCardStatus }>;
+  recentDiscoveries: Array<{ id: string; at: string; time: string; message: string }>;
   collectorNotes: string;
+  collectorNoteParagraphs: IdentifiedText[];
   visualAssets: VisualAssetSlotView[];
   visualAssetsMessage: string;
   performances: PerformanceSummary[];
   selectedPerformanceId: string | null;
-  performanceFacts: string[];
+  performanceFacts: IdentifiedText[];
   handoff: EditorHandoffView;
 };
 
@@ -68,7 +72,7 @@ export type CollectorDashboardCardView = {
   knowledgeAdded: KnowledgeTier;
 };
 
-export const FUTURE_ANALYSIS_HOOKS = [
+export const FUTURE_ANALYSIS_HOOKS: IdentifiedLabel[] = identifyLabels("future-hook", [
   "Visual Analysis",
   "Scene Detection",
   "Face Recognition",
@@ -76,7 +80,7 @@ export const FUTURE_ANALYSIS_HOOKS = [
   "Object Recognition",
   "Poster Detection",
   "Album Match",
-] as const;
+]);
 
 const DISPLAY_ASSET_SLOTS: CollectorVisualAssetCategory[] = [
   "Hero",
@@ -218,7 +222,7 @@ function translateActivityMessage(message: string): string | null {
   return message;
 }
 
-export function buildDiscoveries(pkg: CollectorPackage): string[] {
+export function buildDiscoveries(pkg: CollectorPackage): IdentifiedText[] {
   const out: string[] = [];
   const song = pkg.song;
 
@@ -279,7 +283,11 @@ export function buildDiscoveries(pkg: CollectorPackage): string[] {
     out.push("Cataloged reference sources");
   }
 
-  return out;
+  return identifyStrings(`${pkg.rvtr}-discovery`, out);
+}
+
+function collectorNoteParagraphs(rvtr: string, notes: string): IdentifiedText[] {
+  return identifyStrings(`${rvtr}-note`, notes.split("\n\n").filter((paragraph) => paragraph.trim()));
 }
 
 function buildSongCollectorNotes(pkg: CollectorPackage): string {
@@ -363,7 +371,7 @@ function activityLine(
 
   if (pkg) {
     const lastDiscovery = buildDiscoveries(pkg).at(-1);
-    if (lastDiscovery) return lastDiscovery;
+    if (lastDiscovery) return lastDiscovery.text;
   }
 
   return "Research file closed — ready for the next song.";
@@ -490,6 +498,7 @@ export function coalesceInvestigationView(
       packageCards: [],
       recentDiscoveries: [],
       collectorNotes: "",
+      collectorNoteParagraphs: [],
       visualAssets: [],
       visualAssetsMessage: "",
       performances: [],
@@ -506,6 +515,9 @@ export function coalesceInvestigationView(
     packageCards: view.packageCards ?? [],
     recentDiscoveries: view.recentDiscoveries ?? [],
     collectorNotes: view.collectorNotes ?? "",
+    collectorNoteParagraphs:
+      view.collectorNoteParagraphs ??
+      (view.collectorNotes ? collectorNoteParagraphs("collector", view.collectorNotes) : []),
     visualAssets: view.visualAssets ?? [],
     visualAssetsMessage: view.visualAssetsMessage ?? "",
     performances: view.performances ?? [],
@@ -528,9 +540,10 @@ export function applyPerformanceSelection(
     ...base,
     selectedPerformanceId: performance.id,
     collectorNotes: performance.collectorNotes ?? "",
+    collectorNoteParagraphs: collectorNoteParagraphs(pkg.rvtr, performance.collectorNotes ?? ""),
     visualAssets: buildVisualAssetSlots(pkg, performance),
     visualAssetsMessage: visualAssetsMessage(pkg, false, performance),
-    performanceFacts: performance.facts ?? [],
+    performanceFacts: identifyStrings(`${pkg.rvtr}-perf-fact`, performance.facts ?? []),
     handoff: buildEditorHandoff(pkg, performance.id),
   };
 }
@@ -616,9 +629,10 @@ export function buildInvestigationView(
     activityLine: activityLine(stats.status, stats.progress, normalized),
     knowledgeTier: knowledgeTierFromScore(score),
     knowledgeBar: knowledgeBar(score),
-    stillLookingFor: missingAreas.map(humanizeMissingArea),
+    stillLookingFor: identifyStrings(`${normalized?.rvtr ?? "collector"}-missing`, missingAreas.map(humanizeMissingArea)),
     discoveries: normalized ? buildDiscoveries(normalized) : [],
     packageCards: SONG_PACKAGE_CARD_MAP.map(({ id, label }) => ({
+      id,
       label,
       status: stageToCardStatus(normalized?.stages?.[id]),
     })),
@@ -630,11 +644,24 @@ export function buildInvestigationView(
         : stats.status === "researching"
           ? "The Collector is still gathering material. Notes will appear when this song finishes."
           : "No research notes yet. Run a collector job to begin investigating a song.",
+    collectorNoteParagraphs: collectorNoteParagraphs(
+      normalized?.rvtr ?? stats.progress.currentSong?.rvtr ?? "collector",
+      performance
+        ? performance.collectorNotes ?? ""
+        : normalized
+          ? buildSongCollectorNotes(normalized)
+          : stats.status === "researching"
+            ? "The Collector is still gathering material. Notes will appear when this song finishes."
+            : "No research notes yet. Run a collector job to begin investigating a song.",
+    ),
     visualAssets: buildVisualAssetSlots(normalized, performance),
     visualAssetsMessage: visualAssetsMessage(normalized, isResearching, performance),
     performances: normalized ? performanceSummaries(normalized) : [],
     selectedPerformanceId: selectedId,
-    performanceFacts: performance?.facts ?? [],
+    performanceFacts: identifyStrings(
+      `${normalized?.rvtr ?? "collector"}-perf-fact`,
+      performance?.facts ?? [],
+    ),
     handoff: normalized
       ? buildEditorHandoff(normalized, selectedId)
       : { title: "Ready for Editor", items: [] },
@@ -643,13 +670,20 @@ export function buildInvestigationView(
 
 export function buildRecentDiscoveries(
   entries: CollectorActivityEntry[],
-): Array<{ at: string; time: string; message: string }> {
-  const curated: Array<{ at: string; time: string; message: string }> = [];
+): Array<{ id: string; at: string; time: string; message: string }> {
+  const curated: Array<{ id: string; at: string; time: string; message: string }> = [];
 
-  for (const entry of entries) {
+  for (const [sequence, entry] of entries.entries()) {
     const message = translateActivityMessage(entry.message);
     if (!message) continue;
     curated.push({
+      id:
+        entry.id ??
+        pipelineEventId({
+          stage: "collector-discovery",
+          sequence,
+          at: entry.at,
+        }),
       at: entry.at,
       time: new Date(entry.at).toLocaleTimeString(undefined, {
         hour: "numeric",

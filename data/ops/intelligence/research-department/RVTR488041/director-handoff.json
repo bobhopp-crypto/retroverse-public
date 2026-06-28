@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR488041",
+  "artist": "Phil Collins",
+  "title": "Sussudio",
+  "story": {
+    "headline": "Sussudio: The Breakthrough Moment",
+    "subtitle": "Phil Collins · Breakthrough · 1985",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "summary": "Phil Collins's \"Sussudio\" reached #1 on the Billboard Hot 100. Sussudio was released in 1985.",
+    "fullStory": "Phil Collins's \"Sussudio\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.\n\nSussudio was released in 1985.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "4e73b702-c2d3-4fc5-a444-a4dbe9952fa5",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9f3b83fa-9c85-41ee-8321-565947f35241",
+      "text": "Sussudio was released in 1985.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ae581813-4bea-4014-96cc-d84665d55757",
+      "text": "The song appears on the album \"No Jacket Required\" (1985).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "2ffeb8f3-8c95-4a94-9eb6-4d881ff39e28",
+      "text": "VirtualDJ library play count: 27.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "44c17b4f-788c-4cc0-ae09-b3079edb1797",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "6c16adce8673",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR488041&file=performance.jpg",
+      "performanceId": "perf-92i6m9"
+    },
+    {
+      "assetId": "63b1bb9f03ab",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR488041&file=hero.jpg",
+      "performanceId": "perf-92i6m9"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-92i6m9",
+    "title": "Official Music Video · 1985",
+    "venue": "Official Music Video",
+    "year": 1985,
+    "notes": "Recommended cut — Recommended: Official Music Video. venue context (Official Music Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1985 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "6c16adce8673",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR488041&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "63b1bb9f03ab",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR488041&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 17 weeks on the chart.",
+    "closing": "Phil Collins's \"Sussudio\" reached #1 on the Billboard Hot 100. Sussudio was released in 1985.",
+    "storyBeats": [
+      {
+        "id": "beat-54a2c85cf3",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Sussudio\" — original release 1985. Phil Collins — \"Sussudio\" · Original release 1985 · Album: No Jacket Required · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6c16adce8673",
+          "63b1bb9f03ab"
+        ],
+        "relatedPerformanceId": "perf-92i6m9",
+        "priority": 1
+      },
+      {
+        "id": "beat-e915e839d5",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "No Jacket Required · Release 1985",
+        "supportingFactIds": [
+          "ae581813-4bea-4014-96cc-d84665d55757"
+        ],
+        "relatedImageAssetIds": [
+          "6c16adce8673",
+          "63b1bb9f03ab"
+        ],
+        "relatedPerformanceId": "perf-92i6m9",
+        "priority": 2
+      },
+      {
+        "id": "beat-cacf990c72",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 17 weeks on chart.",
+        "supportingFactIds": [
+          "4e73b702-c2d3-4fc5-a444-a4dbe9952fa5"
+        ],
+        "relatedImageAssetIds": [
+          "6c16adce8673",
+          "63b1bb9f03ab"
+        ],
+        "relatedPerformanceId": "perf-92i6m9",
+        "priority": 3
+      },
+      {
+        "id": "beat-0c7cf0f87f",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6c16adce8673",
+          "63b1bb9f03ab"
+        ],
+        "relatedPerformanceId": "perf-92i6m9",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-6ab4d081be",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1985,
+        "supportingFactIds": [
+          "4e73b702-c2d3-4fc5-a444-a4dbe9952fa5"
+        ],
+        "relatedImageAssetIds": [
+          "6c16adce8673"
+        ]
+      },
+      {
+        "id": "moment-d399184032",
+        "title": "Official Music Video",
+        "description": "Recommended: Official Music Video. venue context (Official Music Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1985 perfor",
+        "kind": "featured_performance",
+        "year": 1985,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "6c16adce8673"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-92i6m9",
+      "title": "Official Music Video · 1985",
+      "reason": "Recommended: Official Music Video. venue context (Official Music Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1985 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T04:20:09.724Z"
+  },
+  "submittedAt": "2026-06-27T04:20:09.725Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

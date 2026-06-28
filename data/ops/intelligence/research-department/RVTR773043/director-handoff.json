@@ -1,0 +1,210 @@
+{
+  "version": 2,
+  "rvtr": "RVTR773043",
+  "artist": "Queen",
+  "title": "Crazy Little Thing Called Love",
+  "story": {
+    "headline": "Crazy Little Thing Called Love: The Breakthrough Moment",
+    "subtitle": "Queen · Breakthrough · 2018",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "summary": "Queen's \"Crazy Little Thing Called Love\" reached #1 on the Billboard Hot 100. Crazy Little Thing Called Love was released in 2018.",
+    "fullStory": "Queen's \"Crazy Little Thing Called Love\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 22 weeks on the chart.\n\nCrazy Little Thing Called Love was released in 2018.\n\n\"Crazy Little Thing Called Love\" by Queen.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "cd47cb19-ba99-42f6-bdae-aa2f9bb6ed1c",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f14a97c7-d5a2-4680-80fb-3ec84e6e6b0a",
+      "text": "Crazy Little Thing Called Love was released in 2018.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "dd88003c-1937-4aa8-8e7e-56c16cc51c34",
+      "text": "The song appears on the album \"Bohemian Rhapsody (Soundtrack)\" (2018).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "ae4a8b6a-d859-40aa-b344-b8d16c288d79",
+      "text": "VirtualDJ library play count: 18.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "a6530620-18e2-4222-9bab-659dc8cc3a84",
+      "text": "\"Crazy Little Thing Called Love\" by Queen.",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "27341063-0669-43bd-ae9b-8395a4734285",
+      "text": "Album: Bohemian Rhapsody (Soundtrack) (2018).",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "2c3d7d38-cfb3-4ea8-9e04-f8c9ec7e7835",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "33b979bf839b",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773043&file=hero.jpg",
+      "performanceId": "perf-h17mvu"
+    },
+    {
+      "assetId": "94ac2b68768d",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773043&file=performance.jpg",
+      "performanceId": "perf-h17mvu"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-h17mvu",
+    "title": "Official Video · 1980",
+    "venue": "Official Video",
+    "year": 1980,
+    "notes": "Recommended cut — Recommended: Official Video. venue context (Official Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context..",
+    "screenshots": [
+      {
+        "assetId": "33b979bf839b",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773043&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "94ac2b68768d",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR773043&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 22 weeks on the chart.",
+    "closing": "Queen's \"Crazy Little Thing Called Love\" reached #1 on the Billboard Hot 100. Crazy Little Thing Called Love was released in 2018.",
+    "storyBeats": [
+      {
+        "id": "beat-cab24d3ba1",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Crazy Little Thing Called Love\" — original release 2018. Queen — \"Crazy Little Thing Called Love\" · Original release 2018 · Album: Bohemian Rhapsody (Soundtrack) · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "33b979bf839b",
+          "94ac2b68768d"
+        ],
+        "relatedPerformanceId": "perf-h17mvu",
+        "priority": 1
+      },
+      {
+        "id": "beat-e5f688e234",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Bohemian Rhapsody (Soundtrack) · Release 2018",
+        "supportingFactIds": [
+          "dd88003c-1937-4aa8-8e7e-56c16cc51c34",
+          "27341063-0669-43bd-ae9b-8395a4734285"
+        ],
+        "relatedImageAssetIds": [
+          "33b979bf839b",
+          "94ac2b68768d"
+        ],
+        "relatedPerformanceId": "perf-h17mvu",
+        "priority": 2
+      },
+      {
+        "id": "beat-0c139f6268",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 22 weeks on chart.",
+        "supportingFactIds": [
+          "cd47cb19-ba99-42f6-bdae-aa2f9bb6ed1c"
+        ],
+        "relatedImageAssetIds": [
+          "33b979bf839b",
+          "94ac2b68768d"
+        ],
+        "relatedPerformanceId": "perf-h17mvu",
+        "priority": 3
+      },
+      {
+        "id": "beat-bedc53da7f",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "33b979bf839b",
+          "94ac2b68768d"
+        ],
+        "relatedPerformanceId": "perf-h17mvu",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-1d49a4014c",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2018,
+        "supportingFactIds": [
+          "cd47cb19-ba99-42f6-bdae-aa2f9bb6ed1c"
+        ],
+        "relatedImageAssetIds": [
+          "33b979bf839b"
+        ]
+      },
+      {
+        "id": "moment-ce549b3d44",
+        "title": "Official Video",
+        "description": "Official Video at Official Video.",
+        "kind": "music_video",
+        "year": 1980,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "33b979bf839b"
+        ]
+      },
+      {
+        "id": "moment-ce549b3d44",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1985,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "33b979bf839b"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-h17mvu",
+      "title": "Official Video · 1980",
+      "reason": "Recommended: Official Video. venue context (Official Video) adds place and moment. 5 curated visual frames for cards and hero art. dated 1980 performance helps anchor the narrative. 1 alternate cut(s) on file — this one scores highest for visuals and context."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T01:03:37.979Z"
+  },
+  "submittedAt": "2026-06-27T04:20:12.920Z",
+  "editorNotesForDirector": "Collector confidence: Good (65%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 9.3,
+    "storyQuality": "Strong"
+  }
+}

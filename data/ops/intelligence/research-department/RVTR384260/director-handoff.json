@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "rvtr": "RVTR384260",
+  "artist": "Vengaboys",
+  "title": "We Like To Party",
+  "story": {
+    "headline": "We Like To Party: A Cultural Moment Captured on Record",
+    "subtitle": "Vengaboys · Cultural Moment · 1999",
+    "hook": "The song peaked at #26 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "Vengaboys's \"We Like To Party\" reached #26 on the Billboard Hot 100. We Like To Party was released in 1999.",
+    "fullStory": "Vengaboys's \"We Like To Party\" reached #26 on the Billboard Hot 100.\n\nThe song peaked at #26 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nWe Like To Party was released in 1999.\n\nArtist: Vengaboys · Title: We Like To Party · Album: The Remix Album!.\n\nChart story — peaked at #26 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "6481ad2c-b2b0-429f-a52e-ff9b362405a1",
+      "text": "The song peaked at #26 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "451b407d-8ddf-48d7-ac0d-9f28298a4930",
+      "text": "We Like To Party was released in 1999.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "f598ef3a-453b-48f7-8e3e-ce7b8410471c",
+      "text": "VirtualDJ library play count: 5.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "439937a3-6711-4b57-8017-d7a581ea6448",
+      "text": "Artist: Vengaboys · Title: We Like To Party · Album: The Remix Album!",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "7d2f0651ffbf",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384260&file=hero.jpg",
+      "performanceId": "perf-1abdby"
+    },
+    {
+      "assetId": "718936d19432",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384260&file=performance.jpg",
+      "performanceId": "perf-1abdby"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-1abdby",
+    "title": "Official Video · 1999",
+    "venue": "",
+    "year": 1999,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1999 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "7d2f0651ffbf",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384260&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "718936d19432",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR384260&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #26 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "Vengaboys's \"We Like To Party\" reached #26 on the Billboard Hot 100. We Like To Party was released in 1999.",
+    "storyBeats": [
+      {
+        "id": "beat-3fdaf839e1",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"We Like To Party\" — original release 1999. Vengaboys — \"We Like To Party\" · Original release 1999 · Hot 100 peak #26",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7d2f0651ffbf",
+          "718936d19432"
+        ],
+        "relatedPerformanceId": "perf-1abdby",
+        "priority": 1
+      },
+      {
+        "id": "beat-35ed187604",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "We Like To Party — graph recording · Release 1999",
+        "supportingFactIds": [
+          "439937a3-6711-4b57-8017-d7a581ea6448"
+        ],
+        "relatedImageAssetIds": [
+          "7d2f0651ffbf",
+          "718936d19432"
+        ],
+        "relatedPerformanceId": "perf-1abdby",
+        "priority": 2
+      },
+      {
+        "id": "beat-069893b19a",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #26 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "6481ad2c-b2b0-429f-a52e-ff9b362405a1"
+        ],
+        "relatedImageAssetIds": [
+          "7d2f0651ffbf",
+          "718936d19432"
+        ],
+        "relatedPerformanceId": "perf-1abdby",
+        "priority": 3
+      },
+      {
+        "id": "beat-81b56b6818",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7d2f0651ffbf",
+          "718936d19432"
+        ],
+        "relatedPerformanceId": "perf-1abdby",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-844518c581",
+        "title": "Chart milestone",
+        "description": "Peaked at #26 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 1999,
+        "supportingFactIds": [
+          "6481ad2c-b2b0-429f-a52e-ff9b362405a1"
+        ],
+        "relatedImageAssetIds": [
+          "7d2f0651ffbf"
+        ]
+      },
+      {
+        "id": "moment-dedb814f14",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 1999,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "7d2f0651ffbf"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-1abdby",
+      "title": "Official Video · 1999",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 1999 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #26 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:40:47.867Z"
+  },
+  "submittedAt": "2026-06-27T05:40:47.867Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "version": 2,
+  "rvtr": "RVTR182672",
+  "artist": "Justin Timberlake",
+  "title": "Can't Stop The Feeling",
+  "story": {
+    "headline": "Can't Stop The Feeling: The Breakthrough Moment",
+    "subtitle": "Justin Timberlake · Breakthrough · 2016",
+    "hook": "The song peaked at #1 on the Billboard Hot 100 and spent 52 weeks on the chart.",
+    "summary": "Justin Timberlake's \"Can't Stop The Feeling\" reached #1 on the Billboard Hot 100. Can't Stop The Feeling was released in 2016.",
+    "fullStory": "Justin Timberlake's \"Can't Stop The Feeling\" reached #1 on the Billboard Hot 100.\n\nThe song peaked at #1 on the Billboard Hot 100 and spent 52 weeks on the chart.\n\nCan't Stop The Feeling was released in 2016.\n\n\"Can't Stop The Feeling\" by Justin Timberlake.\n\nChart story — peaked at #1 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "57313f98-56ec-4e82-bcd9-02522e82a277",
+      "text": "The song peaked at #1 on the Billboard Hot 100 and spent 52 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "3f2d5a2c-618c-4dc3-8c3b-9e4e496e513b",
+      "text": "Can't Stop The Feeling was released in 2016.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9be330f1-a4dc-439a-8a91-b5dfab75778c",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "33a7382c-80b8-4c68-b8d1-556ad00448c4",
+      "text": "\"Can't Stop The Feeling\" by Justin Timberlake.",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "411b808d-3b3f-4d92-9d30-e999414815e6",
+      "text": "Artist: Justin Timberlake · Title: Can't Stop The Feeling!",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "4fa69761a389",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR182672&file=hero.jpg",
+      "performanceId": "perf-fvl0t6"
+    },
+    {
+      "assetId": "87c8990f6d9a",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR182672&file=performance.jpg",
+      "performanceId": "perf-fvl0t6"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-fvl0t6",
+    "title": "From Dreamworks Animation's Trolls · 2016",
+    "venue": "From Dreamworks Animation's Trolls",
+    "year": 2016,
+    "notes": "Recommended cut — Recommended: From Dreamworks Animation's Trolls. venue context (From Dreamworks Animation's Trolls) adds place and moment. 5 curated visual frames for cards and hero art. dated 2016 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "4fa69761a389",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR182672&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "87c8990f6d9a",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR182672&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #1 on the Billboard Hot 100 and spent 52 weeks on the chart.",
+    "closing": "Justin Timberlake's \"Can't Stop The Feeling\" reached #1 on the Billboard Hot 100. Can't Stop The Feeling was released in 2016.",
+    "storyBeats": [
+      {
+        "id": "beat-eecfc30b25",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Can't Stop The Feeling\" — original release 2016. Justin Timberlake — \"Can't Stop The Feeling\" · Original release 2016 · Hot 100 peak #1",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4fa69761a389",
+          "87c8990f6d9a"
+        ],
+        "relatedPerformanceId": "perf-fvl0t6",
+        "priority": 1
+      },
+      {
+        "id": "beat-f1174f98e9",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Can't Stop The Feeling — graph recording · Release 2016",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4fa69761a389",
+          "87c8990f6d9a"
+        ],
+        "relatedPerformanceId": "perf-fvl0t6",
+        "priority": 2
+      },
+      {
+        "id": "beat-599a9a546c",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #1 · 52 weeks on chart.",
+        "supportingFactIds": [
+          "57313f98-56ec-4e82-bcd9-02522e82a277"
+        ],
+        "relatedImageAssetIds": [
+          "4fa69761a389",
+          "87c8990f6d9a"
+        ],
+        "relatedPerformanceId": "perf-fvl0t6",
+        "priority": 3
+      },
+      {
+        "id": "beat-f0a168f392",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4fa69761a389",
+          "87c8990f6d9a"
+        ],
+        "relatedPerformanceId": "perf-fvl0t6",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-5cda31e382",
+        "title": "Chart milestone",
+        "description": "Peaked at #1 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2016,
+        "supportingFactIds": [
+          "57313f98-56ec-4e82-bcd9-02522e82a277"
+        ],
+        "relatedImageAssetIds": [
+          "4fa69761a389"
+        ]
+      },
+      {
+        "id": "moment-5779b78896",
+        "title": "From Dreamworks Animation's Trolls",
+        "description": "Recommended: From Dreamworks Animation's Trolls. venue context (From Dreamworks Animation's Trolls) adds place and moment. 5 curated visual frames for cards and",
+        "kind": "featured_performance",
+        "year": 2016,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "4fa69761a389"
+        ]
+      }
+    ],
+    "emotionalArc": "triumph",
+    "recommendedPace": "fast",
+    "recommendedPerformance": {
+      "performanceId": "perf-fvl0t6",
+      "title": "From Dreamworks Animation's Trolls · 2016",
+      "reason": "Recommended: From Dreamworks Animation's Trolls. venue context (From Dreamworks Animation's Trolls) adds place and moment. 5 curated visual frames for cards and hero art. dated 2016 performance helps anchor the narrative."
+    },
+    "primaryTheme": "breakthrough",
+    "secondaryTheme": null,
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #1 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:52:48.087Z"
+  },
+  "submittedAt": "2026-06-27T05:52:48.087Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (59%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

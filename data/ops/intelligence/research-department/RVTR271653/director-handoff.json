@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "rvtr": "RVTR271653",
+  "artist": "No Doubt",
+  "title": "Hella Good",
+  "story": {
+    "headline": "Hella Good: A Cultural Moment Captured on Record",
+    "subtitle": "No Doubt · Cultural Moment · 2001",
+    "hook": "The song peaked at #13 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "summary": "No Doubt's \"Hella Good\" reached #13 on the Billboard Hot 100. Hella Good was released in 2001.",
+    "fullStory": "No Doubt's \"Hella Good\" reached #13 on the Billboard Hot 100.\n\nThe song peaked at #13 on the Billboard Hot 100 and spent 20 weeks on the chart.\n\nHella Good was released in 2001.\n\nCover URL is graph-owned and must not be replaced by external research.\n\nChart story — peaked at #13 on the Hot 100."
+  },
+  "approvedFacts": [
+    {
+      "id": "1799b3cb-8285-4b0f-aaa0-ea072f4e4586",
+      "text": "The song peaked at #13 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "32ebb3cc-16d7-40fa-8c5e-ebb8357cd3df",
+      "text": "Hella Good was released in 2001.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "cb8df4bf-2374-445c-82f7-117875fa8d49",
+      "text": "The song appears on the album \"Rock Steady\" (2001).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "b7f18c20-f825-4b17-9bab-8805dc2159d8",
+      "text": "VirtualDJ library play count: 4.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "5fa78e33-8cfe-4098-8206-a9f0365ce1cd",
+      "text": "Cover URL is graph-owned and must not be replaced by external research.",
+      "sourceRef": "Retroverse Cover Library"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "1b750bdba117",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR271653&file=hero.jpg",
+      "performanceId": "perf-armc3h"
+    },
+    {
+      "assetId": "07647f47dac9",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR271653&file=performance.jpg",
+      "performanceId": "perf-armc3h"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-armc3h",
+    "title": "Official Video · 2001",
+    "venue": "",
+    "year": 2001,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2001 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "1b750bdba117",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR271653&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      },
+      {
+        "assetId": "07647f47dac9",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR271653&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "The song peaked at #13 on the Billboard Hot 100 and spent 20 weeks on the chart.",
+    "closing": "No Doubt's \"Hella Good\" reached #13 on the Billboard Hot 100. Hella Good was released in 2001.",
+    "storyBeats": [
+      {
+        "id": "beat-a3fe96932b",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Hella Good\" — original release 2001. No Doubt — \"Hella Good\" · Original release 2001 · Album: Rock Steady · Hot 100 peak #13",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1b750bdba117",
+          "07647f47dac9"
+        ],
+        "relatedPerformanceId": "perf-armc3h",
+        "priority": 1
+      },
+      {
+        "id": "beat-14c7c045b3",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Rock Steady · Release 2001",
+        "supportingFactIds": [
+          "cb8df4bf-2374-445c-82f7-117875fa8d49"
+        ],
+        "relatedImageAssetIds": [
+          "1b750bdba117",
+          "07647f47dac9"
+        ],
+        "relatedPerformanceId": "perf-armc3h",
+        "priority": 2
+      },
+      {
+        "id": "beat-bc0f3ea0d8",
+        "order": 2,
+        "title": "Commercial success",
+        "description": "Billboard Hot 100 peak #13 · 20 weeks on chart.",
+        "supportingFactIds": [
+          "1799b3cb-8285-4b0f-aaa0-ea072f4e4586"
+        ],
+        "relatedImageAssetIds": [
+          "1b750bdba117",
+          "07647f47dac9"
+        ],
+        "relatedPerformanceId": "perf-armc3h",
+        "priority": 3
+      },
+      {
+        "id": "beat-2339d92312",
+        "order": 3,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1b750bdba117",
+          "07647f47dac9"
+        ],
+        "relatedPerformanceId": "perf-armc3h",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-796f696a79",
+        "title": "Chart milestone",
+        "description": "Peaked at #13 on the Billboard Hot 100.",
+        "kind": "chart_milestone",
+        "year": 2001,
+        "supportingFactIds": [
+          "1799b3cb-8285-4b0f-aaa0-ea072f4e4586"
+        ],
+        "relatedImageAssetIds": [
+          "1b750bdba117"
+        ]
+      },
+      {
+        "id": "moment-c426e9af13",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2001,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "1b750bdba117"
+        ]
+      }
+    ],
+    "emotionalArc": "celebration",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-armc3h",
+      "title": "Official Video · 2001",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2001 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "chart_success",
+    "recommendedEnding": {
+      "style": "last_chart_fact",
+      "description": "Close on the chart fact — #13 — as a measurable mark of reach."
+    },
+    "generatedAt": "2026-06-27T05:52:40.374Z"
+  },
+  "submittedAt": "2026-06-27T05:52:40.374Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (63%) · Pass-through warnings: no_planned_cards",
+  "editorialQuality": {
+    "patronValue": 8,
+    "storyQuality": "Strong"
+  }
+}

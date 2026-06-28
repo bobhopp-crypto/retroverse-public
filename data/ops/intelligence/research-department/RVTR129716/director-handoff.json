@@ -1,0 +1,177 @@
+{
+  "version": 2,
+  "rvtr": "RVTR129716",
+  "artist": "Everclear",
+  "title": "Am Radio",
+  "story": {
+    "headline": "Am Radio: A Cultural Moment Captured on Record",
+    "subtitle": "Everclear · Cultural Moment · 2000",
+    "hook": "Am Radio was released in 2000.",
+    "summary": "Everclear's \"Am Radio\" — original release 2000.",
+    "fullStory": "Everclear's \"Am Radio\" — original release 2000.\n\nAm Radio was released in 2000.\n\nAlbum: Songs From An American Movie Vol.\n\nArtist: Everclear · Title: Am Radio · Album: Songs From An American Movie Vol.\n\nSong release — original 2000 chapter."
+  },
+  "approvedFacts": [
+    {
+      "id": "53f2931f-d06c-48dd-9d84-b479afbe7461",
+      "text": "Am Radio was released in 2000.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "9e82caf0-69ae-4d1f-a0e5-4bb5d03dd7de",
+      "text": "The song appears on the album \"Songs From An American Movie Vol. One: Learning How To Smile\" (2000).",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "afb5f841-3357-4fe5-832c-56c06b42d977",
+      "text": "VirtualDJ library play count: 12.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "e9eb7db8-e192-46e4-b9ac-81c60188686f",
+      "text": "Album: Songs From An American Movie Vol.",
+      "sourceRef": "Retroverse Canon"
+    },
+    {
+      "id": "769dfc05-2e8a-4a4e-ab31-e413d8067a8a",
+      "text": "Album: Songs From An American Movie Vol.",
+      "sourceRef": "Retroverse Graph"
+    },
+    {
+      "id": "794917bf-386e-4534-976a-15807e0f19a9",
+      "text": "Artist: Everclear · Title: Am Radio · Album: Songs From An American Movie Vol.",
+      "sourceRef": "VirtualDJ database.xml"
+    }
+  ],
+  "approvedCards": [],
+  "approvedImages": [
+    {
+      "assetId": "c9825ef67d91",
+      "caption": "Strong performance moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129716&file=performance.jpg",
+      "performanceId": "perf-wu6doe"
+    },
+    {
+      "assetId": "37d98d03ed0e",
+      "caption": "Opening representative moment",
+      "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129716&file=hero.jpg",
+      "performanceId": "perf-wu6doe"
+    }
+  ],
+  "approvedQuotes": [],
+  "performance": {
+    "id": "perf-wu6doe",
+    "title": "Official Video · 2000",
+    "venue": "",
+    "year": 2000,
+    "notes": "Recommended cut — Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2000 performance helps anchor the narrative..",
+    "screenshots": [
+      {
+        "assetId": "c9825ef67d91",
+        "label": "Performance",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129716&file=performance.jpg",
+        "caption": "Strong performance moment",
+        "approved": true
+      },
+      {
+        "assetId": "37d98d03ed0e",
+        "label": "Hero",
+        "imageUrl": "/api/ops/studio/collector/visual-asset?rvtr=RVTR129716&file=hero.jpg",
+        "caption": "Opening representative moment",
+        "approved": true
+      }
+    ]
+  },
+  "narrativeBlueprint": {
+    "version": 1,
+    "opening": "Am Radio was released in 2000.",
+    "closing": "Everclear's \"Am Radio\" — original release 2000.",
+    "storyBeats": [
+      {
+        "id": "beat-7acd1cb519",
+        "order": 0,
+        "title": "How the song began",
+        "description": "\"Am Radio\" — original release 2000. Everclear — \"Am Radio\" · Original release 2000 · Album: Songs From An American Movie Vol. One: Learning How To Smile",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c9825ef67d91",
+          "37d98d03ed0e"
+        ],
+        "relatedPerformanceId": "perf-wu6doe",
+        "priority": 1
+      },
+      {
+        "id": "beat-29e3bca53a",
+        "order": 1,
+        "title": "Recording breakthrough",
+        "description": "Songs From An American Movie Vol. One: Learning How To Smile · Release 2000",
+        "supportingFactIds": [
+          "9e82caf0-69ae-4d1f-a0e5-4bb5d03dd7de",
+          "e9eb7db8-e192-46e4-b9ac-81c60188686f"
+        ],
+        "relatedImageAssetIds": [
+          "c9825ef67d91",
+          "37d98d03ed0e"
+        ],
+        "relatedPerformanceId": "perf-wu6doe",
+        "priority": 2
+      },
+      {
+        "id": "beat-97f3dcc8ee",
+        "order": 2,
+        "title": "Legacy",
+        "description": "What listeners still take from this song — influence, memory, or return visits.",
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c9825ef67d91",
+          "37d98d03ed0e"
+        ],
+        "relatedPerformanceId": "perf-wu6doe",
+        "priority": 5
+      }
+    ],
+    "keyMoments": [
+      {
+        "id": "moment-9f1caeaf20",
+        "title": "Official Video",
+        "description": "Owned performance: Official Video.",
+        "kind": "music_video",
+        "year": 2000,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c9825ef67d91"
+        ]
+      },
+      {
+        "id": "moment-9f1caeaf20",
+        "title": "Official Video",
+        "description": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2000 performance helps anchor the narrative.",
+        "kind": "featured_performance",
+        "year": 2000,
+        "supportingFactIds": [],
+        "relatedImageAssetIds": [
+          "c9825ef67d91"
+        ]
+      }
+    ],
+    "emotionalArc": "discovery",
+    "recommendedPace": "moderate",
+    "recommendedPerformance": {
+      "performanceId": "perf-wu6doe",
+      "title": "Official Video · 2000",
+      "reason": "Recommended: Official Video. 5 curated visual frames for cards and hero art. dated 2000 performance helps anchor the narrative."
+    },
+    "primaryTheme": "culture",
+    "secondaryTheme": "television",
+    "recommendedEnding": {
+      "style": "return_to_opening",
+      "description": "Echo the opening hook: \"Am Radio was released in 2000.\""
+    },
+    "generatedAt": "2026-06-27T04:28:38.395Z"
+  },
+  "submittedAt": "2026-06-27T04:28:38.395Z",
+  "editorNotesForDirector": "Collector confidence: Moderate (53%) · Pass-through warnings: no_planned_cards, limited_chart_or_recording_metadata",
+  "editorialQuality": {
+    "patronValue": 5.5,
+    "storyQuality": "Fair"
+  }
+}
