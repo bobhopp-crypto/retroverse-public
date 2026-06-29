@@ -45,6 +45,10 @@ const AttractTourContext = createContext<AttractTourContextValue | null>(null);
 const LIVE_POLL_MS = 2000;
 const SEED_KEY = "retroverse-attract-seed";
 const SONG_INDEX_KEY = "retroverse-attract-song-index";
+const LEGACY_THEME_INDEX_KEY = "retroverse-attract-theme-index";
+
+/** Session cache — full pool survives song-to-song navigations without refetch churn. */
+let cachedAttractPoolEntries: AttractTourEntry[] | null = null;
 
 type ProviderProps = {
   rvtr: string;
@@ -122,9 +126,26 @@ export function AttractTourProvider({
   engagedRef.current = engaged;
   liveActiveRef.current = liveActive;
 
-  const applyFullPool = useCallback(() => {
-    tourSongsRef.current = allPoolRef.current;
+  const applyFullPool = useCallback((entries: AttractTourEntry[]) => {
+    cachedAttractPoolEntries = entries;
+    allPoolRef.current = entries;
+    tourSongsRef.current = entries;
     setActiveTheme(null);
+    try {
+      sessionStorage.removeItem(LEGACY_THEME_INDEX_KEY);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const syncSongIndexForRvtr = useCallback((targetRvtr: string) => {
+    const currentIdx = tourSongsRef.current.findIndex(
+      (entry) => entry.rvtr.toUpperCase() === targetRvtr.toUpperCase(),
+    );
+    if (currentIdx >= 0) {
+      songIndexRef.current = currentIdx;
+      writeSessionNumber(SONG_INDEX_KEY, currentIdx);
+    }
   }, []);
 
   const clearInactivityTimer = useCallback(() => {
@@ -181,21 +202,19 @@ export function AttractTourProvider({
     const seed = seedRef.current;
 
     async function loadPool() {
+      if (cachedAttractPoolEntries && cachedAttractPoolEntries.length > 0) {
+        applyFullPool(cachedAttractPoolEntries);
+        syncSongIndexForRvtr(rvtrUpper);
+        return;
+      }
+
       try {
         const res = await fetch(`/api/retroverse-2/attract-tour?seed=${seed}`, { cache: "no-store" });
         if (!res.ok || cancelled) return;
         const data = (await res.json()) as { entries?: AttractTourEntry[] };
-        if (cancelled || !Array.isArray(data.entries)) return;
-        allPoolRef.current = data.entries;
-        applyFullPool();
-
-        const currentIdx = tourSongsRef.current.findIndex(
-          (entry) => entry.rvtr.toUpperCase() === rvtrUpper,
-        );
-        if (currentIdx >= 0) {
-          songIndexRef.current = currentIdx;
-          writeSessionNumber(SONG_INDEX_KEY, currentIdx);
-        }
+        if (cancelled || !Array.isArray(data.entries) || data.entries.length === 0) return;
+        applyFullPool(data.entries);
+        syncSongIndexForRvtr(rvtrUpper);
       } catch {
         /* tour continues on current song */
       }
@@ -205,7 +224,7 @@ export function AttractTourProvider({
     return () => {
       cancelled = true;
     };
-  }, [applyFullPool, rvtrUpper]);
+  }, [applyFullPool, syncSongIndexForRvtr, rvtrUpper]);
 
   useEffect(() => {
     let cancelled = false;
