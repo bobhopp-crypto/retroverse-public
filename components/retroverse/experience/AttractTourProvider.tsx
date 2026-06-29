@@ -19,7 +19,6 @@ import {
   buildDirectorAttractBeatSchedule,
   type AttractBeat,
 } from "@/lib/retroverse/experience/attract-timeline";
-import { pickThemedTourSlice } from "@/lib/retroverse/experience/attract-themes";
 import type { AttractTourEntry } from "@/lib/retroverse/experience/attract-tour-pool";
 import type { ExperienceChapterKind } from "@/lib/retroverse/experience/experience-types";
 
@@ -45,7 +44,6 @@ const AttractTourContext = createContext<AttractTourContextValue | null>(null);
 
 const LIVE_POLL_MS = 2000;
 const SEED_KEY = "retroverse-attract-seed";
-const THEME_INDEX_KEY = "retroverse-attract-theme-index";
 const SONG_INDEX_KEY = "retroverse-attract-song-index";
 
 type ProviderProps = {
@@ -106,7 +104,6 @@ export function AttractTourProvider({
 
   const allPoolRef = useRef<AttractTourEntry[]>([]);
   const tourSongsRef = useRef<AttractTourEntry[]>([]);
-  const themeIndexRef = useRef(readSessionNumber(THEME_INDEX_KEY));
   const songIndexRef = useRef(readSessionNumber(SONG_INDEX_KEY));
   const seedRef = useRef(readOrCreateSeed());
   const engagedRef = useRef(engaged);
@@ -125,13 +122,9 @@ export function AttractTourProvider({
   engagedRef.current = engaged;
   liveActiveRef.current = liveActive;
 
-  const applyThemeSlice = useCallback((themeIndex: number) => {
-    const slice = pickThemedTourSlice(allPoolRef.current, themeIndex, seedRef.current);
-    if (!slice) return;
-    themeIndexRef.current = themeIndex;
-    writeSessionNumber(THEME_INDEX_KEY, themeIndex);
-    tourSongsRef.current = slice.songs;
-    setActiveTheme({ title: slice.theme.title, description: slice.theme.description });
+  const applyFullPool = useCallback(() => {
+    tourSongsRef.current = allPoolRef.current;
+    setActiveTheme(null);
   }, []);
 
   const clearInactivityTimer = useCallback(() => {
@@ -167,7 +160,6 @@ export function AttractTourProvider({
     let nextSongIndex = songIndexRef.current + 1;
     if (nextSongIndex >= tour.length) {
       nextSongIndex = 0;
-      applyThemeSlice(themeIndexRef.current + 1);
     }
 
     songIndexRef.current = nextSongIndex;
@@ -182,7 +174,7 @@ export function AttractTourProvider({
     if (next.rvtr.toUpperCase() !== rvtrUpper) {
       router.replace(`/retroverse-2/song/${next.rvtr}`);
     }
-  }, [applyThemeSlice, router, rvtrUpper]);
+  }, [router, rvtrUpper]);
 
   useEffect(() => {
     let cancelled = false;
@@ -195,7 +187,7 @@ export function AttractTourProvider({
         const data = (await res.json()) as { entries?: AttractTourEntry[] };
         if (cancelled || !Array.isArray(data.entries)) return;
         allPoolRef.current = data.entries;
-        applyThemeSlice(themeIndexRef.current);
+        applyFullPool();
 
         const currentIdx = tourSongsRef.current.findIndex(
           (entry) => entry.rvtr.toUpperCase() === rvtrUpper,
@@ -213,7 +205,7 @@ export function AttractTourProvider({
     return () => {
       cancelled = true;
     };
-  }, [applyThemeSlice, rvtrUpper]);
+  }, [applyFullPool, rvtrUpper]);
 
   useEffect(() => {
     let cancelled = false;

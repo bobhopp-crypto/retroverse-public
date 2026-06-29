@@ -1,35 +1,12 @@
-import { buildFeaturedYearsFromConfig } from "@/lib/ops/event-control/featured-years";
-import { buildHomepageHero, yearsSectionLabel } from "@/lib/ops/event-control/homepage-hero";
-import { loadEventControlConfig } from "@/lib/ops/event-control/store";
-import { loadFeaturedYearCovers } from "@/lib/home/load-featured-year-covers";
+import type { Metadata } from "next";
 
-import { HomeDirectory } from "./components/home-directory";
-
-import "./home-directory.css";
-import "./home.css";
-import "./public-mobile-width.css";
+import { LiveAttractTourPage } from "./retroverse-2/live/live-attract-tour-page";
 
 export const dynamic = "force-dynamic";
 
-export default async function HomePage() {
-  const [yearCovers, eventConfig] = await Promise.all([
-    loadFeaturedYearCovers(),
-    loadEventControlConfig(),
-  ]);
+export const metadata: Metadata = {
+  title: "Retroverse Live",
+  description: "Command Center live music exploration for Retroverse.",
+};
 
-  const featuredYears = buildFeaturedYearsFromConfig(eventConfig);
-  const hero = buildHomepageHero(eventConfig);
-  const homepageMode = eventConfig.homepage.mode;
-  const yearsLabel = yearsSectionLabel(homepageMode, hero != null);
-
-  return (
-    <main className={`home-directory home-directory--mode-${homepageMode.toLowerCase()}${hero ? " home-directory--has-hero" : ""}`}>
-      <HomeDirectory
-        yearCovers={yearCovers}
-        featuredYears={featuredYears}
-        hero={hero}
-        yearsLabel={yearsLabel}
-      />
-    </main>
-  );
-}
+export default LiveAttractTourPage;
