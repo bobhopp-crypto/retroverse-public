@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function OpsPassesPage() {
-  redirect("/ops/content-creator/create");
+  redirect("/ops/event-studio/print/pass-generator");
 }

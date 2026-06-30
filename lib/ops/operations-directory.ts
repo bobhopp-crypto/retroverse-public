@@ -105,10 +105,10 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
       },
       {
         id: "pass-generator",
-        name: "Content Creator",
-        href: "/ops/content-creator",
-        description: "Collectible library for pass generation and artwork generation.",
-        purpose: "Browse generated credentials, then start a new credential from the library.",
+        name: "Event Studio · Pass Generator",
+        href: "/ops/event-studio/print/pass-generator",
+        description: "Event production hub — passes, print, digital, and assets for the current show.",
+        purpose: "Generate collectible passes from Event Studio Print suite.",
         status: "SUNDAY NIGHTS",
       },
       {
@@ -278,11 +278,19 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
         status: "IN PROGRESS",
       },
       {
+        id: "event-studio",
+        name: "Event Studio",
+        href: "/ops/event-studio",
+        description: "Central production hub for a live event — passes, print, digital, assets, AI.",
+        purpose: "One event owns landing pages, passes, social graphics, giveaways, and prompt profiles.",
+        status: "IN PROGRESS",
+      },
+      {
         id: "content-creator",
         name: "Content Creator",
         href: "/ops/content-creator",
         description: "RVBR Art Director — generate, edit, export passes in one screen.",
-        purpose: "ChatGPT-style credential workflow: era → data → generate → edit → export.",
+        purpose: "Legacy collectible library and generators (migrating into Event Studio).",
         status: "IN PROGRESS",
       },
       {
@@ -376,6 +384,7 @@ export const OPS_PUBLIC_QUICK_LINKS: OpsQuickLink[] = [
 export const OPS_CONSOLE_QUICK_LINKS: OpsQuickLink[] = [
   { label: "Operations Hub", href: "/ops/hub" },
   { label: "Sunday Nights", href: "/ops/sunday-nights" },
+  { label: "Event Studio", href: "/ops/event-studio" },
   { label: "Content Creator", href: "/ops/content-creator" },
   { label: "Pass Registrations", href: "/ops/pass-registrations" },
   { label: "Year Workspace 1967", href: "/ops/year/1967" },
