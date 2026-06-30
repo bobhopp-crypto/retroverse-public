@@ -90,7 +90,11 @@ export function EventStudioOverview({ binder }: Props) {
         <h2 className="ops-event-studio__panel-title">Quick Actions</h2>
         <div className="ops-event-studio__actions">
           {EVENT_STUDIO_QUICK_ACTIONS.map((action) => (
-            <Link key={action.label} href={action.href} className="ops-event-studio__action">
+            <Link
+              key={`${action.label}-${action.href}`}
+              href={action.href}
+              className="ops-event-studio__action"
+            >
               {action.label}
             </Link>
           ))}

@@ -505,6 +505,54 @@
   color: var(--es-accent);
 }
 
+.ops-event-studio__coming-soon {
+  padding: 1.25rem;
+  border: 2px solid var(--grid);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ops-event-studio__coming-soon-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--es-accent-2);
+}
+
+.ops-event-studio__coming-soon h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.ops-event-studio__coming-soon p {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--dim);
+  line-height: 1.45;
+}
+
+.ops-event-studio__coming-soon-note {
+  margin-top: 0.75rem !important;
+  font-size: 0.88rem;
+}
+
+.ops-event-studio__generator {
+  min-height: 100%;
+}
+
+.ops-event-studio__generator.ops-page--content-creator {
+  min-height: 100%;
+  background: var(--cc-bg, #141416);
+  color: var(--cc-ink, #f2f2f7);
+}
+
+.ops-event-studio__generator .cc-creator__titlebar h1 {
+  font-size: 1rem;
+}
+
 .ops-event-studio__hint {
   margin: 0.85rem 0 0;
   color: var(--dim);

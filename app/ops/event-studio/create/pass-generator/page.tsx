@@ -9,8 +9,6 @@ import { inspectPing } from "@/lib/inspect/pg";
 import { loadContentCreatorEras } from "@/lib/ops/content-creator/load-era-options";
 import { loadProductionBinder } from "@/lib/ops/event-studio/production-binder";
 
-import "../../content-creator/content-creator.css";
-
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -41,22 +39,16 @@ export default async function EventStudioPassGeneratorPage() {
               {binder.snapshot.eventName} · Create · inherits {binder.identity.theme}
             </p>
           </div>
-          <div>
-            <Link href="/ops/event-studio/create" className="ops-event-studio__workspace-link">
-              ← Create
-            </Link>
-            {" · "}
-            <Link href="/ops/content-creator/create" className="ops-event-studio__workspace-link">
-              Legacy route
-            </Link>
-          </div>
+          <Link href="/ops/event-studio/create" className="ops-event-studio__workspace-link">
+            ← Create
+          </Link>
         </div>
         <div className="ops-event-studio__workspace-body">
-          <main className="ops-page ops-page--content-creator cc-creator-page">
+          <div className="ops-event-studio__generator ops-page--content-creator cc-creator-page">
             <Suspense fallback={<p style={{ padding: "2rem" }}>Loading…</p>}>
               <VNextWorkspace eras={eras} />
             </Suspense>
-          </main>
+          </div>
         </div>
       </EventStudioShell>
     );

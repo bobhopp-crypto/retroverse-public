@@ -12,8 +12,8 @@ export function EventStudioCreatePanel({ tools }: Props) {
       <section className="ops-event-studio__panel ops-event-studio__panel--wide" aria-label="Create tools">
         <h2 className="ops-event-studio__panel-title">Generate for this event</h2>
         <p className="ops-event-studio__hint">
-          Generators inherit Identity settings. Pass generation is live today; additional tools ship
-          into this section.
+          Generators inherit Identity settings. Pass generation is live today; additional tools open
+          as coming-soon panels until generation ships.
         </p>
         <div className="ops-event-studio__cards">
           {tools.map((tool) => {
@@ -38,12 +38,12 @@ export function EventStudioCreatePanel({ tools }: Props) {
                       : "ops-event-studio__card-cta ops-event-studio__card-cta--dim"
                   }
                 >
-                  {tool.status === "active" ? "Open generator →" : "Coming to Create"}
+                  {tool.status === "active" ? "Open generator →" : "Open panel →"}
                 </span>
               </>
             );
 
-            if (tool.href && tool.status === "active") {
+            if (tool.href) {
               return (
                 <Link key={tool.id} href={tool.href} className={className}>
                   {body}

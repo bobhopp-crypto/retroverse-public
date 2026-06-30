@@ -20,7 +20,7 @@ export default async function EventStudioCreatePage() {
       active="create"
       snapshot={binder.snapshot}
       title="Create"
-      lead="Generate artwork and pages for this event — Content Creator lives here now."
+      lead="Generate artwork and pages for this event. Pass generation is live; other generators open as production panels."
     >
       <EventStudioCreatePanel tools={EVENT_STUDIO_CREATE_TOOLS} />
     </EventStudioShell>
