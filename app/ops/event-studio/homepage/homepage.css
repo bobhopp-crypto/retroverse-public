@@ -1,0 +1,39 @@
+.es-homepage-preview {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.es-homepage-preview__frame {
+  overflow: hidden;
+  border: 2px solid var(--grid);
+  border-radius: 18px;
+  background: #f6eed8;
+}
+
+.es-homepage-preview__frame .home-page {
+  min-height: auto;
+}
+
+.es-homepage-preview__placeholder {
+  margin: 1rem 0;
+  padding: 1rem 1.1rem;
+  border: 2px dashed rgba(0, 0, 0, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  color: #2a2418;
+}
+
+.es-homepage-preview__placeholder-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(42, 36, 24, 0.62);
+}
+
+.es-homepage-preview__placeholder p:last-child {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}

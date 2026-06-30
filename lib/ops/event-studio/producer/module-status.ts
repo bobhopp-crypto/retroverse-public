@@ -9,6 +9,7 @@ export type ProductionModuleId =
 
 export type ProductionModuleStatus =
   | "NOT_STARTED"
+  | "READY"
   | "IN_PROGRESS"
   | "GENERATED"
   | "APPROVED"
@@ -16,6 +17,7 @@ export type ProductionModuleStatus =
 
 export const PRODUCTION_MODULE_STATUS_ORDER: ProductionModuleStatus[] = [
   "NOT_STARTED",
+  "READY",
   "IN_PROGRESS",
   "GENERATED",
   "APPROVED",
@@ -26,6 +28,8 @@ export function productionModuleStatusLabel(status: ProductionModuleStatus): str
   switch (status) {
     case "NOT_STARTED":
       return "Not Started";
+    case "READY":
+      return "Ready";
     case "IN_PROGRESS":
       return "In Progress";
     case "GENERATED":
@@ -47,6 +51,7 @@ export function maxProductionStatus(
 export function normalizeProductionModuleStatus(raw: unknown): ProductionModuleStatus | null {
   if (
     raw === "NOT_STARTED" ||
+    raw === "READY" ||
     raw === "IN_PROGRESS" ||
     raw === "GENERATED" ||
     raw === "APPROVED" ||

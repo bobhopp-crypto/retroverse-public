@@ -22,7 +22,7 @@ export default async function EventStudioPassGeneratorPage() {
 
   if (!ping.ok) {
     return (
-      <EventStudioShell active="create" snapshot={binder.snapshot} title="Generate Pass" workspace>
+      <EventStudioShell active="passes" snapshot={binder.snapshot} title="Generate Pass" workspace>
         <p style={{ padding: "2rem" }}>Database offline.</p>
       </EventStudioShell>
     );
@@ -31,7 +31,7 @@ export default async function EventStudioPassGeneratorPage() {
   try {
     const eras = await loadContentCreatorEras();
     return (
-      <EventStudioShell active="create" snapshot={binder.snapshot} title="Generate Pass" workspace>
+      <EventStudioShell active="passes" snapshot={binder.snapshot} title="Generate Pass" workspace>
         <div className="ops-event-studio__workspace-bar">
           <div>
             <h1>Generate Pass</h1>

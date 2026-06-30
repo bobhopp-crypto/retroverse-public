@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import { EVENT_STUDIO_NAV } from "@/lib/ops/event-studio/nav";
+import { EVENT_STUDIO_SUNDAY_NAV } from "@/lib/ops/event-studio/nav";
 import { loadProducerWorkflow } from "@/lib/ops/event-studio/producer/workflow";
 import { productionModuleStatusLabel } from "@/lib/ops/event-studio/producer/module-status";
 import type { EventStudioSection, EventStudioSnapshot } from "@/lib/ops/event-studio/types";
@@ -52,8 +52,12 @@ export async function EventStudioShell({
           </section>
 
           <nav className="ops-event-studio__nav" aria-label="Production binder sections">
-            {EVENT_STUDIO_NAV.map((item) => {
+            {EVENT_STUDIO_SUNDAY_NAV.map((item) => {
               const moduleStatus = workflow?.navStatuses[item.id];
+              const showBadge =
+                moduleStatus &&
+                moduleStatus !== "NOT_STARTED" &&
+                (moduleStatus !== "PUBLISHED" || item.id === "homepage");
               return (
                 <Link
                   key={item.id}
@@ -66,7 +70,7 @@ export async function EventStudioShell({
                   }
                 >
                   <span className="ops-event-studio__nav-link-label">{item.label}</span>
-                  {moduleStatus ? (
+                  {showBadge ? (
                     <span
                       className={`ops-event-studio__nav-badge ops-event-studio__nav-badge--${moduleStatus.toLowerCase().replace(/_/g, "-")}`}
                     >

@@ -1,6 +1,7 @@
 import type { EventStudioCreateTool, EventStudioNavItem, EventStudioWorkflowItem } from "./types";
 import { plannedGeneratorHref } from "./planned-generators";
 
+/** Full nav — legacy routes remain reachable by URL. */
 export const EVENT_STUDIO_NAV: EventStudioNavItem[] = [
   { id: "producer", label: "Producer", href: "/ops/event-studio/producer" },
   { id: "overview", label: "Overview", href: "/ops/event-studio" },
@@ -10,6 +11,15 @@ export const EVENT_STUDIO_NAV: EventStudioNavItem[] = [
   { id: "publish", label: "Publish", href: "/ops/event-studio/publish" },
   { id: "giveaway", label: "Giveaway", href: "/ops/event-studio/giveaway" },
   { id: "archive", label: "Archive", href: "/ops/event-studio/archive" },
+  { id: "settings", label: "Settings", href: "/ops/event-studio/settings" },
+];
+
+/** Sunday workflow — visible sidebar only. */
+export const EVENT_STUDIO_SUNDAY_NAV: EventStudioNavItem[] = [
+  { id: "producer", label: "Producer", href: "/ops/event-studio/producer" },
+  { id: "passes", label: "Passes", href: "/ops/event-studio/create/pass-generator" },
+  { id: "giveaway", label: "Giveaway", href: "/ops/event-studio/giveaway" },
+  { id: "homepage", label: "Homepage", href: "/ops/event-studio/homepage" },
   { id: "settings", label: "Settings", href: "/ops/event-studio/settings" },
 ];
 

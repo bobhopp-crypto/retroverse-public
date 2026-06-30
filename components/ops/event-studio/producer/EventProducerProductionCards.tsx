@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
 import type { ProductionModuleCard, ProductionModuleId } from "@/lib/ops/event-studio/producer/module-status";
 import { productionModuleStatusLabel } from "@/lib/ops/event-studio/producer/module-status";
 
@@ -41,8 +40,7 @@ export function EventProducerProductionCards({ cards, onStatusChange }: Props) {
     >
       <h2 className="ops-event-studio__panel-title">Production Pipeline</h2>
       <p className="ops-event-studio__hint">
-        Drive the full show from here. Each workspace inherits the analyzed plan — no re-entering venue,
-        dates, theme, or giveaway rules.
+        Sunday workflow: Passes → Giveaway → Homepage. Each step inherits the analyzed plan.
       </p>
       <div className="es-producer__module-grid">
         {cards.map((card) => (
@@ -71,14 +69,6 @@ export function EventProducerProductionCards({ cards, onStatusChange }: Props) {
             </button>
           </article>
         ))}
-      </div>
-      <div className="es-producer__pipeline-foot">
-        <Link href="/ops/event-studio/identity" className="ops-event-studio__action">
-          Review Identity
-        </Link>
-        <Link href="/ops/event-studio/publish" className="ops-event-studio__action">
-          Publish Workspace
-        </Link>
       </div>
     </section>
   );

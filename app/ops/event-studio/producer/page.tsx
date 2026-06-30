@@ -27,7 +27,7 @@ export default async function EventProducerPage() {
       active="producer"
       snapshot={binder.snapshot}
       title="Event Producer"
-      lead="Describe the show once. Drive passes, giveaway, homepage, and publish workspaces from the analyzed plan."
+      lead="Describe the show once. Sunday flow: Passes → Giveaway → Homepage."
     >
       <EventProducerPanel initialDrafts={drafts} initialWorkflow={workflow} />
     </EventStudioShell>
