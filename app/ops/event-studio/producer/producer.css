@@ -166,6 +166,116 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+.es-producer__draft-load {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.es-producer__draft-load:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.es-producer__pipeline {
+  grid-column: 1 / -1;
+  background: linear-gradient(180deg, rgba(18, 55, 119, 0.35), rgba(13, 36, 85, 0.48));
+}
+
+.es-producer__module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.es-producer__module-card {
+  padding: 0.9rem;
+  border: 2px solid rgba(138, 197, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.es-producer__module-card--ready {
+  border-color: rgba(46, 184, 184, 0.35);
+}
+
+.es-producer__module-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-bottom: 0.55rem;
+}
+
+.es-producer__module-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.es-producer__module-status {
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(138, 197, 255, 0.18);
+  color: var(--dim);
+}
+
+.es-producer__module-status--in-progress {
+  color: #ffc857;
+  border-color: rgba(255, 176, 32, 0.35);
+  background: rgba(255, 176, 32, 0.1);
+}
+
+.es-producer__module-status--generated,
+.es-producer__module-status--approved {
+  color: #5ee89a;
+  border-color: rgba(47, 210, 122, 0.35);
+  background: rgba(47, 210, 122, 0.1);
+}
+
+.es-producer__module-status--published {
+  color: #6bc8ff;
+  border-color: rgba(107, 200, 255, 0.45);
+  background: rgba(107, 200, 255, 0.12);
+}
+
+.es-producer__module-copy {
+  margin: 0 0 0.55rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--dim);
+}
+
+.es-producer__module-uses {
+  margin: 0 0 0.75rem;
+  padding-left: 1rem;
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.es-producer__module-action {
+  width: 100%;
+}
+
+.es-producer__pipeline-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--grid);
+}
+
 .es-producer__draft-item strong {
   display: block;
   margin-bottom: 0.25rem;
@@ -191,6 +301,10 @@
 
 @media (max-width: 900px) {
   .es-producer__results {
+    grid-template-columns: 1fr;
+  }
+
+  .es-producer__module-grid {
     grid-template-columns: 1fr;
   }
 

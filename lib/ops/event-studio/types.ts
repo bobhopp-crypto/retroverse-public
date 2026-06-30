@@ -1,4 +1,5 @@
 export type EventStudioSection =
+  | "producer"
   | "overview"
   | "identity"
   | "assets"

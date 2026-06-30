@@ -116,6 +116,10 @@
 }
 
 .ops-event-studio__nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
   padding: 0.55rem 0.65rem;
   border-radius: 10px;
   color: var(--dim);
@@ -133,6 +137,45 @@
   color: var(--ink);
   background: rgba(46, 184, 184, 0.14);
   box-shadow: inset 0 0 0 1px rgba(46, 184, 184, 0.35);
+}
+
+.ops-event-studio__nav-link-label {
+  min-width: 0;
+}
+
+.ops-event-studio__nav-badge {
+  flex-shrink: 0;
+  padding: 0.12rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(138, 197, 255, 0.18);
+  color: var(--dim);
+}
+
+.ops-event-studio__nav-badge--not-started {
+  color: rgba(180, 190, 205, 0.85);
+}
+
+.ops-event-studio__nav-badge--in-progress {
+  color: #ffc857;
+  border-color: rgba(255, 176, 32, 0.35);
+  background: rgba(255, 176, 32, 0.1);
+}
+
+.ops-event-studio__nav-badge--generated,
+.ops-event-studio__nav-badge--approved {
+  color: #5ee89a;
+  border-color: rgba(47, 210, 122, 0.35);
+  background: rgba(47, 210, 122, 0.1);
+}
+
+.ops-event-studio__nav-badge--published {
+  color: #6bc8ff;
+  border-color: rgba(107, 200, 255, 0.45);
+  background: rgba(107, 200, 255, 0.12);
 }
 
 .ops-event-studio__sidebar-foot {
@@ -265,6 +308,11 @@
 
 .ops-event-studio__action:hover {
   border-color: rgba(46, 184, 184, 0.55);
+}
+
+button.ops-event-studio__action {
+  cursor: pointer;
+  font: inherit;
 }
 
 .ops-event-studio__progress {

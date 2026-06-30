@@ -2,20 +2,11 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+import { EventProducerProductionCards } from "@/components/ops/event-studio/producer/EventProducerProductionCards";
 import { createEmptyParsedPlan } from "@/lib/ops/event-studio/producer/defaults";
+import type { ProductionModuleCard } from "@/lib/ops/event-studio/producer/module-status";
+import type { ProducerWorkflow } from "@/lib/ops/event-studio/producer/workflow";
 import type { EventProducerDraft, EventProducerParsedPlan } from "@/lib/ops/event-studio/producer/types";
-
-const MODULE_LABELS: Record<keyof EventProducerParsedPlan["recommendedModules"], string> = {
-  identity: "Identity",
-  assets: "Assets",
-  passes: "Passes",
-  giveaway: "Giveaway",
-  landingPage: "Landing Page",
-  poster: "Poster",
-  facebookPost: "Facebook Post",
-  nowPlaying: "Now Playing",
-  archive: "Archive",
-};
 
 function display(value: string | null | undefined, fallback = "—"): string {
   const trimmed = value?.trim();
@@ -28,17 +19,31 @@ function displayList(values: string[], fallback = "—"): string {
 
 type Props = {
   initialDrafts: EventProducerDraft[];
+  initialWorkflow: ProducerWorkflow;
 };
 
-export function EventProducerPanel({ initialDrafts }: Props) {
-  const [sourceText, setSourceText] = useState("");
-  const [parsedPlan, setParsedPlan] = useState<EventProducerParsedPlan | null>(null);
+export function EventProducerPanel({ initialDrafts, initialWorkflow }: Props) {
+  const [sourceText, setSourceText] = useState(initialWorkflow.sourceText ?? "");
+  const [parsedPlan, setParsedPlan] = useState<EventProducerParsedPlan | null>(
+    initialWorkflow.parsedPlan,
+  );
+  const [productionCards, setProductionCards] = useState<ProductionModuleCard[]>(initialWorkflow.cards);
   const [model, setModel] = useState<string | null>(null);
   const [drafts, setDrafts] = useState<EventProducerDraft[]>(initialDrafts);
   const [analyzing, setAnalyzing] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+
+  const refreshWorkflow = useCallback(async () => {
+    const res = await fetch("/api/ops/event-studio/producer/workflow");
+    const data = (await res.json()) as { workflow?: ProducerWorkflow; error?: string };
+    if (res.ok && data.workflow) {
+      setProductionCards(data.workflow.cards);
+      if (data.workflow.parsedPlan) setParsedPlan(data.workflow.parsedPlan);
+      if (data.workflow.sourceText) setSourceText(data.workflow.sourceText);
+    }
+  }, []);
 
   const refreshDrafts = useCallback(async () => {
     const res = await fetch("/api/ops/event-studio/producer/drafts");
@@ -51,6 +56,32 @@ export function EventProducerPanel({ initialDrafts }: Props) {
   useEffect(() => {
     void refreshDrafts();
   }, [refreshDrafts]);
+
+  async function activatePlan(input: {
+    sourceText: string;
+    model: string;
+    parsedPlan: EventProducerParsedPlan;
+    basic?: boolean;
+  }) {
+    const res = await fetch("/api/ops/event-studio/producer/drafts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+    });
+    const data = (await res.json()) as {
+      ok?: boolean;
+      error?: string;
+      workflow?: ProducerWorkflow;
+    };
+    if (!res.ok || !data.ok) {
+      throw new Error(data.error ?? "Activation failed");
+    }
+    if (data.workflow) {
+      setProductionCards(data.workflow.cards);
+      setParsedPlan(data.workflow.parsedPlan);
+    }
+    await refreshDrafts();
+  }
 
   async function analyze() {
     setAnalyzing(true);
@@ -73,7 +104,12 @@ export function EventProducerPanel({ initialDrafts }: Props) {
       }
       setParsedPlan(data.parsedPlan);
       setModel(data.model ?? null);
-      setMessage("Analysis complete.");
+      await activatePlan({
+        sourceText,
+        model: data.model ?? "none",
+        parsedPlan: data.parsedPlan,
+      });
+      setMessage("Analysis complete. Production plan synced to Event Studio.");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Analysis failed");
     } finally {
@@ -86,22 +122,13 @@ export function EventProducerPanel({ initialDrafts }: Props) {
     setError(null);
     setMessage(null);
     try {
-      const res = await fetch("/api/ops/event-studio/producer/drafts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          sourceText,
-          model: basic ? "none" : (model ?? "none"),
-          parsedPlan: basic ? createEmptyParsedPlan() : (parsedPlan ?? createEmptyParsedPlan()),
-          basic,
-        }),
+      await activatePlan({
+        sourceText,
+        model: basic ? "none" : (model ?? "none"),
+        parsedPlan: basic ? createEmptyParsedPlan() : (parsedPlan ?? createEmptyParsedPlan()),
+        basic,
       });
-      const data = (await res.json()) as { ok?: boolean; error?: string; draft?: EventProducerDraft };
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error ?? "Save failed");
-      }
-      setMessage(basic ? "Basic draft saved." : "Draft event plan saved.");
-      await refreshDrafts();
+      setMessage(basic ? "Basic draft saved." : "Draft event plan saved and synced.");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Save failed");
     } finally {
@@ -109,20 +136,47 @@ export function EventProducerPanel({ initialDrafts }: Props) {
     }
   }
 
+  async function loadDraft(draft: EventProducerDraft) {
+    setSaving(true);
+    setError(null);
+    setMessage(null);
+    try {
+      setSourceText(draft.sourceText);
+      setParsedPlan(draft.parsedPlan);
+      setModel(draft.model);
+      const res = await fetch("/api/ops/event-studio/producer/drafts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "activate", draftId: draft.id }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string; workflow?: ProducerWorkflow };
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error ?? "Load draft failed");
+      }
+      if (data.workflow) {
+        setProductionCards(data.workflow.cards);
+        setParsedPlan(data.workflow.parsedPlan);
+      }
+      setMessage("Draft loaded as active production plan.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Load draft failed");
+    } finally {
+      setSaving(false);
+    }
+  }
+
   const hasPlan = parsedPlan != null;
-  const enabledModules = hasPlan
-    ? (Object.entries(parsedPlan.recommendedModules) as [keyof EventProducerParsedPlan["recommendedModules"], boolean][])
-        .filter(([, enabled]) => enabled)
-        .map(([key]) => MODULE_LABELS[key])
-    : [];
 
   return (
     <div className="es-producer">
-      <section className="ops-event-studio__panel ops-event-studio__panel--wide es-producer__intake" aria-label="Event description">
+      <section
+        className="ops-event-studio__panel ops-event-studio__panel--wide es-producer__intake"
+        aria-label="Event description"
+      >
         <h2 className="ops-event-studio__panel-title">Describe the event</h2>
         <p className="ops-event-studio__hint">
-          Paste a plain-English brief. Local Ollama extracts schedule, venue, passes, giveaway rules, and
-          recommended Event Studio modules.
+          Interview → review plan → generate assets → publish → run → archive. Paste your brief once; every
+          workspace inherits the analyzed plan.
         </p>
         <textarea
           className="es-producer__textarea"
@@ -169,8 +223,11 @@ export function EventProducerPanel({ initialDrafts }: Props) {
 
       {hasPlan ? (
         <div className="es-producer__results">
+          <EventProducerProductionCards cards={productionCards} onStatusChange={() => void refreshWorkflow()} />
+
           <section className="ops-event-studio__panel es-producer__summary" aria-label="Event summary">
-            <h2 className="ops-event-studio__panel-title">Event Summary</h2>
+            <h2 className="ops-event-studio__panel-title">Review Plan</h2>
+            {model ? <p className="es-producer__model-tag">Model: {model}</p> : null}
             <dl className="ops-event-studio__facts">
               <div>
                 <dt>Title</dt>
@@ -198,125 +255,15 @@ export function EventProducerPanel({ initialDrafts }: Props) {
                   {parsedPlan.expectedAttendance != null ? parsedPlan.expectedAttendance : "—"}
                 </dd>
               </div>
-            </dl>
-          </section>
-
-          <section className="ops-event-studio__panel" aria-label="Schedule and venue">
-            <h2 className="ops-event-studio__panel-title">Dates &amp; Venue</h2>
-            <dl className="ops-event-studio__facts">
               <div>
                 <dt>Date Summary</dt>
                 <dd>{display(parsedPlan.dateSummary)}</dd>
               </div>
               <div>
-                <dt>Dates</dt>
-                <dd>{displayList(parsedPlan.dates)}</dd>
-              </div>
-              <div>
-                <dt>Start</dt>
-                <dd>{display(parsedPlan.startTime)}</dd>
-              </div>
-              <div>
-                <dt>End</dt>
-                <dd>{display(parsedPlan.endTime)}</dd>
-              </div>
-              <div className="ops-event-studio__facts-wide">
                 <dt>Venue</dt>
                 <dd>{display(parsedPlan.venue)}</dd>
               </div>
             </dl>
-          </section>
-
-          <section className="ops-event-studio__panel" aria-label="Registration rules">
-            <h2 className="ops-event-studio__panel-title">Registration</h2>
-            <dl className="ops-event-studio__facts">
-              <div>
-                <dt>Enabled</dt>
-                <dd>{parsedPlan.registration.enabled ? "Yes" : "No"}</dd>
-              </div>
-              <div>
-                <dt>Required</dt>
-                <dd>{parsedPlan.registration.required ? "Yes" : "No"}</dd>
-              </div>
-              <div className="ops-event-studio__facts-wide">
-                <dt>Rules</dt>
-                <dd>{display(parsedPlan.registration.rules)}</dd>
-              </div>
-            </dl>
-          </section>
-
-          <section className="ops-event-studio__panel" aria-label="Passes">
-            <h2 className="ops-event-studio__panel-title">Passes</h2>
-            <dl className="ops-event-studio__facts">
-              <div>
-                <dt>Enabled</dt>
-                <dd>{parsedPlan.passes.enabled ? "Yes" : "No"}</dd>
-              </div>
-              <div>
-                <dt>Standard Passes</dt>
-                <dd>{parsedPlan.passes.standardPasses ? "Yes" : "No"}</dd>
-              </div>
-              <div>
-                <dt>Premium Passes</dt>
-                <dd>{parsedPlan.passes.premiumPasses ? "Yes" : "No"}</dd>
-              </div>
-              <div>
-                <dt>Premium / Sheet</dt>
-                <dd>{parsedPlan.passes.premiumPerSheet || "—"}</dd>
-              </div>
-              <div>
-                <dt>Paper Size</dt>
-                <dd>{display(parsedPlan.passes.paperSize)}</dd>
-              </div>
-            </dl>
-          </section>
-
-          <section className="ops-event-studio__panel" aria-label="Giveaway rules">
-            <h2 className="ops-event-studio__panel-title">Giveaway</h2>
-            <dl className="ops-event-studio__facts">
-              <div>
-                <dt>Enabled</dt>
-                <dd>{parsedPlan.giveaway.enabled ? "Yes" : "No"}</dd>
-              </div>
-              <div>
-                <dt>Prize</dt>
-                <dd>{display(parsedPlan.giveaway.prize)}</dd>
-              </div>
-              <div>
-                <dt>Must Be Present</dt>
-                <dd>
-                  {parsedPlan.giveaway.mustBePresent == null
-                    ? "—"
-                    : parsedPlan.giveaway.mustBePresent
-                      ? "Yes"
-                      : "No"}
-                </dd>
-              </div>
-              <div>
-                <dt>Draw Date</dt>
-                <dd>{display(parsedPlan.giveaway.drawDate)}</dd>
-              </div>
-              <div className="ops-event-studio__facts-wide">
-                <dt>Rules</dt>
-                <dd>{display(parsedPlan.giveaway.rules)}</dd>
-              </div>
-            </dl>
-          </section>
-
-          <section className="ops-event-studio__panel ops-event-studio__panel--wide" aria-label="Recommended modules">
-            <h2 className="ops-event-studio__panel-title">Recommended Modules</h2>
-            {model ? <p className="es-producer__model-tag">Model: {model}</p> : null}
-            <div className="es-producer__chips">
-              {enabledModules.length > 0 ? (
-                enabledModules.map((label) => (
-                  <span key={label} className="es-producer__chip es-producer__chip--on">
-                    {label}
-                  </span>
-                ))
-              ) : (
-                <span className="es-producer__chip">None flagged</span>
-              )}
-            </div>
           </section>
 
           {(parsedPlan.missingQuestions.length > 0 || parsedPlan.needsReview.length > 0) && (
@@ -350,18 +297,29 @@ export function EventProducerPanel({ initialDrafts }: Props) {
         </div>
       ) : null}
 
-      <section className="ops-event-studio__panel ops-event-studio__panel--wide es-producer__drafts" aria-label="Saved drafts">
+      <section
+        className="ops-event-studio__panel ops-event-studio__panel--wide es-producer__drafts"
+        aria-label="Saved drafts"
+      >
         <h2 className="ops-event-studio__panel-title">Saved Drafts</h2>
         {drafts.length === 0 ? (
-          <p className="ops-event-studio__hint">No drafts yet. Analyze an event and save a draft plan.</p>
+          <p className="ops-event-studio__hint">No drafts yet. Analyze an event to start production.</p>
         ) : (
           <ul className="es-producer__draft-list">
             {drafts.map((draft) => (
               <li key={draft.id} className="es-producer__draft-item">
-                <div>
+                <button
+                  type="button"
+                  className="es-producer__draft-load"
+                  onClick={() => void loadDraft(draft)}
+                  disabled={saving}
+                >
                   <strong>{display(draft.parsedPlan.eventTitle, "Untitled draft")}</strong>
-                  <p>{draft.sourceText.slice(0, 140)}{draft.sourceText.length > 140 ? "…" : ""}</p>
-                </div>
+                  <p>
+                    {draft.sourceText.slice(0, 140)}
+                    {draft.sourceText.length > 140 ? "…" : ""}
+                  </p>
+                </button>
                 <div className="es-producer__draft-meta">
                   <span>{new Date(draft.createdAt).toLocaleString()}</span>
                   <span>{draft.model}</span>

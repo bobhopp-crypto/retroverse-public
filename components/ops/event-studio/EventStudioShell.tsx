@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { EVENT_STUDIO_NAV } from "@/lib/ops/event-studio/nav";
+import { loadProducerWorkflow } from "@/lib/ops/event-studio/producer/workflow";
+import { productionModuleStatusLabel } from "@/lib/ops/event-studio/producer/module-status";
 import type { EventStudioSection, EventStudioSnapshot } from "@/lib/ops/event-studio/types";
 
 type Props = {
@@ -13,7 +15,7 @@ type Props = {
   children: ReactNode;
 };
 
-export function EventStudioShell({
+export async function EventStudioShell({
   active,
   snapshot,
   title,
@@ -21,6 +23,8 @@ export function EventStudioShell({
   workspace = false,
   children,
 }: Props) {
+  const workflow = await loadProducerWorkflow().catch(() => null);
+
   return (
     <main className={`ops-page ops-event-studio${workspace ? " ops-event-studio--workspace" : ""}`}>
       <div className="ops-page__grain" aria-hidden />
@@ -28,7 +32,7 @@ export function EventStudioShell({
         <aside className="ops-event-studio__sidebar" aria-label="Production binder">
           <div className="ops-event-studio__brand">
             <p className="ops-event-studio__kicker">Production binder</p>
-            <Link href="/ops/event-studio" className="ops-event-studio__title">
+            <Link href="/ops/event-studio/producer" className="ops-event-studio__title">
               {snapshot.eventName}
             </Link>
           </div>
@@ -48,20 +52,30 @@ export function EventStudioShell({
           </section>
 
           <nav className="ops-event-studio__nav" aria-label="Production binder sections">
-            {EVENT_STUDIO_NAV.map((item) => (
-              <Link
-                key={item.id}
-                href={item.href}
-                aria-current={active === item.id ? "page" : undefined}
-                className={
-                  active === item.id
-                    ? "ops-event-studio__nav-link ops-event-studio__nav-link--active"
-                    : "ops-event-studio__nav-link"
-                }
-              >
-                {item.label}
-              </Link>
-            ))}
+            {EVENT_STUDIO_NAV.map((item) => {
+              const moduleStatus = workflow?.navStatuses[item.id];
+              return (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  aria-current={active === item.id ? "page" : undefined}
+                  className={
+                    active === item.id
+                      ? "ops-event-studio__nav-link ops-event-studio__nav-link--active"
+                      : "ops-event-studio__nav-link"
+                  }
+                >
+                  <span className="ops-event-studio__nav-link-label">{item.label}</span>
+                  {moduleStatus ? (
+                    <span
+                      className={`ops-event-studio__nav-badge ops-event-studio__nav-badge--${moduleStatus.toLowerCase().replace(/_/g, "-")}`}
+                    >
+                      {productionModuleStatusLabel(moduleStatus)}
+                    </span>
+                  ) : null}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="ops-event-studio__sidebar-foot">

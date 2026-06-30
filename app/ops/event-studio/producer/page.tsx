@@ -4,6 +4,7 @@ import { EventProducerPanel } from "@/components/ops/event-studio/producer/Event
 import { EventStudioShell } from "@/components/ops/event-studio/EventStudioShell";
 import { loadProductionBinder } from "@/lib/ops/event-studio/production-binder";
 import { listEventProducerDrafts } from "@/lib/ops/event-studio/producer/store";
+import { loadProducerWorkflow } from "@/lib/ops/event-studio/producer/workflow";
 
 import "./producer.css";
 
@@ -15,16 +16,20 @@ export const metadata: Metadata = {
 };
 
 export default async function EventProducerPage() {
-  const [binder, drafts] = await Promise.all([loadProductionBinder(), listEventProducerDrafts()]);
+  const [binder, drafts, workflow] = await Promise.all([
+    loadProductionBinder(),
+    listEventProducerDrafts(),
+    loadProducerWorkflow(),
+  ]);
 
   return (
     <EventStudioShell
-      active="create"
+      active="producer"
       snapshot={binder.snapshot}
       title="Event Producer"
-      lead="Describe the show in plain English. Local Ollama turns your brief into a structured draft plan and module recommendations."
+      lead="Describe the show once. Drive passes, giveaway, homepage, and publish workspaces from the analyzed plan."
     >
-      <EventProducerPanel initialDrafts={drafts} />
+      <EventProducerPanel initialDrafts={drafts} initialWorkflow={workflow} />
     </EventStudioShell>
   );
 }

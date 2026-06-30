@@ -2,6 +2,7 @@ import type { EventStudioCreateTool, EventStudioNavItem, EventStudioWorkflowItem
 import { plannedGeneratorHref } from "./planned-generators";
 
 export const EVENT_STUDIO_NAV: EventStudioNavItem[] = [
+  { id: "producer", label: "Producer", href: "/ops/event-studio/producer" },
   { id: "overview", label: "Overview", href: "/ops/event-studio" },
   { id: "identity", label: "Identity", href: "/ops/event-studio/identity" },
   { id: "assets", label: "Assets", href: "/ops/event-studio/assets" },

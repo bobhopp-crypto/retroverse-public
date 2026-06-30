@@ -1,12 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 import type { EventStudioIdentity } from "@/lib/ops/event-studio/types";
 
 type Props = {
   identity: EventStudioIdentity;
+  fromProducer?: boolean;
 };
 
-export function EventStudioIdentityPanel({ identity }: Props) {
+export function EventStudioIdentityPanel({ identity, fromProducer = false }: Props) {
+  const [editing, setEditing] = useState(false);
   const yearsLabel = identity.featuredYears.join(" · ");
 
   return (
@@ -14,7 +19,9 @@ export function EventStudioIdentityPanel({ identity }: Props) {
       <section className="ops-event-studio__panel" aria-label="Event identity">
         <h2 className="ops-event-studio__panel-title">Source of Truth</h2>
         <p className="ops-event-studio__hint">
-          Everything generated for this event inherits from these settings.
+          {fromProducer
+            ? "Identity is produced by Event Producer. Generators inherit these settings automatically."
+            : "Everything generated for this event inherits from these settings."}
         </p>
         <dl className="ops-event-studio__facts">
           <div>
@@ -62,9 +69,24 @@ export function EventStudioIdentityPanel({ identity }: Props) {
           </div>
         </dl>
         <div className="ops-event-studio__actions">
-          <Link href="/ops/event-control" className="ops-event-studio__action">
-            Edit in Event Control
-          </Link>
+          {fromProducer && !editing ? (
+            <button
+              type="button"
+              className="ops-event-studio__action"
+              onClick={() => setEditing(true)}
+            >
+              Edit Identity
+            </button>
+          ) : (
+            <Link href="/ops/event-control" className="ops-event-studio__action">
+              {fromProducer ? "Open Event Control" : "Edit in Event Control"}
+            </Link>
+          )}
+          {fromProducer ? (
+            <Link href="/ops/event-studio/producer" className="ops-event-studio__action">
+              Back to Producer
+            </Link>
+          ) : null}
         </div>
       </section>
     </div>

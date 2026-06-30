@@ -75,6 +75,7 @@ export async function saveEventProducerDraft(input: {
   sourceText: string;
   model: string;
   parsedPlan: EventProducerParsedPlan;
+  activate?: boolean;
 }): Promise<EventProducerDraft> {
   const file = await loadFile();
   const draft: EventProducerDraft = {
@@ -87,5 +88,20 @@ export async function saveEventProducerDraft(input: {
   };
   file.drafts.unshift(draft);
   await saveFile(file);
+
+  if (input.activate) {
+    const { setActiveDraftId } = await import("./producer-state");
+    await setActiveDraftId(draft.id);
+  }
+
+  return draft;
+}
+
+export async function activateEventProducerDraft(draftId: string): Promise<EventProducerDraft | null> {
+  const file = await loadFile();
+  const draft = file.drafts.find((entry) => entry.id === draftId);
+  if (!draft) return null;
+  const { setActiveDraftId } = await import("./producer-state");
+  await setActiveDraftId(draftId);
   return draft;
 }
