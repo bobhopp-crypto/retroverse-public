@@ -1,0 +1,129 @@
+.gv-register {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  background: #06122d;
+  color: #f5fbff;
+}
+
+.gv-register__hero,
+.gv-register__hero img,
+.gv-register__hero-placeholder {
+  min-height: 100vh;
+}
+
+.gv-register__hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gv-register__hero-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(18, 55, 119, 0.9), rgba(13, 36, 85, 0.94));
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 900;
+  text-align: center;
+}
+
+.gv-register__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.gv-register__kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(107, 200, 255, 0.85);
+}
+
+.gv-register__panel h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900;
+}
+
+.gv-register__panel p {
+  margin: 0;
+  color: rgba(245, 251, 255, 0.72);
+  line-height: 1.45;
+}
+
+.gv-register__form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.gv-register__form label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.gv-register__checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gv-register__checkbox input {
+  width: auto;
+}
+
+.gv-register__form input {
+  padding: 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  font: inherit;
+}
+
+.gv-register__form button {
+  margin-top: 0.35rem;
+  padding: 0.85rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffd166, #ff7a45);
+  color: #1a1208;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.gv-register__error {
+  margin: 0;
+  color: #ff8a80;
+}
+
+.gv-register--confirmed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .gv-register {
+    grid-template-columns: 1fr;
+  }
+
+  .gv-register__hero,
+  .gv-register__hero img,
+  .gv-register__hero-placeholder {
+    min-height: 16rem;
+  }
+}

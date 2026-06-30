@@ -7,7 +7,7 @@ export const EVENT_STUDIO_NAV: EventStudioNavItem[] = [
   { id: "assets", label: "Assets", href: "/ops/event-studio/assets" },
   { id: "create", label: "Create", href: "/ops/event-studio/create" },
   { id: "publish", label: "Publish", href: "/ops/event-studio/publish" },
-  { id: "audience", label: "Audience", href: "/ops/event-studio/audience" },
+  { id: "giveaway", label: "Giveaway", href: "/ops/event-studio/giveaway" },
   { id: "archive", label: "Archive", href: "/ops/event-studio/archive" },
   { id: "settings", label: "Settings", href: "/ops/event-studio/settings" },
 ];
@@ -122,7 +122,7 @@ export const EVENT_STUDIO_AUDIENCE_ITEMS: EventStudioWorkflowItem[] = [
     id: "registrations",
     title: "Pass Registrations",
     description: "Door pass sign-ups from the event landing page.",
-    href: "/ops/pass-registrations",
+    href: "/ops/event-studio/giveaway/audience",
   },
   {
     id: "emails",
@@ -133,21 +133,19 @@ export const EVENT_STUDIO_AUDIENCE_ITEMS: EventStudioWorkflowItem[] = [
     id: "prize-entries",
     title: "Prize Entries",
     description: "Giveaway entry tracking for live drawings.",
+    href: "/ops/event-studio/giveaway/audience",
   },
   {
     id: "drawing",
     title: "Drawing",
     description: "Run the live prize drawing from approved entries.",
-  },
-  {
-    id: "statistics",
-    title: "Statistics",
-    description: "Attendance, registrations, and engagement totals.",
+    href: "/ops/event-studio/giveaway/drawing",
   },
   {
     id: "winner",
     title: "Winner",
     description: "Record and publish the giveaway winner.",
+    href: "/ops/event-studio/giveaway/history",
   },
 ];
 
@@ -164,7 +162,7 @@ export const EVENT_STUDIO_QUICK_ACTIONS = [
   { label: "Generate Poster", href: plannedGeneratorHref("poster") },
   { label: "Generate Facebook", href: plannedGeneratorHref("facebook") },
   { label: "Generate Landing Page", href: plannedGeneratorHref("landing-page") },
-  { label: "Registration", href: "/ops/pass-registrations" },
+  { label: "Registration", href: "/ops/event-studio/giveaway/audience" },
   { label: "Pass Generator", href: "/ops/event-studio/create/pass-generator" },
   { label: "Collectible Library", href: "/ops/content-creator" },
   { label: "Event Control", href: "/ops/event-control" },

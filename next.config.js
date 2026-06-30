@@ -72,7 +72,7 @@ const nextConfig = {
       },
       { source: "/ops/event-studio/branding", destination: "/ops/event-studio/identity", permanent: false },
       { source: "/ops/event-studio/digital", destination: "/ops/event-studio/publish", permanent: false },
-      { source: "/ops/event-studio/giveaway", destination: "/ops/event-studio/audience", permanent: false },
+      { source: "/ops/event-studio/audience", destination: "/ops/event-studio/giveaway/audience", permanent: false },
       { source: "/ops/event-studio/ai", destination: "/ops/event-studio/identity", permanent: false },
       {
         source: "/ops/content-creator/create",

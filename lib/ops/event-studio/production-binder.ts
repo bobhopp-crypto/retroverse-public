@@ -126,8 +126,8 @@ function buildChecklist(
     },
     { id: "facebook-graphic", label: "Facebook Graphic", done: false, href: "/ops/event-studio/create/facebook" },
     { id: "poster", label: "Poster", done: false, href: "/ops/event-studio/create/poster" },
-    { id: "giveaway", label: "Giveaway", done: false, href: "/ops/event-studio/audience" },
-    { id: "registration", label: "Registration", done: false, href: "/ops/pass-registrations" },
+    { id: "giveaway", label: "Giveaway", done: false, href: "/ops/event-studio/giveaway" },
+    { id: "registration", label: "Registration", done: false, href: "/ops/event-studio/giveaway/registration" },
     { id: "now-playing", label: "Now Playing", done: false, href: "/ops/event-studio/publish" },
   ];
 }

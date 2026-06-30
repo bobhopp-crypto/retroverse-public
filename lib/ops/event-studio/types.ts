@@ -4,7 +4,7 @@ export type EventStudioSection =
   | "assets"
   | "create"
   | "publish"
-  | "audience"
+  | "giveaway"
   | "archive"
   | "settings";
 
