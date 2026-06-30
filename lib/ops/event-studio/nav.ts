@@ -158,6 +158,7 @@ export const EVENT_STUDIO_ARCHIVE_EXAMPLES = [
 ] as const;
 
 export const EVENT_STUDIO_QUICK_ACTIONS = [
+  { label: "Event Producer", href: "/ops/event-studio/producer" },
   { label: "Generate Passes", href: "/ops/event-studio/create/pass-generator" },
   { label: "Generate Poster", href: plannedGeneratorHref("poster") },
   { label: "Generate Facebook", href: plannedGeneratorHref("facebook") },

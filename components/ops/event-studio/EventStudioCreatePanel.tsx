@@ -9,6 +9,19 @@ type Props = {
 export function EventStudioCreatePanel({ tools }: Props) {
   return (
     <div className="ops-event-studio__create">
+      <section className="ops-event-studio__panel ops-event-studio__panel--wide" aria-label="Event Producer">
+        <h2 className="ops-event-studio__panel-title">Event Producer</h2>
+        <p className="ops-event-studio__hint">
+          Paste a plain-English event brief. Local Ollama extracts schedule, venue, passes, giveaway rules,
+          and recommended modules.
+        </p>
+        <div className="ops-event-studio__actions">
+          <Link href="/ops/event-studio/producer" className="ops-event-studio__action">
+            Open Event Producer
+          </Link>
+        </div>
+      </section>
+
       <section className="ops-event-studio__panel ops-event-studio__panel--wide" aria-label="Create tools">
         <h2 className="ops-event-studio__panel-title">Generate for this event</h2>
         <p className="ops-event-studio__hint">
