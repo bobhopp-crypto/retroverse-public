@@ -1,18 +1,20 @@
 import Link from "next/link";
 
-import type { EventStudioSnapshot } from "@/lib/ops/event-studio/types";
+import { EVENT_STUDIO_QUICK_ACTIONS } from "@/lib/ops/event-studio/nav";
+import type { ProductionBinder } from "@/lib/ops/event-studio/types";
 
 type Props = {
-  snapshot: EventStudioSnapshot;
+  binder: ProductionBinder;
 };
 
-export function EventStudioOverview({ snapshot }: Props) {
+export function EventStudioOverview({ binder }: Props) {
+  const { snapshot, checklist, progress } = binder;
   const yearsLabel = snapshot.featuredYears.join(" · ");
 
   return (
     <div className="ops-event-studio__overview">
-      <section className="ops-event-studio__panel" aria-label="Event summary">
-        <h2 className="ops-event-studio__panel-title">Event Summary</h2>
+      <section className="ops-event-studio__panel" aria-label="Mission dashboard">
+        <h2 className="ops-event-studio__panel-title">Mission Dashboard</h2>
         <dl className="ops-event-studio__facts">
           <div>
             <dt>Event Name</dt>
@@ -31,10 +33,6 @@ export function EventStudioOverview({ snapshot }: Props) {
             <dd>{snapshot.theme}</dd>
           </div>
           <div>
-            <dt>Featured Years</dt>
-            <dd>{yearsLabel}</dd>
-          </div>
-          <div>
             <dt>Status</dt>
             <dd>
               <span
@@ -44,52 +42,59 @@ export function EventStudioOverview({ snapshot }: Props) {
               </span>
             </dd>
           </div>
+          <div>
+            <dt>Featured Years</dt>
+            <dd>{yearsLabel}</dd>
+          </div>
         </dl>
-      </section>
 
-      <section className="ops-event-studio__panel" aria-label="Quick actions">
-        <h2 className="ops-event-studio__panel-title">Quick Actions</h2>
-        <div className="ops-event-studio__actions">
-          <Link href="/ops/event-studio/print/pass-generator" className="ops-event-studio__action">
-            Pass Generator
-          </Link>
-          <Link href="/ops/event-studio/print" className="ops-event-studio__action">
-            Print Suite
-          </Link>
-          <Link href="/ops/event-control" className="ops-event-studio__action">
-            Event Control
-          </Link>
-          <Link href="/ops/content-creator" className="ops-event-studio__action">
-            Collectible Library
-          </Link>
-          <Link href="/ops/sunday-nights" className="ops-event-studio__action">
-            Sunday Nights
-          </Link>
+        <div className="ops-event-studio__progress" aria-label="Production progress">
+          <div className="ops-event-studio__progress-head">
+            <span>Progress</span>
+            <strong>
+              {progress.done}/{progress.total} · {progress.percent}%
+            </strong>
+          </div>
+          <div className="ops-event-studio__progress-bar" role="presentation">
+            <span style={{ width: `${progress.percent}%` }} />
+          </div>
         </div>
       </section>
 
-      <section className="ops-event-studio__panel ops-event-studio__panel--wide" aria-label="Production map">
-        <h2 className="ops-event-studio__panel-title">Production Map</h2>
-        <ul className="ops-event-studio__tree">
-          <li>
-            <strong>{snapshot.eventName}</strong>
-            <ul>
-              <li>Landing Page</li>
-              <li>Passes</li>
-              <li>Poster</li>
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>Giveaways</li>
-              <li>Registration</li>
-              <li>Assets</li>
-              <li>AI Prompt Profiles</li>
-            </ul>
-          </li>
+      <section className="ops-event-studio__panel" aria-label="Production checklist">
+        <h2 className="ops-event-studio__panel-title">Production Checklist</h2>
+        <ul className="ops-event-studio__checklist">
+          {checklist.map((item) => (
+            <li key={item.id} className={item.done ? "is-done" : "is-open"}>
+              {item.href ? (
+                <Link href={item.href}>
+                  <span className="ops-event-studio__check-icon" aria-hidden>
+                    {item.done ? "✓" : "○"}
+                  </span>
+                  {item.label}
+                </Link>
+              ) : (
+                <>
+                  <span className="ops-event-studio__check-icon" aria-hidden>
+                    {item.done ? "✓" : "○"}
+                  </span>
+                  {item.label}
+                </>
+              )}
+            </li>
+          ))}
         </ul>
-        <p className="ops-event-studio__hint">
-          One event owns everything related to that show. Sections below are placeholders until each
-          generator ships.
-        </p>
+      </section>
+
+      <section className="ops-event-studio__panel ops-event-studio__panel--wide" aria-label="Quick actions">
+        <h2 className="ops-event-studio__panel-title">Quick Actions</h2>
+        <div className="ops-event-studio__actions">
+          {EVENT_STUDIO_QUICK_ACTIONS.map((action) => (
+            <Link key={action.label} href={action.href} className="ops-event-studio__action">
+              {action.label}
+            </Link>
+          ))}
+        </div>
       </section>
     </div>
   );

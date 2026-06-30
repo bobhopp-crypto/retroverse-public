@@ -7,24 +7,24 @@ import { VNextWorkspace } from "@/components/ops/content-creator/VNextWorkspace"
 import { EventStudioShell } from "@/components/ops/event-studio/EventStudioShell";
 import { inspectPing } from "@/lib/inspect/pg";
 import { loadContentCreatorEras } from "@/lib/ops/content-creator/load-era-options";
-import { loadEventStudioSnapshot } from "@/lib/ops/event-studio/load-event-snapshot";
+import { loadProductionBinder } from "@/lib/ops/event-studio/production-binder";
 
 import "../../content-creator/content-creator.css";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Pass Generator — Event Studio",
+  title: "Generate Pass — Event Studio",
   robots: { index: false, follow: false },
 };
 
 export default async function EventStudioPassGeneratorPage() {
-  const snapshot = await loadEventStudioSnapshot();
+  const binder = await loadProductionBinder();
   const ping = await inspectPing();
 
   if (!ping.ok) {
     return (
-      <EventStudioShell active="print" snapshot={snapshot} title="Pass Generator" workspace>
+      <EventStudioShell active="create" snapshot={binder.snapshot} title="Generate Pass" workspace>
         <p style={{ padding: "2rem" }}>Database offline.</p>
       </EventStudioShell>
     );
@@ -33,15 +33,17 @@ export default async function EventStudioPassGeneratorPage() {
   try {
     const eras = await loadContentCreatorEras();
     return (
-      <EventStudioShell active="print" snapshot={snapshot} title="Pass Generator" workspace>
+      <EventStudioShell active="create" snapshot={binder.snapshot} title="Generate Pass" workspace>
         <div className="ops-event-studio__workspace-bar">
           <div>
-            <h1>Pass Generator</h1>
-            <p>{snapshot.eventName} · Print</p>
+            <h1>Generate Pass</h1>
+            <p>
+              {binder.snapshot.eventName} · Create · inherits {binder.identity.theme}
+            </p>
           </div>
           <div>
-            <Link href="/ops/event-studio/print" className="ops-event-studio__workspace-link">
-              ← Print suite
+            <Link href="/ops/event-studio/create" className="ops-event-studio__workspace-link">
+              ← Create
             </Link>
             {" · "}
             <Link href="/ops/content-creator/create" className="ops-event-studio__workspace-link">

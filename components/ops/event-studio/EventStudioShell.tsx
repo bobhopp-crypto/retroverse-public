@@ -9,7 +9,6 @@ type Props = {
   snapshot: EventStudioSnapshot;
   title: string;
   lead?: string;
-  /** Full-bleed workspace (Pass Generator) */
   workspace?: boolean;
   children: ReactNode;
 };
@@ -26,17 +25,17 @@ export function EventStudioShell({
     <main className={`ops-page ops-event-studio${workspace ? " ops-event-studio--workspace" : ""}`}>
       <div className="ops-page__grain" aria-hidden />
       <div className="ops-event-studio__frame">
-        <aside className="ops-event-studio__sidebar" aria-label="Event Studio">
+        <aside className="ops-event-studio__sidebar" aria-label="Production binder">
           <div className="ops-event-studio__brand">
-            <p className="ops-event-studio__kicker">Production hub</p>
+            <p className="ops-event-studio__kicker">Production binder</p>
             <Link href="/ops/event-studio" className="ops-event-studio__title">
-              Event Studio
+              {snapshot.eventName}
             </Link>
           </div>
 
           <section className="ops-event-studio__current" aria-label="Current event">
-            <p className="ops-event-studio__current-label">Current Event</p>
-            <p className="ops-event-studio__current-name">{snapshot.eventName}</p>
+            <p className="ops-event-studio__current-label">Producing</p>
+            <p className="ops-event-studio__current-name">{snapshot.theme}</p>
             <p className="ops-event-studio__current-meta">
               {snapshot.date}
               {snapshot.venue ? ` · ${snapshot.venue}` : null}
@@ -48,7 +47,7 @@ export function EventStudioShell({
             </span>
           </section>
 
-          <nav className="ops-event-studio__nav" aria-label="Event Studio sections">
+          <nav className="ops-event-studio__nav" aria-label="Production binder sections">
             {EVENT_STUDIO_NAV.map((item) => (
               <Link
                 key={item.id}
@@ -66,9 +65,6 @@ export function EventStudioShell({
           </nav>
 
           <div className="ops-event-studio__sidebar-foot">
-            <Link href="/ops/content-creator" className="ops-event-studio__legacy-link">
-              Content Creator (legacy)
-            </Link>
             <Link href="/ops" className="ops-event-studio__back">
               Command Center
             </Link>

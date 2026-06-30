@@ -267,16 +267,242 @@
   border-color: rgba(46, 184, 184, 0.55);
 }
 
-.ops-event-studio__tree {
-  margin: 0;
-  padding-left: 1.1rem;
-  line-height: 1.5;
+.ops-event-studio__progress {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--grid);
 }
 
-.ops-event-studio__tree ul {
-  margin: 0.35rem 0 0;
-  padding-left: 1.1rem;
+.ops-event-studio__progress-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 800;
   color: var(--dim);
+}
+
+.ops-event-studio__progress-head strong {
+  color: var(--ink);
+}
+
+.ops-event-studio__progress-bar {
+  height: 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.ops-event-studio__progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--es-accent), #6bc8ff);
+}
+
+.ops-event-studio__checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.ops-event-studio__checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.ops-event-studio__checklist li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ops-event-studio__checklist li.is-done {
+  color: #5ee89a;
+}
+
+.ops-event-studio__checklist li.is-open {
+  color: var(--dim);
+}
+
+.ops-event-studio__check-icon {
+  width: 1.1rem;
+  flex-shrink: 0;
+  text-align: center;
+  font-weight: 900;
+}
+
+.ops-event-studio__identity,
+.ops-event-studio__create {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.ops-event-studio__facts-wide {
+  grid-column: 1 / -1;
+}
+
+.ops-event-studio__palette-label {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: 800;
+}
+
+.ops-event-studio__swatches {
+  display: inline-flex;
+  gap: 0.3rem;
+  vertical-align: middle;
+}
+
+.ops-event-studio__swatch {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.ops-event-studio__assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.75rem;
+}
+
+.ops-event-studio__asset-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--grid);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ops-event-studio__asset-card--approved {
+  border-color: rgba(47, 210, 122, 0.35);
+}
+
+.ops-event-studio__asset-card--draft {
+  border-color: rgba(255, 176, 32, 0.35);
+}
+
+.ops-event-studio__asset-preview {
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.ops-event-studio__asset-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ops-event-studio__asset-empty {
+  padding: 0.75rem;
+  color: var(--dim);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ops-event-studio__asset-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.65rem 0.75rem;
+}
+
+.ops-event-studio__asset-meta h3 {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.ops-event-studio__asset-status {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.ops-event-studio__workflow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.75rem;
+}
+
+.ops-event-studio__workflow-item {
+  padding: 0.9rem;
+  border: 2px solid var(--grid);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  text-decoration: none;
+}
+
+.ops-event-studio__workflow-item h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
+.ops-event-studio__workflow-item p {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.ops-event-studio__workflow-item--planned {
+  opacity: 0.78;
+}
+
+.ops-event-studio__archive {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.ops-event-studio__archive-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border: 2px solid var(--grid);
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+.ops-event-studio__archive-item--current {
+  border-color: rgba(46, 184, 184, 0.45);
+  background: rgba(46, 184, 184, 0.08);
+}
+
+.ops-event-studio__archive-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.ops-event-studio__archive-item--current .ops-event-studio__archive-badge {
+  color: var(--es-accent);
 }
 
 .ops-event-studio__hint {
@@ -359,62 +585,6 @@
 
 .ops-event-studio__card-cta--dim {
   color: var(--dim);
-}
-
-.ops-event-studio__placeholder {
-  padding: 1.25rem;
-  border: 2px dashed rgba(46, 184, 184, 0.35);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.ops-event-studio__placeholder-inner h2 {
-  margin: 0 0 0.45rem;
-  font-size: 1.15rem;
-  font-weight: 900;
-}
-
-.ops-event-studio__placeholder-inner p {
-  margin: 0;
-  max-width: 40rem;
-  color: var(--dim);
-  line-height: 1.45;
-}
-
-.ops-event-studio__placeholder-kicker {
-  margin: 0 0 0.35rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--es-accent-2);
-}
-
-.ops-event-studio__placeholder ul {
-  margin: 0.75rem 0 0;
-  padding-left: 1.1rem;
-  color: var(--dim);
-  line-height: 1.45;
-}
-
-.ops-event-studio__assets-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
-  gap: 0.65rem;
-}
-
-.ops-event-studio__asset-slot {
-  aspect-ratio: 4 / 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-  border: 2px dashed var(--grid);
-  border-radius: 12px;
-  color: var(--dim);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-align: center;
 }
 
 .ops-event-studio__workspace-bar {

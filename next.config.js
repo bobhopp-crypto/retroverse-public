@@ -58,6 +58,22 @@ const nextConfig = {
       { source: "/ops/finance/review", destination: "/ops/finance/import", permanent: false },
       { source: "/ops/finance/merchants", destination: "/ops/finance/reports/merchants", permanent: false },
       { source: "/ops/finance/accounts", destination: "/ops/finance/reports/chart-of-accounts", permanent: false },
+      { source: "/control-center", destination: "/ops", permanent: false },
+      { source: "/control-center/:path*", destination: "/ops", permanent: false },
+      { source: "/ops/map", destination: "/ops/atlas/system", permanent: false },
+      { source: "/ops/map/:path*", destination: "/ops/atlas/system", permanent: false },
+      { source: "/ops/atlas/library", destination: "/ops/library", permanent: false },
+      { source: "/ops/atlas/library/:path*", destination: "/ops/library", permanent: false },
+      { source: "/ops/event-studio/print", destination: "/ops/event-studio/create", permanent: false },
+      {
+        source: "/ops/event-studio/print/pass-generator",
+        destination: "/ops/event-studio/create/pass-generator",
+        permanent: false,
+      },
+      { source: "/ops/event-studio/branding", destination: "/ops/event-studio/identity", permanent: false },
+      { source: "/ops/event-studio/digital", destination: "/ops/event-studio/publish", permanent: false },
+      { source: "/ops/event-studio/giveaway", destination: "/ops/event-studio/audience", permanent: false },
+      { source: "/ops/event-studio/ai", destination: "/ops/event-studio/identity", permanent: false },
     ];
   },
   async rewrites() {

@@ -1,11 +1,11 @@
 export type EventStudioSection =
   | "overview"
-  | "branding"
-  | "print"
-  | "digital"
-  | "giveaway"
+  | "identity"
   | "assets"
-  | "ai"
+  | "create"
+  | "publish"
+  | "audience"
+  | "archive"
   | "settings";
 
 export type EventStudioStatus = "Planning" | "Live" | "Archived";
@@ -20,18 +20,70 @@ export type EventStudioSnapshot = {
   updatedAt: string;
 };
 
+export type EventStudioIdentity = {
+  eventName: string;
+  venue: string;
+  date: string;
+  theme: string;
+  featuredYears: number[];
+  styleProfile: string;
+  colorPaletteLabel: string;
+  colorSwatches: string[];
+  fonts: string;
+  aiPromptProfile: string;
+};
+
+export type ProductionChecklistItem = {
+  id: string;
+  label: string;
+  done: boolean;
+  href?: string;
+};
+
+export type ProductionProgress = {
+  done: number;
+  total: number;
+  percent: number;
+};
+
+export type ProductionAssetSlot = {
+  id: string;
+  label: string;
+  thumbnailUrl?: string;
+  status: "approved" | "draft" | "missing";
+};
+
+export type ProductionBinder = {
+  snapshot: EventStudioSnapshot;
+  identity: EventStudioIdentity;
+  checklist: ProductionChecklistItem[];
+  progress: ProductionProgress;
+  assets: ProductionAssetSlot[];
+};
+
 export type EventStudioNavItem = {
   id: EventStudioSection;
   label: string;
   href: string;
-  description?: string;
 };
 
-export type EventStudioToolCard = {
+export type EventStudioCreateTool = {
   id: string;
   title: string;
   description: string;
   href?: string;
   status: "active" | "planned";
-  badge?: string;
+};
+
+export type EventStudioWorkflowItem = {
+  id: string;
+  title: string;
+  description: string;
+  href?: string;
+};
+
+export type EventStudioArchiveEntry = {
+  id: string;
+  name: string;
+  status: "current" | "past" | "planned";
 };

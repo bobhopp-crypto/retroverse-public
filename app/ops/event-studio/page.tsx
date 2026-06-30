@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { EventStudioOverview } from "@/components/ops/event-studio/EventStudioOverview";
 import { EventStudioShell } from "@/components/ops/event-studio/EventStudioShell";
-import { loadEventStudioSnapshot } from "@/lib/ops/event-studio/load-event-snapshot";
+import { loadProductionBinder } from "@/lib/ops/event-studio/production-binder";
 
 export const dynamic = "force-dynamic";
 
@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 };
 
 export default async function EventStudioOverviewPage() {
-  const snapshot = await loadEventStudioSnapshot();
+  const binder = await loadProductionBinder();
 
   return (
     <EventStudioShell
       active="overview"
-      snapshot={snapshot}
+      snapshot={binder.snapshot}
       title="Overview"
-      lead="One event owns landing pages, passes, social graphics, giveaways, and AI profiles."
+      lead="Mission dashboard for this show — progress, checklist, and production shortcuts."
     >
-      <EventStudioOverview snapshot={snapshot} />
+      <EventStudioOverview binder={binder} />
     </EventStudioShell>
   );
 }

@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
 
-import { EventStudioAssetLibrary } from "@/components/ops/event-studio/EventStudioAssetLibrary";
+import { EventStudioIdentityPanel } from "@/components/ops/event-studio/EventStudioIdentityPanel";
 import { EventStudioShell } from "@/components/ops/event-studio/EventStudioShell";
 import { loadProductionBinder } from "@/lib/ops/event-studio/production-binder";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Assets — Event Studio",
+  title: "Identity — Event Studio",
   robots: { index: false, follow: false },
 };
 
-export default async function EventStudioAssetsPage() {
+export default async function EventStudioIdentityPage() {
   const binder = await loadProductionBinder();
 
   return (
     <EventStudioShell
-      active="assets"
+      active="identity"
       snapshot={binder.snapshot}
-      title="Assets"
-      lead="Approved artwork library for this event."
+      title="Identity"
+      lead="The source of truth for this event — every generator inherits from here."
     >
-      <EventStudioAssetLibrary assets={binder.assets} />
+      <EventStudioIdentityPanel identity={binder.identity} />
     </EventStudioShell>
   );
 }

@@ -106,7 +106,7 @@ export const OPS_DIRECTORY_SECTIONS: OpsDirectorySection[] = [
       {
         id: "pass-generator",
         name: "Event Studio · Pass Generator",
-        href: "/ops/event-studio/print/pass-generator",
+        href: "/ops/event-studio/create/pass-generator",
         description: "Event production hub — passes, print, digital, and assets for the current show.",
         purpose: "Generate collectible passes from Event Studio Print suite.",
         status: "SUNDAY NIGHTS",
